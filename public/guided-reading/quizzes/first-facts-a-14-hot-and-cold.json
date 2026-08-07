@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-14-hot-and-cold",
-  "contentHash": "sha256:e99142f07b6d3ef49270faf5d3411eb8f473e960fad5c33d6ca52e361a3ef1fe",
+  "contentHash": "sha256:8caa2903cd2e5866ea20323f8cb031d179606023614a5baced078861015baa19",
   "questions": [
     {
       "id": "first-facts-a-14-hot-and-cold-q1",
       "prompt": "Which sentence tells about sunlight in Hot and Cold?",
       "choices": [
-        "Sunlight can warm our skin.",
-        "Ice and snow have low temperatures.",
-        "We can compare temperatures safely."
+        "Sunlight can feel warm on our skin.",
+        "Ice and snow feel very cold.",
+        "Ask an adult before touching something very hot or cold."
       ],
-      "answer": "Sunlight can warm our skin.",
+      "answer": "Sunlight can feel warm on our skin.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Sunlight can warm our skin."
+      "evidenceText": "Sunlight can feel warm on our skin."
     },
     {
       "id": "first-facts-a-14-hot-and-cold-q2",
       "prompt": "Which sentence tells about ice and snow in Hot and Cold?",
       "choices": [
-        "Ice and snow have low temperatures.",
-        "Sunlight can warm our skin.",
-        "We can compare temperatures safely."
+        "Ice and snow feel very cold.",
+        "Sunlight can feel warm on our skin.",
+        "Ask an adult before touching something very hot or cold."
       ],
-      "answer": "Ice and snow have low temperatures.",
+      "answer": "Ice and snow feel very cold.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Ice and snow have low temperatures."
+      "evidenceText": "Ice and snow feel very cold."
     },
     {
       "id": "first-facts-a-14-hot-and-cold-q3",
       "prompt": "What is the big idea of Hot and Cold?",
       "choices": [
-        "We can compare temperatures safely.",
-        "Only sunlight can warm our skin.",
-        "Only ice and snow have low temperatures."
+        "Ask an adult before touching something very hot or cold.",
+        "Only sunlight can feel warm on our skin.",
+        "Only ice and snow feel very cold."
       ],
-      "answer": "We can compare temperatures safely.",
+      "answer": "Ask an adult before touching something very hot or cold.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Sunlight can warm our skin. Ice and snow have low temperatures. We can compare temperatures safely. Together, these facts show the whole-book big idea: We can compare temperatures safely.",
+      "rationale": "Sunlight can feel warm on our skin. Ice and snow feel very cold. Ask an adult before touching something very hot or cold. Together, these facts show the whole-book big idea: Ask an adult before touching something very hot or cold.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Sunlight can warm our skin."
+          "evidenceText": "Sunlight can feel warm on our skin."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Ice and snow have low temperatures."
+          "evidenceText": "Ice and snow feel very cold."
         }
       ],
       "distractorRationales": {
-        "Only sunlight can warm our skin.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only ice and snow have low temperatures.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only sunlight can feel warm on our skin.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only ice and snow feel very cold.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "We can compare temperatures safely."
+      "evidenceText": "Ask an adult before touching something very hot or cold."
     }
   ]
 }

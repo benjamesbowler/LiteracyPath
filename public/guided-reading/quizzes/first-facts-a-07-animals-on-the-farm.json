@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-07-animals-on-the-farm",
-  "contentHash": "sha256:d5230a4584dde9a1a40009c139bd03138ea6f3c27d342ed0348cecb0b5f4630f",
+  "contentHash": "sha256:a178faee887453bd7b51ef961e1beff86d622392515d44d8e92c35f9a04e7dd8",
   "questions": [
     {
       "id": "first-facts-a-07-animals-on-the-farm-q1",
       "prompt": "Which fact is introduced first in Animals on the Farm?",
       "choices": [
-        "This cow eats grass and hay.",
-        "A sheep grows a woolly fleece.",
-        "Farm animals need food water shelter and care."
+        "This cow munches grass and hay.",
+        "A sheep grows a thick, woolly coat.",
+        "Each farm animal needs food, water, shelter, and care."
       ],
-      "answer": "This cow eats grass and hay.",
+      "answer": "This cow munches grass and hay.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "This cow eats grass and hay."
+      "evidenceText": "This cow munches grass and hay."
     },
     {
       "id": "first-facts-a-07-animals-on-the-farm-q2",
       "prompt": "Which sentence tells about a sheep in Animals on the Farm?",
       "choices": [
-        "A sheep grows a woolly fleece.",
-        "This cow eats grass and hay.",
-        "Farm animals need food water shelter and care."
+        "A sheep grows a thick, woolly coat.",
+        "This cow munches grass and hay.",
+        "Each farm animal needs food, water, shelter, and care."
       ],
-      "answer": "A sheep grows a woolly fleece.",
+      "answer": "A sheep grows a thick, woolly coat.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 4,
-      "evidenceText": "A sheep grows a woolly fleece."
+      "evidenceText": "A sheep grows a thick, woolly coat."
     },
     {
       "id": "first-facts-a-07-animals-on-the-farm-q3",
       "prompt": "What is the big idea of Animals on the Farm?",
       "choices": [
-        "Farm animals need food water shelter and care.",
-        "Only this cow eats grass and hay.",
-        "Only a sheep grows a woolly fleece."
+        "Each farm animal needs food, water, shelter, and care.",
+        "Only this cow munches grass and hay.",
+        "Only a sheep grows a thick, woolly coat."
       ],
-      "answer": "Farm animals need food water shelter and care.",
+      "answer": "Each farm animal needs food, water, shelter, and care.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "This cow eats grass and hay. A sheep grows a woolly fleece. Farm animals need food water shelter and care. Together, these facts show the whole-book big idea: Farm animals need food water shelter and care.",
+      "rationale": "This cow munches grass and hay. A sheep grows a thick, woolly coat. Each farm animal needs food, water, shelter, and care. Together, these facts show the whole-book big idea: Each farm animal needs food, water, shelter, and care.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "This cow eats grass and hay."
+          "evidenceText": "This cow munches grass and hay."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "A sheep grows a woolly fleece."
+          "evidenceText": "A sheep grows a thick, woolly coat."
         }
       ],
       "distractorRationales": {
-        "Only this cow eats grass and hay.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only a sheep grows a woolly fleece.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only this cow munches grass and hay.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a sheep grows a thick, woolly coat.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
-      "evidenceText": "Farm animals need food water shelter and care."
+      "evidenceText": "Each farm animal needs food, water, shelter, and care."
     }
   ]
 }

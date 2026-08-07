@@ -23,13 +23,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "e5301ec0a40d94fe2d631b0c943fe4c3a762ecdb775a02247591bb27c9eb75c2",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "ab-c-01::12": {
-    "audioPath": "/audio/production/en-US/guided_page/at-the-gate-both-children-told-mum-about-the-day-at-once-8fce46efc3.mp3",
-    "audioSha256": "28c4e3bb2b89632518aa497d4aea6b48bca2fb38dd0341ed5138a33721318632",
-    "displayedText": "At the gate, both children told Mum about the day at once.",
-    "displayedTextSha256": "3d2bd16a6c51e51a06dcec7bd445e2386c0513ee18c070dc1cfcf4847992a309",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "ab-c-01::13": {
     "audioPath": "/audio/production/en-US/guided_page/that-night-aiden-fell-asleep-before-tomorrow-s-worry-could-begin-385278f5f0.mp3",
     "audioSha256": "61c04a133e07b96a2aed06fe8dadd5dab2c725bcb43f3d493c1c99092892b931",
@@ -77,13 +70,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "b20a3190469baa0f8eeea37e76913fcf3700f05986384d3f8ad7999e023628d2",
     "displayedText": "Betty showed her wonky letters. They laughed, then both began another line.",
     "displayedTextSha256": "80bfdd412c64f7333a315c4507bd76c89685d0afff6303aed0b57081bed476c5",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-01::8": {
-    "audioPath": "/audio/production/en-US/guided_page/at-lunch-mum-s-hidden-note-read-you-ve-got-this-star-77af2caa22.mp3",
-    "audioSha256": "33d80dbe45e239a14d92af9459f94c3daa079c2cf0e300eff7985f412d000a47",
-    "displayedText": "At lunch, Mum's hidden note read, \"You've got this, star.\"",
-    "displayedTextSha256": "8ece3744c7bd8fc3ab86b6838b12a05303bde18ed64e9a7ed8858da26bb74b3d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-01::9": {
@@ -261,13 +247,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "afd97ae69e83ed72bb7417eae46cf1c57d1a25aee3ec41917928550acb9cdba0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "ab-c-03::8": {
-    "audioPath": "/audio/production/en-US/guided_page/then-hard-rain-cancelled-their-outdoor-plans-the-holiday-clock-kept-moving-a30b6c9c36.mp3",
-    "audioSha256": "73222e1415ca9ffa79102921775cbeed49a0de90a6a74cf72b8f5ceffc94e8cf",
-    "displayedText": "Then hard rain cancelled their outdoor plans. The holiday clock kept moving.",
-    "displayedTextSha256": "ff6d1fd882d36239fd09dd2742b8c4f4f397fec31f170b212f43b9c23884a7ea",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "ab-c-03::9": {
     "audioPath": "/audio/production/en-US/guided_page/when-the-rain-cleared-they-climbed-all-one-hundred-and-forty-seven-lighthouse-steps-bd091f8c5b.mp3",
     "audioSha256": "97410c80f4334efbadce337ca4ac77891b66bfe0d80293eb23d8f171a648d2c9",
@@ -280,13 +259,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "fe251b3c9c800eee16e1ddedf6a871b494a63c364648a73575197cc503ef278c",
     "displayedText": "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
     "displayedTextSha256": "e3d5365f51591bb26590047947357b63ecac6f1c25198756b778b8891175f4af",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-04::10": {
-    "audioPath": "/audio/production/en-US/guided_page/dad-s-cosy-kitchen-crate-failed-socks-slept-beside-aiden-s-torch-instead-7b4dfcbe03.mp3",
-    "audioSha256": "1dc22919e4e1f539e09c821138f176417c3faa8e1ac9593adeffef3f019c78bf",
-    "displayedText": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
-    "displayedTextSha256": "600e5e9e9f293d3489352d5aa4f35279367cc335dbab2ea91d8af54b6592cbfb",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::11": {
@@ -303,25 +275,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "cff1ede74866ea74335f80cff10ca5c127c4878aac08dba94ec9d3f804b33101",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "ab-c-04::13": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-measured-his-food-while-socks-waited-calmly-on-his-mat-40e4d3aaa0.mp3",
-    "audioSha256": "87af10982ee52978bb5f1a67c56d9606696e1a0d4fb5a84eecd4196c4c79cbb1",
-    "displayedText": "Mum measured his food while Socks waited calmly on his mat.",
-    "displayedTextSha256": "5a590e3ae9a45204cd87b9c8870013435713757b5a4e5c1a21617663ca8f7746",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "ab-c-04::14": {
     "audioPath": "/audio/production/en-US/guided_page/aiden-added-one-last-note-socks-sleeps-wherever-i-leave-my-torch-125a727b5c.mp3",
     "audioSha256": "c5c8443c98239544c6a39b0d89377d537d64948171d61e1d7a9252eea0db8bfc",
     "displayedText": "Aiden added one last note: Socks sleeps wherever I leave my torch.",
     "displayedTextSha256": "843d05fbd4adf98af4d38b95e7269875b43c42773be909d92e388ef5facf95f5",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-04::2": {
-    "audioPath": "/audio/production/en-US/guided_page/he-helped-rescue-centres-understand-how-frightened-dogs-learn-to-trust-21649c2fee.mp3",
-    "audioSha256": "df060673414f4e5734b79baed8a1674646ca87fefcb95ab7dcc5188454e760a8",
-    "displayedText": "He helped rescue centres understand how frightened dogs learn to trust.",
-    "displayedTextSha256": "eac4362747803c8b3bd9bfa0b5450d9d72c6225f7ee92da22ea5b6aa72fae3bb",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-04::3": {
@@ -429,13 +387,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "5de1b190d0af8c63cfdbb8074076da8e5434234d88cd1e5ffc2f20f19f4f2729",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "ab-c-05::4": {
-    "audioPath": "/audio/production/en-US/guided_page/then-mum-remembered-the-loose-side-gate-latch-and-its-dog-sized-gap-892134dd58.mp3",
-    "audioSha256": "853532784432bce48eb3ea0b8431dc231e7cd4535f3445ab89bd2f1dfdd40978",
-    "displayedText": "Then Mum remembered the loose side-gate latch and its dog-sized gap.",
-    "displayedTextSha256": "5f5177dbd6dc0676ad924e6162ad230d05b39452edd5189abbdbc47415a36ca5",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "ab-c-05::5": {
     "audioPath": "/audio/production/en-US/guided_page/they-called-along-the-windy-street-only-dry-leaves-answered-02732f2a2c.mp3",
     "audioSha256": "9d52ab3801da82e66f5bfada574e3c20bb5a8ebec476671463b67140e0829c39",
@@ -520,13 +471,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "7e6c28a49fef9cb3189255bebd6f111d753a8bd2f7cead5618356de7a7912a61",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "ab-c-06::4": {
-    "audioPath": "/audio/production/en-US/guided_page/with-mum-supervising-they-wore-goggles-and-followed-every-safe-instruction-5b47344a84.mp3",
-    "audioSha256": "f0a520de5fb82b915f4257c8b896bbdea3ab82b7963d7c12f9b0bc912e8de9c7",
-    "displayedText": "With Mum supervising, they wore goggles and followed every safe instruction.",
-    "displayedTextSha256": "44a52d9822096a5659e0cecf207c359faf51f062ac901dacd4e3a2ab1d2a679f",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "ab-c-06::5": {
     "audioPath": "/audio/production/en-US/guided_page/for-several-mornings-the-closed-jar-looked-unchanged-on-its-high-shelf-df98bde07c.mp3",
     "audioSha256": "94f26205fadcd1125ea24831258b6ed73beea39f7a65e3291ee400aeb83bac10",
@@ -588,13 +532,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "32b8c176502844ac625a2d441a1fd0a37db10afef3001909547d965ac919d332",
     "displayedText": "Aiden and Betty each began a nature notebook that evening.",
     "displayedTextSha256": "91a06ea5916f6c6fb63dd3bfc2ae981930553c2361f319c2052288679c0914a5",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-07::13": {
-    "audioPath": "/audio/production/en-US/guided_page/their-first-pages-proved-the-reserve-adventure-had-travelled-home-with-them-e07ab565a4.mp3",
-    "audioSha256": "32b421ae6df3d5ec29a277146df021f892bc488551d7349d178dccd465f7671a",
-    "displayedText": "Their first pages proved the reserve adventure had travelled home with them.",
-    "displayedTextSha256": "caf6837bd270a24c9d00cf6d6e4ee08a8a0eeb0f1d95e975ebb4b3191cd5ccf2",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-07::2": {
@@ -667,20 +604,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "65c1dc63b7df58668bcc0cee166bee9e9441ca6f9999c1cedc194997d4c0dbad",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "ab-c-08::11": {
-    "audioPath": "/audio/production/en-US/guided_page/a-week-later-marcus-used-aiden-s-name-and-apologised-for-an-accidental-bump-e1bce172a5.mp3",
-    "audioSha256": "b4ece69ddb55e0b5973a5371777b69e64b677d2230031874cf3041b923e32e31",
-    "displayedText": "A week later, Marcus used Aiden's name and apologised for an accidental bump.",
-    "displayedTextSha256": "a648f68f62429ebd46b47eb4d4da5dbc4f892320c5b11847884f525b0ffa5e7e",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-08::12": {
-    "audioPath": "/audio/production/en-US/guided_page/miss-okafor-taught-the-class-how-to-report-repeated-unkind-behaviour-5bc0d6c91a.mp3",
-    "audioSha256": "7a8a5ac1402e868effb348e2b5982b3bd9300c3507b0d163be623f82a4e620f3",
-    "displayedText": "Miss Okafor taught the class how to report repeated unkind behaviour.",
-    "displayedTextSha256": "7362ea6aab963478228b696e06aa45caddc57cb90879b30b012b57cdef7e1a15",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "ab-c-08::13": {
     "audioPath": "/audio/production/en-US/guided_page/aiden-knew-the-bullying-was-not-his-fault-and-adults-would-help-keep-him-safe-1d9a8fc99b.mp3",
     "audioSha256": "3ddceb370040430a3a48e75dfe41148cd06de1531d901f049236ca6e09284398",
@@ -700,13 +623,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "1f4cec6e2b4b013c78b2b862927e5221712c487cbf620abecf2d3691d9238f7a",
     "displayedText": "Betty suggested clear words, walking away and telling a trusted adult.",
     "displayedTextSha256": "9ec02149155705531c74bfbed1b681b205239c038e676c9a84ef348073c5b999",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-08::4": {
-    "audioPath": "/audio/production/en-US/guided_page/aiden-practised-the-plan-aloud-while-socks-stayed-beside-him-d880fea342.mp3",
-    "audioSha256": "f9f507092c1f5c9e594e52b003479bb1f50696086fd4c37b7b74b593992b717c",
-    "displayedText": "Aiden practised the plan aloud while Socks stayed beside him.",
-    "displayedTextSha256": "a562ba4999474561f842a1402c1962a6c7e38e51d358dfc5dd731fce0ca16323",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-08::5": {
@@ -791,13 +707,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "472dc6bdee186d44eb5eaf9c24c9e19db47e948f634416b284d4e53cec0e95f8",
     "displayedText": "That night, Aiden worried about pain and the strange empty gap.",
     "displayedTextSha256": "382cc8bbedc5efe7a14ae4732d2a0d78ba4f5ba2c65890a1b4b4f6c89461be9c",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ab-c-09::4": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-explained-that-loose-baby-teeth-were-normal-but-he-still-wondered-065837f335.mp3",
-    "audioSha256": "d9b92d6a06eade783311e2e0d22a50fc249ee640fcba903fd8132224c4c8cd83",
-    "displayedText": "Mum explained that loose baby teeth were normal, but he still wondered.",
-    "displayedTextSha256": "5f1846a3e590bd6564bbef97752b42b80ea1c7a7ad8260b8d38098dd561f03eb",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ab-c-09::5": {
@@ -962,10 +871,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-01::6": {
-    "audioPath": "/audio/production/en-US/guided_page/their-tired-legs-sit-43c622f8ed.mp3",
-    "audioSha256": "faa9db59e2af0dfd428195a361dd457affe719a61c7173de10c0ab492802a21a",
-    "displayedText": "Their tired legs sit.",
-    "displayedTextSha256": "71ba7d3b1e0167986e64b43e948b2576db094e935c1b9609c653bcddc4f151e0",
+    "audioPath": "/audio/production/en-US/guided_page/they-rest-side-by-side-cacc19a628.mp3",
+    "audioSha256": "90131e79767537d1705f6337c1cda4072ffcae1a3487b4b148cb41d7a1f81e98",
+    "displayedText": "They rest side by side.",
+    "displayedTextSha256": "1cfc5467cbf94038f6a8050245e5f0fef0e6021c642eee0d755be679cea89826",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-01::7": {
@@ -976,38 +885,38 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::1": {
-    "audioPath": "/audio/production/en-US/guided_page/bob-and-nan-visit-the-park-4ce837ecfa.mp3",
-    "audioSha256": "18f2344becfe6e204fea4b644e0322ed70189ef6f2a5765755183a7076402649",
-    "displayedText": "Bob and Nan visit the park.",
-    "displayedTextSha256": "6c42bf7094045792a90ab80cd221f2c5993eb469ceaa8c86754c51a1209bd9d7",
+    "audioPath": "/audio/production/en-US/guided_page/bob-and-nan-reach-the-park-01c542ec05.mp3",
+    "audioSha256": "5a0006fb79ee49ba17866804886bbd0d7f247b6b85d26d059c5ee9e416477fea",
+    "displayedText": "Bob and Nan reach the park.",
+    "displayedTextSha256": "0792297a1e6f2f5c5a8f2a1628d4baa4f2b981b42c72dc83a2deb82adcebbfb5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::2": {
-    "audioPath": "/audio/production/en-US/guided_page/bob-runs-too-fast-bc35d1ee5f.mp3",
-    "audioSha256": "29507a8159f79d775df981dc72c438edd65a82940e61ff3952baba94f29e1a9a",
-    "displayedText": "Bob runs too fast.",
-    "displayedTextSha256": "49e4cc343fd3cde89942e9a4c8955187e17ce98fa4b88bb3b01b40b0766729a0",
+    "audioPath": "/audio/production/en-US/guided_page/bob-runs-to-the-swings-38ada969bb.mp3",
+    "audioSha256": "259f8087eb9fca00b5fc46a379349c946501aa8b2fc32b0bf7718190c2fffad6",
+    "displayedText": "Bob runs to the swings.",
+    "displayedTextSha256": "9c8e282438de654bbd5b840649b5097bf1d76612f9b299fd28961b91564f1b33",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::3": {
-    "audioPath": "/audio/production/en-US/guided_page/nan-runs-too-fast-e4aa78e19b.mp3",
-    "audioSha256": "6b9585dd8ccc77dc73d7d28a1586ec314073ad6ec534ed6a1fe7c3e85acae0da",
-    "displayedText": "Nan runs too fast.",
-    "displayedTextSha256": "b9cba3309aca1b607648017bf88e7b7bdee966f8fb8e8b35f05d47283dcb9825",
+    "audioPath": "/audio/production/en-US/guided_page/nan-runs-to-bob-881c775cdf.mp3",
+    "audioSha256": "2864e0553750245cda8d680c9acf45201c64782ffa54f24f31fcc7e690240f49",
+    "displayedText": "Nan runs to Bob.",
+    "displayedTextSha256": "6300442c2dd6ab105b9dd7ab7be08286cb080a4c0a0187c39be316111aaec9eb",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::4": {
-    "audioPath": "/audio/production/en-US/guided_page/bob-rests-on-the-swing-c464e73e99.mp3",
-    "audioSha256": "542f607d07ff649d58bf47a776805f578603d28f669b73016a0a2450b23d5900",
-    "displayedText": "Bob rests on the swing.",
-    "displayedTextSha256": "2ae97375dfe6f4f639c5202db680401b89a2a42c2673b40791122a55c16e480b",
+    "audioPath": "/audio/production/en-US/guided_page/bob-swings-on-his-own-2195d2f038.mp3",
+    "audioSha256": "af794108108472a8e8ae90a52c1d4d9994569d8d2d26b9fd2fb74775c2ba979a",
+    "displayedText": "Bob swings on his own.",
+    "displayedTextSha256": "2dd76338568731b438bb46439428a327c04a520f14dcb837fe0e22b3d6ede34b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::5": {
-    "audioPath": "/audio/production/en-US/guided_page/nan-rests-there-too-7acf26a597.mp3",
-    "audioSha256": "c348bbe433f802ad273d4d898054ae67cbda496e9012f6d48f4db4cbe66167ce",
-    "displayedText": "Nan rests there too.",
-    "displayedTextSha256": "e44322a617aa1ded673c8f16e7cf0aa789ad2479a3cd01f418a5174b3d4f9d51",
+    "audioPath": "/audio/production/en-US/guided_page/nan-swings-with-bob-37f0e4f8e8.mp3",
+    "audioSha256": "4986a2a24a23a9c00e25bfe4ec0f5d618422c78c97760724d61f2c0fb46fc8d5",
+    "displayedText": "Nan swings with Bob.",
+    "displayedTextSha256": "bdd236e26838d3565cc42da5d614a9a03997d17ef77f9ccedfc08964956b91da",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::6": {
@@ -1018,10 +927,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-02-park::7": {
-    "audioPath": "/audio/production/en-US/guided_page/they-reach-the-top-together-4faabba0d0.mp3",
-    "audioSha256": "031b1fbab19b6da9cc038db0e74e8a244f994732747fc399394edf565350c5e6",
-    "displayedText": "They reach the top together!",
-    "displayedTextSha256": "e43e8d8a3eb779098f443dd4a95c179adec21e6ee8db0a91c33a3e2bf1de4654",
+    "audioPath": "/audio/production/en-US/guided_page/both-reach-the-top-bc6cc7d8f0.mp3",
+    "audioSha256": "207be0303471f1fb31c98bd29b80a70eead2c22be97bd95e866a5496b132d742",
+    "displayedText": "Both reach the top!",
+    "displayedTextSha256": "f72e6ec038e748ca6cced844100d31361c11c8294ebc5d4c4a408a7dcb9c1632",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::1": {
@@ -1032,45 +941,45 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::2": {
-    "audioPath": "/audio/production/en-US/guided_page/bob-sees-a-lonely-pup-8a1bfbea7e.mp3",
-    "audioSha256": "6349b36763ad9552e391ed0cf6bb3290a922793d6c590a1a6dcb5af0c61d5c25",
-    "displayedText": "Bob sees a lonely pup.",
-    "displayedTextSha256": "3a29229ed8dc0e3eec713e76cc5bb1be33a519bebe8330f4f63ca30890f09b7a",
+    "audioPath": "/audio/production/en-US/guided_page/their-pup-fluff-walks-over-be4fb4fa19.mp3",
+    "audioSha256": "06b0f44219adcf6d4c9990853e4fac7ba478b990a8a9e5b4b28483e3e06f4ef0",
+    "displayedText": "Their pup Fluff walks over.",
+    "displayedTextSha256": "37ec886ad4ff2c6bfbed0cab51e89e20e078b007ca2a05edc054794fc888c0f3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::3": {
-    "audioPath": "/audio/production/en-US/guided_page/the-pup-runs-to-nan-cb2b879022.mp3",
-    "audioSha256": "35e7824e9ae162e5ec3a0507db35dbef53f6ceafd29392daa4b3ab7df2c63d5e",
-    "displayedText": "The pup runs to Nan.",
-    "displayedTextSha256": "c15183b4cb31b89e74daa7ad460f42f6000142a463e70de058f8323d6789af29",
+    "audioPath": "/audio/production/en-US/guided_page/fluff-runs-to-nan-0efdec2ac5.mp3",
+    "audioSha256": "6b0fb2d57e0b2d07f45759772a6e50e0ee4969c9fd8a3f5bd9359bfa6ff1d63b",
+    "displayedText": "Fluff runs to Nan.",
+    "displayedTextSha256": "dbc332b8443929885b2641ecbe283a7a28658f951ba23558d0d5e29f96050206",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::4": {
-    "audioPath": "/audio/production/en-US/guided_page/the-pup-has-no-name-tag-430399fc39.mp3",
-    "audioSha256": "35fcf42cf9bb3d170fc9fb01db0938d45de2f31e732bcfede1f7d0424200f823",
-    "displayedText": "The pup has no name tag.",
-    "displayedTextSha256": "c86805b7e477a6540e278cef1d8ce6f5f9bd093b7ccbecddf27d7747bf5fb751",
+    "audioPath": "/audio/production/en-US/guided_page/nan-strokes-his-soft-ears-1b1e8ea555.mp3",
+    "audioSha256": "2fbb82d87e89c95b5e317d0853bce11c7ab059678699fb76d3ed1cd26306da94",
+    "displayedText": "Nan strokes his soft ears.",
+    "displayedTextSha256": "f14871d64f06527e72eb0ceea811c8a2c0cb5da0c333ddf11a8fded6cc489e51",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::5": {
-    "audioPath": "/audio/production/en-US/guided_page/nan-calls-no-owner-comes-f5d5d8611d.mp3",
-    "audioSha256": "0a198fd94b1726c922cb5444c2746f78e4c20cff90879459f1961abd5408358b",
-    "displayedText": "Nan calls. No owner comes.",
-    "displayedTextSha256": "267515c4c7cf6466023bee6f7180162894481b955d99fc47c4d1f7287e8bf410",
+    "audioPath": "/audio/production/en-US/guided_page/bob-pats-him-gently-25ea9cb30c.mp3",
+    "audioSha256": "cceeb8abb3974484dc888607f8ecd2a9f84b096ac2ff16eadf40ef4df461cb80",
+    "displayedText": "Bob pats him gently.",
+    "displayedTextSha256": "8562e614e8160417f5040c31fc73ff8e23e74244e9f9bd594c17e5ee89aee21f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::6": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-helps-report-the-pup-found-93f42a553d.mp3",
-    "audioSha256": "bbd1e93e818fefccaee2cc6b7b6aa2b86f983d1068cc6a4b58ff8b458a71a1db",
-    "displayedText": "Mum helps report the pup found.",
-    "displayedTextSha256": "0efb3666a64387545a28f61b7705775c490ddc95b5e7ae6c6dc5200e9b2e0483",
+    "audioPath": "/audio/production/en-US/guided_page/fluff-stays-close-6f9cce01d8.mp3",
+    "audioSha256": "651b17b029d7a0004e41720b68897a4dd9e0b81232490c3a3c7f891e5ddf3273",
+    "displayedText": "Fluff stays close.",
+    "displayedTextSha256": "e121d78179899032454da267c6fda7572576de6abca485632774ee502ed75a7f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-03-fluff::7": {
-    "audioPath": "/audio/production/en-US/guided_page/they-care-for-the-pup-fluff-55baf9b851.mp3",
-    "audioSha256": "0b1927e96270baa2685fb64678684a916718eec0ae2f0400181a3cc78cf634ab",
-    "displayedText": "They care for the pup Fluff.",
-    "displayedTextSha256": "a11f6304f627d07efd951771b724eb2e0f4e3f75d5127b3d156ea85648305a05",
+    "audioPath": "/audio/production/en-US/guided_page/fluff-sits-between-his-pals-d763ea6300.mp3",
+    "audioSha256": "69e9624cd9b76322eb4063d128221a7deba5a48a726e7eb993c428c75820f07c",
+    "displayedText": "Fluff sits between his pals.",
+    "displayedTextSha256": "1c19ee2996357e5b70bbba26c11e1d9643c66d7e86c6d15b97b21e2728135e6b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-04-beach::1": {
@@ -1151,24 +1060,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-05-school::5": {
-    "audioPath": "/audio/production/en-US/guided_page/nan-stops-there-too-f5cdcfc533.mp3",
-    "audioSha256": "c06cf36771580c4d1e01b0bfd8700389e786002b0a5ae1e4c115b90b5d24ee2d",
-    "displayedText": "Nan stops there too.",
-    "displayedTextSha256": "09ddf4b115519086232dfaf1a05e2617e40229b75cd8d1e99fd92db91eca5742",
+    "audioPath": "/audio/production/en-US/guided_page/nan-smiles-bob-smiles-too-1f18ea3841.mp3",
+    "audioSha256": "a6845d1e3e56a61ba8e5594609d8e743afbcfe05fcc83431d4e974eb618c0a10",
+    "displayedText": "Nan smiles. Bob smiles too.",
+    "displayedTextSha256": "8884c8d54f13cbac6837df6b31714e5500ceb0acab7817c6d6bb0d8d7b8b4713",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-05-school::6": {
-    "audioPath": "/audio/production/en-US/guided_page/they-find-their-name-cards-e9ccae2153.mp3",
-    "audioSha256": "7d8d37b5d3327e670cd4e6c33fa47fce101af0619824af43073d3ca0fd05dd79",
-    "displayedText": "They find their name cards.",
-    "displayedTextSha256": "d9fa92bcd9282b1db39152cfb768583bd27a893b55562921219bd885e5ca6afc",
+    "audioPath": "/audio/production/en-US/guided_page/they-sit-together-at-one-table-49aaf9fa79.mp3",
+    "audioSha256": "78dcc94dbab7e8e3ef18131fca97f0a69348a60f8f00b1ffd6b3abee7d226fbf",
+    "displayedText": "They sit together at one table.",
+    "displayedTextSha256": "3e70bf6f5b52c312754b44c0843821ffedf92f6514056ab339dac933c9c9605f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-05-school::7": {
-    "audioPath": "/audio/production/en-US/guided_page/they-sit-down-and-draw-together-3fc11444db.mp3",
-    "audioSha256": "58fa9f90f440b81d87c060bdff57b9b844af5d8879d55226c558b9e75b536891",
-    "displayedText": "They sit down and draw together.",
-    "displayedTextSha256": "b236165082f535ff44c99d2135898485c7e7985d262889ff0282aec2fc999a92",
+    "audioPath": "/audio/production/en-US/guided_page/soon-they-draw-side-by-side-3cda25fe8d.mp3",
+    "audioSha256": "4f93bf807d19062e10b76a23b7639ec09d0f3ae6db5b793ecaa5e25aee3098b1",
+    "displayedText": "Soon they draw side by side.",
+    "displayedTextSha256": "75c591ec0a4412bd86d6a94a1886cede267dadce6de8757ffb77f1c6f6482a1d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-06-zoo::1": {
@@ -1214,10 +1123,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-06-zoo::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-ape-eats-a-fig-8e11e4400d.mp3",
-    "audioSha256": "370f0f425f0cff33ac645e98c1f517450020c230d34729113bb483099ff9e75d",
-    "displayedText": "The ape eats a fig.",
-    "displayedTextSha256": "3c29bef522cf4533366704ce762cfedf9d39d6d527e2239bf87eabffec89c072",
+    "audioPath": "/audio/production/en-US/guided_page/they-spot-the-big-elephant-aaaf5eecdd.mp3",
+    "audioSha256": "4cdd980991bd28ed689048dfadc0824cb59b40397fd6bb72574466f68d2b7228",
+    "displayedText": "They spot the big elephant.",
+    "displayedTextSha256": "1faf06c25b2398091c6c173d24958000b0267f70153a6a6b33d531ede3d4320b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-06-zoo::8": {
@@ -1242,10 +1151,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::3": {
-    "audioPath": "/audio/production/en-US/guided_page/the-paper-will-not-rip-035a4d83bc.mp3",
-    "audioSha256": "2bdee9df2ddfa93c48abc16b33ed98acbbf7d837b03f5f0b0557a4a1f12ce566",
-    "displayedText": "The paper will not rip.",
-    "displayedTextSha256": "43e37375685c6d60648c15754f3d0cc431c1519c0ea022e2fc711827853fd364",
+    "audioPath": "/audio/production/en-US/guided_page/the-paper-does-not-rip-6f803631c1.mp3",
+    "audioSha256": "309794eab0564a584739b7d0310f42cb4adab3f59a4d3f3e81039003640f1248",
+    "displayedText": "The paper does not rip.",
+    "displayedTextSha256": "4d9e698f9bba17d2bc54f3cc565b406183e888ae30583d7a8d17c00d1fb063f0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::4": {
@@ -1277,10 +1186,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-07-birthday::8": {
-    "audioPath": "/audio/production/en-US/guided_page/bob-loves-his-birthday-b81e0b48e9.mp3",
-    "audioSha256": "5f0b1b116c074eaa544633bdef6fbd320f4a0dec71d0df16d5895a64ec42dd06",
-    "displayedText": "Bob loves his birthday!",
-    "displayedTextSha256": "83254a76820a0c87cc2df5250b81aab7c79d9b9fc60f862da7b59e0297442941",
+    "audioPath": "/audio/production/en-US/guided_page/bob-rests-beside-nan-and-fluff-e92f06a07a.mp3",
+    "audioSha256": "7eb2807520eca236a2eecfef3fea583a1c518251a53d05a789591e9935319c42",
+    "displayedText": "Bob rests beside Nan and Fluff.",
+    "displayedTextSha256": "1eb9af1b4a25540a2d60df801040de1745b7485e56023103c03da20ca0bf7cd0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::1": {
@@ -1312,10 +1221,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::5": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-brings-a-warm-drink-2204abd57e.mp3",
-    "audioSha256": "f408cfec0cffd11003cec817e6d943526700d277f8eed08bd7937ff4de98bbdd",
-    "displayedText": "Mum brings a warm drink.",
-    "displayedTextSha256": "2f15526a50739b5539059dfdd02eef710c40186946847b323ac4bd62de9c31e3",
+    "audioPath": "/audio/production/en-US/guided_page/mom-brings-a-warm-drink-72af0ebfca.mp3",
+    "audioSha256": "d12085f6bb58976f7266e0de9f06a776207bd241014cb9157303ad317aec2f5c",
+    "displayedText": "Mom brings a warm drink.",
+    "displayedTextSha256": "d1bff81f29beaa9fb68e049126857b5a319b8eecd2cf23a4cd48e4f7e5a5527b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-08-sick::6": {
@@ -1361,10 +1270,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-09-read::4": {
-    "audioPath": "/audio/production/en-US/guided_page/bob-blends-cat-0216df0f49.mp3",
-    "audioSha256": "3b63e23b8963df7fa3140511c438c730bbb8902a7525bf19d98ed179f8b75d8a",
-    "displayedText": "Bob blends cat.",
-    "displayedTextSha256": "a82c60403d9051ef184f9f448d4fa573fd947aee1f1515c6f56eb10a5b57c738",
+    "audioPath": "/audio/production/en-US/guided_page/bob-sounds-out-cat-e11ceb080d.mp3",
+    "audioSha256": "e80fe2fdbbc82159d0aa88bc3c621a2bef7a1bc67b4e9905b8bf9a4624f1759a",
+    "displayedText": "Bob sounds out cat.",
+    "displayedTextSha256": "cdbf5eeb121cb8b3dedfe86fb040e94cd20b2e30b6575e0a0c0045353b3fdb29",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "bob-and-nan-09-read::5": {
@@ -1801,13 +1710,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "bb623be37715d3f09a5166ab763d069fa9791d6b678fd2985eb41ab847bbfb86",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "dino-pals-07-wigglys-messy-day::3": {
-    "audioPath": "/audio/production/en-US/guided_page/it-bumps-grumpy-s-favourite-flat-rock-584d6e0d94.mp3",
-    "audioSha256": "5239f7750a1c5b9e1f5f902f510b8da339267d37237d2449ecf6bc7036530440",
-    "displayedText": "It bumps Grumpy's favourite flat rock.",
-    "displayedTextSha256": "f1c658347a610d412246915fcaf35bd24505908685d2b0945daa6cfd8442e7d3",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "dino-pals-07-wigglys-messy-day::4": {
     "audioPath": "/audio/production/en-US/guided_page/one-fast-swish-splashes-fancy-with-mud-b78a000843.mp3",
     "audioSha256": "f1d223e7732849d7a9a4f3b9b8636c2ecd2088875549de3f6e8d405855134dc7",
@@ -1976,13 +1878,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "df3326fabfdbdf3b8108dfc33b436f0fba7eb9feb9fd87efd9bbf53ce5fc3f2a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "dino-pals-10-cheekys-prank-goes-wrong::4": {
-    "audioPath": "/audio/production/en-US/guided_page/cheeky-spreads-mud-on-fancy-s-favourite-rock-04d6aaaf42.mp3",
-    "audioSha256": "089f207f74c0d1e8a3abc0c663d4c7a8f52884c186b35da535a60abfbf82fce0",
-    "displayedText": "Cheeky spreads mud on Fancy's favourite rock.",
-    "displayedTextSha256": "2b1f54c7331e0ec1ab8d14f99079cc5ce5386790e3ed53d8047c1e1bab0b0cf0",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "dino-pals-10-cheekys-prank-goes-wrong::5": {
     "audioPath": "/audio/production/en-US/guided_page/fancy-slips-cheeky-slips-in-the-same-mud-0ff58539f0.mp3",
     "audioSha256": "9c9504b4197cec5f6d707b4a83d4e321add154abaf67f5f863328573a106b050",
@@ -2037,13 +1932,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "9d32ecd3e016ee06f170ee796d75ad81334c4afc952364be6fca058bcae7344d",
     "displayedText": "Next morning, a gift from every Pal waits for Shy.",
     "displayedTextSha256": "9e1a6708d268444e85ef4809bb239bed94bf278e2d9248dae7df09492c25008b",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "dino-pals-11-shys-secret-gift::2": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-finds-a-smooth-grey-pebble-17f9df63de.mp3",
-    "audioSha256": "2e301f597badd2a6885f770666f3eaa46c1acd5d36570ab861eec53cba8913c0",
-    "displayedText": "Grumpy finds a smooth grey pebble.",
-    "displayedTextSha256": "c045c8cea6a61e3158cc2983735cd50ea54a0c29aa3b1f205ad654c26c2b2732",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "dino-pals-11-shys-secret-gift::3": {
@@ -3411,53 +3299,46 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "77e23d8028e9fe2de3550c5aa3fae12224c6a5edf7fcaec43bac7f65884c4f3c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-01-look-at-the-colours::1": {
+  "first-facts-a-01-look-at-the-colors::1": {
     "audioPath": "/audio/production/en-US/guided_page/an-apple-can-look-red-a-robin-has-an-orange-red-breast-c1e169dd14.mp3",
     "audioSha256": "79d653d2a9c889c33aec0cf1fc4843c1ef7dd04d9e6da93561bb7d17e9989799",
     "displayedText": "An apple can look red. A robin has an orange-red breast.",
     "displayedTextSha256": "c3eed9e8a75de77bc669b9159332ad2a31e69c9982667888ca7c4008beb17ba0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-01-look-at-the-colours::2": {
+  "first-facts-a-01-look-at-the-colors::2": {
     "audioPath": "/audio/production/en-US/guided_page/the-sun-can-look-yellow-this-duck-has-yellow-feathers-ef1552235a.mp3",
     "audioSha256": "5d3ecbb644530606d3b8756c34fc6c79632aae3a7516ef5cb24070cef2d4dda8",
     "displayedText": "The Sun can look yellow. This duck has yellow feathers.",
     "displayedTextSha256": "a189bf5337f68b44957360ca1ebe668d56cf0a8fd172858449a605145a7481a6",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-01-look-at-the-colours::3": {
+  "first-facts-a-01-look-at-the-colors::3": {
     "audioPath": "/audio/production/en-US/guided_page/a-clear-sky-looks-blue-forget-me-nots-can-have-blue-petals-a4cc9f82f8.mp3",
     "audioSha256": "dd64ba373f7c30bda927d7c11a2bb5722921337722c25fdd6802543b1ca2d09c",
     "displayedText": "A clear sky looks blue. Forget-me-nots can have blue petals.",
     "displayedTextSha256": "600bdad0890b9ff522125e8aa78c353fb901d5964125c07f752b21c6198df429",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-01-look-at-the-colours::4": {
+  "first-facts-a-01-look-at-the-colors::4": {
     "audioPath": "/audio/production/en-US/guided_page/healthy-grass-looks-green-this-frog-has-green-skin-0f8b887880.mp3",
     "audioSha256": "3fd749182a1fc3e205f585b7991ded1c9be0ea7c4965bee97b41f8ffeeb41c97",
     "displayedText": "Healthy grass looks green. This frog has green skin.",
     "displayedTextSha256": "a84de58795c9ddb4b7a9dcbaf46f1a5c4f04384d2a17c1e86fa5acc6db5bd720",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-01-look-at-the-colours::5": {
+  "first-facts-a-01-look-at-the-colors::5": {
     "audioPath": "/audio/production/en-US/guided_page/this-fox-has-orange-fur-this-pumpkin-has-orange-skin-4aaf6ea50c.mp3",
     "audioSha256": "91d08f3f1bcfeb39b64db877231259ed0268e9dbc886716565d2a0c3f27244d7",
     "displayedText": "This fox has orange fur. This pumpkin has orange skin.",
     "displayedTextSha256": "d985c334877f513df49c15bbef6219f0e1b49a97800fc6ff50ecece79040940d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-01-look-at-the-colours::6": {
+  "first-facts-a-01-look-at-the-colors::6": {
     "audioPath": "/audio/production/en-US/guided_page/these-grapes-look-purple-lavender-can-have-purple-flowers-ff055ee9d4.mp3",
     "audioSha256": "21a6c0d9811d6943bbd04eeb813e44a8065d1326c4c24798fc0d7a23532dc95a",
     "displayedText": "These grapes look purple. Lavender can have purple flowers.",
     "displayedTextSha256": "160254ee1a4389af6208a2c5a1036449791b70f92c02214000ebe46a64308faa",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "first-facts-a-01-look-at-the-colours::7": {
-    "audioPath": "/audio/production/en-US/guided_page/colours-appear-all-around-us-which-can-you-see-da4aa706b7.mp3",
-    "audioSha256": "099df81bfe6a492a4f499b8c734ac39fb8e6447a43ec06e94e152c903fa41051",
-    "displayedText": "Colours appear all around us. Which can you see?",
-    "displayedTextSha256": "02be4cc877687110f7fac7072ee0068602d6ec7004e4210addc2f20608a0d66c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-02-the-four-seasons::1": {
@@ -3486,13 +3367,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "7074b1b9521cd107eab01f93491b83187f9f2d2dc66339cd09354596f456b3bf",
     "displayedText": "Many plants grow and fruit in summer.",
     "displayedTextSha256": "7e863cb3c0908f3326816e04fb4e9339157416fb88c240f7b35ad6aac9f68278",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "first-facts-a-02-the-four-seasons::5": {
-    "audioPath": "/audio/production/en-US/guided_page/some-leaves-change-colour-during-autumn-27d70593a8.mp3",
-    "audioSha256": "102bbb9a8b56ac4db43cdc51ab293eeb9feb6f3aaf0c021cf6d4764aff67ee19",
-    "displayedText": "Some leaves change colour during autumn.",
-    "displayedTextSha256": "f97399b9bdf817fddf46b9d82a218843a2a08be209398f2ace16a6e5cb17c59e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-02-the-four-seasons::6": {
@@ -3647,13 +3521,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "8599a2f77240a1002f4d31ac9568befd14057aa95552e0611aa18072a6c53420",
     "displayedText": "Daisies often have small white petals.",
     "displayedTextSha256": "9fea8ecf844c150d5e110582b90fc622f5bd46dba81de1ada457cfa175663c4a",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "first-facts-a-05-flowers-and-trees::4": {
-    "audioPath": "/audio/production/en-US/guided_page/roses-come-in-many-colours-and-may-have-prickles-b63801b7f8.mp3",
-    "audioSha256": "c1a1a6a59c0ff2e58891c6192f358fb6c2e56eb5d94d2b5d00c230ea29d14169",
-    "displayedText": "Roses come in many colours and may have prickles.",
-    "displayedTextSha256": "db788c5a2f25373dc83bcd0436b0a51773669420012102ec31f773c037e2189d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-05-flowers-and-trees::5": {
@@ -3815,13 +3682,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "b731ba21143db98650dedabfbd4438715d4c96ad9d263de8250561d74161fffc",
     "displayedText": "Blue whales are Earth's largest animals and breathe air.",
     "displayedTextSha256": "a2dd1cd81b0cefd92fab37ca23b375b08d0a57d23c6c1fb31a6bb0ba6077be31",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "first-facts-a-08-animals-in-the-ocean::4": {
-    "audioPath": "/audio/production/en-US/guided_page/an-octopus-has-eight-arms-and-can-change-colour-60ef7df8b7.mp3",
-    "audioSha256": "2fcffc729bb3439855640f4b769b93b1e5aad0400707ca7d591721dd99897827",
-    "displayedText": "An octopus has eight arms and can change colour.",
-    "displayedTextSha256": "2b8360b322072d9bdfaa10deb630aa823d2b4bd23d635d2b3873233518ab4459",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-08-animals-in-the-ocean::5": {
@@ -4391,13 +4251,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "307340d6f2188467f5a6ce344ffe4b9228a777f49ee04b04c407c58c2cc6662d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-20-my-five-senses::2": {
-    "audioPath": "/audio/production/en-US/guided_page/my-eyes-detect-light-colour-and-shape-ea8fda25c4.mp3",
-    "audioSha256": "e08bb1660f8678df4d35d7e636b109ceebf1d50cdc8b985f8a82475e49943c20",
-    "displayedText": "My eyes detect light colour and shape.",
-    "displayedTextSha256": "e6b58ad370c642a69f4154888ccc20474ce59ba2bc43ad54276ff39089f56957",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "first-facts-a-20-my-five-senses::3": {
     "audioPath": "/audio/production/en-US/guided_page/my-ears-detect-sounds-03d72dc294.mp3",
     "audioSha256": "ef03bf527beeff51de3ae13787916465824b20ca684c91bf03783a4953c89e1b",
@@ -4452,13 +4305,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "a1d1c56decd9e18c4e10ab6f2ebaa4b4e7d074243d521bab9a058d0c54b803e1",
     "displayedText": "Later I learned to sit and crawl.",
     "displayedTextSha256": "95a771752c5f2642788b5a7ddb4b2da37f36cc1cf3a28b2853975dec8719eade",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "first-facts-a-21-how-i-grow::3": {
-    "audioPath": "/audio/production/en-US/guided_page/my-muscles-strengthened-as-i-practised-walking-ca17d41899.mp3",
-    "audioSha256": "c44386759ec3b915b4cb9c823e88a9c8c38bfeba5ef64a36d316e50cc6fa2fa0",
-    "displayedText": "My muscles strengthened as I practised walking.",
-    "displayedTextSha256": "ca48e4a4b493d4e6b42a54e84345ce658458520363904b25e9f5331c39bda7ce",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-a-21-how-i-grow::4": {
@@ -4615,13 +4461,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "53726d9568b9b8239afa9c83b16112633dd56787dda28a7f96a1a2d6a03ed908",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "first-facts-a-24-rocks-and-pebbles::4": {
-    "audioPath": "/audio/production/en-US/guided_page/rocks-occur-in-many-colours-d66e08721f.mp3",
-    "audioSha256": "08e2f8af3b624baaa89e2ac9ad97f3f28d60b77c895e9ea482f626a86d0a9be8",
-    "displayedText": "Rocks occur in many colours.",
-    "displayedTextSha256": "1067d0f6e4753f947b78149706fa1e88216e341811c9168e42630bc54e334875",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "first-facts-a-24-rocks-and-pebbles::5": {
     "audioPath": "/audio/production/en-US/guided_page/people-use-rock-in-roads-and-walls-0b0f2a546d.mp3",
     "audioSha256": "688f1edce6893584346d91200d2b56c8696c91c2c70fbc7ac490eced959f20d5",
@@ -4707,24 +4546,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::1": {
-    "audioPath": "/audio/production/en-US/guided_page/a-ball-and-hat-are-red-9a4137e6f3.mp3",
-    "audioSha256": "511176abf643cd6effa9253caa65b9c2c2f92437e478c15e8f467a12b2d3e401",
-    "displayedText": "A ball and hat are red.",
-    "displayedTextSha256": "55b52a2f0822f36ffd74a4c3c4c38f19ecdef1fd0fcab41c582be5f576bf6d6a",
+    "audioPath": "/audio/production/en-US/guided_page/the-ball-and-hat-are-red-c258060640.mp3",
+    "audioSha256": "3fa847ecc7f5b28094d0f2ea5dd8a082ec908d4ef816a7b69a2e0118a44a1dda",
+    "displayedText": "The ball and hat are red.",
+    "displayedTextSha256": "2b9c3c23cefbc6123529a262b916aafa54c5d70541500fb0c77025ae64dcd4fe",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::2": {
-    "audioPath": "/audio/production/en-US/guided_page/a-cup-and-bag-are-blue-5cf2ae837a.mp3",
-    "audioSha256": "23f05d1a2513483dc6272da33f9a2113730eb9b26c2ec7eab22e7b0c8bcf7cce",
-    "displayedText": "A cup and bag are blue.",
-    "displayedTextSha256": "733cbd393a950ad823d9c5f285ae7b49c7ea23c1bc4c9f52093ab1c238e725ca",
+    "audioPath": "/audio/production/en-US/guided_page/the-cup-and-bag-are-blue-f0b31a0c54.mp3",
+    "audioSha256": "e0ca1ff331963165e10c501a2bd62c3f57d3073b65bfd0c2aa6aa918557c48ac",
+    "displayedText": "The cup and bag are blue.",
+    "displayedTextSha256": "3d329bfece37b4f0e616972a1ff6a446a3390a804f3244906c1d3ec62eae06c7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::3": {
-    "audioPath": "/audio/production/en-US/guided_page/the-bright-sun-is-yellow-061a7d4e0f.mp3",
-    "audioSha256": "8ef280e6eb98fee1f9c8d95862759f7f2a8658b84d284933caa75506c8f86084",
-    "displayedText": "The bright sun is yellow.",
-    "displayedTextSha256": "02f2abea40094bc13f91e99205e815decb44936d7a0f6ebec1f588c10c3381f7",
+    "audioPath": "/audio/production/en-US/guided_page/the-bright-sun-looks-yellow-81d31da088.mp3",
+    "audioSha256": "d3233d028125602da3c002b82b548b45b7091d63db1eb69067c70c8101e64480",
+    "displayedText": "The bright sun looks yellow.",
+    "displayedTextSha256": "78e3bea12605012fc1d2d2a80f9933c0543ca979521c0a41069b77ceb120ddf8",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::4": {
@@ -4735,24 +4574,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::5": {
-    "audioPath": "/audio/production/en-US/guided_page/a-cat-and-bat-are-black-f56e9ae0eb.mp3",
-    "audioSha256": "a6a99fef672d030cd3b29b8b8cff9180ca93e6456fc7852e61c54e3ed642e1fb",
-    "displayedText": "A cat and bat are black.",
-    "displayedTextSha256": "02f38e49ba8eb22d2db25d07a8cfb69d10d784425b59792a1ee8e1dcd67af4b0",
+    "audioPath": "/audio/production/en-US/guided_page/the-cat-and-bat-are-black-ea21078921.mp3",
+    "audioSha256": "fb6193a1a1593f7564fa4ede6227e302ad4d7f533fe398a7ac3fce76d4f4263e",
+    "displayedText": "The cat and bat are black.",
+    "displayedTextSha256": "7602266116c616fb8a93a70b512ecd1a236e7f5eff7a6d1ccc4218a5d6fcee5c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::6": {
-    "audioPath": "/audio/production/en-US/guided_page/a-pig-and-flower-are-pink-61578c403c.mp3",
-    "audioSha256": "1584d182461b521d404606122911bc9dce2f55cf710af98dcfac888eaaab9b67",
-    "displayedText": "A pig and flower are pink.",
-    "displayedTextSha256": "6711ee623b54f888cb7fbb7dbe3fa052c8b6970ec61c88c1ad3895f14622a230",
+    "audioPath": "/audio/production/en-US/guided_page/the-pig-and-flower-are-pink-a3d834d77e.mp3",
+    "audioSha256": "5bbd09b23ab14d2d393499651bafc20ce3fe4cb43980fd3d4c44e0dbd8933900",
+    "displayedText": "The pig and flower are pink.",
+    "displayedTextSha256": "f8c4f71c108dfd026d418f5f328d29deafe1edb82e06cfc18223f5664beddf6b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-01-colors::7": {
-    "audioPath": "/audio/production/en-US/guided_page/we-can-see-many-colours-e4ec02343a.mp3",
-    "audioSha256": "9669e6033fec4947f7d1f0470ac2d9ddcdb207fc765d173c1d790dd99d6ce0c0",
-    "displayedText": "We can see many colours!",
-    "displayedTextSha256": "1381e5f0d1397a3c56ddedd9f3330b43e02840ddfcc1ba7a05fa38ff4c7248f3",
+    "audioPath": "/audio/production/en-US/guided_page/we-can-see-many-colors-dc31d870eb.mp3",
+    "audioSha256": "7b143d7c626c92b444d2615a1a13272a93b1ae4e3c75c681cec32efc1b5c9916",
+    "displayedText": "We can see many colors!",
+    "displayedTextSha256": "95d9eab783cb69261de1395af41c457d69e3d5cc7f74dcf9d57af21cfc85f9ee",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-02-farm-animals::1": {
@@ -4798,10 +4637,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-02-farm-animals::7": {
-    "audioPath": "/audio/production/en-US/guided_page/many-animals-live-on-farms-e007cb7704.mp3",
-    "audioSha256": "6478a69d2f1c4509fe7c02db73f7fbd3e30bc15c94001051875b5a1d25e5ae48",
-    "displayedText": "Many animals live on farms.",
-    "displayedTextSha256": "265f2c6f831941cb30bfc1c88b58006d965dea632789c9f68d1d94b87e018ea5",
+    "audioPath": "/audio/production/en-US/guided_page/farm-animals-make-many-sounds-34f734a501.mp3",
+    "audioSha256": "1d395de3414119f02936a477e9f223196e46cc6944ca6e56f4a90806c32cdc2e",
+    "displayedText": "Farm animals make many sounds.",
+    "displayedTextSha256": "3ace9621125351ac57f31f81a262d3e32c0246a749d80dbdb5cd61e822609e60",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-03-big-and-little::1": {
@@ -5043,10 +4882,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-07-bugs::7": {
-    "audioPath": "/audio/production/en-US/guided_page/small-bugs-live-all-around-us-a45d237631.mp3",
-    "audioSha256": "f456d07ee8c82bf6288a4e5eb1eaf2da22bebeaf57da1ef576e5f010ae2280d3",
-    "displayedText": "Small bugs live all around us.",
-    "displayedTextSha256": "7160f5e13ec9e822e018dbec865eb41fc81c86c4831490431fb6f5609f964376",
+    "audioPath": "/audio/production/en-US/guided_page/small-creatures-live-all-around-us-e6a972fb46.mp3",
+    "audioSha256": "9725080fc06c3d36bf06ce18f877f00f8822f2bfd54d230028ab79bc7ea2e537",
+    "displayedText": "Small creatures live all around us.",
+    "displayedTextSha256": "ae03a28befa93a4b399de01a4e6dd281209638c97369f82fc80e751adcbc9a49",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::1": {
@@ -5085,10 +4924,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::6": {
-    "audioPath": "/audio/production/en-US/guided_page/every-pet-needs-a-name-2622b8b6c3.mp3",
-    "audioSha256": "1fc1752161351ea4412a0f66669fc8c30f092d163d3e3b71fc7116e16ca21de7",
-    "displayedText": "Every pet needs a name.",
-    "displayedTextSha256": "d60d71d60a43ca5e50164904afbdc0788c7c0a146eb926427183bef0c9fba180",
+    "audioPath": "/audio/production/en-US/guided_page/this-dog-enjoys-a-gentle-cuddle-afa221ce6a.mp3",
+    "audioSha256": "ab822a25006d76b90a8899aee4f8c238df3ea2b4876d0f430948bf0e86937d7e",
+    "displayedText": "This dog enjoys a gentle cuddle.",
+    "displayedTextSha256": "7fb5feb6c3a2b2f34693e4648ee5277d2d7563be33be80c982a3f1968e8068a8",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-08-my-pet::7": {
@@ -5099,10 +4938,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-09-hot-and-cold::1": {
-    "audioPath": "/audio/production/en-US/guided_page/the-sun-feels-hot-c03e4463f1.mp3",
-    "audioSha256": "a40dd275ff0f38cce024e7ecf5e8fd42be400a4c9aa01bf6c0434d84b579d913",
-    "displayedText": "The Sun feels hot.",
-    "displayedTextSha256": "4b41fb5452beccae44bbf003b129e1013d99d2c63525954c0367f323522e7a5f",
+    "audioPath": "/audio/production/en-US/guided_page/sunlight-can-feel-hot-8edd74bc77.mp3",
+    "audioSha256": "40532c94f6cf36fa8e376b71b4dbe8f595afe2b96eec7b01da63a3d26aa6bd69",
+    "displayedText": "Sunlight can feel hot.",
+    "displayedTextSha256": "fc4386fa530b3f2ef3a1facbb61c181eb6a11e2e0b8ee1e3c0d5aa7f422cddfd",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-09-hot-and-cold::2": {
@@ -5113,10 +4952,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-09-hot-and-cold::3": {
-    "audioPath": "/audio/production/en-US/guided_page/fire-feels-very-hot-dad21bcb12.mp3",
-    "audioSha256": "7b081a3f52311cb725bb09659bcb1e1e1e4ef0d35cd8387d0b3781c34fd67def",
-    "displayedText": "Fire feels very hot.",
-    "displayedTextSha256": "d2bafa3ff72c7e73f516ee32d15d776593f31ce93110ce0edf0b642b35e335d1",
+    "audioPath": "/audio/production/en-US/guided_page/fire-is-very-hot-af6f12d36d.mp3",
+    "audioSha256": "1f68d071d7d3b91d3c8c8a83761118ae5015359405569e851cf827af9b2b881b",
+    "displayedText": "Fire is very hot.",
+    "displayedTextSha256": "6123e951903721a96df65c4d41697e1cc278272e4a1fe1706b0a2c7975168f82",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-09-hot-and-cold::4": {
@@ -5239,10 +5078,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-11-at-the-farm::7": {
-    "audioPath": "/audio/production/en-US/guided_page/there-is-much-to-see-251025509b.mp3",
-    "audioSha256": "588a8edf3412435954d1b09df2ad01ac4e38a4bb295202f834124aff3cc30b7d",
-    "displayedText": "There is much to see.",
-    "displayedTextSha256": "04657835eb2df61e26c922ace6f6595e4c6b805c7b964dd681f87c58d93e1e92",
+    "audioPath": "/audio/production/en-US/guided_page/together-they-make-a-busy-farm-fcce130634.mp3",
+    "audioSha256": "af390fbf555718b45fa044fb64d3f6692709d9a8ff52e4ff4a840d5c67a4d72f",
+    "displayedText": "Together they make a busy farm.",
+    "displayedTextSha256": "78d80805ecbf4fd4efbf32206fba11ad4170475ff974a5b48bf3047396c1f2a5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-12-in-the-sea::1": {
@@ -5295,17 +5134,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-13-fruit::1": {
-    "audioPath": "/audio/production/en-US/guided_page/a-red-apple-tastes-sweet-508caca042.mp3",
-    "audioSha256": "32680cdb006affbd5de72f5a0026c65810ca2020e51f050bc5fab078f66b9c67",
-    "displayedText": "A red apple tastes sweet.",
-    "displayedTextSha256": "e5da24b1fc97c5774ee3c524f0894673f905e1beba8ea0eabcb7ff796445ad26",
+    "audioPath": "/audio/production/en-US/guided_page/a-red-apple-is-sweet-16e5dfda87.mp3",
+    "audioSha256": "fdb7e5ffaa4666de416111c33f9c280ab8d028e15e1fe4d33cfe33cd35f0c9c5",
+    "displayedText": "A red apple is sweet.",
+    "displayedTextSha256": "2235910e640b010386a7a54f34e87a777f93dd4c497030184f3643a5c11b8d35",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-13-fruit::2": {
-    "audioPath": "/audio/production/en-US/guided_page/a-yellow-banana-feels-soft-90e11b2fd2.mp3",
-    "audioSha256": "a63b5b3e0ea14dbbfcecf3edeb8bd55e7dfb0581c1f37ac240a45a08dcc68c9a",
-    "displayedText": "A yellow banana feels soft.",
-    "displayedTextSha256": "3b61dbdbd555965d51da03a1739f3eb7a9e23568881d5ee7b614089f7d939408",
+    "audioPath": "/audio/production/en-US/guided_page/a-ripe-banana-feels-soft-74253a077d.mp3",
+    "audioSha256": "e22b0abc41a3633f0c45dd209f66c8c5cb5b0f325761d16d9df065852723efae",
+    "displayedText": "A ripe banana feels soft.",
+    "displayedTextSha256": "d0e3d976db2a4e07f970731e903cba912c92cc789c61a91d88e54b2086b4dae7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-13-fruit::3": {
@@ -5330,17 +5169,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-13-fruit::6": {
-    "audioPath": "/audio/production/en-US/guided_page/fruit-is-good-to-eat-506996f34a.mp3",
-    "audioSha256": "2683c80a72af6cc3dfe58acd3af17bbc68cc6cfe65f6b8703f64292f60daf3f7",
-    "displayedText": "Fruit is good to eat.",
-    "displayedTextSha256": "10c9ae3e34d6d7b2b01157fee35e4f3c64c9847e14b63eaf3391d3134f8fd7e9",
+    "audioPath": "/audio/production/en-US/guided_page/fruit-can-be-big-or-small-102e44693b.mp3",
+    "audioSha256": "ed3c56c2f805b074b8744cc23802d59dae11c4c4c2b7e98f715c6e326fb53582",
+    "displayedText": "Fruit can be big or small.",
+    "displayedTextSha256": "9a640478e4f277850d1a66af485da10dea099b0964c1c0c2d30c10ed2c934729",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-13-fruit::7": {
-    "audioPath": "/audio/production/en-US/guided_page/fruit-has-many-bright-colours-d3b7055ab6.mp3",
-    "audioSha256": "7881ad3914c293c07543643a8554865a55263c23f5bb08a3b56b4747c395dc89",
-    "displayedText": "Fruit has many bright colours.",
-    "displayedTextSha256": "4bce1254c972a3bfdac73f3329e0478c0787d4638dbbff58ae955ffb4451fba4",
+    "audioPath": "/audio/production/en-US/guided_page/fruit-can-be-many-colors-7caff974b1.mp3",
+    "audioSha256": "25bf93a4132931e0142ca9b786ca9a18cbf4a776d567e386d78673b3960fdbba",
+    "displayedText": "Fruit can be many colors.",
+    "displayedTextSha256": "c4d583a3c62d8039537e49ea1d7f5bf561ad1942efeea6c91c77dd1c4c04d55e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-14-the-tree::1": {
@@ -5386,10 +5225,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-14-the-tree::7": {
-    "audioPath": "/audio/production/en-US/guided_page/every-part-helps-the-tree-8303f2e0f7.mp3",
-    "audioSha256": "011d528b5d0805ec882e0df9b29f9d248c0227c40d471b78a94274d3a7ad103b",
-    "displayedText": "Every part helps the tree.",
-    "displayedTextSha256": "2240b9407a811aa4688f2c320288cadbc4f62acd9a721e33ed944d3adb58f2ad",
+    "audioPath": "/audio/production/en-US/guided_page/these-parts-make-one-tree-39aeb0e356.mp3",
+    "audioSha256": "b2739ace263dc5dbbda2f352ebc8bc367a879d65fbec36f9e12a32286d2dc966",
+    "displayedText": "These parts make one tree.",
+    "displayedTextSha256": "c783e056400f114b1c8adec2208ef8009c6c3f61fd16f126235bb9629823d9e5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-15-baby-animals::1": {
@@ -5484,10 +5323,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-16-fast-and-slow::7": {
-    "audioPath": "/audio/production/en-US/guided_page/is-it-fast-or-slow-42414bb9f1.mp3",
-    "audioSha256": "965fcaa980cb9796d63d9bb3d4f145ccc877970bc16f4d7e6990454c2a68a992",
-    "displayedText": "Is it fast or slow?",
-    "displayedTextSha256": "e8e7f8c094e4d4cb5badef3214101206d40b5d933728946048ade142e92220ac",
+    "audioPath": "/audio/production/en-US/guided_page/find-one-fast-and-one-slow-30f00d9d38.mp3",
+    "audioSha256": "a8f22a46b5687226e6bb0e6c27c15ad3be71d004a676225d7470eb62c6be05db",
+    "displayedText": "Find one fast and one slow.",
+    "displayedTextSha256": "49bcdb0a63b1a184b61788aad6a94bd69dbd8e5dd0adedd3611203021c46ccb7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-17-a-seed-grows::1": {
@@ -5680,10 +5519,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "first-facts-level-a-20-space::7": {
-    "audioPath": "/audio/production/en-US/guided_page/space-holds-all-these-worlds-7105ab0e3a.mp3",
-    "audioSha256": "ed8084746746b969fb7f79fc3033459a71c0265c56888ee0534b330912bf0599",
-    "displayedText": "Space holds all these worlds.",
-    "displayedTextSha256": "1d700b2ef9ced89b06c45f3359c1b965ce5431bb979591f32868d4eccda3f70b",
+    "audioPath": "/audio/production/en-US/guided_page/space-has-stars-and-many-planets-cb58bc90a8.mp3",
+    "audioSha256": "0543ef54357e7b81fa9c9e8aad2ffbb245084b545120fca7c123e495b8fafde6",
+    "displayedText": "Space has stars and many planets.",
+    "displayedTextSha256": "7a38d7bbed2dd987572208d07325c3874357e4aa412cedd47b2254bb93eee636",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-a-26::1": {
@@ -5805,13 +5644,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "e166d90a2a29c40d665ebb8d6108662b9d8d13a612e7be5be12ab23f938e11dc",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "gr-a-28::6": {
-    "audioPath": "/audio/production/en-US/guided_page/colours-appear-all-around-us-10dd2ffe2f.mp3",
-    "audioSha256": "a80734a50405bf108a6833f190e7b25ed68e9bd17cf76317b7560f5a0778d261",
-    "displayedText": "Colours appear all around us.",
-    "displayedTextSha256": "efa74148657b20794e6d373b96936ab60eb1826d76f9924314a4895248d56620",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "gr-a-29::1": {
     "audioPath": "/audio/production/en-US/guided_page/i-have-two-eyes-046aa4408b.mp3",
     "audioSha256": "6702b91a9efa30db637048b37e98458a02d4f64365b5425944684bce422ec03a",
@@ -5866,13 +5698,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "1482b52e5a0136156675d98571792c6e9efe16bd7a2a92a9c4c31e9f7f22060f",
     "displayedText": "Summer often brings longer warm days.",
     "displayedTextSha256": "2a428edbdcd617e57d36580d1e7a6c5ca50cda91218691acb881b06d76ea166d",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "gr-b-31::3": {
-    "audioPath": "/audio/production/en-US/guided_page/many-leaves-change-colour-in-autumn-bf5a69f9fb.mp3",
-    "audioSha256": "7d9e843f21b37a2f0272dca1d3494ecb0c1d05d7f43dceaf5cca36cc319d030b",
-    "displayedText": "Many leaves change colour in autumn.",
-    "displayedTextSha256": "41dfd16d0bce89cba3c79c4278279eaf6c09fa7834dbcff3f00e8e7afc8b7171",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "gr-b-31::4": {
@@ -6512,13 +6337,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "054cbe8cfc6c586f68a08c235f11f8fe56f95796e65634cd70281949b3e717b7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "gr-e-49::5": {
-    "audioPath": "/audio/production/en-US/guided_page/pyjamas-are-clothes-for-sleeping-3af1b3f47d.mp3",
-    "audioSha256": "15e3152332aca4cc11a75682afe8bc9a8fa255ec33da63dc9e62b595840290da",
-    "displayedText": "Pyjamas are clothes for sleeping.",
-    "displayedTextSha256": "869fe3c052422c25c54e4f6d8b3072e81ae162ae66e3f7aa851dbc50448dc3d2",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "gr-e-49::6": {
     "audioPath": "/audio/production/en-US/guided_page/clothes-can-protect-and-warm-us-887f7799b3.mp3",
     "audioSha256": "093498145e852cd4a5198f365fe7bfc72485319b1b2bc2a65e08af8b679fed9d",
@@ -6659,13 +6477,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "25cf21ca3333762dea2d6ce294b5a6b191384dbc9d4a6b67d37937f9db10ccca",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "ja-b-07::10": {
-    "audioPath": "/audio/production/en-US/guided_page/james-breathes-deeply-and-gives-his-best-practised-roar-2af6faafb4.mp3",
-    "audioSha256": "090dc3537a3a286398ee556e9f81302f8cbc1d89879713f3d5d19026679892b4",
-    "displayedText": "James breathes deeply and gives his best practised roar.",
-    "displayedTextSha256": "6e556f70a7c851ddc6b607e197b034a663f7341477496f6369aefddefc68a367",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "ja-b-07::11": {
     "audioPath": "/audio/production/en-US/guided_page/then-he-stomps-through-the-play-as-children-giggle-591a511fd9.mp3",
     "audioSha256": "49453cb43d9d8ca73bf6225f8144faf9162761a902c726da6249c509fcde493f",
@@ -6692,13 +6503,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "ccf7bbb83738fe6827a717369abffa6490aa3fedfa4005319fd630816cfa9650",
     "displayedText": "Anna chooses to paint the mountains, sunset and castle.",
     "displayedTextSha256": "f8710ff092b9ec6abed250147eb0d8aaf8d3df1fdc681e06026182f1b35a23e5",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ja-b-07::4": {
-    "audioPath": "/audio/production/en-US/guided_page/james-practises-roaring-until-mum-needs-her-earmuffs-198fab8761.mp3",
-    "audioSha256": "1b2a0717db1c4dd730d5c2651c16950a9f9069022d1671c28e2a7e2425830e34",
-    "displayedText": "James practises roaring until Mum needs her earmuffs.",
-    "displayedTextSha256": "b9f141d77ce3e08a7e088aecd6f399715d95a21adaae58fda4b2736c15328efe",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-07::5": {
@@ -6748,13 +6552,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "23486a712137c4f21ec5c40f3156c247311bec964596d5d24b76d04eb34590ea",
     "displayedText": "They like each other, but their games need calmer rules.",
     "displayedTextSha256": "b73b1feb0e18c4b12a607aa9fa78f945763b543fb6eecbafd6172dcb87749543",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "ja-b-08::11": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-brings-water-for-bella-and-chopped-apple-for-chips-303a31329e.mp3",
-    "audioSha256": "b3027abe91f6ed1431fa16b162234fc9b1df17d17600a8157a9b39ef5e09f521",
-    "displayedText": "Mum brings water for Bella and chopped apple for Chips.",
-    "displayedTextSha256": "3e6dfe68de47b83d69155aab716d39377b40f3d3e91c68166fb9c1d29c2c96a2",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "ja-b-08::12": {
@@ -7023,13 +6820,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "ef23d7ed89abdd3bb2e113f5f8be9c92be8912f60fc98aeb809198b508c9f74d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "james-and-anna-01-space::14": {
-    "audioPath": "/audio/production/en-US/guided_page/they-open-their-eyes-in-the-garden-mum-brings-cake-03781f6596.mp3",
-    "audioSha256": "3a8723c4bf33681fa2878c4a13cae14a737eaf61e87fddbab424644439e19f27",
-    "displayedText": "They open their eyes in the garden. Mum brings cake.",
-    "displayedTextSha256": "c0d5a2154192f5bca32c1a7218983669781a057148ddf4794c08d6c9ff25de1e",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "james-and-anna-01-space::2": {
     "audioPath": "/audio/production/en-US/guided_page/let-us-build-a-rocket-and-fly-to-space-says-james-3de8da598c.mp3",
     "audioSha256": "ca14a889186d068957d6f756c372d5095f3572b4b5b7a8afd3cce497c8e6c8b6",
@@ -7135,13 +6925,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "a17b4bd364d941909658164c4bd4b19e6b20eeb8bc89d8c01b1a6036405ddbc7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "james-and-anna-02-chips::7": {
-    "audioPath": "/audio/production/en-US/guided_page/then-chips-pulls-free-and-crunches-through-a-neighbour-s-rose-bush-bee2b28765.mp3",
-    "audioSha256": "23e4c54b91004eccffebeb5220185189ac44ca7c0248cf4ec27e66e667da672c",
-    "displayedText": "Then Chips pulls free and crunches through a neighbour's rose bush.",
-    "displayedTextSha256": "2d78ae0ff9fb5a3e796016b737cc28f0231fe81364a9b22654db6a256f924489",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "james-and-anna-02-chips::8": {
     "audioPath": "/audio/production/en-US/guided_page/anna-stops-him-and-checks-the-silly-goat-is-safe-02d5e5bf28.mp3",
     "audioSha256": "3c51e850edad491c972a230ececb7a0171aea91d53be582551655347031be0fc",
@@ -7154,13 +6937,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "e9f8dc8416ef9c2d9121a0bd18f4396a880d55a2ba4607b3ce1fc0e3fc9b390b",
     "displayedText": "At home, James fills his bowl with grass and apple.",
     "displayedTextSha256": "06291c1c897d4044333e74bbb099662230f5be141b062d48c5d6b3cfe4e8af3a",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "james-and-anna-03-shopping::1": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-needs-help-bringing-every-item-on-her-list-home-cb0d807155.mp3",
-    "audioSha256": "e39c04cef4669fbce78e924086bb9dcb3ba4ce5b0a1f5791623afb009b12b5c5",
-    "displayedText": "Mum needs help bringing every item on her list home.",
-    "displayedTextSha256": "7e9589a3c9302d8dc0f9eac44894d5fb3bda14af3e5be721ff2b84e638675cbe",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-03-shopping::10": {
@@ -7233,13 +7009,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "944d0df3d0e5286e031904494138c1dbe9ee98dd36ef20644afd6f34de0a8d53",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "james-and-anna-03-shopping::9": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-holds-up-one-finger-they-check-the-basket-again-7560aa7beb.mp3",
-    "audioSha256": "6b0fb32233f4a1dce7740216e81808c2d6b360002e1b300cb539320424d36263",
-    "displayedText": "Mum holds up one finger. They check the basket again.",
-    "displayedTextSha256": "5232c0fd186ba26e425922afb9b1682954460e5e3fe8c7ca74df1e0f6b881b96",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "james-and-anna-04-dentist::1": {
     "audioPath": "/audio/production/en-US/guided_page/james-does-not-want-to-sit-in-the-dentist-s-chair-anna-is-not-keen-either-bd83eb6d37.mp3",
     "audioSha256": "bdc6dc3e1004ddc0475d6c3b25bf0d42c690df7ea5f29942087a293b212d34c4",
@@ -7273,13 +7042,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "7491a53ae3ccaeb817a65b112521ef7db4c2745a9dee0d070a9a39b1b0e6eaee",
     "displayedText": "That night, they brush for two whole minutes. Chips watches the foam.",
     "displayedTextSha256": "dde8281dba95f2abe4f03886f0d1da6e782a0b717a1f329f27321866d63b6491",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "james-and-anna-04-dentist::2": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-says-the-kind-dentist-will-only-check-their-teeth-35b0ff5047.mp3",
-    "audioSha256": "fd1ffa160cde5fc37ec599646924a38bd0aa511d430d5fff5ae9513b510eebca",
-    "displayedText": "Mum says the kind dentist will only check their teeth.",
-    "displayedTextSha256": "bc5de22d59322b2b3c32c047e05b8fe1e94624acbdc8da453ad1fa6d28f32872",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-04-dentist::3": {
@@ -7350,13 +7112,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "504cb8e8f6005aabde96745ec670d24c71f11973293fbd9bb9cc6c48b6fbfcf7",
     "displayedText": "They climb up and admire the garden from their window.",
     "displayedTextSha256": "e85a739a55c473d5a788307482204886fc7595dff4ea35261a66eee9595eda91",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "james-and-anna-05-tree-house::13": {
-    "audioPath": "/audio/production/en-US/guided_page/mum-raises-juice-and-biscuits-while-chips-waits-below-52476aecdd.mp3",
-    "audioSha256": "4495b9b3dcb3851c63a9b71f5a8c71ab758e726433814264c8b3a5c20eed1295",
-    "displayedText": "Mum raises juice and biscuits while Chips waits below.",
-    "displayedTextSha256": "a7bbf496ea0fdbefa9bc09dabecd796017879482a12b182e385cc06cd9f97f32",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "james-and-anna-05-tree-house::14": {
@@ -7576,13 +7331,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "857b4e57e6207598e551a1fd37b4fb625f0b9906309f07cabdb57bb0da5f48a5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "level-c-nonfiction-03-penguins::7": {
-    "audioPath": "/audio/production/en-US/guided_page/calls-help-partners-and-chicks-recognise-one-another-in-colonies-6dc0c7c37d.mp3",
-    "audioSha256": "61224e87cc961cbcf03315a78e2ab2e73998eb6ee8bda857c5336028c2dfe9de",
-    "displayedText": "Calls help partners and chicks recognise one another in colonies.",
-    "displayedTextSha256": "b3ba93adb9cd7c47480e1aa29db27394285b4b122bdc9cbf1b62a7a055038637",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "level-c-nonfiction-03-penguins::8": {
     "audioPath": "/audio/production/en-US/guided_page/dark-backs-and-pale-fronts-provide-underwater-camouflage-called-countershading-3ccb7271af.mp3",
     "audioSha256": "acb168ec3995885d3b48e0ec66e5ae6826526482ae779110b13c725369337c5f",
@@ -7651,13 +7399,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "2c1300baa6dac95b65a16aa9d2c260678c96c072e62765f3233b77b12722ed32",
     "displayedText": "The Moon is about one quarter as wide as Earth.",
     "displayedTextSha256": "7af0e7af758779b547bce8d86b55ad6bcfa04fe2bc4408285eb143d79fd8f13b",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "level-c-nonfiction-04-the-moon::9": {
-    "audioPath": "/audio/production/en-US/guided_page/visible-or-hidden-the-moon-continues-travelling-around-earth-7c2740247b.mp3",
-    "audioSha256": "3791b0664bb92ecb11b29c77581d2c51a7e4eec5c2aa226f63aac74fb0d3371c",
-    "displayedText": "Visible or hidden the Moon continues travelling around Earth.",
-    "displayedTextSha256": "0cfaf53d8cff4eede59c818e07242da723a1f42df7ec5ed1452a6f90b80ea3d5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-05-how-seeds-grow::1": {
@@ -7793,13 +7534,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "68b67ceacb7f155c342550f87bdfbe5b5ab553a75e446df8c67e7884d8b36411",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "level-c-nonfiction-07-under-the-ocean::2": {
-    "audioPath": "/audio/production/en-US/guided_page/sunlit-surface-water-becomes-colder-dimmer-twilight-below-about-200-metres-058599cf1c.mp3",
-    "audioSha256": "74e4b4e3e0a1786ef41ab1b745144015a3474bce61375a949d80f996d6395a0f",
-    "displayedText": "Sunlit surface water becomes colder dimmer twilight below about 200 metres.",
-    "displayedTextSha256": "3c544649cfa9577c81f2792955f7207e2f980ebaa3fded709932a8b5f29e6ad8",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "level-c-nonfiction-07-under-the-ocean::3": {
     "audioPath": "/audio/production/en-US/guided_page/warm-shallow-coral-reefs-support-remarkably-diverse-communities-bb878ff95f.mp3",
     "audioSha256": "e8401ca7fdf120f858d8421350900f87ffe690d0df96ed64bb138bdd875eae38",
@@ -7812,27 +7546,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "2cf7d110390fa80da7f5cad903f1ce9e166deea3830f9695a3b516db4050484b",
     "displayedText": "Tiny coral animals build hard skeletons that can form reefs.",
     "displayedTextSha256": "a1305e4cd92dacc3282fb105917e2810720e5f1033d9b4fd7126845ca7f95d7a",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "level-c-nonfiction-07-under-the-ocean::5": {
-    "audioPath": "/audio/production/en-US/guided_page/between-200-and-1000-metres-faint-light-favours-unusual-adaptations-1db522a930.mp3",
-    "audioSha256": "1db31ce5d2c9b76c9faeb2a80cdbaa981fdc04265ecdfa84d7398648bc78709f",
-    "displayedText": "Between 200 and 1000 metres faint light favours unusual adaptations.",
-    "displayedTextSha256": "66253a10b3fc11f893a929d67c70008778456aae50c07bad5833e0243e274038",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "level-c-nonfiction-07-under-the-ocean::6": {
-    "audioPath": "/audio/production/en-US/guided_page/below-about-1000-metres-darkness-makes-bioluminescence-especially-useful-bd0d6e3bfa.mp3",
-    "audioSha256": "2bb3378d94ff03c502fb37b2a2fa39c01ac26f54257b6e9a594a0db1372ff6cf",
-    "displayedText": "Below about 1000 metres darkness makes bioluminescence especially useful.",
-    "displayedTextSha256": "5debb4080cbc836eeb7359462b537c99da86b38a98e56e6a6842921ac7632956",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "level-c-nonfiction-07-under-the-ocean::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-mariana-trench-reaches-nearly-eleven-kilometres-below-sea-level-1a06ca9074.mp3",
-    "audioSha256": "e82424705d998295576173c4faa9986697a91815b27b67d62367383f5ca2e61b",
-    "displayedText": "The Mariana Trench reaches nearly eleven kilometres below sea level.",
-    "displayedTextSha256": "36b6a56367fb18fe22b719c2b34324924c7fe23d43ffc416972e2de328e0d190",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "level-c-nonfiction-07-under-the-ocean::8": {
@@ -8024,13 +7737,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "230974f27aedebbef263982cb21acaceaf666f55dcf880019c9617d78f037c72",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "level-c-nonfiction-10-frogs::8": {
-    "audioPath": "/audio/production/en-US/guided_page/variable-brown-green-grey-or-red-colours-provide-camouflage-df6f92d07e.mp3",
-    "audioSha256": "b89515d9fb7a104208f7cae2238765f39ebab2f94d04a75a7056b63515a46de3",
-    "displayedText": "Variable brown green grey or red colours provide camouflage.",
-    "displayedTextSha256": "884615f8a0f8f6d666b42b65c20a53eaeca7be59c5441645f0df825038de1bcb",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "level-c-nonfiction-10-frogs::9": {
     "audioPath": "/audio/production/en-US/guided_page/male-common-frogs-make-soft-spring-calls-near-breeding-ponds-e2b81229fb.mp3",
     "audioSha256": "ee19632e0c0ad73f10f5a2fba53e8db50dad99054190f83aa5089ceecb1b872d",
@@ -8095,10 +7801,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-01-muddy-has-a-bath::9": {
-    "audioPath": "/audio/production/en-US/guided_page/clean-muddy-joins-supper-7c977af8a4.mp3",
-    "audioSha256": "e6413c8a17f7d960a129331d63e87e12bc6e4073a71f327bb83f424b8f69ec5d",
-    "displayedText": "Clean Muddy joins supper.",
-    "displayedTextSha256": "36935ff6876f8739fd7bb63bcc891757936fe9ef43d5b645017d08c8e5f9295b",
+    "audioPath": "/audio/production/en-US/guided_page/muddy-stays-clean-for-supper-bf7ab7c57f.mp3",
+    "audioSha256": "e6ddf50c5b5f0c8d08c49189076da02adf673753f6fbacc52d6f5e56d4d0fd1b",
+    "displayedText": "Muddy stays clean for supper.",
+    "displayedTextSha256": "46e852c9f9f27754e29f62ff33f28a3f4bd6073382c0d9900d4bef7f1a05795a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::1": {
@@ -8151,10 +7857,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::8": {
-    "audioPath": "/audio/production/en-US/guided_page/the-wind-stops-the-meadow-rests-bfdcc0c81b.mp3",
-    "audioSha256": "a15c1a91f4c17f3a717c84804114658945ef743706dbbbe25ba0e4a5b140c42c",
-    "displayedText": "The wind stops. The meadow rests.",
-    "displayedTextSha256": "0ecca39bef6cb412f7a378a83d8369c148736f8f0929e61f1e7b43088e008a49",
+    "audioPath": "/audio/production/en-US/guided_page/woolly-stops-listening-eb4f72fa1a.mp3",
+    "audioSha256": "fec21d4e7432919310c9623b8f8a97a21b3e8e470890f18fc94b1913f0823da8",
+    "displayedText": "Woolly stops listening.",
+    "displayedTextSha256": "46b4526a7de9e562c48068dfa300590381dd299f4497aa32747781a73e37e651",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-02-woolly-cant-sleep::9": {
@@ -8207,17 +7913,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-03-clucky-lays-an-egg::7": {
-    "audioPath": "/audio/production/en-US/guided_page/her-egg-arrives-3ffee2dc89.mp3",
-    "audioSha256": "b1cc7dc6c250a38d605bdb9b36b91403b3d1bd83d6e8f523ba643746227a4588",
-    "displayedText": "Her egg arrives!",
-    "displayedTextSha256": "bb83248643424104910cb37b7299402d16947b85fffcbee7a49f63d5ab389f49",
+    "audioPath": "/audio/production/en-US/guided_page/her-egg-lands-in-the-mud-4f8b7b1122.mp3",
+    "audioSha256": "602bd6c68179d49c4face7c95df57ae4cae2358c71544f43aad2dcd3a87a3df1",
+    "displayedText": "Her egg lands in the mud.",
+    "displayedTextSha256": "392ed6821a158fe70f421a72f1f76d4c2303297e86f25969f6afd9ea18ef21c8",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-03-clucky-lays-an-egg::8": {
-    "audioPath": "/audio/production/en-US/guided_page/clucky-moves-it-to-straw-c68b18b8ba.mp3",
-    "audioSha256": "04e649a66b4c2138dcb5cb7692989c95a4c30a6ca4d9e887b6063138c7b8fb0b",
-    "displayedText": "Clucky moves it to straw.",
-    "displayedTextSha256": "b3840174e2425d9afdfe44d3edd15d1bf6f6bbe2333e1603f1e5f903b30947fe",
+    "audioPath": "/audio/production/en-US/guided_page/clucky-moves-her-egg-to-straw-210a71937d.mp3",
+    "audioSha256": "336caacd1af8b93fef8eb6c194702b4b61330969210420834864b2f6c6218bdb",
+    "displayedText": "Clucky moves her egg to straw.",
+    "displayedTextSha256": "834c63dd044fa05c4397cd3ad1e6a2518e4a639dff4b9f92d69f348f4276984d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::1": {
@@ -8228,45 +7934,45 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::2": {
-    "audioPath": "/audio/production/en-US/guided_page/she-hops-by-grumpy-fd3647a516.mp3",
-    "audioSha256": "e7f03324a94a516b3c035240c8042ef855ae6ccbe2fda43e77bf036293646fce",
-    "displayedText": "She hops by Grumpy.",
-    "displayedTextSha256": "a3564243129607409096ce9926c7d06f50a2758c34bc864a0d648b4501b2837f",
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-hops-down-the-path-bf7cf86e98.mp3",
+    "audioSha256": "f2e4b2d14e471460c37dffdb5f206042f5b1653949b9dacb8ab802a540674ef9",
+    "displayedText": "Bouncy hops down the path.",
+    "displayedTextSha256": "a7a12b07b36413190ca96397d5e8e9b075b35446ab2b3276816b8831063d7d4b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::3": {
-    "audioPath": "/audio/production/en-US/guided_page/bouncy-bumps-his-bucket-ad42c11a9e.mp3",
-    "audioSha256": "953bdf917855a4ae8d617eba3c29721086e5bae58059b084ac05c4e554e35e88",
-    "displayedText": "Bouncy bumps his bucket.",
-    "displayedTextSha256": "2df8e7e1058a19a3708db2ab7838fd70b686d69daff63775a4c8d14f3634a0c3",
+    "audioPath": "/audio/production/en-US/guided_page/splash-she-bumps-grumpy-s-bucket-5d03545152.mp3",
+    "audioSha256": "004deaa4910fb5d6348f6bbd86ed9acc93c7ffe53ccf25d1a5b02b652cd15b49",
+    "displayedText": "Splash! She bumps Grumpy's bucket.",
+    "displayedTextSha256": "503a31f5a2c8a217e4aa4061e8af1588618a61cd6c8a1954dd79f4d22e65c910",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::4": {
-    "audioPath": "/audio/production/en-US/guided_page/she-hops-by-clucky-05760153e1.mp3",
-    "audioSha256": "6d0aecb3fab1368d348e9e092f695ff1003879594e86c2d55667bdb5c70fbcc0",
-    "displayedText": "She hops by Clucky.",
-    "displayedTextSha256": "fc4b6683fdc43cc5775c7851ad7c68669f6e44ebc4f2b7ef3baeea48ae3b8aaf",
+    "audioPath": "/audio/production/en-US/guided_page/clucky-tells-bouncy-to-stop-bb8ea7665e.mp3",
+    "audioSha256": "a7c27b542c4da35331bf508b75a1f90429b3fa65d80f89766a4fcfb51d5367c9",
+    "displayedText": "Clucky tells Bouncy to stop.",
+    "displayedTextSha256": "ea5578684bddaea5151ab81c20049768de97cb893f9fee12ed09fa24d0601c5b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::5": {
-    "audioPath": "/audio/production/en-US/guided_page/bouncy-bumps-her-basket-b951405d0a.mp3",
-    "audioSha256": "44df8ce79b47212b153f051cebbd5d5a94bb83c0d46aff2ca24fe940716e70dc",
-    "displayedText": "Bouncy bumps her basket.",
-    "displayedTextSha256": "9cfe4eb17b23d41f8d9a074215d0dc20ec6f017cf4511ebb3bc8a5a8a951f4e2",
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-bumps-clucky-s-basket-67afa7178f.mp3",
+    "audioSha256": "a189d9209a6b2fcce7efe736fdff4c624ec78194d8cb7b0b047e6041c0df8fd9",
+    "displayedText": "Bouncy bumps Clucky's basket.",
+    "displayedTextSha256": "76cbe6c1c7a66c6dcdd249b3a667d855fc2a54cdf8b29f45f3faba56c8a3f28f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::6": {
-    "audioPath": "/audio/production/en-US/guided_page/bouncy-stops-and-looks-c84c8299bd.mp3",
-    "audioSha256": "5407d7d46e66803e94ec5378bc3d04d1dc28ec3fca7860c22607bfccd5576de5",
-    "displayedText": "Bouncy stops and looks.",
-    "displayedTextSha256": "cd793c7b3d4af71a19abae372186f44c5bbef073e219bd0addbb1e6d8abfb81b",
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-stops-her-friends-watch-098dc8a873.mp3",
+    "audioSha256": "7b897fe4724673db1c26771efffd00788b56c223e2d4e60d9e1cc92c89d27867",
+    "displayedText": "Bouncy stops. Her friends watch.",
+    "displayedTextSha256": "96e25986c520f70c5c586811c51c4005bc55c54d06407db60db2721806d0fc44",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-04-bouncy-wont-stop::7": {
-    "audioPath": "/audio/production/en-US/guided_page/she-hops-in-the-field-097d220cce.mp3",
-    "audioSha256": "623200b6b096500b8bd747cb2f8be60c09d4751330932360aa3333a9ea023877",
-    "displayedText": "She hops in the field.",
-    "displayedTextSha256": "14c41d955aa622ab81e9d714ef2284d2d3225387b53249975907a81714c79636",
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-hops-by-no-more-bumps-0ab234dbc1.mp3",
+    "audioSha256": "1abdcbde70b9c5fc5c7a2180b05861dd694fc7299e5844b07d02f4fa91f5fbe7",
+    "displayedText": "Bouncy hops by. No more bumps!",
+    "displayedTextSha256": "1f2c83df8edbdecc592d6fa559537efeff37a71348266279c6101eedd2a0caf8",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::1": {
@@ -8277,24 +7983,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::10": {
-    "audioPath": "/audio/production/en-US/guided_page/quiet-cake-makes-grumpy-smile-deaa47385a.mp3",
-    "audioSha256": "8ad1c2053645a8ccc6bc5b0f2e83b0ad875da4947c324f072a44902faa734553",
-    "displayedText": "Quiet cake makes Grumpy smile.",
-    "displayedTextSha256": "cef60c8182926af9e2531f37418c9c124857ebe195b93b83e90330de372a6b3d",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-smiles-at-his-friends-a94bcd502e.mp3",
+    "audioSha256": "45a63b962e3fda1eddf44f4cd75269d83852349413416885ddcf195ff165bd12",
+    "displayedText": "Grumpy smiles at his friends.",
+    "displayedTextSha256": "9f6a61e9fb2bf3fcaeae95837eda9d6685f77b9ca955c758e7586b8c88b08bfd",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::2": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-dislikes-birthday-noise-69ed1809ff.mp3",
-    "audioSha256": "8b75ad4f7669bbf0de5844df884f3e29a88c1f830f61b43104f0c1dbfd897ccc",
-    "displayedText": "Grumpy dislikes birthday noise.",
-    "displayedTextSha256": "5c2eed6e4ddf72d117df92fa0bb7fca5d071bccf1e4a608fb56c1dad2695e8fb",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-does-not-want-noise-7426ff7273.mp3",
+    "audioSha256": "fe1a62d03de98a9764a4860a2d7520cf27f1da48200ef8ae317a8f3a6401a467",
+    "displayedText": "Grumpy does not want noise.",
+    "displayedTextSha256": "f681eb5fda46cfa8140eb74c0aeabc3770fc3189f820b007fa069c160d3fac3c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::3": {
-    "audioPath": "/audio/production/en-US/guided_page/he-pushes-away-the-hats-eaa1702769.mp3",
-    "audioSha256": "21aa84a4a5b5310a3e0b4e07356ef30e5b30c395bc516ad8369523432d562f46",
-    "displayedText": "He pushes away the hats.",
-    "displayedTextSha256": "1a75cd7744d69b7d9c1ab721225c9c94087ea3fcfcd2084835e6e0a30f1ccca0",
+    "audioPath": "/audio/production/en-US/guided_page/he-pushes-the-hats-away-b54e2aadc7.mp3",
+    "audioSha256": "d4c385c3390436c92cbe3aa4d021bbad7bf3aa4be9b39f482d6548cf78f6aed4",
+    "displayedText": "He pushes the hats away.",
+    "displayedTextSha256": "f1a6c139ccdc56fc93c60196de1a730190d9300d31365a4d1031ad842b72f0c3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::4": {
@@ -8305,45 +8011,45 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::5": {
-    "audioPath": "/audio/production/en-US/guided_page/the-loud-surprise-fails-5348dfc216.mp3",
-    "audioSha256": "31b0e22772fa7423fb068f1b526625cee8748b22e9b4829d21771bac6bfd508f",
-    "displayedText": "The loud surprise fails.",
-    "displayedTextSha256": "8d9fffdbb31ba48c82918435f673ad9900018fae52992c79d9e9aa900990d69f",
+    "audioPath": "/audio/production/en-US/guided_page/his-friends-wait-by-the-barn-1c92a7ab34.mp3",
+    "audioSha256": "ff679630f64cf6bf811563d514679e4ef2f836f2a32e5f7180a92fc34d9a5a04",
+    "displayedText": "His friends wait by the barn.",
+    "displayedTextSha256": "cc8bf7ef3b61004021bbac32c32b2a2e68eb863936ee8f7adea050f5429c43d9",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::6": {
-    "audioPath": "/audio/production/en-US/guided_page/tiny-brings-quiet-cake-b2381e5245.mp3",
-    "audioSha256": "8e03069b077e1740326c09a075c04a09f3eefa758307d064aee8f3de00494b8e",
-    "displayedText": "Tiny brings quiet cake.",
-    "displayedTextSha256": "4a49763221af8ceeef96b6494c53199dd4dbd90586d31d395325376ec684f16b",
+    "audioPath": "/audio/production/en-US/guided_page/tiny-brings-a-small-cake-ac436b7f71.mp3",
+    "audioSha256": "9cd1e97d9ca9d00ac54c2eda1461c30f31810a06c9044fd2fa390160ced4c7ee",
+    "displayedText": "Tiny brings a small cake.",
+    "displayedTextSha256": "05358c51cd51859a7b3c9ea17cd99a2212fcc6c770431c8036888b29488c2abd",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::7": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-tastes-one-bite-1cccc07dd4.mp3",
-    "audioSha256": "d0a76a2bc788997d37ebfbd61b2a4a4a96ae5a7a269c93a8763d6c3048243705",
-    "displayedText": "Grumpy tastes one bite.",
-    "displayedTextSha256": "aac95a9cef96d999ad3314c5d459e9cba4d38f3bc1d55150db66e6579085f329",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-tries-one-bite-a619006554.mp3",
+    "audioSha256": "3a7c0029b26ca10b38891cb79f93449bff39179a24b07725fd21be3eb5cd7d3c",
+    "displayedText": "Grumpy tries one bite.",
+    "displayedTextSha256": "9dfea780857df55042a4cca62901a4b0e82fe76dc42686b5af6faa3b33744147",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::8": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-takes-another-bite-3ee9c27cde.mp3",
-    "audioSha256": "3074554c1271377fb35667d334418157f2bf9d9c2206ca3e0f1f151b7cb0d775",
-    "displayedText": "Grumpy takes another bite.",
-    "displayedTextSha256": "13778aff37277f84143df06335e512f5ea53fbe18d76b4867e88c1476b1a0d21",
+    "audioPath": "/audio/production/en-US/guided_page/he-asks-for-one-more-bite-816d08312f.mp3",
+    "audioSha256": "52f1682e2dd7d0c1cdef2b103b2fff6573774be6854cf2c1714d0943614b4dd8",
+    "displayedText": "He asks for one more bite.",
+    "displayedTextSha256": "d5253d911153c5cb5f2c97e2d06d27ad5fde4a6bbe40037d3c5aecfa374c5117",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-05-grumpy-gets-a-surprise::9": {
-    "audioPath": "/audio/production/en-US/guided_page/the-cake-is-nearly-gone-4f2a4b0d2a.mp3",
-    "audioSha256": "b50484e78a0429e62a21b149d180aea71332232b2e1e43b206fad4893fa1cff3",
-    "displayedText": "The cake is nearly gone.",
-    "displayedTextSha256": "1f2fd60e5693180cff65d7345e7ef6775b4fcf07f44596e073a1b65832ff2a06",
+    "audioPath": "/audio/production/en-US/guided_page/the-cake-is-all-gone-1566a891f2.mp3",
+    "audioSha256": "0a21a106b342f402778e75e17c6068d12664554e22dccd1ee3f84a8a21e83a05",
+    "displayedText": "The cake is all gone.",
+    "displayedTextSha256": "3a8207d99401ccfa185d6b6059bcf43fceeb21b80933505ba231567b9d3398b5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::1": {
-    "audioPath": "/audio/production/en-US/guided_page/breakfast-is-ready-6351a3dd40.mp3",
-    "audioSha256": "45100c115496b83e98d6f71ec028365001b4ed4635ff387489b52817d51620d3",
-    "displayedText": "Breakfast is ready.",
-    "displayedTextSha256": "60c71bf2db9241c2f1bed2f3eb4b73859a2fe88051617563b88cb5708ac8c59e",
+    "audioPath": "/audio/production/en-US/guided_page/hot-toast-is-on-the-table-e3f001e201.mp3",
+    "audioSha256": "69ad1a518d079d59cee25d4c4d7d34d1f09fc93223947d25cc07f6a4c7145b55",
+    "displayedText": "Hot toast is on the table.",
+    "displayedTextSha256": "e29b7fc7bd7dcf4ddae27348ebe2a8ae22d54ecbabad8581bf9fe4868c3eb4ec",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::2": {
@@ -8361,10 +8067,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::4": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-stays-asleep-4d64bab619.mp3",
-    "audioSha256": "0d8e8b5810317700f58b5e297776f71f70fecd18cc61386c1f114473978846d5",
-    "displayedText": "Sleepy stays asleep.",
-    "displayedTextSha256": "377cf8e7aed9269c9c0f0cde00ca6ea5cc3b5e7d8f1815f6dd54ab1bd43854ff",
+    "audioPath": "/audio/production/en-US/guided_page/sleepy-stays-in-bed-f27c362112.mp3",
+    "audioSha256": "76afffba930ce1138053728d33a3aa9d632d3e0d937c4eb44b6fd45da1031699",
+    "displayedText": "Sleepy stays in bed.",
+    "displayedTextSha256": "87e646778254f1f45358ff4dd8d5746f4a1bdb26baa77f8a1481d229c41176c7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::5": {
@@ -8382,17 +8088,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::7": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-shouts-too-loudly-ab12e278ef.mp3",
-    "audioSha256": "ab2b170a5d0a66f333b81cceaabab20353d277735c4d68341c5561cc9516d59e",
-    "displayedText": "Noisy shouts too loudly.",
-    "displayedTextSha256": "12acb64628e6322c9dcb8ed8280272d00bce0d7f0cbe98643671322455377142",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-lets-out-a-loud-call-89d40fe2d1.mp3",
+    "audioSha256": "e67589671c820c31acfc00df7ec2e7d823d5d19e50422877567ea4c9bf463e10",
+    "displayedText": "Noisy lets out a loud call.",
+    "displayedTextSha256": "4467dfc04bb1eb590b22f572abfc3285076675e4e91b3d2c5787836bc94184aa",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::8": {
-    "audioPath": "/audio/production/en-US/guided_page/breakfast-smells-reach-sleepy-b7b7a0ac93.mp3",
-    "audioSha256": "55fae8062552efd17a1bcd4567d148cd1e4abd47bb7cc8be00a5332055f21022",
-    "displayedText": "Breakfast smells reach Sleepy.",
-    "displayedTextSha256": "5c9c85f46ac141e8cb1891eb90d54e8bb01b716096c17b92cee66a3028010f79",
+    "audioPath": "/audio/production/en-US/guided_page/sleepy-smells-hot-toast-aa8bb955e1.mp3",
+    "audioSha256": "e39a20ffb92c3a8c059fd61e37770d2b17eee6bdf6201399c494879686e49857",
+    "displayedText": "Sleepy smells hot toast.",
+    "displayedTextSha256": "97f6ae890f6856caf23c19667d6b24bf4def1c8c7f4d9712416eaa4ab10d62f6",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-06-sleepy-cant-wake-up::9": {
@@ -8403,10 +8109,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::1": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-needs-quiet-4cc1f3dc03.mp3",
-    "audioSha256": "4bcbb5b8f5fea789b74c12dcd3c5e0f803b1bfae65d63aea53e653f0a9c2b3fb",
-    "displayedText": "Sleepy needs quiet.",
-    "displayedTextSha256": "a7c6fc5bafaa64667420c5f4d79d5df8e646f40a300a1343a51e88ddf62b63f7",
+    "audioPath": "/audio/production/en-US/guided_page/sleepy-needs-quiet-to-sleep-b793761d6a.mp3",
+    "audioSha256": "66739d918cc385536c62f51833b4ac6c5a8d221434c7a60d323c0404321bef9f",
+    "displayedText": "Sleepy needs quiet to sleep.",
+    "displayedTextSha256": "cab379172c5cea0fa474d4a2576c9add1e25fc94c3a8133fb075b80540930fe5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::10": {
@@ -8417,10 +8123,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::2": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-closes-his-beak-e646f437b8.mp3",
-    "audioSha256": "d2b33ecd7ac40832ef7fd9d16bcba58641b2c4de3c922bafd55bea58da9f0616",
-    "displayedText": "Noisy closes his beak.",
-    "displayedTextSha256": "7841cfe66dff5e741ce2a23105b45d342acc097a63db5e1da59277f490e4eb6b",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-shuts-his-beak-c0c7b00372.mp3",
+    "audioSha256": "68b47bf5ed53543269ea62e75aa7fb7c955c8883aac66e4b4e50cb028526573e",
+    "displayedText": "Noisy shuts his beak.",
+    "displayedTextSha256": "2d01a471f705bfc58487b9acf75b49b4f25154bda4a14e68cf42035e6efe6e5e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::3": {
@@ -8431,10 +8137,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::4": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-yells-very-loudly-237869d28b.mp3",
-    "audioSha256": "d5f3e365d4376943c3a6fdf5d0df5c50b3679fcf54d019c395be7c2d1cd80587",
-    "displayedText": "Noisy yells very loudly.",
-    "displayedTextSha256": "932ebbb93a0fa3798f440adfc919881c1af7619ee28a7f10935f9e0f056b14de",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-lets-out-one-loud-yell-a4c98c1c17.mp3",
+    "audioSha256": "86603ff504bd2d13d0f5065533f9575331e0de7f43efb0d28e4bad4a50963312",
+    "displayedText": "Noisy lets out one loud yell.",
+    "displayedTextSha256": "d5d3a3d148280f5942e4eb38196af6ed638613fb25b447e1fb8e497e9d6403a3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::5": {
@@ -8445,24 +8151,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::6": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-tries-again-db4c3d94c7.mp3",
-    "audioSha256": "77af0a9265744c2e4d96e4443b4ade2461ea1281023d3f94c319edcc9b30812a",
-    "displayedText": "Noisy tries again.",
-    "displayedTextSha256": "ba81003e39bb52b5e0c40bde3e38e6aee1b90a25e98647c29de36d2a61f81b6a",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-tries-once-more-24639eec87.mp3",
+    "audioSha256": "41b3eee19a410dcce81c6399aa3b7838422fb928e5618623017f2dcdcfdf9dc0",
+    "displayedText": "Noisy tries once more.",
+    "displayedTextSha256": "eebb02c52616df78ecd22a85a8247a1f8b98276d0d7377829365c75e3343e57e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::7": {
-    "audioPath": "/audio/production/en-US/guided_page/a-worm-wiggles-past-fa54f9a463.mp3",
-    "audioSha256": "235023d9c18da6eb74c2ef0f3e7410ffc0d5017c9409ca3299bdbad37bf4dc6f",
-    "displayedText": "A worm wiggles past.",
-    "displayedTextSha256": "7fa6e62ef2b4485579a33a119078e8ba3d9e6a09804121970419b4f1b34ae135",
+    "audioPath": "/audio/production/en-US/guided_page/a-worm-crawls-past-482d11bece.mp3",
+    "audioSha256": "ef6ef3ec2cde8b426cd1c3089a215b6553fc1f0c37ac92bf36a5759c19655b85",
+    "displayedText": "A worm crawls past.",
+    "displayedTextSha256": "1064e3e98045f8b7ff8cbee50fae826dcca0bf4bedc170f9d8798686ae86d692",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::8": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-whispers-about-it-5cc3b6162e.mp3",
-    "audioSha256": "9d54284c897652f4bf1f4e2441feb9b2f92a80c9eece08b5a227214a776103ef",
-    "displayedText": "Noisy whispers about it.",
-    "displayedTextSha256": "377421a4d6af229454ace3625708415e064d1cf94f727e782b8d2a0b545c85d0",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-points-and-whispers-b78b8c3d4e.mp3",
+    "audioSha256": "bc4303410ac87de62358213121f2b91835fd6cecb2a8997854dc95f4d6542ab4",
+    "displayedText": "Noisy points and whispers.",
+    "displayedTextSha256": "82b47675e334030621166ffce9e5153b802b3d2033ac24f891a1faf8653a4db0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-07-noisy-tries-to-be-quiet::9": {
@@ -8529,10 +8235,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-08-tiny-is-very-small::9": {
-    "audioPath": "/audio/production/en-US/guided_page/tiny-brings-back-the-key-edfa96e4cb.mp3",
-    "audioSha256": "a12acc503941ad1ab57135794750cd121611399df40163ad000ca92bf3c685be",
-    "displayedText": "Tiny brings back the key.",
-    "displayedTextSha256": "70ea9dbbccb507d6955b1707a007d278b80563dd45fdb0cc790b80c4bc476d5a",
+    "audioPath": "/audio/production/en-US/guided_page/tiny-brings-the-key-all-cheer-b29afca379.mp3",
+    "audioSha256": "1303a174059b887f74586f9d351eb091ae214b42200f67705dbb67695901665b",
+    "displayedText": "Tiny brings the key. All cheer!",
+    "displayedTextSha256": "4e1ee9c676da8d1422d4bc6b83ffb213472d50e145909e14e80e03544eb16a77",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::1": {
@@ -8543,59 +8249,59 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::2": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-waits-behind-the-barn-53a3ddb316.mp3",
-    "audioSha256": "1ffd67544dad9883a376fbb33983a4dc54039d5f7f8aeac81e084680f4011d94",
-    "displayedText": "Shy waits behind the barn.",
-    "displayedTextSha256": "aae370563a057c5f29ded87396eb6e93bc026fdd10d96e7e3e96accccd7a4f70",
+    "audioPath": "/audio/production/en-US/guided_page/shy-waits-by-the-barn-5fe994e2c4.mp3",
+    "audioSha256": "b8a89e46a1f4e6f676fd86a60548e2ed76aef72be77a9f92846ef3e1bd5c66c5",
+    "displayedText": "Shy waits by the barn.",
+    "displayedTextSha256": "8397b640b1ae8f2431217d82443e172334383addb4ba061d0e3c9b62de232907",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::3": {
-    "audioPath": "/audio/production/en-US/guided_page/bouncy-rushes-over-600f161e5a.mp3",
-    "audioSha256": "245f530a5bedbc0d4ed210fba47ac1f6e048a50b9382c388b2bf97510650edc1",
-    "displayedText": "Bouncy rushes over.",
-    "displayedTextSha256": "12e7e0de562cfbaf8cf0b74ab4325d869ba8e8923a4ee11eae5cdfc6fa2eea26",
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-runs-up-5fab64135b.mp3",
+    "audioSha256": "9fe0817a380c4385e896e5b6ae6f99f1f5aa6c67ad85fb530918ce126240cafb",
+    "displayedText": "Bouncy runs up.",
+    "displayedTextSha256": "6d607f695cf13f5a83eddd70621bd33de26a77bfa77bda168842a87fb08d528b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::4": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-hides-again-b55f349f19.mp3",
-    "audioSha256": "a6f3ed27c4fce106568703e7ac5baedfaba4cb32ae147c589707b90f1955f80f",
-    "displayedText": "Shy hides again.",
-    "displayedTextSha256": "2051667c53e45cc67a729b07cc46b9e94c74bfda9bd119e8be3db384ed6cefba",
+    "audioPath": "/audio/production/en-US/guided_page/shy-goes-back-in-8103e71991.mp3",
+    "audioSha256": "c65045fd0ac81f3fdde563f001295e8bdd0596d5fb59f91fc1020e8fef0d24f0",
+    "displayedText": "Shy goes back in.",
+    "displayedTextSha256": "d1afb0234b44161e869d74c909ebec99ffe5526e26bd8e53c165db1649223924",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::5": {
-    "audioPath": "/audio/production/en-US/guided_page/cuddly-sits-nearby-4231825f72.mp3",
-    "audioSha256": "091d7e11b51c1abbf09201687883474c8d2771b98978a953945a4db9ee787551",
-    "displayedText": "Cuddly sits nearby.",
-    "displayedTextSha256": "31cfec8b6ddce69802d052a8a8559eb60f08187a7a4624c5a143bdceb4036792",
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-sits-near-shy-0b40be6bd7.mp3",
+    "audioSha256": "603b69d6d9ec06a6eb691ab7269b4bb5e1a3e3827561521d6cfca6cd0af145ae",
+    "displayedText": "Cuddly sits near Shy.",
+    "displayedTextSha256": "8312834ec724225e85b62ceceb7c3fc8b38cad3fdb2af2b93abac00a17532a26",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::6": {
-    "audioPath": "/audio/production/en-US/guided_page/cuddly-waits-quietly-44a81ca2db.mp3",
-    "audioSha256": "d3b9b67c58b85c748c934b98661d3eac4ed50b71644f9c55f55e440fb2d5ac1e",
-    "displayedText": "Cuddly waits quietly.",
-    "displayedTextSha256": "6e36065ef2ea7674aabfdf843817bd6a52334828dc310fd6625687806ff6a8cb",
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-stays-quite-still-f6aab7f278.mp3",
+    "audioSha256": "6618365fe5a430b8c2b1b6287f583e6e11c3fc4bb55735cf40ea3f72fd6e9184",
+    "displayedText": "Cuddly stays quite still.",
+    "displayedTextSha256": "8bc95113e5e63df1293f26e417af4dfaa7f682fb6ef1d2662006e280afde5035",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::7": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-steps-outside-f540dc8e40.mp3",
-    "audioSha256": "6af7f4c22290d43e74ab2c1acf60e67f1a450cf6a362bc61448ef95fac0b9a82",
-    "displayedText": "Shy steps outside.",
-    "displayedTextSha256": "fa90e54a3696b345524027b7e5307c831f6e497d01f48895555b5d3b4a0ef34f",
+    "audioPath": "/audio/production/en-US/guided_page/shy-steps-out-b91b9c42a1.mp3",
+    "audioSha256": "263a8f8205c8c967a05c2d1ad4cfada1c3064e48bbfcebe4713872c492a19b73",
+    "displayedText": "Shy steps out.",
+    "displayedTextSha256": "a93d8b2ae2d7ff45ca186fb8f2d0bb7148fe29c70020a08cad3749b5a8a67772",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::8": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-sits-beside-cuddly-1d0243a07f.mp3",
-    "audioSha256": "0ef3645dda28daa8289e694b54c142502cb2d861ca48999dc81ee8f9566cb8b7",
-    "displayedText": "Shy sits beside Cuddly.",
-    "displayedTextSha256": "cc18e6bfb243bd5176f95f00fb45d5fbd7bd70db48828ee4dabfa2fb68fce018",
+    "audioPath": "/audio/production/en-US/guided_page/shy-sits-with-cuddly-caff7c4a12.mp3",
+    "audioSha256": "f01e6a6b93fc7544324e62d19f4b14c913c8806654222c0c0e75044f465fd294",
+    "displayedText": "Shy sits with Cuddly.",
+    "displayedTextSha256": "2f1d2a62b360168f50cc9f60c541b48d21f792af1ae40864f48cd38b3095d042",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-09-shy-comes-out-to-play::9": {
-    "audioPath": "/audio/production/en-US/guided_page/they-play-together-817db62283.mp3",
-    "audioSha256": "8e3641bd6bf598bd1f048522e4df1145b6488f8b0ec2f35750225e3b01f86517",
-    "displayedText": "They play together.",
-    "displayedTextSha256": "7116f76fa032c6cf2f3444cdeb0ed3a3a2f89e6c42678bc41c552671a2eae4f7",
+    "audioPath": "/audio/production/en-US/guided_page/shy-joins-the-game-ff883272e4.mp3",
+    "audioSha256": "2f098d18c6242f4b20fe6f1435997f95d0cdb1f4c069bc0f6ba87175aad955c0",
+    "displayedText": "Shy joins the game.",
+    "displayedTextSha256": "3ed2d4c47e5903178f1ddcaf6655aef35f9a7ded073d964f0fe55ffc9366526d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::1": {
@@ -8613,31 +8319,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::3": {
-    "audioPath": "/audio/production/en-US/guided_page/giggles-make-them-bigger-2e5e7c8d59.mp3",
-    "audioSha256": "eb07a2f67f8d39e4bba5b60214c4ee60887f4c976614a569687e047c8cc0dc22",
-    "displayedText": "Giggles make them bigger.",
-    "displayedTextSha256": "05543795726f3d59b7b887aad69b1ba7b65d873a5b9d7bf7004661f7ea04f43a",
+    "audioPath": "/audio/production/en-US/guided_page/her-laughs-make-them-worse-7a0a584ee6.mp3",
+    "audioSha256": "a11d534c956b7fce874b4bca7efc5c6b4a9c77af8a59be5c67ac8012b7d6a090",
+    "displayedText": "Her laughs make them worse.",
+    "displayedTextSha256": "0451d7bb87565a27dc4c23a38be200ba9bde7872bb4424965fb48557d5cc31f0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::4": {
-    "audioPath": "/audio/production/en-US/guided_page/a-drink-does-not-help-9b1bc2d809.mp3",
-    "audioSha256": "fc9c7d0a6a8907b8ed78afc9fe5826dc2c6105849679b57bf00f96b8cd42f8db",
-    "displayedText": "A drink does not help.",
-    "displayedTextSha256": "b9f71059da8b0bb88c96790e21bb94e3542432e44a9269382721b8a2e8899b88",
+    "audioPath": "/audio/production/en-US/guided_page/a-sip-does-not-help-2ddaffedfc.mp3",
+    "audioSha256": "fdd54afcbc5a3b9e6f746218e6a88cf61981f29e65098f84a54c769cc04d3eb0",
+    "displayedText": "A sip does not help.",
+    "displayedTextSha256": "d7f6b69486fe1d316986112e9b6d2da882926817be0163d99b94a3d348fc41a7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::5": {
-    "audioPath": "/audio/production/en-US/guided_page/jumping-does-not-help-c46a50e6d5.mp3",
-    "audioSha256": "4e274188dca5fc276eea2d50428c09517dc61c49c8374ba68811ff42c5e4876a",
-    "displayedText": "Jumping does not help.",
-    "displayedTextSha256": "3080c687c3588263418a0558f53236197c09405c5fbdf1da8ebe7f463c3e8375",
+    "audioPath": "/audio/production/en-US/guided_page/a-hop-does-not-help-3959c037b7.mp3",
+    "audioSha256": "5fc4a11bcfe2d855d392e19ec5b50c1d2eb8792c6c9453269c943c968fb2f918",
+    "displayedText": "A hop does not help.",
+    "displayedTextSha256": "5cb10eca41e91644b8e10a708acaf185394024c2614c1120d5af8eee87c0fc78",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::6": {
-    "audioPath": "/audio/production/en-US/guided_page/giggly-breathes-very-slowly-6a62deb5ee.mp3",
-    "audioSha256": "874f5320398ef1a3d74915fb03caa80d406ccea881898d4d23fe456c5bfb180b",
-    "displayedText": "Giggly breathes very slowly.",
-    "displayedTextSha256": "3525b22754d3c50b66d218e25040890286974844ab1ad2f7f466b7bb8182cd1f",
+    "audioPath": "/audio/production/en-US/guided_page/giggly-takes-one-slow-breath-d81cf44909.mp3",
+    "audioSha256": "3276254ca5c19754e5642332ec7011f19349f994373cb1be84c0b8cb90ec0e4a",
+    "displayedText": "Giggly takes one slow breath.",
+    "displayedTextSha256": "cf370076f1029dbc355ea5fe22013276319f3c776e8185bedccfbeec63dfc97c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::7": {
@@ -8648,17 +8354,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::8": {
-    "audioPath": "/audio/production/en-US/guided_page/one-small-hiccup-returns-0002a1a0e3.mp3",
-    "audioSha256": "1fddb90d92fef64be467c1bcd1e276c3e8b7154e53a859098e49ce704abe7998",
-    "displayedText": "One small hiccup returns.",
-    "displayedTextSha256": "4a23fbb3829efc6612f6961a7bdfadcf9d3003ae35b59d498bd3b6dd86f95e74",
+    "audioPath": "/audio/production/en-US/guided_page/hic-one-pops-back-out-29ff493bf3.mp3",
+    "audioSha256": "f4ca6988ed32bc9b5d31c5a9a12ad866c36bcb2682d947f1b729a10ed502aa8a",
+    "displayedText": "Hic! One pops back out.",
+    "displayedTextSha256": "c1558beae4c0fbea4a498280f369b25a4bdb21754b60a576dbb9489d8f5de3bc",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-10-giggly-has-the-hiccups::9": {
-    "audioPath": "/audio/production/en-US/guided_page/giggly-breathes-slowly-again-206cb987dc.mp3",
-    "audioSha256": "919798ef40980d1d33526c601ab40fda2b8a377d3e7861717e0f38d9e061e4f7",
-    "displayedText": "Giggly breathes slowly again.",
-    "displayedTextSha256": "66c6df51183d41c5e4e4eab1c3fbdbe0d72370760ad2618c86ccb54a3d4a6dde",
+    "audioPath": "/audio/production/en-US/guided_page/one-breath-the-hiccups-stop-again-756e1deb29.mp3",
+    "audioSha256": "f04150d9a3bd1dc5580fcab12db65c4723bdc8a949a5f388eeab6d38e3c10538",
+    "displayedText": "One breath. The hiccups stop again!",
+    "displayedTextSha256": "1cbe2ca400be9738b2cd7295b11218ac79e824ab687092bab166f4ad2072d1be",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-11-brave-climbs-the-hay-bale::1": {
@@ -8725,10 +8431,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-11-brave-climbs-the-hay-bale::9": {
-    "audioPath": "/audio/production/en-US/guided_page/brave-stands-very-tall-af86e0bbf8.mp3",
-    "audioSha256": "cd7a90ad2b0b2dfa4b39a1fe9869b7fc420dbc4fc939585b45c1ad9ce1f175bf",
-    "displayedText": "Brave stands very tall.",
-    "displayedTextSha256": "0de878039d93de8ad663a7cade43bb71ec370e6277235d033360b8152a6bd0ae",
+    "audioPath": "/audio/production/en-US/guided_page/brave-stands-tall-at-last-843642416a.mp3",
+    "audioSha256": "0adf1fee6df6dd1ef338bb06f58b602413cc0181d8f0b33052e745e8121775f2",
+    "displayedText": "Brave stands tall at last.",
+    "displayedTextSha256": "83926152a9ea253f920ca50ce062c6f960e53f4efd54add27fcf7f9d5c9058be",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-12-hungry-eats-everything::1": {
@@ -8774,10 +8480,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-12-hungry-eats-everything::7": {
-    "audioPath": "/audio/production/en-US/guided_page/hungry-feels-full-now-9939fb222b.mp3",
-    "audioSha256": "5d3e9d1d60af647eda8238fc2a3c137622e0009d639f67b0beb9da8239b23ebb",
-    "displayedText": "Hungry feels full now.",
-    "displayedTextSha256": "b556878c45ea556e7d6ca5e974872fc5ff1166a767db1b29116ce6cf65a646f6",
+    "audioPath": "/audio/production/en-US/guided_page/hungry-feels-full-and-happy-now-29c2190efc.mp3",
+    "audioSha256": "3c8c1eee6d3f4635f97ce73eeaae7ce821385f1ed532b016d72efa5ed1e80f6d",
+    "displayedText": "Hungry feels full and happy now!",
+    "displayedTextSha256": "ba71687dcc72932eb850fb528ac747aa79806f083275dcff934449a09afa2263",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::1": {
@@ -8788,101 +8494,101 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::2": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-wants-a-bigger-splash-60c4ff7fdb.mp3",
-    "audioSha256": "aaa59b4837fe6dd871c24f89f5cd1912ef3ee58293a492a1491a682012de6854",
-    "displayedText": "Splashy wants a bigger splash.",
-    "displayedTextSha256": "45cd9165e2602f96a29e36f24e5976a5f364fb13f425b2b6c5e80d129b70cd1e",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-wants-a-big-splash-2f2545c6c7.mp3",
+    "audioSha256": "bff7048a4eb1945626fe058f5d5f0c5397984868b480f47a7004b280e0750a37",
+    "displayedText": "Splashy wants a big splash.",
+    "displayedTextSha256": "eb7cf122d2eb035649bed2cc08d1480a8e45e2f2c9087a600fa42268705336d1",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::3": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-jumps-inside-fa59c904cc.mp3",
-    "audioSha256": "a2ad4b8fcfd9e014f469e5c54e68c85f17e7e316bae270d7be5db9ebb0e5a886",
-    "displayedText": "Splashy jumps inside.",
-    "displayedTextSha256": "b094e8e898392f431a59ca4f43c35f98ae734b2625b7f6c1005f05f96cb75572",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-jumps-in-29ec7d37dd.mp3",
+    "audioSha256": "f94524e480c1ece1ea68947d229866b4bd7d9ae8e90023ad7f64ae3e7f5b0bdc",
+    "displayedText": "Splashy jumps in.",
+    "displayedTextSha256": "d148106cb9d0ebf103102a85c8d9b7ac41c2dc5f32e08d4bc33be4cbcbf47dea",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::4": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-jumps-even-higher-18ad7e6353.mp3",
-    "audioSha256": "e0c2284db1291ef4062134a87bdf747ba82003b3840a7797fe3165b63bb62e22",
-    "displayedText": "Splashy jumps even higher.",
-    "displayedTextSha256": "534b78f605ca8c88ee951fd958575cb904c2c2254c574ce124396cfbee1fa341",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-jumps-up-high-3c76458b34.mp3",
+    "audioSha256": "dabfebad0cc9d1b72e3cd8ec857a6a498c22889c1e7ff414d91f82a2065e4166",
+    "displayedText": "Splashy jumps up high.",
+    "displayedTextSha256": "9cc863e6cd62df928b456ef5437f38b4c2fd2d07f2ddc4ef5e662231ca555862",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::5": {
-    "audioPath": "/audio/production/en-US/guided_page/water-spreads-everywhere-43e959c481.mp3",
-    "audioSha256": "b263cf964600e1dc0fc5a4746e02a5da8496cf748d1905ef8ab710cc6db824e5",
-    "displayedText": "Water spreads everywhere.",
-    "displayedTextSha256": "ca82c9ef9a9cfb08f250ff39cf2e5bb40aee769663cff734e28ba485140ddfc4",
+    "audioPath": "/audio/production/en-US/guided_page/splash-drops-fly-far-and-wide-ef5c26fd9b.mp3",
+    "audioSha256": "a35342ddf2d775aa9c69208e73e29702fb9577966c0ce4b9e353163be53adda8",
+    "displayedText": "Splash! Drops fly far and wide.",
+    "displayedTextSha256": "019b5c22c0eeeb9dd140ecdd68856dbc16c771dd62a570769566f0d23acbe79f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::6": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-s-feet-get-wet-9808268fe8.mp3",
-    "audioSha256": "01427f7e4b8ac878afd6131b9e2b6e3b659cc46a80494ade5f04d8161163d99b",
-    "displayedText": "Grumpy's feet get wet.",
-    "displayedTextSha256": "fcc3b7b34b48f03b0a3466f954dbd7d14131476199d79afeb04be6b158fd2f0b",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-gets-wet-he-scowls-3f0bd462a8.mp3",
+    "audioSha256": "ec1987537595dd4076cd988bbffd30c329470ea37d83c4dcee862d4d071958a1",
+    "displayedText": "Grumpy gets wet. He scowls.",
+    "displayedTextSha256": "2b0c230193638916d4fb1b615bfc2d2e8c9b37fceecac27c9e553efcfe11baa3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::7": {
-    "audioPath": "/audio/production/en-US/guided_page/clucky-s-hat-gets-wet-508636781f.mp3",
-    "audioSha256": "7805ff12ee8d02b897dc03d6f96b443582ce972d4cd6108439cbcfa767b0608f",
-    "displayedText": "Clucky's hat gets wet.",
-    "displayedTextSha256": "923ec90d31e5f5061c4b1f0f731c0d36a3d85db920205bffe756cab915948196",
+    "audioPath": "/audio/production/en-US/guided_page/clucky-s-hat-drips-she-frowns-ff5b159f17.mp3",
+    "audioSha256": "f2b12090a69607131322e50b8c5122d5e67e289985c377a013b47b4a6d700628",
+    "displayedText": "Clucky's hat drips. She frowns.",
+    "displayedTextSha256": "dbff9c7e3e73c2d7258a4ace6e52884870cae544e851cd3d0715526bc482df2d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::8": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-s-bed-gets-wet-461d854eb6.mp3",
-    "audioSha256": "7829e7e726842d70510697f4830d02228bc7ba1ddffce89214ec9c6421c1852f",
-    "displayedText": "Sleepy's bed gets wet.",
-    "displayedTextSha256": "442cb2d8e6190a794c02b2d72df0a6356dac478309d9b924289b1152cbc84b67",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-dries-the-hat-and-bed-257ed5bdce.mp3",
+    "audioSha256": "f4b86fe25a3a5ec3fa55c55397df1bf8da86070b172219861d0c9493c7d32be5",
+    "displayedText": "Splashy dries the hat and bed.",
+    "displayedTextSha256": "22c4ba6e16f230e9029d736575c0ec8fcb82d6980aa75d81a7a76ac44183d616",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-13-splashy-finds-a-puddle::9": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-moves-beyond-the-gate-4bad0ba47e.mp3",
-    "audioSha256": "9e9b98ba15ea9e6e53bf18bb206a3342c685a9f529a054e37b08e319aa79d38a",
-    "displayedText": "Splashy moves beyond the gate.",
-    "displayedTextSha256": "0bf57456b5440797d9dc1c3e22680ab8560d35dc0cb5026eff55421f11fc3c74",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-picks-a-puddle-with-space-3f04ae4cb0.mp3",
+    "audioSha256": "6cff30aeaedb9a0d6db84e2e90e06143cd47e124e370bcccdaab34c713e7264c",
+    "displayedText": "Splashy picks a puddle with space.",
+    "displayedTextSha256": "8333a81a95158f98b2b01420528e458f9d0ec5ca569e2ea180a2628794d75cd1",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-14-speedy-slows-down::1": {
-    "audioPath": "/audio/production/en-US/guided_page/speedy-races-toward-home-d9920be583.mp3",
-    "audioSha256": "ec108a27498f36b742c36de30a265f3d2a58f26d05a1d23ff0c4024ff6f93f1d",
-    "displayedText": "Speedy races toward home.",
-    "displayedTextSha256": "d82f1d3a5515f9d11e779a09680efe279d77a5cf6c3a72bb8bc3e94fa0e2d294",
+    "audioPath": "/audio/production/en-US/guided_page/speedy-runs-home-601021d2ec.mp3",
+    "audioSha256": "f28a57b2d59638221335f816e7e3059e97af18573bc5ee65f20dfb2046a11837",
+    "displayedText": "Speedy runs home.",
+    "displayedTextSha256": "22cfcc611587ef9b9f085590d9777723c0e9f75e989eccaec876487621b1be4b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-14-speedy-slows-down::10": {
-    "audioPath": "/audio/production/en-US/guided_page/speedy-follows-the-path-home-0118587d15.mp3",
-    "audioSha256": "4a1c9a7a7d10e7629e9cef60b57b6f31bf07f75ccbfc83ab5878e1d63918a001",
-    "displayedText": "Speedy follows the path home.",
-    "displayedTextSha256": "e7ad701ab6231449b62303d30df9c35a3a122b1f64f4182291d0a46adb857540",
+    "audioPath": "/audio/production/en-US/guided_page/speedy-finds-his-way-home-07f55391f7.mp3",
+    "audioSha256": "b6e5d191ee5e60884762b762b7465c23911ee8f95dd391eebe95c04c33c525db",
+    "displayedText": "Speedy finds his way home!",
+    "displayedTextSha256": "831dc42a5f7ca6408e2ddcd5fb8352746b5928881f2506fda4b67051eb5747dc",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-14-speedy-slows-down::2": {
-    "audioPath": "/audio/production/en-US/guided_page/speedy-passes-the-barn-9d2eac025b.mp3",
-    "audioSha256": "9120429e1fc2860bd3aa47aaef7bbc4556cb0e223b5c325a3a7d54551e02e5b1",
-    "displayedText": "Speedy passes the barn.",
-    "displayedTextSha256": "4d7d9005bb72efbd75ae786d296b08214b459f0586310f1954291df596ec2a91",
+    "audioPath": "/audio/production/en-US/guided_page/speedy-runs-past-the-barn-107e21b6a8.mp3",
+    "audioSha256": "0b63e1ad27e6e24c0565f354795c920775595e7134268127fb6833c7c5df6d30",
+    "displayedText": "Speedy runs past the barn.",
+    "displayedTextSha256": "74fc310b0441ffb9fd4ad38411830e21c480272c6a1b64b250d2c2636bd1a38d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-14-speedy-slows-down::3": {
-    "audioPath": "/audio/production/en-US/guided_page/speedy-passes-the-pond-bc7dc32b41.mp3",
-    "audioSha256": "0ccdbcbe45c7725e9acb01a473cc4032e298d3c1612221ad9cc4254f596dfb21",
-    "displayedText": "Speedy passes the pond.",
-    "displayedTextSha256": "382c543cefa0c375ec72876c06e25ae650a281029f6fd93aed3024bd111375ce",
+    "audioPath": "/audio/production/en-US/guided_page/speedy-runs-past-the-pond-bf393e7082.mp3",
+    "audioSha256": "2cfd005ac8058824c4f73c5301dc0a3155c05c7fb8b321ca36a61a614f277691",
+    "displayedText": "Speedy runs past the pond.",
+    "displayedTextSha256": "cbf7e11977e58d221e3c358dceebcf9fe7a0a9d76a5b1495feca12f4c5cbe17a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-14-speedy-slows-down::4": {
-    "audioPath": "/audio/production/en-US/guided_page/speedy-passes-the-hill-477df45a58.mp3",
-    "audioSha256": "af057c7186c99a7593ceacd6be0fd256ad3fbd55b0e4d57d3c477ace5ed5fcd4",
-    "displayedText": "Speedy passes the hill.",
-    "displayedTextSha256": "e6209071f68c2bfa18df27ad707750a5b03b4e3e00cca61610b76e0aed6a50d7",
+    "audioPath": "/audio/production/en-US/guided_page/speedy-runs-past-the-hill-624ceb8f33.mp3",
+    "audioSha256": "3c5562641286b9d61850993db19781fc4bff8b9ed07de7e0b547634885c3dd5f",
+    "displayedText": "Speedy runs past the hill.",
+    "displayedTextSha256": "15c0e2e4d8cacea816d4da7ff9769c791ca1502e7cd7e30386846109f0e0d438",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-14-speedy-slows-down::5": {
-    "audioPath": "/audio/production/en-US/guided_page/speedy-misses-the-path-3a6a78041b.mp3",
-    "audioSha256": "9ee6896558e54db8d7cf5223acde98712d4c9510c71afac4d1be8896de86caa6",
-    "displayedText": "Speedy misses the path.",
-    "displayedTextSha256": "3266734f35d13cacbd8a4bf70d2046c556306bc9889c24740123aa7f596ad9ca",
+    "audioPath": "/audio/production/en-US/guided_page/speedy-misses-the-home-path-dc9cf7e6ac.mp3",
+    "audioSha256": "8c432a23a47bfa83efa18609562f2f8d0f51586b8754f65c803d3a0a93ac7319",
+    "displayedText": "Speedy misses the home path.",
+    "displayedTextSha256": "e975bb4561a2a3478e3fa36f092249584d1a7dd7da334e9926f74be0f57e1e6b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-14-speedy-slows-down::6": {
@@ -8921,10 +8627,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::10": {
-    "audioPath": "/audio/production/en-US/guided_page/woolly-chooses-one-more-e5d05bde11.mp3",
-    "audioSha256": "6f998f3f250d683fb375ffc9b1c3c31187b37971aff7d9dbc8035f1d92a17f21",
-    "displayedText": "Woolly chooses one more.",
-    "displayedTextSha256": "4c22adcc2840fdf39bf4db94c39bebb818eefc0850d3e0eea7ef74745f0d754d",
+    "audioPath": "/audio/production/en-US/guided_page/woolly-nods-they-hug-cuddly-smiles-0e1658f6c2.mp3",
+    "audioSha256": "994a558992567893d43a36ab4ba2e8585f2277fc87990a85f62e80eff75092ad",
+    "displayedText": "Woolly nods. They hug. Cuddly smiles!",
+    "displayedTextSha256": "15f8870335b548af1b7c3e26fa67b42400c602682b7aa686ffda637c84a2116b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::2": {
@@ -8942,17 +8648,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::4": {
-    "audioPath": "/audio/production/en-US/guided_page/speedy-rushes-past-ebd734105b.mp3",
-    "audioSha256": "d994d625f9f5dcf5e4eb74dbdfb6a0f22892b3538370d4d53cbd29d18ff2e149",
-    "displayedText": "Speedy rushes past.",
-    "displayedTextSha256": "ab6cc2b7b416518edea2f16396ca3d5b502797696447a8a403af47a1931dbecf",
+    "audioPath": "/audio/production/en-US/guided_page/speedy-runs-past-ebab5e1ce6.mp3",
+    "audioSha256": "efce301230ce89e60aca08cd55c8f9a4f239a39ff98711b762e4033d202d6fc3",
+    "displayedText": "Speedy runs past.",
+    "displayedTextSha256": "96dc419831eaf24b8032250560030f12e56d2fc02c51343b5b1d55ad3dbb1b7e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::5": {
-    "audioPath": "/audio/production/en-US/guided_page/muddy-is-covered-in-mud-a31d91a09b.mp3",
-    "audioSha256": "c3942ad8642fb98cfa895ac1c598e558d1cdd3f089b4de99fade1dcbd761dd4e",
-    "displayedText": "Muddy is covered in mud.",
-    "displayedTextSha256": "7d6a0eb781ca52a2eeaea79ae44d112685dc2bf2b99af1e5ea3c08f4097ea174",
+    "audioPath": "/audio/production/en-US/guided_page/muddy-drips-with-mud-cc52e3e0ee.mp3",
+    "audioSha256": "ab51255c89a7040c8c55543c792529383df4c867a5d398808f67bf0bcbc2d057",
+    "displayedText": "Muddy drips with mud.",
+    "displayedTextSha256": "cb09bbeb761ae9d8cfecba220d43098f924f241dbdf70ae608a80accbba6c69f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::6": {
@@ -8963,24 +8669,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::7": {
-    "audioPath": "/audio/production/en-US/guided_page/cuddly-asks-woolly-4eef103357.mp3",
-    "audioSha256": "1e3060ccedcb0135a7e41226f3d574bb36c33eb7b45f6b36ced97d5b76bcaa8f",
-    "displayedText": "Cuddly asks Woolly.",
-    "displayedTextSha256": "7b518635cefab50b69d042caaa66dd2003d8af656b05484d36c2f9e63a20d3fe",
+    "audioPath": "/audio/production/en-US/guided_page/she-asks-woolly-b7f9d9c004.mp3",
+    "audioSha256": "286b36ae89e6620120d17be63f9bf47454a8a48fd23be7370ea6aaec5aad8f73",
+    "displayedText": "She asks Woolly.",
+    "displayedTextSha256": "463445632bef0a49a2bf9ee3a203dd4c1379493d01241ee642dd3abd1b0cc846",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::8": {
-    "audioPath": "/audio/production/en-US/guided_page/woolly-gives-one-big-hug-7aa71d4ef1.mp3",
-    "audioSha256": "64036870d8a8074b5e7802f190e8a818b2b267b9e99d2ab3d858e796b0ba4a77",
-    "displayedText": "Woolly gives one big hug.",
-    "displayedTextSha256": "da0cd4852b5ed9d3e004d1d47e77bc74d2eb415528f1ba6556a2312a4d5c3d4d",
+    "audioPath": "/audio/production/en-US/guided_page/woolly-hugs-her-38bf0dc591.mp3",
+    "audioSha256": "38903b9bca84fdb7f1dbde38f987b6e30ccca130b7987e90a6026675a3c7ffca",
+    "displayedText": "Woolly hugs her.",
+    "displayedTextSha256": "029183c0165a059812cf18bb8b9ea74b83bd5620f1aadfb6f9ec4c4556d09cd4",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-15-cuddly-wants-a-hug::9": {
-    "audioPath": "/audio/production/en-US/guided_page/cuddly-asks-for-another-63f168cfaf.mp3",
-    "audioSha256": "3117d457a34ea9b6594af78aba107ef98b9362a36c1a330619f4b6d04628f5f0",
-    "displayedText": "Cuddly asks for another.",
-    "displayedTextSha256": "040bae22427b48873d29bd4f90867a4202aa3f4c0c95e756a454bf3c9ccca122",
+    "audioPath": "/audio/production/en-US/guided_page/she-asks-for-one-more-7cae79e7e5.mp3",
+    "audioSha256": "2d9ee3c15eb3a6cd00e76145fa902393fe1d21b59476d54476a6e405eef0c05d",
+    "displayedText": "She asks for one more.",
+    "displayedTextSha256": "fb13692129185516b6cb1c0f271d1bbb6844ecd63ad2ac59eb9f366267c04b6d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::1": {
@@ -8991,10 +8697,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::2": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-brings-some-water-f9f1a8e1e9.mp3",
-    "audioSha256": "5ec47aad15f4138a4b3a09a51581e198a97b97c81e85e1025c0ff595c68504e9",
-    "displayedText": "Splashy brings some water.",
-    "displayedTextSha256": "aaa18ce349de8edf211dd0958d475756d1b14ac7fcb7d3e098ac242feb3b3be8",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-brings-a-pail-1bd66d5238.mp3",
+    "audioSha256": "2e2cdb2c165b1ec5ca5ce3e3d28baf202fef4cb5c971298bda1493c3bb1515d5",
+    "displayedText": "Splashy brings a pail.",
+    "displayedTextSha256": "76a38dc8ce92ed0eb51a40551c44569591e2d2295a2503e164f252f2524a2b5b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::3": {
@@ -9005,31 +8711,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::4": {
-    "audioPath": "/audio/production/en-US/guided_page/they-jump-together-54d39d0604.mp3",
-    "audioSha256": "9b47d43ce8d04bffd89c02a92777187d26c611dfc792a42d30550de934f90108",
-    "displayedText": "They jump together.",
-    "displayedTextSha256": "bfe9a1cca8108b32899a54a30e20b321a93333ffa5c5cdf50ca8da7b93d57eff",
+    "audioPath": "/audio/production/en-US/guided_page/they-both-jump-in-b82da171b2.mp3",
+    "audioSha256": "0eeaa9aa7f1276bad3f05fb88d6b4dd100afe38fa6887f9ef15c834643689098",
+    "displayedText": "They both jump in.",
+    "displayedTextSha256": "fa626ecccdbdf14115ad0edb57bc694fbcd9556efb22adb635ea972d143b71bf",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::5": {
-    "audioPath": "/audio/production/en-US/guided_page/mud-flies-upward-71b8dd7731.mp3",
-    "audioSha256": "eac2e11544ce66630d660bff2de85fb84b12afaaadf525d9b403bb39fa90ccf8",
-    "displayedText": "Mud flies upward.",
-    "displayedTextSha256": "b49a8b16d2876914536408060b6dfa6d5d7e13e52e18114e6c99284a086bfc79",
+    "audioPath": "/audio/production/en-US/guided_page/mud-flies-up-b1dbdbe5cb.mp3",
+    "audioSha256": "ea04d68fb9a6568332e96d09a118ddbd85e778815e31e02e09ff76e057a8ffbf",
+    "displayedText": "Mud flies up.",
+    "displayedTextSha256": "c264011e7cfd13a4ea7f84e57869f700a80f1f2812d912e2cab58c8a38dcd5dd",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::6": {
-    "audioPath": "/audio/production/en-US/guided_page/mud-falls-everywhere-c698c9dbc3.mp3",
-    "audioSha256": "6329d174f3e69def90b7d67b921c4aebf4a41ad1e0752d8fc881cebab2a80b1d",
-    "displayedText": "Mud falls everywhere.",
-    "displayedTextSha256": "593a5c4049ddd0acad94b5cb0ceab7dc91a86484f6307c2d9e9b720ad614c824",
+    "audioPath": "/audio/production/en-US/guided_page/mud-lands-all-round-c6f4911690.mp3",
+    "audioSha256": "eda713a289898cdac4322802245c67796e1efcd795740a6275960f45f80750b2",
+    "displayedText": "Mud lands all round.",
+    "displayedTextSha256": "67d4b9ddde3cc157718dca77e1ccbba9fc1aa27db0ed993317d3184edcf2e9a5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::7": {
-    "audioPath": "/audio/production/en-US/guided_page/mud-covers-grumpy-cb5d98964e.mp3",
-    "audioSha256": "7e22f890e4bfc0416ad0fe0da33958dba36594922782460d2fc76bcc8247d4b6",
-    "displayedText": "Mud covers Grumpy.",
-    "displayedTextSha256": "55538a4706b15e0400fe550c3c6e89bd53d9df964a227f4f7359f5396ae08cc9",
+    "audioPath": "/audio/production/en-US/guided_page/mud-hits-grumpy-he-frowns-43d4f63afb.mp3",
+    "audioSha256": "30f35ab99c3786b6b5ea7aa5f951ee179d7d6afefd827ae9e5826187b6a52cce",
+    "displayedText": "Mud hits Grumpy. He frowns.",
+    "displayedTextSha256": "d2271c306dec8fe3b69a1acbb604217c6e848f83a47357ef7303edba83841365",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::8": {
@@ -9040,10 +8746,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-16-muddy-and-splashy-make-a-mess::9": {
-    "audioPath": "/audio/production/en-US/guided_page/they-move-beyond-the-gate-313a920061.mp3",
-    "audioSha256": "6d3f9ecc44f2d86c1d587a50d74bfed13921f5c3b88eb7a6f44b8b3b2bc816cd",
-    "displayedText": "They move beyond the gate.",
-    "displayedTextSha256": "d19c2ca2faac898c40d3b8a3095f34034e71d4456bb5b763d8164a8debb4c997",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-grins-and-walks-with-them-6840fc85d0.mp3",
+    "audioSha256": "276f76a7d1f6570b2bc36641705097411aba63fc3e1dfa8cefa37456b9c6b4b9",
+    "displayedText": "Grumpy grins and walks with them.",
+    "displayedTextSha256": "efc267512ded8f9027ab8d06237a4015c61ed8bfca676eb8a5c15c82cd3972ef",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-17-bouncy-and-speedy-have-a-race::1": {
@@ -9117,24 +8823,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::1": {
-    "audioPath": "/audio/production/en-US/guided_page/the-meadow-is-dark-ac90246ea2.mp3",
-    "audioSha256": "f01360b605ce7ecd6ad123f5f2bb8c978128c2b0e01fc5146bf18078af4fce70",
-    "displayedText": "The meadow is dark.",
-    "displayedTextSha256": "61b84ae56f5a52c398d9bc35d2a31bfa72b0539cb271be9c7b58ca28a2295652",
+    "audioPath": "/audio/production/en-US/guided_page/the-sky-is-dark-4704848a68.mp3",
+    "audioSha256": "4d821e463a6e9a4ea1de5905061160fc01a515af41fa04be06fb94e37a18a4c9",
+    "displayedText": "The sky is dark.",
+    "displayedTextSha256": "b69285868ad00db9e7d090c121c4af2d7f3d8b93f43fd0650cfa347181b89ce1",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::2": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-thinks-morning-has-come-bfe3405754.mp3",
-    "audioSha256": "2dcb6a7647fdf8d9c4bc5c631a162f4e8aec92fd3db72aff468204fd8cf4f694",
-    "displayedText": "Noisy thinks morning has come.",
-    "displayedTextSha256": "f50d6ae58d5416da0c703dce90054f05ca9b7c217a24185740331c0d345db660",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-starts-the-day-too-soon-9018457c6e.mp3",
+    "audioSha256": "73b6d5c05d5e422e95e1912d9b5bc3302e6f49bdc77255f1ee887b9be344f226",
+    "displayedText": "Noisy starts the day too soon.",
+    "displayedTextSha256": "3957362dc134f2fd6acbe1df69cc80d4c884071058762cc05d498ca89f6ed4b2",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::3": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-calls-very-loudly-a9ad516e40.mp3",
-    "audioSha256": "98113b924f3da6b19941526bc922ab640f03cd82ba0271d9b9932da3cd4b511b",
-    "displayedText": "Noisy calls very loudly.",
-    "displayedTextSha256": "35391944ba56716621b6befed3b964dad182f9e2887ba8e234c64b8304610e7f",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-lets-out-a-loud-call-89d40fe2d1.mp3",
+    "audioSha256": "e67589671c820c31acfc00df7ec2e7d823d5d19e50422877567ea4c9bf463e10",
+    "displayedText": "Noisy lets out a loud call.",
+    "displayedTextSha256": "4467dfc04bb1eb590b22f572abfc3285076675e4e91b3d2c5787836bc94184aa",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::4": {
@@ -9145,24 +8851,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::5": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-stays-asleep-4d64bab619.mp3",
-    "audioSha256": "0d8e8b5810317700f58b5e297776f71f70fecd18cc61386c1f114473978846d5",
-    "displayedText": "Sleepy stays asleep.",
-    "displayedTextSha256": "377cf8e7aed9269c9c0f0cde00ca6ea5cc3b5e7d8f1815f6dd54ab1bd43854ff",
+    "audioPath": "/audio/production/en-US/guided_page/sleepy-stays-in-bed-f27c362112.mp3",
+    "audioSha256": "76afffba930ce1138053728d33a3aa9d632d3e0d937c4eb44b6fd45da1031699",
+    "displayedText": "Sleepy stays in bed.",
+    "displayedTextSha256": "87e646778254f1f45358ff4dd8d5746f4a1bdb26baa77f8a1481d229c41176c7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::6": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-calls-again-ded8f328bf.mp3",
-    "audioSha256": "833ac30a1d74576fd0f7ce7a507b0bce4429630e5ab664199eed8acace3b5c03",
-    "displayedText": "Noisy calls again.",
-    "displayedTextSha256": "90c9a4b1e897ce625d1cf1015edfd122bf16f1ffd1a2b1824ee1aa840f73443b",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-calls-once-more-5c7353030d.mp3",
+    "audioSha256": "38bbb4181a7326a4cc8f82923d74991a2ef0f7f944ca55723df8eddeedd2446b",
+    "displayedText": "Noisy calls once more.",
+    "displayedTextSha256": "88073b2c10bb4ec1279daddc1e9f63ada67d5217a3fbface91f677ed91def0c0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::7": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-opens-one-eye-cdb541da8c.mp3",
-    "audioSha256": "6d64e12413a5ea23e049eb0d814e46b8115fbae924cf423b5fb42a33aa9a34fd",
-    "displayedText": "Sleepy opens one eye.",
-    "displayedTextSha256": "9b7994b71a01e70bcb56611629e94449a28ea133ebc1883883ed3b01bd1b0e67",
+    "audioPath": "/audio/production/en-US/guided_page/sleepy-peeks-with-one-eye-333917851b.mp3",
+    "audioSha256": "bbc8177e68aafbcd2820e47bcc08eb2080c00a2e36bb52b5350eaf7d3f084010",
+    "displayedText": "Sleepy peeks with one eye.",
+    "displayedTextSha256": "3000ef96ddbaf46b86b6214d3ddba9b30034377bb83628ef8f08354737892d8f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::8": {
@@ -9173,10 +8879,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-18-noisy-wakes-everyone-up::9": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-waits-for-sunrise-f3e9be9d05.mp3",
-    "audioSha256": "008203a3d2defef06290aa04f9a951a430135bfe4e67e6f2ccda039e6b2f2787",
-    "displayedText": "Noisy waits for sunrise.",
-    "displayedTextSha256": "b84d0e3a616e5d5ad56564983fc25a5cf6fca60802cc87029bb78a5dea206865",
+    "audioPath": "/audio/production/en-US/guided_page/friends-frown-noisy-waits-till-dawn-eb3f185419.mp3",
+    "audioSha256": "db513a063c0fd59654b3fa68fdcf42a092285028ae3ce6f1770d377101045c95",
+    "displayedText": "Friends frown. Noisy waits till dawn.",
+    "displayedTextSha256": "b9611fd1d1c1bca8fe81006de66b8fce77eb59d27aab45fcb2f0427547b7e95f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure::1": {
@@ -9229,17 +8935,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure::8": {
-    "audioPath": "/audio/production/en-US/guided_page/brave-ties-the-hat-under-tiny-s-chin-efcfec5a75.mp3",
-    "audioSha256": "dd07c93e068f78ced3ad36952d19a9231e9089725ba7a020f5f2ebd07ac717e3",
-    "displayedText": "Brave ties the hat under Tiny's chin.",
-    "displayedTextSha256": "238d09767a61a49dbbcf310ac0ca1833dc7132f7d24411f8d998cc78a00efcfd",
+    "audioPath": "/audio/production/en-US/guided_page/brave-ties-the-red-hat-tight-2e53b6de95.mp3",
+    "audioSha256": "9b671adb0856229c9da75d8176b31b3a2130d6f6ec961eaeb7ff57174ad1fb3c",
+    "displayedText": "Brave ties the red hat tight.",
+    "displayedTextSha256": "ceccb64fd8ee2755645026179897e014bc379a3df4ad0a70d698e7bf8b5ee285",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure::9": {
-    "audioPath": "/audio/production/en-US/guided_page/they-walk-home-together-0c3fa4eaf3.mp3",
-    "audioSha256": "a57971b0ddc1115a8d6ad0edd68651e006c418a1ce49c155e316ac54431f897b",
-    "displayedText": "They walk home together.",
-    "displayedTextSha256": "0a6a321ae2fdd4aa17c36aeb1f9d1e267d4d3179c9520d0a8277125f4c70d694",
+    "audioPath": "/audio/production/en-US/guided_page/tiny-s-red-hat-stays-on-dcdd0bab95.mp3",
+    "audioSha256": "949ed8314f883792fdc90dbd9f4d6fc12dcceb256b95e4c1fbd209c159f09607",
+    "displayedText": "Tiny's red hat stays on.",
+    "displayedTextSha256": "aab3cdccf8064cfe981ef5dca0e925eb98ae176f2b7e3169cd928d0776ea187b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::1": {
@@ -9250,38 +8956,38 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::10": {
-    "audioPath": "/audio/production/en-US/guided_page/they-watch-the-pond-together-206e36faaf.mp3",
-    "audioSha256": "70a20a32c9b3f544076442af575cb54ba3591ee23e353d2a107f9367d1248afa",
-    "displayedText": "They watch the pond together.",
-    "displayedTextSha256": "e6288a95c5b8d380c389d0f262cc0bb47cfcafc8c5ddb2b7cc4f5577fbf5d498",
+    "audioPath": "/audio/production/en-US/guided_page/they-smile-in-the-tree-96a57342cc.mp3",
+    "audioSha256": "b834ed96eea072545dbae0f518284366729aae299930e2394c8a1a178072221b",
+    "displayedText": "They smile in the tree.",
+    "displayedTextSha256": "70dc4ac8fbe3877ae1a7334d39a161cd2933d50fd71c28f0879ff6c87f8b4360",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::2": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-hides-nearby-22b8400cc3.mp3",
-    "audioSha256": "650d4bb9f00a549d20aa331fdc7186cd855e1a12cdb559e52ac95b15d2cc7945",
-    "displayedText": "Shy hides nearby.",
-    "displayedTextSha256": "945d6c474b673068546d4f1507d7f0ab64145104676b78f0d0f78d021e89edc3",
+    "audioPath": "/audio/production/en-US/guided_page/shy-hides-close-by-1a38389918.mp3",
+    "audioSha256": "cc661e4041ef8ef7092ec49371e19ca82af4a2627f84f1c586339a4eaa34533b",
+    "displayedText": "Shy hides close by.",
+    "displayedTextSha256": "1811f7c8b3c1d89770a367340da4de8e0c6a09dd0e2a810999d489ab0db1b566",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::3": {
-    "audioPath": "/audio/production/en-US/guided_page/cuddly-checks-behind-the-tree-0f0630330e.mp3",
-    "audioSha256": "5d8fde971f59b82824680cb4409d5afd611504dc03db89c7cf6a9059cda683f5",
-    "displayedText": "Cuddly checks behind the tree.",
-    "displayedTextSha256": "6f80c3e5d9e98c44751c8ade7026edb38a5d2a3d397fd4385af6b6e5120d1d55",
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-checks-the-tree-b71e2f3c8a.mp3",
+    "audioSha256": "ddf0e1d362762fce7d3ea6381b536141c14a4710cf7b92bbe7c9a1589112f57c",
+    "displayedText": "Cuddly checks the tree.",
+    "displayedTextSha256": "d1eb84af46fcce9507d79be08f727ca4f2a6afef1072c556d917bbc25eaccc15",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::4": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-waits-in-the-branches-3a5c3e73e0.mp3",
-    "audioSha256": "de4cb712734563acb5305cfdff32e1d542babf61933b75afc8bf2fa1f4a590ee",
-    "displayedText": "Shy waits in the branches.",
-    "displayedTextSha256": "4dc34e21855339c3ff5c71c82efdd9b9d9d817b25bd83c894a1b92106905330c",
+    "audioPath": "/audio/production/en-US/guided_page/shy-waits-on-a-branch-522313c5ac.mp3",
+    "audioSha256": "c0fe73dcbe9ab92ad0e627084f481207ba2d7e46598b1d8a8d6961bbbd664851",
+    "displayedText": "Shy waits on a branch.",
+    "displayedTextSha256": "11ff3f11c8871da491b237080c3d18b6720bc553bb1485ee6e0e3e3e729c287f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::5": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-makes-a-small-sound-f4b647b301.mp3",
-    "audioSha256": "bb7b0eff7ff9dfd6248365ddf5f8eb438e2d05830f9dca32a135c16915255de4",
-    "displayedText": "Shy makes a small sound.",
-    "displayedTextSha256": "4786a21d421187eaa71a4b38cb5d7ce3c7c4255d009bb1a34ead48c40f956b0a",
+    "audioPath": "/audio/production/en-US/guided_page/shy-makes-a-soft-hum-002281b249.mp3",
+    "audioSha256": "f7436bbab4926b55d31c43ad2be4bbb61237f5d565001d4ce356c4ffd7ccbc13",
+    "displayedText": "Shy makes a soft hum.",
+    "displayedTextSha256": "6dba0328b7d6a8d5e8f203ee5047ca9f833cd05ff4bbb0728784690dfdacf6ff",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::6": {
@@ -9306,10 +9012,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-20-shy-and-cuddly-find-each-other::9": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-says-yes-f8236b09a3.mp3",
-    "audioSha256": "2c41fea51df88cba34f7687b788ba34da1895a328c86b7b0dfc27461d218a111",
-    "displayedText": "Shy says yes.",
-    "displayedTextSha256": "60303c14aec4219be476ffb23b15ca218abc6363b32c7e6b1d7ee25d988e5b94",
+    "audioPath": "/audio/production/en-US/guided_page/shy-leans-in-for-her-hug-0da92c3037.mp3",
+    "audioSha256": "b3a9092372a57ad52aa1f9ed2b19a67a609938fedf13c142ab72d539c707bd26",
+    "displayedText": "Shy leans in for her hug.",
+    "displayedTextSha256": "8c4cae786115826640dddce4cc6cdd897f1f5b4cdf3bdd8cd3c432fa6f780187",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-21-woolly-and-grumpy-are-stuck::1": {
@@ -9369,10 +9075,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-21-woolly-and-grumpy-are-stuck::9": {
-    "audioPath": "/audio/production/en-US/guided_page/they-walk-different-ways-20d7f67165.mp3",
-    "audioSha256": "9e87a38a1741ece30601b9d246ec363448647b1062ac454ab43bb6fb66f03919",
-    "displayedText": "They walk different ways.",
-    "displayedTextSha256": "69a3b1d4cc0e3fcf7e79c07604517b6d6540f0cc798b19243d99750271d0afaf",
+    "audioPath": "/audio/production/en-US/guided_page/now-they-leave-space-between-them-5ba3a772c5.mp3",
+    "audioSha256": "2d56dfcc9c185f7d67c33d5fd539cd7811a9c825e8f0e09535e8c2a3501dd774",
+    "displayedText": "Now they leave space between them.",
+    "displayedTextSha256": "75741a30afa12640b55c4109ab9383e19471847295b68e808e582c34b22a172f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-22-sleepys-big-dream::1": {
@@ -9383,10 +9089,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-22-sleepys-big-dream::2": {
-    "audioPath": "/audio/production/en-US/guided_page/a-bright-dream-begins-9be8269b92.mp3",
-    "audioSha256": "06e2161a441c7efb1ae3d8f1dd4f406b71e22c89aff08c8a4b448676e6230999",
-    "displayedText": "A bright dream begins.",
-    "displayedTextSha256": "343de3f5dbe3689a4b8818fe097270c848edb1e5b367c5b3290efd61f26c2579",
+    "audioPath": "/audio/production/en-US/guided_page/a-big-race-dream-begins-672f5e1772.mp3",
+    "audioSha256": "8cbaebf939bf5fe182095443422de769726a65e41fc41088037392b0958f0e76",
+    "displayedText": "A big race dream begins.",
+    "displayedTextSha256": "ffd424fccc1e0937cbe7112d8166a5f2fb438e7485307bc649ff94ef84aeefab",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-22-sleepys-big-dream::3": {
@@ -9404,31 +9110,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-22-sleepys-big-dream::5": {
-    "audioPath": "/audio/production/en-US/guided_page/the-finish-is-near-2d7074da7e.mp3",
-    "audioSha256": "5bfb1f08dcd0c7b2e13e08614c725956b35e21e9878798021d5016235500c626",
-    "displayedText": "The finish is near.",
-    "displayedTextSha256": "3593e2f6131810f6d8edd83696f25cd4cbd9f66008928c0c99bf182713cbb870",
+    "audioPath": "/audio/production/en-US/guided_page/dream-sleepy-runs-even-faster-8f617f5e3c.mp3",
+    "audioSha256": "cf5f3061c1891875f694f90e554844b6d10c2b30b4a75d7831930b6d337c7836",
+    "displayedText": "Dream Sleepy runs even faster!",
+    "displayedTextSha256": "0b631d48bf4a98cc666157ae99cb76c702ad7b6de81369378db580ef4aec35db",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-22-sleepys-big-dream::6": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-becomes-a-hero-c099b60d28.mp3",
-    "audioSha256": "67189b1feb743915004cca0ce560305fd25292cc8926911fd4187821aefcd704",
-    "displayedText": "Sleepy becomes a hero.",
-    "displayedTextSha256": "c047498da6a7a0236ecd376d788ea0ef9471192cfe77d340cf95ef996a6ef4a8",
+    "audioPath": "/audio/production/en-US/guided_page/dream-sleepy-feels-like-a-hero-af22de309e.mp3",
+    "audioSha256": "b621faed5f5005bf22c76f1928257d4b1cd3dca7c496159b2a9e5256a35bee90",
+    "displayedText": "Dream Sleepy feels like a hero.",
+    "displayedTextSha256": "5bba5143c3d8ad1ff6fa8d99324912762f633e56248a680bb8d02827b198bae4",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-22-sleepys-big-dream::7": {
-    "audioPath": "/audio/production/en-US/guided_page/sleepy-wakes-too-soon-f8b601cf02.mp3",
-    "audioSha256": "20d364ec766acb2b9c4854c3b40c7643bf21b08ba1b86febeab0cf8d9ee1dd22",
-    "displayedText": "Sleepy wakes too soon.",
-    "displayedTextSha256": "82defe532359927e1119330e1452c2e6b856c183c29a964f93d15bb4e7bd547d",
+    "audioPath": "/audio/production/en-US/guided_page/sleepy-stirs-he-shuts-his-eyes-d12a776683.mp3",
+    "audioSha256": "d4be7cab547d5f63c44e8652dc6d6cf45a15cdd5b01eb77920cac9c2edd2b171",
+    "displayedText": "Sleepy stirs. He shuts his eyes.",
+    "displayedTextSha256": "58661bfea4ada1af007860ac7819a2bafd75019221cf6329acd82f5b613af1b8",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-22-sleepys-big-dream::8": {
-    "audioPath": "/audio/production/en-US/guided_page/dream-sleepy-crosses-the-finish-line-02db21584c.mp3",
-    "audioSha256": "7085fcf4b17f31b98726b3abd7d74208c95986399cec50bf706234e8f48a41dc",
-    "displayedText": "Dream Sleepy crosses the finish line.",
-    "displayedTextSha256": "91b251af2b59a930c91ffa26c228d4ddbd9a3a1023c299ce61ca7f5152f3b6d3",
+    "audioPath": "/audio/production/en-US/guided_page/dream-sleepy-wins-the-race-e6dda7aa85.mp3",
+    "audioSha256": "b2d9e9cf1430de793c2d5b45d033ade2fde0043e9243245fe4486112ed2e0b58",
+    "displayedText": "Dream Sleepy wins the race!",
+    "displayedTextSha256": "ceffbb4f8f271b4d4c8e5ade76dc12485e118e46f6336367a01ab239b3ddd060",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-23-giggly-and-clucky-bake-a-cake::1": {
@@ -9481,10 +9187,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-23-giggly-and-clucky-bake-a-cake::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-cake-goes-inside-1947f053a7.mp3",
-    "audioSha256": "c55a4f1d7dc356f9d36a53ac5337e1f7b2813ec7a2d31bb40d2c4ed449f19734",
-    "displayedText": "The cake goes inside.",
-    "displayedTextSha256": "d59fd079833a973e705d9e815f0ffc9f36ce0c6e5048dd736bf0ae94c3ec86fb",
+    "audioPath": "/audio/production/en-US/guided_page/the-cake-goes-in-the-oven-0c69d8e8d9.mp3",
+    "audioSha256": "f9f3a8af38c06c1fea258dba04671e63b41b297a24bd86a0fe311899cc142cd9",
+    "displayedText": "The cake goes in the oven.",
+    "displayedTextSha256": "45d1856b7bcfa72d2cbf0dc64131b146fd1f5db1a9d6f7333db8766b0fa8bacb",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-23-giggly-and-clucky-bake-a-cake::8": {
@@ -9495,31 +9201,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::1": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-leaves-every-morning-83ea6fec66.mp3",
-    "audioSha256": "95c124d06fce7ccccb444405710b993e01b51a3557e150736a09b96096b942d1",
-    "displayedText": "Grumpy leaves every morning.",
-    "displayedTextSha256": "3dec831a0e80fac9ce8da583c16edf07479482c4007963bf539d244b32167b44",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-goes-out-at-dawn-5f24c8845b.mp3",
+    "audioSha256": "d2c1a75a55fc5c9596022768f7ad784ef0afa3a235876f3c37e086e4c264a4c5",
+    "displayedText": "Grumpy goes out at dawn.",
+    "displayedTextSha256": "828c0921a1996ec7467948f74c805221969268782825df76e83112de3ca7faae",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::10": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-shows-everyone-3b232b5818.mp3",
-    "audioSha256": "24aee07e69363535d8cb0ac8cd2ab553178b5ff6a13ef5a130816206c3f353b3",
-    "displayedText": "Grumpy shows everyone.",
-    "displayedTextSha256": "fd8451fdcde469da992e7e82c2f25cb0926eb745ef64f79e20337858e2b201d4",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-shows-his-friends-7bfa5304c5.mp3",
+    "audioSha256": "6ee63a0eeca26d23d234e3a890759867c2cc8cc496780be61ec9ca5b19e4fa7b",
+    "displayedText": "Grumpy shows his friends.",
+    "displayedTextSha256": "2fc73e4329767ee4f84f31545971099ea9fc0a3f5b71c0cc4e765388c7b85797",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::11": {
-    "audioPath": "/audio/production/en-US/guided_page/tiny-keeps-the-surprise-3981b27c30.mp3",
-    "audioSha256": "6d56e00e01e621c88db061caa64aba92e82af5ae277d222a2fa9402d05df153f",
-    "displayedText": "Tiny keeps the surprise.",
-    "displayedTextSha256": "10b6de91aee0e8011493662b93cda5dc157e7a069a215f627e5b2478f11e6a73",
+    "audioPath": "/audio/production/en-US/guided_page/tiny-beams-in-grumpy-s-garden-09e3267e00.mp3",
+    "audioSha256": "6072e97931f4b63eed3286a39d0ffe334cb2c7edbdd7a2e51cb96ede9a4cded7",
+    "displayedText": "Tiny beams in Grumpy's garden.",
+    "displayedTextSha256": "96231d504402d7b084ad0f452c7b8feb5cba2cfe9d0761cae5a425ec288dc6bd",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::2": {
-    "audioPath": "/audio/production/en-US/guided_page/tiny-wonders-where-he-goes-f57ca73486.mp3",
-    "audioSha256": "32cbf6b91ff030f5612f1206ce4de7772d658b7716317a7566bd9fb51af0e1e6",
-    "displayedText": "Tiny wonders where he goes.",
-    "displayedTextSha256": "da4f99a85650809654e6afb8d19f030a12d1ef5333fa1144e4add808fbecd741",
+    "audioPath": "/audio/production/en-US/guided_page/tiny-looks-for-him-283c1e3fb1.mp3",
+    "audioSha256": "d7247045e261a42388fd2041b3ea55f8fdcbb0f2f1804406779435b7edea504e",
+    "displayedText": "Tiny looks for him.",
+    "displayedTextSha256": "836d46ab61ce20e8d4d557c911cf37dcdc105329930e41866ea23adb7566e6b6",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::3": {
@@ -9544,38 +9250,38 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::6": {
-    "audioPath": "/audio/production/en-US/guided_page/tiny-follows-the-path-ddc34cffbd.mp3",
-    "audioSha256": "f1255d43c50d85d00bf2bf075bc0e29e6ecc66ce6fcebbb22bde72eb817442ed",
-    "displayedText": "Tiny follows the path.",
-    "displayedTextSha256": "25f5747eec61eb65eff6b33bf6e2b2e240ba49498ee8610b9581c4789d3958a4",
+    "audioPath": "/audio/production/en-US/guided_page/tiny-takes-the-path-9650e19de8.mp3",
+    "audioSha256": "4f3cae0c43ccea1985a2967f5ae0f2447aeba094b19f851a4695748b6b719170",
+    "displayedText": "Tiny takes the path.",
+    "displayedTextSha256": "b56b369222a68f6f2545d9c87d7800d22072504dd297595f8363c3c0175ca3f5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::7": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-tends-a-garden-e2c4299be8.mp3",
-    "audioSha256": "d4a7da9dd6a6c1a74b41a8af0d5733289550c48572c7fc58f23c5ed479862d9d",
-    "displayedText": "Grumpy tends a garden.",
-    "displayedTextSha256": "6b7fe146f22db8168ee33be79b1f4cbad456b9521c361f3913a14423d736ce72",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-grows-green-plants-0e622aa58a.mp3",
+    "audioSha256": "5d2725d608692f99398de31132c4e697c35b6fdc926144510c00cd6742e8578a",
+    "displayedText": "Grumpy grows green plants.",
+    "displayedTextSha256": "24583c162b8e651e7c5631fa7a3f8e41eed4407f53c83e3bd03e44a6a5c1ad5a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-24-grumpys-secret::8": {
-    "audioPath": "/audio/production/en-US/guided_page/he-waters-tiny-shoots-293a56584f.mp3",
-    "audioSha256": "82af0f0b0b9baecb4118c9b9e9d2f1449913ffe20d95e5dcefa7cf174aef68ae",
-    "displayedText": "He waters tiny shoots.",
-    "displayedTextSha256": "a09b63cd1f53da4727b6226ba03891215a8aad349828059359d1c52a846716cb",
+    "audioPath": "/audio/production/en-US/guided_page/he-gives-the-shoots-a-drink-ebdfa0da1b.mp3",
+    "audioSha256": "7306eafcfffecdc634f064514971268574914f555675878a5c0537fc4b714e7c",
+    "displayedText": "He gives the shoots a drink.",
+    "displayedTextSha256": "d402964c61b655b223771bbd2b7fa76b3b99dfb727f4b723cdbc82c22572493a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::1": {
-    "audioPath": "/audio/production/en-US/guided_page/today-is-party-day-f84ce3343d.mp3",
-    "audioSha256": "4740559b30358aed7b09067984bd512d8d0ab89fe0a5e1512f7cc993efd5415a",
-    "displayedText": "Today is party day!",
-    "displayedTextSha256": "b996c48974570e45df541ade08b146c0369069421dfd43bd9a58b6d5693a8cd6",
+    "audioPath": "/audio/production/en-US/guided_page/the-farm-party-starts-8bdd23d4b5.mp3",
+    "audioSha256": "db2cc46fc4a885444b8b34849cb5d1b5047eabd3bafff010dc2b9545c731f60f",
+    "displayedText": "The farm party starts!",
+    "displayedTextSha256": "76737c5d37a32078fde116dd504c0e44c71d0da97913f306e11d1acfdf30f8a9",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::10": {
-    "audioPath": "/audio/production/en-US/guided_page/the-friends-lower-the-music-7873cc4e3b.mp3",
-    "audioSha256": "810dbdafa290c480a917f473ddb4412df818d4c9a51bf119ac28beec08baeb51",
-    "displayedText": "The friends lower the music.",
-    "displayedTextSha256": "614627377977d89fb12b1cc86f240677d449016789102ce42ac9f69fcdc419f9",
+    "audioPath": "/audio/production/en-US/guided_page/the-friends-make-less-noise-106c0e1915.mp3",
+    "audioSha256": "a0fc62f3021a1629a107ed66db55fe4642b04fa19b21cb52bf827797cc5b44bc",
+    "displayedText": "The friends make less noise.",
+    "displayedTextSha256": "8cd010e05f898bc08aa449945225f8af9118c40acfb8c95f968071c253dbe180",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::13": {
@@ -9593,17 +9299,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::3": {
-    "audioPath": "/audio/production/en-US/guided_page/clucky-makes-a-fruit-cake-49fba64462.mp3",
-    "audioSha256": "c52efca724fe131b94d4922985f76dc315d084392ef87e781722a6ad3f85ec7e",
-    "displayedText": "Clucky makes a fruit cake.",
-    "displayedTextSha256": "3626f17c3fe5516325f30f41a4323be7921aef241f141788d9b7d906bef9d879",
+    "audioPath": "/audio/production/en-US/guided_page/clucky-brings-a-fruit-cake-8e580dd71a.mp3",
+    "audioSha256": "d31ece6a9f2e87a213219b3ac214b47d631ad48942b50213a98f7714172bbb2b",
+    "displayedText": "Clucky brings a fruit cake.",
+    "displayedTextSha256": "6e5c863b65e0ca6a2623408bf83713de1dd9661bf87c99131ad5289bbbc211f3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::4": {
-    "audioPath": "/audio/production/en-US/guided_page/noisy-plays-loud-music-3e185cdb1e.mp3",
-    "audioSha256": "3e940f829cb04a4f721e19ab1665c67cb5e6584cb2ff8d34866bc53c0891f2e7",
-    "displayedText": "Noisy plays loud music.",
-    "displayedTextSha256": "4fb69eb336bc395d8f45e97c5f7a8bb7aeba9cd815bf72de3357a0c3ac71149c",
+    "audioPath": "/audio/production/en-US/guided_page/noisy-bangs-a-loud-drum-13e6cc4ae3.mp3",
+    "audioSha256": "a8059b2f24bfdcfa70616a5f857ebe319f34c9cb70fa6f140e2efc52593c6135",
+    "displayedText": "Noisy bangs a loud drum.",
+    "displayedTextSha256": "8405213d0858233ec3b9663a0525878ae29bfbdcf95027ddb862e5cd78ac95a3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::6": {
@@ -9614,10 +9320,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::7": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-hides-behind-the-barn-0230a92048.mp3",
-    "audioSha256": "5dc5f927154667efdc0f9d1cb8344a3eb599bda34aa575eef5feab602c548376",
-    "displayedText": "Shy hides behind the barn.",
-    "displayedTextSha256": "fbcc9dec27ec2d7685d2abb27ce739b7548bfce48adc4da916bd5e258de71e7a",
+    "audioPath": "/audio/production/en-US/guided_page/shy-hides-by-the-barn-b9be36103e.mp3",
+    "audioSha256": "645bdadff093eb945696e4bd0f2b7071c011fabb032d75ba095bf0dfc3275c45",
+    "displayedText": "Shy hides by the barn.",
+    "displayedTextSha256": "83c69ff1a8c1af443f2d0b5c3980a9e464145be0d729135acc687f6477987148",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::8": {
@@ -9628,10 +9334,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-25-the-big-farm-party::9": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-sits-far-away-6e7aa66109.mp3",
-    "audioSha256": "233c9739503d91b4510842bdc0fec0b0687faf17acfaa14675cc7f3b3d9e8706",
-    "displayedText": "Grumpy sits far away.",
-    "displayedTextSha256": "c8250bcdda02d96be12c506659cd836df8c524998e91d0e316634154b69eb2ca",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-sits-far-off-808e3148bc.mp3",
+    "audioSha256": "86b779a8d8df2d924fb66e500869c55ed300fa3d81907d28c989b1dcf9961708",
+    "displayedText": "Grumpy sits far off.",
+    "displayedTextSha256": "f4aa7889e27c256a804b62804c9970a16672b8ec3d6b1f1502ecee09b46c7290",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-26-muddys-cool-wall::1": {
@@ -9649,10 +9355,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-26-muddys-cool-wall::3": {
-    "audioPath": "/audio/production/en-US/guided_page/the-soft-wall-slumps-down-ac3730378c.mp3",
-    "audioSha256": "9131e694fb93065df8999c476e13ba33e6007e1547a1544b298ced9e3d808a02",
-    "displayedText": "The soft wall slumps down.",
-    "displayedTextSha256": "9dd8d1ec4d8927b5435985ff474fb0bae4e7bf84ac2b6ecb3c8dd6012b295191",
+    "audioPath": "/audio/production/en-US/guided_page/the-wet-wall-slumps-b11085becf.mp3",
+    "audioSha256": "2cf67292a9996ccd4f03d0f81ac478e378eb2db15d476c28cbcc16670632989d",
+    "displayedText": "The wet wall slumps.",
+    "displayedTextSha256": "92a7fed19139b9c9f41efd013408d4c5fbbfb4dea51aaed0f709374574ce1112",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-26-muddys-cool-wall::4": {
@@ -9677,10 +9383,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-26-muddys-cool-wall::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-wall-makes-cool-shade-9234ed0fc9.mp3",
-    "audioSha256": "01aa4fb63504808e862cd7fa63c1b4b6e37429a75fd4ec003f8ea9018d7bfed6",
-    "displayedText": "The wall makes cool shade.",
-    "displayedTextSha256": "8ba26e43edae347d98fff7b7a919d20a5b1d6f9280bce3f2e406dea983dfef66",
+    "audioPath": "/audio/production/en-US/guided_page/the-wall-shades-the-pool-67632b1c10.mp3",
+    "audioSha256": "01b118c33af91a3edff6fb6b63fb949d5c51f5bde3eb14029c8758da56e9721e",
+    "displayedText": "The wall shades the pool.",
+    "displayedTextSha256": "4c8c3f44052bcad0ca9a1c2aabb6913342ad851b0648274c54204669a0a6a6c7",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-26-muddys-cool-wall::8": {
@@ -9698,87 +9404,87 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-27-splashys-reed-boat::2": {
-    "audioPath": "/audio/production/en-US/guided_page/she-sends-it-across-dc3c80c5fe.mp3",
-    "audioSha256": "9b0bd2cb53abde73d252656c4c775ac6509e4d1e7035422f4e7901f2ca000ee8",
-    "displayedText": "She sends it across.",
-    "displayedTextSha256": "5507fa5707026007de50b3d359341f213a4de2e4c2eed61f1f2c2b7b1ccc7d24",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-lets-it-go-b2a995d219.mp3",
+    "audioSha256": "232c709c37f88b9eda349c5668c0369bb8335ee4ec3fd944ae3d8486de27428f",
+    "displayedText": "Splashy lets it go.",
+    "displayedTextSha256": "abf22f8c9a4f7db8d2283fee0a31329b8027f9a492489c9e8dd78ee463df2a9c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-27-splashys-reed-boat::3": {
-    "audioPath": "/audio/production/en-US/guided_page/wind-spins-the-little-boat-1ba2a004d6.mp3",
-    "audioSha256": "9bb909284b0219cd8696b780617e4bd28556b993b5033fa475d7e6b6b569b7b8",
-    "displayedText": "Wind spins the little boat.",
-    "displayedTextSha256": "99c366ce510e5919a797827ab1c3811338bfe82c380de350c628fd8051c3ccad",
+    "audioPath": "/audio/production/en-US/guided_page/the-wind-spins-her-boat-76fadf2996.mp3",
+    "audioSha256": "4136587ca60b9b97731900a6c968a58dd318934042cdecc4ea279963b87c4490",
+    "displayedText": "The wind spins her boat.",
+    "displayedTextSha256": "0c70d01bdbaaed633564c3f2eb4542e04387ad43cb122dda4e1743c97246995b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-27-splashys-reed-boat::4": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-pushes-it-harder-fa2fead0a5.mp3",
-    "audioSha256": "a93713fa7f5ff6075ad64ee9df882104035c13540a01f9047da525dd298e8eae",
-    "displayedText": "Splashy pushes it harder.",
-    "displayedTextSha256": "e14997fd4f0485fbfaec6357798a0cc983e955600d383aed48860031dc306407",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-gives-it-one-hard-push-16a04aed02.mp3",
+    "audioSha256": "ca203a775536c0a67d92b124dc1e407513b0c6871df87575e5ca01dc8491315c",
+    "displayedText": "Splashy gives it one hard push.",
+    "displayedTextSha256": "7746f3e3935a30bb46e58a00bfa6c4c2ab78bc5299745500c112c80e646fbd64",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-27-splashys-reed-boat::5": {
-    "audioPath": "/audio/production/en-US/guided_page/it-spins-back-again-fae93138c9.mp3",
-    "audioSha256": "acceaf795bdb61d62db54b673e07c0923e86e595e59fa03443f73e3b3d523171",
-    "displayedText": "It spins back again.",
-    "displayedTextSha256": "1b0899fea6850096017529a2a1d66eb1587b392c9ff5465017131828d24f1328",
+    "audioPath": "/audio/production/en-US/guided_page/the-boat-spins-round-once-more-f673e3f8c7.mp3",
+    "audioSha256": "56ae437ff6f609d4503eda291623930c8cfba253a481cf42ede07540b30459d0",
+    "displayedText": "The boat spins round once more!",
+    "displayedTextSha256": "9a1ec6b8ff0e2a8768b5402d65a5e3b2b00224df0fff35d4a4af7be5c607662d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-27-splashys-reed-boat::6": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-lowers-the-tall-sail-ea8ef75888.mp3",
-    "audioSha256": "957f08fd01b48c1d082babcf1ef51676246e0ae18ef93dbfcd4a75bdc4ac2dc8",
-    "displayedText": "Splashy lowers the tall sail.",
-    "displayedTextSha256": "0bb70c5cb7b3fca88672f707df79f0a076db142307616c37d292a797fec37311",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-folds-the-tall-sail-9f211cc6e7.mp3",
+    "audioSha256": "36bdd42d24f256612ad4a917741a7ef61946a9e7be92cb6e84e527a300f14a1e",
+    "displayedText": "Splashy folds the tall sail.",
+    "displayedTextSha256": "29c3b86d5eb404f9fd4b0f4695ce4dfb7d4ea0162a26daecc7ef0b068e05843f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-27-splashys-reed-boat::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-boat-glides-straight-9e3a5c1fb6.mp3",
-    "audioSha256": "e6358e98b9bfa9d308e21f11ae6c6cadba94854378b268f0ad7e699afae5378c",
-    "displayedText": "The boat glides straight.",
-    "displayedTextSha256": "753ae2f13871143aebbe4ec6e8ba45b2c1dde376cbfe571b57a2019dc32b1a55",
+    "audioPath": "/audio/production/en-US/guided_page/the-boat-sails-straight-76f0f55d40.mp3",
+    "audioSha256": "6477e4c0de5011ba50b97deb488c8c4839c56b70263737dcac2f34e4bf14171e",
+    "displayedText": "The boat sails straight.",
+    "displayedTextSha256": "8410131a62f125c0b5fc5bd33d21ad2ae28ac922f20a581593277702847b7a67",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-27-splashys-reed-boat::8": {
-    "audioPath": "/audio/production/en-US/guided_page/splashy-meets-it-downstream-79a0471681.mp3",
-    "audioSha256": "c706ab1d123157d7cef721e443bbbe5ddc26909a55cef9572f3af7daa0f3509b",
-    "displayedText": "Splashy meets it downstream.",
-    "displayedTextSha256": "b76ab87d590f704af74a9c183040b5356b0fd849a6cc72f803bb48c52ce35f40",
+    "audioPath": "/audio/production/en-US/guided_page/splashy-meets-it-by-the-reeds-5c784372f5.mp3",
+    "audioSha256": "6fda7c68a78c1f6c479820413714091b0b7ede9716b3bc0185d8e4a168bafd41",
+    "displayedText": "Splashy meets it by the reeds.",
+    "displayedTextSha256": "4813ef7b2aa8bd9864d8568061a473f25da4e28720352304d03dd81557d480dc",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::1": {
-    "audioPath": "/audio/production/en-US/guided_page/woolly-wants-a-cloud-picture-04464b039d.mp3",
-    "audioSha256": "7c2c747b81fd8c63eac671b05d9fc0c7ea3135078d18059cb4022aaea293ea7a",
-    "displayedText": "Woolly wants a cloud picture.",
-    "displayedTextSha256": "0695ec27687c07765c06fded38b7f8325173017498b87db33aab97260ff70329",
+    "audioPath": "/audio/production/en-US/guided_page/woolly-wants-to-make-a-cloud-be815c019f.mp3",
+    "audioSha256": "f22e39ddc0bc4b5bd99d8c73f3168b362fff45692c7aefb7c3670863bb66f319",
+    "displayedText": "Woolly wants to make a cloud.",
+    "displayedTextSha256": "be23328c9d96a567c0bfba07daa7329bcc41d94d56fc3b7c4281579cd359880f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::2": {
-    "audioPath": "/audio/production/en-US/guided_page/she-gathers-soft-shed-wool-2b602874d2.mp3",
-    "audioSha256": "618fda05d8ccfa6ad18619a33af695c1fbe76d959a6ec7e942a0446d1a081b73",
-    "displayedText": "She gathers soft shed wool.",
-    "displayedTextSha256": "5a6976f6528033167702f0baba857ad1d08eed3098339706652685d34291ed28",
+    "audioPath": "/audio/production/en-US/guided_page/she-picks-up-soft-shed-wool-12b3c639c6.mp3",
+    "audioSha256": "b17b022453e759df85a8daad410a3e1e6b669a88760c6070c418c36ab750e1f3",
+    "displayedText": "She picks up soft shed wool.",
+    "displayedTextSha256": "e086c37c64fff52421025b7945b2c74c9c952415ff9e837c4887ae034c18a110",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::3": {
-    "audioPath": "/audio/production/en-US/guided_page/wind-scatters-every-fluffy-piece-c905749e88.mp3",
-    "audioSha256": "0bcaf433cf85342188c8164459b9d20b8d4aba5da90d2903e8a7231f8bfd3c01",
-    "displayedText": "Wind scatters every fluffy piece.",
-    "displayedTextSha256": "369a0aa122e76156ddeb146bd776d6be4e3d2bda0e50419f95a143dab1a74f63",
+    "audioPath": "/audio/production/en-US/guided_page/whoosh-wind-blows-it-all-off-e322bfbcb6.mp3",
+    "audioSha256": "26f812baf4dc37977182ddc2b29c3edb2f3227505ddb9c197c1c27e00f13faa0",
+    "displayedText": "Whoosh! Wind blows it all off.",
+    "displayedTextSha256": "176b1645deeed06f4a17cd069d8512a04f3bd5c09ae5f10f60aea1a8de92afee",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::4": {
-    "audioPath": "/audio/production/en-US/guided_page/woolly-chases-the-flying-wool-b66178989d.mp3",
-    "audioSha256": "8c6321412b40e2248895d39ceebf0f0afe08f059452d0c80c71ceb7d36614f19",
-    "displayedText": "Woolly chases the flying wool.",
-    "displayedTextSha256": "4db06635fa1cf6415a91d05a59623f96272e1275df38b0c9dcd133d79286f2e4",
+    "audioPath": "/audio/production/en-US/guided_page/woolly-runs-for-the-loose-wool-5ff4ac5091.mp3",
+    "audioSha256": "7975b8f955f7660ddb435825a7d05de7380612eea28e16de176bd858df03bba1",
+    "displayedText": "Woolly runs for the loose wool.",
+    "displayedTextSha256": "032f19e2e26ba31f64eb7755e9f883e87b29e4335faf6382d2bd9c202b83b91d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::5": {
-    "audioPath": "/audio/production/en-US/guided_page/muddy-spreads-thin-sticky-mud-9ede698ed6.mp3",
-    "audioSha256": "6d758bea1815088a55f751f2830b2d351a9c917ea133aa4261f643aad20177e9",
-    "displayedText": "Muddy spreads thin sticky mud.",
-    "displayedTextSha256": "a20b2fe6e2ecf18c59acbe263dfcd0909ba158ea3adf2ab5dbffc5ff217022c3",
+    "audioPath": "/audio/production/en-US/guided_page/muddy-spreads-thin-mud-on-wood-2871b7d042.mp3",
+    "audioSha256": "52ec351f724f0aafcec4687933af31b52938b5b7b02c9c5585538783a1027f03",
+    "displayedText": "Muddy spreads thin mud on wood.",
+    "displayedTextSha256": "967e72afa9c0fc58ecef2bfa6c91c3b7ade232a082cbc054125ec2b5e87c0c3e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::6": {
@@ -9789,31 +9495,31 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::7": {
-    "audioPath": "/audio/production/en-US/guided_page/sunshine-dries-the-muddy-board-804b6fd0eb.mp3",
-    "audioSha256": "3992e07bb713950bd57de0ecc7d9329561948226c70c6b495452abd0aecad4a1",
-    "displayedText": "Sunshine dries the muddy board.",
-    "displayedTextSha256": "262e79fb4e730eb3ac286221357522e0505bfb0dcb1cfb229152721aa3837f24",
+    "audioPath": "/audio/production/en-US/guided_page/the-sun-dries-the-wet-mud-6e7080fedb.mp3",
+    "audioSha256": "1b097ac873ef9e7222eeb2da3e9b628f1956f7c277a38d1c15641b8e618450d6",
+    "displayedText": "The sun dries the wet mud.",
+    "displayedTextSha256": "44b54f07b974ae1125f67505a739328c7284afc883dab4f14ead8cef82f1c034",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-28-woollys-wool-cloud::8": {
-    "audioPath": "/audio/production/en-US/guided_page/her-wool-cloud-stays-put-02774b16a7.mp3",
-    "audioSha256": "2ad9c47537e9e28f5ad6be2c18d798ae0dd66b10ae670db8c0efff7f2880214f",
-    "displayedText": "Her wool cloud stays put.",
-    "displayedTextSha256": "d1ea8a358c4ec4cd132fcd8aa275fc34b906d02ac6c11d699c5a19e9527a7d1c",
+    "audioPath": "/audio/production/en-US/guided_page/her-cloud-stays-put-6cefa24ad7.mp3",
+    "audioSha256": "9cd083a6e7bdf19d18d50bb18931ce59ac8f7019d100e89e65b440216874b7a5",
+    "displayedText": "Her cloud stays put.",
+    "displayedTextSha256": "e905fd948aeab5ec907861b92935963f88835d93a2473320fa2dc0f1d111a87d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::1": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-sees-rings-on-pond-1f8f2884de.mp3",
-    "audioSha256": "9b172fda4664a7903beb1f00c8c4acfa66ced17413e8dc854d4437dde1751afb",
-    "displayedText": "Shy sees rings on pond.",
-    "displayedTextSha256": "20c1f080427ca496fbbfa3288c283e1c2bc959237d99f785db4caf4a7874d48e",
+    "audioPath": "/audio/production/en-US/guided_page/shy-sees-rings-on-the-pond-584e730d2e.mp3",
+    "audioSha256": "3c52ef4b7d889f1a2dd0d1c79baaae3c9dbd4fa0b82e3d8817d83745915293b2",
+    "displayedText": "Shy sees rings on the pond.",
+    "displayedTextSha256": "7d505f45e1d277dd2605b793f5f7c0c3e3e22fda957f85fe854b98e36c135c30",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::2": {
-    "audioPath": "/audio/production/en-US/guided_page/she-seeks-the-hidden-swimmer-42c5717e37.mp3",
-    "audioSha256": "6bf587a182c0f1dee3b114f1214bf8396724ac7990ba6b3724f115b59d71d6a0",
-    "displayedText": "She seeks the hidden swimmer.",
-    "displayedTextSha256": "fbccc47429af4d1d5c3e8e328c17a0e176b2de3275ffa2fb4bc4f4df5954456f",
+    "audioPath": "/audio/production/en-US/guided_page/what-swims-below-a8e7232049.mp3",
+    "audioSha256": "3f33f97d00327f57159c7f8756989187361b0a8ae64a1c4c1652607638dd99b8",
+    "displayedText": "What swims below?",
+    "displayedTextSha256": "2466bc40e98fe601b2f085875ea81eecea48d4bd11794da0022b108b19717874",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::3": {
@@ -9824,17 +9530,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::4": {
-    "audioPath": "/audio/production/en-US/guided_page/her-loose-stone-splashes-loudly-82875db3d3.mp3",
-    "audioSha256": "944b7326cf0d623eb1ca9f3cb7bececb05911dc474cf8728b04ab7585a537820",
-    "displayedText": "Her loose stone splashes loudly.",
-    "displayedTextSha256": "3855b589558576fcf6cb41bb010416ad216d2575f24611d108f7f8627efffe6c",
+    "audioPath": "/audio/production/en-US/guided_page/shy-s-stone-plops-in-the-pond-7493dbf299.mp3",
+    "audioSha256": "dd09742b066fdfecffa2d8202e9bf85fef8b63a69804afbd99a3a1f2c8f7edef",
+    "displayedText": "Shy's stone plops in the pond.",
+    "displayedTextSha256": "5b502e857078237f4b782da5a4d290c656d0f50d8f74edfda14104bd9bdcbeca",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::5": {
-    "audioPath": "/audio/production/en-US/guided_page/the-rings-vanish-at-once-4dd56b77bb.mp3",
-    "audioSha256": "0e88e41abd035acf11a39b6c099ee302961270fda25dca994ab9bcd63926bc86",
-    "displayedText": "The rings vanish at once.",
-    "displayedTextSha256": "2562bdb298ed88b09ec1b95476a58c3dc48530b7a9b1378dd81c3f9365e71bf5",
+    "audioPath": "/audio/production/en-US/guided_page/the-pond-goes-still-fb82bba8af.mp3",
+    "audioSha256": "e30d53af8b0f597aca24232185205a1b91e233cc5c55a2838fcf87570c8a0407",
+    "displayedText": "The pond goes still.",
+    "displayedTextSha256": "a4cbd28543f93adb13c5e2c4e842d19dd44c40b0e022fa70ee9d04056dc920e0",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::6": {
@@ -9852,10 +9558,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-29-shys-pond-rings::8": {
-    "audioPath": "/audio/production/en-US/guided_page/shy-sees-its-bright-leap-2c703d6e91.mp3",
-    "audioSha256": "793ded359540ae3408211e721f6f9e8ba47fc51d16cbbcf8d33439e7cdb229bf",
-    "displayedText": "Shy sees its bright leap.",
-    "displayedTextSha256": "303a6d4b951ac8e26d5b7682ddba98b9f26f64786dd110455357d167221d9c31",
+    "audioPath": "/audio/production/en-US/guided_page/shy-sees-the-frog-leap-11eee07783.mp3",
+    "audioSha256": "a1cddc591bce0b7340791f1810159c6b26af7f13479f7d13a79d5ee5fe2e6090",
+    "displayedText": "Shy sees the frog leap!",
+    "displayedTextSha256": "ccbb383ad87a09934f36dd4bdceb6d9e0857536309b39072a9119d06ea57c5d9",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-30-cuddlys-yarn-ball::1": {
@@ -9880,38 +9586,38 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-30-cuddlys-yarn-ball::4": {
-    "audioPath": "/audio/production/en-US/guided_page/three-knots-grow-even-tighter-260a09b100.mp3",
-    "audioSha256": "209dd829902947a00aeaf47b4d2d3d0744470888356ed79aa17cadae596cc797",
-    "displayedText": "Three knots grow even tighter.",
-    "displayedTextSha256": "97a3b27986e445e044c312c6756addc7b817a6488926643dd3ac9c995df89f7f",
+    "audioPath": "/audio/production/en-US/guided_page/three-knots-pull-tight-dcb7b75c93.mp3",
+    "audioSha256": "ec9be59327e362a9a8f893af902a3d9cfb91ab6dea91e07ea6cf452147ba5ec6",
+    "displayedText": "Three knots pull tight.",
+    "displayedTextSha256": "006221d3293f913cdec9b25765b4810499792ab2028fbdd58c70509d6342bb57",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-30-cuddlys-yarn-ball::5": {
-    "audioPath": "/audio/production/en-US/guided_page/cuddly-follows-the-strand-backward-02d9b04b24.mp3",
-    "audioSha256": "9ab65e2f54361587ce8025b3c3b6e1da41a3e5028246b1ad2c054ab8cc7ea15f",
-    "displayedText": "Cuddly follows the strand backward.",
-    "displayedTextSha256": "83d5d53fee8886423fb8d9c402b6a4034ed5af1a4c4ab7312d9ef9538c5c78bc",
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-follows-the-yarn-back-a5136a5d75.mp3",
+    "audioSha256": "1d3ecc54c965376c10a20164155e697253f74065b0183d9169a0a7e0333c4598",
+    "displayedText": "Cuddly follows the yarn back.",
+    "displayedTextSha256": "fb9bbc188e6fe1a1c720f5d62bd21574b6a7c0676f9eab105ca83633e70cb7ed",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-30-cuddlys-yarn-ball::6": {
-    "audioPath": "/audio/production/en-US/guided_page/she-frees-each-little-loop-9febe6a1c8.mp3",
-    "audioSha256": "e8bfb8f97fc2a909a69db0609d799ef7e48a41ed343b8090d4f302ec4d7eeb8c",
-    "displayedText": "She frees each little loop.",
-    "displayedTextSha256": "4255676eaba553678fc7eaf0a94bbe152105d71f7ff97a10c4be0a3e5f25f9b1",
+    "audioPath": "/audio/production/en-US/guided_page/she-frees-each-loop-e693f2189e.mp3",
+    "audioSha256": "6ceddb0f58396efc874ecf793a710970ae8810360b7d465915297826b060f245",
+    "displayedText": "She frees each loop.",
+    "displayedTextSha256": "54dbca17db56d6da73dccd388e6d2f1f96d2570c1784bd661e976630d5930b0b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-30-cuddlys-yarn-ball::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-red-yarn-rolls-round-b3e85334f1.mp3",
-    "audioSha256": "ff337ec3c09f2623ecbdd530177498ddfd9b80d22db25e160cad29869cdb010d",
-    "displayedText": "The red yarn rolls round.",
-    "displayedTextSha256": "a0cc8bf58de179c2c8257d737de43b84bc2b934810f298542667de43c0471981",
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-rolls-yarn-into-a-ball-098742c7a5.mp3",
+    "audioSha256": "38bd0a16f5d693ec2217b31233c22d90593c5e65b0d85484d9ea9396e04b71cb",
+    "displayedText": "Cuddly rolls yarn into a ball.",
+    "displayedTextSha256": "9540c9c0da773f5c487623c8ff846291335c699f51b6f411377e875631f623eb",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-30-cuddlys-yarn-ball::8": {
-    "audioPath": "/audio/production/en-US/guided_page/cuddly-pats-her-tidy-ball-5331863810.mp3",
-    "audioSha256": "23d36baa6bf08cb0d4fc2cbb51d03accbffb039b5e5c8b747fddf32c9291f675",
-    "displayedText": "Cuddly pats her tidy ball.",
-    "displayedTextSha256": "c74f4c8685b3c42d47416fbf62a51fa546cd7ab230e1319dc955697459a2e5e1",
+    "audioPath": "/audio/production/en-US/guided_page/cuddly-taps-her-tidy-ball-d4405c8681.mp3",
+    "audioSha256": "9fa2bfdfedfb400eb81da86a804f8475e23c14d33e549e66cf9359043d8e71e5",
+    "displayedText": "Cuddly taps her tidy ball.",
+    "displayedTextSha256": "e42976d20afd997cbbc9f135409ec15d96925e2c63e2dcba854f40cbe1a4f152",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::1": {
@@ -9922,10 +9628,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::2": {
-    "audioPath": "/audio/production/en-US/guided_page/the-top-bale-sits-high-370c33bb6f.mp3",
-    "audioSha256": "c6d6670ad77ed7539cc66a867ec940cc5fd2e2fa5ce0c8fb8c9c0ea1dc97a19d",
-    "displayedText": "The top bale sits high.",
-    "displayedTextSha256": "c32d20276364c3dbd79f4786c4cbbe18e92ec0caaaef19d284478d931595d78c",
+    "audioPath": "/audio/production/en-US/guided_page/one-bale-must-go-on-top-0a6e0a87fb.mp3",
+    "audioSha256": "650109b4350b7d11f07154a443ed68bc2537fa5ac9eff881388e6f14922ada3f",
+    "displayedText": "One bale must go on top.",
+    "displayedTextSha256": "36b1a621f8729b74c5406b7780eebf16acd9a2253bbccbea6363999f26405c78",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::3": {
@@ -9936,10 +9642,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::4": {
-    "audioPath": "/audio/production/en-US/guided_page/the-bale-flies-past-f20ea3de1f.mp3",
-    "audioSha256": "9ed9cf9e7d93f97998a70621ab3fb01d456aececc612179a9d7642286da6daab",
-    "displayedText": "The bale flies past.",
-    "displayedTextSha256": "df9ffda8656f15ae9571e0bd407907eb0712a1225256007a902903a2fd1ac24f",
+    "audioPath": "/audio/production/en-US/guided_page/whoops-the-bale-flies-past-c55f80d97b.mp3",
+    "audioSha256": "1784d68707bb9b04c361bfcd8310ae0c6e7f2b5da5b4590013b481c38941e79c",
+    "displayedText": "Whoops! The bale flies past.",
+    "displayedTextSha256": "499c7a4bcff07d5d1d1bf62880d02398ef5549f226538e2ede5e66a644517456",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::5": {
@@ -9950,24 +9656,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::6": {
-    "audioPath": "/audio/production/en-US/guided_page/bouncy-lowers-both-strong-springs-16b2519b6c.mp3",
-    "audioSha256": "ba5a05de116ff0b5bc52240054401eadd5e8dc4709142c88a96f26d9c6bbdd37",
-    "displayedText": "Bouncy lowers both strong springs.",
-    "displayedTextSha256": "7806527c4b54064dc95d9eb68d65e3fbfde53b5945f543f71759c6fcbfff3f28",
+    "audioPath": "/audio/production/en-US/guided_page/bouncy-presses-her-springs-down-0b6cd45825.mp3",
+    "audioSha256": "24812666147acd9bdb2005ce346686f08e3a77d35543c2fd4337d831ace520dd",
+    "displayedText": "Bouncy presses her springs down.",
+    "displayedTextSha256": "ecb0cf10a798be9fe0005b2ec2330f98302459b1a3fdd22b40143a0ee82a4184",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::7": {
-    "audioPath": "/audio/production/en-US/guided_page/she-makes-one-small-bounce-5296c5d42c.mp3",
-    "audioSha256": "5b80d0c4ca9fdc67bb26794d5b7312feadd5b75a338d722fc906184f0d532d41",
-    "displayedText": "She makes one small bounce.",
-    "displayedTextSha256": "4d483b145c67bfef69338a54bf106d4970e25d26b11f8145db78c35a8266fca5",
+    "audioPath": "/audio/production/en-US/guided_page/now-she-makes-a-small-bounce-b0c7b7fc99.mp3",
+    "audioSha256": "236197bd4bf98580ef91ba8ba2b377eb252e9f0c40225c6e7a439390a2797b20",
+    "displayedText": "Now she makes a small bounce.",
+    "displayedTextSha256": "5cdd2cd89c64a37577292c377e88f5c49506e2f32a49395b25abfbcf08aeba8e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-31-bouncys-hay-lift::8": {
-    "audioPath": "/audio/production/en-US/guided_page/the-bale-fits-on-top-e2c8d5009e.mp3",
-    "audioSha256": "cb8565c36e3fc7cf70680124b036834b248f91b6cc3e74641fe6fc2c53594e13",
-    "displayedText": "The bale fits on top.",
-    "displayedTextSha256": "cbceff02046b56dee66dffac100bb260963eb2cf6621bb1281bdfe158cb9e1e3",
+    "audioPath": "/audio/production/en-US/guided_page/the-last-bale-fits-2325919b5a.mp3",
+    "audioSha256": "78eac9c94faeb16694c4f51706d9fc2ff2c4602ac911fccfde6f63cce57ae482",
+    "displayedText": "The last bale fits!",
+    "displayedTextSha256": "7e707a1d9d5a4d95f1e3fd57f7e830354ab7600e7a5de3f595b04664e845b655",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::1": {
@@ -9985,10 +9691,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::3": {
-    "audioPath": "/audio/production/en-US/guided_page/the-berry-meets-one-root-44698cb6f9.mp3",
-    "audioSha256": "61d45fe0d33fda06b63ee9a9247b95e1ca2d4e74760527a4bf85ccc04b9416c1",
-    "displayedText": "The berry meets one root.",
-    "displayedTextSha256": "c3b3f5ce5dea649658e7a6a50e2da551ed50469a1f22861ade55698be6ee6599",
+    "audioPath": "/audio/production/en-US/guided_page/a-root-blocks-the-berry-f2e49be25d.mp3",
+    "audioSha256": "47e39a6bf78b0536ddbbec9649652055733081f9717f6f58a5b95cf1b2a520bf",
+    "displayedText": "A root blocks the berry.",
+    "displayedTextSha256": "8c72c8db78fd6bfbd827040f99bdf1e961abd24614e49950cb7848869a5d2937",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::4": {
@@ -9999,10 +9705,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::5": {
-    "audioPath": "/audio/production/en-US/guided_page/the-berry-rolls-back-downhill-382d49891c.mp3",
-    "audioSha256": "94e88852ceca099fcdc097e0ed8295c8f103b5f8f588dc6908275794145d6a1b",
-    "displayedText": "The berry rolls back downhill.",
-    "displayedTextSha256": "979ef252219e7b9b246839515a93a3979263b1762afdd977dccd120218e034aa",
+    "audioPath": "/audio/production/en-US/guided_page/whoops-it-rolls-back-downhill-7039b45558.mp3",
+    "audioSha256": "601c9300f09691d135cae31bd830eb89ee4ec53c34e97add400e6cb35b7c7dcf",
+    "displayedText": "Whoops! It rolls back downhill.",
+    "displayedTextSha256": "ae37fcdbfc73257ed4644e2915e187629475dc7483b05945b19a4863c7c6c2f5",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::6": {
@@ -10020,38 +9726,38 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-32-tinys-giant-berry::8": {
-    "audioPath": "/audio/production/en-US/guided_page/tiny-rolls-it-past-safely-3052602182.mp3",
-    "audioSha256": "010b18601e609762c77d8a4136292cd299338098546c3481537492ffcd065d21",
-    "displayedText": "Tiny rolls it past safely.",
-    "displayedTextSha256": "4f111aa2cef214f21d36475b3a64ff317c6aef7fb6450fe604e1ddd56dc97161",
+    "audioPath": "/audio/production/en-US/guided_page/tiny-rolls-the-berry-home-b519aea754.mp3",
+    "audioSha256": "e2f32d7bcfa0056299197e610cdaf8d447e76779ccf5efbbd0fc545c94117bb4",
+    "displayedText": "Tiny rolls the berry home!",
+    "displayedTextSha256": "dcbd72b55054b80cc33f3b80e7fbe67f31fb86dda29add0e4bf5620899e2ac27",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::1": {
-    "audioPath": "/audio/production/en-US/guided_page/a-beetle-waits-on-path-de9f2af3d8.mp3",
-    "audioSha256": "7764fd5d4eb7e77755f4754382b98a89055094d7a4d584742fd8afcbf88d4408",
-    "displayedText": "A beetle waits on path.",
-    "displayedTextSha256": "6d34cc446b05f51462630068281053e8ab3ae83a2340315e52c53bb1cbf25eac",
+    "audioPath": "/audio/production/en-US/guided_page/a-beetle-waits-on-the-path-b2c13d4ff0.mp3",
+    "audioSha256": "f52479713e066984d8d656c3a2df63a43f73998ae54a4e5283cd9597cd3d5596",
+    "displayedText": "A beetle waits on the path.",
+    "displayedTextSha256": "53ec5b30fe6fb45c80b5204fdbfad8d4ad766a3d8571363a7f1a8f3038f231a6",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::2": {
-    "audioPath": "/audio/production/en-US/guided_page/brave-wants-it-safely-across-3e7ba034fb.mp3",
-    "audioSha256": "c815b285a02653aeb7bd2b9c936a577356ffee61997b9f1da6d3d744352e134a",
-    "displayedText": "Brave wants it safely across.",
-    "displayedTextSha256": "b34c3c34a027b18eb593a4069235f5f6b05c5e534e9bb85e2ce659efcfa1f126",
+    "audioPath": "/audio/production/en-US/guided_page/brave-wants-the-beetle-safe-8f6b8e994e.mp3",
+    "audioSha256": "1919d8a781c924199d6ef1d04b960b019ee76edc2936677ec458d9481644d3cc",
+    "displayedText": "Brave wants the beetle safe.",
+    "displayedTextSha256": "6e5943e7cc2586a82fb6e535c4b3e7c58a3b9df67d1efa26d19151535a2c2147",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::3": {
-    "audioPath": "/audio/production/en-US/guided_page/brave-nudges-its-shiny-shell-965bd9c82c.mp3",
-    "audioSha256": "df80670ebefa8c1d4175a4167a235068e1c08f2ebdf83ad1b8229ae173a3c655",
-    "displayedText": "Brave nudges its shiny shell.",
-    "displayedTextSha256": "1363971262a5293146319d24fcae381657e0defbdda83a1eec0ef8df764ae396",
+    "audioPath": "/audio/production/en-US/guided_page/brave-taps-the-beetle-d78de33d3b.mp3",
+    "audioSha256": "a8820d6d3b1403d1ad8e5105d55cc59e83180eb3498cfe69975245a3db29517a",
+    "displayedText": "Brave taps the beetle.",
+    "displayedTextSha256": "351d87dd2dc5713697b405880810ab78099155f155eee840dfb156af1260956c",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::4": {
-    "audioPath": "/audio/production/en-US/guided_page/the-beetle-curls-up-tight-ed3a8235fc.mp3",
-    "audioSha256": "d6b8007bcc102d6b7dad68d30c0d39c37aa593eeb04826fe904482e83bb48cc0",
-    "displayedText": "The beetle curls up tight.",
-    "displayedTextSha256": "8f577edca1e6bbbbc9f8f279c184ab034bd1b8dfb411c2c27419a04a628998a3",
+    "audioPath": "/audio/production/en-US/guided_page/the-beetle-stops-and-stays-still-0858f48e5a.mp3",
+    "audioSha256": "8a762c10179976fa4677ca1fde3b85813c183133b3f0d2b18d52bc00769ddc68",
+    "displayedText": "The beetle stops and stays still.",
+    "displayedTextSha256": "615cdb03633ca4b228073c650589b44b162e47de44de4fd00fed83a5e75047d8",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::5": {
@@ -10062,24 +9768,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::6": {
-    "audioPath": "/audio/production/en-US/guided_page/he-waits-beside-the-opening-04f0a6e307.mp3",
-    "audioSha256": "74803aebf40b879dfade1c481f4d529e75dcbdb96a3ce71f827f08ce511cf0f7",
-    "displayedText": "He waits beside the opening.",
-    "displayedTextSha256": "a27708641dc88f4972ac223cb6c101bb24edec205d6b424a19c051d1dc25f02f",
+    "audioPath": "/audio/production/en-US/guided_page/he-waits-by-the-far-end-4df077004a.mp3",
+    "audioSha256": "15df9ae6074089b0ebb9959a2421f944603a9ba23fb6f78558cdb8ce15ea76f1",
+    "displayedText": "He waits by the far end.",
+    "displayedTextSha256": "77a8609f7e9c74f978cacde0aa0b15ed3f14f29f3761ceddc213d0b82cc43fa4",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-beetle-walks-straight-through-dee8a2b9ae.mp3",
-    "audioSha256": "f87650be2b849126ab62aa94a946421a6cdec8fbbe413165219f92b564c1f1c8",
-    "displayedText": "The beetle walks straight through.",
-    "displayedTextSha256": "9a0e179c553a408dc1bf3a938bdc3d6322193fa08ad8ceca7feb746b76c4a47d",
+    "audioPath": "/audio/production/en-US/guided_page/out-walks-the-beetle-50642f33d1.mp3",
+    "audioSha256": "f8b1617c73840740e7b6b778c59329849c31449e8257774dc82c6437beae7d75",
+    "displayedText": "Out walks the beetle.",
+    "displayedTextSha256": "8950db17dfa4c9595c80a27a7e64cfe4188e6e327fc924ad69a0f2a14160c3b1",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-33-braves-beetle-bridge::8": {
-    "audioPath": "/audio/production/en-US/guided_page/brave-sees-it-reach-flowers-f8bb02677f.mp3",
-    "audioSha256": "ffc5c038c9696df6444370cff72499c3dc0fc789481b2a9e3c365346cb2b0f13",
-    "displayedText": "Brave sees it reach flowers.",
-    "displayedTextSha256": "20a79cfddfd998c5f4d50574d4c5dda97603afb72e563b6a7068d1cc5d969c10",
+    "audioPath": "/audio/production/en-US/guided_page/it-gets-to-the-flowers-aa5e66527f.mp3",
+    "audioSha256": "9e52acabb3806c3328b5a28f533e6b647e2eb46502663a9447b7f102a2ec8cad",
+    "displayedText": "It gets to the flowers!",
+    "displayedTextSha256": "360598b321381ac165401e21537d48898bc159f1857205a842acd6ac231ac2bf",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::1": {
@@ -10090,24 +9796,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::2": {
-    "audioPath": "/audio/production/en-US/guided_page/he-marks-the-morning-shadow-993ac9ab78.mp3",
-    "audioSha256": "74427ee24508ee050f4ca7c6098dc402e66b156573871b99e225375c8cc37ba5",
-    "displayedText": "He marks the morning shadow.",
-    "displayedTextSha256": "26aa2e356019e8382aafd4f895e38c0a7f8b188e1801de11adf4f60c29ea1995",
+    "audioPath": "/audio/production/en-US/guided_page/he-marks-the-shade-at-dawn-f3b024dee1.mp3",
+    "audioSha256": "c8755e39c2a402992b1aeecfee53334093e33aa57f76d30ed5117a9a2921ad54",
+    "displayedText": "He marks the shade at dawn.",
+    "displayedTextSha256": "1445137d8ba630a3e3b24ecf7ee89a7088f4457784573378551f7930aa15c5c6",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::3": {
-    "audioPath": "/audio/production/en-US/guided_page/sunlight-reaches-the-basket-ea71f02877.mp3",
-    "audioSha256": "7068f52e0cdedbedd16818424871f31ee11eab02d964d3c90ea67995a2eb83d9",
-    "displayedText": "Sunlight reaches the basket.",
-    "displayedTextSha256": "f38938525504b036be3136475c22f2029a973055965d7afe138acd1d14c27c32",
+    "audioPath": "/audio/production/en-US/guided_page/the-sun-warms-his-lunch-97ee7ed4c4.mp3",
+    "audioSha256": "ee8a8c94dae1fae687d396ccd82ee13476a1ece1d7de4470b3c310f7a270285e",
+    "displayedText": "The sun warms his lunch.",
+    "displayedTextSha256": "702786b0b55fc1fc55ed2abeff5c8e7582da42cd7f9419d9a4e1303c8ff55595",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::4": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-drags-lunch-into-shade-ce9bce59fc.mp3",
-    "audioSha256": "48724645b0842cc662ce5709d711297de68d81246ac9086068f10f6c302b1329",
-    "displayedText": "Grumpy drags lunch into shade.",
-    "displayedTextSha256": "0676e00cd51f1a335301698431bbcc03b7a1c91eccb0ffcc42020a69640968d7",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-drags-lunch-to-shade-16fc2766dd.mp3",
+    "audioSha256": "0cf717fbe799cccddcd25c8b74b74123e6d79c4f5daede7bbb46467227440473",
+    "displayedText": "Grumpy drags lunch to shade.",
+    "displayedTextSha256": "8a42d2cde34e56d150d364ca9cb95fb925ffbfd8e47e30921a13b8824710b52d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::5": {
@@ -10118,24 +9824,24 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::6": {
-    "audioPath": "/audio/production/en-US/guided_page/grumpy-watches-its-steady-path-a5017120e7.mp3",
-    "audioSha256": "eac159635931a54623dea0701f154f288d0aa65a7d8761d1ff48ba2e86364997",
-    "displayedText": "Grumpy watches its steady path.",
-    "displayedTextSha256": "09236629e2c5cbc71337ebb84f9d20575dce3f328c5bdbf391414854a45a2ad7",
+    "audioPath": "/audio/production/en-US/guided_page/grumpy-sees-the-shade-move-feadc150c5.mp3",
+    "audioSha256": "43a6e9348eb1487a0ea99e01efd24098a8e09c7ebcfd0e4749b4dc3318306d42",
+    "displayedText": "Grumpy sees the shade move.",
+    "displayedTextSha256": "3483662014eae0d8ae08ae32381f5125c86dcf43cb93ba4dbf64e7aab63360e3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::7": {
-    "audioPath": "/audio/production/en-US/guided_page/he-adds-one-noon-stone-42938a8b4a.mp3",
-    "audioSha256": "56b68085204c1a32b627228bfad9b3a90cd32b23ff8b64517f31809f50a62c85",
-    "displayedText": "He adds one noon stone.",
-    "displayedTextSha256": "2d4d5e3f3729c6fcc050b36f8a48c42aaf0d033e9d3052dbec1772b3d3f6faa6",
+    "audioPath": "/audio/production/en-US/guided_page/he-drags-lunch-to-noon-shade-03b2860e2f.mp3",
+    "audioSha256": "4b48fc15207ade5a9884860f4fddf9f60f60bc3c69acb26f24c10ab7571d4a88",
+    "displayedText": "He drags lunch to noon shade.",
+    "displayedTextSha256": "8acf8e2ac4786ceada0a100ebc9d650b622cbf4c3bab1b196a7ecd595453f041",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-34-grumpys-sun-clock::8": {
-    "audioPath": "/audio/production/en-US/guided_page/his-lunch-stays-cool-there-80726ca4a4.mp3",
-    "audioSha256": "fd0b6bba74324995e78e2a89a0952ba26b645acda3a38add44d5fac6295f8399",
-    "displayedText": "His lunch stays cool there.",
-    "displayedTextSha256": "e825d21a1bff23921050f8fdff753826fec41999985859570c699e9483a98b98",
+    "audioPath": "/audio/production/en-US/guided_page/at-noon-his-lunch-stays-cool-a33f1d8aa7.mp3",
+    "audioSha256": "418da6fb390c95beda72f72ced0b2d63088681349cbe72dd8eb643946b41572d",
+    "displayedText": "At noon his lunch stays cool.",
+    "displayedTextSha256": "434630d1bcffb5c4a57d0def1959b9ebbe8090ae4839ea77929cf89b768034cf",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::1": {
@@ -10146,17 +9852,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::2": {
-    "audioPath": "/audio/production/en-US/guided_page/one-broken-wheel-bumps-hard-412d486b6d.mp3",
-    "audioSha256": "e7cc5d4888ff3d7f374d49a8c854f24b460d30d0ae833b27e9e1082fa2f8046c",
-    "displayedText": "One broken wheel bumps hard.",
-    "displayedTextSha256": "cdabab7e14c349c747ffac9079da1eb30641bbd8af8b1117c213fae3be8fb6ab",
+    "audioPath": "/audio/production/en-US/guided_page/bump-the-broken-wheel-thumps-139fbc9757.mp3",
+    "audioSha256": "b57662a56e337d283af366f283cd5e2cf2ba9af857e03d4fe9e0e7db85c882f5",
+    "displayedText": "Bump! The broken wheel thumps.",
+    "displayedTextSha256": "ca561556a658e6acf05d6debd0c551c7f3b22a6aedee17ac8b01f2072b263b9e",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::3": {
-    "audioPath": "/audio/production/en-US/guided_page/giggly-pulls-much-faster-81ab3146d2.mp3",
-    "audioSha256": "54548f86e8a63529c6a652033256686b987eb6bbaa3e458e97d079de577153cb",
-    "displayedText": "Giggly pulls much faster.",
-    "displayedTextSha256": "b9104157229c659c56cd10f217145024a56f3d4ef5aa9cc1d8722a46e0a0840b",
+    "audioPath": "/audio/production/en-US/guided_page/giggly-pulls-even-faster-d1a7657947.mp3",
+    "audioSha256": "d27c32678fd05f9c302d5f045f7c4b1d09e1671808cef0b1d8a7b8bc34fb0de9",
+    "displayedText": "Giggly pulls even faster.",
+    "displayedTextSha256": "95cf888d13ccc21cff1350ce5b6b860fdfe34900a35b0051e8ad7afb2552f95a",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::4": {
@@ -10167,10 +9873,10 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::5": {
-    "audioPath": "/audio/production/en-US/guided_page/giggly-stops-and-looks-closely-8a83beefd9.mp3",
-    "audioSha256": "f3557c5ad8b00aac1ada737b3b65feef4fa787c15e58731c0af85450bb677dc1",
-    "displayedText": "Giggly stops and looks closely.",
-    "displayedTextSha256": "ab9f8ee46a8caf53a1f0164421180e2f539a677b2dd037c1f66f5b812ab94848",
+    "audioPath": "/audio/production/en-US/guided_page/giggly-stops-what-went-wrong-44bbaf76e0.mp3",
+    "audioSha256": "b4e428718e0d152ab75811bc43a05d1f4ff5f620aacf76f3103f2f18d2e646c5",
+    "displayedText": "Giggly stops. What went wrong?",
+    "displayedTextSha256": "1ff479c8a933d1d5f61552c81d96b38aba919cebc111c2398e0bb2796b1ae76f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::6": {
@@ -10181,17 +9887,17 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::7": {
-    "audioPath": "/audio/production/en-US/guided_page/the-cart-rolls-without-bumps-f811b33437.mp3",
-    "audioSha256": "89491de7e42badd3cd7d7880ae57466cce270391674c8406d9189c716522dbdc",
-    "displayedText": "The cart rolls without bumps.",
-    "displayedTextSha256": "fa846f9828b3b2f08c1c81a1af66681a3fe446cb0620a9b36c8c757cc33cc991",
+    "audioPath": "/audio/production/en-US/guided_page/now-the-cart-rolls-smoothly-1285c27e8f.mp3",
+    "audioSha256": "8f545621d96b86dd213968787c40e731b9b2ca6a8e956b776b0c3bb709967560",
+    "displayedText": "Now the cart rolls smoothly.",
+    "displayedTextSha256": "73a70cf19ba8d558713adb41420f8aead86e90e828b64d77035cc53f212adff4",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "meadow-pals-35-gigglys-round-wheel::8": {
-    "audioPath": "/audio/production/en-US/guided_page/giggly-delivers-every-flower-2261cd9a8c.mp3",
-    "audioSha256": "ebd3aec94a312c6a3e0896f1dda4c8aa4514914cf8a7619f88585aafd6eb5a53",
-    "displayedText": "Giggly delivers every flower.",
-    "displayedTextSha256": "06f1a9ce6652ba1184cd27335bc711fc1d05b205ae2e1afdde7a07cf11535e45",
+    "audioPath": "/audio/production/en-US/guided_page/all-eight-flowers-arrive-2bf8bf3e03.mp3",
+    "audioSha256": "568b22c0aba31191df0f4460504163c0e4396a31c6bd245b76a78ccfd9173d23",
+    "displayedText": "All eight flowers arrive!",
+    "displayedTextSha256": "aa556517fc0452002c4cefd301777ad72239b9b4c8df154757ceb3b38fa66d43",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-01::1": {
@@ -10446,13 +10152,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "53d3aab92abd1ba8212ec2f27e8a993f3d4a2db65272fcd6b2d39f9aec320f38",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "moonwood-tales-c-04::1": {
-    "audioPath": "/audio/production/en-US/guided_page/each-morning-glimmer-practises-one-safe-breath-inside-a-stone-circle-9d12b40d6f.mp3",
-    "audioSha256": "a3fcd31b4d9b76e96fee5442be651ae467ea48b8c7da73434d527577cba8e932",
-    "displayedText": "Each morning, Glimmer practises one safe breath inside a stone circle.",
-    "displayedTextSha256": "3672aaaf93a9ff3ed6467ba2ae5079cd305b4812147491aa7c65baa5fda482f1",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "moonwood-tales-c-04::10": {
     "audioPath": "/audio/production/en-US/guided_page/glimmer-blocks-the-path-plants-both-feet-and-warns-the-fox-a9a36c2326.mp3",
     "audioSha256": "beec9eb6f50fe55db82ee3ab1fc4057819cc9b9446307e123679b287c7c3a516",
@@ -10670,13 +10369,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "f15c38bc16530c7ddb61a8c06bd3a37e6f64fadb20bb46a2166c1a3b83e9581b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "moonwood-tales-c-06::6": {
-    "audioPath": "/audio/production/en-US/guided_page/his-map-says-whispering-meadow-but-grey-marsh-reeds-surround-him-76ceb42ce1.mp3",
-    "audioSha256": "0d527253717dac08d4c013ff18f9e9ea6ed05bf3e8c06f88132e82a7e333b7cf",
-    "displayedText": "His map says Whispering Meadow, but grey marsh reeds surround him.",
-    "displayedTextSha256": "a759dd802b2a433fa9786056509431561674be48b2aba8a7c640685f9af87c44",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "moonwood-tales-c-06::7": {
     "audioPath": "/audio/production/en-US/guided_page/flint-sighs-yesterday-s-map-cannot-guide-him-today-e56f59e0f1.mp3",
     "audioSha256": "c867fe072883486ec4663867bb4df948e18ac8bbeeec6ffdefc6e7c556d67b0c",
@@ -10845,13 +10537,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "41a59856f1d0aa208db4f24a191de12c2b20a4c18ae4d58fff64197c885b7c35",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "moonwood-tales-c-08::6": {
-    "audioPath": "/audio/production/en-US/guided_page/luna-recognises-the-carving-though-its-opening-rule-escapes-her-acae75895e.mp3",
-    "audioSha256": "5409759de2a7ea20f30ccd0139a3082b57a8681e3a865fdec6b20d9d9d8b801a",
-    "displayedText": "Luna recognises the carving, though its opening rule escapes her.",
-    "displayedTextSha256": "e0718ec927ff41f1c3ce919110e8eab42a76b2fef86fd59602af3dd36dc00f55",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "moonwood-tales-c-08::7": {
     "audioPath": "/audio/production/en-US/guided_page/she-traces-each-root-the-door-remains-shut-c5d98bd7c7.mp3",
     "audioSha256": "df98addb07be13fab6e9fe8c7240a89ff78d3b36af9deee92d7eb09ba63d25b1",
@@ -10936,13 +10621,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "a7afd21133faee63e8c26b78a15334f677b4b7a5a9f2bb6dc8be3aeafe4d18fd",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "moonwood-tales-c-09::5": {
-    "audioPath": "/audio/production/en-US/guided_page/spark-apologises-and-feels-another-tickle-starting-18a04fc3b1.mp3",
-    "audioSha256": "652412d65b67b1ec5d7b9a803cab183ed3837bf1f96c5036570cef143c9e71aa",
-    "displayedText": "Spark apologises and feels another tickle starting.",
-    "displayedTextSha256": "bda8d95e43921d16c59c8a5ea09334d7678453f760819a93a539b965ca0926cb",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "moonwood-tales-c-09::6": {
     "audioPath": "/audio/production/en-US/guided_page/he-holds-it-in-gold-magic-builds-around-his-watering-eyes-16b97ae935.mp3",
     "audioSha256": "1728b7d0aee25fd1f012ba1d72ef2d33cf4cfd76b49279ec1357352a3934e8f0",
@@ -10983,13 +10661,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "fa03bed636af26d1556086aa1e05f796045ba2df598070ea3c5835e3897d95d9",
     "displayedText": "Inside, twelve first-tree seeds glow with steady gold light.",
     "displayedTextSha256": "ba49823cbf7613099d957c58da6b7a8dbbbe57c9c8652583ec0443d1acbb745d",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "moonwood-tales-c-10::11": {
-    "audioPath": "/audio/production/en-US/guided_page/luna-explains-the-tired-old-trees-need-young-neighbours-c8b890f138.mp3",
-    "audioSha256": "4ac3476b2b9feca7ff909c0cedeece7c034d8d65e416fd42037cee7dd11ea42d",
-    "displayedText": "Luna explains the tired old trees need young neighbours.",
-    "displayedTextSha256": "8f678341d7a83561ad70fb815c9295c5747672acae543473998ff924c1d3e503",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-10::12": {
@@ -11272,13 +10943,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "b591b57353aba6f0fa6fc59e9009ebab28f5ff14520085513e43c9f8476ca72d",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "moonwood-tales-c-13::3": {
-    "audioPath": "/audio/production/en-US/guided_page/glimmer-follows-every-arrow-only-grey-smoke-appears-4f8fe6deb2.mp3",
-    "audioSha256": "317596a47077a80758eb76f828a54a6047d85e96dbf1a47064c35c4e153221c3",
-    "displayedText": "Glimmer follows every arrow. Only grey smoke appears.",
-    "displayedTextSha256": "c7a47a6ba00b10e7272eac226c26703db588aa4f5836452b461d2d0176709b64",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "moonwood-tales-c-13::4": {
     "audioPath": "/audio/production/en-US/guided_page/glimmer-demonstrates-lift-by-spreading-both-small-wings-and-hovering-79e29bc36e.mp3",
     "audioSha256": "ad40d152b23ba1527d93b3b46331e7587e1b3c0c210f7b5a406c02df793cf0f3",
@@ -11361,13 +11025,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "beea7fba0e58ef67e830fcfa8655d29eb141b032b87df023db023ae1beb5866c",
     "displayedText": "An hour later, vanished paths and unfamiliar trees surround them.",
     "displayedTextSha256": "18a3b4f0f88c960bf8206c4ccc288259ed1d0747752a4b03b2179be9a2af9a49",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "moonwood-tales-c-14::4": {
-    "audioPath": "/audio/production/en-US/guided_page/flint-s-map-places-them-near-meadow-but-grey-marsh-fog-appears-68d598a07a.mp3",
-    "audioSha256": "a2b4c30b32e352fd2951501f464bf628042536fd5dd6d31990bca0e04c4ceaed",
-    "displayedText": "Flint's map places them near meadow, but grey marsh fog appears.",
-    "displayedTextSha256": "d880f7ed8e7586fa36e8a6c4701a18f589a7299de4d51c4b06a369297f7e8ede",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-14::5": {
@@ -11648,13 +11305,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "3c4c663f2df4445b32a4facd82a247e06caf1a1f6fc10de93260e14a91427b6b",
     "displayedText": "Wren finds the motion recipe: root-song first, plain stream water second.",
     "displayedTextSha256": "8cbd2f07dc421d3fb62934093ef830dc16a33da7fb1bfa1b83508ef3bfff05ac",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "moonwood-tales-c-17::9": {
-    "audioPath": "/audio/production/en-US/guided_page/fern-sings-the-root-song-from-the-centre-of-the-clearing-11a44d2ded.mp3",
-    "audioSha256": "27a5cc9475e4f7d37c9dc337d371f0655e8491debe5dce93dba6f3b29d960934",
-    "displayedText": "Fern sings the root-song from the centre of the clearing.",
-    "displayedTextSha256": "de0f61fe4bae3d0d3a38f2c30cd77ff2be8388045cb9fd1800558f1d39eebac3",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-18::1": {
@@ -12077,25 +11727,11 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "56f128a4ea2c587b2faecc8b92592ecf7473fd4ab841c1008037bb182991c45b",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "moonwood-tales-c-23::1": {
-    "audioPath": "/audio/production/en-US/guided_page/pip-marks-fog-marsh-s-edge-when-grey-mist-creeps-nearer-hollow-oak-2e73eb1c5f.mp3",
-    "audioSha256": "cb0181a22f44244da4bee95570f2f2a7b878e280281b1b295963262370a652ce",
-    "displayedText": "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
-    "displayedTextSha256": "09e64e4d216be56bcda5c123edc9afaa7f000f9c5030a1b0946ed92cfb478761",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "moonwood-tales-c-23::10": {
     "audioPath": "/audio/production/en-US/guided_page/with-space-restored-the-spirit-stands-in-one-clear-shape-1570ea8fa3.mp3",
     "audioSha256": "46de6578e9e4d85a4a6d6e59e3f50fd7199fcc163f28426f123c80bddd602259",
     "displayedText": "With space restored, the spirit stands in one clear shape.",
     "displayedTextSha256": "36a1042f72c2776a8d57512ea20c2d0c1959fa3d35ce95bc57d4f1f579816295",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "moonwood-tales-c-23::11": {
-    "audioPath": "/audio/production/en-US/guided_page/at-hollow-oak-each-neighbour-places-a-boundary-stone-bf556ca5d1.mp3",
-    "audioSha256": "0c5f5476b7d128e30ac960eeb9fa9a9df418c64e5d84cee4274e06f76a4b24c7",
-    "displayedText": "At Hollow Oak, each neighbour places a boundary stone.",
-    "displayedTextSha256": "c647dc313bdcda58610506cf4cd732f9758745f074169c07d0c5732c1e1a9a3f",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-23::12": {
@@ -12126,13 +11762,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "displayedTextSha256": "1e7a3380f214ac2118a292aaa674d60f03b0873463ed3ddd3af26bf11c0dde02",
     "voice": "en-US-Chirp3-HD-Leda"
   },
-  "moonwood-tales-c-23::5": {
-    "audioPath": "/audio/production/en-US/guided_page/at-the-centre-a-grey-mist-spirit-rests-against-a-dead-tree-ebb4a5caa8.mp3",
-    "audioSha256": "7c34518cf3b2ad800a534738806560876d481b9aa05fcdb2cfc3afd8289d1a10",
-    "displayedText": "At the centre, a grey mist spirit rests against a dead tree.",
-    "displayedTextSha256": "1f95d3d6b4906eeebf94316d2c37212ae14325f920b1886efd8f86c29d4e7de7",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
   "moonwood-tales-c-23::6": {
     "audioPath": "/audio/production/en-US/guided_page/it-says-its-home-shrinks-whenever-moonwood-leaves-objects-behind-0ed0fb113e.mp3",
     "audioSha256": "96fed2a0cac307adbd725fe1dc5ebb88bd89ca6a2fedf1bfd97f200d436d8cc7",
@@ -12145,13 +11774,6 @@ export const GUIDED_READING_NARRATION_CLEARANCE = Object.freeze({
     "audioSha256": "065d97b8987f0f159e6408e8647ab222fb1217e9d2a9415379e2c997ab74bd62",
     "displayedText": "Rope, lamp, and torn mushroom caps crowd the marsh edge.",
     "displayedTextSha256": "c1886e4e5fbf2dfb1b7451bd8aa22e36acd28580e001a18be4511ee4e492fcd6",
-    "voice": "en-US-Chirp3-HD-Leda"
-  },
-  "moonwood-tales-c-23::8": {
-    "audioPath": "/audio/production/en-US/guided_page/pip-recognises-things-his-neighbours-abandoned-without-checking-the-boundary-503f59ae5e.mp3",
-    "audioSha256": "e90732c3e531d7e62a56247c97c7d096b1171a3e468d8e87df514afad2bb731a",
-    "displayedText": "Pip recognises things his neighbours abandoned without checking the boundary.",
-    "displayedTextSha256": "765daf896487e4047454f87a6df6b001f741bc495c1bb8e215a9d77aace36bcb",
     "voice": "en-US-Chirp3-HD-Leda"
   },
   "moonwood-tales-c-23::9": {

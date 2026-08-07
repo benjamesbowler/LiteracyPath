@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-14-the-tree",
-  "contentHash": "sha256:f1fd3dc4f30fb6f5197bcd871597559ca1c8f0e4f6970c8f50621eef7a56bcbc",
+  "contentHash": "sha256:3a9ff9bd75ececb40451262c595560ee46a27f7c6f4e760872123097d2db58ce",
   "questions": [
     {
       "id": "first-facts-level-a-14-the-tree-q1",
@@ -24,7 +24,7 @@
       "choices": [
         "The trunk holds the tree.",
         "The tree grows tall.",
-        "Every part helps the tree."
+        "These parts make one tree."
       ],
       "answer": "The trunk holds the tree.",
       "kind": "text",
@@ -36,14 +36,14 @@
       "id": "first-facts-level-a-14-the-tree-q3",
       "prompt": "What is the big idea of The Apple Tree?",
       "choices": [
-        "Every part helps the tree.",
+        "These parts make one tree.",
         "Only the tree grows tall.",
         "Only the trunk holds the tree."
       ],
-      "answer": "Every part helps the tree.",
+      "answer": "These parts make one tree.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The tree grows tall. The trunk holds the tree. Every part helps the tree. Together, these facts show the whole-book big idea: Every part helps the tree.",
+      "rationale": "The tree grows tall. The trunk holds the tree. These parts make one tree. Together, these facts show the whole-book big idea: These parts make one tree.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -60,7 +60,7 @@
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Every part helps the tree."
+      "evidenceText": "These parts make one tree."
     }
   ]
 }

@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-12-fancys-bad-day",
-  "contentHash": "sha256:fb0a2205c26fb081ea11d6de1ae6903a4ecc3c85c10c5fa746d8c4e6129789e1",
+  "contentHash": "sha256:ea66c1473046995973be825a5a7ad8088cb7cc097d0be8cd4c1de92f0da7ab30",
   "questions": [
     {
       "id": "dino-pals-12-fancys-bad-day-q1",
       "prompt": "Which event begins Fancy's Bad Day?",
       "choices": [
-        "Fancy wakes with her purple sail badly bent.",
-        "Honky's shout only makes the sail flap.",
-        "The pool shows Fancy's straight sail again."
+        "Fancy wakes. Her woven leaf fan has a sharp fold.",
+        "Honky shouts. Fancy's leaf fan flaps wildly.",
+        "Fancy sees her straight leaf fan in the pool."
       ],
-      "answer": "Fancy wakes with her purple sail badly bent.",
+      "answer": "Fancy wakes. Her woven leaf fan has a sharp fold.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Fancy wakes with her purple sail badly bent."
+      "evidenceText": "Fancy wakes. Her woven leaf fan has a sharp fold."
     },
     {
       "id": "dino-pals-12-fancys-bad-day-q2",
       "prompt": "Which event shows the first plan fails in Fancy's Bad Day?",
       "choices": [
-        "Honky's shout only makes the sail flap.",
-        "Fancy wakes with her purple sail badly bent.",
-        "The pool shows Fancy's straight sail again."
+        "Honky shouts. Fancy's leaf fan flaps wildly.",
+        "Fancy wakes. Her woven leaf fan has a sharp fold.",
+        "Fancy sees her straight leaf fan in the pool."
       ],
-      "answer": "Honky's shout only makes the sail flap.",
+      "answer": "Honky shouts. Fancy's leaf fan flaps wildly.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Honky's shout only makes the sail flap. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Honky shouts. Fancy's leaf fan flaps wildly. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Honky's shout only makes the sail flap."
+      "evidenceText": "Honky shouts. Fancy's leaf fan flaps wildly."
     },
     {
       "id": "dino-pals-12-fancys-bad-day-q3",
       "prompt": "Which event solves the problem in Fancy's Bad Day?",
       "choices": [
-        "The pool shows Fancy's straight sail again.",
-        "Fancy wakes with her purple sail badly bent.",
-        "Honky's shout only makes the sail flap."
+        "Fancy sees her straight leaf fan in the pool.",
+        "Fancy wakes. Her woven leaf fan has a sharp fold.",
+        "Honky shouts. Fancy's leaf fan flaps wildly."
       ],
-      "answer": "The pool shows Fancy's straight sail again.",
+      "answer": "Fancy sees her straight leaf fan in the pool.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The pool shows Fancy's straight sail again. This event shows how the central problem is resolved.",
+      "rationale": "Fancy sees her straight leaf fan in the pool. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "The pool shows Fancy's straight sail again."
+      "evidenceText": "Fancy sees her straight leaf fan in the pool."
     }
   ]
 }

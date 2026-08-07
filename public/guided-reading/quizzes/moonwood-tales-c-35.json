@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-35",
-  "contentHash": "sha256:f02e76d596d93c433cc490eb83f1f514a3c09da8f85bf08d7895f11e339ab3d4",
+  "contentHash": "sha256:90b040082b14f4d0953cc7f5a2b82c28b97357b556728a1ab83da0294956c811",
   "questions": [
     {
       "id": "moonwood-tales-c-35-q1",
       "prompt": "Which event introduces the situation in Pip and Stone Tune the Root Chimes?",
       "choices": [
-        "Hollow Oak's four root chimes sound wrong before moonrise.",
-        "Four harsh notes collide and the smallest chime twists.",
-        "Together they play the notes from low roots upward."
+        "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
+        "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears.",
+        "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches."
       ],
-      "answer": "Hollow Oak's four root chimes sound wrong before moonrise.",
+      "answer": "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Hollow Oak's four root chimes sound wrong before moonrise."
+      "evidenceText": "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning."
     },
     {
       "id": "moonwood-tales-c-35-q2",
       "prompt": "Which event shows that the first attempt fails in Pip and Stone Tune the Root Chimes?",
       "choices": [
-        "Four harsh notes collide and the smallest chime twists.",
-        "Hollow Oak's four root chimes sound wrong before moonrise.",
-        "Together they play the notes from low roots upward."
+        "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears.",
+        "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
+        "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches."
       ],
-      "answer": "Four harsh notes collide and the smallest chime twists.",
+      "answer": "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Four harsh notes collide and the smallest chime twists. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Four harsh notes collide and the smallest chime twists."
+      "rationale": "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears."
     },
     {
       "id": "moonwood-tales-c-35-q3",
       "prompt": "Which event resolves the central problem in Pip and Stone Tune the Root Chimes?",
       "choices": [
-        "Together they play the notes from low roots upward.",
-        "Hollow Oak's four root chimes sound wrong before moonrise.",
-        "Four harsh notes collide and the smallest chime twists."
+        "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches.",
+        "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
+        "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears."
       ],
-      "answer": "Together they play the notes from low roots upward.",
+      "answer": "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Together they play the notes from low roots upward. This event shows how the central problem is resolved.",
-      "evidencePage": 9,
-      "evidenceText": "Together they play the notes from low roots upward."
+      "rationale": "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches."
     }
   ]
 }

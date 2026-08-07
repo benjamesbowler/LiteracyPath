@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
-  "contentHash": "sha256:e526fc4bf94c29ba40dcc8107ccf7d5a83dc4a69c8e1db1a11597a24ea23e481",
+  "contentHash": "sha256:ec824664c301e3cf1fadf8d43ee5398a4490ed5a8ad4fea1367f7a8e7c5760bb",
   "questions": [
     {
       "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q1",
       "prompt": "What happens first in Shy and Cuddly Find Each Other?",
       "choices": [
         "Cuddly looks for a friend.",
-        "Shy waits in the branches.",
-        "They watch the pond together."
+        "Shy waits on a branch.",
+        "They smile in the tree."
       ],
       "answer": "Cuddly looks for a friend.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q2",
       "prompt": "What goes wrong in Shy and Cuddly Find Each Other?",
       "choices": [
-        "Shy waits in the branches.",
+        "Shy waits on a branch.",
         "Cuddly looks for a friend.",
-        "They watch the pond together."
+        "They smile in the tree."
       ],
-      "answer": "Shy waits in the branches.",
+      "answer": "Shy waits on a branch.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Shy waits in the branches. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Shy waits on a branch. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Shy waits in the branches."
+      "evidenceText": "Shy waits on a branch."
     },
     {
       "id": "meadow-pals-20-shy-and-cuddly-find-each-other-q3",
       "prompt": "What happens at the end of Shy and Cuddly Find Each Other?",
       "choices": [
-        "They watch the pond together.",
+        "They smile in the tree.",
         "Cuddly looks for a friend.",
-        "Shy waits in the branches."
+        "Shy waits on a branch."
       ],
-      "answer": "They watch the pond together.",
+      "answer": "They smile in the tree.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They watch the pond together. This event shows how the central problem is resolved.",
+      "rationale": "They smile in the tree. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "They watch the pond together."
+      "evidenceText": "They smile in the tree."
     }
   ]
 }

@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-21-how-i-grow",
-  "contentHash": "sha256:09a77bec348a621ca836072cced2f3d46524ed74de916af3dc3b1a69447d69a3",
+  "contentHash": "sha256:41092d54e0ff904ebe1c1a7907aa3c3976026db0a57b1bb32a5e422ea3ec0ced",
   "questions": [
     {
       "id": "first-facts-a-21-how-i-grow-q1",
-      "prompt": "Which fact is introduced first in Ways I Grow?",
+      "prompt": "Which sentence tells about babies in Ways I Grow?",
       "choices": [
-        "As a baby I needed help moving.",
-        "Now I can do more things.",
-        "People grow in different ways and times."
+        "Babies need help with many things.",
+        "Soon, I can run, jump, and play.",
+        "We all grow in our own way and time."
       ],
-      "answer": "As a baby I needed help moving.",
+      "answer": "Babies need help with many things.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "As a baby I needed help moving."
+      "evidenceText": "Babies need help with many things."
     },
     {
       "id": "first-facts-a-21-how-i-grow-q2",
-      "prompt": "Which sentence tells about now I in Ways I Grow?",
+      "prompt": "Which sentence tells about soon, I in Ways I Grow?",
       "choices": [
-        "Now I can do more things.",
-        "As a baby I needed help moving.",
-        "People grow in different ways and times."
+        "Soon, I can run, jump, and play.",
+        "Babies need help with many things.",
+        "We all grow in our own way and time."
       ],
-      "answer": "Now I can do more things.",
+      "answer": "Soon, I can run, jump, and play.",
       "kind": "text",
-      "skill": "comparison",
-      "evidencePage": 5,
-      "evidenceText": "Now I can do more things."
+      "skill": "key_detail",
+      "evidencePage": 4,
+      "evidenceText": "Soon, I can run, jump, and play."
     },
     {
       "id": "first-facts-a-21-how-i-grow-q3",
       "prompt": "What is the big idea of Ways I Grow?",
       "choices": [
-        "People grow in different ways and times.",
-        "Only I learned new ways to move.",
-        "Only later I learned to sit and crawl."
+        "We all grow in our own way and time.",
+        "Only babies need help with many things.",
+        "Only soon, I can run, jump, and play."
       ],
-      "answer": "People grow in different ways and times.",
+      "answer": "We all grow in our own way and time.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "As a baby I needed help moving. Now I can do more things. People grow in different ways and times. Together, these facts show the whole-book big idea: People grow in different ways and times.",
+      "rationale": "Babies need help with many things. Soon, I can run, jump, and play. We all grow in our own way and time. Together, these facts show the whole-book big idea: We all grow in our own way and time.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "As a baby I needed help moving."
+          "evidenceText": "Babies need help with many things."
         },
         {
-          "evidencePage": 5,
-          "evidenceText": "Now I can do more things."
+          "evidencePage": 4,
+          "evidenceText": "Soon, I can run, jump, and play."
         }
       ],
       "distractorRationales": {
-        "Only I learned new ways to move.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only later I learned to sit and crawl.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only babies need help with many things.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only soon, I can run, jump, and play.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "People grow in different ways and times."
+      "evidenceText": "We all grow in our own way and time."
     }
   ]
 }

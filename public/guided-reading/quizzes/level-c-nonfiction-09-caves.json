@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-09-caves",
-  "contentHash": "sha256:0178dfeeb2e82dee0bbe70c1d4c24b42063b4c0cad2c3949c4e8f05c50144654",
+  "contentHash": "sha256:5acb00cc19c4f734d4ca0cf6aeb02ce2527cb18f82f7f4d924e5fc5e155a43b2",
   "questions": [
     {
       "id": "level-c-nonfiction-09-caves-q1",
-      "prompt": "Which sentence tells about water waves and lava in Caves?",
+      "prompt": "Which sentence tells about water, waves, and flowing lava in Caves?",
       "choices": [
-        "Water waves and lava can form different kinds of caves.",
-        "Mineral deposits hanging from ceilings are called stalactites.",
-        "Ancient cave art preserves evidence of people from long ago."
+        "Water, waves, and flowing lava can each make a cave. What might we find inside?",
+        "Drop by drop, small cracks can grow into rooms and winding passages.",
+        "From dripping stone to ancient art, caves hold clues from long ago."
       ],
-      "answer": "Water waves and lava can form different kinds of caves.",
+      "answer": "Water, waves, and flowing lava can each make a cave. What might we find inside?",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Water waves and lava can form different kinds of caves."
+      "evidenceText": "Water, waves, and flowing lava can each make a cave. What might we find inside?"
     },
     {
       "id": "level-c-nonfiction-09-caves-q2",
-      "prompt": "Which sentence tells about mineral deposits hanging from ceilings in Caves?",
+      "prompt": "Which sentence tells about drop by drop, small cracks in Caves?",
       "choices": [
-        "Mineral deposits hanging from ceilings are called stalactites.",
-        "Water waves and lava can form different kinds of caves.",
-        "Ancient cave art preserves evidence of people from long ago."
+        "Drop by drop, small cracks can grow into rooms and winding passages.",
+        "Water, waves, and flowing lava can each make a cave. What might we find inside?",
+        "From dripping stone to ancient art, caves hold clues from long ago."
       ],
-      "answer": "Mineral deposits hanging from ceilings are called stalactites.",
+      "answer": "Drop by drop, small cracks can grow into rooms and winding passages.",
       "kind": "text",
-      "skill": "vocabulary",
-      "evidencePage": 4,
-      "evidenceText": "Mineral deposits hanging from ceilings are called stalactites."
+      "skill": "sequence",
+      "evidencePage": 3,
+      "evidenceText": "Drop by drop, small cracks can grow into rooms and winding passages."
     },
     {
       "id": "level-c-nonfiction-09-caves-q3",
       "prompt": "What is the big idea of Caves?",
       "choices": [
         "Caves form slowly and can hold signs of life and people.",
-        "Only water waves and lava can form different kinds of caves.",
-        "Only mineral deposits hanging from ceilings are called stalactites."
+        "Only drop by drop, small cracks can grow into rooms and winding passages.",
+        "Only joined stalactites and stalagmites form stone columns."
       ],
       "answer": "Caves form slowly and can hold signs of life and people.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Water waves and lava can form different kinds of caves. Mineral deposits hanging from ceilings are called stalactites. Ancient cave art preserves evidence of people from long ago. Together, these facts show the whole-book big idea: Caves form slowly and can hold signs of life and people.",
+      "rationale": "Water, waves, and flowing lava can each make a cave. What might we find inside? Drop by drop, small cracks can grow into rooms and winding passages. From dripping stone to ancient art, caves hold clues from long ago. Together, these facts show the whole-book big idea: Caves form slowly and can hold signs of life and people.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Water waves and lava can form different kinds of caves."
+          "evidenceText": "Water, waves, and flowing lava can each make a cave. What might we find inside?"
         },
         {
-          "evidencePage": 4,
-          "evidenceText": "Mineral deposits hanging from ceilings are called stalactites."
+          "evidencePage": 3,
+          "evidenceText": "Drop by drop, small cracks can grow into rooms and winding passages."
         }
       ],
       "distractorRationales": {
-        "Only water waves and lava can form different kinds of caves.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only mineral deposits hanging from ceilings are called stalactites.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only drop by drop, small cracks can grow into rooms and winding passages.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only joined stalactites and stalagmites form stone columns.": "Page 6 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "Ancient cave art preserves evidence of people from long ago."
+      "evidenceText": "From dripping stone to ancient art, caves hold clues from long ago."
     }
   ]
 }

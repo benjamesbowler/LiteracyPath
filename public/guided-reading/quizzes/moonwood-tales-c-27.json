@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-27",
-  "contentHash": "sha256:55a9e9484d911ea24264aac3212493cb855356d59c3f0370b158db9da1859d0f",
+  "contentHash": "sha256:c08359b31e56dda6c4ea54e2873bb2fc27f25b34eeea049e8fc28f8fdea9a2dc",
   "questions": [
     {
       "id": "moonwood-tales-c-27-q1",
       "prompt": "Which event introduces the situation in Stone and the Glassleaf Moonbeam?",
       "choices": [
-        "Fern's glassleaf buds need one moonbeam before they close.",
-        "His first tilt sends the moonbeam above the buds.",
-        "Tiny moon shapes shine across Stone's broad hands."
+        "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
+        "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
+        "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed."
       ],
-      "answer": "Fern's glassleaf buds need one moonbeam before they close.",
+      "answer": "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Fern's glassleaf buds need one moonbeam before they close."
+      "evidenceText": "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed."
     },
     {
       "id": "moonwood-tales-c-27-q2",
       "prompt": "Which event shows that the first attempt fails in Stone and the Glassleaf Moonbeam?",
       "choices": [
-        "His first tilt sends the moonbeam above the buds.",
-        "Fern's glassleaf buds need one moonbeam before they close.",
-        "Tiny moon shapes shine across Stone's broad hands."
+        "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
+        "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
+        "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed."
       ],
-      "answer": "His first tilt sends the moonbeam above the buds.",
+      "answer": "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "His first tilt sends the moonbeam above the buds. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 7,
-      "evidenceText": "His first tilt sends the moonbeam above the buds."
+      "rationale": "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark."
     },
     {
       "id": "moonwood-tales-c-27-q3",
       "prompt": "Which event resolves the central problem in Stone and the Glassleaf Moonbeam?",
       "choices": [
-        "Tiny moon shapes shine across Stone's broad hands.",
-        "Fern's glassleaf buds need one moonbeam before they close.",
-        "His first tilt sends the moonbeam above the buds."
+        "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed.",
+        "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
+        "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark."
       ],
-      "answer": "Tiny moon shapes shine across Stone's broad hands.",
+      "answer": "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Tiny moon shapes shine across Stone's broad hands. This event shows how the central problem is resolved.",
-      "evidencePage": 10,
-      "evidenceText": "Tiny moon shapes shine across Stone's broad hands."
+      "rationale": "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed."
     }
   ]
 }

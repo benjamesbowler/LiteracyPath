@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-27-bossys-three-paths",
-  "contentHash": "sha256:bcbd7013e553cc099969461a5ed9898b17c49822c75882b8d062d36dda145321",
+  "contentHash": "sha256:4b0f8fdb1ac5ff40557eed55ffd427aaa81a5804749978ed6907946b6d7862f4",
   "questions": [
     {
       "id": "dino-pals-27-bossys-three-paths-q1",
       "prompt": "Which event begins Bossy's Three Paths?",
       "choices": [
-        "Bossy plans eight stones across Muddy Puddle Pool.",
-        "Grumpy reaches the middle and cannot step farther.",
-        "Stone and branch stations replace the equal row."
+        "Bossy plans eight stepping stones across Muddy Puddle Pool.",
+        "Grumpy reaches the middle. He cannot step farther.",
+        "Close stones, one branch, and the shallow edge make three paths."
       ],
-      "answer": "Bossy plans eight stones across Muddy Puddle Pool.",
+      "answer": "Bossy plans eight stepping stones across Muddy Puddle Pool.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Bossy plans eight stones across Muddy Puddle Pool."
+      "evidenceText": "Bossy plans eight stepping stones across Muddy Puddle Pool."
     },
     {
       "id": "dino-pals-27-bossys-three-paths-q2",
       "prompt": "Which event shows the first plan fails in Bossy's Three Paths?",
       "choices": [
-        "Grumpy reaches the middle and cannot step farther.",
-        "Bossy plans eight stones across Muddy Puddle Pool.",
-        "Stone and branch stations replace the equal row."
+        "Grumpy reaches the middle. He cannot step farther.",
+        "Bossy plans eight stepping stones across Muddy Puddle Pool.",
+        "Close stones, one branch, and the shallow edge make three paths."
       ],
-      "answer": "Grumpy reaches the middle and cannot step farther.",
+      "answer": "Grumpy reaches the middle. He cannot step farther.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Grumpy reaches the middle and cannot step farther. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Grumpy reaches the middle. He cannot step farther. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "Grumpy reaches the middle and cannot step farther."
+      "evidenceText": "Grumpy reaches the middle. He cannot step farther."
     },
     {
       "id": "dino-pals-27-bossys-three-paths-q3",
       "prompt": "Which event solves the problem in Bossy's Three Paths?",
       "choices": [
-        "Stone and branch stations replace the equal row.",
-        "Bossy plans eight stones across Muddy Puddle Pool.",
-        "Grumpy reaches the middle and cannot step farther."
+        "Close stones, one branch, and the shallow edge make three paths.",
+        "Bossy plans eight stepping stones across Muddy Puddle Pool.",
+        "Grumpy reaches the middle. He cannot step farther."
       ],
-      "answer": "Stone and branch stations replace the equal row.",
+      "answer": "Close stones, one branch, and the shallow edge make three paths.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Stone and branch stations replace the equal row. This event shows how the central problem is resolved.",
+      "rationale": "Close stones, one branch, and the shallow edge make three paths. This event shows how the central problem is resolved.",
       "evidencePage": 6,
-      "evidenceText": "Stone and branch stations replace the equal row."
+      "evidenceText": "Close stones, one branch, and the shallow edge make three paths."
     }
   ]
 }

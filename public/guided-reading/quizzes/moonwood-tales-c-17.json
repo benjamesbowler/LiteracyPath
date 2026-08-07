@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-17",
-  "contentHash": "sha256:34aa392820c02b0f4304f16abdf4a66a16aeb7b621d49e139600415dfbf1a4a3",
+  "contentHash": "sha256:6103f54a61813ad05d8163e2568f8efcdda5cb95ca97b337003914cc12daa42f",
   "questions": [
     {
       "id": "moonwood-tales-c-17-q1",
       "prompt": "Which event introduces the situation in Fern and Wren and the Wrong Potion?",
       "choices": [
-        "Wren brings Fern a potion meant to help the garden grow.",
-        "Some enter Hollow Oak; the smallest heads toward Burrow's tunnel.",
-        "Wren sets both recipe books beside the empty cauldron. Every plant is home."
+        "Wren arrived at Fern's garden carrying a small cauldron filled with bubbling potion. She said it would help every plant grow, while Fern studied the purple liquid.",
+        "Several pots entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its roots tapped past his door.",
+        "When every plant was home, Wren placed the green and purple recipes in separate books. She set both books beside the empty cauldron. 'I skipped three important words,' she admitted. The garden stood still around them."
       ],
-      "answer": "Wren brings Fern a potion meant to help the garden grow.",
+      "answer": "Wren arrived at Fern's garden carrying a small cauldron filled with bubbling potion. She said it would help every plant grow, while Fern studied the purple liquid.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Wren brings Fern a potion meant to help the garden grow."
+      "evidenceText": "Wren arrived at Fern's garden carrying a small cauldron filled with bubbling potion. She said it would help every plant grow, while Fern studied the purple liquid."
     },
     {
       "id": "moonwood-tales-c-17-q2",
       "prompt": "Which event shows that the first attempt fails in Fern and Wren and the Wrong Potion?",
       "choices": [
-        "Some enter Hollow Oak; the smallest heads toward Burrow's tunnel.",
-        "Wren brings Fern a potion meant to help the garden grow.",
-        "Wren sets both recipe books beside the empty cauldron. Every plant is home."
+        "Several pots entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its roots tapped past his door.",
+        "Wren arrived at Fern's garden carrying a small cauldron filled with bubbling potion. She said it would help every plant grow, while Fern studied the purple liquid.",
+        "When every plant was home, Wren placed the green and purple recipes in separate books. She set both books beside the empty cauldron. 'I skipped three important words,' she admitted. The garden stood still around them."
       ],
-      "answer": "Some enter Hollow Oak; the smallest heads toward Burrow's tunnel.",
+      "answer": "Several pots entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its roots tapped past his door.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Some enter Hollow Oak; the smallest heads toward Burrow's tunnel. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Several pots entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its roots tapped past his door. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Some enter Hollow Oak; the smallest heads toward Burrow's tunnel."
+      "evidenceText": "Several pots entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its roots tapped past his door."
     },
     {
       "id": "moonwood-tales-c-17-q3",
       "prompt": "Which event resolves the central problem in Fern and Wren and the Wrong Potion?",
       "choices": [
-        "Wren sets both recipe books beside the empty cauldron. Every plant is home.",
-        "Wren brings Fern a potion meant to help the garden grow.",
-        "Some enter Hollow Oak; the smallest heads toward Burrow's tunnel."
+        "When every plant was home, Wren placed the green and purple recipes in separate books. She set both books beside the empty cauldron. 'I skipped three important words,' she admitted. The garden stood still around them.",
+        "Wren arrived at Fern's garden carrying a small cauldron filled with bubbling potion. She said it would help every plant grow, while Fern studied the purple liquid.",
+        "Several pots entered Hollow Oak, and the smallest one waddled toward Burrow's tunnel. Burrow jumped aside as its roots tapped past his door."
       ],
-      "answer": "Wren sets both recipe books beside the empty cauldron. Every plant is home.",
+      "answer": "When every plant was home, Wren placed the green and purple recipes in separate books. She set both books beside the empty cauldron. 'I skipped three important words,' she admitted. The garden stood still around them.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Wren sets both recipe books beside the empty cauldron. Every plant is home. This event shows how the central problem is resolved.",
+      "rationale": "When every plant was home, Wren placed the green and purple recipes in separate books. She set both books beside the empty cauldron. 'I skipped three important words,' she admitted. The garden stood still around them. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Wren sets both recipe books beside the empty cauldron. Every plant is home."
+      "evidenceText": "When every plant was home, Wren placed the green and purple recipes in separate books. She set both books beside the empty cauldron. 'I skipped three important words,' she admitted. The garden stood still around them."
     }
   ]
 }

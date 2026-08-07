@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-19-day-and-night",
-  "contentHash": "sha256:b6bda537211cdbc2cb3016deee077a24af1ec5287523af02d04ff1b7fe6cf2e6",
+  "contentHash": "sha256:3ab4ee26f687f7bb176a14de80ec2a3cd97fd9bfa0c88125a4516d10ccdf8600",
   "questions": [
     {
       "id": "first-facts-a-19-day-and-night-q1",
-      "prompt": "Which sentence tells about sunlight in Day and Night?",
+      "prompt": "Which fact is introduced first in Day and Night?",
       "choices": [
-        "Sunlight brightens one side of Earth.",
-        "Earth rotates all day and night.",
-        "The cycle repeats as Earth turns."
+        "The Sun lights one half of Earth.",
+        "The side turned from the Sun has night.",
+        "Earth keeps turning. Day comes back."
       ],
-      "answer": "Sunlight brightens one side of Earth.",
+      "answer": "The Sun lights one half of Earth.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Sunlight brightens one side of Earth."
+      "evidenceText": "The Sun lights one half of Earth."
     },
     {
       "id": "first-facts-a-19-day-and-night-q2",
       "prompt": "What does Earth do all day and night?",
       "choices": [
-        "Earth rotates all day and night.",
-        "Earth stops all day and night.",
-        "Earth shrinks all day and night."
+        "Earth turns all day and all night.",
+        "Earth stops all day and all night.",
+        "Earth shrinks all day and all night."
       ],
-      "answer": "Earth rotates all day and night.",
+      "answer": "Earth turns all day and all night.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Earth rotates all day and night."
+      "evidenceText": "Earth turns all day and all night."
     },
     {
       "id": "first-facts-a-19-day-and-night-q3",
       "prompt": "What is the big idea of Day and Night?",
       "choices": [
-        "The cycle repeats as Earth turns.",
-        "Only sunlight brightens one side of Earth.",
-        "Only Earth rotates all day and night."
+        "Earth keeps turning. Day comes back.",
+        "Only the Sun lights one half of Earth.",
+        "Only the side turned from the Sun has night."
       ],
-      "answer": "The cycle repeats as Earth turns.",
+      "answer": "Earth keeps turning. Day comes back.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Sunlight brightens one side of Earth. Earth rotates all day and night. The cycle repeats as Earth turns. Together, these facts show the whole-book big idea: The cycle repeats as Earth turns.",
+      "rationale": "The Sun lights one half of Earth. The side turned from the Sun has night. Earth keeps turning. Day comes back. Together, these facts show the whole-book big idea: Earth keeps turning. Day comes back.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Sunlight brightens one side of Earth."
+          "evidenceText": "The Sun lights one half of Earth."
         },
         {
-          "evidencePage": 3,
-          "evidenceText": "Earth rotates all day and night."
+          "evidencePage": 4,
+          "evidenceText": "The side turned from the Sun has night."
         }
       ],
       "distractorRationales": {
-        "Only sunlight brightens one side of Earth.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only Earth rotates all day and night.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only the Sun lights one half of Earth.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only the side turned from the Sun has night.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "The cycle repeats as Earth turns."
+      "evidenceText": "Earth keeps turning. Day comes back."
     }
   ]
 }

@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-34-grumpys-sun-clock",
-  "contentHash": "sha256:981e025290588452632b350047e5c03555612370efba5c59637cfe83f1691b73",
+  "contentHash": "sha256:f26286b299788f5964bfabd556eec2c08fdeef24dc3b667d68c7eef2fcc31939",
   "questions": [
     {
       "id": "meadow-pals-34-grumpys-sun-clock-q1",
       "prompt": "What happens first in Grumpy's Sun Clock?",
       "choices": [
         "Grumpy keeps lunch for noon.",
-        "Sunlight reaches the basket.",
-        "Grumpy drags lunch into shade."
+        "He marks the shade at dawn.",
+        "Grumpy drags lunch to shade."
       ],
       "answer": "Grumpy keeps lunch for noon.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-34-grumpys-sun-clock-q2",
       "prompt": "What goes wrong in Grumpy's Sun Clock?",
       "choices": [
-        "Sunlight reaches the basket.",
+        "He marks the shade at dawn.",
         "Grumpy keeps lunch for noon.",
-        "Grumpy drags lunch into shade."
+        "Grumpy drags lunch to shade."
       ],
-      "answer": "Sunlight reaches the basket.",
+      "answer": "He marks the shade at dawn.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Sunlight reaches the basket. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "Sunlight reaches the basket."
+      "rationale": "He marks the shade at dawn. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "He marks the shade at dawn."
     },
     {
       "id": "meadow-pals-34-grumpys-sun-clock-q3",
       "prompt": "What happens at the end of Grumpy's Sun Clock?",
       "choices": [
-        "Grumpy drags lunch into shade.",
+        "Grumpy drags lunch to shade.",
         "Grumpy keeps lunch for noon.",
-        "Sunlight reaches the basket."
+        "He marks the shade at dawn."
       ],
-      "answer": "Grumpy drags lunch into shade.",
+      "answer": "Grumpy drags lunch to shade.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Grumpy drags lunch into shade. This event shows how the central problem is resolved.",
+      "rationale": "Grumpy drags lunch to shade. This event shows how the central problem is resolved.",
       "evidencePage": 4,
-      "evidenceText": "Grumpy drags lunch into shade."
+      "evidenceText": "Grumpy drags lunch to shade."
     }
   ]
 }

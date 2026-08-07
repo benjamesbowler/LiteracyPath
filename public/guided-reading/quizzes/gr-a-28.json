@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-a-28",
-  "contentHash": "sha256:0b49aa850f802396389d193d73965879f742ceb06cec05aeee32fd786b588844",
+  "contentHash": "sha256:cab760cb87c1cdbad359d8ac69b8535879aa71d06dca24723fecacbf60a2a21c",
   "questions": [
     {
       "id": "gr-a-28-q1",
-      "prompt": "Which sentence tells about an apple in Colors?",
+      "prompt": "Which sentence tells about a ripe apple in Colors?",
       "choices": [
-        "An apple can look red.",
-        "The Sun can look yellow.",
-        "Colours appear all around us."
+        "A ripe apple can look red.",
+        "The Sun can look yellow from Earth.",
+        "Look around. Which colors can you spot?"
       ],
-      "answer": "An apple can look red.",
+      "answer": "A ripe apple can look red.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "An apple can look red."
+      "evidenceText": "A ripe apple can look red."
     },
     {
       "id": "gr-a-28-q2",
       "prompt": "Which sentence tells about the Sun in Colors?",
       "choices": [
-        "The Sun can look yellow.",
-        "An apple can look red.",
-        "Colours appear all around us."
+        "The Sun can look yellow from Earth.",
+        "A ripe apple can look red.",
+        "Look around. Which colors can you spot?"
       ],
-      "answer": "The Sun can look yellow.",
+      "answer": "The Sun can look yellow from Earth.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "The Sun can look yellow."
+      "evidenceText": "The Sun can look yellow from Earth."
     },
     {
       "id": "gr-a-28-q3",
       "prompt": "What is the big idea of Colors?",
       "choices": [
-        "Colours appear all around us.",
-        "Only an apple can look red.",
-        "Only the Sun can look yellow."
+        "Colors can be seen all around us.",
+        "Only a ripe apple can look red.",
+        "Only the Sun can look yellow from Earth."
       ],
-      "answer": "Colours appear all around us.",
+      "answer": "Colors can be seen all around us.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "An apple can look red. The Sun can look yellow. Colours appear all around us. Together, these facts show the whole-book big idea: Colours appear all around us.",
+      "rationale": "A ripe apple can look red. The Sun can look yellow from Earth. Look around. Which colors can you spot? Together, these facts show the whole-book big idea: Colors can be seen all around us.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "An apple can look red."
+          "evidenceText": "A ripe apple can look red."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "The Sun can look yellow."
+          "evidenceText": "The Sun can look yellow from Earth."
         }
       ],
       "distractorRationales": {
-        "Only an apple can look red.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only the Sun can look yellow.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only a ripe apple can look red.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only the Sun can look yellow from Earth.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Colours appear all around us."
+      "evidenceText": "Look around. Which colors can you spot?"
     }
   ]
 }

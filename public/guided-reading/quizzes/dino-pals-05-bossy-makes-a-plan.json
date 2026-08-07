@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-05-bossy-makes-a-plan",
-  "contentHash": "sha256:cab151f65815f3ae36fee3a7927c926445aaa85ccccb293b4884fbc4b9793e16",
+  "contentHash": "sha256:d929ba1549376e93ce1e841a01a0729f7562726e3022abcb3c1433e9842a0aaf",
   "questions": [
     {
       "id": "dino-pals-05-bossy-makes-a-plan-q1",
       "prompt": "Which event begins Bossy Makes a Plan?",
       "choices": [
-        "Bossy wants the picnic ready before noon.",
-        "Bossy's first plan leaves an empty rock.",
-        "Bossy writes their ideas. The picnic fills the rock."
+        "Bossy wants lunch set out by noon.",
+        "Bossy's first plan is one big mess.",
+        "Bossy marks the new jobs. Lunch fills the rock."
       ],
-      "answer": "Bossy wants the picnic ready before noon.",
+      "answer": "Bossy wants lunch set out by noon.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Bossy wants the picnic ready before noon."
+      "evidenceText": "Bossy wants lunch set out by noon."
     },
     {
       "id": "dino-pals-05-bossy-makes-a-plan-q2",
       "prompt": "Which event shows the first plan fails in Bossy Makes a Plan?",
       "choices": [
-        "Bossy's first plan leaves an empty rock.",
-        "Bossy wants the picnic ready before noon.",
-        "Bossy writes their ideas. The picnic fills the rock."
+        "Bossy's first plan is one big mess.",
+        "Bossy wants lunch set out by noon.",
+        "Bossy marks the new jobs. Lunch fills the rock."
       ],
-      "answer": "Bossy's first plan leaves an empty rock.",
+      "answer": "Bossy's first plan is one big mess.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Bossy's first plan leaves an empty rock. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Bossy's first plan is one big mess. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Bossy's first plan leaves an empty rock."
+      "evidenceText": "Bossy's first plan is one big mess."
     },
     {
       "id": "dino-pals-05-bossy-makes-a-plan-q3",
       "prompt": "Which event solves the problem in Bossy Makes a Plan?",
       "choices": [
-        "Bossy writes their ideas. The picnic fills the rock.",
-        "Bossy wants the picnic ready before noon.",
-        "Bossy's first plan leaves an empty rock."
+        "Bossy marks the new jobs. Lunch fills the rock.",
+        "Bossy wants lunch set out by noon.",
+        "Bossy's first plan is one big mess."
       ],
-      "answer": "Bossy writes their ideas. The picnic fills the rock.",
+      "answer": "Bossy marks the new jobs. Lunch fills the rock.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Bossy writes their ideas. The picnic fills the rock. This event shows how the central problem is resolved.",
+      "rationale": "Bossy marks the new jobs. Lunch fills the rock. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Bossy writes their ideas. The picnic fills the rock."
+      "evidenceText": "Bossy marks the new jobs. Lunch fills the rock."
     }
   ]
 }

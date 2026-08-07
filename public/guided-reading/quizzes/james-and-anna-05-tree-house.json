@@ -2,29 +2,29 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-05-tree-house",
-  "contentHash": "sha256:63567606e86338d3b8dff5042d1fccf67e0f7f081a961b5a3fe2aa40c467716c",
+  "contentHash": "sha256:659e3e538fba6e8f9ff68ce760e346eaf6201aa6e0adfaf1706a95ba663b7d38",
   "questions": [
     {
       "id": "james-and-anna-05-tree-house-q1",
       "prompt": "Which event begins James and Anna build a Tree House?",
       "choices": [
-        "James and Anna study the old oak tree for days.",
+        "James and Anna stare up at the old oak tree.",
         "James paints blue. Anna paints yellow. Chips steals the paint lid.",
-        "Every part on their plan is finished and strong."
+        "Blue walls. Yellow door. Red star. Their plan is real!"
       ],
-      "answer": "James and Anna study the old oak tree for days.",
+      "answer": "James and Anna stare up at the old oak tree.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "James and Anna study the old oak tree for days."
+      "evidenceText": "James and Anna stare up at the old oak tree."
     },
     {
       "id": "james-and-anna-05-tree-house-q2",
       "prompt": "Which event shows the first plan fails in James and Anna build a Tree House?",
       "choices": [
         "James paints blue. Anna paints yellow. Chips steals the paint lid.",
-        "James and Anna study the old oak tree for days.",
-        "Every part on their plan is finished and strong."
+        "James and Anna stare up at the old oak tree.",
+        "Blue walls. Yellow door. Red star. Their plan is real!"
       ],
       "answer": "James paints blue. Anna paints yellow. Chips steals the paint lid.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "james-and-anna-05-tree-house-q3",
       "prompt": "Which event solves the problem in James and Anna build a Tree House?",
       "choices": [
-        "Every part on their plan is finished and strong.",
-        "James and Anna study the old oak tree for days.",
+        "Blue walls. Yellow door. Red star. Their plan is real!",
+        "James and Anna stare up at the old oak tree.",
         "James paints blue. Anna paints yellow. Chips steals the paint lid."
       ],
-      "answer": "Every part on their plan is finished and strong.",
+      "answer": "Blue walls. Yellow door. Red star. Their plan is real!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Every part on their plan is finished and strong. This event shows how the central problem is resolved.",
+      "rationale": "Blue walls. Yellow door. Red star. Their plan is real! This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "Every part on their plan is finished and strong."
+      "evidenceText": "Blue walls. Yellow door. Red star. Their plan is real!"
     }
   ]
 }

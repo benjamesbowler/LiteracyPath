@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-33",
-  "contentHash": "sha256:e6391629aeb106c75b866a0deeab5e78446518d0399edf1e8bd2383db669e865",
+  "contentHash": "sha256:1cf5a7157bbdba73086bceb3765cf9686961f37e79ab71336fbd102ccbcb5055",
   "questions": [
     {
       "id": "gr-b-33-q1",
       "prompt": "Which sentence tells about a hammer in Tools?",
       "choices": [
-        "A hammer drives nails.",
-        "A wrench turns bolts.",
-        "Adults use tools carefully."
+        "A hammer drives nails into wood.",
+        "A wrench turns nuts and bolts.",
+        "Each tool has a job. Adults help us use tools safely."
       ],
-      "answer": "A hammer drives nails.",
+      "answer": "A hammer drives nails into wood.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A hammer drives nails."
+      "evidenceText": "A hammer drives nails into wood."
     },
     {
       "id": "gr-b-33-q2",
       "prompt": "Which sentence tells about a wrench in Tools?",
       "choices": [
-        "A wrench turns bolts.",
-        "A hammer drives nails.",
-        "Adults use tools carefully."
+        "A wrench turns nuts and bolts.",
+        "A hammer drives nails into wood.",
+        "Each tool has a job. Adults help us use tools safely."
       ],
-      "answer": "A wrench turns bolts.",
+      "answer": "A wrench turns nuts and bolts.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "A wrench turns bolts."
+      "evidenceText": "A wrench turns nuts and bolts."
     },
     {
       "id": "gr-b-33-q3",
       "prompt": "What is the big idea of Tools?",
       "choices": [
-        "Different tools help people do different jobs.",
-        "Only a hammer drives nails.",
-        "Only a wrench turns bolts."
+        "Tools have different jobs and must be used safely.",
+        "Only a hammer drives nails into wood.",
+        "Only a wrench turns nuts and bolts."
       ],
-      "answer": "Different tools help people do different jobs.",
+      "answer": "Tools have different jobs and must be used safely.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A hammer drives nails. A wrench turns bolts. Adults use tools carefully. Together, these facts show the whole-book big idea: Different tools help people do different jobs.",
+      "rationale": "A hammer drives nails into wood. A wrench turns nuts and bolts. Each tool has a job. Adults help us use tools safely. Together, these facts show the whole-book big idea: Tools have different jobs and must be used safely.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "A hammer drives nails."
+          "evidenceText": "A hammer drives nails into wood."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "A wrench turns bolts."
+          "evidenceText": "A wrench turns nuts and bolts."
         }
       ],
       "distractorRationales": {
-        "Only a hammer drives nails.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only a wrench turns bolts.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only a hammer drives nails into wood.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a wrench turns nuts and bolts.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Adults use tools carefully."
+      "evidenceText": "Each tool has a job. Adults help us use tools safely."
     }
   ]
 }

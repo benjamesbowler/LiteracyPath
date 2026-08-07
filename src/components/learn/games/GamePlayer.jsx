@@ -14,6 +14,8 @@ import {
 } from "../../../utils/learnGamesProgress";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../../utils/dailyMission.js";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
+import { ProgressStars } from "./shared/ProgressStars.jsx";
+import { premiumProfileForGame } from "./shared/arcadePremiumProfiles.js";
 import { worldForDifficulty, worldStyle, sceneForKey } from "../../../utils/palWorlds.js";
 import {
   closeFullscreenSurfaceName,
@@ -32,6 +34,15 @@ function CloseIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
       <path d="m6 6 12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+function GuideIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+      <path d="M12 17v-5M12 8h.01" />
+      <circle cx="12" cy="12" r="9" />
     </svg>
   );
 }
@@ -77,7 +88,9 @@ export function GamePlayer({
 }) {
   const [score, setScore] = useState(0);
   const [showQuit, setShowQuit] = useState(false);
+  const [showGuide, setShowGuide] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [completionResult, setCompletionResult] = useState(null);
   const [progressStatus, setProgressStatus] = useState({ current: 0, total: 1 });
   // Resume: check for a saved checkpoint once, on open. difficulty is fixed for a
   // GamePlayer's lifetime (chosen in the arcade before entry), so a lazy initial
@@ -91,10 +104,13 @@ export function GamePlayer({
   const announcedMilestoneRef = useRef(0);
   const missionReturnPendingRef = useRef(false);
   const keepPlayingRef = useRef(null);
+  const closeGuideRef = useRef(null);
+  const completionActionRef = useRef(null);
   const GameComponent = LEARN_GAMES[game.id];
   const world = worldForDifficulty(difficulty);
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
+  const premiumProfile = premiumProfileForGame(game.id);
 
   useEffect(() => {
     setActiveLearnGamesProgressScope(progressScopeKey);
@@ -129,15 +145,15 @@ export function GamePlayer({
   // Freeze the running game while the quit dialog is open or the tab is
   // backgrounded, so a child never loses hearts/words they can't see.
   useEffect(() => {
-    if (showQuit) engineRef.current?.pause?.();
+    if (showQuit || showGuide) engineRef.current?.pause?.();
     else engineRef.current?.resume?.();
     const onVis = () => {
       if (document.hidden) engineRef.current?.pause?.();
-      else if (!showQuit) engineRef.current?.resume?.();
+      else if (!showQuit && !showGuide) engineRef.current?.resume?.();
     };
     document.addEventListener("visibilitychange", onVis);
     return () => document.removeEventListener("visibilitychange", onVis);
-  }, [showQuit]);
+  }, [showQuit, showGuide]);
 
   // Closes the player, first firing any held mission return from this
   // session's win (see handleComplete) so the celebration is never cut off.
@@ -164,6 +180,14 @@ export function GamePlayer({
     if (showQuit) keepPlayingRef.current?.focus();
   }, [showQuit]);
 
+  useEffect(() => {
+    if (showGuide) closeGuideRef.current?.focus();
+  }, [showGuide]);
+
+  useEffect(() => {
+    if (completionResult && game.id !== "rocket-run") completionActionRef.current?.focus();
+  }, [completionResult, game.id]);
+
   // Esc mirrors the close button: opens the quit prompt during play, closes
   // it when open, and leaves directly once the game is complete. The resume
   // prompt (startLevel === null) keeps Esc to itself.
@@ -185,6 +209,11 @@ export function GamePlayer({
     // final round's points; our own score state is current by now, so
     // take whichever is higher.
     const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
+    setCompletionResult({
+      stars: Math.max(1, Math.min(3, Number(stars) || 1)),
+      score: settledScore,
+      words: Math.max(0, Number(wordsCompleted) || 0)
+    });
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
     clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder, nothing to resume
     // Credit the mission's game task now but hold the auto-return: the win
@@ -258,22 +287,25 @@ export function GamePlayer({
           <strong>{game.title}</strong>
           <span>{difficulty}</span>
         </div>
-        <div className="lg-game-header-meter" aria-label={`${Math.min(progressStatus.current, progressStatus.total)} of ${progressStatus.total}`}>
-          <div><i style={{ width: `${Math.min(100, (progressStatus.current / progressStatus.total) * 100)}%` }} /></div>
-          <span>{Math.min(progressStatus.current, progressStatus.total)} of {progressStatus.total}</span>
+        <div className="lg-game-player-center">
+          {premiumProfile && <p className="lg-game-mission">{premiumProfile.mission}</p>}
+          <div className="lg-game-header-meter" aria-label={`${Math.min(progressStatus.current, progressStatus.total)} of ${progressStatus.total}`}>
+            <div><i style={{ width: `${Math.min(100, (progressStatus.current / progressStatus.total) * 100)}%` }} /></div>
+            <span>{Math.min(progressStatus.current, progressStatus.total)} of {progressStatus.total}</span>
+          </div>
         </div>
         <div className="lg-game-player-actions">
           <span className="lg-game-score">{score} pts</span>
           <span className="lg-sr-only" role="status">{scoreAnnouncement}</span>
-          {hasRecordedSpeech(`${game.title}. ${game.description}`) && (
+          {premiumProfile && (
             <button
               type="button"
               className="lg-phinny-help"
-              onClick={() => soundEnabled && speak(`${game.title}. ${game.description}`)}
-              aria-label="Hear game instructions"
-              title="Hear game instructions"
+              onClick={() => setShowGuide(true)}
+              aria-label={`Open ${game.title} mission guide`}
+              title="Mission guide"
             >
-              <img src="/images/learn-games/phinny-waving.png" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
+              <GuideIcon />
             </button>
           )}
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
@@ -347,6 +379,55 @@ export function GamePlayer({
               <button type="button" ref={keepPlayingRef} onClick={() => setShowQuit(false)}>Keep playing</button>
               <button type="button" className="danger" onClick={closePlayer}>Leave</button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {showGuide && premiumProfile && (
+        <div
+          className="lg-game-confirm lg-premium-guide"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${game.title} mission guide`}
+        >
+          <div>
+            <span className="lg-premium-guide-kicker">Mission · v{premiumProfile.version}</span>
+            <h2>{premiumProfile.mission}</h2>
+            <dl>
+              <div><dt>What you are practising</dt><dd>{premiumProfile.objective}</dd></div>
+              <div><dt>Game action</dt><dd>{premiumProfile.action}</dd></div>
+              <div><dt>Try again</dt><dd>{premiumProfile.retry}</dd></div>
+            </dl>
+            <ul aria-label="Controls">
+              {premiumProfile.controls.map(control => <li key={control}>{control}</li>)}
+            </ul>
+            <div className="lg-premium-guide-actions">
+              {soundEnabled && hasRecordedSpeech(game.title) && (
+                <button type="button" onClick={() => speak(game.title)}>Hear game name</button>
+              )}
+              <button type="button" className="primary" ref={closeGuideRef} onClick={() => setShowGuide(false)}>Keep playing</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {completionResult && premiumProfile && game.id !== "rocket-run" && (
+        <div
+          className="lg-game-confirm lg-premium-complete"
+          role="alertdialog"
+          aria-modal="true"
+          aria-label={`${game.title} complete`}
+        >
+          <div>
+            <span className="lg-premium-guide-kicker">Mission debrief</span>
+            <h2>{premiumProfile.completionTitle}</h2>
+            <ProgressStars stars={completionResult.stars} size="lg" />
+            <p>You earned {completionResult.score} points.</p>
+            <div className="lg-premium-complete-stat">
+              <strong>{completionResult.words}</strong>
+              <span>{premiumProfile.rewardLabel}</span>
+            </div>
+            <button type="button" className="primary" ref={completionActionRef} onClick={closePlayer}>Back to Arcade</button>
           </div>
         </div>
       )}

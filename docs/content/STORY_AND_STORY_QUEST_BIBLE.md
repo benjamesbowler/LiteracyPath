@@ -1,19 +1,26 @@
 # Literacy Guide Story Bible
 
 **Status:** Canonical two-part content standard
-**Version:** 1.0
-**Date:** 31 July 2026
+**Version:** 2.0
+**Date:** 3 August 2026
 
-The Bible is deliberately separated into two documents so that universal children's-story
-craft is never confused with Literacy Guide-specific character and production canon.
+The Bible is deliberately separated into two documents so that universal children's-book
+craft for fiction and nonfiction is never confused with Literacy Guide-specific
+character and production canon.
 
-## Part I — How to Write an Excellent Children's Story
+## Part I — How to Write an Excellent Children's Book
 
 [Open Part I](./STORY_BIBLE_PART_1_WRITING.md)
 
-The heavily researched writing standard: narrative comprehension, story architecture,
-meaningful choices, Level A/B/C language, human-specific prose, workflow, scorecard and
-release checklist.
+The research-led writing standard: fiction and nonfiction architecture, meaningful
+choices, early-emergent Level A/B/C reading bands, ages 4–8 interest, human-specific
+prose, social consequence and repair, earned endings, workflow, scorecard and release
+checklist.
+
+[Open the human-writing evidence database](../guided-reading/HUMAN_WRITING_EVIDENCE_DATABASE.json)
+
+The database contains short examples and cross-source craft analysis. It is evidence for
+writing decisions, not a source of lines to copy.
 
 ## Part II — Literacy Guide Worlds and Character Canon
 
@@ -24,9 +31,9 @@ audio, continuity, known conflicts and automated release gates.
 
 ## Release rule
 
-A story must pass both parts. Part I can approve the writing while Part II rejects a
-wrong-looking character; Part II can approve continuity while Part I rejects a lifeless
-story. Neither result can override the other.
+A book must pass every applicable rule in both parts. Part I can approve the writing while
+Part II rejects a wrong-looking character; Part II can approve continuity while Part I
+rejects lifeless fiction or incoherent nonfiction. Neither result can override the other.
 
 ## Enforced authoring and approval
 

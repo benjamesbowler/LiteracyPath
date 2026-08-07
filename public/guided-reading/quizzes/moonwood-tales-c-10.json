@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-10",
-  "contentHash": "sha256:d4b59e4994bd4b3a7bbf28520339b62025cdc1f33960ba6e448b22ec214a305d",
+  "contentHash": "sha256:6b2bda6124e43a8ec116af227bdfc2b44612b8394822570cea15e8b24af79058",
   "questions": [
     {
       "id": "moonwood-tales-c-10-q1",
       "prompt": "Which event introduces the situation in What Luna Forgot?",
       "choices": [
-        "Luna wakes knowing one important task must happen today.",
-        "They search Hollow Oak, every path, and Whispering Meadow without success.",
-        "They plant a ring around Hollow Oak before sunset."
+        "Luna woke with the strong feeling that one important task had to happen that day. She searched her memory, but the task itself had completely disappeared.",
+        "The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. They found many cold places, yet none held Luna's lost memory.",
+        "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil."
       ],
-      "answer": "Luna wakes knowing one important task must happen today.",
+      "answer": "Luna woke with the strong feeling that one important task had to happen that day. She searched her memory, but the task itself had completely disappeared.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Luna wakes knowing one important task must happen today."
+      "evidenceText": "Luna woke with the strong feeling that one important task had to happen that day. She searched her memory, but the task itself had completely disappeared."
     },
     {
       "id": "moonwood-tales-c-10-q2",
       "prompt": "Which event shows that the first attempt fails in What Luna Forgot?",
       "choices": [
-        "They search Hollow Oak, every path, and Whispering Meadow without success.",
-        "Luna wakes knowing one important task must happen today.",
-        "They plant a ring around Hollow Oak before sunset."
+        "The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. They found many cold places, yet none held Luna's lost memory.",
+        "Luna woke with the strong feeling that one important task had to happen that day. She searched her memory, but the task itself had completely disappeared.",
+        "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil."
       ],
-      "answer": "They search Hollow Oak, every path, and Whispering Meadow without success.",
+      "answer": "The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. They found many cold places, yet none held Luna's lost memory.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "They search Hollow Oak, every path, and Whispering Meadow without success. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. They found many cold places, yet none held Luna's lost memory. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "They search Hollow Oak, every path, and Whispering Meadow without success."
+      "evidenceText": "The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. They found many cold places, yet none held Luna's lost memory."
     },
     {
       "id": "moonwood-tales-c-10-q3",
       "prompt": "Which event resolves the central problem in What Luna Forgot?",
       "choices": [
-        "They plant a ring around Hollow Oak before sunset.",
-        "Luna wakes knowing one important task must happen today.",
-        "They search Hollow Oak, every path, and Whispering Meadow without success."
+        "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil.",
+        "Luna woke with the strong feeling that one important task had to happen that day. She searched her memory, but the task itself had completely disappeared.",
+        "The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. They found many cold places, yet none held Luna's lost memory."
       ],
-      "answer": "They plant a ring around Hollow Oak before sunset.",
+      "answer": "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They plant a ring around Hollow Oak before sunset. This event shows how the central problem is resolved.",
+      "rationale": "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil. This event shows how the central problem is resolved.",
       "evidencePage": 13,
-      "evidenceText": "They plant a ring around Hollow Oak before sunset."
+      "evidenceText": "Before sunset, the friends planted all twelve seeds in a wide ring around Hollow Oak. They covered each hole gently and watered the dark soil."
     }
   ]
 }

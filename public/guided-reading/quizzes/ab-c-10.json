@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-10",
-  "contentHash": "sha256:1929bddaec7b4fd3668a39696e0bdeb4f5f04d9a3c1928fb0f0d96665fa29e09",
+  "contentHash": "sha256:f3c295a3bc86f252f10590894d3f1afb64e27061a02c41c51e7a4d5129a0605e",
   "questions": [
     {
       "id": "ab-c-10-q1",
       "prompt": "Which event introduces the situation in Aiden and Betty and the Castle?",
       "choices": [
-        "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
-        "Underground, dim light defeated his next sketch. The notebook page stayed blank.",
-        "Using every clue, Aiden completed four drawings that explained their castle day."
+        "Dad showed them a castle picture. “I'm filling a page with clues,” Aiden said. Betty grabbed a guidebook.",
+        "Downstairs, dim light hid the old details. Aiden could not find a clue to draw.",
+        "At home, Aiden used the picture book to finish his clue page. No blank space left!"
       ],
-      "answer": "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
+      "answer": "Dad showed them a castle picture. “I'm filling a page with clues,” Aiden said. Betty grabbed a guidebook.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook."
+      "evidenceText": "Dad showed them a castle picture. “I'm filling a page with clues,” Aiden said. Betty grabbed a guidebook."
     },
     {
       "id": "ab-c-10-q2",
       "prompt": "Which event shows that the first attempt fails in Aiden and Betty and the Castle?",
       "choices": [
-        "Underground, dim light defeated his next sketch. The notebook page stayed blank.",
-        "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
-        "Using every clue, Aiden completed four drawings that explained their castle day."
+        "Downstairs, dim light hid the old details. Aiden could not find a clue to draw.",
+        "Dad showed them a castle picture. “I'm filling a page with clues,” Aiden said. Betty grabbed a guidebook.",
+        "At home, Aiden used the picture book to finish his clue page. No blank space left!"
       ],
-      "answer": "Underground, dim light defeated his next sketch. The notebook page stayed blank.",
+      "answer": "Downstairs, dim light hid the old details. Aiden could not find a clue to draw.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Underground, dim light defeated his next sketch. The notebook page stayed blank. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Downstairs, dim light hid the old details. Aiden could not find a clue to draw. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Underground, dim light defeated his next sketch. The notebook page stayed blank."
+      "evidenceText": "Downstairs, dim light hid the old details. Aiden could not find a clue to draw."
     },
     {
       "id": "ab-c-10-q3",
       "prompt": "Which event resolves the central problem in Aiden and Betty and the Castle?",
       "choices": [
-        "Using every clue, Aiden completed four drawings that explained their castle day.",
-        "Dad showed them a castle picture. Aiden packed his notebook; Betty packed a guidebook.",
-        "Underground, dim light defeated his next sketch. The notebook page stayed blank."
+        "At home, Aiden used the picture book to finish his clue page. No blank space left!",
+        "Dad showed them a castle picture. “I'm filling a page with clues,” Aiden said. Betty grabbed a guidebook.",
+        "Downstairs, dim light hid the old details. Aiden could not find a clue to draw."
       ],
-      "answer": "Using every clue, Aiden completed four drawings that explained their castle day.",
+      "answer": "At home, Aiden used the picture book to finish his clue page. No blank space left!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Using every clue, Aiden completed four drawings that explained their castle day. This event shows how the central problem is resolved.",
+      "rationale": "At home, Aiden used the picture book to finish his clue page. No blank space left! This event shows how the central problem is resolved.",
       "evidencePage": 13,
-      "evidenceText": "Using every clue, Aiden completed four drawings that explained their castle day."
+      "evidenceText": "At home, Aiden used the picture book to finish his clue page. No blank space left!"
     }
   ]
 }

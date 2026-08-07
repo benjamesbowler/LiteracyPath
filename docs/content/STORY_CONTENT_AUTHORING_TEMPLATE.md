@@ -1,6 +1,9 @@
 # Story Content authoring and approval template
 
-**Policy:** `2026-07-31.1`
+Use U.S. English spelling in every child-facing title, page, prompt, label and choice.
+Preserve original spelling only inside attributed research quotations.
+
+**Policy:** `2026-08-03.2`
 **Applies to:** guided-reading books, Story Quests, animations, poems, songs, audio
 stories, comics and plays.
 
@@ -23,8 +26,8 @@ The governing standards are:
 | Final title | |
 | Format | One registered policy format |
 | Series/world | |
-| Reading level | Early, A, B or C |
-| Intended age/readership | |
+| Reading band | Early, A, B or C |
+| Interest age/readership | Declare separately from reading band |
 | Author | |
 | Editor/reviewer record | Accountable reviewer or review system; named human sign-off is not required |
 | Illustrator/art director | |
@@ -32,9 +35,9 @@ The governing standards are:
 | Policy version | |
 | Source fingerprint | Added only after the approved files are final |
 
-## 2. One-sentence story promise
+## 2. Narrative or concept promise
 
-Write one sentence in this form:
+For fiction, write one sentence in this form:
 
 > **[Protagonist] must [concrete goal] before [visible deadline or consequence], but
 > [specific obstacle].**
@@ -43,20 +46,33 @@ If that sentence cannot be completed without “learns about,” “has an adven
 “explores,” “has a day,” or another abstract substitute for an action, the story is not
 ready to outline.
 
+For nonfiction, write one sentence in this form:
+
+> The reader starts with **[question or observation]**; each page develops it through
+> **[one organising relationship]**; the final page leaves the reader understanding
+> **[answer, pattern or significance]**.
+
+If the facts can be freely shuffled without weakening the book, the concept spine is not
+ready to outline.
+
 ## 3. Character and canon lock
 
-For every named character, record:
+For every named fiction character, record:
 
-| Character | Story want | Story fear/constraint | Canon traits used | Size reference | Required colours/marks | Forbidden drift |
+| Character | Story want | Story fear/constraint | Canon traits used | Size reference | Required colors/marks | Forbidden drift |
 | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | |
 
 Record the world, time, weather, location rules, allowed technology or magic, and any
 object whose appearance or state must persist.
 
-## 4. Causal beat sheet
+For nonfiction, record the subject, factual scope, source set, uncertainty or exceptions,
+image-verifiable details and any term that needs immediate child-facing support.
 
-Every row must change the problem, knowledge, relationship or available action.
+## 4. Causal or concept beat sheet
+
+For fiction, every row must change the problem, knowledge, relationship or available
+action.
 
 | Beat | What the character tries | Immediate cause | Visible consequence | What changes next | Illustration state |
 | ---: | --- | --- | --- | --- | --- |
@@ -70,6 +86,20 @@ Every row must change the problem, knowledge, relationship or available action.
 Add rows only when they create a necessary causal beat. Do not add incidents merely to
 make the story longer.
 
+When behavior affects another character, name the impact, readable reaction,
+recognition or boundary, proportionate repair or changed attempt, and final payoff in the
+relevant rows.
+
+For nonfiction, use one concept progression. Every page must add, refine, contrast or
+connect information.
+
+| Page | New fact or observation | Organising relationship | What this adds | Image evidence | How it prepares the close |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | Opening inquiry or observation | | | | |
+| 2 | | Sequence, cause, comparison, classification, change, scale or location | | | |
+| 3 | | | | | |
+| Final | Answer, synthesis, comparison or meaningful return | | | | Why this page comes last |
+
 ## 5. Interactive route contract
 
 Complete this section for Story Quests and any branching animation, audio story, comic
@@ -80,7 +110,7 @@ or play.
 | | | | | | |
 
 A choice that immediately merges into the same scene without remembered state is not a
-choice. Navigation, colour selection and guessing are not automatically story agency.
+choice. Navigation, color selection and guessing are not automatically story agency.
 
 For every possible route, record:
 
@@ -112,7 +142,7 @@ Every illustration must pass all of these questions:
 1. Can a non-reader identify the page's main action?
 2. Does every character named in the text appear, unless the text explicitly places
    that character off-screen?
-3. Are all named objects, directions, quantities, colours and physical states correct?
+3. Are all named objects, directions, quantities, colors and physical states correct?
 4. Are there any extra characters or objects that create a different story?
 5. Do model, size, clothing, marks, handedness and carried objects match adjacent pages?
 6. Does the image preserve the route-specific state?
@@ -133,13 +163,13 @@ Score each category from 0 to 4 and cite evidence. The minimum release threshold
 
 | Category | Score | Evidence | Open defect |
 | --- | ---: | --- | --- |
-| Character truth | | | |
-| Concrete story goal | | | |
-| Causal progression | | | |
-| Escalation and genuine failure | | | |
-| Meaningful child agency | | | |
+| Character or subject truth | | | |
+| Concrete goal or inquiry | | | |
+| Causality or concept progression | | | |
+| Obstacle or concept development | | | |
+| Meaningful choice or page-turn purpose | | | |
 | Earned ending | | | |
-| Declared reading level | | | |
+| Declared reading band and interest-age fit | | | |
 | Human read-aloud voice | | | |
 | Specificity and delight | | | |
 | World and character canon | | | |
@@ -152,7 +182,7 @@ Score each category from 0 to 4 and cite evidence. The minimum release threshold
 | --- | --- | --- | --- | --- |
 | Policy registration and source fingerprint | | | | |
 | Complete route traversal | | | | |
-| Reading-level validation | | | | |
+| Reading-band and interest-age validation | | | | |
 | Character and world canon | | | | |
 | Page-by-page image/text match | | | | |
 | Word-for-word audio match | | | | |

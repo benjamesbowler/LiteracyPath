@@ -29,6 +29,7 @@ import {
   createScoreReporter,
   createFrameLoop
 } from "../shared/canvasUtils.js";
+import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
 
 const CONFIG = {
   "rhyme-pop": {
@@ -36,7 +37,7 @@ const CONFIG = {
     action: "Aim and pop a real rhyming word",
     onboardingHints: [
       "Aim with your mouse or finger.",
-      "Click, tap, or press Space to shoot.",
+      "Tap or press Space to shoot.",
       "Tap the Rhymes-with sign to hear it again."
     ],
     bg: "/images/learn-games/ps1-arcade/rhyme-pop-bg.webp",
@@ -489,6 +490,18 @@ function drawRhymeOrb(ctx, bubble, task, state, now, w, h) {
   ctx.stroke();
   ctx.globalCompositeOperation = "source-over";
 
+  // Keyboard aiming must be as legible as a pointer crosshair. This outline
+  // marks only the currently focused balloon; it never reveals correctness.
+  if (state.keyboardBubbleId === bubble.id) {
+    ctx.setLineDash([8, 6]);
+    ctx.strokeStyle = "#fffbd1";
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.arc(center.x, center.y, r + 13, 0, TWO_PI);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
   ctx.fillStyle = "rgba(255,255,255,.8)";
   ctx.beginPath();
   ctx.ellipse(center.x - r * 0.24, center.y - r * 0.3, r * 0.17, r * 0.1, -0.5, 0, TWO_PI);
@@ -790,6 +803,7 @@ function startRhymePopArcadeGame(mount, options) {
     shots: [],
     bubbles: [],
     nextBubbleId: 1,
+    keyboardBubbleId: null,
     pointer: { x: 0, y: 0 }
   };
 
@@ -1131,6 +1145,7 @@ function startRhymePopArcadeGame(mount, options) {
 
   function onPointerMove(event) {
     state.pointer = pointerPosition(event);
+    state.keyboardBubbleId = null;
   }
 
   function onPointerDown(event) {
@@ -1152,11 +1167,22 @@ function startRhymePopArcadeGame(mount, options) {
       dismissOnboarding();
       return;
     }
-    if (event.key !== " " && event.key !== "Enter" && event.key !== "ArrowUp") return;
-    event.preventDefault();
-    if (options.kind === "rhyme-pop" && !state.paused && !state.ended && state.countdown <= 0) {
-      fireRhymeShot(state.pointer.x || w / 2, state.pointer.y || h * 0.34);
+    if (options.kind !== "rhyme-pop" || state.paused || state.ended || state.countdown > 0) return;
+    const direction = laneDirectionForKey(event.key);
+    if (direction && state.bubbles.length) {
+      event.preventDefault();
+      const foundIndex = state.bubbles.findIndex(bubble => bubble.id === state.keyboardBubbleId);
+      const currentIndex = foundIndex >= 0 ? foundIndex : (direction > 0 ? -1 : 0);
+      const nextIndex = (currentIndex + direction + state.bubbles.length) % state.bubbles.length;
+      const bubble = state.bubbles[nextIndex];
+      state.keyboardBubbleId = bubble.id;
+      state.pointer = { x: bubble.hitX || bubble.x, y: bubble.hitY || bubble.y };
+      return;
     }
+    if (!isPrimaryActionKey(event.key)) return;
+    event.preventDefault();
+    const selected = state.bubbles.find(bubble => bubble.id === state.keyboardBubbleId);
+    fireRhymeShot(selected?.hitX || state.pointer.x || w / 2, selected?.hitY || state.pointer.y || h * 0.34);
   }
 
   function updateRhymePop(dt) {

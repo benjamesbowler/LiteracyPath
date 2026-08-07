@@ -75,9 +75,9 @@ const createBobAndNanBook = ({
   targetSkills: ["level-a", "early-fiction", "one-sentence-pages"],
   theme,
   characterReference: {
-    bob: "Bob is a 4-5 year old boy with short black hair, a red T-shirt, blue shorts, white socks, and red shoes.",
-    nan: "Nan is a 4-5 year old girl with blonde bobbed hair, a red dress, white socks, and red shoes.",
-    fluff: "Fluff is a small fluffy brown puppy introduced only in book 3."
+    bob: "Bob is a 4-5 year old boy with short black hair, green eyes, a blue T-shirt, white shorts, blue socks, and white shoes.",
+    nan: "Nan is a 4-5 year old girl with long blonde hair, blue eyes, a red dress with a white collar, yellow socks, and green shoes.",
+    fluff: "Fluff is a small round shaggy warm-brown puppy with floppy rounded ears, large brown eyes, and a short dark muzzle, introduced only in book 3."
   },
   seriesReference:
     "Keep Bob and Nan visually consistent across the full Level A series. Use warm, clean, child-friendly illustrations with no embedded text.",
@@ -204,7 +204,7 @@ const createAidenAndBettyBook = ({
   targetPatterns,
   theme,
   characterReference: {
-    aiden: "Aiden is 6-7 with fair skin, freckles, sandy-blonde hair, an orange hoodie with a white lightning bolt, dark grey trousers, and white trainers with orange laces.",
+    aiden: "Aiden is 6-7 with fair skin, freckles, sandy-blonde hair, an orange hoodie with a white lightning bolt, dark gray trousers, and white trainers with orange laces.",
     betty: "Betty is 6-7 with warm medium-brown skin, a neat brown bob, a blue Alice headband, a teal T-shirt, white dungarees, and blue-and-white canvas trainers.",
     socks: "Socks is a small brown-and-white domestic dog with a broad white blaze and chest, dark paws, floppy ears, and a red harness."
   },
@@ -276,16 +276,21 @@ const createDinoPalsBook = ({
   targetPatterns: ["level-b", "fiction", "dialogue", "expression"],
   theme,
   characterReference: {
-    chompy: "Orange baby T-Rex with tiny arms, a big round tummy, a white bib, and a sweet hungry personality.",
-    sunny: "Yellow baby Triceratops with rainbow-tipped horns and a bright happy outlook.",
-    dozy: "Lavender baby Stegosaurus with sleepy half-closed eyes and a small pillow.",
-    grumpy: "Dark green baby Ankylosaurus with a scowl, club tail, and secretly kind heart.",
+    chompy: "Orange baby T-Rex with tiny arms, a big round tummy, a pale muzzle and belly, and an established white neckerchief.",
+    sunny: "Yellow-orange baby Triceratops with a fixed frill and rainbow-tipped horns.",
+    dozy: "Lavender-purple baby Stegosaurus with fixed rounded plates, sleepy half-closed eyes, and a small blue pillow only when the story state includes it.",
+    grumpy: "Low, heavy gray baby Ankylosaurus with tan armor plates, four short sturdy legs, a brown club tail, and a scowl; never upright and never shelled.",
     bossy: "Teal baby Pterodactyl with pink wing membranes, a leaf clipboard, and a tiny reed megaphone.",
-    bouncy: "Lime green baby Pachycephalosaurus with a dome head and constant bouncing energy.",
-    wiggly: "Pale blue baby Diplodocus with a long wavy tail and an apologetic expression.",
+    bouncy: "Small lime-green dome-headed dinosaur with exactly two arms and exactly two green three-toed feet, each attached above its own separate silver coil spring.",
+    wiggly: "Pale-blue baby Diplodocus with darker blue oval spots, four natural feet, a long neck, and one long wavy tail; no back plates.",
     zippy: "Red and yellow baby Velociraptor with a small rainbow scarf and speedy movement.",
     honky: "Coral baby Parasaurolophus with a huge rainbow crest and a very loud voice.",
-    cheeky: "Purple baby Oviraptor with orange spots, a mischievous grin, and a playful wink."
+    cheeky: "Purple baby Oviraptor with stable orange spots, a mischievous grin, and a playful wink.",
+    fancy: "Lavender-purple baby Stegosaurus with darker purple oval spots, four sturdy feet, and fixed leaf-shaped dorsal plates; no sail or wings.",
+    clumsy: "Tall sky-blue long-necked baby dinosaur with darker blue oval spots, four sturdy feet, and one long tapering tail; no back plates.",
+    flappy: "Small feathered orange-brown baby dinosaur with a cream belly, long feathered wings tipped tan-blue, and stable clawed feet.",
+    sneezy: "Small yellow-green baby Parasaurolophus with one backward-curving green crest, darker green spots, and four natural feet.",
+    shy: "Small mint-green long-necked baby dinosaur with darker teal oval spots, a short smooth head, four sturdy feet, and one slender tail; no back plates."
   },
   settingReference:
     "Sunny Hollow is a warm lush valley where baby dinosaurs live and play, with Cozy Cave, Berry Bush Corner, Fernwood forest, Rainbow Waterfall, the Long Meadow, and Mount Rumble in the distance.",
@@ -785,7 +790,7 @@ const meadowPalsBookData = [
         "pageNumber": 9,
         "text": "Shy is playing!",
         "qaStatus": "approved",
-        "qaNotes": "Replacement approved 2026-07-24: Shy remains the small grey mouse established on pages 7–8; Shy, Cuddly, and the supporting farm friends are fully visible with complete ears and limbs."
+        "qaNotes": "Replacement approved 2026-07-24: Shy remains the small gray mouse established on pages 7–8; Shy, Cuddly, and the supporting farm friends are fully visible with complete ears and limbs."
       }
     ]
   },
@@ -1750,7 +1755,7 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 3,
         text: "Nan has her bag.",
-        illustrationPrompt: "Nan clutching a red school bag to her chest, nervous expression. Mum's hand on her shoulder for reassurance."
+        illustrationPrompt: "Nan clutching a red school bag to her chest, nervous expression. Mom's hand on her shoulder for reassurance."
       },
       {
         pageNumber: 4,
@@ -1760,7 +1765,7 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 5,
         text: "Nan is sad.",
-        illustrationPrompt: "Nan's face similarly worried, clutching Mum's hand tightly. Both are walking bravely forward."
+        illustrationPrompt: "Nan's face similarly worried, clutching Mom's hand tightly. Both are walking bravely forward."
       },
       {
         pageNumber: 6,
@@ -1770,7 +1775,7 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 7,
         text: "Bob and Nan had fun at school!",
-        illustrationPrompt: "End of the day. Bob and Nan running out of the school gate, huge grins, school bags bouncing. Mum waiting."
+        illustrationPrompt: "End of the day. Bob and Nan running out of the school gate, huge grins, school bags bouncing. Mom waiting."
       }
     ]
   }),
@@ -1783,42 +1788,42 @@ export const guidedReadingSeriesBooks = [
       {
         pageNumber: 1,
         text: "Nan and Bob go to the zoo.",
-        illustrationPrompt: "Nan and Bob at the zoo entrance, a big colourful sign above them. Excited faces, Fluff on a lead beside them."
+        illustrationPrompt: "Nan and Bob at a clean zoo entrance with one supervising adult and an icon-only card showing exactly six unmarked animals: lion, red parrot, big fish, frog, gorilla, and elephant. No dog and no embedded words."
       },
       {
         pageNumber: 2,
         text: "Bob sees a big cat.",
-        illustrationPrompt: "Bob pressing his face against a fence or glass, eyes wide, pointing at a large lion or tiger in the enclosure behind."
+        illustrationPrompt: "Bob spots one lion behind a safe viewing barrier while Nan and their supervising adult remain visible. The same six-animal card has only the lion checked. No dog and no embedded words."
       },
       {
         pageNumber: 3,
         text: "Nan sees a red bird.",
-        illustrationPrompt: "Nan gazing up in wonder at a large bright red macaw or flamingo in a tall aviary."
+        illustrationPrompt: "Nan spots one clearly red parrot in a safe aviary while Bob and their supervising adult remain visible. The same card has the lion and parrot checked. No dog and no embedded words."
       },
       {
         pageNumber: 4,
         text: "Nan and Bob see the big fish.",
-        illustrationPrompt: "Nan and Bob at an aquarium tank, noses pressed to the glass, huge fish swimming past on the other side."
+        illustrationPrompt: "Nan and Bob spot one unmistakably large fish through aquarium glass while their supervising adult remains visible. The same card has lion, parrot, and fish checked. No dog and no embedded words."
       },
       {
         pageNumber: 5,
         text: "Nan sees a fat frog on a log.",
-        illustrationPrompt: "Nan crouching down pointing at a large round frog sitting on a log in a glass tank or pond."
+        illustrationPrompt: "Nan discovers one small frog partly hidden behind a leaf beside a log while Bob and their supervising adult remain visible. The same card has lion, parrot, fish, and frog checked. No dog and no embedded words."
       },
       {
         pageNumber: 6,
         text: "Bob and Nan see the big ape.",
-        illustrationPrompt: "Bob and Nan standing at a rope-and-glass enclosure, watching a large gorilla or orangutan sitting inside."
+        illustrationPrompt: "Bob spots one gorilla behind a safe viewing barrier while Nan and their supervising adult remain visible. The same card has the first five animals checked, leaving only the elephant. No dog and no embedded words."
       },
       {
         pageNumber: 7,
         text: "The big ape ate a fig.",
-        illustrationPrompt: "Close up of the large ape holding a fig and eating it calmly while Bob and Nan watch with delighted eyes."
+        illustrationPrompt: "Bob and Nan spot one clearly identifiable elephant in a safe habitat while their supervising adult remains visible. All six animals on the same card are now checked. No dog and no embedded words."
       },
       {
         pageNumber: 8,
         text: "Nan and Bob had a lot of fun!",
-        illustrationPrompt: "End of the zoo day. Nan and Bob walking back to the exit, Fluff between them, all three tired but very happy."
+        illustrationPrompt: "Near the zoo exit, Nan and Bob proudly hold the same completed six-animal icon card beside their supervising adult. No dog and no embedded words."
       }
     ]
   }),
@@ -1845,8 +1850,8 @@ export const guidedReadingSeriesBooks = [
       },
       {
         pageNumber: 4,
-        text: "Mum lit the candles.",
-        illustrationPrompt: "Mum lighting six candles on a large birthday cake while Bob and Nan watch eagerly."
+        text: "Mom lit the candles.",
+        illustrationPrompt: "Mom lighting six candles on a large birthday cake while Bob and Nan watch eagerly."
       },
       {
         pageNumber: 5,
@@ -1898,8 +1903,8 @@ export const guidedReadingSeriesBooks = [
       },
       {
         pageNumber: 5,
-        text: "Mum has a hot cup for Nan and Bob.",
-        illustrationPrompt: "Mum bringing warm cups to Nan and Bob as they rest."
+        text: "Mom has a hot cup for Nan and Bob.",
+        illustrationPrompt: "Mom bringing warm cups to Nan and Bob as they rest."
       },
       {
         pageNumber: 6,
@@ -1984,8 +1989,8 @@ export const guidedReadingSeriesBooks = [
       },
       {
         pageNumber: 3,
-        text: "Mum and Nan and Bob go to the vet.",
-        illustrationPrompt: "Mum, Nan and Bob walking together with Fluff, heading to the vet."
+        text: "Mom and Nan and Bob go to the vet.",
+        illustrationPrompt: "Mom, Nan and Bob walking together with Fluff, heading to the vet."
       },
       {
         pageNumber: 4,
@@ -2035,7 +2040,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 11, text: `A small green alien ran to say hello. "My name is Zim!" it said. "Do you want to play?"`, illustrationPrompt: "Zim the small green alien greeting James and Anna on the moon." },
       { pageNumber: 12, text: `James and Anna played with Zim all day. They jumped so high on the moon!`, illustrationPrompt: "James, Anna, and Zim jumping high on the moon." },
       { pageNumber: 13, text: `"Time to go home," said Anna. "Come back soon!" called Zim, and he waved and waved.`, illustrationPrompt: "Rocket lifting off while Zim waves goodbye from the moon." },
-      { pageNumber: 14, text: `BUMP! They were back in the garden. Mum had made cake. "Best trip EVER!" they said.`, illustrationPrompt: "James and Anna back in the garden with Mum holding cake." }
+      { pageNumber: 14, text: `BUMP! They were back in the garden. Mom had made cake. "Best trip EVER!" they said.`, illustrationPrompt: "James and Anna back in the garden with Mom holding cake." }
     ]
   }),
   createJamesAndAnnaBook({
@@ -2064,11 +2069,11 @@ export const guidedReadingSeriesBooks = [
     id: "james-and-anna-03-shopping",
     title: "James and Anna go Shopping",
     bookNumber: 3,
-    theme: "helping Mum shop",
+    theme: "helping Mom shop",
     sightWords: ["was", "said", "the", "they", "both", "home", "with"],
     targetPatterns: ["final-sounds", "short-vowels", "compound-phrases", "dialogue"],
     pages: [
-      { pageNumber: 1, text: `It was a bright autumn day. Mum had a long list. "I need help at the shop," she said. "Can you both come?"`, illustrationPrompt: "Mum holding a shopping list while James and Anna look eager." },
+      { pageNumber: 1, text: `It was a bright autumn day. Mom had a long list. "I need help at the shop," she said. "Can you both come?"`, illustrationPrompt: "Mom holding a shopping list while James and Anna look eager." },
       { pageNumber: 2, text: `"Yes!" said James and Anna. James grabbed the list. Anna grabbed the bags. Off they went!`, illustrationPrompt: "James with the list and Anna with bags heading out." },
       { pageNumber: 3, text: `The shop was big and bright. It smelled of fresh bread and ripe fruit.`, illustrationPrompt: "James and Anna stepping into a bright supermarket." },
       { pageNumber: 4, text: `"We need bread, grapes, cheese, eggs and orange juice," said James, reading the list carefully.`, illustrationPrompt: "James reading the list carefully in the shop." },
@@ -2076,11 +2081,11 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 6, text: `James found the grapes. Red ones or green ones? He put both bunches in the basket — just to be safe.`, illustrationPrompt: "James choosing both red and green grapes." },
       { pageNumber: 7, text: `They found the cheese, the eggs and the juice. James was very careful with the eggs.`, illustrationPrompt: "James carefully carrying an egg box while Anna has other shopping." },
       { pageNumber: 8, text: `Then Anna spotted the cake stand! Big cakes, small cakes, jam tarts and iced buns — all in a long, shining row.`, illustrationPrompt: "Anna and James dazzled by a cake display." },
-      { pageNumber: 9, text: `"Can we get a cake each?" asked James. Mum smiled. "One each," she said.`, illustrationPrompt: "James asking Mum for cake while Mum holds up one finger." },
+      { pageNumber: 9, text: `"Can we get a cake each?" asked James. Mom smiled. "One each," she said.`, illustrationPrompt: "James asking Mom for cake while Mom holds up one finger." },
       { pageNumber: 10, text: `James chose a big slice of lemon cake with thick white icing. Anna chose a pink strawberry jam tart.`, illustrationPrompt: "James choosing lemon cake and Anna choosing a jam tart." },
-      { pageNumber: 11, text: `At the till, Mum let James put the shopping on the belt. He was VERY careful with the eggs.`, illustrationPrompt: "James carefully placing eggs on the checkout belt." },
+      { pageNumber: 11, text: `At the till, Mom let James put the shopping on the belt. He was VERY careful with the eggs.`, illustrationPrompt: "James carefully placing eggs on the checkout belt." },
       { pageNumber: 12, text: `On the way home, the bread smelled so good. James started to reach into the bag. Anna gave him a look. He stopped.`, illustrationPrompt: "James reaching for bread while Anna gives him a warning look." },
-      { pageNumber: 13, text: `At home, Mum made lunch. After, they had their cakes. Chips ate the paper bag. "CHIPS!" they said. But they were laughing too hard to be cross.`, illustrationPrompt: "James and Anna laughing at the table while Chips eats the paper bag." }
+      { pageNumber: 13, text: `At home, Mom made lunch. After, they had their cakes. Chips ate the paper bag. "CHIPS!" they said. But they were laughing too hard to be cross.`, illustrationPrompt: "James and Anna laughing at the table while Chips eats the paper bag." }
     ]
   }),
   createJamesAndAnnaBook({
@@ -2091,8 +2096,8 @@ export const guidedReadingSeriesBooks = [
     sightWords: ["was", "said", "the", "there", "they", "both", "very"],
     targetPatterns: ["final-sounds", "digraphs", "longer-sentences", "dialogue"],
     pages: [
-      { pageNumber: 1, text: `It was time to go to the dentist. James did NOT want to go. Anna did NOT want to go. But Mum said they must.`, illustrationPrompt: "James and Anna worried at home while Mum holds appointment cards." },
-      { pageNumber: 2, text: `"The dentist is very kind," said Mum. "She just takes a little look inside your mouth. That is all."`, illustrationPrompt: "Mum gently reassuring James and Anna." },
+      { pageNumber: 1, text: `It was time to go to the dentist. James did NOT want to go. Anna did NOT want to go. But Mom said they must.`, illustrationPrompt: "James and Anna worried at home while Mom holds appointment cards." },
+      { pageNumber: 2, text: `"The dentist is very kind," said Mom. "She just takes a little look inside your mouth. That is all."`, illustrationPrompt: "Mom gently reassuring James and Anna." },
       { pageNumber: 3, text: `James was not so sure. He made his most worried face all the way there. Anna held his hand.`, illustrationPrompt: "Anna holding James's hand on the way to the dentist." },
       { pageNumber: 4, text: `At the dentist, there was a big fish tank in the waiting room! Bright fish darted in and out of rocks and weeds.`, illustrationPrompt: "James and Anna looking at a big fish tank in the waiting room." },
       { pageNumber: 5, text: `James pressed his nose flat to the glass. "That one looks just like a tiny striped rocket!" he said.`, illustrationPrompt: "James pressing his nose to the fish tank glass." },
@@ -2102,7 +2107,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 9, text: `James came out. "It did not hurt at all!" he said. "And the chair goes UP and DOWN!" Anna laughed.`, illustrationPrompt: "James returning to the waiting room excited and relieved." },
       { pageNumber: 10, text: `"Anna!" called the dentist. Anna walked in. She sat in the big chair. She had to admit — it was like a ride.`, illustrationPrompt: "Anna sitting in the dentist chair and starting to smile." },
       { pageNumber: 11, text: `The dentist sang a little tune while she checked Anna's teeth. Anna smiled the whole time. "Ten out of ten!" said the dentist.`, illustrationPrompt: "Dentist humming while checking Anna's teeth." },
-      { pageNumber: 12, text: `"Well done, both of you," said Mum. "You were so brave today." They each got a sticker — James got a rocket, Anna got a star.`, illustrationPrompt: "James and Anna showing their stickers outside the dentist." },
+      { pageNumber: 12, text: `"Well done, both of you," said Mom. "You were so brave today." They each got a sticker — James got a rocket, Anna got a star.`, illustrationPrompt: "James and Anna showing their stickers outside the dentist." },
       { pageNumber: 13, text: `That night, they brushed their teeth for a very long time. Chips sat at the bathroom door and watched. "Good night, Chips," said Anna. Chips blinked.`, illustrationPrompt: "James and Anna brushing teeth while Chips watches from the doorway." }
     ]
   }),
@@ -2126,7 +2131,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 10, text: `When the paint was dry, Anna cut a red star from felt and glued it on the flag. James fixed the flag to a long stick and tied it to the roof.`, illustrationPrompt: "Anna making the flag while James ties it to the roof." },
       { pageNumber: 11, text: `The tree house was done! Blue walls, a yellow door, a red star flag and a rope ladder all the way to the ground.`, illustrationPrompt: "Wide shot of the finished blue and yellow tree house." },
       { pageNumber: 12, text: `James and Anna climbed up and sat at the little window. "This is the best thing we have ever made," said Anna.`, illustrationPrompt: "James and Anna smiling from the tree house window." },
-      { pageNumber: 13, text: `Mum sent up a tray of juice and biscuits on a rope. Dad waved from below. Chips jangled at the base of the tree, trying to reach the biscuits.`, illustrationPrompt: "A tray of juice and biscuits being hoisted to the tree house while Chips reaches up." },
+      { pageNumber: 13, text: `Mom sent up a tray of juice and biscuits on a rope. Dad waved from below. Chips jangled at the base of the tree, trying to reach the biscuits.`, illustrationPrompt: "A tray of juice and biscuits being hoisted to the tree house while Chips reaches up." },
       { pageNumber: 14, text: `That night, they got their sleeping bags and climbed up to sleep. Stars shone above them. "Best. Night. Ever," said James. Anna smiled. She agreed.`, illustrationPrompt: "Night scene with James and Anna in sleeping bags inside the glowing tree house." }
     ]
   }),
@@ -2163,7 +2168,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 1, text: `Mrs. Green told the class: "We are putting on a school play! It is called 'The Lost Dragon'."`, illustrationPrompt: "Mrs. Green standing at the front of a bright primary school classroom, holding up a colourful playscript booklet. The class sits before her, all with excited faces. James and Anna visible in the front row." },
       { pageNumber: 2, text: `James put his hand straight up. "I want to be the dragon!" Six other children put their hands up too. They would all have to try out.`, illustrationPrompt: "James's hand shoots up first, arm fully extended, the most determined look on his face. Around him, five or six other hands also go up. Mrs. Green watches with a smile." },
       { pageNumber: 3, text: `Anna did not want to be the dragon. She wanted to paint the big backdrop — the scenery behind the stage.`, illustrationPrompt: "Anna with a large roll of paper spread on the floor, studying a purposeful light pencil sketch of the planned scenery. Beside her are pots of paint and wide brushes. She has a clear plan in her mind." },
-      { pageNumber: 4, text: `James practised his dragon roar all week. It shook the windows. Mum wore earmuffs. Chips ran under the sofa.`, illustrationPrompt: "James at home, mouth wide open in a massive roar, arms raised like claws. Through the window: the glass is shown vibrating. Mum in the background wearing large yellow earmuffs, giving a thumbs up. Chips's tail and hind legs are visible under the sofa." },
+      { pageNumber: 4, text: `James practiced his dragon roar all week. It shook the windows. Mom wore earmuffs. Chips ran under the sofa.`, illustrationPrompt: "James at home, mouth wide open in a massive roar, arms raised like claws. Through the window: the glass is shown vibrating. Mom in the background wearing large yellow earmuffs, giving a thumbs up. Chips's tail and hind legs are visible under the sofa." },
       { pageNumber: 5, text: `On the day of try-outs, James roared so loud that Mrs. Green's glasses slid right down her nose. He got the part!`, illustrationPrompt: "James mid-roar in front of Mrs. Green and the class. Mrs. Green's round glasses have slid to the very tip of her nose. She looks impressed despite herself. The class watches in awe." },
       { pageNumber: 6, text: `Anna painted for three whole days. She made mountains, a red sunset sky and a tall castle with a flag. Everyone said it was brilliant.`, illustrationPrompt: "Anna standing back from an enormous painted backdrop — mountains in purples and blues, a vivid red-orange sky, a castle with a small flag. She holds a paintbrush, covered in paint, looking at her work with pride. Other children visible, impressed." },
       { pageNumber: 7, text: `On the night of the play, James wore a green scale costume and a red dragon mask. He looked completely brilliant.`, illustrationPrompt: "James in his dragon costume: green scale fabric suit, a magnificent red dragon mask with golden eyes and small horns. He stands backstage, in full costume, looking at his reflection in a mirror. He looks brilliant and knows it." },
@@ -2172,7 +2177,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 10, text: `James took a deep breath. He thought of his best roar. Then he let it out — the biggest, loudest roar he had ever done.`, illustrationPrompt: "James on stage: head back, mouth fully open, roaring magnificently. His dragon mask pushed up slightly for the roar. Sound waves visible around him in a playful illustration style. His legs are solid again." },
       { pageNumber: 11, text: `The play went brilliantly after that. James roared and stomped and the little ones in the front row screamed and giggled.`, illustrationPrompt: "Stage scene: James in full dragon character, arms raised, stomping across Anna's beautiful backdrop. The front row of small children — Reception age — some covering their eyes in delight, some laughing. Energy and joy." },
       { pageNumber: 12, text: `At the very end, everyone stood and clapped. James and Anna walked to the front of the stage and bowed together.`, illustrationPrompt: "James and Anna side by side at the front of the stage, both bowing — James in dragon costume (mask now pushed up), Anna still with paint on her hands. The audience is on its feet clapping. Spotlight on them both." },
-      { pageNumber: 13, text: `Mum and Dad clapped the loudest. Mum had tears. Dad said it was just the bright lights. James and Anna did not believe him.`, illustrationPrompt: "Mum and Dad in the audience — Mum clapping with tears on her cheeks, face radiant. Dad clapping just as hard, but pointing at the stage lights above as if explaining something. James and Anna on stage looking at each other with knowing grins." }
+      { pageNumber: 13, text: `Mom and Dad clapped the loudest. Mom had tears. Dad said it was just the bright lights. James and Anna did not believe him.`, illustrationPrompt: "Mom and Dad in the audience — Mom clapping with tears on her cheeks, face radiant. Dad clapping just as hard, but pointing at the stage lights above as if explaining something. James and Anna on stage looking at each other with knowing grins." }
     ]
   }),
   createJamesAndAnnaBook({
@@ -2183,7 +2188,7 @@ export const guidedReadingSeriesBooks = [
     sightWords: ["and", "the", "said", "they", "were", "would", "each", "other"],
     targetPatterns: ["level-b", "longer-sentences", "dialogue", "pet-vocabulary"],
     pages: [
-      { pageNumber: 1, text: `Their neighbour Mrs. Chen had a big, bouncy dog called Bella. "Would Chips like a play date?" Mrs. Chen asked one morning.`, illustrationPrompt: "Mrs. Chen at the garden gate with Bella on a lead. Bella is a large bouncy golden dog, tongue out, tail a blur. James and Anna look at each other with delight. Chips, behind them, eyes Bella with great interest." },
+      { pageNumber: 1, text: `Their neighbor Mrs. Chen had a big, bouncy dog called Bella. "Would Chips like a play date?" Mrs. Chen asked one morning.`, illustrationPrompt: "Mrs. Chen at the garden gate with Bella on a lead. Bella is a large bouncy golden dog, tongue out, tail a blur. James and Anna look at each other with delight. Chips, behind them, eyes Bella with great interest." },
       { pageNumber: 2, text: `"Yes!" said James and Anna. They were absolutely sure it would be fine. They were wrong.`, illustrationPrompt: "James and Anna nodding enthusiastically, both giving a confident thumbs up. Behind them, Chips is already trying to eat the gate latch. A subtle hint of what is to come." },
       { pageNumber: 3, text: `James brought Chips into the garden. Anna opened the gate. Bella bounded in like a very large, very furry rocket.`, illustrationPrompt: "Bella mid-leap through the open gate — all four paws off the ground, ears up, tongue out, enormous energy. James has Chips on his rope lead. Chips watches the incoming Bella with calm interest." },
       { pageNumber: 4, text: `Bella ran in circles round and round Chips. Chips watched her. Then Chips decided to chase Bella.`, illustrationPrompt: "Bella a blur of motion circling Chips. Chips stands still, watching. Then — Chips's expression shifts. He turns and starts to chase Bella back. James and Anna watch the reversal with wide eyes." },
@@ -2193,7 +2198,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 8, text: `Mrs. Chen stood at the garden gate and laughed so hard that she had to sit down on the grass.`, illustrationPrompt: "Mrs. Chen has literally sat down on the grass outside the gate, hand over her mouth, eyes squeezed shut with laughter — helpless. James and Anna look at her from the garden, still dripping." },
       { pageNumber: 9, text: `At last, both Chips and Bella lay down on the lawn side by side, panting. Chips licked Bella's ear. Bella licked Chips's nose.`, illustrationPrompt: "Chips and Bella lying on the lawn, both panting, both completely exhausted. Chips's neck stretches over to lick Bella's ear. Bella's tongue curls up to lick Chips's pink nose. Mutual affection." },
       { pageNumber: 10, text: `"I think they like each other," said Anna. "They are just as bad as each other," said James.`, illustrationPrompt: "James (LEFT) and Anna (RIGHT) looking down at Chips and Bella lying on the grass together. Anna has a warm smile. James has his arms folded, a rueful expression — but also trying not to smile." },
-      { pageNumber: 11, text: `Mum brought out two bowls — water for Bella, chopped apple for Chips. Bella drank hers. Chips ate his. Then Chips ate Bella's water too.`, illustrationPrompt: "Mum setting two bowls down on the grass. Bella drinking from the water bowl. Chips eating his apple. Then — Chips has nudged Bella aside and is drinking Bella's water as well. Bella looks confused. Chips looks satisfied." },
+      { pageNumber: 11, text: `Mom brought out two bowls — water for Bella, chopped apple for Chips. Bella drank hers. Chips ate his. Then Chips ate Bella's water too.`, illustrationPrompt: "Mom setting two bowls down on the grass. Bella drinking from the water bowl. Chips eating his apple. Then — Chips has nudged Bella aside and is drinking Bella's water as well. Bella looks confused. Chips looks satisfied." },
       { pageNumber: 12, text: `"CHIPS!" said James and Anna. Chips blinked. Bella wagged her tail. It had been the very best play date.`, illustrationPrompt: "James and Anna pointing at Chips (the water bowl situation). Chips blinks, completely unbothered. Bella sits beside Chips, tail wagging — she had a wonderful time and doesn't mind about the water at all. Mrs. Chen at the gate, still smiling." }
     ]
   }),
@@ -2230,18 +2235,18 @@ export const guidedReadingSeriesBooks = [
     pages: [
       { pageNumber: 1, text: `Dad put up a big green tent in the back garden. "We are going camping!" he said. "Just for one night."`, illustrationPrompt: "Dad wrestling with tent poles in the back garden, a large green tent half-erected around him. James and Anna watch with huge enthusiasm. Chips has already eaten one tent peg." },
       { pageNumber: 2, text: `James and Anna helped bang in the tent pegs and thread the poles through. Chips ate one peg. Then he tried to eat a second.`, illustrationPrompt: "James hammering a tent peg with a mallet, tongue out. Anna threading a pole through the tent fabric. Chips has a tent peg in his mouth, half chewed. His expression: entirely committed to eating it." },
-      { pageNumber: 3, text: `They packed their sleeping bags, a torch, a pack of cards, two books and lots of snacks.`, illustrationPrompt: "The tent is now up. James and Anna packing things through the small door — sleeping bags (green for James, purple for Anna), a yellow torch, cards, books, a bag of snacks. Very organised. Very excited." },
+      { pageNumber: 3, text: `They packed their sleeping bags, a torch, a pack of cards, two books and lots of snacks.`, illustrationPrompt: "The tent is now up. James and Anna packing things through the small door — sleeping bags (green for James, purple for Anna), a yellow torch, cards, books, a bag of snacks. Very organized. Very excited." },
       { pageNumber: 4, text: `Chips was coming too. He had his own little blanket and his bell, which jingled every single time he moved.`, illustrationPrompt: "Chips inside the tent, looking very pleased to be included. A small blue blanket has been laid out for him. His bell jingles at the slightest movement. James and Anna squeeze in either side of him." },
       { pageNumber: 5, text: `Dad made a small camp fire in a safe metal dish. They toasted marshmallows on long sticks over the warm flames.`, illustrationPrompt: "The family sitting around a small, contained camp fire in a metal dish. Dad, James and Anna each hold long sticks with marshmallows toasting over the orange flames. Chips sits nearby, eyeing the marshmallow bag." },
       { pageNumber: 6, text: `The marshmallow on Chips's stick got too close to the fire. It caught light. Chips ate the whole thing — stick and all.`, illustrationPrompt: "Chips's marshmallow is on fire at the end of his stick (someone held it for him). Chips is entirely unfazed. He leans forward and eats the burning marshmallow, stick and all, in one go. James and Anna watch with wide eyes." },
-      { pageNumber: 7, text: `They played cards in the tent by torchlight. Chips ate two cards before they noticed. The game got harder after that.`, illustrationPrompt: "Inside the tent by torchlight. James, Anna and Chips play cards — the torch lights the scene from the centre. Chips's jaw is working. Two card-shaped items are clearly being chewed. James counts his cards and notices something is wrong." },
+      { pageNumber: 7, text: `They played cards in the tent by torchlight. Chips ate two cards before they noticed. The game got harder after that.`, illustrationPrompt: "Inside the tent by torchlight. James, Anna and Chips play cards — the torch lights the scene from the center. Chips's jaw is working. Two card-shaped items are clearly being chewed. James counts his cards and notices something is wrong." },
       { pageNumber: 8, text: `At midnight, a fox barked in the lane. Chips went very still. James shone the torch outside. Nothing was there.`, illustrationPrompt: "Late at night in the tent. Chips is rigid, ears straight up, yellow eyes wide — on full alert. James holds the torch, its beam pointing out through the unzipped tent door into darkness. Anna watches, wide awake. The garden outside is dark and still." },
       { pageNumber: 9, text: `"What if it comes back?" said James. "Then we will scare it," said Anna. She picked up the air horn Dad had packed.`, illustrationPrompt: "Anna holds a small red air horn, expression completely calm and prepared. James looks at the air horn with a mixture of hope and apprehension. Chips has both ears pinned back — he senses what is coming." },
-      { pageNumber: 10, text: `The air horn worked. The fox did not come back. Dad DID come — running from the house in his pyjamas, looking very startled.`, illustrationPrompt: "Dad bursting through the back door in striped pyjamas, hair wild, eyes wide. The tent is visible across the garden. James and Anna peek out of the tent with slightly guilty looks. Chips has his ears flat." },
+      { pageNumber: 10, text: `The air horn worked. The fox did not come back. Dad DID come — running from the house in his pajamas, looking very startled.`, illustrationPrompt: "Dad bursting through the back door in striped pajamas, hair wild, eyes wide. The tent is visible across the garden. James and Anna peek out of the tent with slightly guilty looks. Chips has his ears flat." },
       { pageNumber: 11, text: `They tried to sleep. Chips leaned on James. James leaned on Anna. Anna leaned on the tent wall. Nobody was quite comfortable.`, illustrationPrompt: "Sleeping bag pileup inside the tent: Chips leaning heavily on James (green sleeping bag). James leaning on Anna (purple sleeping bag). Anna pressed against the tent wall, eye open. All in a slightly squashed chain. Bell still jingling at the lightest movement." },
       { pageNumber: 12, text: `In the morning, dew was on the grass and the birds sang. Chips had eaten a corner of the tent in the night.`, illustrationPrompt: "Morning light through the tent. James and Anna sitting up in sleeping bags, hair ruffled. A triangular hole is visible in the corner of the tent. Chips sits beside it, looking out through the hole at the dewy garden. Morning birds visible through the hole." },
       { pageNumber: 13, text: `"CHIPS!" they said. But the sun was warm and breakfast was good and it had been a perfect camp.`, illustrationPrompt: "James and Anna and Chips outside the tent in the morning garden. Dad has brought a tray of toast and juice. Everyone is sitting on the grass. The tent with its chewed corner stands behind them. All faces warm and happy." },
-      { pageNumber: 14, text: `"Next year," said James, "we camp in a real field." "Next year," said Mum from the doorway, "Chips stays home." Chips ate the tent door zip.`, illustrationPrompt: "A perfect final image: Mum stands at the back door, arms folded, delivering her verdict with a dry smile. Dad and the children sit on the grass looking at her. Chips — standing at the tent — is eating the zip off the tent door. His bell jingles with the effort." }
+      { pageNumber: 14, text: `"Next year," said James, "we camp in a real field." "Next year," said Mom from the doorway, "Chips stays home." Chips ate the tent door zip.`, illustrationPrompt: "A perfect final image: Mom stands at the back door, arms folded, delivering her verdict with a dry smile. Dad and the children sit on the grass looking at her. Chips — standing at the tent — is eating the zip off the tent door. His bell jingles with the effort." }
     ]
   }),
   createAidenAndBettyBook({
@@ -2259,11 +2264,11 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 5, text: `Everyone had their own desk. Aiden found one beside Betty. He ran his finger across the smooth top and felt, just slightly, that it might turn out to be all right.`, illustrationPrompt: "Close-up of Aiden at his desk beside Betty.", narrationNeedsRebuild: true },
       { pageNumber: 6, text: `The first lesson was handwriting — joined-up letters, which were completely new and seemed designed to be tricky. Aiden's pen slipped and he made a large blot right across the middle of the page. He went very red.`, illustrationPrompt: "Aiden staring at a large ink blot on his handwriting page." },
       { pageNumber: 7, text: `Betty leaned over and showed him her page quietly. Her joined-up writing was also not her best work. "Mine looks like a wonky caterpillar," she whispered. Aiden laughed before he could stop himself, and his face stopped being red.`, illustrationPrompt: "Betty showing Aiden her wonky handwriting while he laughs with relief." },
-      { pageNumber: 8, text: `At lunch, they sat together by the window. Aiden opened his lunchbox and found a small folded note from Mum tucked under his sandwich. It said: You've got this, star. He smiled all the way through his apple.`, illustrationPrompt: "Aiden reading Mum's note at lunch beside Betty." },
-      { pageNumber: 9, text: `After lunch came Maths. Miss Okafor gave them number puzzles with counters and shapes. Each one was a little harder than the last. Aiden's brain felt stretched in a new way. He discovered that this was not a bad feeling.`, illustrationPrompt: "Aiden concentrating on a Maths puzzle with counters and shapes.", narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `At lunch, they sat together by the window. Aiden opened his lunchbox and found a small folded note from Mom tucked under his sandwich. It said: You've got this, star. He smiled all the way through his apple.`, illustrationPrompt: "Aiden reading Mom's note at lunch beside Betty." },
+      { pageNumber: 9, text: `After lunch came Math. Miss Okafor gave them number puzzles with counters and shapes. Each one was a little harder than the last. Aiden's brain felt stretched in a new way. He discovered that this was not a bad feeling.`, illustrationPrompt: "Aiden concentrating on a Math puzzle with counters and shapes.", narrationNeedsRebuild: true },
       { pageNumber: 10, text: `Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and his answer was right too. Miss Okafor gave them each a gold star. Aiden held onto that moment for the rest of the day.`, illustrationPrompt: "Miss Okafor giving a gold star sticker to Aiden and Betty.", narrationNeedsRebuild: true },
       { pageNumber: 11, text: `Then there was Science — real Science, with a magnifying glass and a tray of soil and seeds. Aiden forgot to be nervous. He was too busy looking at a woodlouse through the magnifying glass and writing down exactly what he saw.`, illustrationPrompt: "Aiden absorbed in a science activity with a magnifying glass and notebook." },
-      { pageNumber: 12, text: `At home time, Mum was waiting at the gate. She crouched down with an expectant look. "Well?" she said. They both started talking at exactly the same moment and didn't stop for ten minutes.`, illustrationPrompt: "Mum at the school gate as Aiden and Betty talk over each other." },
+      { pageNumber: 12, text: `At home time, Mom was waiting at the gate. She crouched down with an expectant look. "Well?" she said. They both started talking at exactly the same moment and didn't stop for ten minutes.`, illustrationPrompt: "Mom at the school gate as Aiden and Betty talk over each other." },
       { pageNumber: 13, text: `"Grade 1 is brilliant," announced Betty, just before bed. "It's actually not that bad," said Aiden, which from Aiden meant exactly the same thing. He turned his light off, closed his eyes, and was asleep before he could think of anything to worry about.`, illustrationPrompt: "Aiden peacefully in bed at night after his first Grade 1 day." }
     ]
   }),
@@ -2278,7 +2283,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 1, text: `It was the first warm Saturday of spring, and Aiden and Betty stood in the middle of the playroom staring at something that had got entirely out of control. Toys, books, games and puzzles were piled up to the shelves. There was even a foam sword that neither of them remembered buying.`, illustrationPrompt: "Aiden and Betty in a playroom full of toys, books, games, and puzzles." },
       { pageNumber: 2, text: `"We should have a yard sale," said Betty. She said it the way she said all her best ideas — quickly and firmly, as though the idea had already made up its mind. "We could make actual money." Aiden wasn't certain at first, but when she said the word money, he started to listen.`, illustrationPrompt: "Betty announcing the yard sale idea while Aiden starts to listen." },
       { pageNumber: 3, text: `They spent Friday evening sorting everything into three piles. A red card meant sell. A blue card meant keep. A yellow card meant maybe. By nine o'clock, the maybe pile had disappeared.`, illustrationPrompt: "Aiden and Betty sorting toys into piles with red, blue, and yellow cards.", narrationNeedsRebuild: true },
-      { pageNumber: 4, text: `Betty made neat round price stickers. Aiden decorated a large sign board for the front gate with six colours and four big stars. Mum would add the words and prices later.`, illustrationPrompt: "Betty preparing round stickers while Aiden decorates a wordless sign board.", narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Betty made neat round price stickers. Aiden decorated a large sign board for the front gate with six colors and four big stars. Mom would add the words and prices later.`, illustrationPrompt: "Betty preparing round stickers while Aiden decorates a wordless sign board.", narrationNeedsRebuild: true },
       { pageNumber: 5, text: `On Saturday morning, they dragged two folding tables out to the front path and arranged everything carefully. The old teddies sat in a row at the back and looked slightly sorry for themselves. "They'll go to good homes," said Aiden, mostly to himself, as a form of reassurance.`, illustrationPrompt: "Aiden and Betty arranging yard sale tables on the front path." },
       { pageNumber: 6, text: `Their first customer was Mr Perkins from next door, who was very old and took a very long time about everything. He picked up every single item on the table, turned it over carefully, and put it back. After twenty minutes, he held up one small rubber duck. It cost twenty cents.`, illustrationPrompt: "Mr Perkins slowly examining items at the yard sale." },
       { pageNumber: 7, text: `Then things got busy. Children came from further up the street with their parents. A woman bought a whole crate of craft supplies without looking at any of them. A small boy bought four plastic dinosaurs and a jigsaw puzzle and carried them away in a tight proud bundle. Things were selling faster than Betty could write them down.`, illustrationPrompt: "A busy yard sale with children and parents buying things." },
@@ -2292,14 +2297,14 @@ export const guidedReadingSeriesBooks = [
   }),
   createAidenAndBettyBook({
     id: "ab-c-03",
-    title: "Aiden and Betty go on Holiday",
+    title: "Aiden and Betty Go on Vacation",
     bookNumber: 3,
-    theme: "coastal family holiday",
+    theme: "coastal family vacation",
     sightWords: ["the", "was", "said", "they", "were", "with", "there", "their"],
     targetPatterns: ["level-c", "setting-description", "dialogue", "holiday-vocabulary"],
     pages: [
       { pageNumber: 1, text: `The last day of the summer term was also the loudest day of the school year. Aiden and Betty burst through the front door and both shouted "HOLIDAY!" at exactly the same moment, which echoed all the way up the stairs and made the dog next door bark.`, illustrationPrompt: "Aiden and Betty bursting through the front door shouting holiday." },
-      { pageNumber: 2, text: `They were going to the coast for a whole week — a small blue cottage right on the clifftop, with a gate in the garden wall that opened straight onto the coastal path. Mum had booked it in January. They had been counting down ever since.`, illustrationPrompt: "A blue clifftop cottage by the coastal path." },
+      { pageNumber: 2, text: `They were going to the coast for a whole week — a small blue cottage right on the clifftop, with a gate in the garden wall that opened straight onto the coastal path. Mom had booked it in January. They had been counting down ever since.`, illustrationPrompt: "A blue clifftop cottage by the coastal path." },
       { pageNumber: 3, text: `The drive took three hours. Betty counted every red car they passed. Aiden read two chapters of his book, fell asleep on his own shoulder, woke up, read another chapter, and then asked "Are we nearly there?" for the fourth time. They were, finally, nearly there.`, illustrationPrompt: "Aiden and Betty in the family car on the long drive to the coast." },
       { pageNumber: 4, text: `The cottage smelled of sea salt and old wood and something warm that Aiden couldn't name. They raced upstairs to choose rooms. There was a small room and a slightly bigger room. They flipped a coin — Aiden got the bigger room, but Betty got the one with the sea view, which meant it was perfectly even.`, illustrationPrompt: "Aiden and Betty choosing bedrooms in the seaside cottage." },
       { pageNumber: 5, text: `The beach was a five-minute walk down a steep sandy path through tall marram grass. When they came over the last dune and the sea appeared — wide and green and going all the way to the horizon — Aiden stopped walking entirely and just looked for a long moment.`, illustrationPrompt: "Aiden and Betty seeing the sea from the dunes." },
@@ -2308,7 +2313,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 8, text: `On Wednesday it rained all morning. They played three rounds of Cluedo, drank hot chocolate in large mugs and listened to the rain hammer against the cottage windows. It was, Aiden thought, pressing his mug to his chin, one of the cosiest mornings he could remember.`, illustrationPrompt: "A rainy cottage morning with board games and hot chocolate." },
       { pageNumber: 9, text: `The lighthouse was Dad's idea. It was tall and white and stood on a headland two miles along the coastal path. There were one hundred and forty-seven steps to the top — they counted every single one, out loud, all together, and arrived slightly out of breath but very proud.`, illustrationPrompt: "The family climbing the lighthouse stairs." },
       { pageNumber: 10, text: `The view from the top was unlike anything Aiden had seen. The whole coastline curved away in both directions — bays and headlands, a small fishing village far below, and the sea stretching to the horizon, catching the light like crinkled silver foil.`, illustrationPrompt: "Aiden and Betty looking out from the top of the lighthouse." },
-      { pageNumber: 11, text: `On their last evening, they sat on the sea wall with fish and chips wrapped in paper. The chips were crispy and perfectly salty. Aiden told Mum they were the best chips he had ever eaten in his entire life, and Mum said that was the sea air doing it, and she was right.`, illustrationPrompt: "The family eating fish and chips on the sea wall." },
+      { pageNumber: 11, text: `On their last evening, they sat on the sea wall with fish and chips wrapped in paper. The chips were crispy and perfectly salty. Aiden told Mom they were the best chips he had ever eaten in his entire life, and Mom said that was the sea air doing it, and she was right.`, illustrationPrompt: "The family eating fish and chips on the sea wall." },
       { pageNumber: 12, text: `Betty found a small smooth white pebble at the shoreline and turned it over and over in her fingers all the way back to the cottage. She was going to put it on her windowsill at home, so she'd always have a piece of the coast — something real from a real day.`, illustrationPrompt: "Betty holding a smooth white pebble at the shoreline." },
       { pageNumber: 13, text: `The drive home felt half as long as the drive there, which Aiden thought was mathematically impossible. When they turned into their street, the house looked completely the same as when they'd left it. Aiden noticed he felt, quietly, like he was a little bit different.`, illustrationPrompt: "Aiden and Betty arriving home after their holiday." }
     ]
@@ -2321,19 +2326,19 @@ export const guidedReadingSeriesBooks = [
     sightWords: ["the", "was", "said", "they", "with", "from", "his", "he"],
     targetPatterns: ["level-c", "animal-care", "dialogue", "character-description"],
     pages: [
-      { pageNumber: 1, text: `It was an ordinary Saturday in late August when Uncle Eddie arrived at the door with a travelling bag, a very wide smile, and something small and determined scratching inside a sturdy pet carrier.`, illustrationPrompt: "Uncle Eddie arriving with a travelling bag and a small animal in a secure pet carrier." },
+      { pageNumber: 1, text: `It was an ordinary Saturday in late August when Uncle Eddie arrived at the door with a traveling bag, a very wide smile, and something small and determined scratching inside a sturdy pet carrier.`, illustrationPrompt: "Uncle Eddie arriving with a traveling bag and a small animal in a secure pet carrier." },
       { pageNumber: 2, text: `Uncle Eddie was Dad's younger brother and an animal behaviour researcher. He had spent the last two years helping rescue centres understand how frightened dogs learn to trust people. He had, apparently, brought one of his foster dogs with him.`, illustrationPrompt: "Uncle Eddie explaining his work with rescue dogs while Aiden and Betty listen." },
       { pageNumber: 3, text: `Carefully, Uncle Eddie opened the carrier door. Inside, curled up like a small comma, was the most compact dog Aiden had ever seen. He had cream-white fur on his face and chest, darker brown on his back, and four neat black paws that looked, unmistakably, like he was wearing socks.`, illustrationPrompt: "Uncle Eddie opening the secure carrier to reveal Socks, a small cream-and-brown dog with black paws." },
       { pageNumber: 4, text: `"His name is Socks," said Uncle Eddie. "He was found alone when he was very small, and I've fostered him ever since. He understands a lot of words, he learns quickly, and he likes people." He paused just a moment. "He is also, just occasionally, a little bit naughty."`, illustrationPrompt: "Uncle Eddie introducing Socks to the family in the sitting room." },
-      { pageNumber: 5, text: `Socks looked at Aiden. Then he looked at Betty. Aiden set his watch on the low table. Socks calmly picked it up by the strap, carried it to his blanket, and rested one black paw on it with great satisfaction. "Charming," said Mum. "Yes," said Uncle Eddie, completely unsurprised.`, illustrationPrompt: "Socks carrying Aiden's watch by its strap to his blanket while the family reacts." },
-      { pageNumber: 6, text: `Uncle Eddie explained that he was joining a rescue team overseas for six months and could not bring Socks. He looked at Dad with a hopeful expression. Dad agreed to foster him before Mum could say anything at all, which was exactly what Mum had expected him to do.`, illustrationPrompt: "Uncle Eddie asking Dad to foster Socks while Mum reacts thoughtfully." },
+      { pageNumber: 5, text: `Socks looked at Aiden. Then he looked at Betty. Aiden set his watch on the low table. Socks calmly picked it up by the strap, carried it to his blanket, and rested one black paw on it with great satisfaction. "Charming," said Mom. "Yes," said Uncle Eddie, completely unsurprised.`, illustrationPrompt: "Socks carrying Aiden's watch by its strap to his blanket while the family reacts." },
+      { pageNumber: 6, text: `Uncle Eddie explained that he was joining a rescue team overseas for six months and could not bring Socks. He looked at Dad with a hopeful expression. Dad agreed to foster him before Mom could say anything at all, which was exactly what Mom had expected him to do.`, illustrationPrompt: "Uncle Eddie asking Dad to foster Socks while Mom reacts thoughtfully." },
       { pageNumber: 7, text: `Socks explored the house in eleven minutes. He nudged open every low drawer he could reach, moved the slippers into a new order, tested each warm windowsill, and carried three letters from the hall table behind the television. He seemed very pleased with his work.`, illustrationPrompt: "Socks harmlessly rearranging slippers and carrying letters while exploring the house." },
       { pageNumber: 8, text: `"He loves shiny objects," Uncle Eddie explained at dinner. "He adores warm spots, and the airing cupboard is a particular risk. If he gets bored, he will always find a way to become interesting." Everyone filed this information away carefully.`, illustrationPrompt: "Uncle Eddie explaining Socks's habits while Socks rests safely on his mat away from the dinner table." },
       { pageNumber: 9, text: `Socks wore the little red harness that Uncle Eddie had fitted for him. He watched everyone at the table with great attention. When Dad dropped his napkin, Socks carried it neatly to his own mat. Then he fetched Uncle Eddie's slipper from the hall. "He does that every evening," said Uncle Eddie. "We've never understood why."`, illustrationPrompt: "Socks in his red harness carrying Dad's fallen napkin to his dog mat while the family eats." },
       { pageNumber: 10, text: `That night, Dad made Socks a cosy sleeping box — a wooden crate lined with a soft fleece blanket — and settled it in a quiet corner of the kitchen. In the morning, Socks was not in it. He was curled up fast asleep at the foot of Aiden's bed, his nose resting beside Aiden's pencil torch.`, illustrationPrompt: "Socks asleep at the foot of Aiden's bed beside a pencil torch." },
       { pageNumber: 11, text: `Over the following weeks, Socks wove himself into the house. He had his own peg for his red harness. He met them at the door when they came home from school. He lay at Dad's feet while Dad read the newspaper and nudged the pages whenever Dad stopped too long.`, illustrationPrompt: "Socks becoming part of the family's safe routines at home." },
       { pageNumber: 12, text: `He was also, as promised, occasionally naughty. He carried three clean clothes pegs out of the laundry basket. He unravelled a whole roll of paper ribbon from the craft cupboard. He collected every one of Betty's hair bobbles and hid them carefully under his blanket.`, illustrationPrompt: "Socks surrounded by harmless collected clothes pegs, paper ribbon, and hair bobbles near his blanket." },
-      { pageNumber: 13, text: `"He is completely impossible," said Mum, as she did most evenings. But she had also started measuring his proper dog food into a small dish beside his water bowl every night, because Socks knew exactly when it appeared and waited on his mat very patiently.`, illustrationPrompt: "Mum placing a measured dog-food dish beside Socks's water bowl while he waits on his mat." },
+      { pageNumber: 13, text: `"He is completely impossible," said Mom, as she did most evenings. But she had also started measuring his proper dog food into a small dish beside his water bowl every night, because Socks knew exactly when it appeared and waited on his mat very patiently.`, illustrationPrompt: "Mom placing a measured dog-food dish beside Socks's water bowl while he waits on his mat." },
       { pageNumber: 14, text: `Aiden had been keeping a field notebook, just as Uncle Eddie had shown him. He had titled it Socks: A Field Study. He had written things like: Prefers carrot to apple. Expresses disapproval by sitting with his back turned. Stores interesting objects under blanket. He turned to a fresh page. It was going to take a long time to fully understand Socks. He hoped, quietly, that he had the time.`, illustrationPrompt: "Aiden writing careful observations about Socks in his field notebook while the dog rests nearby." }
     ]
   }),
@@ -2347,18 +2352,18 @@ export const guidedReadingSeriesBooks = [
     pages: [
       { pageNumber: 1, text: `It started with the red harness hook being empty.`, illustrationPrompt: "Close-up of the empty hook where Socks's red harness usually hangs." },
       { pageNumber: 2, text: `Every morning, Socks sat on his kitchen mat while Betty clipped on his little red harness, which always lived on its own peg beside the back door. But on a Tuesday in October, the peg was empty. When Aiden checked, Socks's fleece-lined sleeping crate was empty too.`, illustrationPrompt: "Aiden and Betty discovering that Socks's harness peg and sleeping crate are empty." },
-      { pageNumber: 3, text: `They searched everywhere. Aiden checked under every sofa cushion and behind every bookshelf. Betty methodically looked in every high cupboard. Mum turned the garden upside down. Dad searched the garden again, more systematically, with a torch — even though it was daytime. Socks was not anywhere.`, illustrationPrompt: "The family searching everywhere for Socks." },
-      { pageNumber: 4, text: `"He couldn't have got out," said Dad. "All the doors were shut last night." Then Mum remembered the side gate. The latch had not dropped properly after the recycling went out. She looked at Aiden, and Aiden looked at Betty. The gap beneath it was, they all realised, just wide enough for a determined little dog.`, illustrationPrompt: "The family realising Socks may have slipped beneath the poorly latched side gate." },
+      { pageNumber: 3, text: `They searched everywhere. Aiden checked under every sofa cushion and behind every bookshelf. Betty methodically looked in every high cupboard. Mom turned the garden upside down. Dad searched the garden again, more systematically, with a torch — even though it was daytime. Socks was not anywhere.`, illustrationPrompt: "The family searching everywhere for Socks." },
+      { pageNumber: 4, text: `"He couldn't have got out," said Dad. "All the doors were shut last night." Then Mom remembered the side gate. The latch had not dropped properly after the recycling went out. She looked at Aiden, and Aiden looked at Betty. The gap beneath it was, they all realized, just wide enough for a determined little dog.`, illustrationPrompt: "The family realizing Socks may have slipped beneath the poorly latched side gate." },
       { pageNumber: 5, text: `They went out onto the pavement and called his name. "Socks! Socks!" The October wind moved through the trees and sent leaves skittering across the path. No small dog appeared. Aiden put his hands in his pockets and tried not to feel too worried. It did not work very well.`, illustrationPrompt: "Aiden and Betty calling for Socks on the autumn pavement." },
       { pageNumber: 6, text: `Betty designed a MISSING DOG poster on her tablet in under five minutes. It had a photograph of Socks in his red harness, a clear description, and their phone number in large digits. She printed fourteen copies. They posted them through letter boxes up and down both sides of the street without stopping.`, illustrationPrompt: "Aiden and Betty posting missing-dog flyers along their street." },
       { pageNumber: 7, text: `Aiden re-read his field notebook carefully, looking for anything useful. He had written: Drawn to shiny objects. Drawn to warm spots. Will follow interesting smells. Exceptionally good at getting into places he shouldn't. He stared at that last line for quite a long time. It did not narrow things down.`, illustrationPrompt: "Aiden reading his field notebook on the front step." },
-      { pageNumber: 8, text: `By three o'clock, the sky had gone grey and the wind had picked up. Aiden sat on the front step, not saying much. He kept thinking about what Uncle Eddie had said: foster dogs learn the voices and scents of people who make them feel safe. He held onto that thought very carefully.`, illustrationPrompt: "Aiden sitting quietly on the front step, worried about Socks." },
-      { pageNumber: 9, text: `Then the phone rang. It was their neighbour Mrs Obi, from number thirty-seven, three houses down. Her voice was very precise. "I believe," she said carefully, "that your small dog is in my kitchen. He is lying on the mat beside my warm radiator."`, illustrationPrompt: "Mum answering the phone and realising Socks has been found safe at Mrs Obi's house." },
+      { pageNumber: 8, text: `By three o'clock, the sky had gone gray and the wind had picked up. Aiden sat on the front step, not saying much. He kept thinking about what Uncle Eddie had said: foster dogs learn the voices and scents of people who make them feel safe. He held onto that thought very carefully.`, illustrationPrompt: "Aiden sitting quietly on the front step, worried about Socks." },
+      { pageNumber: 9, text: `Then the phone rang. It was their neighbor Mrs Obi, from number thirty-seven, three houses down. Her voice was very precise. "I believe," she said carefully, "that your small dog is in my kitchen. He is lying on the mat beside my warm radiator."`, illustrationPrompt: "Mom answering the phone and realizing Socks has been found safe at Mrs Obi's house." },
       { pageNumber: 10, text: `They ran. All four of them, in their socks, without stopping to find shoes, down the pavement to number thirty-seven. They could hear, even from the gate, a small and very determined crunching sound coming from inside.`, illustrationPrompt: "The family running down the street in their socks." },
       { pageNumber: 11, text: `There was Socks, curled on Mrs Obi's kitchen mat beside the radiator. He was wearing his red harness, which they had also assumed was missing, and had a dog-safe biscuit between his black paws. He looked as if he saw absolutely no problem with any of this whatsoever.`, illustrationPrompt: "Socks safe on Mrs Obi's kitchen mat beside the radiator with a dog biscuit." },
-      { pageNumber: 12, text: `"How on earth did he get in?" asked Dad. Mrs Obi pointed to the cat flap in her back door. Of course. Socks had worked out the cat flap. She had found muddy little pawprints there once before, but had blamed the neighbour's cat. Certain things suddenly made much more sense.`, illustrationPrompt: "Mrs Obi pointing to the cat flap and old muddy pawprints while the family understands." },
+      { pageNumber: 12, text: `"How on earth did he get in?" asked Dad. Mrs Obi pointed to the cat flap in her back door. Of course. Socks had worked out the cat flap. She had found muddy little pawprints there once before, but had blamed the neighbor's cat. Certain things suddenly made much more sense.`, illustrationPrompt: "Mrs Obi pointing to the cat flap and old muddy pawprints while the family understands." },
       { pageNumber: 13, text: `Aiden knelt and held him close. Socks was warm and solid and smelled faintly of Mrs Obi's lavender rug. He licked Aiden's cheek twice, the way he sometimes did when he felt like being kind, and then tucked his head beneath Aiden's chin. Aiden breathed out slowly.`, illustrationPrompt: "Aiden kneeling to hold Socks with quiet relief." },
-      { pageNumber: 14, text: `On the way home, Betty said they needed a tracker tag. Aiden said they needed a better latch on the side gate. Mum said they should check every cat flap on the street. Dad said they should call Uncle Eddie and report what his foster dog had been up to. They laughed all the way home, while Socks trotted between them on his lead, looking entirely pleased with himself.`, illustrationPrompt: "The family walking home laughing while Socks trots safely between them on his lead." }
+      { pageNumber: 14, text: `On the way home, Betty said they needed a tracker tag. Aiden said they needed a better latch on the side gate. Mom said they should check every cat flap on the street. Dad said they should call Uncle Eddie and report what his foster dog had been up to. They laughed all the way home, while Socks trotted between them on his lead, looking entirely pleased with himself.`, illustrationPrompt: "The family walking home laughing while Socks trots safely between them on his lead." }
     ]
   }),
   createAidenAndBettyBook({
@@ -2369,12 +2374,12 @@ export const guidedReadingSeriesBooks = [
     sightWords: ["the", "was", "said", "they", "with", "because", "every", "their"],
     targetPatterns: ["level-c", "science-vocabulary", "dialogue", "cause-and-effect"],
     pages: [
-      { pageNumber: 1, text: `Miss Okafor announced the Science Fair on a grey Wednesday in February. Every pair in Grade 1 would present a project. Aiden had his notebook open before she had finished the sentence.` },
+      { pageNumber: 1, text: `Miss Okafor announced the Science Fair on a gray Wednesday in February. Every pair in Grade 1 would present a project. Aiden had his notebook open before she had finished the sentence.` },
       { pageNumber: 2, text: `"What shall we study?" said Betty. They sat with the notebook between them and listed every idea they had. Aiden had eleven. Betty had nine. Three of them were exactly the same, which Betty said proved they had good scientific minds.` },
       { pageNumber: 3, text: `They decided to grow crystals. It was Betty's original idea and Aiden's second choice, which Betty said made it the obvious answer. They ordered the kit and spent four days watching for the post.` },
-      { pageNumber: 4, text: `The kit used safe crystal salts. Mum read the instructions with them. They put on goggles and set the closed jar in a tray. Aiden photographed the growing crystals each morning, while Betty added a mark to her chart.`, narrationNeedsRebuild: true },
-      { pageNumber: 5, text: `They kept the closed jar on a high shelf where Socks could not reach it. Socks sat on the floor and looked up at the crystals. Mum made sure the jar stayed safe and still.`, narrationNeedsRebuild: true },
-      { pageNumber: 6, text: `Each morning, Mum lifted down the closed jar. Aiden took a photograph and Betty added a mark to her chart. Then Mum put the jar back on the shelf, and everyone washed their hands.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `The kit used safe crystal salts. Mom read the instructions with them. They put on goggles and set the closed jar in a tray. Aiden photographed the growing crystals each morning, while Betty added a mark to her chart.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `They kept the closed jar on a high shelf where Socks could not reach it. Socks sat on the floor and looked up at the crystals. Mom made sure the jar stayed safe and still.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Each morning, Mom lifted down the closed jar. Aiden took a photograph and Betty added a mark to her chart. Then Mom put the jar back on the shelf, and everyone washed their hands.`, narrationNeedsRebuild: true },
       { pageNumber: 7, text: `On a rainy Saturday, they made their bright blue display board. They added one photograph from each day and Betty's colour graph. Aiden left a clear space at the top for the project title.`, narrationNeedsRebuild: true },
       { pageNumber: 8, text: `On the morning of the Science Fair, Betty packed the display board in a folder while Aiden carried the crystal jar carefully in both hands. Socks watched from the hallway with what Aiden's notebook called 'intense strategic interest.'` },
       { pageNumber: 9, text: `The school hall was full of projects — a volcano that erupted three times, a model solar system, a survey about favourite foods with real graphs. Betty looked at all of them carefully and said nothing. Aiden chewed the inside of his cheek.` },
@@ -2393,7 +2398,7 @@ export const guidedReadingSeriesBooks = [
     targetPatterns: ["level-c", "nature-vocabulary", "dialogue", "observation"],
     pages: [
       { pageNumber: 1, text: `Uncle Eddie came back for a long weekend in June — browner from the sun, with a new bag of unusual gifts and more stories than they had time to hear. Socks heard the doorbell and ran in circles for forty-five seconds without stopping.` },
-      { pageNumber: 2, text: `Uncle Eddie told them about the nature reserve two miles from town — woodland, a river, meadows, a hide for watching birds. "Socks would understand it completely," he said. Mum said she wasn't certain that made it a good idea. They went anyway.` },
+      { pageNumber: 2, text: `Uncle Eddie told them about the nature reserve two miles from town — woodland, a river, meadows, a hide for watching birds. "Socks would understand it completely," he said. Mom said she wasn't certain that made it a good idea. They went anyway.` },
       { pageNumber: 3, text: `The reserve was layered with sounds — insects, birds, the river — all at once and all different. Socks stopped beside Aiden and went completely still. His ears turned towards each new sound. Aiden had never seen him so quiet.`, narrationNeedsRebuild: true },
       { pageNumber: 4, text: `Betty found the bird hide first — a long wooden structure with narrow slot windows over the reed bed. Inside: a log book, borrowed binoculars, and a board listing twelve species to find. She was immediately in her element.` },
       { pageNumber: 5, text: `Through the binoculars, Betty saw a kingfisher — a bright impossible dart of blue-orange above the water, there and then gone. She had to put the binoculars down and close her eyes for a moment. She had seen it. She wrote it in the log book.` },
@@ -2404,7 +2409,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 10, text: `On the way back, the sun was low and the meadow was full of seed heads catching the light. Socks walked beside Uncle Eddie on his red lead. Every few steps, he looked up at him. Here, it looked like a kind of homecoming.`, narrationNeedsRebuild: true },
       { pageNumber: 11, text: `Uncle Eddie left on Sunday evening. He stayed on the doorstep a long time, saying goodbye properly. When the car was gone, Socks sat by the hall window and watched the empty road. Then he rested his head on Aiden's lap, which he had never done before. Aiden stayed very still.`, narrationNeedsRebuild: true },
       { pageNumber: 12, text: `Aiden had started a new notebook that evening — not the Socks field study, but a nature notebook. He had titled it with the date. Betty had started a matching one, without them discussing it. Both were already half a page in.` },
-      { pageNumber: 13, text: `"Do you think he misses travelling with Uncle Eddie?" Aiden asked one evening. Betty thought for a long time. "I think he's decided this is home," she said. Aiden looked at Socks curled at his feet. "Yeah," he said. "I think so too."`, narrationNeedsRebuild: true }
+      { pageNumber: 13, text: `"Do you think he misses traveling with Uncle Eddie?" Aiden asked one evening. Betty thought for a long time. "I think he's decided this is home," she said. Aiden looked at Socks curled at his feet. "Yeah," he said. "I think so too."`, narrationNeedsRebuild: true }
     ]
   }),
   createAidenAndBettyBook({
@@ -2441,12 +2446,12 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 1, text: `Aiden bit into an apple. One front tooth gave a little wobble. He touched it gently. "My tooth is loose!" he said.`, narrationNeedsRebuild: true },
       { pageNumber: 2, text: `Betty looked with a small torch. "It is a baby tooth," she said. "It will fall out, and a new tooth will grow."`, narrationNeedsRebuild: true },
       { pageNumber: 3, text: `That night, Aiden felt worried. Losing a tooth seemed strange. Socks sat by his desk while Aiden thought about it.`, narrationNeedsRebuild: true },
-      { pageNumber: 4, text: `Mum said loose teeth were normal. "Everyone loses baby teeth as they grow," she said. Aiden felt a little better.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Mom said loose teeth were normal. "Everyone loses baby teeth as they grow," she said. Aiden felt a little better.`, narrationNeedsRebuild: true },
       { pageNumber: 5, text: `At lunch the next day, Betty lost a tooth too. She looked at the tiny tooth, then wrapped it in a clean tissue.`, narrationNeedsRebuild: true },
       { pageNumber: 6, text: `"Did it hurt?" Aiden asked. "Only for a moment," Betty said. She smiled at the new gap in her teeth.`, narrationNeedsRebuild: true },
       { pageNumber: 7, text: `On Thursday, Aiden's tooth came out while he was reading. It was quick, and it did not hurt.`, narrationNeedsRebuild: true },
       { pageNumber: 8, text: `The tooth was tiny. Aiden put it in a small envelope. Then he tucked the envelope under his pillow.`, narrationNeedsRebuild: true },
-      { pageNumber: 9, text: `In the morning, the envelope was gone. A coin lay under the pillow. Aiden smiled. Mum smiled too.`, narrationNeedsRebuild: true },
+      { pageNumber: 9, text: `In the morning, the envelope was gone. A coin lay under the pillow. Aiden smiled. Mom smiled too.`, narrationNeedsRebuild: true },
       { pageNumber: 10, text: `Three weeks later, a new tooth began to grow in the gap. It looked bigger than his baby teeth.`, narrationNeedsRebuild: true },
       { pageNumber: 11, text: `"You do not look strange," Betty said. "You look a little older." Aiden looked in the mirror and smiled.`, narrationNeedsRebuild: true },
       { pageNumber: 12, text: `Socks sniffed near Aiden's smile. Then he sniffed near Betty's. He was curious about their new tooth gaps.`, narrationNeedsRebuild: true },
@@ -2462,7 +2467,7 @@ export const guidedReadingSeriesBooks = [
     targetPatterns: ["level-c", "history-vocabulary", "dialogue", "reflection"],
     pages: [
       { pageNumber: 1, text: `Dad showed Aiden and Betty a picture of a castle. "We can visit it on Saturday," he said. Betty found a book to take with them.`, narrationNeedsRebuild: true },
-      { pageNumber: 2, text: `On Saturday, Mum drove. Dad sat beside her. Aiden and Betty wore their seat belts in the back. Soon, the castle appeared on the hill.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `On Saturday, Mom drove. Dad sat beside her. Aiden and Betty wore their seat belts in the back. Soon, the castle appeared on the hill.`, narrationNeedsRebuild: true },
       { pageNumber: 3, text: `They crossed a wooden bridge over the moat. Aiden heard each step tap on the old boards. Betty checked the picture map.`, narrationNeedsRebuild: true },
       { pageNumber: 4, text: `The great hall was tall, cool, and quiet. Some floor stones were smooth from many years of footsteps. Aiden bent down to look.`, narrationNeedsRebuild: true },
       { pageNumber: 5, text: `Betty held the picture map. First came the great hall. Next came the armour room. Then they would climb the tower.`, narrationNeedsRebuild: true },
@@ -2471,8 +2476,8 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 8, text: `The tower had one hundred and twelve steps. They walked in one line. From the top, they could see the river, town, and fields.`, narrationNeedsRebuild: true },
       { pageNumber: 9, text: `"People looked from this tower long ago," Betty said. Aiden drew the wide view in his notebook.`, narrationNeedsRebuild: true },
       { pageNumber: 10, text: `On the way down, Aiden found a narrow slit in the wall. A guide explained that archers could see out while staying behind thick stone.`, narrationNeedsRebuild: true },
-      { pageNumber: 11, text: `In the shop, Betty chose a small castle model. Aiden chose a picture book. Dad held up a funny cup. Mum laughed.`, narrationNeedsRebuild: true },
-      { pageNumber: 12, text: `On the drive home, Mum asked what they liked best. Aiden chose the worn floor. Betty chose the view from the tower.`, narrationNeedsRebuild: true },
+      { pageNumber: 11, text: `In the shop, Betty chose a small castle model. Aiden chose a picture book. Dad held up a funny cup. Mom laughed.`, narrationNeedsRebuild: true },
+      { pageNumber: 12, text: `On the drive home, Mom asked what they liked best. Aiden chose the worn floor. Betty chose the view from the tower.`, narrationNeedsRebuild: true },
       { pageNumber: 13, text: `That evening, Aiden drew four things: the bridge, the hall, the narrow slit, and the view. His page helped him remember the day.`, narrationNeedsRebuild: true }
     ]
   }),

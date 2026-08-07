@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-10-bugs-all-around-us",
-  "contentHash": "sha256:84790a36600b05a373115ccc6ad5598f3b79e8eb78dd4b58ef072ee47ad55f81",
+  "contentHash": "sha256:55c53caa38f3f679f11ac1182e433733238a7c23fd163ecf9f661e15f1420d19",
   "questions": [
     {
       "id": "first-facts-a-10-bugs-all-around-us-q1",
-      "prompt": "Where do many small creatures live?",
+      "prompt": "Where do small creatures work?",
       "choices": [
-        "Many small creatures live near us.",
-        "Many small creatures live inside the Sun.",
-        "Many small creatures live only on the Moon."
+        "near us",
+        "inside the Sun",
+        "only on the Moon"
       ],
-      "answer": "Many small creatures live near us.",
+      "answer": "near us",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Many small creatures live near us."
+      "evidenceText": "Look down. Small creatures work near us."
     },
     {
       "id": "first-facts-a-10-bugs-all-around-us-q2",
-      "prompt": "Which sentence tells about ladybirds in Small Creatures Around Us?",
+      "prompt": "Which sentence tells about bees in Small Creatures Around Us?",
       "choices": [
-        "Ladybirds are insects that eat aphids.",
-        "Many small creatures live near us.",
-        "Small creatures perform many ecosystem jobs."
+        "Bees move pollen from bloom to bloom.",
+        "Look down. Small creatures work near us.",
+        "Small creatures help flowers, soil, and other animals."
       ],
-      "answer": "Ladybirds are insects that eat aphids.",
+      "answer": "Bees move pollen from bloom to bloom.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "Ladybirds are insects that eat aphids."
+      "skill": "function",
+      "evidencePage": 3,
+      "evidenceText": "Bees move pollen from bloom to bloom."
     },
     {
       "id": "first-facts-a-10-bugs-all-around-us-q3",
       "prompt": "What is the big idea of Small Creatures Around Us?",
       "choices": [
-        "Small creatures perform many ecosystem jobs.",
-        "Only ladybirds are insects that eat aphids.",
-        "Only bees carry pollen between flowers."
+        "Small creatures help flowers, soil, and other animals.",
+        "Only bees move pollen from bloom to bloom.",
+        "Only earthworms dig through soil."
       ],
-      "answer": "Small creatures perform many ecosystem jobs.",
+      "answer": "Small creatures help flowers, soil, and other animals.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Many small creatures live near us. Ladybirds are insects that eat aphids. Small creatures perform many ecosystem jobs. Together, these facts show the whole-book big idea: Small creatures perform many ecosystem jobs.",
+      "rationale": "Look down. Small creatures work near us. Bees move pollen from bloom to bloom. Small creatures help flowers, soil, and other animals. Together, these facts show the whole-book big idea: Small creatures help flowers, soil, and other animals.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Many small creatures live near us."
+          "evidenceText": "Look down. Small creatures work near us."
         },
         {
-          "evidencePage": 4,
-          "evidenceText": "Ladybirds are insects that eat aphids."
+          "evidencePage": 3,
+          "evidenceText": "Bees move pollen from bloom to bloom."
         }
       ],
       "distractorRationales": {
-        "Only ladybirds are insects that eat aphids.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only bees carry pollen between flowers.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only bees move pollen from bloom to bloom.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only earthworms dig through soil.": "Page 6 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
-      "evidenceText": "Small creatures perform many ecosystem jobs."
+      "evidenceText": "Small creatures help flowers, soil, and other animals."
     }
   ]
 }

@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-10",
-  "contentHash": "sha256:bac2abe502bdc011139ebd39124d05812cef27d0b15bc0a2441ac6be6f2e34d6",
+  "contentHash": "sha256:6213a3067083e5290953c12110df3c55aac1eccda47a0ba4246f0ec9ae2cb5ef",
   "questions": [
     {
       "id": "ja-b-10-q1",
       "prompt": "Which event begins James, Anna and Chips go Camping?",
       "choices": [
-        "Dad raises a green tent for one garden camping night.",
-        "The horn scares the fox, but it startles Dad too.",
-        "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors."
+        "Dad wrestles with a green tent. Chips steals one peg.",
+        "HONK! The fox runs. So does Dad—in his pajamas.",
+        "Mom waits at the door. Chips grabs the zip. Anna pulls it free."
       ],
-      "answer": "Dad raises a green tent for one garden camping night.",
+      "answer": "Dad wrestles with a green tent. Chips steals one peg.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Dad raises a green tent for one garden camping night."
+      "evidenceText": "Dad wrestles with a green tent. Chips steals one peg."
     },
     {
       "id": "ja-b-10-q2",
       "prompt": "Which event shows the first plan fails in James, Anna and Chips go Camping?",
       "choices": [
-        "The horn scares the fox, but it startles Dad too.",
-        "Dad raises a green tent for one garden camping night.",
-        "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors."
+        "HONK! The fox runs. So does Dad—in his pajamas.",
+        "Dad wrestles with a green tent. Chips steals one peg.",
+        "Mom waits at the door. Chips grabs the zip. Anna pulls it free."
       ],
-      "answer": "The horn scares the fox, but it startles Dad too.",
+      "answer": "HONK! The fox runs. So does Dad—in his pajamas.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The horn scares the fox, but it startles Dad too. This shows that the first attempt does not solve the central problem.",
+      "rationale": "HONK! The fox runs. So does Dad—in his pajamas. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 10,
-      "evidenceText": "The horn scares the fox, but it startles Dad too."
+      "evidenceText": "HONK! The fox runs. So does Dad—in his pajamas."
     },
     {
       "id": "ja-b-10-q3",
       "prompt": "Which event solves the problem in James, Anna and Chips go Camping?",
       "choices": [
-        "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors.",
-        "Dad raises a green tent for one garden camping night.",
-        "The horn scares the fox, but it startles Dad too."
+        "Mom waits at the door. Chips grabs the zip. Anna pulls it free.",
+        "Dad wrestles with a green tent. Chips steals one peg.",
+        "HONK! The fox runs. So does Dad—in his pajamas."
       ],
-      "answer": "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors.",
+      "answer": "Mom waits at the door. Chips grabs the zip. Anna pulls it free.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors. This event shows how the central problem is resolved.",
+      "rationale": "Mom waits at the door. Chips grabs the zip. Anna pulls it free. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "Chips grabs the zip. Anna rescues it. Next time, he sleeps indoors."
+      "evidenceText": "Mom waits at the door. Chips grabs the zip. Anna pulls it free."
     }
   ]
 }

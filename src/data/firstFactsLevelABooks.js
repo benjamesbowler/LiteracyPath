@@ -1,9 +1,9 @@
 const firstFactsLevelABooks = [
   {
-    "id": "first-facts-a-01-look-at-the-colours",
+    "id": "first-facts-a-01-look-at-the-colors",
     "seriesId": "first-facts",
     "seriesTitle": "First Facts",
-    "title": "Look at the Colours!",
+    "title": "Look at the Colors!",
     "type": "nonfiction",
     "category": "nonfiction",
     "level": "B",
@@ -48,7 +48,7 @@ const firstFactsLevelABooks = [
       "purple",
       "grapes",
       "lavender",
-      "colours",
+      "colors",
       "are",
       "all",
       "around"
@@ -290,14 +290,14 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 7,
-        "text": "Colours are all around us! What colour can you see?",
+        "text": "Colors are all around us! What color can you see?",
         "image": "/guided-reading/nonfiction/first-facts/book-01/page-007.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-01/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-01/audio/page-007.mp3",
         "words": [
           {
-            "text": "Colours",
-            "audioPath": "/guided-reading/audio/words/colours.mp3"
+            "text": "Colors",
+            "audioPath": "/guided-reading/audio/words/colors.mp3"
           },
           {
             "text": "are",
@@ -320,8 +320,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
-            "text": "colour",
-            "audioPath": "/guided-reading/audio/words/colour.mp3"
+            "text": "color",
+            "audioPath": "/guided-reading/audio/words/color.mp3"
           },
           {
             "text": "can",
@@ -1599,7 +1599,7 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 5,
-        "text": "It is cloudy. Grey clouds fill the sky. Where is the sun?",
+        "text": "It is cloudy. Gray clouds fill the sky. Where is the sun?",
         "image": "/guided-reading/nonfiction/first-facts/book-04/page-005.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-04/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-04/audio/page-005.mp3",
@@ -1617,8 +1617,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/cloudy.mp3"
           },
           {
-            "text": "Grey",
-            "audioPath": "/guided-reading/audio/words/grey.mp3"
+            "text": "Gray",
+            "audioPath": "/guided-reading/audio/words/gray.mp3"
           },
           {
             "text": "clouds",
@@ -2415,7 +2415,7 @@ const firstFactsLevelABooks = [
       "calf",
       "drinks",
       "its",
-      "mum's",
+      "mom's",
       "milk",
       "hen",
       "chick",
@@ -2549,7 +2549,7 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 3,
-        "text": "A baby cow is a calf. A calf drinks its mum's milk.",
+        "text": "A baby cow is a calf. A calf drinks its mom's milk.",
         "image": "/guided-reading/nonfiction/first-facts/book-06/page-003.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-06/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-06/audio/page-003.mp3",
@@ -2595,7 +2595,7 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
-            "text": "mum's",
+            "text": "mom's",
             "audioPath": "/guided-reading/audio/words/mums.mp3"
           },
           {
@@ -3603,7 +3603,7 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 4,
-        "text": "An octopus has eight arms. It can change colour. It hides in rocks.",
+        "text": "An octopus has eight arms. It can change color. It hides in rocks.",
         "image": "/guided-reading/nonfiction/first-facts/book-08/page-004.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-08/audio/page-004.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-08/audio/page-004.mp3",
@@ -3641,8 +3641,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/change.mp3"
           },
           {
-            "text": "colour",
-            "audioPath": "/guided-reading/audio/words/colour.mp3"
+            "text": "color",
+            "audioPath": "/guided-reading/audio/words/color.mp3"
           },
           {
             "text": "It",
@@ -8778,7 +8778,7 @@ const firstFactsLevelABooks = [
       "my",
       "eyes",
       "let",
-      "colours",
+      "colors",
       "and",
       "shapes",
       "hear",
@@ -8853,7 +8853,7 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 2,
-        "text": "I can see. My eyes let me see colours and shapes.",
+        "text": "I can see. My eyes let me see colors and shapes.",
         "image": "/guided-reading/nonfiction/first-facts/book-20/page-002.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-20/audio/page-002.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-20/audio/page-002.mp3",
@@ -8891,8 +8891,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
-            "text": "colours",
-            "audioPath": "/guided-reading/audio/words/colours.mp3"
+            "text": "colors",
+            "audioPath": "/guided-reading/audio/words/colors.mp3"
           },
           {
             "text": "and",
@@ -10653,8 +10653,8 @@ const firstFactsLevelABooks = [
       "makes",
       "them",
       "many",
-      "colours",
-      "grey",
+      "colors",
+      "gray",
       "brown",
       "red",
       "and",
@@ -10773,7 +10773,7 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 3,
-        "text": "Rocks can be many colours. Grey, brown, red, and white.",
+        "text": "Rocks can be many colors. Gray, brown, red, and white.",
         "image": "/guided-reading/nonfiction/first-facts/book-24/page-003.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-003.mp3",
@@ -10795,12 +10795,12 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
-            "text": "colours",
-            "audioPath": "/guided-reading/audio/words/colours.mp3"
+            "text": "colors",
+            "audioPath": "/guided-reading/audio/words/colors.mp3"
           },
           {
-            "text": "Grey",
-            "audioPath": "/guided-reading/audio/words/grey.mp3"
+            "text": "Gray",
+            "audioPath": "/guided-reading/audio/words/gray.mp3"
           },
           {
             "text": "brown",
@@ -11389,7 +11389,7 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 7,
-        "text": "Water can be liquid, solid ice, or water vapour. Water changes!",
+        "text": "Water can be liquid, solid ice, or water vapor. Water changes!",
         "image": "/guided-reading/nonfiction/first-facts/book-25/page-007.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-007.mp3",
@@ -11428,7 +11428,7 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
-            "text": "vapour",
+            "text": "vapor",
             "audioPath": "/guided-reading/audio/words/vapour.mp3"
           },
           {

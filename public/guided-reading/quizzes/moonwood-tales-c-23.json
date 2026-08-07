@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-23",
-  "contentHash": "sha256:8c662145fae40ae0f219f3450a95ef60a723bafe25bfd05992c770934509fddc",
+  "contentHash": "sha256:5a525d1e45fbe618c57b177623d29f0320914ae10eb1319bd2c2a4dcb09e3bb9",
   "questions": [
     {
       "id": "moonwood-tales-c-23-q1",
       "prompt": "Which event introduces the situation in The Fog Marsh Mystery?",
       "choices": [
-        "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
-        "Days later, fog crosses his stick while edge mushrooms go dark.",
-        "Fog holds behind the line as edge mushrooms relight one by one."
+        "Pip pushed a stick into the ground at Fog Marsh's edge. Gray mist had crept closer to Hollow Oak, and he wanted to see whether it was still spreading.",
+        "Several days later, the fog had crossed Pip's marker. The mushrooms along the old marsh edge were dark, so he hurried to tell Luna what had changed.",
+        "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker and smiled at the peaceful marsh."
       ],
-      "answer": "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
+      "answer": "Pip pushed a stick into the ground at Fog Marsh's edge. Gray mist had crept closer to Hollow Oak, and he wanted to see whether it was still spreading.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak."
+      "evidenceText": "Pip pushed a stick into the ground at Fog Marsh's edge. Gray mist had crept closer to Hollow Oak, and he wanted to see whether it was still spreading."
     },
     {
       "id": "moonwood-tales-c-23-q2",
       "prompt": "Which event shows that the first attempt fails in The Fog Marsh Mystery?",
       "choices": [
-        "Days later, fog crosses his stick while edge mushrooms go dark.",
-        "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
-        "Fog holds behind the line as edge mushrooms relight one by one."
+        "Several days later, the fog had crossed Pip's marker. The mushrooms along the old marsh edge were dark, so he hurried to tell Luna what had changed.",
+        "Pip pushed a stick into the ground at Fog Marsh's edge. Gray mist had crept closer to Hollow Oak, and he wanted to see whether it was still spreading.",
+        "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker and smiled at the peaceful marsh."
       ],
-      "answer": "Days later, fog crosses his stick while edge mushrooms go dark.",
+      "answer": "Several days later, the fog had crossed Pip's marker. The mushrooms along the old marsh edge were dark, so he hurried to tell Luna what had changed.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Days later, fog crosses his stick while edge mushrooms go dark. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Several days later, the fog had crossed Pip's marker. The mushrooms along the old marsh edge were dark, so he hurried to tell Luna what had changed. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 2,
-      "evidenceText": "Days later, fog crosses his stick while edge mushrooms go dark."
+      "evidenceText": "Several days later, the fog had crossed Pip's marker. The mushrooms along the old marsh edge were dark, so he hurried to tell Luna what had changed."
     },
     {
       "id": "moonwood-tales-c-23-q3",
       "prompt": "Which event resolves the central problem in The Fog Marsh Mystery?",
       "choices": [
-        "Fog holds behind the line as edge mushrooms relight one by one.",
-        "Pip marks Fog Marsh's edge when grey mist creeps nearer Hollow Oak.",
-        "Days later, fog crosses his stick while edge mushrooms go dark."
+        "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker and smiled at the peaceful marsh.",
+        "Pip pushed a stick into the ground at Fog Marsh's edge. Gray mist had crept closer to Hollow Oak, and he wanted to see whether it was still spreading.",
+        "Several days later, the fog had crossed Pip's marker. The mushrooms along the old marsh edge were dark, so he hurried to tell Luna what had changed."
       ],
-      "answer": "Fog holds behind the line as edge mushrooms relight one by one.",
+      "answer": "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker and smiled at the peaceful marsh.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Fog holds behind the line as edge mushrooms relight one by one. This event shows how the central problem is resolved.",
+      "rationale": "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker and smiled at the peaceful marsh. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Fog holds behind the line as edge mushrooms relight one by one."
+      "evidenceText": "The fog stayed behind the new stone line, and mushrooms along the edge lit one by one. Pip checked his old marker and smiled at the peaceful marsh."
     }
   ]
 }

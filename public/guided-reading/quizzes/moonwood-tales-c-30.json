@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-30",
-  "contentHash": "sha256:dfc41e926500d84f3551199b674ce63ea99c014570d2140bdd5837efee0921e7",
+  "contentHash": "sha256:3357add8b3903f80de42a570899257fa2215d688941d77b0fa80d12ca1f8434c",
   "questions": [
     {
       "id": "moonwood-tales-c-30-q1",
       "prompt": "Which event introduces the situation in Luna and the Wandering Constellation?",
       "choices": [
-        "Luna finds the star-room mobile tangled after a windy night.",
-        "The neat row forms no constellation in the ceiling light.",
-        "Luna turns each thread until its shadow matches the sky."
+        "After a windy night, Luna entered Hollow Oak's star room and stopped. Seven colored glass stars hung in a tangled knot. Their threads crossed in every direction.",
+        "Light from the mobile cast a straight row of bright spots on the ceiling. Luna studied the pattern and shook her head. The row did not show any constellation.",
+        "At last, all seven lights joined into the shape of an owl. Luna checked the real stars once more. The restored pattern matched perfectly."
       ],
-      "answer": "Luna finds the star-room mobile tangled after a windy night.",
+      "answer": "After a windy night, Luna entered Hollow Oak's star room and stopped. Seven colored glass stars hung in a tangled knot. Their threads crossed in every direction.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Luna finds the star-room mobile tangled after a windy night."
+      "evidenceText": "After a windy night, Luna entered Hollow Oak's star room and stopped. Seven colored glass stars hung in a tangled knot. Their threads crossed in every direction."
     },
     {
       "id": "moonwood-tales-c-30-q2",
       "prompt": "Which event shows that the first attempt fails in Luna and the Wandering Constellation?",
       "choices": [
-        "The neat row forms no constellation in the ceiling light.",
-        "Luna finds the star-room mobile tangled after a windy night.",
-        "Luna turns each thread until its shadow matches the sky."
+        "Light from the mobile cast a straight row of bright spots on the ceiling. Luna studied the pattern and shook her head. The row did not show any constellation.",
+        "After a windy night, Luna entered Hollow Oak's star room and stopped. Seven colored glass stars hung in a tangled knot. Their threads crossed in every direction.",
+        "At last, all seven lights joined into the shape of an owl. Luna checked the real stars once more. The restored pattern matched perfectly."
       ],
-      "answer": "The neat row forms no constellation in the ceiling light.",
+      "answer": "Light from the mobile cast a straight row of bright spots on the ceiling. Luna studied the pattern and shook her head. The row did not show any constellation.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The neat row forms no constellation in the ceiling light. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Light from the mobile cast a straight row of bright spots on the ceiling. Luna studied the pattern and shook her head. The row did not show any constellation. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "The neat row forms no constellation in the ceiling light."
+      "evidenceText": "Light from the mobile cast a straight row of bright spots on the ceiling. Luna studied the pattern and shook her head. The row did not show any constellation."
     },
     {
       "id": "moonwood-tales-c-30-q3",
       "prompt": "Which event resolves the central problem in Luna and the Wandering Constellation?",
       "choices": [
-        "Luna turns each thread until its shadow matches the sky.",
-        "Luna finds the star-room mobile tangled after a windy night.",
-        "The neat row forms no constellation in the ceiling light."
+        "At last, all seven lights joined into the shape of an owl. Luna checked the real stars once more. The restored pattern matched perfectly.",
+        "After a windy night, Luna entered Hollow Oak's star room and stopped. Seven colored glass stars hung in a tangled knot. Their threads crossed in every direction.",
+        "Light from the mobile cast a straight row of bright spots on the ceiling. Luna studied the pattern and shook her head. The row did not show any constellation."
       ],
-      "answer": "Luna turns each thread until its shadow matches the sky.",
+      "answer": "At last, all seven lights joined into the shape of an owl. Luna checked the real stars once more. The restored pattern matched perfectly.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Luna turns each thread until its shadow matches the sky. This event shows how the central problem is resolved.",
-      "evidencePage": 7,
-      "evidenceText": "Luna turns each thread until its shadow matches the sky."
+      "rationale": "At last, all seven lights joined into the shape of an owl. Luna checked the real stars once more. The restored pattern matched perfectly. This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "At last, all seven lights joined into the shape of an owl. Luna checked the real stars once more. The restored pattern matched perfectly."
     }
   ]
 }

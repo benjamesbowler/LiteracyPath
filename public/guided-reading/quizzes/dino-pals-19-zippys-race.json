@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-19-zippys-race",
-  "contentHash": "sha256:f2ed7f99d3f5a53d2dac51106954b90195c843d810a319d4581bda66e41989e3",
+  "contentHash": "sha256:ad20096697db7b91310bb9b5d613c49d6b219896a048920a711647c84deff966",
   "questions": [
     {
       "id": "dino-pals-19-zippys-race-q1",
       "prompt": "Which event begins Zippy's Race?",
       "choices": [
         "Zippy delivers news of a race between valleys.",
-        "Wiggly asks why. Zippy still does not feel ready.",
-        "He runs one easy recovery lap, watching every marker."
+        "Wiggly asks why. \"One more lap,\" says Zippy.",
+        "One slow lap is enough. Sunny counts each marker."
       ],
       "answer": "Zippy delivers news of a race between valleys.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-19-zippys-race-q2",
       "prompt": "Which event shows the first plan fails in Zippy's Race?",
       "choices": [
-        "Wiggly asks why. Zippy still does not feel ready.",
+        "Wiggly asks why. \"One more lap,\" says Zippy.",
         "Zippy delivers news of a race between valleys.",
-        "He runs one easy recovery lap, watching every marker."
+        "One slow lap is enough. Sunny counts each marker."
       ],
-      "answer": "Wiggly asks why. Zippy still does not feel ready.",
+      "answer": "Wiggly asks why. \"One more lap,\" says Zippy.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Wiggly asks why. Zippy still does not feel ready. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Wiggly asks why. \"One more lap,\" says Zippy. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Wiggly asks why. Zippy still does not feel ready."
+      "evidenceText": "Wiggly asks why. \"One more lap,\" says Zippy."
     },
     {
       "id": "dino-pals-19-zippys-race-q3",
       "prompt": "Which event solves the problem in Zippy's Race?",
       "choices": [
-        "He runs one easy recovery lap, watching every marker.",
+        "One slow lap is enough. Sunny counts each marker.",
         "Zippy delivers news of a race between valleys.",
-        "Wiggly asks why. Zippy still does not feel ready."
+        "Wiggly asks why. \"One more lap,\" says Zippy."
       ],
-      "answer": "He runs one easy recovery lap, watching every marker.",
+      "answer": "One slow lap is enough. Sunny counts each marker.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "He runs one easy recovery lap, watching every marker. This event shows how the central problem is resolved.",
+      "rationale": "One slow lap is enough. Sunny counts each marker. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "He runs one easy recovery lap, watching every marker."
+      "evidenceText": "One slow lap is enough. Sunny counts each marker."
     }
   ]
 }

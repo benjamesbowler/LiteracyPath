@@ -2,51 +2,49 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-04-bouncy-wont-stop",
-  "contentHash": "sha256:20d9834652f8980bb8e67e9d309e1a532ac2e808f2d6928b1f20718341b4401c",
+  "contentHash": "sha256:60bd762de5c56e4c3ef422459ef709fed5aa1775a5376832cd66113446b52c16",
   "questions": [
     {
       "id": "meadow-pals-04-bouncy-wont-stop-q1",
-      "prompt": "What happens first in Bouncy Won't Stop?",
+      "prompt": "What does Bouncy love to do?",
       "choices": [
-        "Bouncy loves to hop.",
-        "Bouncy bumps her basket.",
-        "She hops in the field."
+        "hop",
+        "nap",
+        "swim"
       ],
-      "answer": "Bouncy loves to hop.",
-      "kind": "text",
-      "skill": "sequence",
+      "answer": "hop",
+      "kind": "word",
+      "skill": "character_action",
       "evidencePage": 1,
       "evidenceText": "Bouncy loves to hop."
     },
     {
       "id": "meadow-pals-04-bouncy-wont-stop-q2",
-      "prompt": "What goes wrong in Bouncy Won't Stop?",
+      "prompt": "Whose basket does Bouncy bump?",
       "choices": [
-        "Bouncy bumps her basket.",
-        "Bouncy loves to hop.",
-        "She hops in the field."
+        "Clucky's basket",
+        "Grumpy's bed",
+        "Muddy's hat"
       ],
-      "answer": "Bouncy bumps her basket.",
+      "answer": "Clucky's basket",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Bouncy bumps her basket. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "Bouncy bumps her basket."
+      "evidenceText": "Bouncy bumps Clucky's basket."
     },
     {
       "id": "meadow-pals-04-bouncy-wont-stop-q3",
-      "prompt": "What happens at the end of Bouncy Won't Stop?",
+      "prompt": "What changes when Bouncy hops by at the end?",
       "choices": [
-        "She hops in the field.",
-        "Bouncy loves to hop.",
-        "Bouncy bumps her basket."
+        "No more bumps",
+        "More baskets fall",
+        "The path disappears"
       ],
-      "answer": "She hops in the field.",
+      "answer": "No more bumps",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "She hops in the field. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "She hops in the field."
+      "evidenceText": "Bouncy hops by. No more bumps!"
     }
   ]
 }

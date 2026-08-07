@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-24-clumsys-steady-bowls",
-  "contentHash": "sha256:419b56041b1ea083905dd6f6b3bb3c772cebc6439bda81bd3d4a33af9ec5ae08",
+  "contentHash": "sha256:df159b1e1a968b35f73a4f278763f6463e4626de902053e127a488714265d1d3",
   "questions": [
     {
       "id": "dino-pals-24-clumsys-steady-bowls-q1",
       "prompt": "Which event begins Clumsy's Steady Bowls?",
       "choices": [
-        "Clumsy must place four water bowls before the games.",
-        "One turn sends every bowl rolling downhill.",
-        "Small bowls fit between roots where feet cannot tip them."
+        "Clumsy must set out four water bowls before the games.",
+        "Clatter! One turn sends every bowl downhill.",
+        "Smaller bowls sit snug between the roots."
       ],
-      "answer": "Clumsy must place four water bowls before the games.",
+      "answer": "Clumsy must set out four water bowls before the games.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Clumsy must place four water bowls before the games."
+      "evidenceText": "Clumsy must set out four water bowls before the games."
     },
     {
       "id": "dino-pals-24-clumsys-steady-bowls-q2",
       "prompt": "Which event shows the first plan fails in Clumsy's Steady Bowls?",
       "choices": [
-        "One turn sends every bowl rolling downhill.",
-        "Clumsy must place four water bowls before the games.",
-        "Small bowls fit between roots where feet cannot tip them."
+        "Clatter! One turn sends every bowl downhill.",
+        "Clumsy must set out four water bowls before the games.",
+        "Smaller bowls sit snug between the roots."
       ],
-      "answer": "One turn sends every bowl rolling downhill.",
+      "answer": "Clatter! One turn sends every bowl downhill.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "One turn sends every bowl rolling downhill. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Clatter! One turn sends every bowl downhill. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "One turn sends every bowl rolling downhill."
+      "evidenceText": "Clatter! One turn sends every bowl downhill."
     },
     {
       "id": "dino-pals-24-clumsys-steady-bowls-q3",
       "prompt": "Which event solves the problem in Clumsy's Steady Bowls?",
       "choices": [
-        "Small bowls fit between roots where feet cannot tip them.",
-        "Clumsy must place four water bowls before the games.",
-        "One turn sends every bowl rolling downhill."
+        "Smaller bowls sit snug between the roots.",
+        "Clumsy must set out four water bowls before the games.",
+        "Clatter! One turn sends every bowl downhill."
       ],
-      "answer": "Small bowls fit between roots where feet cannot tip them.",
+      "answer": "Smaller bowls sit snug between the roots.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Small bowls fit between roots where feet cannot tip them. This event shows how the central problem is resolved.",
+      "rationale": "Smaller bowls sit snug between the roots. This event shows how the central problem is resolved.",
       "evidencePage": 6,
-      "evidenceText": "Small bowls fit between roots where feet cannot tip them."
+      "evidenceText": "Smaller bowls sit snug between the roots."
     }
   ]
 }

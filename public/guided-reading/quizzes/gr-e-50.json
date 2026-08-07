@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-e-50",
-  "contentHash": "sha256:481c3ab7ecbb581fd09f0db6db6b9446ed69eb25f4633f31e3f70dd0ba416d7a",
+  "contentHash": "sha256:b0861b870f07eb0600e7e63cc7224f2c432ca48273f8ddca09d8900f274d287a",
   "questions": [
     {
       "id": "gr-e-50-q1",
-      "prompt": "Which fact is introduced first in Our Five Senses?",
+      "prompt": "Which sentence tells about my eyes in Our Five Senses?",
       "choices": [
-        "We use our eyes to see.",
-        "We use our nose to smell.",
-        "Our senses help us explore."
+        "My eyes find colors and shapes.",
+        "My nose finds many smells.",
+        "Together, my senses help me explore."
       ],
-      "answer": "We use our eyes to see.",
+      "answer": "My eyes find colors and shapes.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "We use our eyes to see."
+      "evidenceText": "My eyes find colors and shapes."
     },
     {
       "id": "gr-e-50-q2",
-      "prompt": "Which fact is explained next in Our Five Senses?",
+      "prompt": "Which sentence tells about my nose in Our Five Senses?",
       "choices": [
-        "We use our nose to smell.",
-        "We use our eyes to see.",
-        "Our senses help us explore."
+        "My nose finds many smells.",
+        "My eyes find colors and shapes.",
+        "Together, my senses help me explore."
       ],
-      "answer": "We use our nose to smell.",
+      "answer": "My nose finds many smells.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "We use our nose to smell."
+      "evidenceText": "My nose finds many smells."
     },
     {
       "id": "gr-e-50-q3",
       "prompt": "What is the big idea of Our Five Senses?",
       "choices": [
-        "Our senses help us explore.",
-        "Only we use our eyes to see.",
-        "Only we use our nose to smell."
+        "Together, my senses help me explore.",
+        "Only my eyes find colors and shapes.",
+        "Only my nose finds many smells."
       ],
-      "answer": "Our senses help us explore.",
+      "answer": "Together, my senses help me explore.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "We use our eyes to see. We use our nose to smell. Our senses help us explore. Together, these facts show the whole-book big idea: Our senses help us explore.",
+      "rationale": "My eyes find colors and shapes. My nose finds many smells. Together, my senses help me explore. Together, these facts show the whole-book big idea: Together, my senses help me explore.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "We use our eyes to see."
+          "evidenceText": "My eyes find colors and shapes."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "We use our nose to smell."
+          "evidenceText": "My nose finds many smells."
         }
       ],
       "distractorRationales": {
-        "Only we use our eyes to see.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only we use our nose to smell.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only my eyes find colors and shapes.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only my nose finds many smells.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Our senses help us explore."
+      "evidenceText": "Together, my senses help me explore."
     }
   ]
 }

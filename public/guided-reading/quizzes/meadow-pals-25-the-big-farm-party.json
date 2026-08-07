@@ -2,44 +2,44 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-25-the-big-farm-party",
-  "contentHash": "sha256:a80480410cf60ecf570ea81d45a573d9344db44cfb26b74d3deeea6e08c735e7",
+  "contentHash": "sha256:6b2cd2be8df7f2d2b5abbe5d07409e8055a36879486867af2d55da1dbc7b57be",
   "questions": [
     {
       "id": "meadow-pals-25-the-big-farm-party-q1",
       "prompt": "What happens first in The Big Farm Party?",
       "choices": [
-        "Today is party day!",
-        "Grumpy sits far away.",
+        "The farm party starts!",
+        "Grumpy sits far off.",
         "Shy and Grumpy join the party."
       ],
-      "answer": "Today is party day!",
+      "answer": "The farm party starts!",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Today is party day!"
+      "evidenceText": "The farm party starts!"
     },
     {
       "id": "meadow-pals-25-the-big-farm-party-q2",
       "prompt": "What goes wrong in The Big Farm Party?",
       "choices": [
-        "Grumpy sits far away.",
-        "Today is party day!",
+        "Grumpy sits far off.",
+        "The farm party starts!",
         "Shy and Grumpy join the party."
       ],
-      "answer": "Grumpy sits far away.",
+      "answer": "Grumpy sits far off.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Grumpy sits far away. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Grumpy sits far off. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 9,
-      "evidenceText": "Grumpy sits far away."
+      "evidenceText": "Grumpy sits far off."
     },
     {
       "id": "meadow-pals-25-the-big-farm-party-q3",
       "prompt": "What happens at the end of The Big Farm Party?",
       "choices": [
         "Shy and Grumpy join the party.",
-        "Today is party day!",
-        "Grumpy sits far away."
+        "The farm party starts!",
+        "Grumpy sits far off."
       ],
       "answer": "Shy and Grumpy join the party.",
       "kind": "text",

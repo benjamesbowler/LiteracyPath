@@ -2,14 +2,14 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-10-cheekys-prank-goes-wrong",
-  "contentHash": "sha256:70fcb68c4874472c1673193bc3eec1cbc11d4c3fe21b33b712d0f4c5b818e697",
+  "contentHash": "sha256:b302de43875be1da06fdd1e3720b18990dbd94f8ffc3ad6a31876da400203807",
   "questions": [
     {
       "id": "dino-pals-10-cheekys-prank-goes-wrong-q1",
       "prompt": "Which event begins Cheeky's Prank Goes Wrong?",
       "choices": [
         "Cheeky wants to make Wiggly and Fancy laugh.",
-        "Cheeky helps Fancy up and cleans the rock.",
+        "Cheeky helps Fancy up, then scrubs the rock.",
         "All three make silly faces beside the clean rock."
       ],
       "answer": "Cheeky wants to make Wiggly and Fancy laugh.",
@@ -22,16 +22,16 @@
       "id": "dino-pals-10-cheekys-prank-goes-wrong-q2",
       "prompt": "Which event shows the first plan fails in Cheeky's Prank Goes Wrong?",
       "choices": [
-        "Cheeky helps Fancy up and cleans the rock.",
+        "Cheeky helps Fancy up, then scrubs the rock.",
         "Cheeky wants to make Wiggly and Fancy laugh.",
         "All three make silly faces beside the clean rock."
       ],
-      "answer": "Cheeky helps Fancy up and cleans the rock.",
+      "answer": "Cheeky helps Fancy up, then scrubs the rock.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Cheeky helps Fancy up and cleans the rock. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Cheeky helps Fancy up, then scrubs the rock. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Cheeky helps Fancy up and cleans the rock."
+      "evidenceText": "Cheeky helps Fancy up, then scrubs the rock."
     },
     {
       "id": "dino-pals-10-cheekys-prank-goes-wrong-q3",
@@ -39,7 +39,7 @@
       "choices": [
         "All three make silly faces beside the clean rock.",
         "Cheeky wants to make Wiggly and Fancy laugh.",
-        "Cheeky helps Fancy up and cleans the rock."
+        "Cheeky helps Fancy up, then scrubs the rock."
       ],
       "answer": "All three make silly faces beside the clean rock.",
       "kind": "text",

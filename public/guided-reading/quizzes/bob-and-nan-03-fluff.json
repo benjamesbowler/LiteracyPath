@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-03-fluff",
-  "contentHash": "sha256:0e2e088b36a54b983b1b2062ab48027a72b26779802284a156b1ede54f7c8df3",
+  "contentHash": "sha256:d7305724b847991819b17d251a85e845b68ad30a7b2597a31c8410ee57b2aa0c",
   "questions": [
     {
       "id": "bob-and-nan-03-fluff-q1",
       "prompt": "What happens first in Bob, Nan and Fluff?",
       "choices": [
         "Bob and Nan sit outside.",
-        "Nan calls. No owner comes.",
-        "Mum helps report the pup found."
+        "Bob pats him gently.",
+        "Fluff stays close."
       ],
       "answer": "Bob and Nan sit outside.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "bob-and-nan-03-fluff-q2",
       "prompt": "What goes wrong in Bob, Nan and Fluff?",
       "choices": [
-        "Nan calls. No owner comes.",
+        "Bob pats him gently.",
         "Bob and Nan sit outside.",
-        "Mum helps report the pup found."
+        "Fluff stays close."
       ],
-      "answer": "Nan calls. No owner comes.",
+      "answer": "Bob pats him gently.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Nan calls. No owner comes. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Bob pats him gently. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "Nan calls. No owner comes."
+      "evidenceText": "Bob pats him gently."
     },
     {
       "id": "bob-and-nan-03-fluff-q3",
       "prompt": "What happens at the end of Bob, Nan and Fluff?",
       "choices": [
-        "Mum helps report the pup found.",
+        "Fluff stays close.",
         "Bob and Nan sit outside.",
-        "Nan calls. No owner comes."
+        "Bob pats him gently."
       ],
-      "answer": "Mum helps report the pup found.",
+      "answer": "Fluff stays close.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Mum helps report the pup found. This event shows how the central problem is resolved.",
+      "rationale": "Fluff stays close. This event shows how the central problem is resolved.",
       "evidencePage": 6,
-      "evidenceText": "Mum helps report the pup found."
+      "evidenceText": "Fluff stays close."
     }
   ]
 }

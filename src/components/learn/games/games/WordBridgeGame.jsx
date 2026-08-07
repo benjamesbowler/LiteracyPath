@@ -15,6 +15,7 @@ import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { wordBridgeLadder } from "../../../../utils/wordBridgeLevels.js";
 import { speak, speakWord, cancelSpeech, hasRecordedSpeech } from "../../../../utils/learnGamesAudio.js";
+import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
 
 const WORLD_THEME = {
   meadow: {
@@ -307,7 +308,7 @@ function startGame(mount, opts) {
       '<div data-wb="level" style="min-width:54px;height:54px;display:grid;place-items:center;font-size:1.35rem;font-weight:950;color:#071033;background:#ffd34e;box-shadow:inset 0 -6px 0 rgba(0,0,0,.24)">1</div>' +
       '<div style="display:grid;gap:4px"><div data-wb="lab" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.78">Build the word</div>' +
       '<div data-wb="target" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"></div></div>' +
-      '<button data-wb="hear" type="button" aria-label="Hear the word" style="pointer-events:auto;width:46px;height:46px;flex:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:1.25rem;display:grid;place-items:center;cursor:pointer;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)">♪</button></div>' +
+      '<button data-wb="hear" type="button" aria-label="Hear the word" style="pointer-events:auto;width:56px;height:56px;flex:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:1.25rem;display:grid;place-items:center;cursor:pointer;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)">♪</button></div>' +
     '<div data-wb-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.64);border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 24px rgba(0,0,0,.22);padding:9px 12px;min-width:154px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-wb="stars" style="font-size:1.22rem;letter-spacing:2px;color:#ffd34e;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))">☆☆☆</div>' +
       '<div data-wb="world" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.84;margin-top:2px">Meadow</div>' +
@@ -474,7 +475,7 @@ function startGame(mount, opts) {
   }
 
   function isActionKey(key) {
-    return key === " " || key === "e" || key === "Enter" || key === "ArrowUp";
+    return isPrimaryActionKey(key);
   }
 
   // Keys are only captured while the stage is actually interactive — when
@@ -485,13 +486,14 @@ function startGame(mount, opts) {
 
   function onKeyDown(e) {
     if (!keysActive()) return;
-    if (e.key === "ArrowLeft" || e.key === "a") {
+    const direction = laneDirectionForKey(e.key);
+    if (direction < 0) {
       e.preventDefault();
       keys.left = true;
       moveTargetX = null;
       pendingTapAction = null;
     }
-    if (e.key === "ArrowRight" || e.key === "d") {
+    if (direction > 0) {
       e.preventDefault();
       keys.right = true;
       moveTargetX = null;
@@ -509,11 +511,12 @@ function startGame(mount, opts) {
     // Always release key state (the phase may have changed mid-press), but
     // only swallow the event while the game is interactive.
     const active = keysActive();
-    if (e.key === "ArrowLeft" || e.key === "a") {
+    const direction = laneDirectionForKey(e.key);
+    if (direction < 0) {
       if (active) e.preventDefault();
       keys.left = false;
     }
-    if (e.key === "ArrowRight" || e.key === "d") {
+    if (direction > 0) {
       if (active) e.preventDefault();
       keys.right = false;
     }

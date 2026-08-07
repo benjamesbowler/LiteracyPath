@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-32",
-  "contentHash": "sha256:856814dbc4471cdbf5a028de00696671c5e1b72d416c7281383924d2b770d327",
+  "contentHash": "sha256:aea3d779ba431789b1922bf13aac6c1e50134d636954f3fb48678ebdee550e25",
   "questions": [
     {
       "id": "moonwood-tales-c-32-q1",
       "prompt": "Which event introduces the situation in Flint's Two Shadows?",
       "choices": [
-        "Flint tests his lantern before carrying maps through Deep Dark.",
-        "Flint follows the darker shadow and meets a fern wall.",
-        "Flint enters Deep Dark with the tested lantern held low."
+        "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
+        "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel.",
+        "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark."
       ],
-      "answer": "Flint tests his lantern before carrying maps through Deep Dark.",
+      "answer": "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Flint tests his lantern before carrying maps through Deep Dark."
+      "evidenceText": "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow."
     },
     {
       "id": "moonwood-tales-c-32-q2",
       "prompt": "Which event shows that the first attempt fails in Flint's Two Shadows?",
       "choices": [
-        "Flint follows the darker shadow and meets a fern wall.",
-        "Flint tests his lantern before carrying maps through Deep Dark.",
-        "Flint enters Deep Dark with the tested lantern held low."
+        "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel.",
+        "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
+        "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark."
       ],
-      "answer": "Flint follows the darker shadow and meets a fern wall.",
+      "answer": "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Flint follows the darker shadow and meets a fern wall. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Flint follows the darker shadow and meets a fern wall."
+      "rationale": "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel."
     },
     {
       "id": "moonwood-tales-c-32-q3",
       "prompt": "Which event resolves the central problem in Flint's Two Shadows?",
       "choices": [
-        "Flint enters Deep Dark with the tested lantern held low.",
-        "Flint tests his lantern before carrying maps through Deep Dark.",
-        "Flint follows the darker shadow and meets a fern wall."
+        "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark.",
+        "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
+        "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel."
       ],
-      "answer": "Flint enters Deep Dark with the tested lantern held low.",
+      "answer": "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Flint enters Deep Dark with the tested lantern held low. This event shows how the central problem is resolved.",
+      "rationale": "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Flint enters Deep Dark with the tested lantern held low."
+      "evidenceText": "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark."
     }
   ]
 }

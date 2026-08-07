@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-44",
-  "contentHash": "sha256:52185faf4e9fab12f14bd5bd4c3e900cfcad8690ab2ee519ad7406d439beb3f3",
+  "contentHash": "sha256:f45464da861368c40dc51e07c92bcac37b6583ab18469db3b59d57827393f971",
   "questions": [
     {
       "id": "gr-d-44-q1",
       "prompt": "Which sentence tells about many birds in Animal Shelters and Habitats?",
       "choices": [
-        "Many birds build nests for young.",
-        "Ponds provide fish food and shelter.",
-        "Habitats provide food water and shelter."
+        "Many birds build nests to hold eggs and young.",
+        "Fish find food and shelter in ponds.",
+        "A habitat gives an animal food, water, and shelter."
       ],
-      "answer": "Many birds build nests for young.",
+      "answer": "Many birds build nests to hold eggs and young.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Many birds build nests for young."
+      "evidenceText": "Many birds build nests to hold eggs and young."
     },
     {
       "id": "gr-d-44-q2",
-      "prompt": "Which sentence tells about ponds in Animal Shelters and Habitats?",
+      "prompt": "Which sentence tells about fish in Animal Shelters and Habitats?",
       "choices": [
-        "Ponds provide fish food and shelter.",
-        "Many birds build nests for young.",
-        "Habitats provide food water and shelter."
+        "Fish find food and shelter in ponds.",
+        "Many birds build nests to hold eggs and young.",
+        "A habitat gives an animal food, water, and shelter."
       ],
-      "answer": "Ponds provide fish food and shelter.",
+      "answer": "Fish find food and shelter in ponds.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Ponds provide fish food and shelter."
+      "evidenceText": "Fish find food and shelter in ponds."
     },
     {
       "id": "gr-d-44-q3",
       "prompt": "What is the big idea of Animal Shelters and Habitats?",
       "choices": [
-        "Habitats provide food water and shelter.",
-        "Only ponds provide fish food and shelter.",
-        "Only rabbits shelter inside burrows."
+        "A habitat gives an animal food, water, and shelter.",
+        "Only fish find food and shelter in ponds.",
+        "Only rabbits hide from danger inside burrows."
       ],
-      "answer": "Habitats provide food water and shelter.",
+      "answer": "A habitat gives an animal food, water, and shelter.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Many birds build nests for young. Ponds provide fish food and shelter. Habitats provide food water and shelter. Together, these facts show the whole-book big idea: Habitats provide food water and shelter.",
+      "rationale": "Many birds build nests to hold eggs and young. Fish find food and shelter in ponds. A habitat gives an animal food, water, and shelter. Together, these facts show the whole-book big idea: A habitat gives an animal food, water, and shelter.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Many birds build nests for young."
+          "evidenceText": "Many birds build nests to hold eggs and young."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Ponds provide fish food and shelter."
+          "evidenceText": "Fish find food and shelter in ponds."
         }
       ],
       "distractorRationales": {
-        "Only ponds provide fish food and shelter.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only rabbits shelter inside burrows.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only fish find food and shelter in ponds.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only rabbits hide from danger inside burrows.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Habitats provide food water and shelter."
+      "evidenceText": "A habitat gives an animal food, water, and shelter."
     }
   ]
 }

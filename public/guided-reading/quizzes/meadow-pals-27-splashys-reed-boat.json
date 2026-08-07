@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-27-splashys-reed-boat",
-  "contentHash": "sha256:2f023f65a8db21134b6cd7ad92a61f57b22ec19d4e3332ab0ae631697466fc42",
+  "contentHash": "sha256:82dce8f98e8542970093e06f5ff377c27bdba697e318d594f02ed4caa14f0137",
   "questions": [
     {
       "id": "meadow-pals-27-splashys-reed-boat-q1",
       "prompt": "What happens first in Splashy's Reed Boat?",
       "choices": [
         "Splashy builds a reed boat.",
-        "Splashy pushes it harder.",
-        "The boat glides straight."
+        "Splashy lets it go.",
+        "The boat sails straight."
       ],
       "answer": "Splashy builds a reed boat.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-27-splashys-reed-boat-q2",
       "prompt": "What goes wrong in Splashy's Reed Boat?",
       "choices": [
-        "Splashy pushes it harder.",
+        "Splashy lets it go.",
         "Splashy builds a reed boat.",
-        "The boat glides straight."
+        "The boat sails straight."
       ],
-      "answer": "Splashy pushes it harder.",
+      "answer": "Splashy lets it go.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Splashy pushes it harder. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Splashy pushes it harder."
+      "rationale": "Splashy lets it go. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 2,
+      "evidenceText": "Splashy lets it go."
     },
     {
       "id": "meadow-pals-27-splashys-reed-boat-q3",
       "prompt": "What happens at the end of Splashy's Reed Boat?",
       "choices": [
-        "The boat glides straight.",
+        "The boat sails straight.",
         "Splashy builds a reed boat.",
-        "Splashy pushes it harder."
+        "Splashy lets it go."
       ],
-      "answer": "The boat glides straight.",
+      "answer": "The boat sails straight.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The boat glides straight. This event shows how the central problem is resolved.",
+      "rationale": "The boat sails straight. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "The boat glides straight."
+      "evidenceText": "The boat sails straight."
     }
   ]
 }

@@ -24,23 +24,45 @@ const BIG_IDEA_QUIZ_VERSION = "2026-08-01.2";
 const NONFICTION_DETAIL_OVERRIDES = Object.freeze({
   "gr-a-27:0": {
     prompt: "What is the Sun?",
-    answerText: "The Sun is a star.",
-    choiceTexts: ["The Sun is a star.", "The Sun is a planet.", "The Sun is a moon."]
+    answerText: "Our Sun is one huge star in space.",
+    choiceTexts: ["Our Sun is one huge star in space.", "Our Sun is a small moon in space.", "Our Sun is a cold planet in space."]
+  },
+  "gr-a-27:1": {
+    prompt: "What does the Sun's light make on our side?",
+    answerIndex: 1,
+    answerText: "Its light makes daytime on our side.",
+    choiceTexts: ["Its light makes daytime on our side.", "Its light makes nighttime on our side.", "Its light makes the Sun disappear."]
+  },
+  "gr-b-31:0": {
+    prompt: "What can spring bring in some places?",
+    answerText: "In some places, spring brings buds and rain.",
+    choiceTexts: ["In some places, spring brings buds and rain.", "In some places, spring stops every plant.", "In some places, spring brings only snow."]
   },
   "gr-b-34:0": {
     prompt: "What reaches one side of Earth?",
     answerText: "Sunlight reaches one side of Earth.",
     choiceTexts: ["Sunlight reaches one side of Earth.", "A river reaches one side of Earth.", "A road reaches one side of Earth."]
   },
+  "gr-b-34:1": {
+    prompt: "What does Earth keep doing?",
+    answerIndex: 2,
+    answerText: "Earth keeps turning.",
+    choiceTexts: ["Earth keeps turning.", "Earth stops turning.", "Earth starts shrinking."]
+  },
   "gr-c-37:0": {
     prompt: "What can water do as a liquid?",
-    answerText: "Water can flow as a liquid.",
-    choiceTexts: ["Water can flow as a liquid.", "Water can burn as a liquid.", "Water can bark as a liquid."]
+    answerText: "Liquid water pours and flows.",
+    choiceTexts: ["Liquid water pours and flows.", "Liquid water burns and crackles.", "Liquid water stays rigid and still."]
   },
   "gr-d-42:0": {
-    prompt: "Which planet is our home?",
-    answerText: "Earth is our home planet.",
-    choiceTexts: ["Earth is our home planet.", "Mars is our home planet.", "Jupiter is our home planet."]
+    prompt: "Where is our home?",
+    answerText: "Earth is our home in space.",
+    choiceTexts: ["Earth is our home in space.", "Mars is our home in space.", "The Moon is our home in space."]
+  },
+  "gr-d-45:0": {
+    prompt: "Which star is closest to Earth?",
+    answerText: "The Sun is our nearest star.",
+    choiceTexts: ["The Sun is our nearest star.", "The Moon is our nearest star.", "Mars is our nearest star."]
   },
   "gr-e-46:0": {
     prompt: "What covers a reptile's body?",
@@ -55,8 +77,13 @@ const NONFICTION_DETAIL_OVERRIDES = Object.freeze({
   "gr-e-48:1": {
     prompt: "What happens when a magnet is held near glass?",
     answerIndex: 3,
-    answerText: "Magnets do not attract glass.",
-    choiceTexts: ["Magnets do not attract glass.", "Magnets attract all glass.", "Glass turns into a magnet."]
+    answerText: "It does not pull on glass.",
+    choiceTexts: ["It does not pull on glass.", "It pulls every piece of glass.", "It turns glass into metal."]
+  },
+  "first-facts-a-02-the-four-seasons:0": {
+    prompt: "What can spring bring in some places?",
+    answerText: "In some places, spring brings rain and new flowers.",
+    choiceTexts: ["In some places, spring brings rain and new flowers.", "In some places, spring stops every plant.", "In some places, spring brings only snow."]
   },
   "first-facts-level-a-14-the-tree:0": {
     prompt: "What grows tall?",
@@ -69,29 +96,30 @@ const NONFICTION_DETAIL_OVERRIDES = Object.freeze({
     choiceTexts: ["A seed rests in soil.", "A seed rests in the sky.", "A seed rests on the Moon."]
   },
   "first-facts-a-10-bugs-all-around-us:0": {
-    prompt: "Where do many small creatures live?",
-    answerText: "Many small creatures live near us.",
-    choiceTexts: ["Many small creatures live near us.", "Many small creatures live inside the Sun.", "Many small creatures live only on the Moon."]
+    prompt: "Where do small creatures work?",
+    answerText: "near us",
+    choiceTexts: ["near us", "inside the Sun", "only on the Moon"]
   },
   "first-facts-a-16-push-and-pull:0": {
     prompt: "What can move something away?",
-    answerText: "A push can move something away.",
-    choiceTexts: ["A push can move something away.", "A colour can move something away.", "A shadow can move something away."]
+    answerText: "A push can send something away.",
+    choiceTexts: ["A push can send something away.", "A color can send something away.", "A shadow can send something away."]
   },
   "first-facts-a-17-hello-sun:0": {
     prompt: "What is the Sun?",
-    answerText: "The Sun is our nearest star.",
-    choiceTexts: ["The Sun is our nearest star.", "The Sun is our nearest planet.", "The Sun is our nearest moon."]
+    answerText: "the star closest to Earth",
+    choiceTexts: ["the star closest to Earth", "the planet closest to Earth", "the moon closest to Earth"]
   },
   "first-facts-a-18-the-moon:0": {
-    prompt: "What is the Moon?",
-    answerText: "The Moon is Earth's natural satellite.",
-    choiceTexts: ["The Moon is Earth's natural satellite.", "The Moon is Earth's second Sun.", "The Moon is Earth's largest ocean."]
+    prompt: "Does the Moon make its own light?",
+    answerText: "The Moon makes no light of its own.",
+    choiceTexts: ["The Moon makes no light of its own.", "The Moon makes all sunlight by itself.", "The Moon makes a new Sun each night."]
   },
   "first-facts-a-19-day-and-night:1": {
     prompt: "What does Earth do all day and night?",
-    answerText: "Earth rotates all day and night.",
-    choiceTexts: ["Earth rotates all day and night.", "Earth stops all day and night.", "Earth shrinks all day and night."]
+    answerIndex: 2,
+    answerText: "Earth turns all day and all night.",
+    choiceTexts: ["Earth turns all day and all night.", "Earth stops all day and all night.", "Earth shrinks all day and all night."]
   },
   "first-facts-a-24-rocks-and-pebbles:0": {
     prompt: "What can rocks be like?",
@@ -100,18 +128,29 @@ const NONFICTION_DETAIL_OVERRIDES = Object.freeze({
   },
   "level-c-nonfiction-03-penguins:0": {
     prompt: "What do penguins use their wings for?",
-    answerText: "Penguins are flightless birds whose wings work as swimming flippers.",
-    choiceTexts: ["Penguins are flightless birds whose wings work as swimming flippers.", "Penguins use their wings to fly above mountains.", "Penguins use their wings to dig tree holes."]
+    answerText: "Their strong wings sweep them through water.",
+    choiceTexts: ["Their strong wings sweep them through water.", "Their strong wings lift them above mountains.", "Their strong wings dig deep tree holes."]
+  },
+  "level-c-nonfiction-05-how-seeds-grow:0": {
+    prompt: "What does each seed hold inside?",
+    answerText: "Each holds a tiny plant inside.",
+    choiceTexts: ["Each holds a tiny plant inside.", "Each holds a tiny bird inside.", "Each holds a tiny stone inside."]
+  },
+  "level-c-nonfiction-05-how-seeds-grow:1": {
+    prompt: "What reaches light and opens its first leaves?",
+    answerIndex: 3,
+    answerText: "A shoot reaches light and opens its first leaves.",
+    choiceTexts: ["A shoot reaches light and opens its first leaves.", "A root flies up and opens its first wings.", "A flower closes and hides every leaf."]
   },
   "level-c-nonfiction-06-spiders:0": {
     prompt: "How many legs does a spider have?",
-    answerText: "Spiders are arachnids with eight legs and two main body sections.",
-    choiceTexts: ["Spiders are arachnids with eight legs and two main body sections.", "Spiders are insects with six legs and three body sections.", "Spiders are animals with four legs and one body section."]
+    answerText: "A spider has eight legs and two body sections—but no wings.",
+    choiceTexts: ["A spider has eight legs and two body sections—but no wings.", "A spider has six legs and three body sections.", "A spider has four legs and one body section."]
   },
   "level-c-nonfiction-10-frogs:0": {
     prompt: "Where do common frogs live?",
-    answerText: "Common frogs are amphibians that use freshwater and damp land.",
-    choiceTexts: ["Common frogs are amphibians that use freshwater and damp land.", "Common frogs live only in dry deserts.", "Common frogs live only in high treetops."]
+    answerText: "A common frog needs two worlds: a pond and damp land.",
+    choiceTexts: ["A common frog needs two worlds: a pond and damp land.", "A common frog needs only a dry desert.", "A common frog needs only a high treetop."]
   }
 });
 
@@ -425,6 +464,52 @@ function fictionQuestions(book) {
       rationale: "Page 5 says Bob reads one sentence, which shows that Nan's blending help worked."
     });
   }
+  if (book.id === "meadow-pals-04-bouncy-wont-stop") {
+    questions[0] = makeQuestion(book, 0, {
+      prompt: "What does Bouncy love to do?",
+      answerIndex: 0,
+      answerText: "hop",
+      choiceTexts: ["hop", "nap", "swim"],
+      skill: "character_action"
+    });
+    questions[1] = makeQuestion(book, 1, {
+      prompt: "Whose basket does Bouncy bump?",
+      answerIndex: 4,
+      answerText: "Clucky's basket",
+      choiceTexts: ["Clucky's basket", "Grumpy's bed", "Muddy's hat"],
+      skill: "problem_solution"
+    });
+    questions[2] = makeQuestion(book, 2, {
+      prompt: "What changes when Bouncy hops by at the end?",
+      answerIndex: 6,
+      answerText: "No more bumps",
+      choiceTexts: ["No more bumps", "More baskets fall", "The path disappears"],
+      skill: "outcome"
+    });
+  }
+  if (book.id === "meadow-pals-13-splashy-finds-a-puddle") {
+    questions[0] = makeQuestion(book, 0, {
+      prompt: "What does Splashy find first?",
+      answerIndex: 0,
+      answerText: "a small puddle",
+      choiceTexts: ["a small puddle", "a tall tree", "a red wagon"],
+      skill: "sequence"
+    });
+    questions[1] = makeQuestion(book, 1, {
+      prompt: "Who gets wet after Splashy's big splash?",
+      answerIndex: 5,
+      answerText: "Grumpy",
+      choiceTexts: ["Grumpy", "Tiny", "Brave"],
+      skill: "cause_effect"
+    });
+    questions[2] = makeQuestion(book, 2, {
+      prompt: "Which puddle does Splashy choose at the end?",
+      answerIndex: 8,
+      answerText: "a puddle with space",
+      choiceTexts: ["a puddle with space", "a puddle by the bed", "a puddle under the hat"],
+      skill: "outcome"
+    });
+  }
   return questions;
 }
 
@@ -471,7 +556,7 @@ function classifyNonfictionSkill(text = "") {
 function nonfictionQuestions(book) {
   const openingIndex = book.id === "first-facts-a-08-animals-in-the-ocean" ? 1 : 0;
   const middleIndex = nonfictionMiddleIndex(book);
-  const synthesisIndex = book.pages.length - 1;
+  const synthesisIndex = book.id === "gr-b-32" ? book.pages.length - 2 : book.pages.length - 1;
   const middleSkill = classifyNonfictionSkill(book.pages[middleIndex].text);
   const mainIdeaAnswer = guidedReadingBigIdeaAnswer(book);
   const {
@@ -543,8 +628,17 @@ function nonfictionQuestions(book) {
   return questions;
 }
 
+const requestedIds = new Set(process.argv.slice(2).filter(value => !value.startsWith("-")));
+const booksToRebuild = requestedIds.size
+  ? guidedReadingBooks.filter(book => requestedIds.has(book.id))
+  : guidedReadingBooks;
+const missingRequestedIds = [...requestedIds].filter(id => !guidedReadingBooks.some(book => book.id === id));
+if (missingRequestedIds.length) {
+  throw new Error(`Unknown Guided Reading book id(s): ${missingRequestedIds.join(", ")}`);
+}
+
 fs.mkdirSync(quizDirectory, { recursive: true });
-for (const book of guidedReadingBooks) {
+for (const book of booksToRebuild) {
   const questions = book.type === "fiction" ? fictionQuestions(book) : nonfictionQuestions(book);
   const quiz = {
     schemaVersion: 2,
@@ -556,4 +650,4 @@ for (const book of guidedReadingBooks) {
   fs.writeFileSync(path.join(quizDirectory, `${book.id}.json`), `${JSON.stringify(quiz, null, 2)}\n`);
 }
 
-console.log(`Rebuilt ${guidedReadingBooks.length} Guided Reading quiz files from approved Story Bible manuscripts.`);
+console.log(`Rebuilt ${booksToRebuild.length} Guided Reading quiz files from approved Story Bible manuscripts.`);

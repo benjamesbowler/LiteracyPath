@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-01-muddy-has-a-bath",
-  "contentHash": "sha256:a24ed08c5934267bdc6cebce8ec798054a225349ea28fb0c13ac6dcd75d4611e",
+  "contentHash": "sha256:2f685bbf386d5076c85625a5d0802f6f680e798c6ea770a229a2165abb3ae687",
   "questions": [
     {
       "id": "meadow-pals-01-muddy-has-a-bath-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Muddy rolls in the mud.",
         "Muddy is still muddy.",
-        "Clean Muddy joins supper."
+        "Muddy stays clean for supper."
       ],
       "answer": "Muddy rolls in the mud.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Muddy is still muddy.",
         "Muddy rolls in the mud.",
-        "Clean Muddy joins supper."
+        "Muddy stays clean for supper."
       ],
       "answer": "Muddy is still muddy.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-01-muddy-has-a-bath-q3",
       "prompt": "What happens at the end of Muddy Has a Bath?",
       "choices": [
-        "Clean Muddy joins supper.",
+        "Muddy stays clean for supper.",
         "Muddy rolls in the mud.",
         "Muddy is still muddy."
       ],
-      "answer": "Clean Muddy joins supper.",
+      "answer": "Muddy stays clean for supper.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Clean Muddy joins supper. This event shows how the central problem is resolved.",
+      "rationale": "Muddy stays clean for supper. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Clean Muddy joins supper."
+      "evidenceText": "Muddy stays clean for supper."
     }
   ]
 }

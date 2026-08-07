@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-13-big-and-small",
-  "contentHash": "sha256:62263327991e163f8ab280045d0095f3a5a9c227a0c892cb9cd7f352793b26b3",
+  "contentHash": "sha256:cd384a2ff8f4b05a58f6417cb47f149c73ca7a86fb8484a80f45af86e79eb153",
   "questions": [
     {
       "id": "first-facts-a-13-big-and-small-q1",
       "prompt": "Which sentence tells about an elephant in Big and Small?",
       "choices": [
-        "An elephant is big beside a mouse.",
-        "A bus is big beside a toy car.",
-        "Size depends on what we compare."
+        "An elephant looks big beside a mouse.",
+        "A bus looks big beside a toy car.",
+        "Big or small? Compare two things."
       ],
-      "answer": "An elephant is big beside a mouse.",
+      "answer": "An elephant looks big beside a mouse.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "An elephant is big beside a mouse."
+      "evidenceText": "An elephant looks big beside a mouse."
     },
     {
       "id": "first-facts-a-13-big-and-small-q2",
       "prompt": "Which sentence tells about a bus in Big and Small?",
       "choices": [
-        "A bus is big beside a toy car.",
-        "An elephant is big beside a mouse.",
-        "Size depends on what we compare."
+        "A bus looks big beside a toy car.",
+        "An elephant looks big beside a mouse.",
+        "Big or small? Compare two things."
       ],
-      "answer": "A bus is big beside a toy car.",
+      "answer": "A bus looks big beside a toy car.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "A bus is big beside a toy car."
+      "evidenceText": "A bus looks big beside a toy car."
     },
     {
       "id": "first-facts-a-13-big-and-small-q3",
       "prompt": "What is the big idea of Big and Small?",
       "choices": [
-        "Size depends on what we compare.",
-        "Only an elephant is big beside a mouse.",
-        "Only a bus is big beside a toy car."
+        "Big or small? Compare two things.",
+        "Only an elephant looks big beside a mouse.",
+        "Only a bus looks big beside a toy car."
       ],
-      "answer": "Size depends on what we compare.",
+      "answer": "Big or small? Compare two things.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "An elephant is big beside a mouse. A bus is big beside a toy car. Size depends on what we compare. Together, these facts show the whole-book big idea: Size depends on what we compare.",
+      "rationale": "An elephant looks big beside a mouse. A bus looks big beside a toy car. Big or small? Compare two things. Together, these facts show the whole-book big idea: Big or small? Compare two things.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "An elephant is big beside a mouse."
+          "evidenceText": "An elephant looks big beside a mouse."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "A bus is big beside a toy car."
+          "evidenceText": "A bus looks big beside a toy car."
         }
       ],
       "distractorRationales": {
-        "Only an elephant is big beside a mouse.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only a bus is big beside a toy car.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only an elephant looks big beside a mouse.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a bus looks big beside a toy car.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Size depends on what we compare."
+      "evidenceText": "Big or small? Compare two things."
     }
   ]
 }

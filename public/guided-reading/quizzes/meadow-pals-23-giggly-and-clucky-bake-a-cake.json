@@ -2,14 +2,14 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-23-giggly-and-clucky-bake-a-cake",
-  "contentHash": "sha256:f1f5b5603c55f08242d70037a8b0869ff463bb955b4c76e8bc4831fcb6eb5bc3",
+  "contentHash": "sha256:32c57a5b9e0f9ea4c76c8d4334d2d44d4c98d6466c97961de84b6201f3ab9fb8",
   "questions": [
     {
       "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q1",
       "prompt": "What happens first in Giggly and Clucky Bake a Cake?",
       "choices": [
         "Clucky plans a tall cake.",
-        "The cake goes inside.",
+        "The cake goes in the oven.",
         "They measure and bake again."
       ],
       "answer": "Clucky plans a tall cake.",
@@ -22,16 +22,16 @@
       "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q2",
       "prompt": "What goes wrong in Giggly and Clucky Bake a Cake?",
       "choices": [
-        "The cake goes inside.",
+        "The cake goes in the oven.",
         "Clucky plans a tall cake.",
         "They measure and bake again."
       ],
-      "answer": "The cake goes inside.",
+      "answer": "The cake goes in the oven.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The cake goes inside. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The cake goes in the oven. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "The cake goes inside."
+      "evidenceText": "The cake goes in the oven."
     },
     {
       "id": "meadow-pals-23-giggly-and-clucky-bake-a-cake-q3",
@@ -39,7 +39,7 @@
       "choices": [
         "They measure and bake again.",
         "Clucky plans a tall cake.",
-        "The cake goes inside."
+        "The cake goes in the oven."
       ],
       "answer": "They measure and bake again.",
       "kind": "text",

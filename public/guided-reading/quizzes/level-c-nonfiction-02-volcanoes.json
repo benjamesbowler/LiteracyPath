@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-02-volcanoes",
-  "contentHash": "sha256:1f13767675f9e324fae43a625d5c373ae9fac6d77a5cdf69386180edfbd8ad7c",
+  "contentHash": "sha256:fe9a2713316c828838bd75fa9e46146a51737fcba469013daeefce1fa6057aa8",
   "questions": [
     {
       "id": "level-c-nonfiction-02-volcanoes-q1",
       "prompt": "Which fact is introduced first in Volcanoes?",
       "choices": [
-        "Deep underground some rock melts into hot magma.",
-        "Explosive eruptions can release ash rocks and volcanic gases.",
-        "Across immense time volcanoes have built land and reshaped Earth."
+        "Far below a volcano, melted rock gathers. It is called magma.",
+        "Repeated underwater eruptions can build new volcanic islands.",
+        "Eruptions can destroy old ground, then build new land in its place."
       ],
-      "answer": "Deep underground some rock melts into hot magma.",
+      "answer": "Far below a volcano, melted rock gathers. It is called magma.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Deep underground some rock melts into hot magma."
+      "evidenceText": "Far below a volcano, melted rock gathers. It is called magma."
     },
     {
       "id": "level-c-nonfiction-02-volcanoes-q2",
-      "prompt": "Which sentence tells about explosive eruptions in Volcanoes?",
+      "prompt": "Which sentence tells about repeated underwater eruptions in Volcanoes?",
       "choices": [
-        "Explosive eruptions can release ash rocks and volcanic gases.",
-        "Deep underground some rock melts into hot magma.",
-        "Across immense time volcanoes have built land and reshaped Earth."
+        "Repeated underwater eruptions can build new volcanic islands.",
+        "Far below a volcano, melted rock gathers. It is called magma.",
+        "Eruptions can destroy old ground, then build new land in its place."
       ],
-      "answer": "Explosive eruptions can release ash rocks and volcanic gases.",
+      "answer": "Repeated underwater eruptions can build new volcanic islands.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "Explosive eruptions can release ash rocks and volcanic gases."
+      "evidencePage": 5,
+      "evidenceText": "Repeated underwater eruptions can build new volcanic islands."
     },
     {
       "id": "level-c-nonfiction-02-volcanoes-q3",
       "prompt": "What is the big idea of Volcanoes?",
       "choices": [
         "Volcanoes erupt and slowly reshape Earth's land.",
-        "Only deep underground some rock melts into hot magma.",
-        "Only explosive eruptions can release ash rocks and volcanic gases."
+        "Only far below a volcano, melted rock gathers.",
+        "Only repeated underwater eruptions can build new volcanic islands."
       ],
       "answer": "Volcanoes erupt and slowly reshape Earth's land.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Deep underground some rock melts into hot magma. Explosive eruptions can release ash rocks and volcanic gases. Across immense time volcanoes have built land and reshaped Earth. Together, these facts show the whole-book big idea: Volcanoes erupt and slowly reshape Earth's land.",
+      "rationale": "Far below a volcano, melted rock gathers. It is called magma. Repeated underwater eruptions can build new volcanic islands. Eruptions can destroy old ground, then build new land in its place. Together, these facts show the whole-book big idea: Volcanoes erupt and slowly reshape Earth's land.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Deep underground some rock melts into hot magma."
+          "evidenceText": "Far below a volcano, melted rock gathers. It is called magma."
         },
         {
-          "evidencePage": 4,
-          "evidenceText": "Explosive eruptions can release ash rocks and volcanic gases."
+          "evidencePage": 5,
+          "evidenceText": "Repeated underwater eruptions can build new volcanic islands."
         }
       ],
       "distractorRationales": {
-        "Only deep underground some rock melts into hot magma.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only explosive eruptions can release ash rocks and volcanic gases.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only far below a volcano, melted rock gathers.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only repeated underwater eruptions can build new volcanic islands.": "Page 5 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "Across immense time volcanoes have built land and reshaped Earth."
+      "evidenceText": "Eruptions can destroy old ground, then build new land in its place."
     }
   ]
 }

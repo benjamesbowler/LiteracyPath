@@ -1,4 +1,4 @@
-export const STORY_CONTENT_POLICY_VERSION = "2026-07-31.1";
+export const STORY_CONTENT_POLICY_VERSION = "2026-08-03.2";
 
 export const STORY_CONTENT_FORMATS = Object.freeze([
   "guided-reading-book",
@@ -41,19 +41,19 @@ export const STORY_CONTENT_LEVELS = Object.freeze({
     requirement: "Every content word must be decodable from the declared scope, with only declared high-frequency words as exceptions."
   }),
   A: Object.freeze({
-    audience: "Mostly ages 4-6; low-entry reading",
+    audience: "Beginning readers in highly controlled connected text; interest age is declared separately",
     maximumTextLines: 1,
     maximumWordsPerPage: 6,
     requirement: "One concrete action or observation per page, strong picture support, and no hidden inference needed to understand the goal."
   }),
   B: Object.freeze({
-    audience: "Mostly ages 5-7; low-to-mid reading",
+    audience: "Early readers ready for more print, variation and causal or concept connection; interest age is declared separately",
     maximumTextLines: 2,
     maximumWordsPerPage: 14,
     requirement: "A short causal chain, controlled dialogue, visible consequences, and repeated language that supports rather than replaces meaning."
   }),
   C: Object.freeze({
-    audience: "Mostly ages 7-9; mid-to-high reading",
+    audience: "Early readers ready for more varied syntax, vocabulary, punctuation and supported inference; interest age is declared separately",
     maximumTextLines: 3,
     maximumWordsPerPage: 22,
     requirement: "A sustained causal plot, character-motivated choices, richer inference and vocabulary that remain clear from context."
@@ -68,18 +68,23 @@ export const STORY_CONTENT_MANDATORY_RULES = Object.freeze([
   }),
   Object.freeze({
     id: "one-spine",
-    label: "One concrete story spine",
-    evidence: "The opening establishes who wants what, why it matters now and what blocks success."
+    label: "One concrete narrative or concept spine",
+    evidence: "Fiction establishes who wants or needs what and what changes; nonfiction establishes one inquiry or organising relationship."
   }),
   Object.freeze({
     id: "causal-beats",
-    label: "Causal beats rather than episodes",
-    evidence: "Each scene changes the problem, knowledge, relationship or available action."
+    label: "Causal beats or concept progression",
+    evidence: "Each page changes the problem, knowledge, relationship or available action, or adds a connected fact that earns the next page."
   }),
   Object.freeze({
     id: "genuine-failure",
-    label: "At least one genuine failed attempt",
-    evidence: "The protagonist attempts a plausible solution, it fails for an understandable reason and the failure informs the next attempt."
+    label: "Meaningful development",
+    evidence: "Fiction includes an obstacle, mistake, surprise, social effect or failed attempt that informs the turn; nonfiction develops its concept through sequence, cause, comparison, classification, change or close observation."
+  }),
+  Object.freeze({
+    id: "social-resolution",
+    label: "Legible social consequence and repair",
+    evidence: "When behavior affects another character, the text makes the impact and reaction legible, then shows recognition, a boundary, proportionate repair or a changed attempt."
   }),
   Object.freeze({
     id: "meaningful-choice",
@@ -89,17 +94,17 @@ export const STORY_CONTENT_MANDATORY_RULES = Object.freeze([
   Object.freeze({
     id: "earned-ending",
     label: "An earned ending",
-    evidence: "The ending resolves the opening goal, reflects the route taken and stages emotion through action rather than a stated moral."
+    evidence: "Fiction resolves or changes its opening state through payoff, repair, changed action, callback or a prepared landing; nonfiction answers, synthesises, compares or meaningfully returns to its opening."
   }),
   Object.freeze({
     id: "level-truth",
     label: "Reading-level truth",
-    evidence: "Every page, prompt and choice label passes the declared language and decoding constraints."
+    evidence: "Every page, prompt and choice label uses U.S. English spelling and passes the declared language and decoding constraints."
   }),
   Object.freeze({
     id: "canon-truth",
     label: "Character and world truth",
-    evidence: "Named characters, relative sizes, colours, abilities, relationships and world rules match the active canon."
+    evidence: "Named characters, relative sizes, colors, abilities, relationships and world rules match the active canon."
   }),
   Object.freeze({
     id: "image-truth",
@@ -131,7 +136,7 @@ export const STORY_CONTENT_APPROVAL_RULE = Object.freeze({
 });
 
 export const STORY_CONTENT_ADMISSION_RULE = Object.freeze({
-  baselineDate: "2026-07-31",
+  baselineDate: "2026-08-03",
   rule: "Any new or changed narrative item must have a complete review record. Legacy fingerprints may remain visible while remediation is in progress, but any change invalidates the fingerprint and blocks the policy gate until the record is updated.",
   legacyDoesNotMeanApproved: true
 });

@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-06",
-  "contentHash": "sha256:4200257d2c9dbd0cbdbd7374c47ff53359f9f07ad72671a5fe18cce90bf144f9",
+  "contentHash": "sha256:c1854b88b15e24bbea3e2b876c9020ce74afb3c367e6b2815e6fe82e87918412",
   "questions": [
     {
       "id": "ja-b-06-q1",
       "prompt": "Which event begins James and Anna visit Grandma's Farm?",
       "choices": [
-        "James, Anna and Chips arrive for a week at Grandma's farm.",
-        "James and Anna chase from both sides, but Percy dodges them.",
-        "Grandma helps close every gate and moves Chips away from the beans."
+        "James, Anna, and Chips arrive at Grandma’s sunny farm.",
+        "James runs left. Anna runs right. Percy zigzags between them!",
+        "“Out, Chips!” Anna points. Grandma leads him from the beans."
       ],
-      "answer": "James, Anna and Chips arrive for a week at Grandma's farm.",
+      "answer": "James, Anna, and Chips arrive at Grandma’s sunny farm.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "James, Anna and Chips arrive for a week at Grandma's farm."
+      "evidenceText": "James, Anna, and Chips arrive at Grandma’s sunny farm."
     },
     {
       "id": "ja-b-06-q2",
       "prompt": "Which event shows the first plan fails in James and Anna visit Grandma's Farm?",
       "choices": [
-        "James and Anna chase from both sides, but Percy dodges them.",
-        "James, Anna and Chips arrive for a week at Grandma's farm.",
-        "Grandma helps close every gate and moves Chips away from the beans."
+        "James runs left. Anna runs right. Percy zigzags between them!",
+        "James, Anna, and Chips arrive at Grandma’s sunny farm.",
+        "“Out, Chips!” Anna points. Grandma leads him from the beans."
       ],
-      "answer": "James and Anna chase from both sides, but Percy dodges them.",
+      "answer": "James runs left. Anna runs right. Percy zigzags between them!",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "James and Anna chase from both sides, but Percy dodges them. This shows that the first attempt does not solve the central problem.",
+      "rationale": "James runs left. Anna runs right. Percy zigzags between them! This shows that the first attempt does not solve the central problem.",
       "evidencePage": 8,
-      "evidenceText": "James and Anna chase from both sides, but Percy dodges them."
+      "evidenceText": "James runs left. Anna runs right. Percy zigzags between them!"
     },
     {
       "id": "ja-b-06-q3",
       "prompt": "Which event solves the problem in James and Anna visit Grandma's Farm?",
       "choices": [
-        "Grandma helps close every gate and moves Chips away from the beans.",
-        "James, Anna and Chips arrive for a week at Grandma's farm.",
-        "James and Anna chase from both sides, but Percy dodges them."
+        "“Out, Chips!” Anna points. Grandma leads him from the beans.",
+        "James, Anna, and Chips arrive at Grandma’s sunny farm.",
+        "James runs left. Anna runs right. Percy zigzags between them!"
       ],
-      "answer": "Grandma helps close every gate and moves Chips away from the beans.",
+      "answer": "“Out, Chips!” Anna points. Grandma leads him from the beans.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Grandma helps close every gate and moves Chips away from the beans. This event shows how the central problem is resolved.",
+      "rationale": "“Out, Chips!” Anna points. Grandma leads him from the beans. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Grandma helps close every gate and moves Chips away from the beans."
+      "evidenceText": "“Out, Chips!” Anna points. Grandma leads him from the beans."
     }
   ]
 }

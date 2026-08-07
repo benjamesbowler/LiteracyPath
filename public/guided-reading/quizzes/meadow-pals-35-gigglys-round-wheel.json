@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-35-gigglys-round-wheel",
-  "contentHash": "sha256:00ba9725ec2b2a5bfbfaa4445360925d13be431694c6ee36118a5b026ffec235",
+  "contentHash": "sha256:5c1bb78ce4f87a87568d3c1ab9b7678a463ed8b355f359ecb4478dbff7ed60ed",
   "questions": [
     {
       "id": "meadow-pals-35-gigglys-round-wheel-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Giggly pulls a flower cart.",
         "Flowers bounce onto soft grass.",
-        "A round wood slice fits."
+        "All eight flowers arrive!"
       ],
       "answer": "Giggly pulls a flower cart.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Flowers bounce onto soft grass.",
         "Giggly pulls a flower cart.",
-        "A round wood slice fits."
+        "All eight flowers arrive!"
       ],
       "answer": "Flowers bounce onto soft grass.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-35-gigglys-round-wheel-q3",
       "prompt": "What happens at the end of Giggly's Round Wheel?",
       "choices": [
-        "A round wood slice fits.",
+        "All eight flowers arrive!",
         "Giggly pulls a flower cart.",
         "Flowers bounce onto soft grass."
       ],
-      "answer": "A round wood slice fits.",
+      "answer": "All eight flowers arrive!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "A round wood slice fits. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "A round wood slice fits."
+      "rationale": "All eight flowers arrive! This event shows how the central problem is resolved.",
+      "evidencePage": 8,
+      "evidenceText": "All eight flowers arrive!"
     }
   ]
 }

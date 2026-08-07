@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-20-my-five-senses",
-  "contentHash": "sha256:a64da7dfa7d0daef24d283b28a32e84e55b58e8a4aa94be2bb92e6b7530c2ec8",
+  "contentHash": "sha256:c66601ade854215ec16ba52d119d51c3b4d3aae7f7e669e809f330b0132b9faf",
   "questions": [
     {
       "id": "first-facts-a-20-my-five-senses-q1",
-      "prompt": "Which sentence tells about my senses in My Five Senses?",
+      "prompt": "Which sentence tells about how in My Five Senses?",
       "choices": [
-        "My senses help me learn about the world.",
-        "My nose detects smells.",
-        "Which senses are you using now?"
+        "How do I learn about the world around me?",
+        "My eyes find light, color, and shape.",
+        "What are your senses noticing now?"
       ],
-      "answer": "My senses help me learn about the world.",
+      "answer": "How do I learn about the world around me?",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "My senses help me learn about the world."
+      "evidenceText": "How do I learn about the world around me?"
     },
     {
       "id": "first-facts-a-20-my-five-senses-q2",
-      "prompt": "Which sentence tells about my nose in My Five Senses?",
+      "prompt": "Which sentence tells about my eyes in My Five Senses?",
       "choices": [
-        "My nose detects smells.",
-        "My senses help me learn about the world.",
-        "Which senses are you using now?"
+        "My eyes find light, color, and shape.",
+        "How do I learn about the world around me?",
+        "What are your senses noticing now?"
       ],
-      "answer": "My nose detects smells.",
+      "answer": "My eyes find light, color, and shape.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 4,
-      "evidenceText": "My nose detects smells."
+      "evidencePage": 2,
+      "evidenceText": "My eyes find light, color, and shape."
     },
     {
       "id": "first-facts-a-20-my-five-senses-q3",
       "prompt": "What is the big idea of My Five Senses?",
       "choices": [
         "Our five senses work together to help us learn.",
-        "Only my senses help me learn about the world.",
-        "Only my nose detects smells."
+        "Only my eyes find light, color, and shape.",
+        "Only my ears catch sounds."
       ],
       "answer": "Our five senses work together to help us learn.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "My senses help me learn about the world. My nose detects smells. Which senses are you using now? Together, these facts show the whole-book big idea: Our five senses work together to help us learn.",
+      "rationale": "How do I learn about the world around me? My eyes find light, color, and shape. What are your senses noticing now? Together, these facts show the whole-book big idea: Our five senses work together to help us learn.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "My senses help me learn about the world."
+          "evidenceText": "How do I learn about the world around me?"
         },
         {
-          "evidencePage": 4,
-          "evidenceText": "My nose detects smells."
+          "evidencePage": 2,
+          "evidenceText": "My eyes find light, color, and shape."
         }
       ],
       "distractorRationales": {
-        "Only my senses help me learn about the world.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only my nose detects smells.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only my eyes find light, color, and shape.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only my ears catch sounds.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
-      "evidenceText": "Which senses are you using now?"
+      "evidenceText": "What are your senses noticing now?"
     }
   ]
 }

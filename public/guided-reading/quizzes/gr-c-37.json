@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-c-37",
-  "contentHash": "sha256:f09f8e23770ec69ceed7ce7a4a0880baaef45de4a731ac1149c59b3f9465905f",
+  "contentHash": "sha256:9c78a3f19f7b5a3609616dcd95a7f8dc26debe68112ec00a601e0cf44d1772ef",
   "questions": [
     {
       "id": "gr-c-37-q1",
       "prompt": "What can water do as a liquid?",
       "choices": [
-        "Water can flow as a liquid.",
-        "Water can burn as a liquid.",
-        "Water can bark as a liquid."
+        "Liquid water pours and flows.",
+        "Liquid water burns and crackles.",
+        "Liquid water stays rigid and still."
       ],
-      "answer": "Water can flow as a liquid.",
+      "answer": "Liquid water pours and flows.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Water can flow as a liquid."
+      "evidenceText": "Liquid water pours and flows."
     },
     {
       "id": "gr-c-37-q2",
-      "prompt": "Which sentence tells about frozen water in Water?",
+      "prompt": "Which sentence tells about warmth in Water?",
       "choices": [
-        "Frozen water becomes solid ice.",
-        "Water can flow as a liquid.",
-        "Life on Earth needs water."
+        "Warmth can turn water into invisible vapor.",
+        "Liquid water pours and flows.",
+        "Water changes form. Life on Earth still needs it."
       ],
-      "answer": "Frozen water becomes solid ice.",
+      "answer": "Warmth can turn water into invisible vapor.",
       "kind": "text",
-      "skill": "sequence",
-      "evidencePage": 2,
-      "evidenceText": "Frozen water becomes solid ice."
+      "skill": "key_detail",
+      "evidencePage": 3,
+      "evidenceText": "Warmth can turn water into invisible vapor."
     },
     {
       "id": "gr-c-37-q3",
       "prompt": "What is the big idea of Water?",
       "choices": [
-        "Life on Earth needs water.",
-        "Only water can flow as a liquid.",
-        "Only frozen water becomes solid ice."
+        "Water changes form. Life on Earth still needs it.",
+        "Only liquid water pours and flows.",
+        "Only warmth can turn water into invisible vapor."
       ],
-      "answer": "Life on Earth needs water.",
+      "answer": "Water changes form. Life on Earth still needs it.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Water can flow as a liquid. Frozen water becomes solid ice. Life on Earth needs water. Together, these facts show the whole-book big idea: Life on Earth needs water.",
+      "rationale": "Liquid water pours and flows. Warmth can turn water into invisible vapor. Water changes form. Life on Earth still needs it. Together, these facts show the whole-book big idea: Water changes form. Life on Earth still needs it.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Water can flow as a liquid."
+          "evidenceText": "Liquid water pours and flows."
         },
         {
-          "evidencePage": 2,
-          "evidenceText": "Frozen water becomes solid ice."
+          "evidencePage": 3,
+          "evidenceText": "Warmth can turn water into invisible vapor."
         }
       ],
       "distractorRationales": {
-        "Only water can flow as a liquid.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only frozen water becomes solid ice.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only liquid water pours and flows.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only warmth can turn water into invisible vapor.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Life on Earth needs water."
+      "evidenceText": "Water changes form. Life on Earth still needs it."
     }
   ]
 }

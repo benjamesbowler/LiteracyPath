@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-11-at-the-farm",
-  "contentHash": "sha256:709fb93ac524990e05aae0b0465cc4a45cd42da7984a471bfb10913c7d7ec4ea",
+  "contentHash": "sha256:eb517b984ded3ff8f89da237ce59360a1f7b9ebb586b945d19a47a4ad59de73b",
   "questions": [
     {
       "id": "first-facts-level-a-11-at-the-farm-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "A red barn stands tall.",
         "A chick says peep.",
-        "There is much to see."
+        "Together they make a busy farm."
       ],
       "answer": "A red barn stands tall.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "A chick says peep.",
         "A red barn stands tall.",
-        "There is much to see."
+        "Together they make a busy farm."
       ],
       "answer": "A chick says peep.",
       "kind": "text",
@@ -43,7 +43,7 @@
       "answer": "Many animals and plants live on a farm.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A red barn stands tall. A chick says peep. There is much to see. Together, these facts show the whole-book big idea: Many animals and plants live on a farm.",
+      "rationale": "A red barn stands tall. A chick says peep. Together they make a busy farm. Together, these facts show the whole-book big idea: Many animals and plants live on a farm.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -60,7 +60,7 @@
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "There is much to see."
+      "evidenceText": "Together they make a busy farm."
     }
   ]
 }

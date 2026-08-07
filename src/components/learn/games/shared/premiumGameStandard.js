@@ -22,3 +22,14 @@ export function laneDirectionForKey(key) {
   if (key === "ArrowRight" || String(key).toLowerCase() === "d") return 1;
   return 0;
 }
+
+export function verticalDirectionForKey(key) {
+  if (key === "ArrowUp" || String(key).toLowerCase() === "w") return -1;
+  if (key === "ArrowDown" || String(key).toLowerCase() === "s") return 1;
+  return 0;
+}
+
+export function isPrimaryActionKey(key) {
+  const normalized = String(key || "").toLowerCase();
+  return key === " " || key === "Enter" || key === "ArrowUp" || normalized === "e";
+}

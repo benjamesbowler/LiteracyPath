@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-05",
-  "contentHash": "sha256:a6e2a37a22f4a00aadc20b05f30c86fdc0bfe799e912c8d1110eb1cce1f2e0ed",
+  "contentHash": "sha256:c97ffbb7749f3711a88160122b40407c317e90c8bf0d6a3396df5ed66eee5975",
   "questions": [
     {
       "id": "moonwood-tales-c-05-q1",
       "prompt": "Which event introduces the situation in Wren and the Backwards Spell?",
       "choices": [
-        "Wren finds a height spell written in mirrored blue ink.",
-        "Her hands seem distant because Wren is now one inch tall.",
-        "Blue light returns Wren to her usual height."
+        "While studying in her tree-room, Wren found a height spell written in shining blue ink. The words looked backward, as if they belonged inside a mirror.",
+        "When the light cleared, Wren saw her tiny reflection far below the mirror. The spell had made her only one inch tall instead of taller.",
+        "Blue light circled Wren again and lifted her from the page. When it faded, she was back to her usual height beside a relieved Luna."
       ],
-      "answer": "Wren finds a height spell written in mirrored blue ink.",
+      "answer": "While studying in her tree-room, Wren found a height spell written in shining blue ink. The words looked backward, as if they belonged inside a mirror.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Wren finds a height spell written in mirrored blue ink."
+      "evidenceText": "While studying in her tree-room, Wren found a height spell written in shining blue ink. The words looked backward, as if they belonged inside a mirror."
     },
     {
       "id": "moonwood-tales-c-05-q2",
       "prompt": "Which event shows that the first attempt fails in Wren and the Backwards Spell?",
       "choices": [
-        "Her hands seem distant because Wren is now one inch tall.",
-        "Wren finds a height spell written in mirrored blue ink.",
-        "Blue light returns Wren to her usual height."
+        "When the light cleared, Wren saw her tiny reflection far below the mirror. The spell had made her only one inch tall instead of taller.",
+        "While studying in her tree-room, Wren found a height spell written in shining blue ink. The words looked backward, as if they belonged inside a mirror.",
+        "Blue light circled Wren again and lifted her from the page. When it faded, she was back to her usual height beside a relieved Luna."
       ],
-      "answer": "Her hands seem distant because Wren is now one inch tall.",
+      "answer": "When the light cleared, Wren saw her tiny reflection far below the mirror. The spell had made her only one inch tall instead of taller.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Her hands seem distant because Wren is now one inch tall. This shows that the first attempt does not solve the central problem.",
+      "rationale": "When the light cleared, Wren saw her tiny reflection far below the mirror. The spell had made her only one inch tall instead of taller. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "Her hands seem distant because Wren is now one inch tall."
+      "evidenceText": "When the light cleared, Wren saw her tiny reflection far below the mirror. The spell had made her only one inch tall instead of taller."
     },
     {
       "id": "moonwood-tales-c-05-q3",
       "prompt": "Which event resolves the central problem in Wren and the Backwards Spell?",
       "choices": [
-        "Blue light returns Wren to her usual height.",
-        "Wren finds a height spell written in mirrored blue ink.",
-        "Her hands seem distant because Wren is now one inch tall."
+        "Blue light circled Wren again and lifted her from the page. When it faded, she was back to her usual height beside a relieved Luna.",
+        "While studying in her tree-room, Wren found a height spell written in shining blue ink. The words looked backward, as if they belonged inside a mirror.",
+        "When the light cleared, Wren saw her tiny reflection far below the mirror. The spell had made her only one inch tall instead of taller."
       ],
-      "answer": "Blue light returns Wren to her usual height.",
+      "answer": "Blue light circled Wren again and lifted her from the page. When it faded, she was back to her usual height beside a relieved Luna.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Blue light returns Wren to her usual height. This event shows how the central problem is resolved.",
+      "rationale": "Blue light circled Wren again and lifted her from the page. When it faded, she was back to her usual height beside a relieved Luna. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Blue light returns Wren to her usual height."
+      "evidenceText": "Blue light circled Wren again and lifted her from the page. When it faded, she was back to her usual height beside a relieved Luna."
     }
   ]
 }

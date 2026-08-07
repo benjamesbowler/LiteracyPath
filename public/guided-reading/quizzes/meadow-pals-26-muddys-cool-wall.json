@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-26-muddys-cool-wall",
-  "contentHash": "sha256:01d45d37417a50d883ecc46f51c41a47eac40b23c2983374b692279dce30551c",
+  "contentHash": "sha256:0a5c5db898787b7dec313329e4c15cd27443e82bc514eed329cfb23a1d7c1bce",
   "questions": [
     {
       "id": "meadow-pals-26-muddys-cool-wall-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Muddy wants a cool mud pool.",
         "He stacks wet mud blocks.",
-        "The soft wall slumps down."
+        "The wall shades the pool."
       ],
       "answer": "Muddy wants a cool mud pool.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "He stacks wet mud blocks.",
         "Muddy wants a cool mud pool.",
-        "The soft wall slumps down."
+        "The wall shades the pool."
       ],
       "answer": "He stacks wet mud blocks.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-26-muddys-cool-wall-q3",
       "prompt": "What happens at the end of Muddy's Cool Wall?",
       "choices": [
-        "The soft wall slumps down.",
+        "The wall shades the pool.",
         "Muddy wants a cool mud pool.",
         "He stacks wet mud blocks."
       ],
-      "answer": "The soft wall slumps down.",
+      "answer": "The wall shades the pool.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The soft wall slumps down. This event shows how the central problem is resolved.",
-      "evidencePage": 3,
-      "evidenceText": "The soft wall slumps down."
+      "rationale": "The wall shades the pool. This event shows how the central problem is resolved.",
+      "evidencePage": 7,
+      "evidenceText": "The wall shades the pool."
     }
   ]
 }

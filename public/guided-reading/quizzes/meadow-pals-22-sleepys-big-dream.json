@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-22-sleepys-big-dream",
-  "contentHash": "sha256:a75a6888f8a2520aefffbb72f90906a0e2358f9a906d4737fe88b680e52f7576",
+  "contentHash": "sha256:54b3f0ad6954cfbcd66e743c41d71d5ffcb04e502131fef55f20a5d44b45ddf0",
   "questions": [
     {
       "id": "meadow-pals-22-sleepys-big-dream-q1",
       "prompt": "What happens first in Sleepy's Big Dream?",
       "choices": [
         "Sleepy closes his eyes.",
-        "Sleepy wakes too soon.",
-        "Dream Sleepy crosses the finish line."
+        "Sleepy stirs. He shuts his eyes.",
+        "Dream Sleepy wins the race!"
       ],
       "answer": "Sleepy closes his eyes.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-22-sleepys-big-dream-q2",
       "prompt": "What goes wrong in Sleepy's Big Dream?",
       "choices": [
-        "Sleepy wakes too soon.",
+        "Sleepy stirs. He shuts his eyes.",
         "Sleepy closes his eyes.",
-        "Dream Sleepy crosses the finish line."
+        "Dream Sleepy wins the race!"
       ],
-      "answer": "Sleepy wakes too soon.",
+      "answer": "Sleepy stirs. He shuts his eyes.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Sleepy wakes too soon. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Sleepy stirs. He shuts his eyes. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Sleepy wakes too soon."
+      "evidenceText": "Sleepy stirs. He shuts his eyes."
     },
     {
       "id": "meadow-pals-22-sleepys-big-dream-q3",
       "prompt": "What happens at the end of Sleepy's Big Dream?",
       "choices": [
-        "Dream Sleepy crosses the finish line.",
+        "Dream Sleepy wins the race!",
         "Sleepy closes his eyes.",
-        "Sleepy wakes too soon."
+        "Sleepy stirs. He shuts his eyes."
       ],
-      "answer": "Dream Sleepy crosses the finish line.",
+      "answer": "Dream Sleepy wins the race!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Dream Sleepy crosses the finish line. This event shows how the central problem is resolved.",
+      "rationale": "Dream Sleepy wins the race! This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Dream Sleepy crosses the finish line."
+      "evidenceText": "Dream Sleepy wins the race!"
     }
   ]
 }

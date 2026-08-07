@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-20",
-  "contentHash": "sha256:9b4121593c94526c959b0051c09682bb6a379db76bbe18c25f90888292cffc35",
+  "contentHash": "sha256:2330e8a296d24fb734d139d9af3d6497505c0beefb55eb51b6c524dd9e7f54d8",
   "questions": [
     {
       "id": "moonwood-tales-c-20-q1",
       "prompt": "Which event introduces the situation in The Night the Stars Fell?",
       "choices": [
-        "Near midnight, small gold lights fall from the sky into Moonwood.",
-        "Pip lifts one from ground level. The sky does not pull it.",
-        "The last spirit blinks at Stone, then rises before dawn."
+        "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
+        "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms.",
+        "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home."
       ],
-      "answer": "Near midnight, small gold lights fall from the sky into Moonwood.",
+      "answer": "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Near midnight, small gold lights fall from the sky into Moonwood."
+      "evidenceText": "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing."
     },
     {
       "id": "moonwood-tales-c-20-q2",
       "prompt": "Which event shows that the first attempt fails in The Night the Stars Fell?",
       "choices": [
-        "Pip lifts one from ground level. The sky does not pull it.",
-        "Near midnight, small gold lights fall from the sky into Moonwood.",
-        "The last spirit blinks at Stone, then rises before dawn."
+        "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms.",
+        "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
+        "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home."
       ],
-      "answer": "Pip lifts one from ground level. The sky does not pull it.",
+      "answer": "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Pip lifts one from ground level. The sky does not pull it. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Pip lifts one from ground level. The sky does not pull it."
+      "evidenceText": "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms."
     },
     {
       "id": "moonwood-tales-c-20-q3",
       "prompt": "Which event resolves the central problem in The Night the Stars Fell?",
       "choices": [
-        "The last spirit blinks at Stone, then rises before dawn.",
-        "Near midnight, small gold lights fall from the sky into Moonwood.",
-        "Pip lifts one from ground level. The sky does not pull it."
+        "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home.",
+        "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
+        "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms."
       ],
-      "answer": "The last spirit blinks at Stone, then rises before dawn.",
+      "answer": "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The last spirit blinks at Stone, then rises before dawn. This event shows how the central problem is resolved.",
+      "rationale": "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "The last spirit blinks at Stone, then rises before dawn."
+      "evidenceText": "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home."
     }
   ]
 }

@@ -2,28 +2,28 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-14-speedy-slows-down",
-  "contentHash": "sha256:cb11ace872aa479ada3ea67b20fd89e4e8e44bc1c53a8db5e5bc3aa96b6e4ccb",
+  "contentHash": "sha256:e7555e335c22141c80e107a14d32ec48c7901a9069674b0d25a16eda4e288429",
   "questions": [
     {
       "id": "meadow-pals-14-speedy-slows-down-q1",
       "prompt": "What happens first in Speedy Slows Down?",
       "choices": [
-        "Speedy races toward home.",
+        "Speedy runs home.",
         "Speedy is lost.",
         "Tiny calls from home."
       ],
-      "answer": "Speedy races toward home.",
+      "answer": "Speedy runs home.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Speedy races toward home."
+      "evidenceText": "Speedy runs home."
     },
     {
       "id": "meadow-pals-14-speedy-slows-down-q2",
       "prompt": "What goes wrong in Speedy Slows Down?",
       "choices": [
         "Speedy is lost.",
-        "Speedy races toward home.",
+        "Speedy runs home.",
         "Tiny calls from home."
       ],
       "answer": "Speedy is lost.",
@@ -38,7 +38,7 @@
       "prompt": "What happens at the end of Speedy Slows Down?",
       "choices": [
         "Tiny calls from home.",
-        "Speedy races toward home.",
+        "Speedy runs home.",
         "Speedy is lost."
       ],
       "answer": "Tiny calls from home.",

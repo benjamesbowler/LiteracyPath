@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
-  "contentHash": "sha256:9ab674a554b70e68c4658d67e20d845114dd4890182c6c50f54c9326eee5f4a2",
+  "contentHash": "sha256:cf4eb1ab3d36035cbaf08e6d3358aea54831a22d65b3292db9aefb29f6bb386b",
   "questions": [
     {
       "id": "meadow-pals-19-tiny-and-brave-go-on-an-adventure-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Wind lifts Tiny's red hat.",
         "Tiny reaches the red hat.",
-        "They walk home together."
+        "Tiny's red hat stays on."
       ],
       "answer": "Wind lifts Tiny's red hat.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Tiny reaches the red hat.",
         "Wind lifts Tiny's red hat.",
-        "They walk home together."
+        "Tiny's red hat stays on."
       ],
       "answer": "Tiny reaches the red hat.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-19-tiny-and-brave-go-on-an-adventure-q3",
       "prompt": "What happens at the end of Tiny and Brave Go on an Adventure?",
       "choices": [
-        "They walk home together.",
+        "Tiny's red hat stays on.",
         "Wind lifts Tiny's red hat.",
         "Tiny reaches the red hat."
       ],
-      "answer": "They walk home together.",
+      "answer": "Tiny's red hat stays on.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They walk home together. This event shows how the central problem is resolved.",
+      "rationale": "Tiny's red hat stays on. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "They walk home together."
+      "evidenceText": "Tiny's red hat stays on."
     }
   ]
 }

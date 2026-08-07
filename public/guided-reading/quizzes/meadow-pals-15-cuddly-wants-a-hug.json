@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-15-cuddly-wants-a-hug",
-  "contentHash": "sha256:07dc3b1e381d989e45eeda53c35cf0a711798b1cc61193ad839b6c70151742fe",
+  "contentHash": "sha256:fac8160504ba69b302250b151430011b02bcdbf9707098e997baa0b6246a36c2",
   "questions": [
     {
       "id": "meadow-pals-15-cuddly-wants-a-hug-q1",
       "prompt": "What happens first in Cuddly Wants a Hug?",
       "choices": [
         "Cuddly wants a hug.",
-        "Muddy is covered in mud.",
-        "Woolly gives one big hug."
+        "Muddy drips with mud.",
+        "Woolly hugs her."
       ],
       "answer": "Cuddly wants a hug.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-15-cuddly-wants-a-hug-q2",
       "prompt": "What goes wrong in Cuddly Wants a Hug?",
       "choices": [
-        "Muddy is covered in mud.",
+        "Muddy drips with mud.",
         "Cuddly wants a hug.",
-        "Woolly gives one big hug."
+        "Woolly hugs her."
       ],
-      "answer": "Muddy is covered in mud.",
+      "answer": "Muddy drips with mud.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Muddy is covered in mud. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Muddy drips with mud. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "Muddy is covered in mud."
+      "evidenceText": "Muddy drips with mud."
     },
     {
       "id": "meadow-pals-15-cuddly-wants-a-hug-q3",
       "prompt": "What happens at the end of Cuddly Wants a Hug?",
       "choices": [
-        "Woolly gives one big hug.",
+        "Woolly hugs her.",
         "Cuddly wants a hug.",
-        "Muddy is covered in mud."
+        "Muddy drips with mud."
       ],
-      "answer": "Woolly gives one big hug.",
+      "answer": "Woolly hugs her.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Woolly gives one big hug. This event shows how the central problem is resolved.",
+      "rationale": "Woolly hugs her. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Woolly gives one big hug."
+      "evidenceText": "Woolly hugs her."
     }
   ]
 }

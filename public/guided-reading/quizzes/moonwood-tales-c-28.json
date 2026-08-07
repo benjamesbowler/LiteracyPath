@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-28",
-  "contentHash": "sha256:3981e22801d53c2e6f80c60b9048ac38c601b74138e87fe59a8ec63af8a060cc",
+  "contentHash": "sha256:cdcf0a6aab8e2ad927e1082be09df6ae38473741c93d758ac4169dd0fddb295a",
   "questions": [
     {
       "id": "moonwood-tales-c-28-q1",
       "prompt": "Which event introduces the situation in Fern and the Humming Root?",
       "choices": [
-        "A silver root curls across Hollow Oak's front step.",
-        "Fern sings calmly. The root copies each note with a loop.",
-        "Three spaced taps guide it around the frame."
+        "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
+        "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail.",
+        "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear."
       ],
-      "answer": "A silver root curls across Hollow Oak's front step.",
+      "answer": "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "A silver root curls across Hollow Oak's front step."
+      "evidenceText": "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass."
     },
     {
       "id": "moonwood-tales-c-28-q2",
       "prompt": "Which event shows that the first attempt fails in Fern and the Humming Root?",
       "choices": [
-        "Fern sings calmly. The root copies each note with a loop.",
-        "A silver root curls across Hollow Oak's front step.",
-        "Three spaced taps guide it around the frame."
+        "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail.",
+        "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
+        "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear."
       ],
-      "answer": "Fern sings calmly. The root copies each note with a loop.",
+      "answer": "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Fern sings calmly. The root copies each note with a loop. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Fern sings calmly. The root copies each note with a loop."
+      "rationale": "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 5,
+      "evidenceText": "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail."
     },
     {
       "id": "moonwood-tales-c-28-q3",
       "prompt": "Which event resolves the central problem in Fern and the Humming Root?",
       "choices": [
-        "Three spaced taps guide it around the frame.",
-        "A silver root curls across Hollow Oak's front step.",
-        "Fern sings calmly. The root copies each note with a loop."
+        "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear.",
+        "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
+        "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail."
       ],
-      "answer": "Three spaced taps guide it around the frame.",
+      "answer": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Three spaced taps guide it around the frame. This event shows how the central problem is resolved.",
+      "rationale": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Three spaced taps guide it around the frame."
+      "evidenceText": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear."
     }
   ]
 }

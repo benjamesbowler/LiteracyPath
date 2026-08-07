@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-02-farm-animals",
-  "contentHash": "sha256:4215252a0579e72c200883ba7daaf6adc538917bb8530f67c03e0c350f3ad97d",
+  "contentHash": "sha256:ff53248f480a108058a21c507df22b4591dc2c8f0d49845861d2cdbe0920303b",
   "questions": [
     {
       "id": "first-facts-level-a-02-farm-animals-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "A pig says oink.",
         "A cow says moo.",
-        "Many animals live on farms."
+        "Farm animals make many sounds."
       ],
       "answer": "A pig says oink.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "A cow says moo.",
         "A pig says oink.",
-        "Many animals live on farms."
+        "Farm animals make many sounds."
       ],
       "answer": "A cow says moo.",
       "kind": "text",
@@ -36,14 +36,14 @@
       "id": "first-facts-level-a-02-farm-animals-q3",
       "prompt": "What is the big idea of Farm Animals?",
       "choices": [
-        "Many animals live on farms.",
+        "Farm animals make many sounds.",
         "Only a pig says oink.",
         "Only a cow says moo."
       ],
-      "answer": "Many animals live on farms.",
+      "answer": "Farm animals make many sounds.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A pig says oink. A cow says moo. Many animals live on farms. Together, these facts show the whole-book big idea: Many animals live on farms.",
+      "rationale": "A pig says oink. A cow says moo. Farm animals make many sounds. Together, these facts show the whole-book big idea: Farm animals make many sounds.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -60,7 +60,7 @@
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Many animals live on farms."
+      "evidenceText": "Farm animals make many sounds."
     }
   ]
 }

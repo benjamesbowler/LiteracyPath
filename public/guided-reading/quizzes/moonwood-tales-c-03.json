@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-03",
-  "contentHash": "sha256:7922f48154bd574a918ab481ab756f2f8c13a67f1d6f3160f157e04b83c811ef",
+  "contentHash": "sha256:21c89fd15ad8520fd17ba5af4ddef25b45e8925ce0eb6c649ad9b2bc5b1f98a9",
   "questions": [
     {
       "id": "moonwood-tales-c-03-q1",
       "prompt": "Which event introduces the situation in Stone Crosses the Bridge?",
       "choices": [
-        "Everyone crosses the Crystal Stream bridge except Stone.",
-        "Stone tries one step. The bridge sways, so Stone steps back.",
-        "They cross back, one rope and one careful step at a time."
+        "The Moonwood friends crossed the rope bridge over Crystal Stream, but Stone stayed behind. From the bank, the wooden boards looked narrow beneath his huge feet.",
+        "Stone placed one foot on the first board, and the whole bridge moved. His heart jumped, so he quickly stepped back onto solid ground.",
+        "Together they crossed back, one strong rope and one careful step at a time. Burrow stayed still in Stone's hands while Pip guided them forward."
       ],
-      "answer": "Everyone crosses the Crystal Stream bridge except Stone.",
+      "answer": "The Moonwood friends crossed the rope bridge over Crystal Stream, but Stone stayed behind. From the bank, the wooden boards looked narrow beneath his huge feet.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Everyone crosses the Crystal Stream bridge except Stone."
+      "evidenceText": "The Moonwood friends crossed the rope bridge over Crystal Stream, but Stone stayed behind. From the bank, the wooden boards looked narrow beneath his huge feet."
     },
     {
       "id": "moonwood-tales-c-03-q2",
       "prompt": "Which event shows that the first attempt fails in Stone Crosses the Bridge?",
       "choices": [
-        "Stone tries one step. The bridge sways, so Stone steps back.",
-        "Everyone crosses the Crystal Stream bridge except Stone.",
-        "They cross back, one rope and one careful step at a time."
+        "Stone placed one foot on the first board, and the whole bridge moved. His heart jumped, so he quickly stepped back onto solid ground.",
+        "The Moonwood friends crossed the rope bridge over Crystal Stream, but Stone stayed behind. From the bank, the wooden boards looked narrow beneath his huge feet.",
+        "Together they crossed back, one strong rope and one careful step at a time. Burrow stayed still in Stone's hands while Pip guided them forward."
       ],
-      "answer": "Stone tries one step. The bridge sways, so Stone steps back.",
+      "answer": "Stone placed one foot on the first board, and the whole bridge moved. His heart jumped, so he quickly stepped back onto solid ground.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Stone tries one step. The bridge sways, so Stone steps back. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Stone placed one foot on the first board, and the whole bridge moved. His heart jumped, so he quickly stepped back onto solid ground. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Stone tries one step. The bridge sways, so Stone steps back."
+      "evidenceText": "Stone placed one foot on the first board, and the whole bridge moved. His heart jumped, so he quickly stepped back onto solid ground."
     },
     {
       "id": "moonwood-tales-c-03-q3",
       "prompt": "Which event resolves the central problem in Stone Crosses the Bridge?",
       "choices": [
-        "They cross back, one rope and one careful step at a time.",
-        "Everyone crosses the Crystal Stream bridge except Stone.",
-        "Stone tries one step. The bridge sways, so Stone steps back."
+        "Together they crossed back, one strong rope and one careful step at a time. Burrow stayed still in Stone's hands while Pip guided them forward.",
+        "The Moonwood friends crossed the rope bridge over Crystal Stream, but Stone stayed behind. From the bank, the wooden boards looked narrow beneath his huge feet.",
+        "Stone placed one foot on the first board, and the whole bridge moved. His heart jumped, so he quickly stepped back onto solid ground."
       ],
-      "answer": "They cross back, one rope and one careful step at a time.",
+      "answer": "Together they crossed back, one strong rope and one careful step at a time. Burrow stayed still in Stone's hands while Pip guided them forward.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They cross back, one rope and one careful step at a time. This event shows how the central problem is resolved.",
+      "rationale": "Together they crossed back, one strong rope and one careful step at a time. Burrow stayed still in Stone's hands while Pip guided them forward. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "They cross back, one rope and one careful step at a time."
+      "evidenceText": "Together they crossed back, one strong rope and one careful step at a time. Burrow stayed still in Stone's hands while Pip guided them forward."
     }
   ]
 }

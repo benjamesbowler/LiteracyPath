@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-07-bugs",
-  "contentHash": "sha256:fdf4fbf67c1e8981bc207eae67d6dc6db52a5b399c578a01bf4e44010be6f76e",
+  "contentHash": "sha256:675a9ab3e98a1a894ec21006f5aac2f56712c6febe5edbaecd9b4249777fcac0",
   "questions": [
     {
       "id": "first-facts-level-a-07-bugs-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "A little bug can fly.",
         "An ant can dig.",
-        "Small bugs live all around us."
+        "Small creatures live all around us."
       ],
       "answer": "A little bug can fly.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "An ant can dig.",
         "A little bug can fly.",
-        "Small bugs live all around us."
+        "Small creatures live all around us."
       ],
       "answer": "An ant can dig.",
       "kind": "text",
@@ -36,14 +36,14 @@
       "id": "first-facts-level-a-07-bugs-q3",
       "prompt": "What is the big idea of Small Creatures?",
       "choices": [
-        "Small bugs live all around us.",
+        "Small creatures live all around us.",
         "Only a little bug can fly.",
         "Only an ant can dig."
       ],
-      "answer": "Small bugs live all around us.",
+      "answer": "Small creatures live all around us.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A little bug can fly. An ant can dig. Small bugs live all around us. Together, these facts show the whole-book big idea: Small bugs live all around us.",
+      "rationale": "A little bug can fly. An ant can dig. Small creatures live all around us. Together, these facts show the whole-book big idea: Small creatures live all around us.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -60,7 +60,7 @@
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Small bugs live all around us."
+      "evidenceText": "Small creatures live all around us."
     }
   ]
 }

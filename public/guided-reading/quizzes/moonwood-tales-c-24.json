@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-24",
-  "contentHash": "sha256:c92dc9a50881fdfefe2aad0a62c37baa18cbf571a0ade27f305cd2fe150d7cad",
+  "contentHash": "sha256:c010a36264bcc4194a548f107e09883a393d643e47b3ccf51f2153de179b3ee3",
   "questions": [
     {
       "id": "moonwood-tales-c-24-q1",
       "prompt": "Which event introduces the situation in Glimmer Breathes Fire at Last?",
       "choices": [
-        "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
-        "Excitement breaks Glimmer's breath. Luna calls a full pause.",
-        "Luna names the success: one careful flame; the lanterns carried everything else."
+        "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+        "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished.",
+        "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern."
       ],
-      "answer": "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
+      "answer": "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle."
+      "evidenceText": "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control."
     },
     {
       "id": "moonwood-tales-c-24-q2",
       "prompt": "Which event shows that the first attempt fails in Glimmer Breathes Fire at Last?",
       "choices": [
-        "Excitement breaks Glimmer's breath. Luna calls a full pause.",
-        "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
-        "Luna names the success: one careful flame; the lanterns carried everything else."
+        "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished.",
+        "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+        "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern."
       ],
-      "answer": "Excitement breaks Glimmer's breath. Luna calls a full pause.",
+      "answer": "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Excitement breaks Glimmer's breath. Luna calls a full pause. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Excitement breaks Glimmer's breath. Luna calls a full pause."
+      "evidenceText": "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished."
     },
     {
       "id": "moonwood-tales-c-24-q3",
       "prompt": "Which event resolves the central problem in Glimmer Breathes Fire at Last?",
       "choices": [
-        "Luna names the success: one careful flame; the lanterns carried everything else.",
-        "After weeks of smoke, warmth, sparks, and one wild flare, Glimmer enters Luna's fire circle.",
-        "Excitement breaks Glimmer's breath. Luna calls a full pause."
+        "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern.",
+        "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+        "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished."
       ],
-      "answer": "Luna names the success: one careful flame; the lanterns carried everything else.",
+      "answer": "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Luna names the success: one careful flame; the lanterns carried everything else. This event shows how the central problem is resolved.",
+      "rationale": "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "Luna names the success: one careful flame; the lanterns carried everything else."
+      "evidenceText": "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern."
     }
   ]
 }

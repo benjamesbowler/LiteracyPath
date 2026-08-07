@@ -8,6 +8,7 @@ A dated document must never override current code.
 
 - [Product vision](architecture/PRODUCT_VISION.md)
 - [Repository rules](../AGENTS.md)
+- [Shared agent context](brain/START-HERE.md)
 - [Instructional standards](instructional/instructional_standards.md)
 - [Current-system cleanup record](CURRENT_SYSTEM_CLEANUP_2026-07-31.md)
 
@@ -36,6 +37,7 @@ random-guess percentage, or separate 80%, 85%, or 90% assessment pass rule.
 
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Game design bible](design/GAME_DESIGN_BIBLE.md)
+- [Meadow Pals animation production bible](design/ANIMATION_PRODUCTION_BIBLE.md)
 - [Student emphasis budget](design/STUDENT_EMPHASIS_BUDGET.md)
 - [Little Literacy Guides design system](LITTLE_LITERACY_GUIDES_DESIGN_SYSTEM.md)
 - [Teacher UI primitives](teacher/UI_PRIMITIVES.md)

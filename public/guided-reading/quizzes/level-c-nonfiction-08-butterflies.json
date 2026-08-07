@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-08-butterflies",
-  "contentHash": "sha256:96c188f81e260bbcf0298aaecdcd8b659b99caef69f50e334e7c4b58a07b00a7",
+  "contentHash": "sha256:09aedb10351bf0f85096409956ab4d92daf78b639df64c1c4712e21abcbaae30",
   "questions": [
     {
       "id": "level-c-nonfiction-08-butterflies-q1",
-      "prompt": "Which sentence tells about butterflies in The Monarch Butterfly Life Cycle?",
+      "prompt": "Which fact is introduced first in The Monarch Butterfly Life Cycle?",
       "choices": [
-        "Butterflies are six-legged insects with four wings and two antennae.",
-        "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
-        "Several monarch generations complete the vast yearly migration cycle."
+        "This monarch has six legs, four wings, and two antennae.",
+        "A striped caterpillar hatches, eats milkweed, and grows and grows.",
+        "Monarchs cross a continent. No one butterfly makes the whole round trip. New generations carry it on."
       ],
-      "answer": "Butterflies are six-legged insects with four wings and two antennae.",
+      "answer": "This monarch has six legs, four wings, and two antennae.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Butterflies are six-legged insects with four wings and two antennae."
+      "evidenceText": "This monarch has six legs, four wings, and two antennae."
     },
     {
       "id": "level-c-nonfiction-08-butterflies-q2",
-      "prompt": "Which sentence tells about the caterpillar in The Monarch Butterfly Life Cycle?",
+      "prompt": "Which sentence tells about a striped caterpillar hatches, in The Monarch Butterfly Life Cycle?",
       "choices": [
-        "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
-        "Butterflies are six-legged insects with four wings and two antennae.",
-        "Several monarch generations complete the vast yearly migration cycle."
+        "A striped caterpillar hatches, eats milkweed, and grows and grows.",
+        "This monarch has six legs, four wings, and two antennae.",
+        "Monarchs cross a continent. No one butterfly makes the whole round trip. New generations carry it on."
       ],
-      "answer": "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
+      "answer": "A striped caterpillar hatches, eats milkweed, and grows and grows.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "sequence",
       "evidencePage": 4,
-      "evidenceText": "The caterpillar hatches eats milkweed and sheds its skin repeatedly."
+      "evidenceText": "A striped caterpillar hatches, eats milkweed, and grows and grows."
     },
     {
       "id": "level-c-nonfiction-08-butterflies-q3",
       "prompt": "What is the big idea of The Monarch Butterfly Life Cycle?",
       "choices": [
         "Monarchs change through four life stages and migrate.",
-        "Only butterflies are six-legged insects with four wings and two antennae.",
-        "Only the caterpillar hatches eats milkweed and sheds its skin repeatedly."
+        "Only this monarch has six legs, four wings, and two antennae.",
+        "Only a striped caterpillar hatches, eats milkweed, and grows and grows."
       ],
       "answer": "Monarchs change through four life stages and migrate.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Butterflies are six-legged insects with four wings and two antennae. The caterpillar hatches eats milkweed and sheds its skin repeatedly. Several monarch generations complete the vast yearly migration cycle. Together, these facts show the whole-book big idea: Monarchs change through four life stages and migrate.",
+      "rationale": "This monarch has six legs, four wings, and two antennae. A striped caterpillar hatches, eats milkweed, and grows and grows. Monarchs cross a continent. No one butterfly makes the whole round trip. New generations carry it on. Together, these facts show the whole-book big idea: Monarchs change through four life stages and migrate.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Butterflies are six-legged insects with four wings and two antennae."
+          "evidenceText": "This monarch has six legs, four wings, and two antennae."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "The caterpillar hatches eats milkweed and sheds its skin repeatedly."
+          "evidenceText": "A striped caterpillar hatches, eats milkweed, and grows and grows."
         }
       ],
       "distractorRationales": {
-        "Only butterflies are six-legged insects with four wings and two antennae.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only the caterpillar hatches eats milkweed and sheds its skin repeatedly.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only this monarch has six legs, four wings, and two antennae.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a striped caterpillar hatches, eats milkweed, and grows and grows.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "Several monarch generations complete the vast yearly migration cycle."
+      "evidenceText": "Monarchs cross a continent. No one butterfly makes the whole round trip. New generations carry it on."
     }
   ]
 }

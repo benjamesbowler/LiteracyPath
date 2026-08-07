@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-07",
-  "contentHash": "sha256:8213e523f8e0e564a2bb7b3e1aca2126b9a33d9570941fa81c37e830832e5fbd",
+  "contentHash": "sha256:249c2c6ce13e0db896079fb96fab0786491192c43608f42b23716e3bc0d4b32b",
   "questions": [
     {
       "id": "ab-c-07-q1",
       "prompt": "Which event introduces the situation in Aiden, Betty and Socks's Big Adventure?",
       "choices": [
-        "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
-        "She logged one flashing kingfisher, but the nearby reeds revealed nothing more.",
-        "Back at the hide, Betty logged every species while Uncle Eddie checked names."
+        "Ding-dong! Socks saw Uncle Eddie and spun in circles for forty-five seconds.",
+        "A blue-and-orange kingfisher flashed past. “One!” Betty whispered, adding it to the logbook.",
+        "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers."
       ],
-      "answer": "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
+      "answer": "Ding-dong! Socks saw Uncle Eddie and spun in circles for forty-five seconds.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles."
+      "evidenceText": "Ding-dong! Socks saw Uncle Eddie and spun in circles for forty-five seconds."
     },
     {
       "id": "ab-c-07-q2",
       "prompt": "Which event shows that the first attempt fails in Aiden, Betty and Socks's Big Adventure?",
       "choices": [
-        "She logged one flashing kingfisher, but the nearby reeds revealed nothing more.",
-        "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
-        "Back at the hide, Betty logged every species while Uncle Eddie checked names."
+        "A blue-and-orange kingfisher flashed past. “One!” Betty whispered, adding it to the logbook.",
+        "Ding-dong! Socks saw Uncle Eddie and spun in circles for forty-five seconds.",
+        "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers."
       ],
-      "answer": "She logged one flashing kingfisher, but the nearby reeds revealed nothing more.",
+      "answer": "A blue-and-orange kingfisher flashed past. “One!” Betty whispered, adding it to the logbook.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "She logged one flashing kingfisher, but the nearby reeds revealed nothing more. This shows that the first attempt does not solve the central problem.",
+      "rationale": "A blue-and-orange kingfisher flashed past. “One!” Betty whispered, adding it to the logbook. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "She logged one flashing kingfisher, but the nearby reeds revealed nothing more."
+      "evidenceText": "A blue-and-orange kingfisher flashed past. “One!” Betty whispered, adding it to the logbook."
     },
     {
       "id": "ab-c-07-q3",
       "prompt": "Which event resolves the central problem in Aiden, Betty and Socks's Big Adventure?",
       "choices": [
-        "Back at the hide, Betty logged every species while Uncle Eddie checked names.",
-        "Uncle Eddie returned for a weekend. Socks greeted him by racing in circles.",
-        "She logged one flashing kingfisher, but the nearby reeds revealed nothing more."
+        "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers.",
+        "Ding-dong! Socks saw Uncle Eddie and spun in circles for forty-five seconds.",
+        "A blue-and-orange kingfisher flashed past. “One!” Betty whispered, adding it to the logbook."
       ],
-      "answer": "Back at the hide, Betty logged every species while Uncle Eddie checked names.",
+      "answer": "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Back at the hide, Betty logged every species while Uncle Eddie checked names. This event shows how the central problem is resolved.",
+      "rationale": "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Back at the hide, Betty logged every species while Uncle Eddie checked names."
+      "evidenceText": "Back at the hide, Betty logged each creature. Uncle Eddie helped name the tiny swimmers."
     }
   ]
 }

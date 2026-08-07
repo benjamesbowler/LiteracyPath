@@ -250,13 +250,15 @@ function validateNarrativeContracts(quest, pageById, startPageId, endingPages) {
   }
 
   if (quest.id === "mp_ra_a_04_brave_tiny_big_little_rescue") {
-    // 2026-07-26: was /one mystery at a time/i. "mystery" is three syllables and that phrasing was
-    // the 27-word Level-F opening this rewrite removed. Same intent, stronger test: the start page
-    // must name BOTH objects, which is what actually frames two separate replayable searches.
-    // "hat" and "bell" are both legal at Level A.
-    requireTextMatch(quest, pageById, startPageId, /hat/i, "must name the hat as one of the two objects");
-    requireTextMatch(quest, pageById, startPageId, /bell/i, "must name the bell as one of the two objects");
     const startChoices = pageById.get(startPageId)?.choices || [];
+    const firstChoiceLabel = String(startChoices[0]?.label || "");
+    const secondChoiceLabel = String(startChoices[1]?.label || "");
+    if (!/Clucky|hat/i.test(firstChoiceLabel)) {
+      addError(quest, `${startPageId} first choice must clearly open Clucky's hat rescue`);
+    }
+    if (!/Woolly|bell/i.test(secondChoiceLabel)) {
+      addError(quest, `${startPageId} second choice must clearly open Woolly's bell rescue`);
+    }
     const hatReachable = collectNarrativeReachable(pageById, startChoices[0]?.nextPageId, startPageId);
     const bellReachable = collectNarrativeReachable(pageById, startChoices[1]?.nextPageId, startPageId);
     const hatOnlyPages = new Set(["p03_pot", "p03_wall", "p03_hat", "p04_hat_in_pot", "p04_tiny_in_pot", "p04_feather", "p04_clucky_wall", "p04_hat_on_wall", "p05_hat_found", "p06_hat_on_brave", "p05_brave_stuck", "p05_feather_brave", "p05_feather_back", "p05_tiny_climbs", "p05_brave_climbs", "p06_tiny_helps", "p06_woolly_helps", "p06_brave_boost", "p06_brave_slips", "p07_clucky_happy", "p09_fancy_brave_ending"]);
@@ -291,6 +293,7 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
   }
 
   const pageById = new Map();
+  const pageByImageUrl = new Map();
   quest.pages.forEach((page, index) => {
     if (!isPlainObject(page)) {
       addError(quest, `page ${index + 1} must be an object`);
@@ -309,6 +312,17 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     }
     if (typeof page.imageUrl !== "string" || !page.imageUrl.trim()) {
       addError(quest, `${page.id || `page ${index + 1}`} missing imageUrl`);
+    } else {
+      const canonicalImageUrl = page.imageUrl.split("?")[0];
+      const priorPageId = pageByImageUrl.get(canonicalImageUrl);
+      if (priorPageId) {
+        addError(
+          quest,
+          `${page.id || `page ${index + 1}`} reuses the image from ${priorPageId}; every authored scene needs its own route-true illustration`
+        );
+      } else {
+        pageByImageUrl.set(canonicalImageUrl, page.id || `page ${index + 1}`);
+      }
     }
     if (typeof page.audioUrl !== "string" || !page.audioUrl.trim()) {
       addError(quest, `${page.id || `page ${index + 1}`} missing audioUrl`);
@@ -357,6 +371,15 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     (page.choices || []).forEach(choice => {
       if (choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)) {
         addError(quest, `${page.id} choice "${choice.label}" points to missing "${choice.nextPageId}"`);
+        return;
+      }
+
+      const nextPage = pageById.get(choice.nextPageId);
+      if (nextPage && page.imageUrl.split("?")[0] === nextPage.imageUrl.split("?")[0]) {
+        addError(
+          quest,
+          `${page.id} choice "${choice.label}" repeats the same image on ${nextPage.id}; every page turn needs a visible consequence`
+        );
       }
     });
   });

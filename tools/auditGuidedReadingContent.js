@@ -62,7 +62,10 @@ function heuristicWarnings(page = {}) {
   if (/\bnight\b/.test(text) && !/\b(sun|day|morning|breakfast)\b/.test(text) && /\b(sun|sunlight|daytime|morning)\b/.test(haystack)) {
     warnings.push("text mentions night but image metadata suggests sun/day");
   }
-  if (/\bsun\b/.test(text) && !/\b(moon|night)\b/.test(text) && /\b(moon|night)\b/.test(haystack)) {
+  // A star comparison can name our Sun while the illustration correctly
+  // shows other stars in a dark sky. Do not misclassify that as a day/night
+  // mismatch merely because the image metadata also mentions night or Moon.
+  if (/\bsun\b/.test(text) && !/\b(moon|night|stars?)\b/.test(text) && /\b(moon|night)\b/.test(haystack)) {
     warnings.push("text mentions sun but image metadata suggests moon/night");
   }
   const namesCanOrPan = /\b(?:a|an|the|one|two|three|some|many)\s+(?:cans?|pans?)\b/.test(text) || /\b(?:cans|pans)\b/.test(text);

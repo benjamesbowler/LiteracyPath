@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-e-48",
-  "contentHash": "sha256:e318400f54a8154c41ab3e34e4af6081af93529f1c0c87be0a6c8fe1851fb748",
+  "contentHash": "sha256:f01f12fe5c474e82f05eb0d42697fe14bc6b4425669ce234839015f2f766fa70",
   "questions": [
     {
       "id": "gr-e-48-q1",
@@ -22,15 +22,15 @@
       "id": "gr-e-48-q2",
       "prompt": "What happens when a magnet is held near glass?",
       "choices": [
-        "Magnets do not attract glass.",
-        "Magnets attract all glass.",
-        "Glass turns into a magnet."
+        "It does not pull on glass.",
+        "It pulls every piece of glass.",
+        "It turns glass into metal."
       ],
-      "answer": "Magnets do not attract glass.",
+      "answer": "It does not pull on glass.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 4,
-      "evidenceText": "Magnets do not attract glass."
+      "evidenceText": "It does not pull on glass."
     },
     {
       "id": "gr-e-48-q3",
@@ -38,12 +38,12 @@
       "choices": [
         "Magnets can pull some things and push other magnets.",
         "Only a magnet has two poles.",
-        "Only magnets do not attract wood."
+        "Only it does not pull on wood."
       ],
       "answer": "Magnets can pull some things and push other magnets.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A magnet has two poles. Magnets do not attract wood. Matching poles push apart. Together, these facts show the whole-book big idea: Magnets can pull some things and push other magnets.",
+      "rationale": "A magnet has two poles. It does not pull on wood. Matching poles push apart. Together, these facts show the whole-book big idea: Magnets can pull some things and push other magnets.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -51,12 +51,12 @@
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Magnets do not attract wood."
+          "evidenceText": "It does not pull on wood."
         }
       ],
       "distractorRationales": {
         "Only a magnet has two poles.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only magnets do not attract wood.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only it does not pull on wood.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,

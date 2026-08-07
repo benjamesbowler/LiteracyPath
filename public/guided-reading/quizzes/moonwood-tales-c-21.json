@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-21",
-  "contentHash": "sha256:94322b63d236dc8e4fd047f903c5922030e50d1427d9dc5a4cdefac365bfbeb1",
+  "contentHash": "sha256:e851d362361b7aa1d0447e882ce05768330e9e4fe36b860386e68e037e3017c6",
   "questions": [
     {
       "id": "moonwood-tales-c-21-q1",
       "prompt": "Which event introduces the situation in Something Lives in the Hollow Oak?",
       "choices": [
-        "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
-        "Four friends search every known room and find nothing.",
-        "They widen her door. Twig joins one biscuit, then walks home."
+        "Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A tiny voice seemed to be searching for something, but he could not see anyone.",
+        "Pip, Wren, Burrow, and Fern searched every room they knew. They looked under tables and behind shelves, but found no doorway into the root wall.",
+        "Together they widened the doorway, then shared one biscuit in Twig's warm room. When visiting time ended, Twig waved happily and closed her own little door."
       ],
-      "answer": "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
+      "answer": "Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A tiny voice seemed to be searching for something, but he could not see anyone.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Late at Hollow Oak, Pip hears scratching and a voice searching for something."
+      "evidenceText": "Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A tiny voice seemed to be searching for something, but he could not see anyone."
     },
     {
       "id": "moonwood-tales-c-21-q2",
       "prompt": "Which event shows that the first attempt fails in Something Lives in the Hollow Oak?",
       "choices": [
-        "Four friends search every known room and find nothing.",
-        "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
-        "They widen her door. Twig joins one biscuit, then walks home."
+        "Pip, Wren, Burrow, and Fern searched every room they knew. They looked under tables and behind shelves, but found no doorway into the root wall.",
+        "Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A tiny voice seemed to be searching for something, but he could not see anyone.",
+        "Together they widened the doorway, then shared one biscuit in Twig's warm room. When visiting time ended, Twig waved happily and closed her own little door."
       ],
-      "answer": "Four friends search every known room and find nothing.",
+      "answer": "Pip, Wren, Burrow, and Fern searched every room they knew. They looked under tables and behind shelves, but found no doorway into the root wall.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Four friends search every known room and find nothing. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Pip, Wren, Burrow, and Fern searched every room they knew. They looked under tables and behind shelves, but found no doorway into the root wall. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Four friends search every known room and find nothing."
+      "evidenceText": "Pip, Wren, Burrow, and Fern searched every room they knew. They looked under tables and behind shelves, but found no doorway into the root wall."
     },
     {
       "id": "moonwood-tales-c-21-q3",
       "prompt": "Which event resolves the central problem in Something Lives in the Hollow Oak?",
       "choices": [
-        "They widen her door. Twig joins one biscuit, then walks home.",
-        "Late at Hollow Oak, Pip hears scratching and a voice searching for something.",
-        "Four friends search every known room and find nothing."
+        "Together they widened the doorway, then shared one biscuit in Twig's warm room. When visiting time ended, Twig waved happily and closed her own little door.",
+        "Late one evening inside Hollow Oak, Pip heard scratching behind the root wall. A tiny voice seemed to be searching for something, but he could not see anyone.",
+        "Pip, Wren, Burrow, and Fern searched every room they knew. They looked under tables and behind shelves, but found no doorway into the root wall."
       ],
-      "answer": "They widen her door. Twig joins one biscuit, then walks home.",
+      "answer": "Together they widened the doorway, then shared one biscuit in Twig's warm room. When visiting time ended, Twig waved happily and closed her own little door.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They widen her door. Twig joins one biscuit, then walks home. This event shows how the central problem is resolved.",
+      "rationale": "Together they widened the doorway, then shared one biscuit in Twig's warm room. When visiting time ended, Twig waved happily and closed her own little door. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "They widen her door. Twig joins one biscuit, then walks home."
+      "evidenceText": "Together they widened the doorway, then shared one biscuit in Twig's warm room. When visiting time ended, Twig waved happily and closed her own little door."
     }
   ]
 }

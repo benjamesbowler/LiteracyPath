@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-08-animals-in-the-ocean",
-  "contentHash": "sha256:04c29eefd702ccb8101a4f55241af5f0eed81d3cbed612f23c39f4ff9997deee",
+  "contentHash": "sha256:1e1a9207c0501d195c218a894ecb058ae461f936cd76eb5b727b6f7cdc1c35ef",
   "questions": [
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q1",
-      "prompt": "Which sentence tells about fish in Animals in the Ocean?",
+      "prompt": "Which fact is introduced first in Animals in the Ocean?",
       "choices": [
-        "Fish use fins to move through water.",
-        "An octopus has eight arms and can change colour.",
-        "Ocean animals survive in many different ways."
+        "Fish flick their fins to swim.",
+        "An octopus uses eight arms to crawl and grab.",
+        "Ocean animals move, hide, and breathe in many ways."
       ],
-      "answer": "Fish use fins to move through water.",
+      "answer": "Fish flick their fins to swim.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 2,
-      "evidenceText": "Fish use fins to move through water."
+      "evidenceText": "Fish flick their fins to swim."
     },
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q2",
       "prompt": "Which sentence tells about an octopus in Animals in the Ocean?",
       "choices": [
-        "An octopus has eight arms and can change colour.",
-        "Fish use fins to move through water.",
-        "Ocean animals survive in many different ways."
+        "An octopus uses eight arms to crawl and grab.",
+        "Fish flick their fins to swim.",
+        "Ocean animals move, hide, and breathe in many ways."
       ],
-      "answer": "An octopus has eight arms and can change colour.",
+      "answer": "An octopus uses eight arms to crawl and grab.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "function",
       "evidencePage": 4,
-      "evidenceText": "An octopus has eight arms and can change colour."
+      "evidenceText": "An octopus uses eight arms to crawl and grab."
     },
     {
       "id": "first-facts-a-08-animals-in-the-ocean-q3",
       "prompt": "What is the big idea of Animals in the Ocean?",
       "choices": [
-        "Ocean animals survive in many different ways.",
-        "Only fish use fins to move through water.",
-        "Only an octopus has eight arms and can change colour."
+        "Ocean animals move, hide, and breathe in many ways.",
+        "Only fish flick their fins to swim.",
+        "Only an octopus uses eight arms to crawl and grab."
       ],
-      "answer": "Ocean animals survive in many different ways.",
+      "answer": "Ocean animals move, hide, and breathe in many ways.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Fish use fins to move through water. An octopus has eight arms and can change colour. Ocean animals survive in many different ways. Together, these facts show the whole-book big idea: Ocean animals survive in many different ways.",
+      "rationale": "Fish flick their fins to swim. An octopus uses eight arms to crawl and grab. Ocean animals move, hide, and breathe in many ways. Together, these facts show the whole-book big idea: Ocean animals move, hide, and breathe in many ways.",
       "supportingEvidence": [
         {
           "evidencePage": 2,
-          "evidenceText": "Fish use fins to move through water."
+          "evidenceText": "Fish flick their fins to swim."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "An octopus has eight arms and can change colour."
+          "evidenceText": "An octopus uses eight arms to crawl and grab."
         }
       ],
       "distractorRationales": {
-        "Only fish use fins to move through water.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only an octopus has eight arms and can change colour.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only fish flick their fins to swim.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only an octopus uses eight arms to crawl and grab.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
-      "evidenceText": "Ocean animals survive in many different ways."
+      "evidenceText": "Ocean animals move, hide, and breathe in many ways."
     }
   ]
 }

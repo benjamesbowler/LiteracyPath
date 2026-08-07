@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-07",
-  "contentHash": "sha256:0b3f2810d425f24a9ea765e9e1c80668474e46426af3631bee5e225decdb1adb",
+  "contentHash": "sha256:a25343e67aef6de0eeff2d4f69db666ee5adfa71c5993047d435bf1aeaebc675",
   "questions": [
     {
       "id": "moonwood-tales-c-07-q1",
       "prompt": "Which event introduces the situation in Dewdrop and the Lying Fish?",
       "choices": [
-        "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
-        "Dewdrop checks one clue. The old badger, not the fish, keeps it.",
-        "\"My name is Ripple,\" it tells Pip. One true story begins."
+        "Dewdrop visited Crystal Stream each morning and listened to its fish. She knew every silver fin, favorite hiding place, and piece of ordinary stream news.",
+        "Dewdrop asked the fish to show one clue from the oldest story it claimed to remember. The visitor looked away and could not name a single detail.",
+        "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring."
       ],
-      "answer": "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
+      "answer": "Dewdrop visited Crystal Stream each morning and listened to its fish. She knew every silver fin, favorite hiding place, and piece of ordinary stream news.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Dewdrop knows every fish in Crystal Stream and their usual morning news."
+      "evidenceText": "Dewdrop visited Crystal Stream each morning and listened to its fish. She knew every silver fin, favorite hiding place, and piece of ordinary stream news."
     },
     {
       "id": "moonwood-tales-c-07-q2",
       "prompt": "Which event shows that the first attempt fails in Dewdrop and the Lying Fish?",
       "choices": [
-        "Dewdrop checks one clue. The old badger, not the fish, keeps it.",
-        "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
-        "\"My name is Ripple,\" it tells Pip. One true story begins."
+        "Dewdrop asked the fish to show one clue from the oldest story it claimed to remember. The visitor looked away and could not name a single detail.",
+        "Dewdrop visited Crystal Stream each morning and listened to its fish. She knew every silver fin, favorite hiding place, and piece of ordinary stream news.",
+        "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring."
       ],
-      "answer": "Dewdrop checks one clue. The old badger, not the fish, keeps it.",
+      "answer": "Dewdrop asked the fish to show one clue from the oldest story it claimed to remember. The visitor looked away and could not name a single detail.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Dewdrop checks one clue. The old badger, not the fish, keeps it. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Dewdrop asked the fish to show one clue from the oldest story it claimed to remember. The visitor looked away and could not name a single detail. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "Dewdrop checks one clue. The old badger, not the fish, keeps it."
+      "evidenceText": "Dewdrop asked the fish to show one clue from the oldest story it claimed to remember. The visitor looked away and could not name a single detail."
     },
     {
       "id": "moonwood-tales-c-07-q3",
       "prompt": "Which event resolves the central problem in Dewdrop and the Lying Fish?",
       "choices": [
-        "\"My name is Ripple,\" it tells Pip. One true story begins.",
-        "Dewdrop knows every fish in Crystal Stream and their usual morning news.",
-        "Dewdrop checks one clue. The old badger, not the fish, keeps it."
+        "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring.",
+        "Dewdrop visited Crystal Stream each morning and listened to its fish. She knew every silver fin, favorite hiding place, and piece of ordinary stream news.",
+        "Dewdrop asked the fish to show one clue from the oldest story it claimed to remember. The visitor looked away and could not name a single detail."
       ],
-      "answer": "\"My name is Ripple,\" it tells Pip. One true story begins.",
+      "answer": "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "\"My name is Ripple,\" it tells Pip. One true story begins. This event shows how the central problem is resolved.",
+      "rationale": "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "\"My name is Ripple,\" it tells Pip. One true story begins."
+      "evidenceText": "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring."
     }
   ]
 }

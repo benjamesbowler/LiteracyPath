@@ -811,7 +811,7 @@ function startGame(mount, opts) {
       '<div data-gg="sentence" style="margin-top:5px;font-size:clamp(.84rem,1.5vw,1.08rem);font-weight:850;color:#eaf8ff"></div>' +
       '<div data-gg="cue" style="margin-top:4px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="coach" style="margin:7px auto 0;max-width:560px;font-size:.82rem;line-height:1.15;color:#ffe7a3;font-weight:850"></div>' +
-      '<button data-gg="hear" type="button" aria-label="Hear the word" style="margin-top:7px;padding:4px 14px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR WORD</button>' +
+      '<button data-gg="hear" type="button" aria-label="Hear the word" style="min-height:56px;margin-top:7px;padding:8px 16px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR WORD</button>' +
     '</div>' +
     '<div data-gg-panel="right" style="position:absolute;top:14px;right:16px;text-align:right;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
       '<div data-gg="world" style="font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +

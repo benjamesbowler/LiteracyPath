@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-03-dozy-wont-wake-up",
-  "contentHash": "sha256:8407b8da4b32ca74f0029076e730feafa3b1ab7ab57b69b90aa85a6cc0caca44",
+  "contentHash": "sha256:05428cc16a7734eb35aac571d48d307ef11110f16d2ea4e70fe14c03b0330a8b",
   "questions": [
     {
       "id": "dino-pals-03-dozy-wont-wake-up-q1",
       "prompt": "Which event begins Dozy Won't Wake Up?",
       "choices": [
-        "Picnic morning begins, but Dozy still sleeps.",
-        "Honky calls. The cave shakes, not Dozy.",
-        "Dozy carries his pillow and buns to the picnic."
+        "The picnic starts. Dozy still sleeps.",
+        "Honky honks. The cave rocks. Dozy sleeps.",
+        "Dozy takes his pillow and buns to lunch."
       ],
-      "answer": "Picnic morning begins, but Dozy still sleeps.",
+      "answer": "The picnic starts. Dozy still sleeps.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Picnic morning begins, but Dozy still sleeps."
+      "evidenceText": "The picnic starts. Dozy still sleeps."
     },
     {
       "id": "dino-pals-03-dozy-wont-wake-up-q2",
       "prompt": "Which event shows the first plan fails in Dozy Won't Wake Up?",
       "choices": [
-        "Honky calls. The cave shakes, not Dozy.",
-        "Picnic morning begins, but Dozy still sleeps.",
-        "Dozy carries his pillow and buns to the picnic."
+        "Honky honks. The cave rocks. Dozy sleeps.",
+        "The picnic starts. Dozy still sleeps.",
+        "Dozy takes his pillow and buns to lunch."
       ],
-      "answer": "Honky calls. The cave shakes, not Dozy.",
+      "answer": "Honky honks. The cave rocks. Dozy sleeps.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Honky calls. The cave shakes, not Dozy. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Honky honks. The cave rocks. Dozy sleeps. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Honky calls. The cave shakes, not Dozy."
+      "evidenceText": "Honky honks. The cave rocks. Dozy sleeps."
     },
     {
       "id": "dino-pals-03-dozy-wont-wake-up-q3",
       "prompt": "Which event solves the problem in Dozy Won't Wake Up?",
       "choices": [
-        "Dozy carries his pillow and buns to the picnic.",
-        "Picnic morning begins, but Dozy still sleeps.",
-        "Honky calls. The cave shakes, not Dozy."
+        "Dozy takes his pillow and buns to lunch.",
+        "The picnic starts. Dozy still sleeps.",
+        "Honky honks. The cave rocks. Dozy sleeps."
       ],
-      "answer": "Dozy carries his pillow and buns to the picnic.",
+      "answer": "Dozy takes his pillow and buns to lunch.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Dozy carries his pillow and buns to the picnic. This event shows how the central problem is resolved.",
+      "rationale": "Dozy takes his pillow and buns to lunch. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Dozy carries his pillow and buns to the picnic."
+      "evidenceText": "Dozy takes his pillow and buns to lunch."
     }
   ]
 }

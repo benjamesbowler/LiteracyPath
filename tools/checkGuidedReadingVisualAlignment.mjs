@@ -15,6 +15,20 @@ const reportPath = path.join(
 const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
 const failures = [];
 
+const helpRequested = process.argv.includes("--help") || process.argv.includes("-h");
+if (helpRequested) {
+  console.log("Usage: node tools/checkGuidedReadingVisualAlignment.mjs [--level A|B|C]");
+  process.exit(0);
+}
+
+const levelFlagIndex = process.argv.indexOf("--level");
+const requestedLevel = levelFlagIndex === -1
+  ? null
+  : String(process.argv[levelFlagIndex + 1] || "").toUpperCase();
+if (levelFlagIndex !== -1 && !new Set(["A", "B", "C"]).has(requestedLevel)) {
+  throw new Error(`--level must be A, B or C; received ${process.argv[levelFlagIndex + 1] || "missing"}`);
+}
+
 function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
 }
@@ -50,7 +64,10 @@ let pageCount = 0;
 let approvedCount = 0;
 let replacementCount = 0;
 
-for (const book of getRuntimeGuidedReadingBooks()) {
+const allBooks = getRuntimeGuidedReadingBooks();
+const books = allBooks.filter((book) => !requestedLevel || book.level === requestedLevel);
+
+for (const book of books) {
   for (const [index, page] of book.pages.entries()) {
     pageCount += 1;
     const pageNumber = page.pageNumber || index + 1;
@@ -89,22 +106,28 @@ for (const book of getRuntimeGuidedReadingBooks()) {
   }
 }
 
-for (const key of records.keys()) {
-  if (!liveKeys.has(key)) failures.push(`${key}: stale visual audit record is not an active runtime page`);
+for (const [key, record] of records) {
+  if (requestedLevel) {
+    if (record.level === requestedLevel && !liveKeys.has(key)) {
+      failures.push(`${key}: stale Level ${requestedLevel} visual audit record is not an active runtime page`);
+    }
+  } else if (!liveKeys.has(key)) {
+    failures.push(`${key}: stale visual audit record is not an active runtime page`);
+  }
 }
 
 if (report.status !== "complete") failures.push(`visual audit status is ${report.status || "missing"}, not complete`);
-if (report.scope?.activeBooksAudited !== getRuntimeGuidedReadingBooks().length) {
+if (!requestedLevel && report.scope?.activeBooksAudited !== allBooks.length) {
   failures.push("visual audit book count does not match the runtime catalogue");
 }
-if (report.scope?.activePagesAudited !== pageCount) {
+if (!requestedLevel && report.scope?.activePagesAudited !== pageCount) {
   failures.push("visual audit page count does not match the runtime catalogue");
 }
 if (report.gateSemantics?.releaseFingerprintSha256 !== releaseFingerprint(report.pages || [])) {
   failures.push("stored visual release fingerprint does not match the audited page records");
 }
 
-console.log("Guided Reading visual alignment gate");
+console.log(`Guided Reading visual alignment gate${requestedLevel ? ` - Level ${requestedLevel}` : ""}`);
 console.log(`Pages: ${pageCount}; approved: ${approvedCount}; replacement open: ${replacementCount}; failures: ${failures.length}.`);
 
 if (failures.length) {

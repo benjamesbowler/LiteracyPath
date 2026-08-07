@@ -15,6 +15,7 @@ import {
   reelReadStars
 } from "../../../../utils/reelReadLevels.js";
 import { speakWord } from "../../../../utils/learnGamesAudio.js";
+import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
 
 const THEMES = {
   meadow: {
@@ -145,7 +146,7 @@ function rotate(values, amount) {
 }
 
 function isActionKey(key) {
-  return key === " " || key === "ArrowDown" || key === "ArrowUp" || key === "Enter" || key === "e";
+  return isPrimaryActionKey(key) || key === "ArrowDown";
 }
 
 // First-run onboarding is remembered per device; storage can be denied
@@ -1112,11 +1113,12 @@ function startGame(mount, opts) {
       }
       return;
     }
-    if (event.key === "ArrowLeft" || event.key === "a") {
+    const direction = laneDirectionForKey(event.key);
+    if (direction < 0) {
       event.preventDefault();
       keys.left = true;
     }
-    if (event.key === "ArrowRight" || event.key === "d") {
+    if (direction > 0) {
       event.preventDefault();
       keys.right = true;
     }
@@ -1128,11 +1130,12 @@ function startGame(mount, opts) {
 
   function onKeyUp(event) {
     if (introOpen) return;
-    if (event.key === "ArrowLeft" || event.key === "a") {
+    const direction = laneDirectionForKey(event.key);
+    if (direction < 0) {
       event.preventDefault();
       keys.left = false;
     }
-    if (event.key === "ArrowRight" || event.key === "d") {
+    if (direction > 0) {
       event.preventDefault();
       keys.right = false;
     }

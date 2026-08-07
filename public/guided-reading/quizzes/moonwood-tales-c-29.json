@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-29",
-  "contentHash": "sha256:50940506745f443aa02f6f1d98d3a50d71c158a101616a1c2307268c1d3e7310",
+  "contentHash": "sha256:a31bd24ef42a60279e4378b9dce6b690c68bb7ddf64f6962c4922ee052b794dc",
   "questions": [
     {
       "id": "moonwood-tales-c-29-q1",
       "prompt": "Which event introduces the situation in Wren's One-Object Pocket?",
       "choices": [
-        "Rain threatens Fern's ten dry moonberries.",
-        "Each new berry pops the last one onto the path.",
-        "Rain drums outside while ten berries fill Fern's bowl."
+        "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
+        "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her.",
+        "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together."
       ],
-      "answer": "Rain threatens Fern's ten dry moonberries.",
+      "answer": "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Rain threatens Fern's ten dry moonberries."
+      "evidenceText": "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked."
     },
     {
       "id": "moonwood-tales-c-29-q2",
       "prompt": "Which event shows that the first attempt fails in Wren's One-Object Pocket?",
       "choices": [
-        "Each new berry pops the last one onto the path.",
-        "Rain threatens Fern's ten dry moonberries.",
-        "Rain drums outside while ten berries fill Fern's bowl."
+        "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her.",
+        "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
+        "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together."
       ],
-      "answer": "Each new berry pops the last one onto the path.",
+      "answer": "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Each new berry pops the last one onto the path. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 5,
-      "evidenceText": "Each new berry pops the last one onto the path."
+      "rationale": "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her."
     },
     {
       "id": "moonwood-tales-c-29-q3",
       "prompt": "Which event resolves the central problem in Wren's One-Object Pocket?",
       "choices": [
-        "Rain drums outside while ten berries fill Fern's bowl.",
-        "Rain threatens Fern's ten dry moonberries.",
-        "Each new berry pops the last one onto the path."
+        "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together.",
+        "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
+        "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her."
       ],
-      "answer": "Rain drums outside while ten berries fill Fern's bowl.",
+      "answer": "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Rain drums outside while ten berries fill Fern's bowl. This event shows how the central problem is resolved.",
+      "rationale": "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Rain drums outside while ten berries fill Fern's bowl."
+      "evidenceText": "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together."
     }
   ]
 }

@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-18-the-moon",
-  "contentHash": "sha256:b54fe9bcbcc3a9f019190168ee01c705fa558fa3f4f33ed343205d25a47fa5c6",
+  "contentHash": "sha256:db2e7c3117963c4cdf8919f974cbcf3a64b2919ecd3b8844edc3d1bb44acd606",
   "questions": [
     {
       "id": "first-facts-a-18-the-moon-q1",
-      "prompt": "What is the Moon?",
+      "prompt": "Does the Moon make its own light?",
       "choices": [
-        "The Moon is Earth's natural satellite.",
-        "The Moon is Earth's second Sun.",
-        "The Moon is Earth's largest ocean."
+        "The Moon makes no light of its own.",
+        "The Moon makes all sunlight by itself.",
+        "The Moon makes a new Sun each night."
       ],
-      "answer": "The Moon is Earth's natural satellite.",
+      "answer": "The Moon makes no light of its own.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "The Moon is Earth's natural satellite."
+      "evidenceText": "The Moon makes no light of its own."
     },
     {
       "id": "first-facts-a-18-the-moon-q2",
-      "prompt": "Which fact is explained next in The Moon?",
+      "prompt": "Which sentence tells about a crescent in The Moon?",
       "choices": [
-        "We see different sunlit parts during Moon phases.",
-        "The Moon is Earth's natural satellite.",
-        "The Moon can appear by day or night."
+        "A crescent shows part of the Moon's sunlit face.",
+        "The Moon makes no light of its own.",
+        "By day or night, moonlight is reflected sunlight."
       ],
-      "answer": "We see different sunlit parts during Moon phases.",
+      "answer": "A crescent shows part of the Moon's sunlit face.",
       "kind": "text",
-      "skill": "comparison",
+      "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "We see different sunlit parts during Moon phases."
+      "evidenceText": "A crescent shows part of the Moon's sunlit face."
     },
     {
       "id": "first-facts-a-18-the-moon-q3",
       "prompt": "What is the big idea of The Moon?",
       "choices": [
-        "The Moon can appear by day or night.",
-        "Only the Moon is Earth's natural satellite.",
-        "Only we see different sunlit parts during Moon phases."
+        "By day or night, moonlight is reflected sunlight.",
+        "Only the Moon makes no light of its own.",
+        "Only a crescent shows part of the Moon's sunlit face."
       ],
-      "answer": "The Moon can appear by day or night.",
+      "answer": "By day or night, moonlight is reflected sunlight.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The Moon is Earth's natural satellite. We see different sunlit parts during Moon phases. The Moon can appear by day or night. Together, these facts show the whole-book big idea: The Moon can appear by day or night.",
+      "rationale": "The Moon makes no light of its own. A crescent shows part of the Moon's sunlit face. By day or night, moonlight is reflected sunlight. Together, these facts show the whole-book big idea: By day or night, moonlight is reflected sunlight.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "The Moon is Earth's natural satellite."
+          "evidenceText": "The Moon makes no light of its own."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "We see different sunlit parts during Moon phases."
+          "evidenceText": "A crescent shows part of the Moon's sunlit face."
         }
       ],
       "distractorRationales": {
-        "Only the Moon is Earth's natural satellite.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only we see different sunlit parts during Moon phases.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only the Moon makes no light of its own.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a crescent shows part of the Moon's sunlit face.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "The Moon can appear by day or night."
+      "evidenceText": "By day or night, moonlight is reflected sunlight."
     }
   ]
 }

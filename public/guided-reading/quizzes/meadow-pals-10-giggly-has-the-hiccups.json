@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-10-giggly-has-the-hiccups",
-  "contentHash": "sha256:9791cfe2572318bad23ad3e63cd422149f97c27b4342aac40413658d2dc1dabf",
+  "contentHash": "sha256:13eea1eca87f3ff7c96ff84a21053d24807e11d47da8263bd6fcced4a5a584be",
   "questions": [
     {
       "id": "meadow-pals-10-giggly-has-the-hiccups-q1",
       "prompt": "What happens first in Giggly Has the Hiccups?",
       "choices": [
         "Giggly has the hiccups.",
-        "Jumping does not help.",
-        "Giggly breathes slowly again."
+        "A hop does not help.",
+        "One breath. The hiccups stop again!"
       ],
       "answer": "Giggly has the hiccups.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-10-giggly-has-the-hiccups-q2",
       "prompt": "What goes wrong in Giggly Has the Hiccups?",
       "choices": [
-        "Jumping does not help.",
+        "A hop does not help.",
         "Giggly has the hiccups.",
-        "Giggly breathes slowly again."
+        "One breath. The hiccups stop again!"
       ],
-      "answer": "Jumping does not help.",
+      "answer": "A hop does not help.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Jumping does not help. This shows that the first attempt does not solve the central problem.",
+      "rationale": "A hop does not help. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "Jumping does not help."
+      "evidenceText": "A hop does not help."
     },
     {
       "id": "meadow-pals-10-giggly-has-the-hiccups-q3",
       "prompt": "What happens at the end of Giggly Has the Hiccups?",
       "choices": [
-        "Giggly breathes slowly again.",
+        "One breath. The hiccups stop again!",
         "Giggly has the hiccups.",
-        "Jumping does not help."
+        "A hop does not help."
       ],
-      "answer": "Giggly breathes slowly again.",
+      "answer": "One breath. The hiccups stop again!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Giggly breathes slowly again. This event shows how the central problem is resolved.",
+      "rationale": "One breath. The hiccups stop again! This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Giggly breathes slowly again."
+      "evidenceText": "One breath. The hiccups stop again!"
     }
   ]
 }

@@ -41,6 +41,7 @@ import {
   disposeObject,
   setTextureSrgb
 } from "../shared/threeShell.js";
+import { laneDirectionForKey } from "../shared/premiumGameStandard.js";
 
 const LANES = [-3.15, 0, 3.15];
 const LANE_NAMES = ["left", "middle", "right"];
@@ -2887,8 +2888,8 @@ function startGame(THREE, mount, opts) {
         (isNewBest ? '<div style="font-size:1rem;font-weight:900;color:#071033;background:#ffd34e;padding:6px 18px">New best split</div>' : "") +
         `<div style="font-size:1.08rem;line-height:1.9;text-align:left;min-width:230px">Time <b>${formatTime(result.timeMs)}</b><br>Words <b>${result.correct} / ${track.needed}</b><br>Accuracy <b>${result.accuracy}%</b><br>Stars <b>${"★".repeat(result.stars)}${"✩".repeat(3 - result.stars)}</b></div>` +
         '<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">' +
-          '<button data-sr="retry" aria-label="Retry this track" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#f8fbff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:13px 22px;cursor:pointer">↻ Retry track</button>' +
-          '<button data-sr="next" aria-label="Go to the next map" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#071033;background:#ffd34e;border:0;padding:13px 24px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Next map</button>' +
+          '<button data-sr="retry" aria-label="Retry this track" style="min-height:56px;font-family:inherit;font-weight:900;font-size:1.05rem;color:#f8fbff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:13px 22px;cursor:pointer">↻ Retry track</button>' +
+          '<button data-sr="next" aria-label="Go to the next map" style="min-height:56px;font-family:inherit;font-weight:900;font-size:1.05rem;color:#071033;background:#ffd34e;border:0;padding:13px 24px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Next map</button>' +
         '</div></div>',
       "Track cleared"
     );
@@ -2923,7 +2924,7 @@ function startGame(THREE, mount, opts) {
         '<div style="font-size:2.05rem;font-weight:900">Cup complete</div>' +
         `<div style="font-size:2.45rem;letter-spacing:8px">${"★".repeat(stars)}${"✩".repeat(3 - stars)}</div>` +
         `<div style="font-size:1.1rem;opacity:.92">Score <b>${score}</b> · Words <b>${correct}</b></div>` +
-        '<button data-sr="done" aria-label="Finish Sound Racer" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Done</button>' +
+        '<button data-sr="done" aria-label="Finish Sound Racer" style="min-height:56px;font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Done</button>' +
       '</div>',
       "Sound Racer complete"
     );
@@ -2956,8 +2957,10 @@ function startGame(THREE, mount, opts) {
   opts.registerCleanup?.(detachSteerZones);
 
   const onKey = event => {
-    if (event.key === "ArrowLeft" || event.key === "a") moveLane(-1);
-    if (event.key === "ArrowRight" || event.key === "d") moveLane(1);
+    const direction = laneDirectionForKey(event.key);
+    if (!direction) return;
+    event.preventDefault();
+    moveLane(direction);
   };
   window.addEventListener("keydown", onKey);
   opts.registerCleanup?.(() => window.removeEventListener("keydown", onKey));
@@ -3233,7 +3236,7 @@ function startGame(THREE, mount, opts) {
             '<span style="font-size:2rem;color:#7cf0b6">✓</span>' +
           '</div>' +
           `<p style="margin:0;font-size:.92rem;font-weight:800">${tutorial.phonicsInstruction}</p>` +
-          `<button data-sr="intro-hear" aria-label="Hear ${tutorial.targetLabel} in ${tutorial.exampleWord}" style="font-family:inherit;font-weight:900;color:#071033;background:#7cf0b6;border:0;min-height:44px;padding:8px 18px;cursor:pointer">Hear the example</button>` +
+          `<button data-sr="intro-hear" aria-label="Hear ${tutorial.targetLabel} in ${tutorial.exampleWord}" style="font-family:inherit;font-weight:900;color:#071033;background:#7cf0b6;border:0;min-height:56px;padding:8px 18px;cursor:pointer">Hear the example</button>` +
         '</section>' +
         `<section data-sr="tutorial-motor" aria-label="How to steer" style="display:grid;gap:4px;padding:10px 14px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06)">` +
           `<strong>${tutorial.motorInstruction}</strong>` +

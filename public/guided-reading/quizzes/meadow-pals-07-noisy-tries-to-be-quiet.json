@@ -2,44 +2,44 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-07-noisy-tries-to-be-quiet",
-  "contentHash": "sha256:928e70507f066b9dd766643367b117178838f502c4b7a64f5a2b9e3d15e4ed36",
+  "contentHash": "sha256:2ce8cc221fb7515c972d1e4b782ea931a47afd4c8845adf9213101c8b2667273",
   "questions": [
     {
       "id": "meadow-pals-07-noisy-tries-to-be-quiet-q1",
       "prompt": "What happens first in Noisy Tries to Be Quiet?",
       "choices": [
-        "Sleepy needs quiet.",
-        "Noisy yells very loudly.",
+        "Sleepy needs quiet to sleep.",
+        "Noisy lets out one loud yell.",
         "Noisy stays quiet!"
       ],
-      "answer": "Sleepy needs quiet.",
+      "answer": "Sleepy needs quiet to sleep.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Sleepy needs quiet."
+      "evidenceText": "Sleepy needs quiet to sleep."
     },
     {
       "id": "meadow-pals-07-noisy-tries-to-be-quiet-q2",
       "prompt": "What goes wrong in Noisy Tries to Be Quiet?",
       "choices": [
-        "Noisy yells very loudly.",
-        "Sleepy needs quiet.",
+        "Noisy lets out one loud yell.",
+        "Sleepy needs quiet to sleep.",
         "Noisy stays quiet!"
       ],
-      "answer": "Noisy yells very loudly.",
+      "answer": "Noisy lets out one loud yell.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Noisy yells very loudly. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Noisy lets out one loud yell. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Noisy yells very loudly."
+      "evidenceText": "Noisy lets out one loud yell."
     },
     {
       "id": "meadow-pals-07-noisy-tries-to-be-quiet-q3",
       "prompt": "What happens at the end of Noisy Tries to Be Quiet?",
       "choices": [
         "Noisy stays quiet!",
-        "Sleepy needs quiet.",
-        "Noisy yells very loudly."
+        "Sleepy needs quiet to sleep.",
+        "Noisy lets out one loud yell."
       ],
       "answer": "Noisy stays quiet!",
       "kind": "text",

@@ -64,6 +64,7 @@
 .lp-landing-mark {
   width: 30px;
   height: 30px;
+  object-fit: contain;
 }
 
 .lp-landing-domain {

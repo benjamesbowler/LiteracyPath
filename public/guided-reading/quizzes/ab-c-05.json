@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-05",
-  "contentHash": "sha256:b32492d73afd0d756b28ef98daf33110d264b78d98071c754ff2827a1067f2de",
+  "contentHash": "sha256:3c790beec3b2407b6d4d69124e1befa266167bd8629509964e9252a60c3680ed",
   "questions": [
     {
       "id": "ab-c-05-q1",
       "prompt": "Which event introduces the situation in Socks Goes Missing?",
       "choices": [
         "Socks's red harness hook was empty. So was his sleeping crate.",
-        "They called along the windy street. Only dry leaves answered.",
-        "They fixed the latch and added a tracker tag. Socks trotted home on his lead."
+        "“Socks!” they called into the wind. Dry leaves skittered past. No bark came back.",
+        "They fixed the latch and added a tracker tag. Socks trotted home on his leash."
       ],
       "answer": "Socks's red harness hook was empty. So was his sleeping crate.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "ab-c-05-q2",
       "prompt": "Which event shows that the first attempt fails in Socks Goes Missing?",
       "choices": [
-        "They called along the windy street. Only dry leaves answered.",
+        "“Socks!” they called into the wind. Dry leaves skittered past. No bark came back.",
         "Socks's red harness hook was empty. So was his sleeping crate.",
-        "They fixed the latch and added a tracker tag. Socks trotted home on his lead."
+        "They fixed the latch and added a tracker tag. Socks trotted home on his leash."
       ],
-      "answer": "They called along the windy street. Only dry leaves answered.",
+      "answer": "“Socks!” they called into the wind. Dry leaves skittered past. No bark came back.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "They called along the windy street. Only dry leaves answered. This shows that the first attempt does not solve the central problem.",
+      "rationale": "“Socks!” they called into the wind. Dry leaves skittered past. No bark came back. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "They called along the windy street. Only dry leaves answered."
+      "evidenceText": "“Socks!” they called into the wind. Dry leaves skittered past. No bark came back."
     },
     {
       "id": "ab-c-05-q3",
       "prompt": "Which event resolves the central problem in Socks Goes Missing?",
       "choices": [
-        "They fixed the latch and added a tracker tag. Socks trotted home on his lead.",
+        "They fixed the latch and added a tracker tag. Socks trotted home on his leash.",
         "Socks's red harness hook was empty. So was his sleeping crate.",
-        "They called along the windy street. Only dry leaves answered."
+        "“Socks!” they called into the wind. Dry leaves skittered past. No bark came back."
       ],
-      "answer": "They fixed the latch and added a tracker tag. Socks trotted home on his lead.",
+      "answer": "They fixed the latch and added a tracker tag. Socks trotted home on his leash.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They fixed the latch and added a tracker tag. Socks trotted home on his lead. This event shows how the central problem is resolved.",
+      "rationale": "They fixed the latch and added a tracker tag. Socks trotted home on his leash. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "They fixed the latch and added a tracker tag. Socks trotted home on his lead."
+      "evidenceText": "They fixed the latch and added a tracker tag. Socks trotted home on his leash."
     }
   ]
 }

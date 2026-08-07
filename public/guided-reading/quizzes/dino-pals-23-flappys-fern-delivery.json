@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-23-flappys-fern-delivery",
-  "contentHash": "sha256:178262cf32f1bdabb8d342d01d4f8f4f60201d2b5c4fd6c2940edb66431b2d6b",
+  "contentHash": "sha256:f2db86585a429a78cb68505ca1c26c6251943e74e6b0ce8bbae07db068cca767",
   "questions": [
     {
       "id": "dino-pals-23-flappys-fern-delivery-q1",
       "prompt": "Which event begins Flappy's Fern Delivery?",
       "choices": [
-        "Flappy must carry one wide fern before rain.",
-        "Wind catches both sides. The fern spins Flappy.",
-        "The fern roof covers Cozy Cave before rain."
+        "Rain is coming. Flappy carries one wide roof fern.",
+        "Whoosh! Wind catches both sides. Flappy spins around.",
+        "He rolls the wide fern into a narrow bundle."
       ],
-      "answer": "Flappy must carry one wide fern before rain.",
+      "answer": "Rain is coming. Flappy carries one wide roof fern.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Flappy must carry one wide fern before rain."
+      "evidenceText": "Rain is coming. Flappy carries one wide roof fern."
     },
     {
       "id": "dino-pals-23-flappys-fern-delivery-q2",
       "prompt": "Which event shows the first plan fails in Flappy's Fern Delivery?",
       "choices": [
-        "Wind catches both sides. The fern spins Flappy.",
-        "Flappy must carry one wide fern before rain.",
-        "The fern roof covers Cozy Cave before rain."
+        "Whoosh! Wind catches both sides. Flappy spins around.",
+        "Rain is coming. Flappy carries one wide roof fern.",
+        "He rolls the wide fern into a narrow bundle."
       ],
-      "answer": "Wind catches both sides. The fern spins Flappy.",
+      "answer": "Whoosh! Wind catches both sides. Flappy spins around.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Wind catches both sides. The fern spins Flappy. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Whoosh! Wind catches both sides. Flappy spins around. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "Wind catches both sides. The fern spins Flappy."
+      "evidenceText": "Whoosh! Wind catches both sides. Flappy spins around."
     },
     {
       "id": "dino-pals-23-flappys-fern-delivery-q3",
       "prompt": "Which event solves the problem in Flappy's Fern Delivery?",
       "choices": [
-        "The fern roof covers Cozy Cave before rain.",
-        "Flappy must carry one wide fern before rain.",
-        "Wind catches both sides. The fern spins Flappy."
+        "He rolls the wide fern into a narrow bundle.",
+        "Rain is coming. Flappy carries one wide roof fern.",
+        "Whoosh! Wind catches both sides. Flappy spins around."
       ],
-      "answer": "The fern roof covers Cozy Cave before rain.",
+      "answer": "He rolls the wide fern into a narrow bundle.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The fern roof covers Cozy Cave before rain. This event shows how the central problem is resolved.",
-      "evidencePage": 8,
-      "evidenceText": "The fern roof covers Cozy Cave before rain."
+      "rationale": "He rolls the wide fern into a narrow bundle. This event shows how the central problem is resolved.",
+      "evidencePage": 5,
+      "evidenceText": "He rolls the wide fern into a narrow bundle."
     }
   ]
 }

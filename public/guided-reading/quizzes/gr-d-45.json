@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-45",
-  "contentHash": "sha256:0d1cc233adadc85c8864c6ae9435d2043c616b0746f83699773a513afb0acc4d",
+  "contentHash": "sha256:0ff5eeebb0d7ab24982cf73f91dab0703d9705f9c12a1819f67fb3cf90e06973",
   "questions": [
     {
       "id": "gr-d-45-q1",
-      "prompt": "Which sentence tells about the Sun in Space?",
+      "prompt": "Which star is closest to Earth?",
       "choices": [
         "The Sun is our nearest star.",
-        "The Moon travels around Earth.",
-        "Space extends far beyond our view."
+        "The Moon is our nearest star.",
+        "Mars is our nearest star."
       ],
       "answer": "The Sun is our nearest star.",
       "kind": "text",
@@ -20,47 +20,47 @@
     },
     {
       "id": "gr-d-45-q2",
-      "prompt": "Which sentence tells about the Moon in Space?",
+      "prompt": "Which sentence tells about Earth in Space?",
       "choices": [
-        "The Moon travels around Earth.",
+        "Earth travels around the Sun.",
         "The Sun is our nearest star.",
-        "Space extends far beyond our view."
+        "Space stretches far beyond our view."
       ],
-      "answer": "The Moon travels around Earth.",
+      "answer": "Earth travels around the Sun.",
       "kind": "text",
       "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "The Moon travels around Earth."
+      "evidencePage": 2,
+      "evidenceText": "Earth travels around the Sun."
     },
     {
       "id": "gr-d-45-q3",
       "prompt": "What is the big idea of Space?",
       "choices": [
-        "Space extends far beyond our view.",
+        "Space stretches far beyond our view.",
         "Only the Sun is our nearest star.",
-        "Only the Moon travels around Earth."
+        "Only Earth travels around the Sun."
       ],
-      "answer": "Space extends far beyond our view.",
+      "answer": "Space stretches far beyond our view.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The Sun is our nearest star. The Moon travels around Earth. Space extends far beyond our view. Together, these facts show the whole-book big idea: Space extends far beyond our view.",
+      "rationale": "The Sun is our nearest star. Earth travels around the Sun. Space stretches far beyond our view. Together, these facts show the whole-book big idea: Space stretches far beyond our view.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
           "evidenceText": "The Sun is our nearest star."
         },
         {
-          "evidencePage": 3,
-          "evidenceText": "The Moon travels around Earth."
+          "evidencePage": 2,
+          "evidenceText": "Earth travels around the Sun."
         }
       ],
       "distractorRationales": {
         "Only the Sun is our nearest star.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only the Moon travels around Earth.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only Earth travels around the Sun.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Space extends far beyond our view."
+      "evidenceText": "Space stretches far beyond our view."
     }
   ]
 }

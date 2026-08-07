@@ -1,6 +1,6 @@
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { TEACHER_BRAND } from "../data/teacherBrand.js";
-import teacherMarkUrl from "../assets/logomark.svg";
+import teacherMarkUrl from "../assets/logomark.png";
 import "../styles/landing.css";
 
 // The public landing page (2026-07-28 redesign). One React surface, same two

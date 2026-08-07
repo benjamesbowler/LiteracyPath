@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-20-space",
-  "contentHash": "sha256:45377bb7f4943a199aee282bc422dba97de76f241d153b47d6c2f56443f30bde",
+  "contentHash": "sha256:c799ef0491e91c1738ee877256dd0071369cdb20033ce5c8082faa1a6fc33d9c",
   "questions": [
     {
       "id": "first-facts-level-a-20-space-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "The Moon looks round.",
         "Earth is our blue home.",
-        "Space holds all these worlds."
+        "Space has stars and many planets."
       ],
       "answer": "The Moon looks round.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Earth is our blue home.",
         "The Moon looks round.",
-        "Space holds all these worlds."
+        "Space has stars and many planets."
       ],
       "answer": "Earth is our blue home.",
       "kind": "text",
@@ -36,14 +36,14 @@
       "id": "first-facts-level-a-20-space-q3",
       "prompt": "What is the big idea of Space?",
       "choices": [
-        "Space holds all these worlds.",
+        "Space has stars and many planets.",
         "Only the Moon looks round.",
         "Only Earth is our blue home."
       ],
-      "answer": "Space holds all these worlds.",
+      "answer": "Space has stars and many planets.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "The Moon looks round. Earth is our blue home. Space holds all these worlds. Together, these facts show the whole-book big idea: Space holds all these worlds.",
+      "rationale": "The Moon looks round. Earth is our blue home. Space has stars and many planets. Together, these facts show the whole-book big idea: Space has stars and many planets.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -60,7 +60,7 @@
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Space holds all these worlds."
+      "evidenceText": "Space has stars and many planets."
     }
   ]
 }

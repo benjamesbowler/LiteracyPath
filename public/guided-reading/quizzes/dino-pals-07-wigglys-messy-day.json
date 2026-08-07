@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-07-wigglys-messy-day",
-  "contentHash": "sha256:0e156d78eca4bd02b16935c43c05e00ba3bab18cdccdcf5707782f5f2d07300d",
+  "contentHash": "sha256:e1b02f3d2e6db46159cf6720d436af58912ee930c77ed5c207741201a050cebc",
   "questions": [
     {
       "id": "dino-pals-07-wigglys-messy-day-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Wiggly plans to watch his long tail today.",
         "Wiggly freezes. His tail still rolls three berries.",
-        "Bright stones mark Wiggly's space. His cool breeze stays inside."
+        "Bright stones mark his space. Wiggly swishes slowly inside."
       ],
       "answer": "Wiggly plans to watch his long tail today.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Wiggly freezes. His tail still rolls three berries.",
         "Wiggly plans to watch his long tail today.",
-        "Bright stones mark Wiggly's space. His cool breeze stays inside."
+        "Bright stones mark his space. Wiggly swishes slowly inside."
       ],
       "answer": "Wiggly freezes. His tail still rolls three berries.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "dino-pals-07-wigglys-messy-day-q3",
       "prompt": "Which event solves the problem in Wiggly's Messy Day?",
       "choices": [
-        "Bright stones mark Wiggly's space. His cool breeze stays inside.",
+        "Bright stones mark his space. Wiggly swishes slowly inside.",
         "Wiggly plans to watch his long tail today.",
         "Wiggly freezes. His tail still rolls three berries."
       ],
-      "answer": "Bright stones mark Wiggly's space. His cool breeze stays inside.",
+      "answer": "Bright stones mark his space. Wiggly swishes slowly inside.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Bright stones mark Wiggly's space. His cool breeze stays inside. This event shows how the central problem is resolved.",
+      "rationale": "Bright stones mark his space. Wiggly swishes slowly inside. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Bright stones mark Wiggly's space. His cool breeze stays inside."
+      "evidenceText": "Bright stones mark his space. Wiggly swishes slowly inside."
     }
   ]
 }

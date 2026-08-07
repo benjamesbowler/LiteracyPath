@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-15",
-  "contentHash": "sha256:4ed92762a5241a64fcf4a6122de986a243c456edd4c5257a891cd8670892142f",
+  "contentHash": "sha256:3e2cfdf1e98c977b3d417e645d7442dafb44c283c317dfae8a34ea77366cdec5",
   "questions": [
     {
       "id": "moonwood-tales-c-15-q1",
       "prompt": "Which event introduces the situation in Burrow and Luna and the Old Secret?",
       "choices": [
-        "Burrow's quiet morning tunnel breaks through an old room wall.",
-        "Burrow studies them alone, but cannot read their order.",
-        "As Burrow listens, each next picture glows in story order."
+        "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
+        "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
+        "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room."
       ],
-      "answer": "Burrow's quiet morning tunnel breaks through an old room wall.",
+      "answer": "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Burrow's quiet morning tunnel breaks through an old room wall."
+      "evidenceText": "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness."
     },
     {
       "id": "moonwood-tales-c-15-q2",
       "prompt": "Which event shows that the first attempt fails in Burrow and Luna and the Old Secret?",
       "choices": [
-        "Burrow studies them alone, but cannot read their order.",
-        "Burrow's quiet morning tunnel breaks through an old room wall.",
-        "As Burrow listens, each next picture glows in story order."
+        "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
+        "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
+        "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room."
       ],
-      "answer": "Burrow studies them alone, but cannot read their order.",
+      "answer": "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Burrow studies them alone, but cannot read their order. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "Burrow studies them alone, but cannot read their order."
+      "evidenceText": "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery."
     },
     {
       "id": "moonwood-tales-c-15-q3",
       "prompt": "Which event resolves the central problem in Burrow and Luna and the Old Secret?",
       "choices": [
-        "As Burrow listens, each next picture glows in story order.",
-        "Burrow's quiet morning tunnel breaks through an old room wall.",
-        "Burrow studies them alone, but cannot read their order."
+        "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room.",
+        "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
+        "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery."
       ],
-      "answer": "As Burrow listens, each next picture glows in story order.",
+      "answer": "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "As Burrow listens, each next picture glows in story order. This event shows how the central problem is resolved.",
+      "rationale": "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "As Burrow listens, each next picture glows in story order."
+      "evidenceText": "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room."
     }
   ]
 }

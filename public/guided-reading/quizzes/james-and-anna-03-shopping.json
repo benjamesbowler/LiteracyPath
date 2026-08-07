@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-03-shopping",
-  "contentHash": "sha256:c283020485ae1a834873ed802051a1d4352d9dd63442c801d2c83cc735764505",
+  "contentHash": "sha256:d71d0ea383a2d57bff972e7c808416f9db86bf4e1991e284f5b27a957168d14b",
   "questions": [
     {
       "id": "james-and-anna-03-shopping-q1",
       "prompt": "Which event begins James and Anna go Shopping?",
       "choices": [
-        "Mum needs help bringing every item on her list home.",
-        "Then the shining cake stand makes them forget the list.",
-        "At the till, they check the list. Even the eggs have no cracks."
+        "Mom has a long list. She needs two helpers.",
+        "Then a shiny cake stand stops them. Is the list done?",
+        "At checkout, James counts each item. Every egg stays whole."
       ],
-      "answer": "Mum needs help bringing every item on her list home.",
+      "answer": "Mom has a long list. She needs two helpers.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Mum needs help bringing every item on her list home."
+      "evidenceText": "Mom has a long list. She needs two helpers."
     },
     {
       "id": "james-and-anna-03-shopping-q2",
       "prompt": "Which event shows the first plan fails in James and Anna go Shopping?",
       "choices": [
-        "Then the shining cake stand makes them forget the list.",
-        "Mum needs help bringing every item on her list home.",
-        "At the till, they check the list. Even the eggs have no cracks."
+        "Then a shiny cake stand stops them. Is the list done?",
+        "Mom has a long list. She needs two helpers.",
+        "At checkout, James counts each item. Every egg stays whole."
       ],
-      "answer": "Then the shining cake stand makes them forget the list.",
+      "answer": "Then a shiny cake stand stops them. Is the list done?",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Then the shining cake stand makes them forget the list. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Then a shiny cake stand stops them. Is the list done? This shows that the first attempt does not solve the central problem.",
       "evidencePage": 8,
-      "evidenceText": "Then the shining cake stand makes them forget the list."
+      "evidenceText": "Then a shiny cake stand stops them. Is the list done?"
     },
     {
       "id": "james-and-anna-03-shopping-q3",
       "prompt": "Which event solves the problem in James and Anna go Shopping?",
       "choices": [
-        "At the till, they check the list. Even the eggs have no cracks.",
-        "Mum needs help bringing every item on her list home.",
-        "Then the shining cake stand makes them forget the list."
+        "At checkout, James counts each item. Every egg stays whole.",
+        "Mom has a long list. She needs two helpers.",
+        "Then a shiny cake stand stops them. Is the list done?"
       ],
-      "answer": "At the till, they check the list. Even the eggs have no cracks.",
+      "answer": "At checkout, James counts each item. Every egg stays whole.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "At the till, they check the list. Even the eggs have no cracks. This event shows how the central problem is resolved.",
+      "rationale": "At checkout, James counts each item. Every egg stays whole. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "At the till, they check the list. Even the eggs have no cracks."
+      "evidenceText": "At checkout, James counts each item. Every egg stays whole."
     }
   ]
 }

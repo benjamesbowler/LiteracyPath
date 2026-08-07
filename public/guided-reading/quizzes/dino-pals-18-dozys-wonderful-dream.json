@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-18-dozys-wonderful-dream",
-  "contentHash": "sha256:686ed4ea517261e3b6478eb3e3fdc179d5eca66d5f9647fbe0f3d7447d0856ae",
+  "contentHash": "sha256:600151ca27d415e67f81a715067cdd022f2f27301cdfdadab8be967568867361",
   "questions": [
     {
       "id": "dino-pals-18-dozys-wonderful-dream-q1",
       "prompt": "Which event begins Dozy's Wonderful Dream?",
       "choices": [
         "Dozy sleeps for hours in Long Meadow.",
-        "Bouncy's cloud springs away above them.",
-        "Dozy wakes inside his waiting circle of friends."
+        "Bouncy's cloud springs off with one BOING!",
+        "Dozy wakes. His friends sit in a ring."
       ],
       "answer": "Dozy sleeps for hours in Long Meadow.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-18-dozys-wonderful-dream-q2",
       "prompt": "Which event shows the first plan fails in Dozy's Wonderful Dream?",
       "choices": [
-        "Bouncy's cloud springs away above them.",
+        "Bouncy's cloud springs off with one BOING!",
         "Dozy sleeps for hours in Long Meadow.",
-        "Dozy wakes inside his waiting circle of friends."
+        "Dozy wakes. His friends sit in a ring."
       ],
-      "answer": "Bouncy's cloud springs away above them.",
+      "answer": "Bouncy's cloud springs off with one BOING!",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Bouncy's cloud springs away above them. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Bouncy's cloud springs off with one BOING! This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Bouncy's cloud springs away above them."
+      "evidenceText": "Bouncy's cloud springs off with one BOING!"
     },
     {
       "id": "dino-pals-18-dozys-wonderful-dream-q3",
       "prompt": "Which event solves the problem in Dozy's Wonderful Dream?",
       "choices": [
-        "Dozy wakes inside his waiting circle of friends.",
+        "Dozy wakes. His friends sit in a ring.",
         "Dozy sleeps for hours in Long Meadow.",
-        "Bouncy's cloud springs away above them."
+        "Bouncy's cloud springs off with one BOING!"
       ],
-      "answer": "Dozy wakes inside his waiting circle of friends.",
+      "answer": "Dozy wakes. His friends sit in a ring.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Dozy wakes inside his waiting circle of friends. This event shows how the central problem is resolved.",
+      "rationale": "Dozy wakes. His friends sit in a ring. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "Dozy wakes inside his waiting circle of friends."
+      "evidenceText": "Dozy wakes. His friends sit in a ring."
     }
   ]
 }

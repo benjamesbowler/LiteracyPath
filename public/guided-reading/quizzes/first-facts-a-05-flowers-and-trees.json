@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-05-flowers-and-trees",
-  "contentHash": "sha256:7f18b2b843e6da4ee2a833e2205c035f4d9786bc2cd76dd8abd9ac75cc696f1e",
+  "contentHash": "sha256:1a5aff6569e83ca895630a492c8183cabe368d3645a341f5c1e4f98ccc6d892b",
   "questions": [
     {
       "id": "first-facts-a-05-flowers-and-trees-q1",
-      "prompt": "Which sentence tells about many flowers in Flowering Plants and Trees?",
+      "prompt": "Which fact is introduced first in Flowers and Trees?",
       "choices": [
-        "Many flowers have petals stems and roots.",
-        "Roses come in many colours and may have prickles.",
-        "Plants need light water nutrients and space."
+        "This plant has a flower, stem, and roots.",
+        "Roses come in many colors. Their stems may have thorns.",
+        "Flowers and trees need light, rain, soil, and space."
       ],
-      "answer": "Many flowers have petals stems and roots.",
+      "answer": "This plant has a flower, stem, and roots.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Many flowers have petals stems and roots."
+      "evidenceText": "This plant has a flower, stem, and roots."
     },
     {
       "id": "first-facts-a-05-flowers-and-trees-q2",
-      "prompt": "Which sentence tells about roses in Flowering Plants and Trees?",
+      "prompt": "Which sentence tells about roses in Flowers and Trees?",
       "choices": [
-        "Roses come in many colours and may have prickles.",
-        "Many flowers have petals stems and roots.",
-        "Plants need light water nutrients and space."
+        "Roses come in many colors. Their stems may have thorns.",
+        "This plant has a flower, stem, and roots.",
+        "Flowers and trees need light, rain, soil, and space."
       ],
-      "answer": "Roses come in many colours and may have prickles.",
+      "answer": "Roses come in many colors. Their stems may have thorns.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 4,
-      "evidenceText": "Roses come in many colours and may have prickles."
+      "evidenceText": "Roses come in many colors. Their stems may have thorns."
     },
     {
       "id": "first-facts-a-05-flowers-and-trees-q3",
-      "prompt": "What is the big idea of Flowering Plants and Trees?",
+      "prompt": "What is the big idea of Flowers and Trees?",
       "choices": [
-        "Plants need light water nutrients and space.",
-        "Only roses come in many colours and may have prickles.",
-        "Only daisies often have small white petals."
+        "Flowers and trees need light, rain, soil, and space.",
+        "Only this plant has a flower, stem, and roots.",
+        "Only roses come in many colors."
       ],
-      "answer": "Plants need light water nutrients and space.",
+      "answer": "Flowers and trees need light, rain, soil, and space.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Many flowers have petals stems and roots. Roses come in many colours and may have prickles. Plants need light water nutrients and space. Together, these facts show the whole-book big idea: Plants need light water nutrients and space.",
+      "rationale": "This plant has a flower, stem, and roots. Roses come in many colors. Their stems may have thorns. Flowers and trees need light, rain, soil, and space. Together, these facts show the whole-book big idea: Flowers and trees need light, rain, soil, and space.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Many flowers have petals stems and roots."
+          "evidenceText": "This plant has a flower, stem, and roots."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "Roses come in many colours and may have prickles."
+          "evidenceText": "Roses come in many colors. Their stems may have thorns."
         }
       ],
       "distractorRationales": {
-        "Only roses come in many colours and may have prickles.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only daisies often have small white petals.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only this plant has a flower, stem, and roots.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only roses come in many colors.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
-      "evidenceText": "Plants need light water nutrients and space."
+      "evidenceText": "Flowers and trees need light, rain, soil, and space."
     }
   ]
 }

@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-31-bouncys-hay-lift",
-  "contentHash": "sha256:730906d6e9624fdd8eb7b67152b8ded4d947b3beb13ba032c1b39b9b263e5ba6",
+  "contentHash": "sha256:7e24f1e42ff787d72e97e9e6dbdec2be4511da0dafaa7135a6e46192b220fc84",
   "questions": [
     {
       "id": "meadow-pals-31-bouncys-hay-lift-q1",
       "prompt": "What happens first in Bouncy's Hay Lift?",
       "choices": [
         "Bouncy stacks hay for Woolly.",
-        "The bale flies past.",
-        "The bale fits on top."
+        "Whoops! The bale flies past.",
+        "The last bale fits!"
       ],
       "answer": "Bouncy stacks hay for Woolly.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-31-bouncys-hay-lift-q2",
       "prompt": "What goes wrong in Bouncy's Hay Lift?",
       "choices": [
-        "The bale flies past.",
+        "Whoops! The bale flies past.",
         "Bouncy stacks hay for Woolly.",
-        "The bale fits on top."
+        "The last bale fits!"
       ],
-      "answer": "The bale flies past.",
+      "answer": "Whoops! The bale flies past.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The bale flies past. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Whoops! The bale flies past. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "The bale flies past."
+      "evidenceText": "Whoops! The bale flies past."
     },
     {
       "id": "meadow-pals-31-bouncys-hay-lift-q3",
       "prompt": "What happens at the end of Bouncy's Hay Lift?",
       "choices": [
-        "The bale fits on top.",
+        "The last bale fits!",
         "Bouncy stacks hay for Woolly.",
-        "The bale flies past."
+        "Whoops! The bale flies past."
       ],
-      "answer": "The bale fits on top.",
+      "answer": "The last bale fits!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The bale fits on top. This event shows how the central problem is resolved.",
+      "rationale": "The last bale fits! This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "The bale fits on top."
+      "evidenceText": "The last bale fits!"
     }
   ]
 }

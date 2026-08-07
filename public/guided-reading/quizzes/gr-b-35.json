@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-35",
-  "contentHash": "sha256:41783f8cb5f344b78003d3580d43a7e37a4a587c73121362b63fa846d3f94473",
+  "contentHash": "sha256:659b01f3496dc59e2cd906c9f9f68038a23f68f3f9dc3cc433d790523416724c",
   "questions": [
     {
       "id": "gr-b-35-q1",
-      "prompt": "Which sentence tells about a chef in Community Helpers?",
+      "prompt": "Which fact is introduced first in Community Helpers?",
       "choices": [
-        "A chef prepares food.",
-        "A firefighter fights fires.",
-        "Many workers help our community."
+        "A chef cooks meals.",
+        "A doctor helps sick people.",
+        "These jobs help our town run well."
       ],
-      "answer": "A chef prepares food.",
+      "answer": "A chef cooks meals.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A chef prepares food."
+      "evidenceText": "A chef cooks meals."
     },
     {
       "id": "gr-b-35-q2",
-      "prompt": "Which sentence tells about a firefighter in Community Helpers?",
+      "prompt": "Which sentence tells about a doctor in Community Helpers?",
       "choices": [
-        "A firefighter fights fires.",
-        "A chef prepares food.",
-        "Many workers help our community."
+        "A doctor helps sick people.",
+        "A chef cooks meals.",
+        "These jobs help our town run well."
       ],
-      "answer": "A firefighter fights fires.",
+      "answer": "A doctor helps sick people.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "A firefighter fights fires."
+      "skill": "function",
+      "evidencePage": 2,
+      "evidenceText": "A doctor helps sick people."
     },
     {
       "id": "gr-b-35-q3",
       "prompt": "What is the big idea of Community Helpers?",
       "choices": [
-        "Many workers help our community.",
-        "Only a chef prepares food.",
-        "Only a firefighter fights fires."
+        "These jobs help our town run well.",
+        "Only a chef cooks meals.",
+        "Only a doctor helps sick people."
       ],
-      "answer": "Many workers help our community.",
+      "answer": "These jobs help our town run well.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A chef prepares food. A firefighter fights fires. Many workers help our community. Together, these facts show the whole-book big idea: Many workers help our community.",
+      "rationale": "A chef cooks meals. A doctor helps sick people. These jobs help our town run well. Together, these facts show the whole-book big idea: These jobs help our town run well.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "A chef prepares food."
+          "evidenceText": "A chef cooks meals."
         },
         {
-          "evidencePage": 3,
-          "evidenceText": "A firefighter fights fires."
+          "evidencePage": 2,
+          "evidenceText": "A doctor helps sick people."
         }
       ],
       "distractorRationales": {
-        "Only a chef prepares food.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only a firefighter fights fires.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only a chef cooks meals.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a doctor helps sick people.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Many workers help our community."
+      "evidenceText": "These jobs help our town run well."
     }
   ]
 }

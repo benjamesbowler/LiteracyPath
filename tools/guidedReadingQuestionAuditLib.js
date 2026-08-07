@@ -193,6 +193,7 @@ export function answerIsSupportedByText(answer = "", evidence = "", { conceptual
   const normalizedAnswer = normalizeText(answer);
   const normalizedEvidence = normalizeText(evidence);
   if (!normalizedAnswer || !normalizedEvidence) return false;
+  if (normalizedEvidence.includes(normalizedAnswer)) return true;
 
   const clauses = answerClauses(answer);
   if (clauses.length && clauses.every(clause => clauseHasDirectSupport(clause, evidence))) return true;

@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-a-26",
-  "contentHash": "sha256:ed200fd535712c3d9e468916a97cd4584841ca31b975766fad43bb48612f5f1c",
+  "contentHash": "sha256:995df066f8e1dfd43687a63cfce05bdc9aa3a3a2ca0c3b53fb832c2e4ec032fc",
   "questions": [
     {
       "id": "gr-a-26-q1",
       "prompt": "Which sentence tells about a dog in Pets?",
       "choices": [
-        "A dog can be a pet.",
-        "A fish can be a pet.",
-        "Every pet needs gentle care."
+        "A dog needs food, exercise, and rest.",
+        "A fish needs clean water and the right food.",
+        "Different pets need different kinds of care."
       ],
-      "answer": "A dog can be a pet.",
+      "answer": "A dog needs food, exercise, and rest.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A dog can be a pet."
+      "evidenceText": "A dog needs food, exercise, and rest."
     },
     {
       "id": "gr-a-26-q2",
       "prompt": "Which sentence tells about a fish in Pets?",
       "choices": [
-        "A fish can be a pet.",
-        "A dog can be a pet.",
-        "Every pet needs gentle care."
+        "A fish needs clean water and the right food.",
+        "A dog needs food, exercise, and rest.",
+        "Different pets need different kinds of care."
       ],
-      "answer": "A fish can be a pet.",
+      "answer": "A fish needs clean water and the right food.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "function",
       "evidencePage": 3,
-      "evidenceText": "A fish can be a pet."
+      "evidenceText": "A fish needs clean water and the right food."
     },
     {
       "id": "gr-a-26-q3",
       "prompt": "What is the big idea of Pets?",
       "choices": [
-        "Every pet needs gentle care.",
-        "Only a dog can be a pet.",
-        "Only a fish can be a pet."
+        "Different pets need different kinds of care.",
+        "Only a dog needs food, exercise, and rest.",
+        "Only a fish needs clean water and the right food."
       ],
-      "answer": "Every pet needs gentle care.",
+      "answer": "Different pets need different kinds of care.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A dog can be a pet. A fish can be a pet. Every pet needs gentle care. Together, these facts show the whole-book big idea: Every pet needs gentle care.",
+      "rationale": "A dog needs food, exercise, and rest. A fish needs clean water and the right food. Different pets need different kinds of care. Together, these facts show the whole-book big idea: Different pets need different kinds of care.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "A dog can be a pet."
+          "evidenceText": "A dog needs food, exercise, and rest."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "A fish can be a pet."
+          "evidenceText": "A fish needs clean water and the right food."
         }
       ],
       "distractorRationales": {
-        "Only a dog can be a pet.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only a fish can be a pet.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only a dog needs food, exercise, and rest.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a fish needs clean water and the right food.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Every pet needs gentle care."
+      "evidenceText": "Different pets need different kinds of care."
     }
   ]
 }

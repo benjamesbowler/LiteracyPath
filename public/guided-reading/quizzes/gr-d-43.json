@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-43",
-  "contentHash": "sha256:06cba450df8e6f149ed1daa9a98cf6f09e2d737a742bbce6e39558efb2865a40",
+  "contentHash": "sha256:e5fe62d6de36156d5cb1f618fc91e2c603c69d94ce2cc48fe0c9cf01a0aafea3",
   "questions": [
     {
       "id": "gr-d-43-q1",
       "prompt": "Which fact is introduced first in Healthy Habits?",
       "choices": [
-        "I wash my hands with soap.",
-        "I drink water every day.",
-        "Healthy habits help my body."
+        "I wash my hands with soap and water.",
+        "I drink water through the day.",
+        "These small habits help care for my body."
       ],
-      "answer": "I wash my hands with soap.",
+      "answer": "I wash my hands with soap and water.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "I wash my hands with soap."
+      "evidenceText": "I wash my hands with soap and water."
     },
     {
       "id": "gr-d-43-q2",
       "prompt": "Which fact is explained next in Healthy Habits?",
       "choices": [
-        "I drink water every day.",
-        "I wash my hands with soap.",
-        "Healthy habits help my body."
+        "I drink water through the day.",
+        "I wash my hands with soap and water.",
+        "These small habits help care for my body."
       ],
-      "answer": "I drink water every day.",
+      "answer": "I drink water through the day.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "I drink water every day."
+      "evidenceText": "I drink water through the day."
     },
     {
       "id": "gr-d-43-q3",
       "prompt": "What is the big idea of Healthy Habits?",
       "choices": [
-        "Healthy habits help my body.",
-        "Only I wash my hands with soap.",
-        "Only I drink water every day."
+        "These small habits help care for my body.",
+        "Only I wash my hands with soap and water.",
+        "Only I drink water through the day."
       ],
-      "answer": "Healthy habits help my body.",
+      "answer": "These small habits help care for my body.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "I wash my hands with soap. I drink water every day. Healthy habits help my body. Together, these facts show the whole-book big idea: Healthy habits help my body.",
+      "rationale": "I wash my hands with soap and water. I drink water through the day. These small habits help care for my body. Together, these facts show the whole-book big idea: These small habits help care for my body.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "I wash my hands with soap."
+          "evidenceText": "I wash my hands with soap and water."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "I drink water every day."
+          "evidenceText": "I drink water through the day."
         }
       ],
       "distractorRationales": {
-        "Only I wash my hands with soap.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only I drink water every day.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only I wash my hands with soap and water.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only I drink water through the day.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Healthy habits help my body."
+      "evidenceText": "These small habits help care for my body."
     }
   ]
 }

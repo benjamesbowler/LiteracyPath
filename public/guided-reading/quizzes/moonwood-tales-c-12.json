@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-12",
-  "contentHash": "sha256:dd186605b09797820fc8da9a8c91cd4379345925608436578f8113e5618bbd59",
+  "contentHash": "sha256:ffbc2d17a0acf89cedf7b35b32b70fe44ca1825730829129bf0685d2cf3ef9b4",
   "questions": [
     {
       "id": "moonwood-tales-c-12-q1",
       "prompt": "Which event introduces the situation in Fern and Dewdrop Save the Stream?",
       "choices": [
-        "Fern hears that Crystal Stream still flows but no longer sings.",
-        "Fern pushes with both hands. Mud grips the stone tighter.",
-        "Current rushes over the stones until their clear notes return."
+        "Fern paused beside Crystal Stream because its familiar music had vanished. The water still flowed between the banks, but none of the singing stones made a sound.",
+        "Fern braced both feet and pushed the boulder with her hands. The pressure only sank it deeper, allowing the wet mud to grip even tighter.",
+        "Freed from the boulder, the current rushed over every smooth singing stone. One clear note rang out, then the whole stream joined the bright song."
       ],
-      "answer": "Fern hears that Crystal Stream still flows but no longer sings.",
+      "answer": "Fern paused beside Crystal Stream because its familiar music had vanished. The water still flowed between the banks, but none of the singing stones made a sound.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Fern hears that Crystal Stream still flows but no longer sings."
+      "evidenceText": "Fern paused beside Crystal Stream because its familiar music had vanished. The water still flowed between the banks, but none of the singing stones made a sound."
     },
     {
       "id": "moonwood-tales-c-12-q2",
       "prompt": "Which event shows that the first attempt fails in Fern and Dewdrop Save the Stream?",
       "choices": [
-        "Fern pushes with both hands. Mud grips the stone tighter.",
-        "Fern hears that Crystal Stream still flows but no longer sings.",
-        "Current rushes over the stones until their clear notes return."
+        "Fern braced both feet and pushed the boulder with her hands. The pressure only sank it deeper, allowing the wet mud to grip even tighter.",
+        "Fern paused beside Crystal Stream because its familiar music had vanished. The water still flowed between the banks, but none of the singing stones made a sound.",
+        "Freed from the boulder, the current rushed over every smooth singing stone. One clear note rang out, then the whole stream joined the bright song."
       ],
-      "answer": "Fern pushes with both hands. Mud grips the stone tighter.",
+      "answer": "Fern braced both feet and pushed the boulder with her hands. The pressure only sank it deeper, allowing the wet mud to grip even tighter.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Fern pushes with both hands. Mud grips the stone tighter. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Fern braced both feet and pushed the boulder with her hands. The pressure only sank it deeper, allowing the wet mud to grip even tighter. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Fern pushes with both hands. Mud grips the stone tighter."
+      "evidenceText": "Fern braced both feet and pushed the boulder with her hands. The pressure only sank it deeper, allowing the wet mud to grip even tighter."
     },
     {
       "id": "moonwood-tales-c-12-q3",
       "prompt": "Which event resolves the central problem in Fern and Dewdrop Save the Stream?",
       "choices": [
-        "Current rushes over the stones until their clear notes return.",
-        "Fern hears that Crystal Stream still flows but no longer sings.",
-        "Fern pushes with both hands. Mud grips the stone tighter."
+        "Freed from the boulder, the current rushed over every smooth singing stone. One clear note rang out, then the whole stream joined the bright song.",
+        "Fern paused beside Crystal Stream because its familiar music had vanished. The water still flowed between the banks, but none of the singing stones made a sound.",
+        "Fern braced both feet and pushed the boulder with her hands. The pressure only sank it deeper, allowing the wet mud to grip even tighter."
       ],
-      "answer": "Current rushes over the stones until their clear notes return.",
+      "answer": "Freed from the boulder, the current rushed over every smooth singing stone. One clear note rang out, then the whole stream joined the bright song.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Current rushes over the stones until their clear notes return. This event shows how the central problem is resolved.",
+      "rationale": "Freed from the boulder, the current rushed over every smooth singing stone. One clear note rang out, then the whole stream joined the bright song. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "Current rushes over the stones until their clear notes return."
+      "evidenceText": "Freed from the boulder, the current rushed over every smooth singing stone. One clear note rang out, then the whole stream joined the bright song."
     }
   ]
 }

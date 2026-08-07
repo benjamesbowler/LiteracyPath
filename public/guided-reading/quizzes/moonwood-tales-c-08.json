@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-08",
-  "contentHash": "sha256:1efe4f4b876e3a9ffeb270acf43f1057fa15821c445003eadbcbc8d88b2c091b",
+  "contentHash": "sha256:6f111d16ecc53a9071febd50a05e89cc478a96a7b24991e57610fda37acc5667",
   "questions": [
     {
       "id": "moonwood-tales-c-08-q1",
       "prompt": "Which event introduces the situation in Burrow Finds a Door?",
       "choices": [
-        "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
-        "She traces each root. The door remains shut.",
-        "The door opens onto glowing pictures of Moonwood's living past."
+        "While digging beneath Hollow Oak, Burrow's spade struck something that was not stone. He brushed away the dirt and found a wide piece of ancient wood.",
+        "Luna traced every deep carved root with one careful wing tip. Warm gold light followed her touch, yet the wooden door stayed firmly closed.",
+        "The wide old door swung inward, filling the tunnel with warm golden light. Beyond it, glowing pictures showed Moonwood's creatures, streams, and vanished paths."
       ],
-      "answer": "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
+      "answer": "While digging beneath Hollow Oak, Burrow's spade struck something that was not stone. He brushed away the dirt and found a wide piece of ancient wood.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Burrow's spade strikes old wood beneath Hollow Oak's roots."
+      "evidenceText": "While digging beneath Hollow Oak, Burrow's spade struck something that was not stone. He brushed away the dirt and found a wide piece of ancient wood."
     },
     {
       "id": "moonwood-tales-c-08-q2",
       "prompt": "Which event shows that the first attempt fails in Burrow Finds a Door?",
       "choices": [
-        "She traces each root. The door remains shut.",
-        "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
-        "The door opens onto glowing pictures of Moonwood's living past."
+        "Luna traced every deep carved root with one careful wing tip. Warm gold light followed her touch, yet the wooden door stayed firmly closed.",
+        "While digging beneath Hollow Oak, Burrow's spade struck something that was not stone. He brushed away the dirt and found a wide piece of ancient wood.",
+        "The wide old door swung inward, filling the tunnel with warm golden light. Beyond it, glowing pictures showed Moonwood's creatures, streams, and vanished paths."
       ],
-      "answer": "She traces each root. The door remains shut.",
+      "answer": "Luna traced every deep carved root with one careful wing tip. Warm gold light followed her touch, yet the wooden door stayed firmly closed.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "She traces each root. The door remains shut. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Luna traced every deep carved root with one careful wing tip. Warm gold light followed her touch, yet the wooden door stayed firmly closed. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "She traces each root. The door remains shut."
+      "evidenceText": "Luna traced every deep carved root with one careful wing tip. Warm gold light followed her touch, yet the wooden door stayed firmly closed."
     },
     {
       "id": "moonwood-tales-c-08-q3",
       "prompt": "Which event resolves the central problem in Burrow Finds a Door?",
       "choices": [
-        "The door opens onto glowing pictures of Moonwood's living past.",
-        "Burrow's spade strikes old wood beneath Hollow Oak's roots.",
-        "She traces each root. The door remains shut."
+        "The wide old door swung inward, filling the tunnel with warm golden light. Beyond it, glowing pictures showed Moonwood's creatures, streams, and vanished paths.",
+        "While digging beneath Hollow Oak, Burrow's spade struck something that was not stone. He brushed away the dirt and found a wide piece of ancient wood.",
+        "Luna traced every deep carved root with one careful wing tip. Warm gold light followed her touch, yet the wooden door stayed firmly closed."
       ],
-      "answer": "The door opens onto glowing pictures of Moonwood's living past.",
+      "answer": "The wide old door swung inward, filling the tunnel with warm golden light. Beyond it, glowing pictures showed Moonwood's creatures, streams, and vanished paths.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The door opens onto glowing pictures of Moonwood's living past. This event shows how the central problem is resolved.",
+      "rationale": "The wide old door swung inward, filling the tunnel with warm golden light. Beyond it, glowing pictures showed Moonwood's creatures, streams, and vanished paths. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "The door opens onto glowing pictures of Moonwood's living past."
+      "evidenceText": "The wide old door swung inward, filling the tunnel with warm golden light. Beyond it, glowing pictures showed Moonwood's creatures, streams, and vanished paths."
     }
   ]
 }

@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-16-muddy-and-splashy-make-a-mess",
-  "contentHash": "sha256:d53870ecca7efe6805bef17b8d24b4bf81f9d74ff91aa6b6fcf77e26eb60a033",
+  "contentHash": "sha256:73aa9380a24cbb2266105d7b38ff9a089f116ec0e090b83f69d4c729f608bc38",
   "questions": [
     {
       "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q1",
       "prompt": "What happens first in Muddy and Splashy Make a Mess?",
       "choices": [
         "Muddy brings some mud.",
-        "Mud covers Grumpy.",
-        "They move beyond the gate."
+        "Mud hits Grumpy. He frowns.",
+        "Grumpy grins and walks with them."
       ],
       "answer": "Muddy brings some mud.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q2",
       "prompt": "What goes wrong in Muddy and Splashy Make a Mess?",
       "choices": [
-        "Mud covers Grumpy.",
+        "Mud hits Grumpy. He frowns.",
         "Muddy brings some mud.",
-        "They move beyond the gate."
+        "Grumpy grins and walks with them."
       ],
-      "answer": "Mud covers Grumpy.",
+      "answer": "Mud hits Grumpy. He frowns.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Mud covers Grumpy. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Mud hits Grumpy. He frowns. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Mud covers Grumpy."
+      "evidenceText": "Mud hits Grumpy. He frowns."
     },
     {
       "id": "meadow-pals-16-muddy-and-splashy-make-a-mess-q3",
       "prompt": "What happens at the end of Muddy and Splashy Make a Mess?",
       "choices": [
-        "They move beyond the gate.",
+        "Grumpy grins and walks with them.",
         "Muddy brings some mud.",
-        "Mud covers Grumpy."
+        "Mud hits Grumpy. He frowns."
       ],
-      "answer": "They move beyond the gate.",
+      "answer": "Grumpy grins and walks with them.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They move beyond the gate. This event shows how the central problem is resolved.",
+      "rationale": "Grumpy grins and walks with them. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "They move beyond the gate."
+      "evidenceText": "Grumpy grins and walks with them."
     }
   ]
 }

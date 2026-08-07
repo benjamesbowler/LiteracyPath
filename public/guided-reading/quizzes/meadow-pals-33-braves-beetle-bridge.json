@@ -2,44 +2,44 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-33-braves-beetle-bridge",
-  "contentHash": "sha256:2c7d5891eedfa038b3db5eb230a915484aac1a7449e9da4e8ecad7f0af56f547",
+  "contentHash": "sha256:79161041dcd7dbbf96c842e13030a1a2ad048197466e368f8f26717f191659c0",
   "questions": [
     {
       "id": "meadow-pals-33-braves-beetle-bridge-q1",
-      "prompt": "What happens first in Brave's Beetle Bridge?",
+      "prompt": "What happens first in Brave's Beetle Tunnel?",
       "choices": [
-        "A beetle waits on path.",
-        "The beetle curls up tight.",
+        "A beetle waits on the path.",
+        "The beetle stops and stays still.",
         "Brave builds a leaf tunnel."
       ],
-      "answer": "A beetle waits on path.",
+      "answer": "A beetle waits on the path.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "A beetle waits on path."
+      "evidenceText": "A beetle waits on the path."
     },
     {
       "id": "meadow-pals-33-braves-beetle-bridge-q2",
-      "prompt": "What goes wrong in Brave's Beetle Bridge?",
+      "prompt": "What goes wrong in Brave's Beetle Tunnel?",
       "choices": [
-        "The beetle curls up tight.",
-        "A beetle waits on path.",
+        "The beetle stops and stays still.",
+        "A beetle waits on the path.",
         "Brave builds a leaf tunnel."
       ],
-      "answer": "The beetle curls up tight.",
+      "answer": "The beetle stops and stays still.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The beetle curls up tight. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The beetle stops and stays still. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "The beetle curls up tight."
+      "evidenceText": "The beetle stops and stays still."
     },
     {
       "id": "meadow-pals-33-braves-beetle-bridge-q3",
-      "prompt": "What happens at the end of Brave's Beetle Bridge?",
+      "prompt": "What happens at the end of Brave's Beetle Tunnel?",
       "choices": [
         "Brave builds a leaf tunnel.",
-        "A beetle waits on path.",
-        "The beetle curls up tight."
+        "A beetle waits on the path.",
+        "The beetle stops and stays still."
       ],
       "answer": "Brave builds a leaf tunnel.",
       "kind": "text",

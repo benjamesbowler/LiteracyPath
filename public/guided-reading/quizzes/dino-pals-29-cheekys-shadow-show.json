@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-29-cheekys-shadow-show",
-  "contentHash": "sha256:9ebd40c94d0c316916ee0c7555bbff527b591a6dc7218e7c86ca818250a1f68e",
+  "contentHash": "sha256:a92b891e9ff564af68bd33ce4c2c04f3d37f187bc46f8f10187ee57c25e3e205",
   "questions": [
     {
       "id": "dino-pals-29-cheekys-shadow-show-q1",
       "prompt": "Which event begins Cheeky's Shadow Show?",
       "choices": [
         "Cheeky plans a shadow show beside Big Flat Rock.",
-        "Cheeky waves harder but shows only his feet.",
-        "Fancy adds ears while Wiggly adds a tail."
+        "The noon sun beams straight down. His shadow will not fill the screen.",
+        "Fancy adds ears. Wiggly adds a long tail."
       ],
       "answer": "Cheeky plans a shadow show beside Big Flat Rock.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-29-cheekys-shadow-show-q2",
       "prompt": "Which event shows the first plan fails in Cheeky's Shadow Show?",
       "choices": [
-        "Cheeky waves harder but shows only his feet.",
+        "The noon sun beams straight down. His shadow will not fill the screen.",
         "Cheeky plans a shadow show beside Big Flat Rock.",
-        "Fancy adds ears while Wiggly adds a tail."
+        "Fancy adds ears. Wiggly adds a long tail."
       ],
-      "answer": "Cheeky waves harder but shows only his feet.",
+      "answer": "The noon sun beams straight down. His shadow will not fill the screen.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Cheeky waves harder but shows only his feet. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Cheeky waves harder but shows only his feet."
+      "rationale": "The noon sun beams straight down. His shadow will not fill the screen. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "The noon sun beams straight down. His shadow will not fill the screen."
     },
     {
       "id": "dino-pals-29-cheekys-shadow-show-q3",
       "prompt": "Which event solves the problem in Cheeky's Shadow Show?",
       "choices": [
-        "Fancy adds ears while Wiggly adds a tail.",
+        "Fancy adds ears. Wiggly adds a long tail.",
         "Cheeky plans a shadow show beside Big Flat Rock.",
-        "Cheeky waves harder but shows only his feet."
+        "The noon sun beams straight down. His shadow will not fill the screen."
       ],
-      "answer": "Fancy adds ears while Wiggly adds a tail.",
+      "answer": "Fancy adds ears. Wiggly adds a long tail.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Fancy adds ears while Wiggly adds a tail. This event shows how the central problem is resolved.",
+      "rationale": "Fancy adds ears. Wiggly adds a long tail. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "Fancy adds ears while Wiggly adds a tail."
+      "evidenceText": "Fancy adds ears. Wiggly adds a long tail."
     }
   ]
 }

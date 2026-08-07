@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-08-zippy-slows-down",
-  "contentHash": "sha256:3880f4245a2758424495bde01711d3420fb43cdb311befe1721eaa7f22337f08",
+  "contentHash": "sha256:0da87cd3a96150e753c2d55fb027415253f04c0751d94018e568d4d53bec6cd1",
   "questions": [
     {
       "id": "dino-pals-08-zippy-slows-down-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Zippy races out to find a picnic path.",
         "Zippy stops. Sunny Hollow is nowhere nearby.",
-        "They walk home, naming each turn together."
+        "They walk home. Together, they name each turn."
       ],
       "answer": "Zippy races out to find a picnic path.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Zippy stops. Sunny Hollow is nowhere nearby.",
         "Zippy races out to find a picnic path.",
-        "They walk home, naming each turn together."
+        "They walk home. Together, they name each turn."
       ],
       "answer": "Zippy stops. Sunny Hollow is nowhere nearby.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "dino-pals-08-zippy-slows-down-q3",
       "prompt": "Which event solves the problem in Zippy Slows Down?",
       "choices": [
-        "They walk home, naming each turn together.",
+        "They walk home. Together, they name each turn.",
         "Zippy races out to find a picnic path.",
         "Zippy stops. Sunny Hollow is nowhere nearby."
       ],
-      "answer": "They walk home, naming each turn together.",
+      "answer": "They walk home. Together, they name each turn.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They walk home, naming each turn together. This event shows how the central problem is resolved.",
+      "rationale": "They walk home. Together, they name each turn. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "They walk home, naming each turn together."
+      "evidenceText": "They walk home. Together, they name each turn."
     }
   ]
 }

@@ -51,8 +51,9 @@ Every asset prompt MUST name:
 **Story character:** warm, concrete, farm-scale, playful and immediately readable
 **Locations:** red barn, duck pond, mud wallow, big oak, hill, stone wall, hay, flower
 meadow, little stream
-**Visual language:** bright natural daylight, clean silhouettes, friendly painterly-cartoon
-finish, simple depth, uncluttered focal action
+**Visual language:** bright natural daylight, clean silhouettes, smooth classic
+children's-cartoon finish, simple depth, uncluttered focal action; never embossed,
+grainy, pebbled, relief-like, fake-canvas or over-sharpened
 **Permitted magic:** character traits such as spring legs; no new unexplained magic system
 **Typical goals:** find a hat, follow a map, reach a tree, help a friend, recover one object
 
@@ -66,8 +67,9 @@ story unless a separately approved crossover explicitly explains it.
 dialogue
 **Locations:** Cozy Cave, Berry Bush Corner, Big Flat Rock, Muddy Puddle Pool, stream,
 fernwood and long meadow
-**Visual language:** colourful prehistoric valley, rounded forms, strong material textures,
-large readable gestures
+**Visual language:** colourful prehistoric valley, rounded forms, smooth painted shapes,
+cheerful colour, gentle 2D shading and large readable gestures; never embossed, grainy,
+pebbled, relief-like, fake-canvas, hyper-textured or over-sharpened
 **Permitted magic:** established character anatomy such as Bouncy’s spring legs; otherwise
 events must follow the world’s physical rules
 **Typical goals:** find food, make shelter, repair a mess, help two friends with different
@@ -80,12 +82,22 @@ wants, complete a plan
 earned emotion
 **Locations:** Hollow Oak, Crystal Stream, Fog Marsh, Deep Dark, old roots, glow cave,
 Fern’s garden and star rooms
-**Visual language:** moonlit woodland fantasy with a single approved rendering style,
-coherent scale, controlled glow and rich but readable backgrounds
+**Visual language:** moonlit woodland fantasy in a bright, clean, classic children's-cartoon
+rendering style, with smooth painted shapes, coherent scale, controlled glow and rich but
+readable backgrounds; never embossed, grainy, pebbled, relief-like, fake-canvas,
+hyper-textured or over-sharpened
 **Permitted magic:** only established character abilities, artefacts and rules. A magical
 door or potion must use the same rule throughout its story.
 **Typical goals:** follow a clue, restore or locate a natural light, repair a magical mistake,
 reunite a creature, open a rule-bound door
+**Narrative page profile:** one connected, child-clear paragraph per page, normally 24–34
+words in 2–4 short sentences and intended to wrap to roughly 4–5 reader lines. Every page
+must name the active character or object, explain the immediate cause or reaction, connect
+to the preceding beat and prepare the next. Cryptic fragments, unexplained pronouns and
+compressed report-like summaries are prohibited.
+**Narrative tense and pronouns:** Moonwood book narration uses simple past consistently;
+present tense remains natural inside dialogue or for a stable fact. Glimmer uses they/them
+pronouns in every book.
 
 “It is magic” is not a substitute for cause and effect.
 
@@ -110,7 +122,7 @@ visual source of truth wherever one exists.
 | `MEADOW-TINY` | Very small grey field mouse; smallest recurring Meadow character | Resourceful and willing; size changes how a problem is solved | Draw at Shy’s or Clucky’s scale, change identity with Shy, or make “small” equal helpless |
 | `MEADOW-BRAVE` | Small yellow chick; smaller than Clucky and Woolly | Bold, curious and action-first; can get physically stuck after trying | Make Brave fearless, adult-sized or visually interchangeable with Splashy |
 | `MEADOW-WOOLLY` | Cream/yellow lamb; natural wool silhouette; established bell/ribbon only when the story state permits it | Gentle, patient and steady | Confuse with Meadow Bouncy, move the bell between pages without an action, or change species |
-| `MEADOW-GRUMPY` | Use the approved Meadow Pals model sheet; keep the same species, gruff face, palette and scale | Values quiet, privacy and direct boundaries; kindness is shown through concrete choices | Treat boundaries as bad behaviour, force cheerfulness, or confuse with Dino Grumpy |
+| `MEADOW-GRUMPY` | Short, stocky dark-brown goat; two straight backward-leaning tan horns, white muzzle, small white chin beard, white chest patch and tail tip, black hooves and compact quadruped proportions; never the retired curled-horn ram | Values quiet, privacy and direct boundaries; kindness is shown through concrete choices | Treat boundaries as bad behavior, force cheerfulness, confuse with Dino Grumpy, use curled ram horns or shift to an upright human-like body |
 | `MEADOW-SLEEPY` | Use the approved Meadow Pals model sheet; bed and sleep props appear only when the scene requires them | Slow, comfort-loving and imaginative; sleep creates practical story problems | Shame sleep, use laziness as the lesson, or teleport the bed |
 | `MEADOW-NOISY` | Use the approved Meadow Pals model sheet; preserve species, palette and silhouette | Enthusiastic and loud; learns to match voice size to place and need | Make volume a moral defect or solve every scene by silencing Noisy |
 | `MEADOW-GIGGLY` | Use the approved Meadow Pals model sheet; preserve species, palette and face markings | Finds humour quickly; can pause, notice consequences and repair a mess | Make laughter cruel, uncontrolled on every page, or a substitute for action |
@@ -120,21 +132,21 @@ visual source of truth wherever one exists.
 
 | Canon ID | Fixed identity and appearance | Personality and story engine | Never do |
 |---|---|---|---|
-| `DINO-BOUNCY` | Small lime-green dinosaur with coil-spring legs; **not the Meadow lamb** | Exuberant, physical and accident-prone; owns and repairs consequences | Use Meadow sheep art, omit feet, or make every bounce harmless |
+| `DINO-BOUNCY` | Small lime-green dome-headed dinosaur with exactly two arms and exactly two green three-toed feet, each foot attached above its own separate silver coil spring; **not the Meadow lamb** | Exuberant, physical and accident-prone; owns and repairs consequences | Use Meadow sheep art, merge or omit the two springs, omit either foot, add ordinary hind legs, or make every bounce harmless |
 | `DINO-CHOMPY` | Orange young tyrannosaur; pale muzzle/belly; established white neckerchief | Big appetite, confident optimism and generosity when others join | Reduce him to greed, change scarf without story cause, or let the lunch plot end without food |
-| `DINO-GRUMPY` | Low, heavy grey ankylosaur; tan armour plates; club tail; no shell | Dry, solitary and particular; communicates boundaries through action and short speech | Add a turtle shell, make him secretly smile on every page, or use “grumpy” as moral failure |
+| `DINO-GRUMPY` | Low, heavy gray ankylosaur; tan armor plates; four short sturdy legs; brown club tail; no shell and never an upright human-like body | Dry, solitary and particular; communicates boundaries through action and short speech | Add a turtle shell, stand him upright, change his body scale or face between books, make him secretly smile on every page, or use “grumpy” as moral failure |
 | `DINO-SUNNY` | Yellow/orange triceratops; fixed horns and frill; leaf cape only where canon shows it | Playful and hopeful; can misread another character’s need, then repair the mistake | Make optimism magically solve everything or change cape continuity |
-| `DINO-DOZY` | Purple sleepy dinosaur; blue pillow is a recurring comfort prop | Slow, comfort-seeking and easily awakened | Use sleep as laziness, teleport the pillow, or change the pillow into a saddle |
-| `DINO-WIGGLY` | Use the approved Dino Pals model sheet; body, colour and silhouette must match it exactly | Movement-led, social and reactive; only use traits evidenced by an approved story | Invent a new species, body plan or “wacky” personality to fill a scene |
-| `DINO-FANCY` | Purple plated dinosaur in current approved art; preserve plate shape, palette and scale | Expressive and exacting; wants visible things arranged, restored or made taller | Make “fancy” mean vain, give no concrete want, or alter plate count between pages |
+| `DINO-DOZY` | Lavender-purple young stegosaur with fixed rounded plates and sleepy half-closed eyes; small blue pillow appears only when the story state shows it moving or being carried | Slow, comfort-seeking and easily awakened | Use sleep as laziness, teleport the pillow, change plate shape, or turn the pillow into a saddle |
+| `DINO-WIGGLY` | Pale-blue young diplodocus with darker blue oval spots, four natural feet, long neck and one long wavy tail; no back plates | Movement-led, social and reactive; only use traits evidenced by an approved story | Invent a new species or body plan, add plates, duplicate the tail, or change palette and scale between books |
+| `DINO-FANCY` | Lavender-purple young stegosaur with darker purple oval spots, four sturdy feet and fixed leaf-shaped dorsal plates; no sail or wings | Expressive and exacting; wants visible things arranged, restored or made taller | Make “fancy” mean vain, give no concrete want, turn plates into a single sail, or alter plate shape and scale between pages |
 | `DINO-BOSSY` | Teal young pterodactyl; pink wing membranes; leaf clipboard and reed megaphone only when carried | Loves plans and clear roles; learns to invite ideas without losing organisational strength | Make leadership a flaw, teleport props, or change wing colours |
 | `DINO-ZIPPY` | Red-and-yellow young velociraptor; fixed rainbow scarf | Fast, curious and easily carried past the plan by momentum | Remove the scarf without a beat, make speed flawless, or confuse with Meadow Speedy |
 | `DINO-HONKY` | Coral young parasaurolophus; large fixed rainbow crest | Has a powerful voice and learns when it helps or overwhelms | Treat loudness as shameful or change crest shape/palette |
 | `DINO-CHEEKY` | Purple young oviraptor; orange spots; expressive grin | Wants shared laughter; can notice when a prank is not shared and repair it | Reward humiliating jokes, skip apology/repair, or change spot pattern |
-| `DINO-CLUMSY` | Use the approved Dino Pals model sheet; lock species, palette and scale before generation | Movement mistakes may create problems, but careful observation can make the same body useful | Use the name as ridicule or make accidents the entire personality |
-| `DINO-FLAPPY` | Use the approved Dino Pals model sheet; lock wing/body anatomy before generation | Flight or flapping must solve a concrete spatial problem within plausible limits | Change species between pages or grant unexplained powers |
-| `DINO-SNEEZY` | Use the approved Dino Pals model sheet; lock species, palette and scale before generation | A sneeze can trigger physical comedy; Sneezy can prepare, warn and repair | Treat sneezing as deliberate wrongdoing or use it as a random reset button |
-| `DINO-SHY` | Use the approved Dino Pals model sheet; visually distinct from Meadow Shy | Quiet and observant; contributes through noticed evidence or a considered action | Treat quietness as failure or reuse Meadow mouse art |
+| `DINO-CLUMSY` | Tall sky-blue long-necked young dinosaur with darker blue oval spots, four sturdy feet and one long tapering tail; no back plates | Movement mistakes may create problems, but careful observation can make the same body useful | Use the name as ridicule, make accidents the entire personality, change to yellow, or add plates or wings |
+| `DINO-FLAPPY` | Small feathered orange-brown young dinosaur with cream belly, long feathered wings tipped tan-blue and stable clawed feet | Flight or flapping must solve a concrete spatial problem within plausible short-glide limits | Change into a plain bird or pterodactyl between pages, omit the feathered body plan, or grant unexplained powers |
+| `DINO-SNEEZY` | Small yellow-green young parasaurolophus with one backward-curving green crest, darker green spots and four natural feet | A sneeze can trigger physical comedy; Sneezy can prepare, warn and repair | Treat sneezing as deliberate wrongdoing, change into a long-necked dinosaur, alter the crest, or use a sneeze as a random reset button |
+| `DINO-SHY` | Small mint-green long-necked young dinosaur with darker teal oval spots, short smooth head, four sturdy feet and one slender tail; no back plates; visually distinct from Meadow Shy | Quiet and observant; contributes through noticed evidence or a considered action | Treat quietness as failure, reuse Meadow mouse art, change to pink, or crop the character so severely that identity cannot be read |
 
 ### 3.3 Moonwood Tales
 
@@ -169,12 +181,12 @@ with a recurring character.
 
 | Canon ID | Fixed identity and appearance | Personality and story rule |
 |---|---|---|
-| `HUMAN-BOB` | Age 4–5; short black hair, red T-shirt, blue shorts, white socks, red shoes | Direct, active early reader; goals and feelings must be shown in concrete actions |
-| `HUMAN-NAN` | Age 4–5; blonde bob, red dress, white socks, red shoes | Equal problem-solver; never reduced to watching Bob act |
-| `HUMAN-FLUFF` | Small fluffy brown puppy introduced in Bob and Nan book 3 | Behaves like a puppy; care, ownership and vet stories remain safe and adult-supported |
+| `HUMAN-BOB` | Age 4–5; short black hair, green eyes, blue T-shirt, white shorts, blue socks and white shoes | Direct, active early reader; goals and feelings must be shown in concrete actions |
+| `HUMAN-NAN` | Age 4–5; long blonde hair, blue eyes, red dress with white collar, yellow socks and green shoes | Equal problem-solver; never reduced to watching Bob act |
+| `HUMAN-FLUFF` | Small round shaggy warm-brown puppy; floppy rounded ears, large brown eyes and short dark muzzle; introduced in Bob and Nan book 3 | Behaves like a puppy; care, ownership and vet stories remain safe and adult-supported |
 | `HUMAN-MUM` | Approved Bob and Nan family adult model | Supports safety and access without taking the child-sized problem away |
-| `HUMAN-JAMES` | Age 5–6; brown skin, close-cropped black hair, green-and-white striped T-shirt, blue shorts, white socks, red trainers | Curious and practical; shares agency with Anna |
-| `HUMAN-ANNA` | Age 5–6; light skin, chestnut hair in two bunches, yellow pinafore over white top, white socks, red shoes | Observant and inventive; shares agency with James |
+| `HUMAN-JAMES` | Age 5–6; fair skin, curly red hair, green-and-white striped T-shirt, navy shorts, white socks and red sneakers; preserve the established active Guided Reading model | Curious and practical; shares agency with Anna |
+| `HUMAN-ANNA` | Age 5–6; warm medium-brown skin, dark hair in two high pigtails with yellow ties, yellow star T-shirt, purple pants and purple sneakers; preserve the established active Guided Reading model | Observant and inventive; shares agency with James |
 | `HUMAN-CHIPS` | Small white goat; large brown patches, yellow eyes, short horns, floppy ears, blue collar and bell | Goat behaviour creates physical, solvable complications; no speech or magic |
 | `HUMAN-ZIM` | Tiny lime-green alien; three black eyes, stick limbs, one antenna, wide grin | Appears only where the space story establishes him; abilities require visible rules |
 | `HUMAN-AIDEN` | Age 6–7; fair skin, freckles, sandy-blonde hair, orange lightning-bolt hoodie, dark grey trousers, white trainers with orange laces | Energetic and idea-led; can test and revise a plan |
@@ -232,6 +244,9 @@ Every multi-character image prompt MUST state relative height in words or ratios
 
 ### 5.1 Every page image must
 
+- use bright, clean, classic children's-cartoon rendering with smooth color, crisp
+  silhouettes and controlled shading; reject embossed, grainy, pebbled, relief-like,
+  fake-canvas, hyper-textured or over-sharpened finishes;
 - depict the exact current story beat;
 - show the protagonist and the state object when the text depends on them;
 - preserve character model, colour, markings, clothing and scale;

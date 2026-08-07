@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-26",
-  "contentHash": "sha256:9d7558ad3d119a7fe8e604fafa804dc10831f0da7ddc50d65818053f1b9c7d60",
+  "contentHash": "sha256:1b6cf47dc0fb71d80b2d96133b3aed93eebe7e96e03d58b704826254d60d2e7d",
   "questions": [
     {
       "id": "moonwood-tales-c-26-q1",
       "prompt": "Which event introduces the situation in Pip and the Bell Below?",
       "choices": [
-        "A bell rings under Hollow Oak although nobody pulls its rope.",
-        "He holds the rope still but the bell rings harder.",
-        "He loops the loose rope around one smooth root peg."
+        "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
+        "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
+        "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight."
       ],
-      "answer": "A bell rings under Hollow Oak although nobody pulls its rope.",
+      "answer": "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "A bell rings under Hollow Oak although nobody pulls its rope."
+      "evidenceText": "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?"
     },
     {
       "id": "moonwood-tales-c-26-q2",
       "prompt": "Which event shows that the first attempt fails in Pip and the Bell Below?",
       "choices": [
-        "He holds the rope still but the bell rings harder.",
-        "A bell rings under Hollow Oak although nobody pulls its rope.",
-        "He loops the loose rope around one smooth root peg."
+        "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
+        "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
+        "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight."
       ],
-      "answer": "He holds the rope still but the bell rings harder.",
+      "answer": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "He holds the rope still but the bell rings harder. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "He holds the rope still but the bell rings harder."
+      "evidenceText": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more."
     },
     {
       "id": "moonwood-tales-c-26-q3",
       "prompt": "Which event resolves the central problem in Pip and the Bell Below?",
       "choices": [
-        "He loops the loose rope around one smooth root peg.",
-        "A bell rings under Hollow Oak although nobody pulls its rope.",
-        "He holds the rope still but the bell rings harder."
+        "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight.",
+        "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
+        "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more."
       ],
-      "answer": "He loops the loose rope around one smooth root peg.",
+      "answer": "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "He loops the loose rope around one smooth root peg. This event shows how the central problem is resolved.",
+      "rationale": "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "He loops the loose rope around one smooth root peg."
+      "evidenceText": "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight."
     }
   ]
 }

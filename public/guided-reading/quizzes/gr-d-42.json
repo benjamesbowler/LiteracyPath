@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-d-42",
-  "contentHash": "sha256:de14b703bc4f5caa3a8c368a6ccbd951edec71be1b27aeea94fc587a2dedb37f",
+  "contentHash": "sha256:88a7525ce610a593c6a5884db5a53f218ee77ddf88734cfc80d867a838db8c7e",
   "questions": [
     {
       "id": "gr-d-42-q1",
-      "prompt": "Which planet is our home?",
+      "prompt": "Where is our home?",
       "choices": [
-        "Earth is our home planet.",
-        "Mars is our home planet.",
-        "Jupiter is our home planet."
+        "Earth is our home in space.",
+        "Mars is our home in space.",
+        "The Moon is our home in space."
       ],
-      "answer": "Earth is our home planet.",
+      "answer": "Earth is our home in space.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Earth is our home planet."
+      "evidenceText": "Earth is our home in space."
     },
     {
       "id": "gr-d-42-q2",
-      "prompt": "Which sentence tells about mountains in Our Earth?",
+      "prompt": "Which sentence tells about high peaks in Our Earth?",
       "choices": [
-        "Mountains rise above the land.",
-        "Earth is our home planet.",
-        "People share and care for Earth."
+        "High peaks rise from the land.",
+        "Earth is our home in space.",
+        "We can help keep our shared home clean."
       ],
-      "answer": "Mountains rise above the land.",
+      "answer": "High peaks rise from the land.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Mountains rise above the land."
+      "evidenceText": "High peaks rise from the land."
     },
     {
       "id": "gr-d-42-q3",
       "prompt": "What is the big idea of Our Earth?",
       "choices": [
-        "People share and care for Earth.",
-        "Only Earth is our home planet.",
-        "Only mountains rise above the land."
+        "We can help keep our shared home clean.",
+        "Only Earth is our home in space.",
+        "Only high peaks rise from the land."
       ],
-      "answer": "People share and care for Earth.",
+      "answer": "We can help keep our shared home clean.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Earth is our home planet. Mountains rise above the land. People share and care for Earth. Together, these facts show the whole-book big idea: People share and care for Earth.",
+      "rationale": "Earth is our home in space. High peaks rise from the land. We can help keep our shared home clean. Together, these facts show the whole-book big idea: We can help keep our shared home clean.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Earth is our home planet."
+          "evidenceText": "Earth is our home in space."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Mountains rise above the land."
+          "evidenceText": "High peaks rise from the land."
         }
       ],
       "distractorRationales": {
-        "Only Earth is our home planet.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only mountains rise above the land.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only Earth is our home in space.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only high peaks rise from the land.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "People share and care for Earth."
+      "evidenceText": "We can help keep our shared home clean."
     }
   ]
 }

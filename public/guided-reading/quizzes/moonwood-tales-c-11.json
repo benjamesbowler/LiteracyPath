@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-11",
-  "contentHash": "sha256:b47baeeb5ac813180e862e9579d4ec1a3b1960b977cb94e628e39ce20d03a355",
+  "contentHash": "sha256:3936343ad5b70d109e76bb88c141f390dce521f1ba487b2efe6a689a1a1da867",
   "questions": [
     {
       "id": "moonwood-tales-c-11-q1",
       "prompt": "Which event introduces the situation in Pip and Stone and the Loud Thing?",
       "choices": [
-        "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
-        "His first boom makes it hide. Three softer calls bring three answers.",
-        "Back home, Pip and Stone hear the reunited marsh family singing."
+        "Pip and Stone were resting outside when a huge sound rolled from Fog Marsh. It rattled the leaves, and both friends turned toward the distant reeds.",
+        "Stone's first call still boomed, and the toadling hid behind its rock. He tried three softer calls, and three gentle answers came across the water.",
+        "The toadling's family gathered around the mossy rock and sang together. Walking home, Pip and Stone could still hear their happy marsh song behind them."
       ],
-      "answer": "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
+      "answer": "Pip and Stone were resting outside when a huge sound rolled from Fog Marsh. It rattled the leaves, and both friends turned toward the distant reeds.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "A huge sound rolls from Fog Marsh while Pip and Stone sit outside."
+      "evidenceText": "Pip and Stone were resting outside when a huge sound rolled from Fog Marsh. It rattled the leaves, and both friends turned toward the distant reeds."
     },
     {
       "id": "moonwood-tales-c-11-q2",
       "prompt": "Which event shows that the first attempt fails in Pip and Stone and the Loud Thing?",
       "choices": [
-        "His first boom makes it hide. Three softer calls bring three answers.",
-        "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
-        "Back home, Pip and Stone hear the reunited marsh family singing."
+        "Stone's first call still boomed, and the toadling hid behind its rock. He tried three softer calls, and three gentle answers came across the water.",
+        "Pip and Stone were resting outside when a huge sound rolled from Fog Marsh. It rattled the leaves, and both friends turned toward the distant reeds.",
+        "The toadling's family gathered around the mossy rock and sang together. Walking home, Pip and Stone could still hear their happy marsh song behind them."
       ],
-      "answer": "His first boom makes it hide. Three softer calls bring three answers.",
+      "answer": "Stone's first call still boomed, and the toadling hid behind its rock. He tried three softer calls, and three gentle answers came across the water.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "His first boom makes it hide. Three softer calls bring three answers. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Stone's first call still boomed, and the toadling hid behind its rock. He tried three softer calls, and three gentle answers came across the water. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 11,
-      "evidenceText": "His first boom makes it hide. Three softer calls bring three answers."
+      "evidenceText": "Stone's first call still boomed, and the toadling hid behind its rock. He tried three softer calls, and three gentle answers came across the water."
     },
     {
       "id": "moonwood-tales-c-11-q3",
       "prompt": "Which event resolves the central problem in Pip and Stone and the Loud Thing?",
       "choices": [
-        "Back home, Pip and Stone hear the reunited marsh family singing.",
-        "A huge sound rolls from Fog Marsh while Pip and Stone sit outside.",
-        "His first boom makes it hide. Three softer calls bring three answers."
+        "The toadling's family gathered around the mossy rock and sang together. Walking home, Pip and Stone could still hear their happy marsh song behind them.",
+        "Pip and Stone were resting outside when a huge sound rolled from Fog Marsh. It rattled the leaves, and both friends turned toward the distant reeds.",
+        "Stone's first call still boomed, and the toadling hid behind its rock. He tried three softer calls, and three gentle answers came across the water."
       ],
-      "answer": "Back home, Pip and Stone hear the reunited marsh family singing.",
+      "answer": "The toadling's family gathered around the mossy rock and sang together. Walking home, Pip and Stone could still hear their happy marsh song behind them.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Back home, Pip and Stone hear the reunited marsh family singing. This event shows how the central problem is resolved.",
+      "rationale": "The toadling's family gathered around the mossy rock and sang together. Walking home, Pip and Stone could still hear their happy marsh song behind them. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Back home, Pip and Stone hear the reunited marsh family singing."
+      "evidenceText": "The toadling's family gathered around the mossy rock and sang together. Walking home, Pip and Stone could still hear their happy marsh song behind them."
     }
   ]
 }

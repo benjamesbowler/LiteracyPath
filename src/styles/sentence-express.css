@@ -344,7 +344,7 @@ button.sx-carbox:active { transform: translateY(2px); }
 .sx-optionrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 
 .sx-plate {
-  min-width: 74px; padding: 12px 14px;
+  min-width: 74px; min-height: 56px; padding: 12px 14px;
   background: linear-gradient(#4b5666, #333c49);
   color: #fff; font-family: inherit; font-weight: 700; font-size: 17px;
   border: 3px solid var(--sx-ink); border-radius: 8px;
@@ -352,7 +352,7 @@ button.sx-carbox:active { transform: translateY(2px); }
   cursor: pointer;
 }
 .sx-crate {
-  min-width: 70px; padding: 14px 12px;
+  min-width: 70px; min-height: 56px; padding: 14px 12px;
   background:
     repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0 2px, transparent 2px 12px),
     linear-gradient(#b07c3f, #8a5f2c);
@@ -391,6 +391,7 @@ button.sx-carbox:active { transform: translateY(2px); }
   background: #2f6b4f; color: #fff; border: 2px solid var(--sx-ink);
   border-radius: 999px; padding: 6px 14px;
   font-family: inherit; font-weight: 700; font-size: 12.5px; cursor: pointer;
+  min-height: 56px;
 }
 .sx-bell:active { transform: scale(0.95); }
 
@@ -404,6 +405,7 @@ button.sx-carbox:active { transform: translateY(2px); }
   padding: 10px 16px 9px;
   box-shadow: 5px 5px 0 rgba(10, 15, 24, 0.45);
   opacity: 0.55; cursor: pointer;
+  min-width: 56px; min-height: 56px;
 }
 .sx-lever small { font-size: 9.5px; font-weight: 600; opacity: 0.9; }
 .sx-leverarm {
@@ -484,6 +486,12 @@ button.sx-carbox:active { transform: translateY(2px); }
   padding: 11px 22px; font-family: inherit; font-weight: 700; font-size: 15px;
   letter-spacing: 1px; cursor: pointer;
   box-shadow: 4px 4px 0 rgba(10, 15, 24, 0.45);
+  min-height: 56px;
+}
+.sx-stage :where(button, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 4px solid #fff7b2;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--sx-ink);
 }
 .sx-golden:active { transform: translateY(2px); box-shadow: 2px 2px 0 rgba(10, 15, 24, 0.45); }
 

@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-12-hungry-eats-everything",
-  "contentHash": "sha256:2a53e902212733bf70ed7f70c5085894f437e5dedb593126334e7db4229a307f",
+  "contentHash": "sha256:9db4bb4dbde715202ed0578f4f0b6bbca5762b0a4a939fe715113d96c1aecc16",
   "questions": [
     {
       "id": "meadow-pals-12-hungry-eats-everything-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Hungry eats some grass.",
         "Hungry is still hungry.",
-        "Hungry feels full now."
+        "Hungry feels full and happy now!"
       ],
       "answer": "Hungry eats some grass.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Hungry is still hungry.",
         "Hungry eats some grass.",
-        "Hungry feels full now."
+        "Hungry feels full and happy now!"
       ],
       "answer": "Hungry is still hungry.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-12-hungry-eats-everything-q3",
       "prompt": "What happens at the end of Hungry Finds Lunch?",
       "choices": [
-        "Hungry feels full now.",
+        "Hungry feels full and happy now!",
         "Hungry eats some grass.",
         "Hungry is still hungry."
       ],
-      "answer": "Hungry feels full now.",
+      "answer": "Hungry feels full and happy now!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Hungry feels full now. This event shows how the central problem is resolved.",
+      "rationale": "Hungry feels full and happy now! This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "Hungry feels full now."
+      "evidenceText": "Hungry feels full and happy now!"
     }
   ]
 }

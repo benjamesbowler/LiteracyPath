@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-09-honkys-inside-voice",
-  "contentHash": "sha256:a2f102cc2963225462385c1fcc929383d4a622eef52bad29d28f94dd480b23b0",
+  "contentHash": "sha256:4ebed457604bf035e3b61f5d1d352a381ec3d0647e517f4fbab94e0eff28506d",
   "questions": [
     {
       "id": "dino-pals-09-honkys-inside-voice-q1",
       "prompt": "Which event begins Honky's Inside Voice?",
       "choices": [
-        "Honky's morning greeting shakes leaves onto breakfast.",
-        "Thunder wakes Dozy as rain covers the paths.",
-        "Inside, Honky whispers, \"We are all here.\""
+        "Honky calls. Leaves drop on the food.",
+        "BOOM! Dozy jumps. Rain floods the paths.",
+        "In the cave, Honky says, \"We are all here.\""
       ],
-      "answer": "Honky's morning greeting shakes leaves onto breakfast.",
+      "answer": "Honky calls. Leaves drop on the food.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Honky's morning greeting shakes leaves onto breakfast."
+      "evidenceText": "Honky calls. Leaves drop on the food."
     },
     {
       "id": "dino-pals-09-honkys-inside-voice-q2",
       "prompt": "Which event shows the first plan fails in Honky's Inside Voice?",
       "choices": [
-        "Thunder wakes Dozy as rain covers the paths.",
-        "Honky's morning greeting shakes leaves onto breakfast.",
-        "Inside, Honky whispers, \"We are all here.\""
+        "BOOM! Dozy jumps. Rain floods the paths.",
+        "Honky calls. Leaves drop on the food.",
+        "In the cave, Honky says, \"We are all here.\""
       ],
-      "answer": "Thunder wakes Dozy as rain covers the paths.",
+      "answer": "BOOM! Dozy jumps. Rain floods the paths.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Thunder wakes Dozy as rain covers the paths. This shows that the first attempt does not solve the central problem.",
+      "rationale": "BOOM! Dozy jumps. Rain floods the paths. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Thunder wakes Dozy as rain covers the paths."
+      "evidenceText": "BOOM! Dozy jumps. Rain floods the paths."
     },
     {
       "id": "dino-pals-09-honkys-inside-voice-q3",
       "prompt": "Which event solves the problem in Honky's Inside Voice?",
       "choices": [
-        "Inside, Honky whispers, \"We are all here.\"",
-        "Honky's morning greeting shakes leaves onto breakfast.",
-        "Thunder wakes Dozy as rain covers the paths."
+        "In the cave, Honky says, \"We are all here.\"",
+        "Honky calls. Leaves drop on the food.",
+        "BOOM! Dozy jumps. Rain floods the paths."
       ],
-      "answer": "Inside, Honky whispers, \"We are all here.\"",
+      "answer": "In the cave, Honky says, \"We are all here.\"",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Inside, Honky whispers, \"We are all here.\" This event shows how the central problem is resolved.",
+      "rationale": "In the cave, Honky says, \"We are all here.\" This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Inside, Honky whispers, \"We are all here.\""
+      "evidenceText": "In the cave, Honky says, \"We are all here.\""
     }
   ]
 }

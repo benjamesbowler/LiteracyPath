@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-31",
-  "contentHash": "sha256:9f0a6f53ada61d7ac056b96d2ad97e51d33ed0063db02037ccc772bd280ad55b",
+  "contentHash": "sha256:034f5ebb1531f3a11021354b76fe9d1b69cb6824b0a921c76e7252deaa7f0d58",
   "questions": [
     {
       "id": "gr-b-31-q1",
-      "prompt": "Which sentence tells about spring in Seasons?",
+      "prompt": "What can spring bring in some places?",
       "choices": [
-        "In many temperate places spring brings rain.",
-        "Many leaves change colour in autumn.",
-        "The four seasons repeat each year."
+        "In some places, spring brings buds and rain.",
+        "In some places, spring stops every plant.",
+        "In some places, spring brings only snow."
       ],
-      "answer": "In many temperate places spring brings rain.",
+      "answer": "In some places, spring brings buds and rain.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "In many temperate places spring brings rain."
+      "evidenceText": "In some places, spring brings buds and rain."
     },
     {
       "id": "gr-b-31-q2",
       "prompt": "Which sentence tells about many leaves in Seasons?",
       "choices": [
-        "Many leaves change colour in autumn.",
-        "In many temperate places spring brings rain.",
-        "The four seasons repeat each year."
+        "In fall, many leaves change color.",
+        "In some places, spring brings buds and rain.",
+        "After winter, spring begins the changing pattern again."
       ],
-      "answer": "Many leaves change colour in autumn.",
+      "answer": "In fall, many leaves change color.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Many leaves change colour in autumn."
+      "evidenceText": "In fall, many leaves change color."
     },
     {
       "id": "gr-b-31-q3",
       "prompt": "What is the big idea of Seasons?",
       "choices": [
-        "The four seasons repeat each year.",
-        "Only summer often brings longer warm days.",
-        "Only winter can bring frost or snow."
+        "After winter, spring begins the changing pattern again.",
+        "Only summer sunshine lasts late into the day.",
+        "Only winter air may bring frost or snow."
       ],
-      "answer": "The four seasons repeat each year.",
+      "answer": "After winter, spring begins the changing pattern again.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "In many temperate places spring brings rain. Many leaves change colour in autumn. The four seasons repeat each year. Together, these facts show the whole-book big idea: The four seasons repeat each year.",
+      "rationale": "In some places, spring brings buds and rain. In fall, many leaves change color. After winter, spring begins the changing pattern again. Together, these facts show the whole-book big idea: After winter, spring begins the changing pattern again.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "In many temperate places spring brings rain."
+          "evidenceText": "In some places, spring brings buds and rain."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Many leaves change colour in autumn."
+          "evidenceText": "In fall, many leaves change color."
         }
       ],
       "distractorRationales": {
-        "Only summer often brings longer warm days.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only winter can bring frost or snow.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only summer sunshine lasts late into the day.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only winter air may bring frost or snow.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "The four seasons repeat each year."
+      "evidenceText": "After winter, spring begins the changing pattern again."
     }
   ]
 }

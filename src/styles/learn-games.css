@@ -279,6 +279,24 @@
   font-weight: 600;
 }
 
+.lg-game-player-center {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.lg-game-mission {
+  overflow: hidden;
+  margin: 0;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .lg-game-header-meter > div,
 .lg-game-meter > div {
   height: 6px;
@@ -358,6 +376,7 @@
 }
 
 .lg-sound-toggle svg,
+.lg-phinny-help svg,
 .lg-game-close svg {
   width: 20px;
   height: 20px;
@@ -366,6 +385,130 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2.3;
+}
+
+.lg-premium-guide > div,
+.lg-premium-complete > div {
+  width: min(100%, 560px);
+  gap: 16px;
+  text-align: left;
+}
+
+.lg-premium-guide-kicker {
+  color: var(--game-accent);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lg-premium-guide h2,
+.lg-premium-complete h2 {
+  text-wrap: balance;
+}
+
+.lg-premium-guide dl,
+.lg-premium-guide ul {
+  margin: 0;
+}
+
+.lg-premium-guide dl {
+  display: grid;
+  gap: 10px;
+}
+
+.lg-premium-guide dl > div {
+  display: grid;
+  justify-content: stretch;
+  gap: 2px;
+  border-left: 3px solid color-mix(in srgb, var(--game-accent), transparent 22%);
+  padding-left: 12px;
+}
+
+.lg-premium-guide dt {
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lg-premium-guide dd {
+  margin: 0;
+  color: #0F172A;
+  font-size: 0.94rem;
+  font-weight: 650;
+  line-height: 1.42;
+}
+
+.lg-premium-guide ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.lg-premium-guide li {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--lg-border);
+  background: var(--game-accent-soft);
+  color: #0F172A;
+  font-size: 0.86rem;
+  font-weight: 750;
+  line-height: 1.3;
+  padding: 10px 12px;
+}
+
+.lg-premium-guide .lg-premium-guide-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.lg-game-confirm button.primary {
+  border-color: var(--game-accent);
+  background: var(--game-accent);
+  color: #ffffff;
+}
+
+.lg-premium-complete > div {
+  justify-items: center;
+  text-align: center;
+}
+
+.lg-premium-complete .lg-progress-stars span {
+  color: rgba(203, 213, 225, 0.46);
+  font-size: 2.35rem;
+}
+
+.lg-premium-complete .lg-progress-stars span.earned {
+  color: rgb(246, 197, 75);
+}
+
+.lg-premium-complete-stat {
+  min-width: 180px;
+  display: grid !important;
+  justify-items: center;
+  gap: 1px !important;
+  border: 1px solid var(--lg-border);
+  background: var(--game-accent-soft);
+  padding: 12px 18px;
+}
+
+.lg-premium-complete-stat strong {
+  color: var(--game-accent);
+  font-size: 1.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.lg-premium-complete-stat span {
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: lowercase;
 }
 
 .lg-game-player-main {
@@ -871,6 +1014,10 @@
   .lg-game-player-actions {
     justify-content: space-between;
   }
+
+  .lg-premium-guide ul {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Round 2 polish: memory cards, balloons, compact arcade ──────────────── */
@@ -1299,6 +1446,11 @@
   box-shadow: inset 0 0 18px rgba(84, 224, 210, 0.08);
 }
 
+.lg-game-player[data-fullbleed] .lg-game-mission {
+  color: rgb(223, 240, 250);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.42);
+}
+
 .lg-game-player[data-fullbleed] .lg-game-header-meter {
   color: rgb(191, 211, 230);
   font-weight: 800;
@@ -1322,6 +1474,11 @@
 .lg-game-player[data-fullbleed] .lg-sound-toggle,
 .lg-game-player[data-fullbleed] .lg-phinny-help,
 .lg-game-player[data-fullbleed] .lg-game-close {
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  min-height: 56px;
+  flex-basis: 56px;
   border: 1px solid rgba(116, 221, 255, 0.24);
   border-radius: 0;
   background:
@@ -1330,6 +1487,22 @@
   clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
   box-shadow: 0 5px 0 rgba(0, 5, 18, 0.78), inset 0 0 12px rgba(255, 255, 255, 0.04);
   transition: transform 120ms ease-out, box-shadow 120ms ease-out, border-color 120ms ease-out, filter 120ms ease-out;
+}
+
+.lg-game-player[data-fullbleed] .lg-premium-guide li,
+.lg-game-player[data-fullbleed] .lg-premium-complete-stat {
+  border-color: rgba(116, 221, 255, 0.28);
+  background: rgba(29, 56, 86, 0.72);
+  color: rgb(247, 251, 255);
+}
+
+.lg-game-player[data-fullbleed] .lg-premium-guide dt,
+.lg-game-player[data-fullbleed] .lg-premium-complete-stat span {
+  color: rgb(191, 211, 230);
+}
+
+.lg-game-player[data-fullbleed] .lg-premium-guide dd {
+  color: rgb(247, 251, 255);
 }
 
 .lg-game-player[data-fullbleed] .lg-sound-toggle.enabled {

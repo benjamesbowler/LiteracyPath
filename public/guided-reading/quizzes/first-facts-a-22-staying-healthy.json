@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-22-staying-healthy",
-  "contentHash": "sha256:9108deae04bd67b6c526aee1852f0f1a4233964b217597c4926d0019ed298d58",
+  "contentHash": "sha256:6d60b72c0f904980d96bfa850ce092e8569b02367361c04542a6d0a3a42fb364",
   "questions": [
     {
       "id": "first-facts-a-22-staying-healthy-q1",
-      "prompt": "Which fact is introduced first in Habits That Support Health?",
+      "prompt": "Which fact is introduced first in Healthy Habits?",
       "choices": [
-        "Eating varied foods gives our bodies nutrients.",
-        "Movement can strengthen hearts muscles and bones.",
-        "Small repeated habits can support health."
+        "Different foods give our bodies different nutrients.",
+        "Active play gets hearts and muscles moving.",
+        "Small healthy habits add up each day."
       ],
-      "answer": "Eating varied foods gives our bodies nutrients.",
+      "answer": "Different foods give our bodies different nutrients.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Eating varied foods gives our bodies nutrients."
+      "evidenceText": "Different foods give our bodies different nutrients."
     },
     {
       "id": "first-facts-a-22-staying-healthy-q2",
-      "prompt": "Which sentence tells about movement in Habits That Support Health?",
+      "prompt": "Which sentence tells about active in Healthy Habits?",
       "choices": [
-        "Movement can strengthen hearts muscles and bones.",
-        "Eating varied foods gives our bodies nutrients.",
-        "Small repeated habits can support health."
+        "Active play gets hearts and muscles moving.",
+        "Different foods give our bodies different nutrients.",
+        "Small healthy habits add up each day."
       ],
-      "answer": "Movement can strengthen hearts muscles and bones.",
+      "answer": "Active play gets hearts and muscles moving.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Movement can strengthen hearts muscles and bones."
+      "evidenceText": "Active play gets hearts and muscles moving."
     },
     {
       "id": "first-facts-a-22-staying-healthy-q3",
-      "prompt": "What is the big idea of Habits That Support Health?",
+      "prompt": "What is the big idea of Healthy Habits?",
       "choices": [
-        "Small repeated habits can support health.",
-        "Only eating varied foods gives our bodies nutrients.",
-        "Only movement can strengthen hearts muscles and bones."
+        "Small healthy habits add up each day.",
+        "Only different foods give our bodies different nutrients.",
+        "Only active play gets hearts and muscles moving."
       ],
-      "answer": "Small repeated habits can support health.",
+      "answer": "Small healthy habits add up each day.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Eating varied foods gives our bodies nutrients. Movement can strengthen hearts muscles and bones. Small repeated habits can support health. Together, these facts show the whole-book big idea: Small repeated habits can support health.",
+      "rationale": "Different foods give our bodies different nutrients. Active play gets hearts and muscles moving. Small healthy habits add up each day. Together, these facts show the whole-book big idea: Small healthy habits add up each day.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Eating varied foods gives our bodies nutrients."
+          "evidenceText": "Different foods give our bodies different nutrients."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Movement can strengthen hearts muscles and bones."
+          "evidenceText": "Active play gets hearts and muscles moving."
         }
       ],
       "distractorRationales": {
-        "Only eating varied foods gives our bodies nutrients.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only movement can strengthen hearts muscles and bones.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only different foods give our bodies different nutrients.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only active play gets hearts and muscles moving.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Small repeated habits can support health."
+      "evidenceText": "Small healthy habits add up each day."
     }
   ]
 }

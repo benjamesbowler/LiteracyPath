@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-10-frogs",
-  "contentHash": "sha256:b2f3c4e6eaa313dca96c3945b5f4fdf550bd45dda4b3e3c1823293dfe29e18b9",
+  "contentHash": "sha256:730f7497ab2f032bf7b2cc820d18133f91c140242a8a010426e07f912f9a899f",
   "questions": [
     {
       "id": "level-c-nonfiction-10-frogs-q1",
       "prompt": "Where do common frogs live?",
       "choices": [
-        "Common frogs are amphibians that use freshwater and damp land.",
-        "Common frogs live only in dry deserts.",
-        "Common frogs live only in high treetops."
+        "A common frog needs two worlds: a pond and damp land.",
+        "A common frog needs only a dry desert.",
+        "A common frog needs only a high treetop."
       ],
-      "answer": "Common frogs are amphibians that use freshwater and damp land.",
+      "answer": "A common frog needs two worlds: a pond and damp land.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Common frogs are amphibians that use freshwater and damp land."
+      "evidenceText": "A common frog needs two worlds: a pond and damp land."
     },
     {
       "id": "level-c-nonfiction-10-frogs-q2",
-      "prompt": "Which sentence tells about back legs then front legs in The Common Frog Life Cycle?",
+      "prompt": "Which sentence tells about back legs in The Common Frog Life Cycle?",
       "choices": [
-        "Back legs then front legs grow as tails shrink during metamorphosis.",
-        "Common frogs are amphibians that use freshwater and damp land.",
-        "Male common frogs make soft spring calls near breeding ponds."
+        "Back legs grow first. Front legs follow as the tail shrinks.",
+        "A common frog needs two worlds: a pond and damp land.",
+        "In spring, males call to females beside the pond. The life cycle can begin again."
       ],
-      "answer": "Back legs then front legs grow as tails shrink during metamorphosis.",
+      "answer": "Back legs grow first. Front legs follow as the tail shrinks.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 4,
-      "evidenceText": "Back legs then front legs grow as tails shrink during metamorphosis."
+      "evidenceText": "Back legs grow first. Front legs follow as the tail shrinks."
     },
     {
       "id": "level-c-nonfiction-10-frogs-q3",
       "prompt": "What is the big idea of The Common Frog Life Cycle?",
       "choices": [
         "Frogs grow from eggs and live on land and in water.",
-        "Only common frogs are amphibians that use freshwater and damp land.",
-        "Only back legs then front legs grow as tails shrink during metamorphosis."
+        "Only a common frog needs two worlds: a pond and damp land.",
+        "Only back legs grow first."
       ],
       "answer": "Frogs grow from eggs and live on land and in water.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Common frogs are amphibians that use freshwater and damp land. Back legs then front legs grow as tails shrink during metamorphosis. Male common frogs make soft spring calls near breeding ponds. Together, these facts show the whole-book big idea: Frogs grow from eggs and live on land and in water.",
+      "rationale": "A common frog needs two worlds: a pond and damp land. Back legs grow first. Front legs follow as the tail shrinks. In spring, males call to females beside the pond. The life cycle can begin again. Together, these facts show the whole-book big idea: Frogs grow from eggs and live on land and in water.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Common frogs are amphibians that use freshwater and damp land."
+          "evidenceText": "A common frog needs two worlds: a pond and damp land."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "Back legs then front legs grow as tails shrink during metamorphosis."
+          "evidenceText": "Back legs grow first. Front legs follow as the tail shrinks."
         }
       ],
       "distractorRationales": {
-        "Only common frogs are amphibians that use freshwater and damp land.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only back legs then front legs grow as tails shrink during metamorphosis.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only a common frog needs two worlds: a pond and damp land.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only back legs grow first.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "Male common frogs make soft spring calls near breeding ponds."
+      "evidenceText": "In spring, males call to females beside the pond. The life cycle can begin again."
     }
   ]
 }

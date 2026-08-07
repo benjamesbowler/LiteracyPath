@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-28-honkys-echo-tunnel",
-  "contentHash": "sha256:d61a36a96995664e4289c7fed524e5550df986134d11cfd9dae994bb2736e7cd",
+  "contentHash": "sha256:fa74e031c301e4b11eb89ce3f72cf8db53a3fc78f1b418a18cb39afc31307803",
   "questions": [
     {
       "id": "dino-pals-28-honkys-echo-tunnel-q1",
       "prompt": "Which event begins Honky's Echo Tunnel?",
       "choices": [
         "Honky finds three tunnels behind Cozy Cave.",
-        "Crashing echoes hide every direction at once.",
-        "Two branches answer with deep closed echoes."
+        "HONK! His biggest call fills the chamber.",
+        "Honky taps one short note near each branch."
       ],
       "answer": "Honky finds three tunnels behind Cozy Cave.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-28-honkys-echo-tunnel-q2",
       "prompt": "Which event shows the first plan fails in Honky's Echo Tunnel?",
       "choices": [
-        "Crashing echoes hide every direction at once.",
+        "HONK! His biggest call fills the chamber.",
         "Honky finds three tunnels behind Cozy Cave.",
-        "Two branches answer with deep closed echoes."
+        "Honky taps one short note near each branch."
       ],
-      "answer": "Crashing echoes hide every direction at once.",
+      "answer": "HONK! His biggest call fills the chamber.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Crashing echoes hide every direction at once. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Crashing echoes hide every direction at once."
+      "rationale": "HONK! His biggest call fills the chamber. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "HONK! His biggest call fills the chamber."
     },
     {
       "id": "dino-pals-28-honkys-echo-tunnel-q3",
       "prompt": "Which event solves the problem in Honky's Echo Tunnel?",
       "choices": [
-        "Two branches answer with deep closed echoes.",
+        "Honky taps one short note near each branch.",
         "Honky finds three tunnels behind Cozy Cave.",
-        "Crashing echoes hide every direction at once."
+        "HONK! His biggest call fills the chamber."
       ],
-      "answer": "Two branches answer with deep closed echoes.",
+      "answer": "Honky taps one short note near each branch.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Two branches answer with deep closed echoes. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "Two branches answer with deep closed echoes."
+      "rationale": "Honky taps one short note near each branch. This event shows how the central problem is resolved.",
+      "evidencePage": 5,
+      "evidenceText": "Honky taps one short note near each branch."
     }
   ]
 }

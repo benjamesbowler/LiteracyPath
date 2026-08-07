@@ -204,6 +204,27 @@ function applyStoryBibleRewrite(book = {}) {
   };
 }
 
+function applyGuidedReadingNarrationTruth(book = {}) {
+  return {
+    ...book,
+    pages: (book.pages || []).map((page, index) => {
+      if (page.active === false || page.qaStatus !== "approved") return page;
+
+      const pageNumber = page.pageNumber || index + 1;
+      const text = normalizeReadingText(page.text);
+      const clearance = GUIDED_READING_NARRATION_CLEARANCE[`${book.id}::${pageNumber}`];
+      const narrationCleared = clearance?.displayedText === canonicalNarrationText(text)
+        && clearance?.voice === LEDA_PRODUCTION_VOICE;
+
+      return {
+        ...page,
+        pageAudioText: text,
+        narrationNeedsRebuild: !narrationCleared
+      };
+    })
+  };
+}
+
 const rawGuidedReadingBooks = [
   {
     "id": "gr-a-26",
@@ -3318,6 +3339,7 @@ export const guidedReadingSeriesBookDrafts = guidedReadingSeriesBooks;
 
 export const guidedReadingBooks = activeGuidedReadingBaseBooks
   .map(applyStoryBibleRewrite)
+  .map(applyGuidedReadingNarrationTruth)
   .map(relevelGuidedReadingBook)
   .map(ensureGuidedReadingMetadata)
   .filter(book => book.pages.length >= 4);

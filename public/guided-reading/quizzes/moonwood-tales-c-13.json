@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-13",
-  "contentHash": "sha256:6dfb7554f261fb51b8a07bf07329ae27cabf4d1ec849746e82c25ec3f477480c",
+  "contentHash": "sha256:8c72627b004252b6cf899e25b21dab242f31eb9b1c0e23fd1af7fc963d10e7c9",
   "questions": [
     {
       "id": "moonwood-tales-c-13-q1",
       "prompt": "Which event introduces the situation in Glimmer and Spark Make a Deal?",
       "choices": [
-        "Spark offers fire lessons if Glimmer helps test a floating spell.",
-        "More charts add pressure, angles, and numbers without changing either result.",
-        "No flame appears, and Spark cannot float yet, but both mark exact progress."
+        "Spark offered Glimmer fire lessons if they helped test his floating spell. Glimmer liked the trade, so they placed one claw in Spark's hand and sealed the deal.",
+        "On the third day, Spark brought even more charts about heat, breathing, and dragon bodies. Glimmer tried every new instruction, yet smoke still curled out and Spark still could not float.",
+        "For one last fire lesson, Spark cupped his hands near Glimmer's nose. 'Breathe slowly into this little space,' he said. Cinnamon warmth filled the gap between them."
       ],
-      "answer": "Spark offers fire lessons if Glimmer helps test a floating spell.",
+      "answer": "Spark offered Glimmer fire lessons if they helped test his floating spell. Glimmer liked the trade, so they placed one claw in Spark's hand and sealed the deal.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Spark offers fire lessons if Glimmer helps test a floating spell."
+      "evidenceText": "Spark offered Glimmer fire lessons if they helped test his floating spell. Glimmer liked the trade, so they placed one claw in Spark's hand and sealed the deal."
     },
     {
       "id": "moonwood-tales-c-13-q2",
       "prompt": "Which event shows that the first attempt fails in Glimmer and Spark Make a Deal?",
       "choices": [
-        "More charts add pressure, angles, and numbers without changing either result.",
-        "Spark offers fire lessons if Glimmer helps test a floating spell.",
-        "No flame appears, and Spark cannot float yet, but both mark exact progress."
+        "On the third day, Spark brought even more charts about heat, breathing, and dragon bodies. Glimmer tried every new instruction, yet smoke still curled out and Spark still could not float.",
+        "Spark offered Glimmer fire lessons if they helped test his floating spell. Glimmer liked the trade, so they placed one claw in Spark's hand and sealed the deal.",
+        "For one last fire lesson, Spark cupped his hands near Glimmer's nose. 'Breathe slowly into this little space,' he said. Cinnamon warmth filled the gap between them."
       ],
-      "answer": "More charts add pressure, angles, and numbers without changing either result.",
+      "answer": "On the third day, Spark brought even more charts about heat, breathing, and dragon bodies. Glimmer tried every new instruction, yet smoke still curled out and Spark still could not float.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "More charts add pressure, angles, and numbers without changing either result. This shows that the first attempt does not solve the central problem.",
+      "rationale": "On the third day, Spark brought even more charts about heat, breathing, and dragon bodies. Glimmer tried every new instruction, yet smoke still curled out and Spark still could not float. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "More charts add pressure, angles, and numbers without changing either result."
+      "evidenceText": "On the third day, Spark brought even more charts about heat, breathing, and dragon bodies. Glimmer tried every new instruction, yet smoke still curled out and Spark still could not float."
     },
     {
       "id": "moonwood-tales-c-13-q3",
       "prompt": "Which event resolves the central problem in Glimmer and Spark Make a Deal?",
       "choices": [
-        "No flame appears, and Spark cannot float yet, but both mark exact progress.",
-        "Spark offers fire lessons if Glimmer helps test a floating spell.",
-        "More charts add pressure, angles, and numbers without changing either result."
+        "For one last fire lesson, Spark cupped his hands near Glimmer's nose. 'Breathe slowly into this little space,' he said. Cinnamon warmth filled the gap between them.",
+        "Spark offered Glimmer fire lessons if they helped test his floating spell. Glimmer liked the trade, so they placed one claw in Spark's hand and sealed the deal.",
+        "On the third day, Spark brought even more charts about heat, breathing, and dragon bodies. Glimmer tried every new instruction, yet smoke still curled out and Spark still could not float."
       ],
-      "answer": "No flame appears, and Spark cannot float yet, but both mark exact progress.",
+      "answer": "For one last fire lesson, Spark cupped his hands near Glimmer's nose. 'Breathe slowly into this little space,' he said. Cinnamon warmth filled the gap between them.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "No flame appears, and Spark cannot float yet, but both mark exact progress. This event shows how the central problem is resolved.",
+      "rationale": "For one last fire lesson, Spark cupped his hands near Glimmer's nose. 'Breathe slowly into this little space,' he said. Cinnamon warmth filled the gap between them. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "No flame appears, and Spark cannot float yet, but both mark exact progress."
+      "evidenceText": "For one last fire lesson, Spark cupped his hands near Glimmer's nose. 'Breathe slowly into this little space,' he said. Cinnamon warmth filled the gap between them."
     }
   ]
 }

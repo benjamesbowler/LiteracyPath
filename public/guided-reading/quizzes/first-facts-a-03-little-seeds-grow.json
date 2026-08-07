@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-03-little-seeds-grow",
-  "contentHash": "sha256:e3ae2eaa354d8dcadd10643c2a2d304fbcfc7df5e80065ef0254d00ea08734aa",
+  "contentHash": "sha256:35c0f2f7858f64e5202059dc3db572d93f02724fa37505cd5e01c12fc90e8596",
   "questions": [
     {
       "id": "first-facts-a-03-little-seeds-grow-q1",
-      "prompt": "Which fact is introduced first in A Seed Germinates?",
+      "prompt": "Which fact is introduced first in A Seed Starts to Grow?",
       "choices": [
-        "This tiny seed holds a young plant.",
-        "Water enters the seed and starts germination.",
-        "The growing plant can produce a flower."
+        "A tiny plant waits inside this seed.",
+        "Water enters the seed. Its coat splits.",
+        "At last, the plant opens its first flower."
       ],
-      "answer": "This tiny seed holds a young plant.",
+      "answer": "A tiny plant waits inside this seed.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "This tiny seed holds a young plant."
+      "evidenceText": "A tiny plant waits inside this seed."
     },
     {
       "id": "first-facts-a-03-little-seeds-grow-q2",
-      "prompt": "Which sentence tells about water in A Seed Germinates?",
+      "prompt": "Which sentence tells about water in A Seed Starts to Grow?",
       "choices": [
-        "Water enters the seed and starts germination.",
-        "This tiny seed holds a young plant.",
-        "The growing plant can produce a flower."
+        "Water enters the seed. Its coat splits.",
+        "A tiny plant waits inside this seed.",
+        "At last, the plant opens its first flower."
       ],
-      "answer": "Water enters the seed and starts germination.",
+      "answer": "Water enters the seed. Its coat splits.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Water enters the seed and starts germination."
+      "evidenceText": "Water enters the seed. Its coat splits."
     },
     {
       "id": "first-facts-a-03-little-seeds-grow-q3",
-      "prompt": "What is the big idea of A Seed Germinates?",
+      "prompt": "What is the big idea of A Seed Starts to Grow?",
       "choices": [
         "A seed can grow into a flowering plant.",
-        "Only this tiny seed holds a young plant.",
-        "Only water enters the seed and starts germination."
+        "Only a tiny plant waits inside this seed.",
+        "Only water enters the seed."
       ],
       "answer": "A seed can grow into a flowering plant.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "This tiny seed holds a young plant. Water enters the seed and starts germination. The growing plant can produce a flower. Together, these facts show the whole-book big idea: A seed can grow into a flowering plant.",
+      "rationale": "A tiny plant waits inside this seed. Water enters the seed. Its coat splits. At last, the plant opens its first flower. Together, these facts show the whole-book big idea: A seed can grow into a flowering plant.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "This tiny seed holds a young plant."
+          "evidenceText": "A tiny plant waits inside this seed."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Water enters the seed and starts germination."
+          "evidenceText": "Water enters the seed. Its coat splits."
         }
       ],
       "distractorRationales": {
-        "Only this tiny seed holds a young plant.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only water enters the seed and starts germination.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only a tiny plant waits inside this seed.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only water enters the seed.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "The growing plant can produce a flower."
+      "evidenceText": "At last, the plant opens its first flower."
     }
   ]
 }

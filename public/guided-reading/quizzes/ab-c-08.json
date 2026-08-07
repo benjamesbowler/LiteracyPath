@@ -2,29 +2,29 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-08",
-  "contentHash": "sha256:7329a56a6aa5f88cb085a75718b38a26a7e18e1e5ce8559ed37f9e97b76a4f33",
+  "contentHash": "sha256:b580cc7edbb9c03feb203d7dfbc2ffc45d9271d4459fbb5afd52ab2ecee7342e",
   "questions": [
     {
       "id": "ab-c-08-q1",
       "prompt": "Which event introduces the situation in Aiden and Betty and the Bully?",
       "choices": [
-        "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
+        "Marcus called Aiden a hurtful name again. Betty saw Aiden look down.",
         "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”",
-        "He walked away with Betty and reported every incident to Miss Okafor."
+        "His voice shook, but he walked away with Betty and told Miss Okafor everything."
       ],
-      "answer": "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
+      "answer": "Marcus called Aiden a hurtful name again. Betty saw Aiden look down.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop."
+      "evidenceText": "Marcus called Aiden a hurtful name again. Betty saw Aiden look down."
     },
     {
       "id": "ab-c-08-q2",
       "prompt": "Which event shows that the first attempt fails in Aiden and Betty and the Bully?",
       "choices": [
         "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”",
-        "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
-        "He walked away with Betty and reported every incident to Miss Okafor."
+        "Marcus called Aiden a hurtful name again. Betty saw Aiden look down.",
+        "His voice shook, but he walked away with Betty and told Miss Okafor everything."
       ],
       "answer": "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "ab-c-08-q3",
       "prompt": "Which event resolves the central problem in Aiden and Betty and the Bully?",
       "choices": [
-        "He walked away with Betty and reported every incident to Miss Okafor.",
-        "Marcus kept calling Aiden a hurtful name. Aiden wanted it to stop.",
+        "His voice shook, but he walked away with Betty and told Miss Okafor everything.",
+        "Marcus called Aiden a hurtful name again. Betty saw Aiden look down.",
         "On Monday, Marcus repeated it. Aiden said clearly, “My name is Aiden. Stop.”"
       ],
-      "answer": "He walked away with Betty and reported every incident to Miss Okafor.",
+      "answer": "His voice shook, but he walked away with Betty and told Miss Okafor everything.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "He walked away with Betty and reported every incident to Miss Okafor. This event shows how the central problem is resolved.",
+      "rationale": "His voice shook, but he walked away with Betty and told Miss Okafor everything. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "He walked away with Betty and reported every incident to Miss Okafor."
+      "evidenceText": "His voice shook, but he walked away with Betty and told Miss Okafor everything."
     }
   ]
 }

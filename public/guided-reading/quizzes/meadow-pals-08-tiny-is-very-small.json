@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-08-tiny-is-very-small",
-  "contentHash": "sha256:8161af6a71813b5d780b324f69d44fb63db25d2390df41510912293abcbc3faf",
+  "contentHash": "sha256:267f8d8b7db1e1b8b03d6f2b1057275252f8d9c2d716094748dad27fd6fd3e6c",
   "questions": [
     {
       "id": "meadow-pals-08-tiny-is-very-small-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "A key falls inside a log.",
         "A wide wing cannot reach.",
-        "Tiny brings back the key."
+        "Tiny brings the key. All cheer!"
       ],
       "answer": "A key falls inside a log.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "A wide wing cannot reach.",
         "A key falls inside a log.",
-        "Tiny brings back the key."
+        "Tiny brings the key. All cheer!"
       ],
       "answer": "A wide wing cannot reach.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-08-tiny-is-very-small-q3",
       "prompt": "What happens at the end of Tiny is Very Small?",
       "choices": [
-        "Tiny brings back the key.",
+        "Tiny brings the key. All cheer!",
         "A key falls inside a log.",
         "A wide wing cannot reach."
       ],
-      "answer": "Tiny brings back the key.",
+      "answer": "Tiny brings the key. All cheer!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Tiny brings back the key. This event shows how the central problem is resolved.",
+      "rationale": "Tiny brings the key. All cheer! This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "Tiny brings back the key."
+      "evidenceText": "Tiny brings the key. All cheer!"
     }
   ]
 }

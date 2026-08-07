@@ -68,7 +68,7 @@ import {
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
-import logoUrl from "../assets/logo.svg";
+import logomarkUrl from "../assets/logomark.png";
 
 // The five roster columns of the approved design — student, current focus,
 // accuracy, learning status, last active — are FIXED and can no longer be
@@ -320,7 +320,7 @@ function LoginCardPrintRoute({
             key={`page-${pageRows[0]?.id || pageIndex}`}
           >
             <header className="teacher-login-card-page-header">
-              <img src={logoUrl} alt="" />
+              <img src={logomarkUrl} alt="" />
               <div>
                 <p>{schoolName || "School"}</p>
                 <h3>{className || "Class"} sign-in cards</h3>
@@ -335,7 +335,7 @@ function LoginCardPrintRoute({
                   aria-label={`${row.name} sign-in card`}
                   key={row.id}
                 >
-                  <img src={logoUrl} alt="" />
+                  <img src={logomarkUrl} alt="" />
                   <p>{schoolName || "School"}</p>
                   <h4>{row.name}</h4>
                   <span>{className || "Class"} · Code {classCode || "—"}</span>

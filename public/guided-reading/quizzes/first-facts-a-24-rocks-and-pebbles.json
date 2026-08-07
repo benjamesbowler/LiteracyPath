@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-24-rocks-and-pebbles",
-  "contentHash": "sha256:6b8c198a33556c785eda4e128c3a5adc8be28b9a116c05ff7d3def8ee05a670b",
+  "contentHash": "sha256:3485eb3edea6f5d215fa8f6270a1e693bd7dc88f76ffa29b1af209938ef32861",
   "questions": [
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q1",
@@ -16,51 +16,51 @@
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Rocks can be hard large or small."
+      "evidenceText": "Rocks can be hard, large, or small."
     },
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q2",
       "prompt": "Which sentence tells about moving water in Rocks and Pebbles?",
       "choices": [
-        "Moving water can slowly smooth pebbles.",
-        "Rocks can be hard large or small.",
-        "Observe rocks without removing protected specimens."
+        "Moving water can rub a pebble smooth.",
+        "Rocks can be hard, large, or small.",
+        "Each rock holds clues from Earth's long story."
       ],
-      "answer": "Moving water can slowly smooth pebbles.",
+      "answer": "Moving water can rub a pebble smooth.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Moving water can slowly smooth pebbles."
+      "evidenceText": "Moving water can rub a pebble smooth."
     },
     {
       "id": "first-facts-a-24-rocks-and-pebbles-q3",
       "prompt": "What is the big idea of Rocks and Pebbles?",
       "choices": [
         "Rocks form, change, and make up Earth's crust.",
-        "Only rocks can be hard large or small.",
-        "Only moving water can slowly smooth pebbles."
+        "Only rocks can be hard, large, or small.",
+        "Only moving water can rub a pebble smooth."
       ],
       "answer": "Rocks form, change, and make up Earth's crust.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Rocks can be hard large or small. Moving water can slowly smooth pebbles. Observe rocks without removing protected specimens. Together, these facts show the whole-book big idea: Rocks form, change, and make up Earth's crust.",
+      "rationale": "Rocks can be hard, large, or small. Moving water can rub a pebble smooth. Each rock holds clues from Earth's long story. Together, these facts show the whole-book big idea: Rocks form, change, and make up Earth's crust.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Rocks can be hard large or small."
+          "evidenceText": "Rocks can be hard, large, or small."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Moving water can slowly smooth pebbles."
+          "evidenceText": "Moving water can rub a pebble smooth."
         }
       ],
       "distractorRationales": {
-        "Only rocks can be hard large or small.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only moving water can slowly smooth pebbles.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only rocks can be hard, large, or small.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only moving water can rub a pebble smooth.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Observe rocks without removing protected specimens."
+      "evidenceText": "Each rock holds clues from Earth's long story."
     }
   ]
 }

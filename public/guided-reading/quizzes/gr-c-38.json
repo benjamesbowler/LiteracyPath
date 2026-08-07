@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-c-38",
-  "contentHash": "sha256:748fad6fe9dce889c91d30723c8711494c0f4c896e58539cc1d82013e72e07b2",
+  "contentHash": "sha256:2074c3191462a426292556caa211548404e634dec356bfc9301a44a4590a87de",
   "questions": [
     {
       "id": "gr-c-38-q1",
       "prompt": "Which sentence tells about eyes in Five Senses?",
       "choices": [
-        "Eyes help us see.",
-        "Noses help us smell.",
-        "Our senses help us learn."
+        "Eyes help us see light and color.",
+        "Our nose helps us smell.",
+        "Our five senses work together. They help us learn."
       ],
-      "answer": "Eyes help us see.",
+      "answer": "Eyes help us see light and color.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Eyes help us see."
+      "evidenceText": "Eyes help us see light and color."
     },
     {
       "id": "gr-c-38-q2",
-      "prompt": "Which sentence tells about noses in Five Senses?",
+      "prompt": "Which sentence tells about our nose in Five Senses?",
       "choices": [
-        "Noses help us smell.",
-        "Eyes help us see.",
-        "Our senses help us learn."
+        "Our nose helps us smell.",
+        "Eyes help us see light and color.",
+        "Our five senses work together. They help us learn."
       ],
-      "answer": "Noses help us smell.",
+      "answer": "Our nose helps us smell.",
       "kind": "text",
       "skill": "function",
       "evidencePage": 3,
-      "evidenceText": "Noses help us smell."
+      "evidenceText": "Our nose helps us smell."
     },
     {
       "id": "gr-c-38-q3",
       "prompt": "What is the big idea of Five Senses?",
       "choices": [
-        "Our senses help us learn.",
-        "Only eyes help us see.",
-        "Only noses help us smell."
+        "Our five senses work together. They help us learn.",
+        "Only eyes help us see light and color.",
+        "Only our nose helps us smell."
       ],
-      "answer": "Our senses help us learn.",
+      "answer": "Our five senses work together. They help us learn.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Eyes help us see. Noses help us smell. Our senses help us learn. Together, these facts show the whole-book big idea: Our senses help us learn.",
+      "rationale": "Eyes help us see light and color. Our nose helps us smell. Our five senses work together. They help us learn. Together, these facts show the whole-book big idea: Our five senses work together. They help us learn.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Eyes help us see."
+          "evidenceText": "Eyes help us see light and color."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Noses help us smell."
+          "evidenceText": "Our nose helps us smell."
         }
       ],
       "distractorRationales": {
-        "Only eyes help us see.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only noses help us smell.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only eyes help us see light and color.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only our nose helps us smell.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Our senses help us learn."
+      "evidenceText": "Our five senses work together. They help us learn."
     }
   ]
 }

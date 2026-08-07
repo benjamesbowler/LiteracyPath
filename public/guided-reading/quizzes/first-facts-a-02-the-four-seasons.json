@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-02-the-four-seasons",
-  "contentHash": "sha256:4b9899c4850a53849345961e5e75111c7e1e37d2a09d311a69fce506cbd10f8a",
+  "contentHash": "sha256:66850c4e792f83b63153ebe3d7527501aad07d56005369780c1cad4f4e1b398e",
   "questions": [
     {
       "id": "first-facts-a-02-the-four-seasons-q1",
-      "prompt": "Which sentence tells about spring in Seasons in a Temperate Place?",
+      "prompt": "What can spring bring in some places?",
       "choices": [
-        "Spring can bring new flowers and birdsong.",
-        "Many plants grow and fruit in summer.",
-        "These four seasons repeat through each year."
+        "In some places, spring brings rain and new flowers.",
+        "In some places, spring stops every plant.",
+        "In some places, spring brings only snow."
       ],
-      "answer": "Spring can bring new flowers and birdsong.",
+      "answer": "In some places, spring brings rain and new flowers.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Spring can bring new flowers and birdsong."
+      "evidenceText": "In some places, spring brings rain and new flowers."
     },
     {
       "id": "first-facts-a-02-the-four-seasons-q2",
-      "prompt": "Which sentence tells about many plants in Seasons in a Temperate Place?",
+      "prompt": "Which sentence tells about many plants in Seasons Change?",
       "choices": [
-        "Many plants grow and fruit in summer.",
-        "Spring can bring new flowers and birdsong.",
-        "These four seasons repeat through each year."
+        "Many plants grow in the summer Sun.",
+        "In some places, spring brings rain and new flowers.",
+        "Then spring returns. The yearly cycle starts again."
       ],
-      "answer": "Many plants grow and fruit in summer.",
+      "answer": "Many plants grow in the summer Sun.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 4,
-      "evidenceText": "Many plants grow and fruit in summer."
+      "evidenceText": "Many plants grow in the summer Sun."
     },
     {
       "id": "first-facts-a-02-the-four-seasons-q3",
-      "prompt": "What is the big idea of Seasons in a Temperate Place?",
+      "prompt": "What is the big idea of Seasons Change?",
       "choices": [
-        "These four seasons repeat through each year.",
-        "Only spring can bring new flowers and birdsong.",
-        "Only summer often brings longer warm days."
+        "Then spring returns. The yearly cycle starts again.",
+        "Only summer often brings long, warm days.",
+        "Only winter can bring frost or snow."
       ],
-      "answer": "These four seasons repeat through each year.",
+      "answer": "Then spring returns. The yearly cycle starts again.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Spring can bring new flowers and birdsong. Many plants grow and fruit in summer. These four seasons repeat through each year. Together, these facts show the whole-book big idea: These four seasons repeat through each year.",
+      "rationale": "In some places, spring brings rain and new flowers. Many plants grow in the summer Sun. Then spring returns. The yearly cycle starts again. Together, these facts show the whole-book big idea: Then spring returns. The yearly cycle starts again.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Spring can bring new flowers and birdsong."
+          "evidenceText": "In some places, spring brings rain and new flowers."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "Many plants grow and fruit in summer."
+          "evidenceText": "Many plants grow in the summer Sun."
         }
       ],
       "distractorRationales": {
-        "Only spring can bring new flowers and birdsong.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only summer often brings longer warm days.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only summer often brings long, warm days.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only winter can bring frost or snow.": "Page 7 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "These four seasons repeat through each year."
+      "evidenceText": "Then spring returns. The yearly cycle starts again."
     }
   ]
 }

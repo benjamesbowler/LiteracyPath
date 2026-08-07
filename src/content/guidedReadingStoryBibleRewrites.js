@@ -46,38 +46,38 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Nan wants a running pal.",
       "Nan runs alone.",
       "Bob and Nan meet.",
-      "Their tired legs sit.",
+      "They rest side by side.",
       "Bob and Nan are pals!"
     ]
   }),
   "bob-and-nan-02-park": fictionReview({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN"],
-    storySpine: "Bob and Nan want to reach the top of the park hill together.",
-    failedAttempt: "Running fast tires them before the hill.",
-    resolution: "They slow down and reach the top together.",
+    storySpine: "Bob and Nan want to enjoy the park together.",
+    failedAttempt: "Bob runs ahead and reaches the swing alone.",
+    resolution: "Nan catches up, and they climb the hill together.",
     pages: [
-      "Bob and Nan visit the park.",
-      "Bob runs too fast.",
-      "Nan runs too fast.",
-      "Bob rests on the swing.",
-      "Nan rests there too.",
+      "Bob and Nan reach the park.",
+      "Bob runs to the swings.",
+      "Nan runs to Bob.",
+      "Bob swings on his own.",
+      "Nan swings with Bob.",
       "They climb the big hill.",
-      "They reach the top together!"
+      "Both reach the top!"
     ]
   }),
   "bob-and-nan-03-fluff": fictionReview({
-    canonIds: ["HUMAN-BOB", "HUMAN-NAN", "HUMAN-FLUFF", "HUMAN-MUM"],
-    storySpine: "Bob and Nan find a lonely puppy and safely try to locate its family.",
-    failedAttempt: "The puppy has no tag, and calling nearby does not find an owner.",
-    resolution: "Mum helps them report the puppy found and care for him while they search.",
+    canonIds: ["HUMAN-BOB", "HUMAN-NAN", "HUMAN-FLUFF"],
+    storySpine: "Fluff wants to join Bob and Nan in the garden.",
+    failedAttempt: "Fluff first approaches from across the garden.",
+    resolution: "Gentle pats welcome Fluff between his pals.",
     pages: [
       "Bob and Nan sit outside.",
-      "Bob sees a lonely pup.",
-      "The pup runs to Nan.",
-      "The pup has no name tag.",
-      "Nan calls. No owner comes.",
-      "Mum helps report the pup found.",
-      "They care for the pup Fluff."
+      "Their pup Fluff walks over.",
+      "Fluff runs to Nan.",
+      "Nan strokes his soft ears.",
+      "Bob pats him gently.",
+      "Fluff stays close.",
+      "Fluff sits between his pals."
     ]
   }),
   "bob-and-nan-04-beach": fictionReview({
@@ -98,23 +98,23 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   "bob-and-nan-05-school": fictionReview({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN"],
     storySpine: "Bob and Nan want to enter their new classroom and join the first activity.",
-    failedAttempt: "Each waits alone at the doorway because the room feels unfamiliar.",
-    resolution: "They walk in together, find their name cards and begin drawing.",
+    failedAttempt: "Bob stops at the doorway until Nan smiles with him.",
+    resolution: "They smile, sit together and begin drawing.",
     pages: [
       "Today is their first school day.",
       "Bob holds his bag.",
       "Nan holds her bag.",
       "Bob stops at the classroom door.",
-      "Nan stops there too.",
-      "They find their name cards.",
-      "They sit down and draw together."
+      "Nan smiles. Bob smiles too.",
+      "They sit together at one table.",
+      "Soon they draw side by side."
     ]
   }),
   "bob-and-nan-06-zoo": fictionReview({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN"],
     storySpine: "Bob and Nan want to spot every animal on their zoo card.",
     failedAttempt: "They see large animals but cannot find the small frog.",
-    resolution: "Nan spots the hidden frog and they complete the visit.",
+    resolution: "They find the frog and elephant, completing the card.",
     pages: [
       "Their zoo card shows six animals.",
       "Bob spots a big cat.",
@@ -122,7 +122,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "They spot the big fish.",
       "Nan finds the hidden frog.",
       "Bob spots the big ape.",
-      "The ape eats a fig.",
+      "They spot the big elephant.",
       "Their zoo card is complete!"
     ]
   }),
@@ -130,16 +130,16 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN"],
     storySpine: "Nan wants to give Bob a birthday he can join and enjoy.",
     failedAttempt: "The tightly wrapped gift will not open at first.",
-    resolution: "Bob opens the bat and celebrates with Nan.",
+    resolution: "Bob opens the bat, celebrates with Nan and rests beside Fluff.",
     pages: [
       "Today is Bob's birthday.",
       "Nan brings one big gift.",
-      "The paper will not rip.",
+      "The paper does not rip.",
       "Bob pulls harder.",
       "A red bat pops out!",
       "They share the big cake.",
       "They run and hop.",
-      "Bob loves his birthday!"
+      "Bob rests beside Nan and Fluff."
     ]
   }),
   "bob-and-nan-08-sick": fictionReview({
@@ -152,7 +152,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Bob rests in bed.",
       "Nan feels too ill to play.",
       "One nap is not enough.",
-      "Mum brings a warm drink.",
+      "Mom brings a warm drink.",
       "They sip and rest.",
       "Bob and Nan feel well!",
       "They run with Fluff!"
@@ -162,12 +162,12 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN", "HUMAN-FLUFF"],
     storySpine: "Bob wants to read Nan's book by himself.",
     failedAttempt: "The first word is too hard for Bob.",
-    resolution: "Nan helps him blend the sounds and Bob reads a sentence.",
+    resolution: "Bob reads with Nan while Fluff naps beside them.",
     pages: [
       "Nan has a red book.",
       "Bob cannot read it yet.",
       "Nan helps Bob.",
-      "Bob blends cat.",
+      "Bob sounds out cat.",
       "Bob reads one sentence.",
       "Bob can read!",
       "They read together.",
@@ -195,7 +195,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     canonIds: ["MEADOW-MUDDY", "MEADOW-SPLASHY"],
     storySpine: "Muddy must get clean for supper.",
     failedAttempt: "His first bath becomes muddy too.",
-    resolution: "Muddy washes again and stays clean.",
+    resolution: "Muddy washes again and stays clean for supper.",
     pages: [
       "Muddy rolls in the mud.",
       "Supper starts soon.",
@@ -205,14 +205,14 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Muddy is still muddy.",
       "He washes once more.",
       "Muddy stays out of mud.",
-      "Clean Muddy joins supper."
+      "Muddy stays clean for supper."
     ]
   }),
   "meadow-pals-02-woolly-cant-sleep": fictionReview({
     canonIds: ["MEADOW-WOOLLY", "MEADOW-NOISY"],
     storySpine: "Woolly wants to sleep despite the meadow noises.",
     failedAttempt: "Listening for every noise keeps Woolly awake.",
-    resolution: "Woolly notices the noises stop and sleeps.",
+    resolution: "Woolly stops listening for each noise and sleeps.",
     pages: [
       "Woolly wants to sleep.",
       "The wind goes hoo.",
@@ -221,7 +221,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Woolly listens again.",
       "Hungry goes moo.",
       "Woolly is still awake.",
-      "The wind stops. The meadow rests.",
+      "Woolly stops listening.",
       "Woolly falls asleep."
     ]
   }),
@@ -229,7 +229,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     canonIds: ["MEADOW-CLUCKY"],
     storySpine: "Clucky wants a safe, clean place for her egg.",
     failedAttempt: "The nest, log, box and hat do not feel right.",
-    resolution: "Clucky lays the egg, then moves it from the mud.",
+    resolution: "Clucky lays the egg in mud, then moves it to clean straw.",
     pages: [
       "Clucky needs a safe nest.",
       "The nest feels too high.",
@@ -237,23 +237,23 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "The box feels too small.",
       "The hat tips over.",
       "Clucky sits in the mud.",
-      "Her egg arrives!",
-      "Clucky moves it to straw."
+      "Her egg lands in the mud.",
+      "Clucky moves her egg to straw."
     ]
   }),
   "meadow-pals-04-bouncy-wont-stop": fictionReview({
-    canonIds: ["MEADOW-BOUNCY", "MEADOW-GRUMPY"],
-    storySpine: "Bouncy wants to hop without bumping her friends.",
-    failedAttempt: "Hopping everywhere upsets Grumpy and Clucky.",
-    resolution: "Bouncy finds an open field for hopping.",
+    canonIds: ["MEADOW-BOUNCY", "MEADOW-GRUMPY", "MEADOW-CLUCKY"],
+    storySpine: "Bouncy's joyful hopping bumps Grumpy and Clucky before she chooses a safer pass.",
+    failedAttempt: "She bumps Grumpy's bucket and ignores Clucky's warning before bumping the basket.",
+    resolution: "Bouncy stops, notices her friends and hops past without another bump.",
     pages: [
       "Bouncy loves to hop.",
-      "She hops by Grumpy.",
-      "Bouncy bumps his bucket.",
-      "She hops by Clucky.",
-      "Bouncy bumps her basket.",
-      "Bouncy stops and looks.",
-      "She hops in the field."
+      "Bouncy hops down the path.",
+      "Splash! She bumps Grumpy's bucket.",
+      "Clucky tells Bouncy to stop.",
+      "Bouncy bumps Clucky's basket.",
+      "Bouncy stops. Her friends watch.",
+      "Bouncy hops by. No more bumps!"
     ]
   }),
   "meadow-pals-05-grumpy-gets-a-surprise": fictionReview({
@@ -263,31 +263,31 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     resolution: "A quiet slice of cake suits him.",
     pages: [
       "Today is Grumpy's birthday.",
-      "Grumpy dislikes birthday noise.",
-      "He pushes away the hats.",
+      "Grumpy does not want noise.",
+      "He pushes the hats away.",
       "He hides from the crowd.",
-      "The loud surprise fails.",
-      "Tiny brings quiet cake.",
-      "Grumpy tastes one bite.",
-      "Grumpy takes another bite.",
-      "The cake is nearly gone.",
-      "Quiet cake makes Grumpy smile."
+      "His friends wait by the barn.",
+      "Tiny brings a small cake.",
+      "Grumpy tries one bite.",
+      "He asks for one more bite.",
+      "The cake is all gone.",
+      "Grumpy smiles at his friends."
     ]
   }),
   "meadow-pals-06-sleepy-cant-wake-up": fictionReview({
     canonIds: ["MEADOW-SLEEPY", "MEADOW-CLUCKY", "MEADOW-BOUNCY", "MEADOW-NOISY"],
     storySpine: "The friends need Sleepy awake for breakfast.",
     failedAttempt: "Calling louder does not keep Sleepy up.",
-    resolution: "The smell of breakfast brings Sleepy to the table.",
+    resolution: "Sleepy smells breakfast, wakes and joins the table.",
     pages: [
-      "Breakfast is ready.",
+      "Hot toast is on the table.",
       "Sleepy does not wake.",
       "Clucky taps the bed.",
-      "Sleepy stays asleep.",
+      "Sleepy stays in bed.",
       "Bouncy shakes the bell.",
       "Sleepy still snores.",
-      "Noisy shouts too loudly.",
-      "Breakfast smells reach Sleepy.",
+      "Noisy lets out a loud call.",
+      "Sleepy smells hot toast.",
       "Sleepy joins the table."
     ]
   }),
@@ -297,14 +297,14 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     failedAttempt: "A bug makes Noisy yell.",
     resolution: "Noisy whispers when the worm appears.",
     pages: [
-      "Sleepy needs quiet.",
-      "Noisy closes his beak.",
+      "Sleepy needs quiet to sleep.",
+      "Noisy shuts his beak.",
       "A bug lands on Noisy.",
-      "Noisy yells very loudly.",
+      "Noisy lets out one loud yell.",
       "Sleepy starts to wake.",
-      "Noisy tries again.",
-      "A worm wiggles past.",
-      "Noisy whispers about it.",
+      "Noisy tries once more.",
+      "A worm crawls past.",
+      "Noisy points and whispers.",
       "Sleepy keeps sleeping.",
       "Noisy stays quiet!"
     ]
@@ -323,7 +323,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Tiny is small enough.",
       "Tiny crawls inside.",
       "Tiny finds the key.",
-      "Tiny brings back the key."
+      "Tiny brings the key. All cheer!"
     ]
   }),
   "meadow-pals-09-shy-comes-out-to-play": fictionReview({
@@ -333,14 +333,14 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     resolution: "Cuddly waits quietly and Shy chooses to join.",
     pages: [
       "Shy wants to play.",
-      "Shy waits behind the barn.",
-      "Bouncy rushes over.",
-      "Shy hides again.",
-      "Cuddly sits nearby.",
-      "Cuddly waits quietly.",
-      "Shy steps outside.",
-      "Shy sits beside Cuddly.",
-      "They play together."
+      "Shy waits by the barn.",
+      "Bouncy runs up.",
+      "Shy goes back in.",
+      "Cuddly sits near Shy.",
+      "Cuddly stays quite still.",
+      "Shy steps out.",
+      "Shy sits with Cuddly.",
+      "Shy joins the game."
     ]
   }),
   "meadow-pals-10-giggly-has-the-hiccups": fictionReview({
@@ -351,13 +351,13 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "Giggly has the hiccups.",
       "Hic! Hic! Hic!",
-      "Giggles make them bigger.",
-      "A drink does not help.",
-      "Jumping does not help.",
-      "Giggly breathes very slowly.",
+      "Her laughs make them worse.",
+      "A sip does not help.",
+      "A hop does not help.",
+      "Giggly takes one slow breath.",
       "The hiccups stop.",
-      "One small hiccup returns.",
-      "Giggly breathes slowly again."
+      "Hic! One pops back out.",
+      "One breath. The hiccups stop again!"
     ]
   }),
   "meadow-pals-11-brave-climbs-the-hay-bale": fictionReview({
@@ -374,7 +374,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Brave falls again.",
       "Brave finds a lower step.",
       "Brave reaches the top!",
-      "Brave stands very tall.",
+      "Brave stands tall at last.",
       "Brave climbs down safely."
     ]
   }),
@@ -390,24 +390,24 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Hungry asks at the gate.",
       "The farmer brings fresh hay.",
       "Hungry eats and drinks.",
-      "Hungry feels full now."
+      "Hungry feels full and happy now!"
     ]
   }),
   "meadow-pals-13-splashy-finds-a-puddle": fictionReview({
     canonIds: ["MEADOW-SPLASHY", "MEADOW-GRUMPY", "MEADOW-CLUCKY", "MEADOW-SLEEPY"],
-    storySpine: "Splashy wants a puddle big enough for jumping without soaking friends.",
-    failedAttempt: "Jumping near the beds splashes everyone.",
-    resolution: "Splashy moves to an empty puddle.",
+    storySpine: "Splashy wants bigger splashes but soaks friends and their things before making amends.",
+    failedAttempt: "Bigger jumps wet Grumpy, Clucky's hat and Sleepy's bed.",
+    resolution: "Splashy dries the wet things, then picks a puddle with space.",
     pages: [
       "Splashy finds a small puddle.",
-      "Splashy wants a bigger splash.",
-      "Splashy jumps inside.",
-      "Splashy jumps even higher.",
-      "Water spreads everywhere.",
-      "Grumpy's feet get wet.",
-      "Clucky's hat gets wet.",
-      "Sleepy's bed gets wet.",
-      "Splashy moves beyond the gate."
+      "Splashy wants a big splash.",
+      "Splashy jumps in.",
+      "Splashy jumps up high.",
+      "Splash! Drops fly far and wide.",
+      "Grumpy gets wet. He scowls.",
+      "Clucky's hat drips. She frowns.",
+      "Splashy dries the hat and bed.",
+      "Splashy picks a puddle with space."
     ]
   }),
   "meadow-pals-14-speedy-slows-down": fictionReview({
@@ -416,16 +416,16 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     failedAttempt: "Speedy races past every landmark and becomes lost.",
     resolution: "Speedy stops, listens to Tiny and follows the path home.",
     pages: [
-      "Speedy races toward home.",
-      "Speedy passes the barn.",
-      "Speedy passes the pond.",
-      "Speedy passes the hill.",
-      "Speedy misses the path.",
+      "Speedy runs home.",
+      "Speedy runs past the barn.",
+      "Speedy runs past the pond.",
+      "Speedy runs past the hill.",
+      "Speedy misses the home path.",
       "No one sees Speedy.",
       "Speedy is lost.",
       "Speedy stops and listens.",
       "Tiny calls from home.",
-      "Speedy follows the path home."
+      "Speedy finds his way home!"
     ]
   }),
   "meadow-pals-15-cuddly-wants-a-hug": fictionReview({
@@ -437,30 +437,30 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Cuddly wants a hug.",
       "Grumpy does not want one.",
       "Splashy is too wet.",
-      "Speedy rushes past.",
-      "Muddy is covered in mud.",
+      "Speedy runs past.",
+      "Muddy drips with mud.",
       "Cuddly waits.",
-      "Cuddly asks Woolly.",
-      "Woolly gives one big hug.",
-      "Cuddly asks for another.",
-      "Woolly chooses one more."
+      "She asks Woolly.",
+      "Woolly hugs her.",
+      "She asks for one more.",
+      "Woolly nods. They hug. Cuddly smiles!"
     ]
   }),
   "meadow-pals-16-muddy-and-splashy-make-a-mess": fictionReview({
     canonIds: ["MEADOW-MUDDY", "MEADOW-SPLASHY", "MEADOW-GRUMPY"],
     storySpine: "Muddy and Splashy want a mud pool without covering Grumpy.",
     failedAttempt: "Their first giant jump splashes Grumpy.",
-    resolution: "They move the pool and clean their friend.",
+    resolution: "They wash Grumpy, who smiles and walks with them.",
     pages: [
       "Muddy brings some mud.",
-      "Splashy brings some water.",
+      "Splashy brings a pail.",
       "They make a mud pool.",
-      "They jump together.",
-      "Mud flies upward.",
-      "Mud falls everywhere.",
-      "Mud covers Grumpy.",
+      "They both jump in.",
+      "Mud flies up.",
+      "Mud lands all round.",
+      "Mud hits Grumpy. He frowns.",
       "They wash Grumpy clean.",
-      "They move beyond the gate."
+      "Grumpy grins and walks with them."
     ]
   }),
   "meadow-pals-17-bouncy-and-speedy-have-a-race": fictionReview({
@@ -483,26 +483,26 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   }),
   "meadow-pals-18-noisy-wakes-everyone-up": fictionReview({
     canonIds: ["MEADOW-NOISY", "MEADOW-GRUMPY", "MEADOW-WOOLLY", "MEADOW-CLUCKY", "MEADOW-SLEEPY"],
-    storySpine: "Noisy wants to start morning at the correct time.",
+    storySpine: "Noisy starts morning too soon, then learns to wait for light.",
     failedAttempt: "Noisy calls before sunrise and wakes the meadow too early.",
-    resolution: "Noisy waits for daylight before calling again.",
+    resolution: "Noisy sees his friends frown and waits quietly.",
     pages: [
-      "The meadow is dark.",
-      "Noisy thinks morning has come.",
-      "Noisy calls very loudly.",
+      "The sky is dark.",
+      "Noisy starts the day too soon.",
+      "Noisy lets out a loud call.",
       "Three friends wake.",
-      "Sleepy stays asleep.",
-      "Noisy calls again.",
-      "Sleepy opens one eye.",
+      "Sleepy stays in bed.",
+      "Noisy calls once more.",
+      "Sleepy peeks with one eye.",
       "The sky is still dark.",
-      "Noisy waits for sunrise."
+      "Friends frown. Noisy waits till dawn."
     ]
   }),
   "meadow-pals-19-tiny-and-brave-go-on-an-adventure": fictionReview({
     canonIds: ["MEADOW-TINY", "MEADOW-BRAVE"],
     storySpine: "Tiny and Brave want to recover Tiny's hat after the wind blows it away.",
     failedAttempt: "The hat is trapped inside a narrow log that Brave cannot enter.",
-    resolution: "Tiny's small size lets him crawl through the log and retrieve it.",
+    resolution: "Tiny retrieves the hat and Brave ties it securely under his chin.",
     pages: [
       "Wind lifts Tiny's red hat.",
       "Tiny and Brave chase it.",
@@ -511,33 +511,33 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Tiny crawls through the log.",
       "Tiny reaches the red hat.",
       "Tiny carries it outside.",
-      "Brave ties the hat under Tiny's chin.",
-      "They walk home together."
+      "Brave ties the red hat tight.",
+      "Tiny's red hat stays on."
     ]
   }),
   "meadow-pals-20-shy-and-cuddly-find-each-other": fictionReview({
     canonIds: ["MEADOW-SHY", "MEADOW-CUDDLY"],
     storySpine: "Cuddly wants a friend and Shy wants company without being rushed.",
     failedAttempt: "Cuddly searches the ground while Shy hides above.",
-    resolution: "Cuddly finds Shy, asks before hugging and they sit together.",
+    resolution: "Cuddly asks before hugging, and Shy leans into the cuddle.",
     pages: [
       "Cuddly looks for a friend.",
-      "Shy hides nearby.",
-      "Cuddly checks behind the tree.",
-      "Shy waits in the branches.",
-      "Shy makes a small sound.",
+      "Shy hides close by.",
+      "Cuddly checks the tree.",
+      "Shy waits on a branch.",
+      "Shy makes a soft hum.",
       "Cuddly looks up.",
       "They sit in the tree.",
       "Cuddly asks for a hug.",
-      "Shy says yes.",
-      "They watch the pond together."
+      "Shy leans in for her hug.",
+      "They smile in the tree."
     ]
   }),
   "meadow-pals-21-woolly-and-grumpy-are-stuck": fictionReview({
     canonIds: ["MEADOW-WOOLLY", "MEADOW-GRUMPY", "MEADOW-TINY"],
     storySpine: "Woolly and Grumpy want to untangle Woolly's wool from Grumpy's horn.",
     failedAttempt: "Pulling and moving together tightens the tangle.",
-    resolution: "They stop, and Tiny gently frees the wool.",
+    resolution: "They stop, Tiny frees the wool, and they leave space.",
     pages: [
       "Woolly and Grumpy are stuck.",
       "Wool catches Grumpy's horn.",
@@ -547,23 +547,23 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "The knot gets tighter.",
       "They stop moving.",
       "Tiny frees the wool.",
-      "They walk different ways."
+      "Now they leave space between them."
     ]
   }),
   "meadow-pals-22-sleepys-big-dream": fictionReview({
     canonIds: ["MEADOW-SLEEPY"],
     storySpine: "Sleepy wants to finish a dream race before waking.",
-    failedAttempt: "Waking interrupts the dream before the finish.",
-    resolution: "Sleepy returns to sleep and completes the dream.",
+    failedAttempt: "The dream fades and Sleepy begins to stir.",
+    resolution: "Sleepy shuts his eyes and stays long enough to win.",
     pages: [
       "Sleepy closes his eyes.",
-      "A bright dream begins.",
+      "A big race dream begins.",
       "Dream Sleepy runs fast.",
       "Dream Sleepy jumps high.",
-      "The finish is near.",
-      "Sleepy becomes a hero.",
-      "Sleepy wakes too soon.",
-      "Dream Sleepy crosses the finish line."
+      "Dream Sleepy runs even faster!",
+      "Dream Sleepy feels like a hero.",
+      "Sleepy stirs. He shuts his eyes.",
+      "Dream Sleepy wins the race!"
     ]
   }),
   "meadow-pals-23-giggly-and-clucky-bake-a-cake": fictionReview({
@@ -578,7 +578,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Clucky brings the flour.",
       "Giggly spills the flour.",
       "Giggly stops and cleans the mess.",
-      "The cake goes inside.",
+      "The cake goes in the oven.",
       "A flat cake comes out.",
       "They measure and bake again.",
       "They share the tall cake."
@@ -587,20 +587,20 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   "meadow-pals-24-grumpys-secret": fictionReview({
     canonIds: ["MEADOW-GRUMPY", "MEADOW-TINY", "MEADOW-WOOLLY", "MEADOW-CLUCKY", "MEADOW-BOUNCY"],
     sourcePageNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11],
-    storySpine: "Tiny wants to learn where Grumpy goes each day without spoiling his privacy.",
-    failedAttempt: "Asking the meadow gives Tiny no answer.",
-    resolution: "Tiny finds Grumpy's garden and keeps the surprise until the flowers bloom.",
+    storySpine: "Tiny wants to find Grumpy and learn his morning secret.",
+    failedAttempt: "Woolly, Clucky and Bouncy do not know.",
+    resolution: "Tiny finds Grumpy's garden and beams when Grumpy shares it.",
     pages: [
-      "Grumpy leaves every morning.",
-      "Tiny wonders where he goes.",
+      "Grumpy goes out at dawn.",
+      "Tiny looks for him.",
       "Woolly does not know.",
       "Clucky does not know.",
       "Bouncy does not know.",
-      "Tiny follows the path.",
-      "Grumpy tends a garden.",
-      "He waters tiny shoots.",
-      "Grumpy shows everyone.",
-      "Tiny keeps the surprise."
+      "Tiny takes the path.",
+      "Grumpy grows green plants.",
+      "He gives the shoots a drink.",
+      "Grumpy shows his friends.",
+      "Tiny beams in Grumpy's garden."
     ]
   }),
   "meadow-pals-25-the-big-farm-party": fictionReview({
@@ -610,108 +610,108 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     failedAttempt: "The first party is too loud and crowded for them.",
     resolution: "The friends lower the music and make a quiet place where everyone joins.",
     pages: [
-      "Today is party day!",
+      "The farm party starts!",
       "Muddy makes a mud cake.",
-      "Clucky makes a fruit cake.",
-      "Noisy plays loud music.",
+      "Clucky brings a fruit cake.",
+      "Noisy bangs a loud drum.",
       "Tiny hangs the flags.",
-      "Shy hides behind the barn.",
+      "Shy hides by the barn.",
       "Cuddly finds Shy.",
-      "Grumpy sits far away.",
-      "The friends lower the music.",
+      "Grumpy sits far off.",
+      "The friends make less noise.",
       "Shy and Grumpy join the party."
     ]
   }),
 
   "gr-a-26": nonfictionReview({
-    topicQuestion: "Which animals can be pets and what do they need?",
-    progression: "Each page introduces a familiar pet before the ending gathers their shared care needs.",
-    synthesis: "Different pets all need suitable food, shelter and gentle care.",
+    topicQuestion: "How do different pets need different kinds of care?",
+    progression: "Each page connects one familiar pet to the food, space, exercise or rest it needs.",
+    synthesis: "Dogs, cats, fish, birds and rabbits need care that fits the animal.",
     pages: [
-      "A dog can be a pet.",
-      "A cat can be a pet.",
-      "A fish can be a pet.",
-      "A bird can be a pet.",
-      "A rabbit can be a pet.",
-      "Every pet needs gentle care."
+      "A dog needs food, exercise, and rest.",
+      "A cat needs food, play, and quiet.",
+      "A fish needs clean water and the right food.",
+      "A pet bird needs room to fly.",
+      "A rabbit needs hay and space to hop.",
+      "Different pets need different kinds of care."
     ]
   }),
   "gr-a-27": nonfictionReview({
-    topicQuestion: "What is the Sun and how does it affect Earth?",
-    progression: "The pages move from the Sun's identity to light, heat, plant growth and safe observation.",
-    synthesis: "Earth receives light and warmth from its nearest star.",
+    topicQuestion: "How does the Sun help life on Earth?",
+    progression: "The pages move from the Sun's identity to daylight, warmth, plant food and safe observation.",
+    synthesis: "The Sun's light and warmth support life across Earth.",
     pages: [
-      "The Sun is a star.",
-      "Sunlight brightens our day.",
-      "Sunlight warms land and water.",
-      "Plants use sunlight to grow.",
-      "Never stare at the Sun.",
-      "Earth travels around the Sun."
+      "Our Sun is one huge star in space.",
+      "Its light makes daytime on our side.",
+      "Its warmth heats land and water.",
+      "Plants use sunlight to make food.",
+      "Enjoy daylight safely. Never look straight at the Sun.",
+      "The Sun's light and warmth help life on Earth."
     ]
   }),
   "gr-a-28": nonfictionReview({
-    topicQuestion: "Which colours can familiar objects appear?",
-    progression: "Each page pairs a visible object with a possible colour.",
-    synthesis: "The ending gathers colour as something we observe across the world.",
+    topicQuestion: "Which colors can we spot in familiar things?",
+    progression: "The pages pair five colors with qualified, visible examples before inviting a new search.",
+    synthesis: "The reader can transfer the color words to objects nearby.",
     pages: [
-      "An apple can look red.",
+      "A ripe apple can look red.",
       "A clear sky can look blue.",
-      "The Sun can look yellow.",
-      "Healthy grass can look green.",
-      "A cloud can look white.",
-      "Colours appear all around us."
+      "The Sun can look yellow from Earth.",
+      "Fresh grass can look green.",
+      "Clouds can look bright white.",
+      "Look around. Which colors can you spot?"
     ]
   }),
   "gr-a-29": nonfictionReview({
-    topicQuestion: "Which visible parts make up one child's body?",
-    progression: "The pages move from paired sense organs to the mouth and hands.",
-    synthesis: "The ending gathers the parts into one valued body.",
+    topicQuestion: "What can these parts of my body help me do?",
+    progression: "The pages move from seeing, hearing and smelling to eating, speaking, holding and making.",
+    synthesis: "The useful parts belong to one whole body, and that body belongs to the child.",
     pages: [
-      "I have two eyes.",
-      "I have two ears.",
-      "I have one nose.",
-      "I have one mouth.",
-      "I have two hands.",
-      "This whole body is mine."
+      "My eyes help me see.",
+      "My ears help me hear.",
+      "My nose helps me smell.",
+      "My mouth helps me eat and speak.",
+      "My hands help me hold and make things.",
+      "My body is mine, and I care for it."
     ]
   }),
   "gr-b-31": nonfictionReview({
     topicQuestion: "How can seasons change in a temperate place?",
-    progression: "The pages follow one year through spring, summer, autumn and winter.",
-    synthesis: "The final page frames the examples as one repeating yearly cycle.",
+    progression: "The pages follow one place from spring through summer, fall and winter, then back to spring.",
+    synthesis: "Seasonal changes repeat in a yearly cycle.",
     pages: [
-      "In many temperate places spring brings rain.",
-      "Summer often brings longer warm days.",
-      "Many leaves change colour in autumn.",
-      "Winter can bring frost or snow.",
-      "Each season changes plants and weather.",
-      "The four seasons repeat each year."
+      "In some places, spring brings buds and rain.",
+      "Summer sunshine lasts late into the day.",
+      "In fall, many leaves change color.",
+      "Winter air may bring frost or snow.",
+      "Plants and animals change with each season.",
+      "After winter, spring begins the changing pattern again."
     ]
   }),
   "gr-b-32": nonfictionReview({
-    topicQuestion: "Which foods are fruits?",
-    progression: "Each page identifies a familiar fruit before the ending states a shared plant feature.",
-    synthesis: "Fruits grow from flowers and contain seeds.",
+    topicQuestion: "How can fruits look, feel and taste different?",
+    progression: "The pages move through a crisp apple, soft banana, bunched grapes, bumpy orange peel, varied fruit shapes and a flower growing into fruit.",
+    synthesis: "Fruits differ in color, shape, feel and taste, and a flower can grow into a fruit.",
     pages: [
-      "An apple is a fruit.",
-      "A banana is a fruit.",
-      "A grape is a fruit.",
-      "An orange is a fruit.",
-      "Fruits can taste sweet or sour.",
-      "Fruits grow from flowers."
+      "Bite an apple. It feels crisp.",
+      "A ripe banana feels soft and sweet.",
+      "Grapes grow together in bunches.",
+      "An orange has a bright, bumpy peel.",
+      "Fruits come in many colors, shapes, and sizes.",
+      "A flower can grow into a fruit."
     ]
   }),
   "gr-b-33": nonfictionReview({
     topicQuestion: "What jobs do common tools perform?",
     progression: "Each page pairs one tool with its main function.",
-    synthesis: "The ending joins tools as equipment used carefully to build and repair.",
+    synthesis: "Each tool has a particular job and needs careful use.",
     pages: [
-      "A hammer drives nails.",
+      "A hammer drives nails into wood.",
       "A saw cuts wood.",
-      "A wrench turns bolts.",
+      "A wrench turns nuts and bolts.",
       "A drill makes holes.",
-      "A ruler measures length.",
-      "Adults use tools carefully."
+      "A ruler checks length.",
+      "Each tool has a job. Adults help us use tools safely."
     ]
   }),
   "gr-b-34": nonfictionReview({
@@ -722,162 +722,162 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Sunlight reaches one side of Earth.",
       "That side has daytime.",
       "Earth keeps turning.",
-      "Our place turns away from sunlight.",
-      "Then our sky becomes dark.",
-      "Earth turns us toward sunlight again."
+      "Our place turns away from the Sun.",
+      "Now our sky grows dark.",
+      "Earth turns. Day and night take turns."
     ]
   }),
   "gr-b-35": nonfictionReview({
     topicQuestion: "How do different community workers help people?",
     progression: "Each page names one worker and a concrete service.",
-    synthesis: "The ending gathers these roles as people working together in a community.",
+    synthesis: "Different jobs meet different needs and help a community work.",
     pages: [
-      "A chef prepares food.",
-      "A doctor treats people who are ill.",
-      "A firefighter fights fires.",
-      "A teacher helps children learn.",
-      "Police officers respond to emergencies.",
-      "Many workers help our community."
+      "A chef cooks meals.",
+      "A doctor helps sick people.",
+      "A firefighter puts out a blaze.",
+      "A teacher helps kids learn.",
+      "Police come to help in an emergency.",
+      "These jobs help our town run well."
     ]
   }),
   "gr-c-37": nonfictionReview({
     level: "B",
-    topicQuestion: "What forms can water take and why is it needed?",
-    progression: "The pages identify liquid water, ice, invisible vapour and two living needs.",
-    synthesis: "The ending gathers water as necessary for life.",
+    topicQuestion: "How can water change, and why does it matter?",
+    progression: "The pages move from poured liquid water to ice and vapor, then connect water to plants and animals.",
+    synthesis: "Water changes form, but life on Earth still depends on it.",
     pages: [
-      "Water can flow as a liquid.",
-      "Frozen water becomes solid ice.",
-      "Water vapour mixes invisibly with air.",
-      "Plants need water to grow.",
-      "People need water to live.",
-      "Life on Earth needs water."
+      "Liquid water pours and flows.",
+      "Cold can freeze water into ice.",
+      "Warmth can turn water into invisible vapor.",
+      "Plants take in water through their roots.",
+      "People and other animals need water.",
+      "Water changes form. Life on Earth still needs it."
     ]
   }),
   "gr-c-38": nonfictionReview({
     level: "B",
     topicQuestion: "How do our five senses collect information?",
     progression: "Each page connects one sense organ or body system to its job.",
-    synthesis: "The ending explains that senses work together for learning.",
+    synthesis: "The five senses work together while we learn.",
     pages: [
-      "Eyes help us see.",
-      "Ears help us hear.",
-      "Noses help us smell.",
-      "Tongues help us taste.",
-      "Skin helps us feel touch.",
-      "Our senses help us learn."
+      "Eyes help us see light and color.",
+      "Ears help us hear sounds.",
+      "Our nose helps us smell.",
+      "Our tongue helps us taste.",
+      "Skin helps us feel touch and warmth.",
+      "Our five senses work together. They help us learn."
     ]
   }),
   "gr-c-39": nonfictionReview({
     level: "B",
     topicQuestion: "How can flat shapes appear in everyday objects?",
-    progression: "Each page links an object's outline or face to a named two-dimensional shape.",
-    synthesis: "The ending invites readers to notice shapes rather than mislabelling whole objects.",
+    progression: "Each page looks closely at the flat face or outline of one solid object.",
+    synthesis: "Flat shapes can be found on solid things all around us.",
     pages: [
-      "A wheel face looks circular.",
-      "This sign face looks square.",
-      "This roof edge forms a triangle.",
-      "A book cover looks rectangular.",
-      "An egg outline looks oval.",
-      "We can spot shapes on objects."
+      "Look at the wheel. Its face is a circle.",
+      "This sign has a square face.",
+      "This roof edge makes a triangle.",
+      "This book cover is a rectangle.",
+      "This egg has an oval outline.",
+      "Flat shapes hide on solid things all around us."
     ]
   }),
   "gr-d-42": nonfictionReview({
     level: "B",
     topicQuestion: "Which large features make Earth our shared home?",
-    progression: "The pages move from Earth as a whole to land, water, mountains, oceans and forests.",
-    synthesis: "The ending connects people to responsibility for shared places.",
+    progression: "The pages travel from Earth in space to a coast, mountains, ocean, forest and one way people can help.",
+    synthesis: "Earth's many places form one shared home that people can help care for.",
     pages: [
-      "Earth is our home planet.",
-      "Earth has land and water.",
-      "Mountains rise above the land.",
+      "Earth is our home in space.",
+      "Blue water meets green land along the coast.",
+      "High peaks rise from the land.",
       "Deep oceans cover much of Earth.",
-      "Forests grow on many continents.",
-      "People share and care for Earth."
+      "Green forests grow on many continents.",
+      "We can help keep our shared home clean."
     ]
   }),
   "gr-d-43": nonfictionReview({
     level: "B",
     topicQuestion: "Which daily habits support health?",
-    progression: "The pages move through hygiene, varied food, water, dental care and rest.",
-    synthesis: "The ending gathers habits as repeated actions that help bodies.",
+    progression: "A first-person sequence moves through washing, food, water, toothbrushing, play and sleep.",
+    synthesis: "Small repeated habits help a child care for their body.",
     pages: [
-      "I wash my hands with soap.",
+      "I wash my hands with soap and water.",
       "I eat many kinds of food.",
-      "I drink water every day.",
-      "I brush twice each day.",
-      "I make time for sleep.",
-      "Healthy habits help my body."
+      "I drink water through the day.",
+      "I brush my teeth twice a day.",
+      "I make time for play and sleep.",
+      "These small habits help care for my body."
     ]
   }),
   "gr-d-44": nonfictionReview({
     level: "B",
     title: "Animal Shelters and Habitats",
     topicQuestion: "Where can animals shelter or find what they need?",
-    progression: "The pages distinguish nests, dens, ponds, burrows and webs by their different uses.",
-    synthesis: "The ending names habitat needs without claiming every animal uses one kind of home.",
+    progression: "The pages distinguish nests, dens, ponds, burrows and webs by the jobs each place performs.",
+    synthesis: "A habitat supplies the food, water and shelter an animal needs.",
     pages: [
-      "Many birds build nests for young.",
-      "Some bears rest in sheltered dens.",
-      "Ponds provide fish food and shelter.",
-      "Rabbits shelter inside burrows.",
-      "Spiders catch prey in webs.",
-      "Habitats provide food water and shelter."
+      "Many birds build nests to hold eggs and young.",
+      "Some bears rest in dens.",
+      "Fish find food and shelter in ponds.",
+      "Rabbits hide from danger inside burrows.",
+      "Some spiders catch prey in sticky webs.",
+      "A habitat gives an animal food, water, and shelter."
     ]
   }),
   "gr-d-45": nonfictionReview({
     level: "B",
-    topicQuestion: "How do nearby space objects move and appear?",
-    progression: "The sequence identifies Sun, Earth, Moon, stars and human space travel.",
-    synthesis: "The ending places these examples within a vast universe.",
+    topicQuestion: "What lies near Earth, and what lies farther away?",
+    progression: "The pages move outward from the Sun-Earth-Moon system to distant stars and human space travel.",
+    synthesis: "The nearby objects sit within space that stretches far beyond our view.",
     pages: [
       "The Sun is our nearest star.",
       "Earth travels around the Sun.",
-      "The Moon travels around Earth.",
-      "Stars seem to twinkle from Earth.",
-      "Astronauts travel beyond Earth's air.",
-      "Space extends far beyond our view."
+      "The Moon circles Earth again and again.",
+      "Other stars lie far beyond our Sun.",
+      "Astronauts travel through space in spacecraft.",
+      "Space stretches far beyond our view."
     ]
   }),
   "gr-e-46": nonfictionReview({
     level: "B",
     topicQuestion: "Which traits are common among reptiles?",
-    progression: "The pages move from skin and eggs to examples and temperature regulation.",
-    synthesis: "The ending explains how external warmth affects reptile activity.",
+    progression: "The pages move from shared skin and egg traits to snakes, turtles, lizards and body warmth.",
+    synthesis: "Warm surroundings can help a reptile move and hunt.",
     pages: [
-      "Reptiles have dry scaly skin.",
+      "Reptiles have dry, scaly skin.",
       "Most reptiles lay eggs.",
-      "Snakes are reptiles without legs.",
-      "Turtles carry hard protective shells.",
+      "Snakes are reptiles with no legs.",
+      "A turtle's shell helps protect its body.",
       "Many lizards bask in warm places.",
-      "Outside heat changes reptile body temperature."
+      "Warm sun helps a reptile move and hunt."
     ]
   }),
   "gr-e-47": nonfictionReview({
     level: "B",
     title: "Living Things Change",
-    topicQuestion: "How can living things change as time passes?",
-    progression: "The pages compare plant growth with animal growth and metamorphosis without calling every process the same.",
-    synthesis: "The ending distinguishes several visible forms of biological change.",
+    topicQuestion: "What do living things need as they grow and change?",
+    progression: "Food and water lead into visible changes in a seed, tadpole and caterpillar.",
+    synthesis: "Growing and changing take time and care.",
     pages: [
-      "Living things change over time.",
-      "Plants use light water and nutrients.",
-      "A seedling can grow into a plant.",
-      "A tadpole develops into a frog.",
-      "A caterpillar transforms into a butterfly.",
-      "Growth and metamorphosis are different changes."
+      "Living things need food to grow and change.",
+      "Living things need water too.",
+      "A seed grows roots, a stem, and leaves.",
+      "A tadpole grows legs. Soon it is a frog.",
+      "A caterpillar forms a chrysalis. A butterfly comes out.",
+      "Growing takes time and care."
     ]
   }),
   "gr-e-48": nonfictionReview({
     level: "B",
     topicQuestion: "What can magnets attract or repel?",
-    progression: "The pages identify poles, magnetic materials, non-magnetic materials and pole interactions.",
-    synthesis: "The ending contrasts attraction and repulsion.",
+    progression: "The pages identify poles, one magnetic material, two non-magnetic materials and unlike or like pole pairs.",
+    synthesis: "Opposite poles attract; matching poles push apart.",
     pages: [
       "A magnet has two poles.",
-      "Magnets attract some metals.",
-      "Magnets do not attract wood.",
-      "Magnets do not attract glass.",
+      "It pulls on some kinds of metal.",
+      "It does not pull on wood.",
+      "It does not pull on glass.",
       "Opposite poles attract each other.",
       "Matching poles push apart."
     ]
@@ -886,113 +886,113 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     level: "B",
     topicQuestion: "How can clothes suit weather and activity?",
     progression: "Each page pairs a garment with a visible condition or purpose.",
-    synthesis: "The ending gathers clothing as protection and comfort.",
+    synthesis: "Different clothes fit different weather and activities.",
     pages: [
-      "Hats shade us on sunny days.",
-      "Coats help us stay warm.",
-      "Boots keep feet dry in rain.",
-      "Gloves help warm our hands.",
-      "Pyjamas are clothes for sleeping.",
-      "Clothes can protect and warm us."
+      "A sun hat shades my face.",
+      "A warm coat holds heat close.",
+      "Rain boots keep my feet dry.",
+      "Gloves help warm my hands.",
+      "Pajamas are clothes for sleeping.",
+      "Different clothes fit different weather and activities."
     ]
   }),
   "gr-e-50": nonfictionReview({
     level: "B",
     topicQuestion: "How do our senses help us explore?",
-    progression: "Each page connects one sense to its body system and action.",
-    synthesis: "The ending explains that the senses work together.",
+    progression: "Each page gives one sense a concrete contrast or detail to discover.",
+    synthesis: "The five senses work together during exploration.",
     pages: [
-      "We use our eyes to see.",
-      "We use our ears to hear.",
-      "We use our nose to smell.",
-      "We use our tongue to taste.",
-      "We use our skin for touch.",
-      "Our senses help us explore."
+      "My eyes find colors and shapes.",
+      "My ears catch loud and soft sounds.",
+      "My nose finds many smells.",
+      "My tongue finds different tastes.",
+      "My skin feels heat, cold, and touch.",
+      "Together, my senses help me explore."
     ]
   }),
 
-  "first-facts-a-01-look-at-the-colours": nonfictionReview({
-    title: "Colours We Can See",
-    topicQuestion: "Which colours can natural and everyday objects appear?",
-    progression: "Each page introduces one colour through two qualified visible examples.",
-    synthesis: "The ending asks readers to transfer the colour words to their surroundings.",
+  "first-facts-a-01-look-at-the-colors": nonfictionReview({
+    title: "Colors We Can See",
+    topicQuestion: "Which colors can natural and everyday objects appear?",
+    progression: "Each page introduces one color through two qualified visible examples.",
+    synthesis: "The ending asks readers to transfer the color words to their surroundings.",
     pages: [
-      "An apple can look red. A robin has an orange-red breast.",
+      "A ripe apple looks red. A robin's breast looks orange-red.",
       "The Sun can look yellow. This duck has yellow feathers.",
-      "A clear sky looks blue. Forget-me-nots can have blue petals.",
-      "Healthy grass looks green. This frog has green skin.",
-      "This fox has orange fur. This pumpkin has orange skin.",
-      "These grapes look purple. Lavender can have purple flowers.",
-      "Colours appear all around us. Which can you see?"
+      "A clear sky looks blue. These flowers can look blue.",
+      "Fresh grass looks green. This frog has green skin.",
+      "This fox has orange fur. This pumpkin is orange, too.",
+      "These grapes look purple. Lavender flowers can look purple.",
+      "Colors fill our world. Which ones can you find?"
     ]
   }),
   "first-facts-a-02-the-four-seasons": nonfictionReview({
-    title: "Seasons in a Temperate Place",
+    title: "Seasons Change",
     topicQuestion: "How can one temperate place change across four seasons?",
-    progression: "The pages follow spring, summer, autumn and winter with qualified local examples.",
-    synthesis: "The ending names the repeating seasonal cycle without claiming it looks identical everywhere.",
+    progression: "The pages follow spring, summer, fall and winter in one place, using qualified local examples.",
+    synthesis: "After winter, spring returns and the yearly cycle begins again.",
     pages: [
-      "Spring can bring new flowers and birdsong.",
-      "Some animals have young during spring.",
-      "Summer often brings longer warm days.",
-      "Many plants grow and fruit in summer.",
-      "Some leaves change colour during autumn.",
-      "Animals prepare for colder months in different ways.",
+      "In some places, spring brings rain and new flowers.",
+      "Some birds nest. Other animals have their young.",
+      "Summer often brings long, warm days.",
+      "Many plants grow in the summer Sun.",
+      "In fall, some leaves change color.",
+      "Animals prepare for cold in many ways.",
       "Winter can bring frost or snow.",
-      "People and animals find ways to keep warm.",
-      "These four seasons repeat through each year."
+      "People and animals find ways to stay warm.",
+      "Then spring returns. The yearly cycle starts again."
     ]
   }),
   "first-facts-a-03-little-seeds-grow": nonfictionReview({
-    title: "A Seed Germinates",
+    title: "A Seed Starts to Grow",
     topicQuestion: "How can one flowering-plant seed begin to grow?",
-    progression: "The sequence follows planting, water, root, shoot, leaves and flower in biological order.",
-    synthesis: "The final flower visibly completes one seed-to-plant example.",
+    progression: "The sequence follows damp soil, water, seed coat, root, shoot, leaves and flower in biological order.",
+    synthesis: "The first flower completes the visible change from seed to growing plant.",
     pages: [
-      "This tiny seed holds a young plant.",
-      "Place the seed in suitable soil.",
-      "Water enters the seed and starts germination.",
-      "A root grows downward first.",
-      "A green shoot pushes above the soil.",
-      "Leaves use sunlight while roots absorb water.",
-      "The growing plant can produce a flower."
+      "A tiny plant waits inside this seed.",
+      "The seed rests in damp soil.",
+      "Water enters the seed. Its coat splits.",
+      "First, a root pushes down.",
+      "Next, a green shoot pushes up.",
+      "Leaves open and catch sunlight.",
+      "At last, the plant opens its first flower."
     ]
   }),
   "first-facts-a-04-what-is-weather": nonfictionReview({
     topicQuestion: "Which conditions make up weather?",
-    progression: "The pages move through sunlight, rain, wind, snow, cloud, storm and rainbow conditions.",
-    synthesis: "The ending gathers weather as conditions that can change.",
+    progression: "The pages move through sunshine, rain, wind, snow, cloud, storm and rainbow conditions.",
+    synthesis: "Weather changes, and the reader can observe today's conditions.",
     pages: [
-      "Sunny weather brings bright sunlight.",
-      "Rainy weather brings drops from clouds.",
-      "Windy weather moves leaves and branches.",
-      "Snowy weather brings frozen flakes.",
-      "Cloudy weather can block some sunlight.",
-      "Lightning flashes before thunder reaches our ears.",
-      "Sunlight through water drops can make a rainbow.",
-      "Weather can change from day to day."
+      "The Sun warms the ground.",
+      "Raindrops fall from clouds.",
+      "Wind makes twigs and grass bend.",
+      "Snow falls in soft, white flakes.",
+      "Gray clouds can hide the Sun.",
+      "Lightning lights the sky. Then thunder booms.",
+      "Sunlight and raindrops can make a rainbow.",
+      "Weather can change. What do you see now?"
     ]
   }),
   "first-facts-a-05-flowers-and-trees": nonfictionReview({
-    title: "Flowering Plants and Trees",
+    title: "Flowers and Trees",
     topicQuestion: "How do flowering plants and trees use their parts?",
-    progression: "The pages compare varied flowers, roots, leaves and evergreen or deciduous trees.",
-    synthesis: "The ending gathers shared plant needs without claiming all flowers look alike.",
+    progression: "The pages compare flower colors and forms before moving below ground and through two kinds of trees.",
+    synthesis: "Flowers and trees share basic needs even though their parts can look different.",
     pages: [
-      "Many flowers have petals stems and roots.",
-      "Sunflowers can grow tall with yellow petals.",
-      "Daisies often have small white petals.",
-      "Roses come in many colours and may have prickles.",
-      "Tree roots anchor trees and absorb water.",
-      "Some trees lose their leaves each year.",
-      "Evergreen trees keep living leaves through every season.",
-      "Plants need light water nutrients and space."
+      "This plant has a flower, stem, and roots.",
+      "This sunflower grows tall with bright yellow petals.",
+      "Daisies can have white petals and gold centers.",
+      "Roses come in many colors. Their stems may have thorns.",
+      "Tree roots hold firm and take in water.",
+      "Some trees drop their leaves each fall.",
+      "Pine trees stay green through the cold months.",
+      "Flowers and trees need light, rain, soil, and space."
     ]
   }),
   "first-facts-a-06-baby-animals": nonfictionReview({
     topicQuestion: "What are young animals called and how do they change?",
     progression: "Each page names one young animal and a visible feature or action.",
-    synthesis: "The ending gathers growth without assigning universal colours or textures.",
+    synthesis: "The ending gathers growth without assigning universal colors or textures.",
     pages: [
       "A young dog is called a puppy.",
       "A young cat is called a kitten.",
@@ -1001,181 +1001,181 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A young sheep is called a lamb.",
       "A young horse is called a foal.",
       "A young duck is called a duckling.",
-      "Young animals grow and learn new skills."
+      "They grow bigger and learn new things."
     ]
   }),
   "first-facts-a-07-animals-on-the-farm": nonfictionReview({
     topicQuestion: "What can we observe about animals on one farm?",
-    progression: "The pages identify food, body covering, products and movement without universal colour claims.",
+    progression: "The pages identify food, body covering, products and movement without universal color claims.",
     synthesis: "The ending frames farms as places where animals need skilled care.",
     pages: [
-      "This cow eats grass and hay.",
-      "A cow with a calf can produce milk.",
-      "This pig cools its skin in mud.",
-      "A sheep grows a woolly fleece.",
-      "A hen can lay eggs.",
-      "Horses can pull or carry loads.",
-      "This duck swims across the pond.",
-      "Farm animals need food water shelter and care."
+      "This cow munches grass and hay.",
+      "A cow makes milk for her calf.",
+      "This pig rolls in mud to keep cool.",
+      "A sheep grows a thick, woolly coat.",
+      "A hen lays eggs.",
+      "A horse can pull a heavy load.",
+      "This duck paddles across the pond.",
+      "Each farm animal needs food, water, shelter, and care."
     ]
   }),
   "first-facts-a-08-animals-in-the-ocean": nonfictionReview({
-    topicQuestion: "How are different ocean animals adapted to life in water?",
-    progression: "The sequence moves through fins, breathing, arms, shells, gripping and social swimming.",
-    synthesis: "The ending gathers the animals as a diverse ocean community.",
+    topicQuestion: "How do different ocean animals move, breathe and protect themselves?",
+    progression: "The sequence moves through fins, air breathing, arms, shells, gripping tails and group swimming.",
+    synthesis: "Ocean animals move, hide and breathe in many different ways.",
     pages: [
-      "Oceans contain many different animals.",
-      "Fish use fins to move through water.",
-      "Blue whales are Earth's largest animals and breathe air.",
-      "An octopus has eight arms and can change colour.",
-      "A crab's hard shell protects its body.",
-      "A seahorse can grip plants with its tail.",
-      "Dolphins breathe air and often live in groups.",
-      "Ocean animals survive in many different ways."
+      "Oceans are home to animals of every size.",
+      "Fish flick their fins to swim.",
+      "Blue whales are Earth's biggest animals, yet they breathe air.",
+      "An octopus uses eight arms to crawl and grab.",
+      "A crab's hard shell guards its soft body.",
+      "A seahorse curls its tail around plants.",
+      "Dolphins breathe air and often swim in groups.",
+      "Ocean animals move, hide, and breathe in many ways."
     ]
   }),
   "first-facts-a-09-animals-at-night": nonfictionReview({
     topicQuestion: "How do some nocturnal animals find food after dark?",
-    progression: "Each page gives one observable night-time adaptation or behaviour with suitable qualification.",
-    synthesis: "The ending gathers nocturnal activity without claiming all species behave identically.",
+    progression: "An opening question leads through sight, echoes, smell and hearing used after dark.",
+    synthesis: "Darkness is an active time for many nocturnal animals.",
     pages: [
-      "Nocturnal animals are active mostly at night.",
-      "Owls can see well in low light.",
-      "Many bats use echoes to find flying insects.",
-      "Hedgehogs may search for insects after dark.",
-      "Foxes use hearing and smell while hunting.",
-      "Different animals become busy after sunset."
+      "Night falls. Which animals wake up?",
+      "Owls spot movement in dim light.",
+      "Many bats hunt insects with echoes.",
+      "Hedgehogs sniff for insects after dark.",
+      "Foxes listen and smell for prey.",
+      "Darkness brings a busy time for night animals."
     ]
   }),
   "first-facts-a-10-bugs-all-around-us": nonfictionReview({
     title: "Small Creatures Around Us",
     topicQuestion: "How do different small invertebrates live and help ecosystems?",
-    progression: "The pages distinguish insects from worms and snails while showing their different roles.",
-    synthesis: "The ending gathers the group as small creatures rather than calling all of them bugs.",
+    progression: "The pages move from winged insects to colony insects, soil workers and a gliding mollusk.",
+    synthesis: "Small creatures support flowers, soil and other animals in different ways.",
     pages: [
-      "Many small creatures live near us.",
-      "Butterflies are insects with four wings.",
-      "Bees carry pollen between flowers.",
-      "Ladybirds are insects that eat aphids.",
-      "Ants are insects that live in colonies.",
-      "Earthworms mix and tunnel through soil.",
-      "Snails are molluscs with muscular feet.",
-      "Small creatures perform many ecosystem jobs."
+      "Look down. Small creatures work near us.",
+      "A butterfly flies on four broad wings.",
+      "Bees move pollen from bloom to bloom.",
+      "Some ladybugs hunt aphids on plants.",
+      "Ants share jobs inside their nests.",
+      "Earthworms dig through soil.",
+      "Snails glide on one strong foot.",
+      "Small creatures help flowers, soil, and other animals."
     ]
   }),
   "first-facts-a-11-pets-we-love": nonfictionReview({
     title: "Caring for Pets",
     topicQuestion: "What does responsible care look like for different pets?",
-    progression: "The pages pair common pets with species-appropriate needs and behaviours.",
-    synthesis: "The ending gathers care as food, water, shelter, health and gentle attention.",
+    progression: "The pages compare the food, movement, space, water and health needs of several familiar pets.",
+    synthesis: "Good care changes to fit the animal rather than following one rule for every pet.",
     pages: [
-      "Dogs need play exercise and rest.",
-      "Dogs also need food water and veterinary care.",
-      "Cats purr for several reasons.",
-      "Rabbits need space hay shelter and company.",
-      "Pet fish need suitable clean water.",
-      "Hamsters need safe space for natural activity.",
-      "Every pet needs informed gentle care."
+      "Dogs need play, exercise, and rest.",
+      "Dogs need food, clean water, and regular care.",
+      "Cats need food, play, and quiet places.",
+      "Rabbits need hay, shelter, company, and room.",
+      "Fish need the right food and clean water.",
+      "Hamsters need space to dig and explore.",
+      "Good pet care fits the animal."
     ]
   }),
   "first-facts-a-12-shapes-everywhere": nonfictionReview({
     title: "Shapes on Everyday Objects",
     topicQuestion: "Where can we find flat shapes on three-dimensional objects?",
-    progression: "Each page defines a shape before locating that outline or face on an object.",
-    synthesis: "The ending asks readers to identify shapes without confusing them with whole objects.",
+    progression: "Each page gives one defining feature, then locates the shape on an object's face or outline.",
+    synthesis: "The reader can use sides, points and curves to find more flat shapes nearby.",
     pages: [
-      "A circle is round. A wheel face looks circular.",
-      "A square has four equal sides. Some windows look square.",
-      "A triangle has three sides. This roof edge forms one.",
-      "A rectangle has four sides. This door face looks rectangular.",
-      "A five-point star is a drawn shape.",
-      "An oval is a stretched-circle shape. This egg outline looks oval.",
-      "We can find flat shapes on many objects."
+      "A circle has no straight sides. This wheel face is round.",
+      "A square has four equal sides. This window looks square.",
+      "A triangle has three sides. This roof edge makes one.",
+      "A rectangle has four square corners. This door looks rectangular.",
+      "A star shape has points. This one has five.",
+      "An oval is round and stretched. This egg outline looks oval.",
+      "Now look around. Which flat shapes can you find?"
     ]
   }),
   "first-facts-a-13-big-and-small": nonfictionReview({
     topicQuestion: "How does size change when two things are compared?",
     progression: "Each page makes one explicit paired comparison rather than assigning absolute size.",
-    synthesis: "The ending explains that big and small depend on what is compared.",
+    synthesis: "The words big and small only make sense through comparison.",
     pages: [
-      "An elephant is big beside a mouse.",
-      "The mouse is small beside the elephant.",
-      "A bus is big beside a toy car.",
-      "A tree is big beside a flower.",
-      "A whale is big beside this fish.",
-      "Size depends on what we compare."
+      "An elephant looks big beside a mouse.",
+      "That mouse looks small beside the elephant.",
+      "A bus looks big beside a toy car.",
+      "A tree looks big beside a flower.",
+      "This fish looks small beside a whale.",
+      "Big or small? Compare two things."
     ]
   }),
   "first-facts-a-14-hot-and-cold": nonfictionReview({
     topicQuestion: "Which things have higher or lower temperatures?",
-    progression: "The pages compare sunlight, fire, ice, food and water while including safety cues.",
-    synthesis: "The ending names hot and cold as temperature descriptions.",
+    progression: "The pages compare sunlight, fire, ice, food and water, then connect temperature words to safe touch.",
+    synthesis: "Hot and cold describe temperature, and extreme temperatures can hurt.",
     pages: [
-      "Sunlight can warm our skin.",
-      "Fire is very hot. Stay back.",
-      "Ice and snow have low temperatures.",
-      "Let hot food cool before eating.",
-      "Cool water can feel refreshing.",
-      "Hot and cold describe temperature.",
-      "We can compare temperatures safely."
+      "Sunlight can feel warm on our skin.",
+      "Fire feels hot from far away. Stay back.",
+      "Ice and snow feel very cold.",
+      "Hot food needs time to cool.",
+      "Cool water can feel good on a hot day.",
+      "Hot and cold tell us about temperature.",
+      "Ask an adult before touching something very hot or cold."
     ]
   }),
   "first-facts-a-15-things-that-float-and-sink": nonfictionReview({
     title: "Why Things Float or Sink",
     topicQuestion: "How do material density and shape affect floating?",
     progression: "Paired examples disprove the heavy-sinks rule before a supervised comparison.",
-    synthesis: "The ending states that weight alone cannot predict floating.",
+    synthesis: "A heavy object can float and a light object can sink, so weight alone is not enough.",
     pages: [
-      "A hollow toy duck can float.",
-      "A dense stone usually sinks in water.",
-      "A leaf may float while a coin sinks.",
-      "A heavy hollow boat can float.",
-      "Shape and material both affect floating.",
-      "Test safe objects with an adult.",
-      "Weight alone does not decide."
+      "A hollow toy duck floats on water.",
+      "This solid stone sinks to the bottom.",
+      "A leaf may float. A coin sinks.",
+      "Even a heavy, hollow boat can float.",
+      "Shape and material both matter.",
+      "Try safe objects with an adult. What happens?",
+      "Heavy things can float. Light things can sink."
     ]
   }),
   "first-facts-a-16-push-and-pull": nonfictionReview({
     topicQuestion: "How can pushes, pulls and magnets change motion?",
     progression: "The pages move from contact forces to motion examples and magnetic attraction or repulsion.",
-    synthesis: "The ending gathers these interactions as forces.",
+    synthesis: "Pushes and pulls can start, stop or turn motion.",
     pages: [
-      "A push can move something away.",
-      "A pull can bring something closer.",
-      "Doors can move with pushes or pulls.",
-      "A push makes this swing move.",
-      "A pull opens this zip.",
-      "A magnet attracts this steel paperclip.",
-      "Forces can change an object's motion."
+      "A push can send something away.",
+      "A pull can bring something close.",
+      "A door moves with a push or pull.",
+      "A push sends this swing up.",
+      "A pull opens this zipper.",
+      "A magnet pulls this steel paper clip.",
+      "Pushes and pulls can start, stop, or turn things."
     ]
   }),
   "first-facts-a-17-hello-sun": nonfictionReview({
     title: "Watching the Sun Safely",
     topicQuestion: "Why does the Sun seem to cross our sky?",
-    progression: "The pages identify the Sun, its effects, apparent movement, delayed daily heating and safety.",
-    synthesis: "The ending connects apparent motion to Earth's rotation.",
+    progression: "The pages move from the Sun and its light through morning, midday and evening before safe viewing and Earth's rotation.",
+    synthesis: "Earth turns, so the Sun only seems to cross our sky; safe watching never means staring.",
     pages: [
-      "The Sun is our nearest star.",
-      "Sunlight brightens and warms Earth.",
-      "Earth's turning makes sunrise appear.",
-      "Daily temperatures often peak after midday.",
-      "Earth's turning makes sunset appear.",
-      "Never look directly at the Sun.",
-      "Earth's rotation changes the Sun's position in our sky."
+      "The Sun is the star closest to Earth.",
+      "Its light brightens and warms our world.",
+      "Earth turns, and morning sunlight reaches us.",
+      "The day often feels warmest after midday.",
+      "Earth keeps turning. Evening sunlight fades.",
+      "Never stare at the Sun. Its light can hurt your eyes.",
+      "Earth turns, so the Sun only seems to cross our sky."
     ]
   }),
   "first-facts-a-18-the-moon": nonfictionReview({
     topicQuestion: "Why does the Moon shine and seem to change shape?",
-    progression: "The pages explain reflected sunlight, phases, orbit, daytime visibility and human exploration.",
-    synthesis: "The ending gathers the Moon as Earth's changing natural satellite.",
+    progression: "The pages move from reflected sunlight through crescent and full views, orbit, Moon exploration and day or night viewing.",
+    synthesis: "Every view of the shining Moon begins with reflected sunlight.",
     pages: [
-      "The Moon is Earth's natural satellite.",
-      "Sunlight reflects from the Moon's surface.",
-      "We see different sunlit parts during Moon phases.",
-      "A full Moon shows its fully lit face.",
+      "The Moon makes no light of its own.",
+      "Its rocky surface reflects sunlight back to us.",
+      "A crescent shows part of the Moon's sunlit face.",
+      "A full Moon shows its fully sunlit face.",
       "The Moon travels around Earth.",
       "People have walked on the Moon.",
-      "The Moon can appear by day or night."
+      "By day or night, moonlight is reflected sunlight."
     ]
   }),
   "first-facts-a-19-day-and-night": nonfictionReview({
@@ -1183,58 +1183,58 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "Every observational page remains tied to Earth's sunlit and dark sides.",
     synthesis: "The ending returns to the repeating rotation cycle.",
     pages: [
-      "Sunlight brightens one side of Earth.",
-      "Places facing the Sun have daytime.",
-      "Earth rotates all day and night.",
-      "Places turned away from sunlight have night.",
-      "The Moon may appear by day or night.",
-      "Earth's rotation creates day and night.",
-      "The cycle repeats as Earth turns."
+      "The Sun lights one half of Earth.",
+      "The side toward the Sun has day.",
+      "Earth turns all day and all night.",
+      "The side turned from the Sun has night.",
+      "The Moon can appear by day or night.",
+      "Earth turns. Day changes to night.",
+      "Earth keeps turning. Day comes back."
     ]
   }),
   "first-facts-a-20-my-five-senses": nonfictionReview({
     topicQuestion: "How do five sensory systems help one child learn?",
-    progression: "The pages connect sight, hearing, smell, taste and touch to accurate body systems.",
-    synthesis: "The ending gathers senses as systems that work together.",
+    progression: "An opening question leads through sight, hearing, smell, taste and touch before the senses combine.",
+    synthesis: "The five senses work together and give the reader new things to notice.",
     pages: [
-      "My senses help me learn about the world.",
-      "My eyes detect light colour and shape.",
-      "My ears detect sounds.",
-      "My nose detects smells.",
-      "My tongue detects tastes.",
-      "Skin across my body senses touch and temperature.",
+      "How do I learn about the world around me?",
+      "My eyes find light, color, and shape.",
+      "My ears catch sounds.",
+      "My nose notices smells.",
+      "My tongue notices tastes.",
+      "My skin feels touch, warmth, and cold.",
       "My senses work together every day.",
-      "Which senses are you using now?"
+      "What are your senses noticing now?"
     ]
   }),
   "first-facts-a-21-how-i-grow": nonfictionReview({
     title: "Ways I Grow",
     topicQuestion: "How can one child change and learn over time?",
-    progression: "The pages move from infancy through movement, strength, learning and varied future change.",
-    synthesis: "The ending values growth without promising one body size or timetable.",
+    progression: "The pages move from a baby's need for help through crawling, walking, active play, new skills and supportive care.",
+    synthesis: "Bodies and skills change, and people grow in their own way and time.",
     pages: [
-      "As a baby I needed help moving.",
-      "Later I learned to sit and crawl.",
-      "My muscles strengthened as I practised walking.",
-      "I learned new ways to move.",
-      "Now I can do more things.",
-      "Food sleep activity and care support growth.",
-      "People grow in different ways and times."
+      "Babies need help with many things.",
+      "First, I learn to sit and crawl.",
+      "Then, I practice standing and walking.",
+      "Soon, I can run, jump, and play.",
+      "I learn new words and skills.",
+      "Food, sleep, activity, and care support growth.",
+      "We all grow in our own way and time."
     ]
   }),
   "first-facts-a-22-staying-healthy": nonfictionReview({
-    title: "Habits That Support Health",
+    title: "Healthy Habits",
     topicQuestion: "Which everyday habits can support health?",
-    progression: "The pages cover varied food, water, movement, hygiene, dental care and sleep without moral labels.",
-    synthesis: "The ending gathers flexible habits rather than demanding a mood or body type.",
+    progression: "The pages move through food, water, active play, clean hands, tooth care and sleep.",
+    synthesis: "Small healthy habits build their effect through daily repetition.",
     pages: [
-      "Eating varied foods gives our bodies nutrients.",
-      "Drinking water replaces fluid our bodies use.",
-      "Movement can strengthen hearts muscles and bones.",
-      "Soap and water remove many germs from hands.",
-      "Brush teeth twice daily with fluoride toothpaste.",
-      "Enough sleep supports learning health and mood.",
-      "Small repeated habits can support health."
+      "Different foods give our bodies different nutrients.",
+      "Drinking water helps our bodies work well.",
+      "Active play gets hearts and muscles moving.",
+      "Soap and water wash germs from hands.",
+      "Fluoride toothpaste helps guard our teeth.",
+      "Sleep gives bodies and brains time to rest.",
+      "Small healthy habits add up each day."
     ]
   }),
   "first-facts-a-23-my-body": nonfictionReview({
@@ -1242,78 +1242,78 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages move from head to limbs, digestion, senses and whole-body movement.",
     synthesis: "The ending affirms body ownership and care.",
     pages: [
-      "My head holds my face and brain.",
-      "My arms and hands can clap.",
-      "My stomach helps digest food.",
-      "My legs and feet help me move.",
-      "My eyes ears and nose gather information.",
-      "My whole body can move in many ways.",
+      "My head holds my brain and face.",
+      "My arms and hands reach, clap, and hold.",
+      "My stomach helps break down food.",
+      "My legs and feet carry me.",
+      "My eyes, ears, and nose gather clues.",
+      "All my parts work together through the day.",
       "I care for my body every day.",
-      "My body belongs to me."
+      "This is my body. It belongs to me."
     ]
   }),
   "first-facts-a-24-rocks-and-pebbles": nonfictionReview({
     topicQuestion: "How can rocks and pebbles vary and change?",
-    progression: "The pages move through size, texture, colour, uses, age and close observation.",
-    synthesis: "The ending places rocks as materials within Earth's crust.",
+    progression: "The pages move through rock sizes, pebbles, water smoothing, human uses, close observation and safe collecting.",
+    synthesis: "Close observation can reveal clues from Earth's long story.",
     pages: [
-      "Rocks can be hard large or small.",
-      "Pebbles are small rocks that may be smooth.",
-      "Moving water can slowly smooth pebbles.",
-      "Rocks occur in many colours.",
-      "People use rock in roads and walls.",
-      "Rock layers can preserve clues from long ago.",
-      "Observe rocks without removing protected specimens."
+      "Rocks can be hard, large, or small.",
+      "A pebble is a small piece of rock.",
+      "Moving water can rub a pebble smooth.",
+      "People build roads and walls with rock.",
+      "Look closely. What colors and layers do you see?",
+      "Collect loose rocks only where an adult says it is safe.",
+      "Each rock holds clues from Earth's long story."
     ]
   }),
   "first-facts-a-25-water-everywhere": nonfictionReview({
-    topicQuestion: "Where is water found and how can it change state?",
-    progression: "The pages move through oceans, rain, freshwater, human use, living needs and three states.",
-    synthesis: "The ending gathers Earth as a planet with abundant but precious water.",
+    topicQuestion: "Where do we find water, and how do living things use it?",
+    progression: "The pages move through waterways, rain, living needs, household uses, water's forms and rain collection.",
+    synthesis: "Water in many places and forms shapes and supports life on Earth.",
     pages: [
-      "Water fills oceans rivers and clouds.",
-      "Water drops can fall as rain.",
-      "Rain can refill rivers and lakes.",
-      "People drink water every day.",
-      "Water helps us wash.",
-      "Plants and animals need water.",
-      "Water can be liquid ice or invisible vapour.",
-      "Clean fresh water is precious.",
-      "Water shapes our blue planet."
+      "Water fills oceans, rivers, lakes, and clouds.",
+      "Raindrops fall from clouds and refill rivers.",
+      "Plants and animals need fresh water to live.",
+      "People need clean water to drink.",
+      "We also use water to wash.",
+      "Water helps gardens and crops grow.",
+      "Water can be liquid, ice, or invisible vapor.",
+      "We can collect rainwater for plants.",
+      "Water shapes and supports life on our blue planet."
     ]
   }),
 
   "level-c-nonfiction-01-bees": nonfictionReview({
     title: "Honeybees and Pollination",
     topicQuestion: "How do honeybees share hive work and help flowering plants reproduce?",
-    progression: "The sequence follows hive roles, nectar, honey, pollen transfer, crop pollination and practical help.",
+    progression: "The sequence follows hive roles, nectar, honey, pollen transfer, fruit growth and practical help.",
     synthesis: "The ending connects a honeybee colony's work to both food stores and plant reproduction.",
     pages: [
-      "Thousands of bee species exist. This book follows social honeybees.",
-      "A honeybee colony shares one hive. Its queen lays eggs.",
-      "Worker honeybees collect sugary nectar from flowers.",
-      "Back at the hive workers process nectar into honey.",
-      "Pollen sticks to bees and moves between flowers.",
-      "Pollination helps many flowering plants make seeds and fruit.",
-      "Producing honey takes thousands of flower visits and shared work.",
-      "Pesticide-free flowering plants can provide bees with food.",
-      "Honeybees store honey while helping many plants reproduce."
+      "One garden can buzz with many kinds of bees. Which ones make honey?",
+      "Inside a honeybee hive, one queen lays the eggs.",
+      "Worker bees sip flower nectar and gather dusty pollen.",
+      "Back at the hive, workers turn the sweet nectar into honey.",
+      "As a bee visits flowers, pollen brushes onto its body.",
+      "The bee carries pollen to the next flower. Later, fruit can grow.",
+      "Making honey takes many bees and thousands of flower visits.",
+      "More blooming plants give hungry bees more places to feed.",
+      "Honeybees feed their hive and help many garden plants grow."
     ]
   }),
   "level-c-nonfiction-02-volcanoes": nonfictionReview({
     topicQuestion: "How do volcanoes form, erupt and change Earth's surface?",
-    progression: "The pages move from magma to vents, eruption styles, islands, soil, global examples and monitoring.",
+    progression: "The pages move from magma to vents, eruption styles, islands, soil, global distribution and monitoring.",
     synthesis: "The ending gathers destructive and constructive effects without treating a volcano as the erupting magma itself.",
     pages: [
-      "Deep underground some rock melts into hot magma.",
-      "A volcano is an opening and landform where material reaches Earth's surface.",
+      "Far below a volcano, melted rock gathers. It is called magma.",
+      "Magma can rise through cracks and openings called vents.",
       "Erupted magma becomes lava. Some lava flows slowly.",
-      "Explosive eruptions can release ash rocks and volcanic gases.",
+      "Other eruptions blast ash, rocks, and gases high into the air.",
       "Repeated underwater eruptions can build new volcanic islands.",
-      "Weathered volcanic rock can form mineral-rich soil.",
-      "Active volcanoes occur in Iceland Hawaii Italy Indonesia and elsewhere.",
-      "Volcanologists monitor earthquakes gases and ground movement for warning signs.",
-      "Across immense time volcanoes have built land and reshaped Earth."
+      "Old volcanic rock breaks down into soil rich in minerals.",
+      "Look around the globe: volcanoes rise on land and under oceans.",
+      "Scientists watch small earthquakes, gases, and moving ground for warning signs.",
+      "Eruptions can destroy old ground, then build new land in its place."
     ]
   }),
   "level-c-nonfiction-03-penguins": nonfictionReview({
@@ -1322,15 +1322,15 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The sequence follows swimming anatomy, Antarctic conditions, egg care, chicks, diving, colonies, countershading and warmer-climate species.",
     synthesis: "The ending places emperor adaptations within a diverse penguin family.",
     pages: [
-      "Penguins are flightless birds whose wings work as swimming flippers.",
-      "Emperor penguins survive Antarctica's extreme cold and wind.",
-      "A male balances one egg on his feet beneath warm skin.",
-      "Fathers huddle while mothers feed at sea before returning.",
-      "New chicks depend on parents for warmth and food.",
-      "Emperors dive deeply and swim quickly while hunting fish.",
-      "Calls help partners and chicks recognise one another in colonies.",
-      "Dark backs and pale fronts provide underwater camouflage called countershading.",
-      "Eighteen penguin species live from Antarctica to warmer southern coasts."
+      "Penguins cannot fly, but their strong wings sweep them through water.",
+      "Emperor penguins live through fierce Antarctic cold and wind.",
+      "A father balances one egg on his feet beneath warm skin.",
+      "The fathers huddle close for warmth while the mothers hunt at sea.",
+      "When the mothers return, both parents feed and warm their chicks.",
+      "Emperors dive deep and steer with their flippers to catch fish.",
+      "In a noisy colony, special calls help each family find one another.",
+      "A dark back hides from above. A pale belly hides from below. This camouflage is called countershading.",
+      "Not every penguin lives on ice. Some make their homes on warmer coasts."
     ]
   }),
   "level-c-nonfiction-04-the-moon": nonfictionReview({
@@ -1338,15 +1338,15 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages connect orbit, reflected light, phases, impacts, exploration, tides, samples, scale and continued motion.",
     synthesis: "The ending keeps the Moon present even when its lit portion is not visible.",
     pages: [
-      "The rocky Moon orbits Earth about once each month.",
-      "The Moon reflects sunlight rather than making its own light.",
-      "Moon phases reveal changing portions of its sunlit half.",
-      "Ancient impacts made bowl-shaped craters across the surface.",
+      "Look up: our Moon is always traveling around Earth.",
+      "The Moon cannot make light. Sunlight bounces from its rocky surface.",
+      "As the Moon moves, we see different parts of its sunlit half.",
+      "Space rocks struck the Moon long ago, leaving bowl-shaped craters.",
       "Apollo 11 astronauts first walked on the Moon in 1969.",
-      "The Moon's gravity drives most tides while the Sun also contributes.",
-      "Returned Moon rocks reveal clues about the early Solar System.",
+      "The Moon's gravity pulls on Earth's oceans and helps make tides.",
+      "Moon rocks brought home by astronauts hold clues to its past.",
       "The Moon is about one quarter as wide as Earth.",
-      "Visible or hidden the Moon continues travelling around Earth."
+      "Even when we cannot see it, the Moon keeps circling Earth."
     ]
   }),
   "level-c-nonfiction-05-how-seeds-grow": nonfictionReview({
@@ -1355,31 +1355,31 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The sequence follows a scoped seed through germination, root, shoot, photosynthesis, pollination, new seeds and dispersal.",
     synthesis: "The ending invites observation of the same evidence-based cycle.",
     pages: [
-      "Many flowering plants begin as seeds containing embryos and food stores.",
-      "Germination needs water oxygen and a suitable temperature.",
+      "Seeds come in many shapes. Each holds a tiny plant inside.",
+      "With water, air, and warmth, a seed begins to grow.",
       "A root emerges first and absorbs water from soil.",
       "A shoot reaches light and opens its first leaves.",
-      "Leaves use light water and carbon dioxide during photosynthesis.",
-      "Flowers can attract animals that transfer pollen.",
-      "After fertilisation seeds develop inside fruit pods or other structures.",
-      "Wind water and animals can carry seeds away.",
-      "With suitable conditions a new flowering-plant cycle can begin."
+      "The leaves use sunlight, water, and air to make food. This is photosynthesis.",
+      "Flowers attract visitors. Bees and butterflies can carry pollen between flowers.",
+      "After pollination, new seeds grow inside the plant's pods.",
+      "Wind, water, and animals carry some seeds to new places.",
+      "Plant one seed, add water, and watch the whole story begin again."
     ]
   }),
   "level-c-nonfiction-06-spiders": nonfictionReview({
     topicQuestion: "How do spider bodies, silk and senses support survival?",
     progression: "The sequence compares anatomy, silk production, web types, hunting, sensing, feeding, reproduction and ecological roles.",
-    synthesis: "The ending places spiders as varied arachnid predators rather than dangerous pests.",
+    synthesis: "The ending connects spider anatomy, senses and silk to hunting, egg care and a garden web.",
     pages: [
-      "Spiders are arachnids with eight legs and two main body sections.",
-      "Spinnerets produce several kinds of strong flexible silk.",
-      "Orb-weavers build spoke-and-spiral webs that trap flying insects.",
-      "Other spiders build sheet or tangled webs for different prey.",
-      "Jumping spiders stalk prey and judge distance with large eyes.",
-      "Many web-builders detect prey through vibrations in silk.",
-      "Some spiders wrap captured insects and subdue them with venom.",
-      "Silk egg sacs protect developing spiderlings.",
-      "Most spiders cannot harm people and help control insect populations."
+      "A spider has eight legs and two body sections—but no wings. How does it catch flying insects?",
+      "Tiny spinnerets at its rear make strong, stretchy silk.",
+      "An orb-weaver stretches silk into a round web of spokes and spirals.",
+      "Other spiders make flat sheets, deep funnels, or loose tangles.",
+      "A jumping spider needs no web. It watches, creeps, and pounces.",
+      "A web spider feels trapped prey tugging on the silk.",
+      "The spider bites its prey, then wraps it tightly in silk.",
+      "A mother spider may wrap her eggs in a silk sac.",
+      "That garden web may catch insects before they reach the tomatoes."
     ]
   }),
   "level-c-nonfiction-07-under-the-ocean": nonfictionReview({
@@ -1387,15 +1387,15 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages descend from surface waters through reefs, twilight, darkness, trenches and global oxygen production.",
     synthesis: "The ending returns to the vast portion of ocean still unobserved.",
     pages: [
-      "Oceans cover over two thirds of Earth and remain largely unexplored.",
-      "Sunlit surface water becomes colder dimmer twilight below about 200 metres.",
-      "Warm shallow coral reefs support remarkably diverse communities.",
-      "Tiny coral animals build hard skeletons that can form reefs.",
-      "Between 200 and 1000 metres faint light favours unusual adaptations.",
-      "Below about 1000 metres darkness makes bioluminescence especially useful.",
-      "The Mariana Trench reaches nearly eleven kilometres below sea level.",
-      "Ocean photosynthesis produces about half of Earth's oxygen.",
-      "More than eighty percent of the ocean remains unmapped or unobserved."
+      "Oceans cover most of Earth, but sunlight reaches only the top.",
+      "Dive down. The water grows colder, and the sunlight fades.",
+      "Near the warm, bright surface, coral reefs crowd with life.",
+      "Tiny coral animals build hard homes. Together, those homes make a reef.",
+      "Below 200 meters, light fades and water pressure keeps climbing.",
+      "Deeper still, darkness rules. Some fish make their own light. This is bioluminescence.",
+      "The Mariana Trench reaches nearly eleven kilometers below sea level.",
+      "Far above, sunlit plankton make about half the oxygen in Earth's air.",
+      "From bright reefs to black trenches, most of the ocean is still unseen."
     ]
   }),
   "level-c-nonfiction-08-butterflies": nonfictionReview({
@@ -1404,15 +1404,15 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages move through insect anatomy, egg, caterpillar, chrysalis, metamorphosis, emergence, feeding and migration.",
     synthesis: "The ending connects several generations to one long migration cycle.",
     pages: [
-      "Butterflies are six-legged insects with four wings and two antennae.",
-      "A butterfly life cycle has four distinct stages.",
+      "This monarch has six legs, four wings, and two antennae.",
+      "But it did not begin with wings. A monarch has four life stages.",
       "A monarch lays a tiny egg on milkweed.",
-      "The caterpillar hatches eats milkweed and sheds its skin repeatedly.",
+      "A striped caterpillar hatches, eats milkweed, and grows and grows.",
       "It hangs upside down and forms a green chrysalis.",
-      "Inside the chrysalis metamorphosis reorganises the growing body.",
-      "The adult emerges then expands dries and hardens its wings.",
-      "A proboscis drinks nectar while feet can sense plant chemicals.",
-      "Several monarch generations complete the vast yearly migration cycle."
+      "Inside, its whole body changes. This change is called metamorphosis.",
+      "The new butterfly crawls out with wet, crumpled wings.",
+      "Soon its wings harden, and a long proboscis sips nectar.",
+      "Monarchs cross a continent. No one butterfly makes the whole round trip. New generations carry it on."
     ]
   }),
   "level-c-nonfiction-09-caves": nonfictionReview({
@@ -1420,53 +1420,53 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The sequence covers cave types, limestone dissolution, passages, mineral deposits, columns, bats, cave specialists and ancient art.",
     synthesis: "The ending gathers caves as slowly formed archives of geology, life and people.",
     pages: [
-      "Water waves and lava can form different kinds of caves.",
-      "Slightly acidic water slowly dissolves cracks in limestone.",
-      "Over immense time connected tunnels and chambers can grow.",
-      "Mineral deposits hanging from ceilings are called stalactites.",
-      "Mineral deposits rising from floors are called stalagmites.",
+      "Water, waves, and flowing lava can each make a cave. What might we find inside?",
+      "Slightly acidic rainwater seeps into limestone and slowly widens its cracks.",
+      "Drop by drop, small cracks can grow into rooms and winding passages.",
+      "Mineral-rich water drips from the ceiling. Stalactites grow downward.",
+      "Drops splash onto the floor. Stalagmites grow upward.",
       "Joined stalactites and stalagmites form stone columns.",
-      "Some bats shelter in caves then feed outside after dusk.",
-      "Cave specialists may evolve reduced eyes and pale bodies.",
-      "Ancient cave art preserves evidence of people from long ago."
+      "Some bats rest in caves by day, then fly out at dusk.",
+      "Some cave animals are pale, with tiny eyes or none at all.",
+      "From dripping stone to ancient art, caves hold clues from long ago."
     ]
   }),
   "level-c-nonfiction-10-frogs": nonfictionReview({
     title: "The Common Frog Life Cycle",
     topicQuestion: "How does a common frog develop and live on land and in water?",
-    progression: "The pages follow frogspawn, tadpole, metamorphosis, froglet, diet, breathing, colour and breeding calls.",
+    progression: "The pages follow frogspawn, tadpole, metamorphosis, froglet, diet, breathing, color and breeding calls.",
     synthesis: "The ending returns calls to their specific spring breeding purpose.",
     pages: [
-      "Common frogs are amphibians that use freshwater and damp land.",
-      "Females lay jelly-covered frogspawn in ponds during spring.",
-      "Tadpoles hatch with tails and gills but no legs.",
-      "Back legs then front legs grow as tails shrink during metamorphosis.",
-      "A four-legged froglet leaves water but stays near damp cover.",
-      "Common frogs eat small animals including insects worms and slugs.",
-      "Moist skin and lungs both help adult frogs exchange gases.",
-      "Variable brown green grey or red colours provide camouflage.",
-      "Male common frogs make soft spring calls near breeding ponds."
+      "A common frog needs two worlds: a pond and damp land.",
+      "In spring, a female lays a wobbling clump of jelly-covered eggs.",
+      "Tadpoles hatch with tails and gills, but no legs.",
+      "Back legs grow first. Front legs follow as the tail shrinks.",
+      "Now it is a froglet. It climbs out but stays near water.",
+      "An adult frog flicks out its sticky tongue to catch a small insect.",
+      "A frog breathes with its lungs and through its moist skin.",
+      "Brown, green, gray, or red skin helps frogs blend in.",
+      "In spring, males call to females beside the pond. The life cycle can begin again."
     ]
   }),
 
   "first-facts-level-a-01-colors": nonfictionReview({
-    topicQuestion: "What colours can we see on familiar things?",
-    progression: "Each page pairs one colour with visible everyday objects.",
-    synthesis: "The final page gathers the named colours.",
+    topicQuestion: "What colors can we see on familiar things?",
+    progression: "Each page pairs one color with visible everyday objects.",
+    synthesis: "The final page gathers the named colors.",
     pages: [
-      "A ball and hat are red.",
-      "A cup and bag are blue.",
-      "The bright sun is yellow.",
+      "The ball and hat are red.",
+      "The cup and bag are blue.",
+      "The bright sun looks yellow.",
       "The frog is green.",
-      "A cat and bat are black.",
-      "A pig and flower are pink.",
-      "We can see many colours!"
+      "The cat and bat are black.",
+      "The pig and flower are pink.",
+      "We can see many colors!"
     ]
   }),
   "first-facts-level-a-02-farm-animals": nonfictionReview({
     topicQuestion: "Which animals live on a farm and what sounds do they make?",
     progression: "Each page names one familiar farm animal and its sound.",
-    synthesis: "The final page gathers the animals in their shared setting.",
+    synthesis: "The ending gathers the different animal sounds in one farm setting.",
     pages: [
       "A pig says oink.",
       "A hen says cluck.",
@@ -1474,7 +1474,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A dog says woof.",
       "A duck says quack.",
       "A cat says meow.",
-      "Many animals live on farms."
+      "Farm animals make many sounds."
     ]
   }),
   "first-facts-level-a-03-big-and-little": nonfictionReview({
@@ -1535,9 +1535,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   }),
   "first-facts-level-a-07-bugs": nonfictionReview({
     title: "Small Creatures",
-    topicQuestion: "What can small bugs do?",
-    progression: "The pages introduce distinct bugs and observable behaviours.",
-    synthesis: "The ending asks readers to notice nearby small creatures.",
+    topicQuestion: "What can small creatures do?",
+    progression: "The pages introduce insects and a worm through observable behaviors.",
+    synthesis: "The ending gathers them accurately as small creatures nearby.",
     pages: [
       "A little bug can fly.",
       "A bee can sting.",
@@ -1545,21 +1545,21 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A worm digs through soil.",
       "A bug can hide.",
       "A bug can crawl.",
-      "Small bugs live all around us."
+      "Small creatures live all around us."
     ]
   }),
   "first-facts-level-a-08-my-pet": nonfictionReview({
     title: "Pets We Care For",
-    topicQuestion: "What do different pets need?",
-    progression: "Each page links one pet to its home or body feature.",
-    synthesis: "The final page describes care as friendship.",
+    topicQuestion: "What can different pets be like at home?",
+    progression: "The pages compare where pets rest, move and sing before showing gentle companionship.",
+    synthesis: "Different pets need suitable homes and gentle care.",
     pages: [
       "A dog sleeps in a bed.",
       "A cat rests on a mat.",
       "A fish swims in a tank.",
       "A bird sings from its perch.",
       "A rabbit has soft fur.",
-      "Every pet needs a name.",
+      "This dog enjoys a gentle cuddle.",
       "Every pet needs gentle care."
     ]
   }),
@@ -1568,9 +1568,9 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     progression: "The pages alternate clear examples of heat and cold.",
     synthesis: "The ending contrasts the two temperature words.",
     pages: [
-      "The Sun feels hot.",
+      "Sunlight can feel hot.",
       "Ice feels cold.",
-      "Fire feels very hot.",
+      "Fire is very hot.",
       "Snow feels very cold.",
       "Soup can be hot.",
       "Milk can be cold.",
@@ -1594,7 +1594,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   "first-facts-level-a-11-at-the-farm": nonfictionReview({
     topicQuestion: "What can we notice on a farm?",
     progression: "The sequence tours a barn, animals, plants and a working dog.",
-    synthesis: "The ending gathers the visit as one place.",
+    synthesis: "The ending gathers the visited sights in one farm view.",
     pages: [
       "A red barn stands tall.",
       "A pig says oink.",
@@ -1602,13 +1602,13 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A cow says moo.",
       "Green grass grows beside hay.",
       "A farm dog runs fast.",
-      "There is much to see."
+      "Together they make a busy farm."
     ]
   }),
   "first-facts-level-a-12-in-the-sea": nonfictionReview({
-    topicQuestion: "How do sea animals move?",
-    progression: "Each page names one sea animal and a characteristic movement.",
-    synthesis: "The ending connects water movement to the reader.",
+    topicQuestion: "How do animals and people move in water?",
+    progression: "The pages compare sea animal movements before ending with human swimming.",
+    synthesis: "The final page connects the movement pattern to people.",
     pages: [
       "A fish swims with a swish.",
       "A shark swims very fast.",
@@ -1620,17 +1620,17 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     ]
   }),
   "first-facts-level-a-13-fruit": nonfictionReview({
-    topicQuestion: "How do familiar fruits look and feel?",
-    progression: "Each page links one fruit to a visible colour, shape or texture.",
-    synthesis: "The ending gathers fruits as food we can enjoy.",
+    topicQuestion: "How can familiar fruits differ?",
+    progression: "The examples compare taste, texture, size, shape and color.",
+    synthesis: "The ending gathers different fruits by their bright colors.",
     pages: [
-      "A red apple tastes sweet.",
-      "A yellow banana feels soft.",
+      "A red apple is sweet.",
+      "A ripe banana feels soft.",
       "A purple plum is small.",
       "An orange is round.",
       "A grape is small and round.",
-      "Fruit is good to eat.",
-      "Fruit has many bright colours."
+      "Fruit can be big or small.",
+      "Fruit can be many colors."
     ]
   }),
   "first-facts-level-a-14-the-tree": nonfictionReview({
@@ -1645,7 +1645,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Branches reach toward the sky.",
       "Green leaves catch sunlight.",
       "Red apples grow on branches.",
-      "Every part helps the tree."
+      "These parts make one tree."
     ]
   }),
   "first-facts-level-a-15-baby-animals": nonfictionReview({
@@ -1673,7 +1673,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "A snail moves slowly.",
       "A worm moves slowly.",
       "A turtle does not rush.",
-      "Is it fast or slow?"
+      "Find one fast and one slow."
     ]
   }),
   "first-facts-level-a-17-a-seed-grows": nonfictionReview({
@@ -1729,7 +1729,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Mars is a rocky planet.",
       "Wide rings circle Saturn.",
       "Many stars are far away.",
-      "Space holds all these worlds."
+      "Space has stars and many planets."
     ]
   })
 });

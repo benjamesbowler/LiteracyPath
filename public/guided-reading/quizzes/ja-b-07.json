@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ja-b-07",
-  "contentHash": "sha256:21a6d59e6b365b7b98da34c1c103daaeb80d1abd2a0d08664cb54ae8eda241d9",
+  "contentHash": "sha256:73578c90ea611b4f9f37aa6663f84afc3b77bc60d5d79bde2a75fe468a91d35b",
   "questions": [
     {
       "id": "ja-b-07-q1",
       "prompt": "Which event begins James and Anna and the School Play?",
       "choices": [
-        "Mrs Green announces a school play called The Lost Dragon.",
-        "His first line vanishes. Anna catches his eye and signals.",
-        "James and Anna bow together before the cheering school."
+        "Mrs. Green holds up a script. “Our play needs a dragon!”",
+        "His first line disappears. Anna gives one steady thumbs-up.",
+        "James and Anna bow together. The whole school cheers."
       ],
-      "answer": "Mrs Green announces a school play called The Lost Dragon.",
+      "answer": "Mrs. Green holds up a script. “Our play needs a dragon!”",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Mrs Green announces a school play called The Lost Dragon."
+      "evidenceText": "Mrs. Green holds up a script. “Our play needs a dragon!”"
     },
     {
       "id": "ja-b-07-q2",
       "prompt": "Which event shows the first plan fails in James and Anna and the School Play?",
       "choices": [
-        "His first line vanishes. Anna catches his eye and signals.",
-        "Mrs Green announces a school play called The Lost Dragon.",
-        "James and Anna bow together before the cheering school."
+        "His first line disappears. Anna gives one steady thumbs-up.",
+        "Mrs. Green holds up a script. “Our play needs a dragon!”",
+        "James and Anna bow together. The whole school cheers."
       ],
-      "answer": "His first line vanishes. Anna catches his eye and signals.",
+      "answer": "His first line disappears. Anna gives one steady thumbs-up.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "His first line vanishes. Anna catches his eye and signals. This shows that the first attempt does not solve the central problem.",
+      "rationale": "His first line disappears. Anna gives one steady thumbs-up. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 9,
-      "evidenceText": "His first line vanishes. Anna catches his eye and signals."
+      "evidenceText": "His first line disappears. Anna gives one steady thumbs-up."
     },
     {
       "id": "ja-b-07-q3",
       "prompt": "Which event solves the problem in James and Anna and the School Play?",
       "choices": [
-        "James and Anna bow together before the cheering school.",
-        "Mrs Green announces a school play called The Lost Dragon.",
-        "His first line vanishes. Anna catches his eye and signals."
+        "James and Anna bow together. The whole school cheers.",
+        "Mrs. Green holds up a script. “Our play needs a dragon!”",
+        "His first line disappears. Anna gives one steady thumbs-up."
       ],
-      "answer": "James and Anna bow together before the cheering school.",
+      "answer": "James and Anna bow together. The whole school cheers.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "James and Anna bow together before the cheering school. This event shows how the central problem is resolved.",
+      "rationale": "James and Anna bow together. The whole school cheers. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "James and Anna bow together before the cheering school."
+      "evidenceText": "James and Anna bow together. The whole school cheers."
     }
   ]
 }

@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-02-park",
-  "contentHash": "sha256:5a54dcb67fee2e803a0e8d832c0d14b5864fe48b71634d987fb85cb578411dfd",
+  "contentHash": "sha256:508dfbbd2e3557266b12fd05ab054955355d0e7110f0875e99bdd375878fc791",
   "questions": [
     {
       "id": "bob-and-nan-02-park-q1",
       "prompt": "What happens first in Bob and Nan go to the Park?",
       "choices": [
-        "Bob and Nan visit the park.",
-        "Bob runs too fast.",
-        "They reach the top together!"
+        "Bob and Nan reach the park.",
+        "Bob runs to the swings.",
+        "Both reach the top!"
       ],
-      "answer": "Bob and Nan visit the park.",
+      "answer": "Bob and Nan reach the park.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Bob and Nan visit the park."
+      "evidenceText": "Bob and Nan reach the park."
     },
     {
       "id": "bob-and-nan-02-park-q2",
       "prompt": "What goes wrong in Bob and Nan go to the Park?",
       "choices": [
-        "Bob runs too fast.",
-        "Bob and Nan visit the park.",
-        "They reach the top together!"
+        "Bob runs to the swings.",
+        "Bob and Nan reach the park.",
+        "Both reach the top!"
       ],
-      "answer": "Bob runs too fast.",
+      "answer": "Bob runs to the swings.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Bob runs too fast. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Bob runs to the swings. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 2,
-      "evidenceText": "Bob runs too fast."
+      "evidenceText": "Bob runs to the swings."
     },
     {
       "id": "bob-and-nan-02-park-q3",
       "prompt": "What happens at the end of Bob and Nan go to the Park?",
       "choices": [
-        "They reach the top together!",
-        "Bob and Nan visit the park.",
-        "Bob runs too fast."
+        "Both reach the top!",
+        "Bob and Nan reach the park.",
+        "Bob runs to the swings."
       ],
-      "answer": "They reach the top together!",
+      "answer": "Both reach the top!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They reach the top together! This event shows how the central problem is resolved.",
+      "rationale": "Both reach the top! This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "They reach the top together!"
+      "evidenceText": "Both reach the top!"
     }
   ]
 }

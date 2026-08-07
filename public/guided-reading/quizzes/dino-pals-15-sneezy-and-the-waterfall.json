@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-15-sneezy-and-the-waterfall",
-  "contentHash": "sha256:c88bcab03305a0c92fd289aeacee315ae5e56130155cffbf2939f32ab42684ae",
+  "contentHash": "sha256:462cfff2c1dc921b091458f32bc616fb290aec6ae934ff9d005069fe174199b4",
   "questions": [
     {
       "id": "dino-pals-15-sneezy-and-the-waterfall-q1",
       "prompt": "Which event begins Sneezy and the Waterfall?",
       "choices": [
-        "Rainbow Waterfall stops flowing during the night.",
-        "The tired Pals sit beside the silent stream.",
-        "Water and rainbow return. Sneezy gathers the fallen leaves."
+        "Rainbow Waterfall stops in the night.",
+        "The Pals sit by the still stream.",
+        "The falls roar. A bright rainbow arcs high. Sneezy sniffs."
       ],
-      "answer": "Rainbow Waterfall stops flowing during the night.",
+      "answer": "Rainbow Waterfall stops in the night.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Rainbow Waterfall stops flowing during the night."
+      "evidenceText": "Rainbow Waterfall stops in the night."
     },
     {
       "id": "dino-pals-15-sneezy-and-the-waterfall-q2",
       "prompt": "Which event shows the first plan fails in Sneezy and the Waterfall?",
       "choices": [
-        "The tired Pals sit beside the silent stream.",
-        "Rainbow Waterfall stops flowing during the night.",
-        "Water and rainbow return. Sneezy gathers the fallen leaves."
+        "The Pals sit by the still stream.",
+        "Rainbow Waterfall stops in the night.",
+        "The falls roar. A bright rainbow arcs high. Sneezy sniffs."
       ],
-      "answer": "The tired Pals sit beside the silent stream.",
+      "answer": "The Pals sit by the still stream.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The tired Pals sit beside the silent stream. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The Pals sit by the still stream. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "The tired Pals sit beside the silent stream."
+      "evidenceText": "The Pals sit by the still stream."
     },
     {
       "id": "dino-pals-15-sneezy-and-the-waterfall-q3",
       "prompt": "Which event solves the problem in Sneezy and the Waterfall?",
       "choices": [
-        "Water and rainbow return. Sneezy gathers the fallen leaves.",
-        "Rainbow Waterfall stops flowing during the night.",
-        "The tired Pals sit beside the silent stream."
+        "The falls roar. A bright rainbow arcs high. Sneezy sniffs.",
+        "Rainbow Waterfall stops in the night.",
+        "The Pals sit by the still stream."
       ],
-      "answer": "Water and rainbow return. Sneezy gathers the fallen leaves.",
+      "answer": "The falls roar. A bright rainbow arcs high. Sneezy sniffs.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Water and rainbow return. Sneezy gathers the fallen leaves. This event shows how the central problem is resolved.",
+      "rationale": "The falls roar. A bright rainbow arcs high. Sneezy sniffs. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Water and rainbow return. Sneezy gathers the fallen leaves."
+      "evidenceText": "The falls roar. A bright rainbow arcs high. Sneezy sniffs."
     }
   ]
 }

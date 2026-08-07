@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-e-49",
-  "contentHash": "sha256:f1a016bd0c0f9c562ed7107146af906c9c4526c5d3bf32018153ccba697dce1b",
+  "contentHash": "sha256:8bb4f4ecdeea8ea318be23d94233e31674ce311c689a63c093b373dbff92b9de",
   "questions": [
     {
       "id": "gr-e-49-q1",
       "prompt": "Which fact is introduced first in Clothes?",
       "choices": [
-        "Hats shade us on sunny days.",
-        "Boots keep feet dry in rain.",
-        "Clothes can protect and warm us."
+        "A sun hat shades my face.",
+        "Rain boots keep my feet dry.",
+        "Different clothes fit different weather and activities."
       ],
-      "answer": "Hats shade us on sunny days.",
+      "answer": "A sun hat shades my face.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Hats shade us on sunny days."
+      "evidenceText": "A sun hat shades my face."
     },
     {
       "id": "gr-e-49-q2",
-      "prompt": "Which sentence tells about boots in Clothes?",
+      "prompt": "Which sentence tells about rain boots in Clothes?",
       "choices": [
-        "Boots keep feet dry in rain.",
-        "Hats shade us on sunny days.",
-        "Clothes can protect and warm us."
+        "Rain boots keep my feet dry.",
+        "A sun hat shades my face.",
+        "Different clothes fit different weather and activities."
       ],
-      "answer": "Boots keep feet dry in rain.",
+      "answer": "Rain boots keep my feet dry.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "Boots keep feet dry in rain."
+      "evidenceText": "Rain boots keep my feet dry."
     },
     {
       "id": "gr-e-49-q3",
       "prompt": "What is the big idea of Clothes?",
       "choices": [
-        "Clothes can protect and warm us.",
-        "Only hats shade us on sunny days.",
-        "Only boots keep feet dry in rain."
+        "Different clothes fit different weather and activities.",
+        "Only a sun hat shades my face.",
+        "Only rain boots keep my feet dry."
       ],
-      "answer": "Clothes can protect and warm us.",
+      "answer": "Different clothes fit different weather and activities.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Hats shade us on sunny days. Boots keep feet dry in rain. Clothes can protect and warm us. Together, these facts show the whole-book big idea: Clothes can protect and warm us.",
+      "rationale": "A sun hat shades my face. Rain boots keep my feet dry. Different clothes fit different weather and activities. Together, these facts show the whole-book big idea: Different clothes fit different weather and activities.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Hats shade us on sunny days."
+          "evidenceText": "A sun hat shades my face."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "Boots keep feet dry in rain."
+          "evidenceText": "Rain boots keep my feet dry."
         }
       ],
       "distractorRationales": {
-        "Only hats shade us on sunny days.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only boots keep feet dry in rain.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only a sun hat shades my face.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only rain boots keep my feet dry.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 6,
-      "evidenceText": "Clothes can protect and warm us."
+      "evidenceText": "Different clothes fit different weather and activities."
     }
   ]
 }

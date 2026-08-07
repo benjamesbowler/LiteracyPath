@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-02-chips",
-  "contentHash": "sha256:93f8c9e87c20b7c31d92602c708739a99c4dc899c85862552f78d198b813d9a7",
+  "contentHash": "sha256:cd58b257202a57d613e325d4ab60dfd53ec814e2b8b57b0697c7d7c8c16c01cf",
   "questions": [
     {
       "id": "james-and-anna-02-chips-q1",
       "prompt": "Which event begins James and Anna and Chips?",
       "choices": [
-        "Chips is their small white goat with big brown patches.",
-        "Then Chips pulls free and crunches through a neighbour's rose bush.",
-        "They move clothes higher and pack more apple for tomorrow's walk."
+        "Meet Chips, their small white goat with big brown patches.",
+        "Snap! Chips bolts free and bites the rose bush.",
+        "“Drop it, Chips!” James points. Chips lets go. Jingle!"
       ],
-      "answer": "Chips is their small white goat with big brown patches.",
+      "answer": "Meet Chips, their small white goat with big brown patches.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Chips is their small white goat with big brown patches."
+      "evidenceText": "Meet Chips, their small white goat with big brown patches."
     },
     {
       "id": "james-and-anna-02-chips-q2",
       "prompt": "Which event shows the first plan fails in James and Anna and Chips?",
       "choices": [
-        "Then Chips pulls free and crunches through a neighbour's rose bush.",
-        "Chips is their small white goat with big brown patches.",
-        "They move clothes higher and pack more apple for tomorrow's walk."
+        "Snap! Chips bolts free and bites the rose bush.",
+        "Meet Chips, their small white goat with big brown patches.",
+        "“Drop it, Chips!” James points. Chips lets go. Jingle!"
       ],
-      "answer": "Then Chips pulls free and crunches through a neighbour's rose bush.",
+      "answer": "Snap! Chips bolts free and bites the rose bush.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Then Chips pulls free and crunches through a neighbour's rose bush. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Snap! Chips bolts free and bites the rose bush. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Then Chips pulls free and crunches through a neighbour's rose bush."
+      "evidenceText": "Snap! Chips bolts free and bites the rose bush."
     },
     {
       "id": "james-and-anna-02-chips-q3",
       "prompt": "Which event solves the problem in James and Anna and Chips?",
       "choices": [
-        "They move clothes higher and pack more apple for tomorrow's walk.",
-        "Chips is their small white goat with big brown patches.",
-        "Then Chips pulls free and crunches through a neighbour's rose bush."
+        "“Drop it, Chips!” James points. Chips lets go. Jingle!",
+        "Meet Chips, their small white goat with big brown patches.",
+        "Snap! Chips bolts free and bites the rose bush."
       ],
-      "answer": "They move clothes higher and pack more apple for tomorrow's walk.",
+      "answer": "“Drop it, Chips!” James points. Chips lets go. Jingle!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They move clothes higher and pack more apple for tomorrow's walk. This event shows how the central problem is resolved.",
+      "rationale": "“Drop it, Chips!” James points. Chips lets go. Jingle! This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "They move clothes higher and pack more apple for tomorrow's walk."
+      "evidenceText": "“Drop it, Chips!” James points. Chips lets go. Jingle!"
     }
   ]
 }

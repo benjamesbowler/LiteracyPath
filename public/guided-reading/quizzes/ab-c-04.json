@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-04",
-  "contentHash": "sha256:754e1f44951d8fde24cf63e39dcba86760aa62bd773265cb7f7deed40aa9d429",
+  "contentHash": "sha256:b3e4f8141e4e612f337a5370eb3025ff3860bd8539bfc9ae6a9d66d1fd98b5d1",
   "questions": [
     {
       "id": "ab-c-04-q1",
       "prompt": "Which event introduces the situation in Aiden and Betty and Socks?",
       "choices": [
-        "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
-        "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
-        "Aiden added one last note: Socks sleeps wherever I leave my torch."
+        "Scritch, scratch! Uncle Eddie's pet carrier bumped beside his travel bag. “Who's in there?” Aiden asked.",
+        "Dad made a cozy kitchen crate. By morning, Socks was asleep beside Aiden's flashlight instead.",
+        "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home."
       ],
-      "answer": "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
+      "answer": "Scritch, scratch! Uncle Eddie's pet carrier bumped beside his travel bag. “Who's in there?” Aiden asked.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Uncle Eddie arrived with a travel bag and a scratching pet carrier."
+      "evidenceText": "Scritch, scratch! Uncle Eddie's pet carrier bumped beside his travel bag. “Who's in there?” Aiden asked."
     },
     {
       "id": "ab-c-04-q2",
       "prompt": "Which event shows that the first attempt fails in Aiden and Betty and Socks?",
       "choices": [
-        "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
-        "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
-        "Aiden added one last note: Socks sleeps wherever I leave my torch."
+        "Dad made a cozy kitchen crate. By morning, Socks was asleep beside Aiden's flashlight instead.",
+        "Scritch, scratch! Uncle Eddie's pet carrier bumped beside his travel bag. “Who's in there?” Aiden asked.",
+        "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home."
       ],
-      "answer": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead.",
+      "answer": "Dad made a cozy kitchen crate. By morning, Socks was asleep beside Aiden's flashlight instead.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Dad made a cozy kitchen crate. By morning, Socks was asleep beside Aiden's flashlight instead. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 10,
-      "evidenceText": "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead."
+      "evidenceText": "Dad made a cozy kitchen crate. By morning, Socks was asleep beside Aiden's flashlight instead."
     },
     {
       "id": "ab-c-04-q3",
       "prompt": "Which event resolves the central problem in Aiden and Betty and Socks?",
       "choices": [
-        "Aiden added one last note: Socks sleeps wherever I leave my torch.",
-        "Uncle Eddie arrived with a travel bag and a scratching pet carrier.",
-        "Dad's cosy kitchen crate failed; Socks slept beside Aiden's torch instead."
+        "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home.",
+        "Scritch, scratch! Uncle Eddie's pet carrier bumped beside his travel bag. “Who's in there?” Aiden asked.",
+        "Dad made a cozy kitchen crate. By morning, Socks was asleep beside Aiden's flashlight instead."
       ],
-      "answer": "Aiden added one last note: Socks sleeps wherever I leave my torch.",
+      "answer": "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Aiden added one last note: Socks sleeps wherever I leave my torch. This event shows how the central problem is resolved.",
+      "rationale": "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "Aiden added one last note: Socks sleeps wherever I leave my torch."
+      "evidenceText": "Aiden wrote, Socks sleeps by my flashlight. Socks rested his chin on the page. He was home."
     }
   ]
 }

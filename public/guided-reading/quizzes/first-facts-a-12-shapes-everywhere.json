@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-12-shapes-everywhere",
-  "contentHash": "sha256:2794dc93aa5714af2a7f882d04935a609358fa0ed5fd38aef02a2560f699c224",
+  "contentHash": "sha256:3b50c0c82cedec51b0ce38acc3fe8b0dd436e1b193413ac1fa41e0c987204545",
   "questions": [
     {
       "id": "first-facts-a-12-shapes-everywhere-q1",
       "prompt": "Which sentence tells about a circle in Shapes on Everyday Objects?",
       "choices": [
-        "A circle is round. A wheel face looks circular.",
-        "A triangle has three sides. This roof edge forms one.",
-        "We can find flat shapes on many objects."
+        "A circle has no straight sides. This wheel face is round.",
+        "A triangle has three sides. This roof edge makes one.",
+        "Now look around. Which flat shapes can you find?"
       ],
-      "answer": "A circle is round. A wheel face looks circular.",
+      "answer": "A circle has no straight sides. This wheel face is round.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A circle is round. A wheel face looks circular."
+      "evidenceText": "A circle has no straight sides. This wheel face is round."
     },
     {
       "id": "first-facts-a-12-shapes-everywhere-q2",
       "prompt": "Which sentence tells about a triangle in Shapes on Everyday Objects?",
       "choices": [
-        "A triangle has three sides. This roof edge forms one.",
-        "A circle is round. A wheel face looks circular.",
-        "We can find flat shapes on many objects."
+        "A triangle has three sides. This roof edge makes one.",
+        "A circle has no straight sides. This wheel face is round.",
+        "Now look around. Which flat shapes can you find?"
       ],
-      "answer": "A triangle has three sides. This roof edge forms one.",
+      "answer": "A triangle has three sides. This roof edge makes one.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "cause_effect",
       "evidencePage": 3,
-      "evidenceText": "A triangle has three sides. This roof edge forms one."
+      "evidenceText": "A triangle has three sides. This roof edge makes one."
     },
     {
       "id": "first-facts-a-12-shapes-everywhere-q3",
       "prompt": "What is the big idea of Shapes on Everyday Objects?",
       "choices": [
-        "We can find flat shapes on many objects.",
-        "Only a circle is round.",
+        "Now look around. Which flat shapes can you find?",
+        "Only a circle has no straight sides.",
         "Only a triangle has three sides."
       ],
-      "answer": "We can find flat shapes on many objects.",
+      "answer": "Now look around. Which flat shapes can you find?",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A circle is round. A wheel face looks circular. A triangle has three sides. This roof edge forms one. We can find flat shapes on many objects. Together, these facts show the whole-book big idea: We can find flat shapes on many objects.",
+      "rationale": "A circle has no straight sides. This wheel face is round. A triangle has three sides. This roof edge makes one. Now look around. Which flat shapes can you find? Together, these facts show the whole-book big idea: Now look around. Which flat shapes can you find?",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "A circle is round. A wheel face looks circular."
+          "evidenceText": "A circle has no straight sides. This wheel face is round."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "A triangle has three sides. This roof edge forms one."
+          "evidenceText": "A triangle has three sides. This roof edge makes one."
         }
       ],
       "distractorRationales": {
-        "Only a circle is round.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a circle has no straight sides.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
         "Only a triangle has three sides.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "We can find flat shapes on many objects."
+      "evidenceText": "Now look around. Which flat shapes can you find?"
     }
   ]
 }

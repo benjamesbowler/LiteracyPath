@@ -2,28 +2,28 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-06-sleepy-cant-wake-up",
-  "contentHash": "sha256:2f04c917b94d700571e48c08c9b1169b0b61af0bcd2bcf360e9697a57f1855b6",
+  "contentHash": "sha256:7e0a742cd1e412aee555ade26864555ebbdfe8b65265ba30752159267b2d9054",
   "questions": [
     {
       "id": "meadow-pals-06-sleepy-cant-wake-up-q1",
       "prompt": "What happens first in Sleepy Can't Wake Up?",
       "choices": [
-        "Breakfast is ready.",
+        "Hot toast is on the table.",
         "Sleepy still snores.",
         "Sleepy joins the table."
       ],
-      "answer": "Breakfast is ready.",
+      "answer": "Hot toast is on the table.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Breakfast is ready."
+      "evidenceText": "Hot toast is on the table."
     },
     {
       "id": "meadow-pals-06-sleepy-cant-wake-up-q2",
       "prompt": "What goes wrong in Sleepy Can't Wake Up?",
       "choices": [
         "Sleepy still snores.",
-        "Breakfast is ready.",
+        "Hot toast is on the table.",
         "Sleepy joins the table."
       ],
       "answer": "Sleepy still snores.",
@@ -38,7 +38,7 @@
       "prompt": "What happens at the end of Sleepy Can't Wake Up?",
       "choices": [
         "Sleepy joins the table.",
-        "Breakfast is ready.",
+        "Hot toast is on the table.",
         "Sleepy still snores."
       ],
       "answer": "Sleepy joins the table.",

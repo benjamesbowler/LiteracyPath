@@ -27,6 +27,18 @@ const voiceName = "en-US-Chirp3-HD-Leda";
 const endpoint = "https://texttospeech.googleapis.com/v1/text:synthesize";
 const dryRun = process.argv.includes("--dry-run");
 const includeInventory = dryRun || process.argv.includes("--inventory");
+const levelArgumentIndex = process.argv.findIndex(argument => argument === "--level");
+const requestedLevel = process.argv
+  .find(argument => argument.startsWith("--level="))
+  ?.split("=")[1]
+  || (levelArgumentIndex >= 0 ? process.argv[levelArgumentIndex + 1] : "")
+  || null;
+if (requestedLevel && !["A", "B", "C"].includes(requestedLevel)) {
+  throw new Error(`Unsupported Guided Reading level: ${requestedLevel}`);
+}
+const selectedBooks = requestedLevel
+  ? guidedReadingBooks.filter(book => book.level === requestedLevel)
+  : guidedReadingBooks;
 
 const spokenWordOverrides = Object.freeze({
   "000": "thousand",
@@ -110,7 +122,7 @@ async function synthesize(accessToken, record) {
   }
 }
 
-const inventory = buildGuidedReadingAudioInventory(guidedReadingBooks, repositoryRoot);
+const inventory = buildGuidedReadingAudioInventory(selectedBooks, repositoryRoot);
 const brokenExactOverrides = inventory.pages.filter(
   row => row.origin === "exact_text_override" && !row.exactLedaAudioResolves
 );
@@ -152,7 +164,7 @@ const pageTexts = new Set(
     .map(row => row.displayedText)
 );
 const wordTexts = new Map();
-for (const book of guidedReadingBooks) {
+for (const book of selectedBooks) {
   for (const page of book.pages || []) {
     if (page.active === false) continue;
     const pageText = canonicalVisibleText(readablePageText(page));
@@ -254,14 +266,15 @@ for (const record of dryRun ? [] : records) {
 const maps = Object.fromEntries(
   ["guided_page", "isolated_word"].map(role => [
     role,
-    Object.fromEntries(
-      records
+    Object.fromEntries([
+      ...(requestedLevel ? Object.entries(GUIDED_READING_LEDA_GAPS[role] || {}) : []),
+      ...records
         .filter(record => record.role === role)
         .sort((left, right) =>
           left.normalizedLookupText.localeCompare(right.normalizedLookupText)
         )
         .map(record => [record.normalizedLookupText, record.publicPath])
-    )
+    ])
   ])
 );
 if (!dryRun) {
@@ -273,6 +286,7 @@ if (!dryRun) {
 
 const result = {
   mode: dryRun ? "dry-run" : "generate",
+  level: requestedLevel || "all",
   voice: voiceName,
   activeBooks: inventory.activeBookCount,
   activePages: inventory.livePageCount,

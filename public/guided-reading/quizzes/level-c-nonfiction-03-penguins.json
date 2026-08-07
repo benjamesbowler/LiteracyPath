@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-03-penguins",
-  "contentHash": "sha256:b58b9fb7a087e651a04b29008b0728244b150640c36688e3c09e155b21b50839",
+  "contentHash": "sha256:fe3b450e68437434e0dafaee25962255bc9167f039112825b4d24e8f1a8cc347",
   "questions": [
     {
       "id": "level-c-nonfiction-03-penguins-q1",
       "prompt": "What do penguins use their wings for?",
       "choices": [
-        "Penguins are flightless birds whose wings work as swimming flippers.",
-        "Penguins use their wings to fly above mountains.",
-        "Penguins use their wings to dig tree holes."
+        "Their strong wings sweep them through water.",
+        "Their strong wings lift them above mountains.",
+        "Their strong wings dig deep tree holes."
       ],
-      "answer": "Penguins are flightless birds whose wings work as swimming flippers.",
+      "answer": "Their strong wings sweep them through water.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Penguins are flightless birds whose wings work as swimming flippers."
+      "evidenceText": "Penguins cannot fly, but their strong wings sweep them through water."
     },
     {
       "id": "level-c-nonfiction-03-penguins-q2",
-      "prompt": "Which sentence tells about a male in Emperor Penguins and Their Relatives?",
+      "prompt": "Which sentence tells about the fathers huddle in Emperor Penguins and Their Relatives?",
       "choices": [
-        "A male balances one egg on his feet beneath warm skin.",
-        "Penguins are flightless birds whose wings work as swimming flippers.",
-        "Eighteen penguin species live from Antarctica to warmer southern coasts."
+        "The fathers huddle close for warmth while the mothers hunt at sea.",
+        "Penguins cannot fly, but their strong wings sweep them through water.",
+        "Not every penguin lives on ice. Some make their homes on warmer coasts."
       ],
-      "answer": "A male balances one egg on his feet beneath warm skin.",
+      "answer": "The fathers huddle close for warmth while the mothers hunt at sea.",
       "kind": "text",
-      "skill": "key_detail",
-      "evidencePage": 3,
-      "evidenceText": "A male balances one egg on his feet beneath warm skin."
+      "skill": "function",
+      "evidencePage": 4,
+      "evidenceText": "The fathers huddle close for warmth while the mothers hunt at sea."
     },
     {
       "id": "level-c-nonfiction-03-penguins-q3",
       "prompt": "What is the big idea of Emperor Penguins and Their Relatives?",
       "choices": [
         "Penguins have traits that help them live in different places.",
-        "Only penguins are flightless birds whose wings work as swimming flippers.",
-        "Only a male balances one egg on his feet beneath warm skin."
+        "Only penguins cannot fly, but their strong wings sweep them through water.",
+        "Only the fathers huddle close for warmth while the mothers hunt at sea."
       ],
       "answer": "Penguins have traits that help them live in different places.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Penguins are flightless birds whose wings work as swimming flippers. A male balances one egg on his feet beneath warm skin. Eighteen penguin species live from Antarctica to warmer southern coasts. Together, these facts show the whole-book big idea: Penguins have traits that help them live in different places.",
+      "rationale": "Penguins cannot fly, but their strong wings sweep them through water. The fathers huddle close for warmth while the mothers hunt at sea. Not every penguin lives on ice. Some make their homes on warmer coasts. Together, these facts show the whole-book big idea: Penguins have traits that help them live in different places.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Penguins are flightless birds whose wings work as swimming flippers."
+          "evidenceText": "Penguins cannot fly, but their strong wings sweep them through water."
         },
         {
-          "evidencePage": 3,
-          "evidenceText": "A male balances one egg on his feet beneath warm skin."
+          "evidencePage": 4,
+          "evidenceText": "The fathers huddle close for warmth while the mothers hunt at sea."
         }
       ],
       "distractorRationales": {
-        "Only penguins are flightless birds whose wings work as swimming flippers.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only a male balances one egg on his feet beneath warm skin.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only penguins cannot fly, but their strong wings sweep them through water.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only the fathers huddle close for warmth while the mothers hunt at sea.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "Eighteen penguin species live from Antarctica to warmer southern coasts."
+      "evidenceText": "Not every penguin lives on ice. Some make their homes on warmer coasts."
     }
   ]
 }

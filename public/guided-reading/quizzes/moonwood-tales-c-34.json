@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-34",
-  "contentHash": "sha256:7fb6d7af7d770dc566ece4b8e7975915c467f64814577adc894ce990955410fd",
+  "contentHash": "sha256:f80826eceaf7ba3c2db397354320ad0e6bdfc55b9d9f191ddf15d92ffecfbac8",
   "questions": [
     {
       "id": "moonwood-tales-c-34-q1",
       "prompt": "Which event introduces the situation in Spark's Ten-Count Hook?",
       "choices": [
-        "Hollow Oak needs a new curved hook for its lowest lantern.",
-        "At count ten the copy vanishes and Luna catches the lantern.",
-        "Spark presses soft clay around the next ten-count copy."
+        "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
+        "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below.",
+        "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail."
       ],
-      "answer": "Hollow Oak needs a new curved hook for its lowest lantern.",
+      "answer": "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Hollow Oak needs a new curved hook for its lowest lantern."
+      "evidenceText": "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it."
     },
     {
       "id": "moonwood-tales-c-34-q2",
       "prompt": "Which event shows that the first attempt fails in Spark's Ten-Count Hook?",
       "choices": [
-        "At count ten the copy vanishes and Luna catches the lantern.",
-        "Hollow Oak needs a new curved hook for its lowest lantern.",
-        "Spark presses soft clay around the next ten-count copy."
+        "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below.",
+        "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
+        "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail."
       ],
-      "answer": "At count ten the copy vanishes and Luna catches the lantern.",
+      "answer": "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "At count ten the copy vanishes and Luna catches the lantern. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "At count ten the copy vanishes and Luna catches the lantern."
+      "rationale": "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below."
     },
     {
       "id": "moonwood-tales-c-34-q3",
       "prompt": "Which event resolves the central problem in Spark's Ten-Count Hook?",
       "choices": [
-        "Spark presses soft clay around the next ten-count copy.",
-        "Hollow Oak needs a new curved hook for its lowest lantern.",
-        "At count ten the copy vanishes and Luna catches the lantern."
+        "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail.",
+        "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
+        "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below."
       ],
-      "answer": "Spark presses soft clay around the next ten-count copy.",
+      "answer": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Spark presses soft clay around the next ten-count copy. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "Spark presses soft clay around the next ten-count copy."
+      "rationale": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail. This event shows how the central problem is resolved.",
+      "evidencePage": 9,
+      "evidenceText": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail."
     }
   ]
 }

@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-28-woollys-wool-cloud",
-  "contentHash": "sha256:043bd49dc7ca9eeda5eacdcd8be02cc30759a1f9285584a87d9ea978d5cc5adf",
+  "contentHash": "sha256:58d71aa2f039e2c3701bdf7dce0e6ae55948aa49e2acf7aef64bc4d4a6493dbf",
   "questions": [
     {
       "id": "meadow-pals-28-woollys-wool-cloud-q1",
       "prompt": "What happens first in Woolly's Wool Cloud?",
       "choices": [
-        "Woolly wants a cloud picture.",
-        "She gathers soft shed wool.",
-        "Sunshine dries the muddy board."
+        "Woolly wants to make a cloud.",
+        "Whoosh! Wind blows it all off.",
+        "Muddy spreads thin mud on wood."
       ],
-      "answer": "Woolly wants a cloud picture.",
+      "answer": "Woolly wants to make a cloud.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Woolly wants a cloud picture."
+      "evidenceText": "Woolly wants to make a cloud."
     },
     {
       "id": "meadow-pals-28-woollys-wool-cloud-q2",
       "prompt": "What goes wrong in Woolly's Wool Cloud?",
       "choices": [
-        "She gathers soft shed wool.",
-        "Woolly wants a cloud picture.",
-        "Sunshine dries the muddy board."
+        "Whoosh! Wind blows it all off.",
+        "Woolly wants to make a cloud.",
+        "Muddy spreads thin mud on wood."
       ],
-      "answer": "She gathers soft shed wool.",
+      "answer": "Whoosh! Wind blows it all off.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "She gathers soft shed wool. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 2,
-      "evidenceText": "She gathers soft shed wool."
+      "rationale": "Whoosh! Wind blows it all off. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Whoosh! Wind blows it all off."
     },
     {
       "id": "meadow-pals-28-woollys-wool-cloud-q3",
       "prompt": "What happens at the end of Woolly's Wool Cloud?",
       "choices": [
-        "Sunshine dries the muddy board.",
-        "Woolly wants a cloud picture.",
-        "She gathers soft shed wool."
+        "Muddy spreads thin mud on wood.",
+        "Woolly wants to make a cloud.",
+        "Whoosh! Wind blows it all off."
       ],
-      "answer": "Sunshine dries the muddy board.",
+      "answer": "Muddy spreads thin mud on wood.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Sunshine dries the muddy board. This event shows how the central problem is resolved.",
-      "evidencePage": 7,
-      "evidenceText": "Sunshine dries the muddy board."
+      "rationale": "Muddy spreads thin mud on wood. This event shows how the central problem is resolved.",
+      "evidencePage": 5,
+      "evidenceText": "Muddy spreads thin mud on wood."
     }
   ]
 }

@@ -16,6 +16,7 @@ import {
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { speak } from "../../../../utils/learnGamesAudio.js";
+import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
 
 // Letter Leap — a real side-scrolling platformer (ported from the approved
 // preview) wired to the shared curriculum framework:
@@ -494,8 +495,23 @@ function startGame(mount, opts) {
   }
 
   // ── input ─────────────────────────────────────────────────────────────────
-  const onKeyDown = e => { if (e.key === "ArrowLeft") keys.left = true; else if (e.key === "ArrowRight") keys.right = true; else if (e.key === " " || e.key === "ArrowUp") { keys.jump = true; if (!e.repeat) jumpBufT = JUMP_BUFFER; e.preventDefault(); } };
-  const onKeyUp = e => { if (e.key === "ArrowLeft") keys.left = false; else if (e.key === "ArrowRight") keys.right = false; else if (e.key === " " || e.key === "ArrowUp") keys.jump = false; };
+  const isJumpKey = key => key === " " || verticalDirectionForKey(key) === -1;
+  const onKeyDown = e => {
+    const direction = laneDirectionForKey(e.key);
+    if (direction < 0) { keys.left = true; e.preventDefault(); }
+    else if (direction > 0) { keys.right = true; e.preventDefault(); }
+    else if (isJumpKey(e.key)) {
+      keys.jump = true;
+      if (!e.repeat) jumpBufT = JUMP_BUFFER;
+      e.preventDefault();
+    }
+  };
+  const onKeyUp = e => {
+    const direction = laneDirectionForKey(e.key);
+    if (direction < 0) keys.left = false;
+    else if (direction > 0) keys.right = false;
+    else if (isJumpKey(e.key)) keys.jump = false;
+  };
   window.addEventListener("keydown", onKeyDown); window.addEventListener("keyup", onKeyUp);
   const holders = [];
   const hold = (sel, k) => {

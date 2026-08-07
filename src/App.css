@@ -1532,6 +1532,7 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   width: auto;
   height: clamp(56px, 10vw, 80px);
   display: block;
+  object-fit: contain;
 }
 
 .top-nav {
@@ -7965,6 +7966,7 @@ body:has(.kg-viewport) .student-home-float { display: none; }
 .teacher-login-card-page-header img {
   width: 46px;
   height: 46px;
+  object-fit: contain;
 }
 
 .teacher-login-card-page-header p,
@@ -8000,6 +8002,7 @@ body:has(.kg-viewport) .student-home-float { display: none; }
 .teacher-print-login-card > img {
   width: 42px;
   height: 42px;
+  object-fit: contain;
 }
 
 .teacher-print-login-card p,

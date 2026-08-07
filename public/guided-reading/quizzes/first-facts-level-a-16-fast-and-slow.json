@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-16-fast-and-slow",
-  "contentHash": "sha256:a4878f97ca11ea2c3451db62e1b1056b513f853771c77b75f7ee810385ab565a",
+  "contentHash": "sha256:d4ac502fdf4c50a3dda14b76212906a670d5ee8c7abe344ab48d25396810761c",
   "questions": [
     {
       "id": "first-facts-level-a-16-fast-and-slow-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "A car can move fast.",
         "A jet moves very fast.",
-        "Is it fast or slow?"
+        "Find one fast and one slow."
       ],
       "answer": "A car can move fast.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "A jet moves very fast.",
         "A car can move fast.",
-        "Is it fast or slow?"
+        "Find one fast and one slow."
       ],
       "answer": "A jet moves very fast.",
       "kind": "text",
@@ -43,7 +43,7 @@
       "answer": "Things can move fast or slow.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A car can move fast. A jet moves very fast. Is it fast or slow? Together, these facts show the whole-book big idea: Things can move fast or slow.",
+      "rationale": "A car can move fast. A jet moves very fast. Find one fast and one slow. Together, these facts show the whole-book big idea: Things can move fast or slow.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -60,7 +60,7 @@
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Is it fast or slow?"
+      "evidenceText": "Find one fast and one slow."
     }
   ]
 }

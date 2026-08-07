@@ -10,6 +10,7 @@ import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtime
 import { getGuidedReadingPageAudioPath } from "../src/utils/guidedReading/readAloudPolicy.js";
 import { storyQuests } from "../src/data/storyQuests.js";
 import { getStoryQuestLedaAudioPath } from "../src/data/storyQuestLedaAudio.js";
+import { buildGuidedReadingAudioInventory } from "./guidedReadingAudioPipelineLib.mjs";
 import {
   STORY_CONTENT_APPROVAL_RULE,
   STORY_CONTENT_FORMATS,
@@ -155,9 +156,19 @@ if (currentGuidedFingerprint !== guidedReadingPolicyBaseline.sourceFingerprint) 
   );
 }
 
+const guidedAudioInventory = buildGuidedReadingAudioInventory(activeBooks, repositoryRoot);
+const unflaggedGuidedPagesWithoutExactAudio = guidedAudioInventory.pages.filter(
+  page => !page.narrationNeedsRebuild && !page.exactLedaAudioResolves
+);
+if (unflaggedGuidedPagesWithoutExactAudio.length) {
+  addError(
+    `${unflaggedGuidedPagesWithoutExactAudio.length} guided-reading pages can expose stale or missing narration because exact-current-text audio is unavailable but narrationNeedsRebuild is not set`
+  );
+}
+
 if (guidedReadingPolicyBaseline.status !== "approved") {
   releaseBlocks.push(
-    `guided-reading catalogue: ${activeBooks.length} registered legacy books still require policy review`
+    `guided-reading catalogue: manuscript and illustration review is complete for ${activeBooks.length} books; exact-current-text audio authorization, regeneration, and listening validation remain open`
   );
 }
 

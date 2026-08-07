@@ -1,7 +1,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
-import logoUrl from "../assets/logo.svg";
+import logoUrl from "../assets/logo.png";
 import { TeacherContextBar } from "./teacher/TeacherContextBar.jsx";
 import { teacherCycleOptions } from "./teacher/teacherCycleReference.js";
 import { supabase, isSupabaseConfigured } from "../supabaseClient.js";

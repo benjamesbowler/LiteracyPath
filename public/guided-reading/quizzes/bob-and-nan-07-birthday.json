@@ -2,14 +2,14 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-07-birthday",
-  "contentHash": "sha256:85ce1721804f1491d9e812658d62db3c69439f64710cd56560f11cf5221b40d0",
+  "contentHash": "sha256:05667c890cb738347dd729388a9979d8680eea9c4dbdaa7b02deac3faa724982",
   "questions": [
     {
       "id": "bob-and-nan-07-birthday-q1",
       "prompt": "What happens first in Nan and Bob: Bob's Birthday Party?",
       "choices": [
         "Today is Bob's birthday.",
-        "The paper will not rip.",
+        "The paper does not rip.",
         "A red bat pops out!"
       ],
       "answer": "Today is Bob's birthday.",
@@ -22,16 +22,16 @@
       "id": "bob-and-nan-07-birthday-q2",
       "prompt": "What goes wrong in Nan and Bob: Bob's Birthday Party?",
       "choices": [
-        "The paper will not rip.",
+        "The paper does not rip.",
         "Today is Bob's birthday.",
         "A red bat pops out!"
       ],
-      "answer": "The paper will not rip.",
+      "answer": "The paper does not rip.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The paper will not rip. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The paper does not rip. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "The paper will not rip."
+      "evidenceText": "The paper does not rip."
     },
     {
       "id": "bob-and-nan-07-birthday-q3",
@@ -39,7 +39,7 @@
       "choices": [
         "A red bat pops out!",
         "Today is Bob's birthday.",
-        "The paper will not rip."
+        "The paper does not rip."
       ],
       "answer": "A red bat pops out!",
       "kind": "text",

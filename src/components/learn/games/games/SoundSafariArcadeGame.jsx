@@ -30,6 +30,7 @@ import {
   createScoreReporter,
   createFrameLoop
 } from "../shared/canvasUtils.js";
+import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
 
 const CONFIG = {
   "sound-safari": {
@@ -37,7 +38,7 @@ const CONFIG = {
     action: "Net the sounds in order",
     onboardingHints: [
       "Listen to the word, then net its sounds in order.",
-      "Click or tap a critter to catch it.",
+      "Tap a critter to catch it.",
       "Arrows move the net, Space catches."
     ],
     guide: "/images/learn-games/ps1-arcade/sound-safari-guide-v1.webp",
@@ -1565,10 +1566,10 @@ function startSoundSafariArcadeGame(mount, options) {
     }
     const move = 48;
     let handled = true;
-    if (event.key === "ArrowLeft") state.net.targetX -= move;
-    else if (event.key === "ArrowRight") state.net.targetX += move;
-    else if (event.key === "ArrowDown") state.net.targetY += move;
-    else if (event.key === "ArrowUp") state.net.targetY -= move;
+    const horizontal = laneDirectionForKey(event.key);
+    const vertical = verticalDirectionForKey(event.key);
+    if (horizontal) state.net.targetX += move * horizontal;
+    else if (vertical) state.net.targetY += move * vertical;
     else if (event.key === " " || event.key === "Enter") {
       captureAt(state.net.x, state.net.y);
     } else {

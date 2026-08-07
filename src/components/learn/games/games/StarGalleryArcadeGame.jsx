@@ -30,6 +30,7 @@ import {
   createPausableFrameTimer,
   neutralizeArcadeInput
 } from "../shared/frameTiming.js";
+import { isPrimaryActionKey, laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
 
 // PS2-style architecture note for future learners:
 // The browser is standing in for the PS2 hardware here. The JS update loop acts like the EE core
@@ -1954,32 +1955,36 @@ function createStarGalleryEngine(mount, options) {
 
   function onKeyDown(event) {
     if (state.ended || state.paused) return;
-    if (event.key === "ArrowLeft" || event.key === "a") {
+    const horizontal = laneDirectionForKey(event.key);
+    const vertical = verticalDirectionForKey(event.key);
+    if (horizontal < 0) {
       event.preventDefault();
       keys.left = true;
-    } else if (event.key === "ArrowRight" || event.key === "d") {
+    } else if (horizontal > 0) {
       event.preventDefault();
       keys.right = true;
-    } else if (event.key === "ArrowUp" || event.key === "w") {
+    } else if (vertical < 0) {
       event.preventDefault();
       keys.up = true;
-    } else if (event.key === "ArrowDown" || event.key === "s") {
+    } else if (vertical > 0) {
       event.preventDefault();
       keys.down = true;
     } else if (event.key === "Shift") {
       event.preventDefault();
       keys.boost = true;
-    } else if (event.key === " " || event.key === "Enter" || event.key === "e") {
+    } else if (isPrimaryActionKey(event.key)) {
       event.preventDefault();
       tryCutNearestTree();
     }
   }
 
   function onKeyUp(event) {
-    if (event.key === "ArrowLeft" || event.key === "a") keys.left = false;
-    else if (event.key === "ArrowRight" || event.key === "d") keys.right = false;
-    else if (event.key === "ArrowUp" || event.key === "w") keys.up = false;
-    else if (event.key === "ArrowDown" || event.key === "s") keys.down = false;
+    const horizontal = laneDirectionForKey(event.key);
+    const vertical = verticalDirectionForKey(event.key);
+    if (horizontal < 0) keys.left = false;
+    else if (horizontal > 0) keys.right = false;
+    else if (vertical < 0) keys.up = false;
+    else if (vertical > 0) keys.down = false;
     else if (event.key === "Shift") keys.boost = false;
   }
 

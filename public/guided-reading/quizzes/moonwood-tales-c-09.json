@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-09",
-  "contentHash": "sha256:8ffc9a2a35de3207f7bbe6298ee31eae27fdecdd5f7f3f8baf95eab649287634",
+  "contentHash": "sha256:306d6535d751db4c344b3046ec1d461cb8d144c8caca180b53e20ab8feb990ae",
   "questions": [
     {
       "id": "moonwood-tales-c-09-q1",
       "prompt": "Which event introduces the situation in Spark's Very Big Sneeze?",
       "choices": [
-        "Spark catches a cold, and every sneeze carries loose wand magic.",
-        "Fish turn purple, the stream changes key, and one fish briefly becomes a frog.",
-        "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish."
+        "Spark woke with a cold and a tickle deep inside his nose. Because loose wand magic followed every sneeze, golden sparks already danced around him.",
+        "Every fish turned purple, and the flowing stream began to sing in a strange key. One surprised fish even became a green frog for a moment.",
+        "When Spark felt one final tickle, he turned away and sneezed into Fern's cloth. Nothing changed, so Dewdrop happily checked off every ordinary fish."
       ],
-      "answer": "Spark catches a cold, and every sneeze carries loose wand magic.",
+      "answer": "Spark woke with a cold and a tickle deep inside his nose. Because loose wand magic followed every sneeze, golden sparks already danced around him.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Spark catches a cold, and every sneeze carries loose wand magic."
+      "evidenceText": "Spark woke with a cold and a tickle deep inside his nose. Because loose wand magic followed every sneeze, golden sparks already danced around him."
     },
     {
       "id": "moonwood-tales-c-09-q2",
       "prompt": "Which event shows that the first attempt fails in Spark's Very Big Sneeze?",
       "choices": [
-        "Fish turn purple, the stream changes key, and one fish briefly becomes a frog.",
-        "Spark catches a cold, and every sneeze carries loose wand magic.",
-        "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish."
+        "Every fish turned purple, and the flowing stream began to sing in a strange key. One surprised fish even became a green frog for a moment.",
+        "Spark woke with a cold and a tickle deep inside his nose. Because loose wand magic followed every sneeze, golden sparks already danced around him.",
+        "When Spark felt one final tickle, he turned away and sneezed into Fern's cloth. Nothing changed, so Dewdrop happily checked off every ordinary fish."
       ],
-      "answer": "Fish turn purple, the stream changes key, and one fish briefly becomes a frog.",
+      "answer": "Every fish turned purple, and the flowing stream began to sing in a strange key. One surprised fish even became a green frog for a moment.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Fish turn purple, the stream changes key, and one fish briefly becomes a frog. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Every fish turned purple, and the flowing stream began to sing in a strange key. One surprised fish even became a green frog for a moment. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 9,
-      "evidenceText": "Fish turn purple, the stream changes key, and one fish briefly becomes a frog."
+      "evidenceText": "Every fish turned purple, and the flowing stream began to sing in a strange key. One surprised fish even became a green frog for a moment."
     },
     {
       "id": "moonwood-tales-c-09-q3",
       "prompt": "Which event resolves the central problem in Spark's Very Big Sneeze?",
       "choices": [
-        "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish.",
-        "Spark catches a cold, and every sneeze carries loose wand magic.",
-        "Fish turn purple, the stream changes key, and one fish briefly becomes a frog."
+        "When Spark felt one final tickle, he turned away and sneezed into Fern's cloth. Nothing changed, so Dewdrop happily checked off every ordinary fish.",
+        "Spark woke with a cold and a tickle deep inside his nose. Because loose wand magic followed every sneeze, golden sparks already danced around him.",
+        "Every fish turned purple, and the flowing stream began to sing in a strange key. One surprised fish even became a green frog for a moment."
       ],
-      "answer": "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish.",
+      "answer": "When Spark felt one final tickle, he turned away and sneezed into Fern's cloth. Nothing changed, so Dewdrop happily checked off every ordinary fish.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish. This event shows how the central problem is resolved.",
+      "rationale": "When Spark felt one final tickle, he turned away and sneezed into Fern's cloth. Nothing changed, so Dewdrop happily checked off every ordinary fish. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "Spark sneezes into the cloth. Nothing changes, so Dewdrop checks off every fish."
+      "evidenceText": "When Spark felt one final tickle, he turned away and sneezed into Fern's cloth. Nothing changed, so Dewdrop happily checked off every ordinary fish."
     }
   ]
 }

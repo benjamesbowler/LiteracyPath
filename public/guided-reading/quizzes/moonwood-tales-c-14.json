@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-14",
-  "contentHash": "sha256:546392fa853e1b684563f6c6700c0605787e8d0a3c6febf790211ea0950e84b6",
+  "contentHash": "sha256:9cf536fe3f644c02565819ce7be217a5f395f981c43be312993e15731ca53eac",
   "questions": [
     {
       "id": "moonwood-tales-c-14-q1",
       "prompt": "Which event introduces the situation in Wren and Flint Get Lost?",
       "choices": [
-        "Wren and Flint set out for Whispering Meadow with map and direction spell.",
-        "Seven spare maps show other places, old turns, or upside-down routes.",
-        "They follow the living light until golden meadow opens ahead."
+        "Wren and Flint set out for Whispering Meadow with a map, a direction spell, and lunch. Both were certain their own guide would work.",
+        "Flint searched through seven spare maps. One showed an old road, another was upside down, and the others described places far away.",
+        "The last trees opened onto Whispering Meadow, where golden grass waved in the sun. Flint laughed with relief, and Wren thanked the mushrooms for guiding them."
       ],
-      "answer": "Wren and Flint set out for Whispering Meadow with map and direction spell.",
+      "answer": "Wren and Flint set out for Whispering Meadow with a map, a direction spell, and lunch. Both were certain their own guide would work.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Wren and Flint set out for Whispering Meadow with map and direction spell."
+      "evidenceText": "Wren and Flint set out for Whispering Meadow with a map, a direction spell, and lunch. Both were certain their own guide would work."
     },
     {
       "id": "moonwood-tales-c-14-q2",
       "prompt": "Which event shows that the first attempt fails in Wren and Flint Get Lost?",
       "choices": [
-        "Seven spare maps show other places, old turns, or upside-down routes.",
-        "Wren and Flint set out for Whispering Meadow with map and direction spell.",
-        "They follow the living light until golden meadow opens ahead."
+        "Flint searched through seven spare maps. One showed an old road, another was upside down, and the others described places far away.",
+        "Wren and Flint set out for Whispering Meadow with a map, a direction spell, and lunch. Both were certain their own guide would work.",
+        "The last trees opened onto Whispering Meadow, where golden grass waved in the sun. Flint laughed with relief, and Wren thanked the mushrooms for guiding them."
       ],
-      "answer": "Seven spare maps show other places, old turns, or upside-down routes.",
+      "answer": "Flint searched through seven spare maps. One showed an old road, another was upside down, and the others described places far away.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Seven spare maps show other places, old turns, or upside-down routes. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Flint searched through seven spare maps. One showed an old road, another was upside down, and the others described places far away. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Seven spare maps show other places, old turns, or upside-down routes."
+      "evidenceText": "Flint searched through seven spare maps. One showed an old road, another was upside down, and the others described places far away."
     },
     {
       "id": "moonwood-tales-c-14-q3",
       "prompt": "Which event resolves the central problem in Wren and Flint Get Lost?",
       "choices": [
-        "They follow the living light until golden meadow opens ahead.",
-        "Wren and Flint set out for Whispering Meadow with map and direction spell.",
-        "Seven spare maps show other places, old turns, or upside-down routes."
+        "The last trees opened onto Whispering Meadow, where golden grass waved in the sun. Flint laughed with relief, and Wren thanked the mushrooms for guiding them.",
+        "Wren and Flint set out for Whispering Meadow with a map, a direction spell, and lunch. Both were certain their own guide would work.",
+        "Flint searched through seven spare maps. One showed an old road, another was upside down, and the others described places far away."
       ],
-      "answer": "They follow the living light until golden meadow opens ahead.",
+      "answer": "The last trees opened onto Whispering Meadow, where golden grass waved in the sun. Flint laughed with relief, and Wren thanked the mushrooms for guiding them.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They follow the living light until golden meadow opens ahead. This event shows how the central problem is resolved.",
+      "rationale": "The last trees opened onto Whispering Meadow, where golden grass waved in the sun. Flint laughed with relief, and Wren thanked the mushrooms for guiding them. This event shows how the central problem is resolved.",
       "evidencePage": 10,
-      "evidenceText": "They follow the living light until golden meadow opens ahead."
+      "evidenceText": "The last trees opened onto Whispering Meadow, where golden grass waved in the sun. Flint laughed with relief, and Wren thanked the mushrooms for guiding them."
     }
   ]
 }

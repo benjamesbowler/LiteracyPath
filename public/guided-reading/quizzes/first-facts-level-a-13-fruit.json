@@ -2,29 +2,29 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-13-fruit",
-  "contentHash": "sha256:48e481cf58807a3e00989eb102174718ac1e2a04c018b591116400021b028532",
+  "contentHash": "sha256:3a69443fe4e305558a84f26001fc3b2a72e8d122962f55b2632ab25c0a4e24ea",
   "questions": [
     {
       "id": "first-facts-level-a-13-fruit-q1",
-      "prompt": "Which fact is introduced first in Fruit?",
+      "prompt": "Which sentence tells about a red apple in Fruit?",
       "choices": [
-        "A red apple tastes sweet.",
+        "A red apple is sweet.",
         "A purple plum is small.",
-        "Fruit has many bright colours."
+        "Fruit can be many colors."
       ],
-      "answer": "A red apple tastes sweet.",
+      "answer": "A red apple is sweet.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A red apple tastes sweet."
+      "evidenceText": "A red apple is sweet."
     },
     {
       "id": "first-facts-level-a-13-fruit-q2",
       "prompt": "Which sentence tells about a purple plum in Fruit?",
       "choices": [
         "A purple plum is small.",
-        "A red apple tastes sweet.",
-        "Fruit has many bright colours."
+        "A red apple is sweet.",
+        "Fruit can be many colors."
       ],
       "answer": "A purple plum is small.",
       "kind": "text",
@@ -36,18 +36,18 @@
       "id": "first-facts-level-a-13-fruit-q3",
       "prompt": "What is the big idea of Fruit?",
       "choices": [
-        "Fruit has many bright colours.",
-        "Only a red apple tastes sweet.",
+        "Fruit can be many colors.",
+        "Only a red apple is sweet.",
         "Only a purple plum is small."
       ],
-      "answer": "Fruit has many bright colours.",
+      "answer": "Fruit can be many colors.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A red apple tastes sweet. A purple plum is small. Fruit has many bright colours. Together, these facts show the whole-book big idea: Fruit has many bright colours.",
+      "rationale": "A red apple is sweet. A purple plum is small. Fruit can be many colors. Together, these facts show the whole-book big idea: Fruit can be many colors.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "A red apple tastes sweet."
+          "evidenceText": "A red apple is sweet."
         },
         {
           "evidencePage": 3,
@@ -55,12 +55,12 @@
         }
       ],
       "distractorRationales": {
-        "Only a red apple tastes sweet.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a red apple is sweet.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
         "Only a purple plum is small.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "Fruit has many bright colours."
+      "evidenceText": "Fruit can be many colors."
     }
   ]
 }

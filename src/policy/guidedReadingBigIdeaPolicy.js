@@ -5,9 +5,10 @@ const BIG_IDEA_VERSION = "single-big-idea-v1";
 // is a question, invitation, safety reminder, or one last detail rather than
 // the whole-book idea.
 const BIG_IDEA_OVERRIDES = Object.freeze({
-  "gr-a-27": "The Sun gives Earth light and warmth.",
-  "gr-b-33": "Different tools help people do different jobs.",
-  "gr-b-34": "Earth's turning makes day and night.",
+  "gr-a-27": "The Sun's light and warmth help life on Earth.",
+  "gr-a-28": "Colors can be seen all around us.",
+  "gr-b-33": "Tools have different jobs and must be used safely.",
+  "gr-b-34": "Earth turns. Day and night take turns.",
   "gr-e-46": "Reptiles have traits that help them live.",
   "gr-e-48": "Magnets can pull some things and push other magnets.",
   "first-facts-level-a-05-the-sky": "The sky can look different at different times.",
@@ -17,7 +18,7 @@ const BIG_IDEA_OVERRIDES = Object.freeze({
   "first-facts-level-a-12-in-the-sea": "Many animals live and move in the sea.",
   "first-facts-level-a-16-fast-and-slow": "Things can move fast or slow.",
   "first-facts-level-a-17-a-seed-grows": "A seed can grow into a flower.",
-  "first-facts-a-01-look-at-the-colours": "Colours can be seen all around us.",
+  "first-facts-a-01-look-at-the-colors": "Colors fill our world.",
   "first-facts-a-03-little-seeds-grow": "A seed can grow into a flowering plant.",
   "first-facts-a-15-things-that-float-and-sink": "Many things can float or sink in water.",
   "first-facts-a-17-hello-sun": "The Sun seems to move because Earth turns.",

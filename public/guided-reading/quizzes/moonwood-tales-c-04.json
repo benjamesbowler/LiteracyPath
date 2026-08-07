@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-04",
-  "contentHash": "sha256:314b005a3e3b8f87b79b63d0d62c6c9093195096e30f43b4b7a88505155fe21c",
+  "contentHash": "sha256:312ea9f27bf2af20996ea1280f5a1e240643ed596598a3b201ba528da41ee0d5",
   "questions": [
     {
       "id": "moonwood-tales-c-04-q1",
       "prompt": "Which event introduces the situation in Glimmer Tries and Tries?",
       "choices": [
-        "Each morning, Glimmer practises one safe breath inside a stone circle.",
-        "Glimmer stops. Forcing more breaths has made their throat sore.",
-        "Glimmer cannot repeat the flare. Pip marks it as a supervised next step."
+        "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
+        "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest.",
+        "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help."
       ],
-      "answer": "Each morning, Glimmer practises one safe breath inside a stone circle.",
+      "answer": "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Each morning, Glimmer practises one safe breath inside a stone circle."
+      "evidenceText": "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways."
     },
     {
       "id": "moonwood-tales-c-04-q2",
       "prompt": "Which event shows that the first attempt fails in Glimmer Tries and Tries?",
       "choices": [
-        "Glimmer stops. Forcing more breaths has made their throat sore.",
-        "Each morning, Glimmer practises one safe breath inside a stone circle.",
-        "Glimmer cannot repeat the flare. Pip marks it as a supervised next step."
+        "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest.",
+        "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
+        "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help."
       ],
-      "answer": "Glimmer stops. Forcing more breaths has made their throat sore.",
+      "answer": "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Glimmer stops. Forcing more breaths has made their throat sore. This shows that the first attempt does not solve the central problem.",
+      "rationale": "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 8,
-      "evidenceText": "Glimmer stops. Forcing more breaths has made their throat sore."
+      "evidenceText": "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest."
     },
     {
       "id": "moonwood-tales-c-04-q3",
       "prompt": "Which event resolves the central problem in Glimmer Tries and Tries?",
       "choices": [
-        "Glimmer cannot repeat the flare. Pip marks it as a supervised next step.",
-        "Each morning, Glimmer practises one safe breath inside a stone circle.",
-        "Glimmer stops. Forcing more breaths has made their throat sore."
+        "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help.",
+        "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
+        "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest."
       ],
-      "answer": "Glimmer cannot repeat the flare. Pip marks it as a supervised next step.",
+      "answer": "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Glimmer cannot repeat the flare. Pip marks it as a supervised next step. This event shows how the central problem is resolved.",
+      "rationale": "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Glimmer cannot repeat the flare. Pip marks it as a supervised next step."
+      "evidenceText": "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help."
     }
   ]
 }

@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-33",
-  "contentHash": "sha256:9108a38bff69acb3e2ee5271720dad52fc7be34e057d3f77b6ab1352f89a2249",
+  "contentHash": "sha256:018bc9877ae9beff31516e61c9795ced93d5495cf66f7d0b821a03098d626e42",
   "questions": [
     {
       "id": "moonwood-tales-c-33-q1",
       "prompt": "Which event introduces the situation in Glimmer and the Sticky Stars?",
       "choices": [
-        "Cold tree sap glues Luna's paper stars into one stack.",
-        "Its points curl inward while the deeper sap stays cold.",
-        "Heat rises slowly and softens every layer of sap."
+        "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
+        "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully.",
+        "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm."
       ],
-      "answer": "Cold tree sap glues Luna's paper stars into one stack.",
+      "answer": "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Cold tree sap glues Luna's paper stars into one stack."
+      "evidenceText": "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon."
     },
     {
       "id": "moonwood-tales-c-33-q2",
       "prompt": "Which event shows that the first attempt fails in Glimmer and the Sticky Stars?",
       "choices": [
-        "Its points curl inward while the deeper sap stays cold.",
-        "Cold tree sap glues Luna's paper stars into one stack.",
-        "Heat rises slowly and softens every layer of sap."
+        "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully.",
+        "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
+        "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm."
       ],
-      "answer": "Its points curl inward while the deeper sap stays cold.",
+      "answer": "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Its points curl inward while the deeper sap stays cold. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Its points curl inward while the deeper sap stays cold."
+      "rationale": "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 3,
+      "evidenceText": "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully."
     },
     {
       "id": "moonwood-tales-c-33-q3",
       "prompt": "Which event resolves the central problem in Glimmer and the Sticky Stars?",
       "choices": [
-        "Heat rises slowly and softens every layer of sap.",
-        "Cold tree sap glues Luna's paper stars into one stack.",
-        "Its points curl inward while the deeper sap stays cold."
+        "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm.",
+        "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
+        "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully."
       ],
-      "answer": "Heat rises slowly and softens every layer of sap.",
+      "answer": "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Heat rises slowly and softens every layer of sap. This event shows how the central problem is resolved.",
-      "evidencePage": 8,
-      "evidenceText": "Heat rises slowly and softens every layer of sap."
+      "rationale": "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm. This event shows how the central problem is resolved.",
+      "evidencePage": 6,
+      "evidenceText": "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm."
     }
   ]
 }

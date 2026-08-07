@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-25",
-  "contentHash": "sha256:2f394fd04d6f8d492fce88e593cd2bdafc6700d13b129b9a9e0331f0e5a40ddf",
+  "contentHash": "sha256:d6fa5a95e3814c26839f6985a5be3178336848783bcdd900542713ed1fa47c50",
   "questions": [
     {
       "id": "moonwood-tales-c-25-q1",
       "prompt": "Which event introduces the situation in One Night in the Deep Dark?",
       "choices": [
-        "Deep at night, a small sound reaches the clearing edge.",
-        "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing.",
-        "The creature runs to its family, who gather around without fear."
+        "Deep in the night, Moonwood lay quiet beneath the trees. Then a small scratching sound came from the clearing's edge. Something tiny waited there.",
+        "Soon, Glimmer's flame reached only a little way ahead. Beyond its glow, every dark forest path looked the same. The friends stopped close together instead of guessing.",
+        "The lost creature raced toward the waiting silver-eyed rabbits. Its family pressed close around it, warm and safe. Then one rabbit looked toward Pip and blinked."
       ],
-      "answer": "Deep at night, a small sound reaches the clearing edge.",
+      "answer": "Deep in the night, Moonwood lay quiet beneath the trees. Then a small scratching sound came from the clearing's edge. Something tiny waited there.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Deep at night, a small sound reaches the clearing edge."
+      "evidenceText": "Deep in the night, Moonwood lay quiet beneath the trees. Then a small scratching sound came from the clearing's edge. Something tiny waited there."
     },
     {
       "id": "moonwood-tales-c-25-q2",
       "prompt": "Which event shows that the first attempt fails in One Night in the Deep Dark?",
       "choices": [
-        "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing.",
-        "Deep at night, a small sound reaches the clearing edge.",
-        "The creature runs to its family, who gather around without fear."
+        "Soon, Glimmer's flame reached only a little way ahead. Beyond its glow, every dark forest path looked the same. The friends stopped close together instead of guessing.",
+        "Deep in the night, Moonwood lay quiet beneath the trees. Then a small scratching sound came from the clearing's edge. Something tiny waited there.",
+        "The lost creature raced toward the waiting silver-eyed rabbits. Its family pressed close around it, warm and safe. Then one rabbit looked toward Pip and blinked."
       ],
-      "answer": "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing.",
+      "answer": "Soon, Glimmer's flame reached only a little way ahead. Beyond its glow, every dark forest path looked the same. The friends stopped close together instead of guessing.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Soon, Glimmer's flame reached only a little way ahead. Beyond its glow, every dark forest path looked the same. The friends stopped close together instead of guessing. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 8,
-      "evidenceText": "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing."
+      "evidenceText": "Soon, Glimmer's flame reached only a little way ahead. Beyond its glow, every dark forest path looked the same. The friends stopped close together instead of guessing."
     },
     {
       "id": "moonwood-tales-c-25-q3",
       "prompt": "Which event resolves the central problem in One Night in the Deep Dark?",
       "choices": [
-        "The creature runs to its family, who gather around without fear.",
-        "Deep at night, a small sound reaches the clearing edge.",
-        "Beyond Glimmer's small flame, every path looks alike. The group stops instead of guessing."
+        "The lost creature raced toward the waiting silver-eyed rabbits. Its family pressed close around it, warm and safe. Then one rabbit looked toward Pip and blinked.",
+        "Deep in the night, Moonwood lay quiet beneath the trees. Then a small scratching sound came from the clearing's edge. Something tiny waited there.",
+        "Soon, Glimmer's flame reached only a little way ahead. Beyond its glow, every dark forest path looked the same. The friends stopped close together instead of guessing."
       ],
-      "answer": "The creature runs to its family, who gather around without fear.",
+      "answer": "The lost creature raced toward the waiting silver-eyed rabbits. Its family pressed close around it, warm and safe. Then one rabbit looked toward Pip and blinked.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The creature runs to its family, who gather around without fear. This event shows how the central problem is resolved.",
+      "rationale": "The lost creature raced toward the waiting silver-eyed rabbits. Its family pressed close around it, warm and safe. Then one rabbit looked toward Pip and blinked. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "The creature runs to its family, who gather around without fear."
+      "evidenceText": "The lost creature raced toward the waiting silver-eyed rabbits. Its family pressed close around it, warm and safe. Then one rabbit looked toward Pip and blinked."
     }
   ]
 }

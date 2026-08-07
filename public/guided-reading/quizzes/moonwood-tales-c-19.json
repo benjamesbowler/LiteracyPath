@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-19",
-  "contentHash": "sha256:48969f15413284462d8abff1b61377bb807c2bdeeba33101ea71329f780ccf9a",
+  "contentHash": "sha256:a429d6cc1314f37453ce4aa379555e7906fde566b58017a56facc110427c1bd0",
   "questions": [
     {
       "id": "moonwood-tales-c-19-q1",
       "prompt": "Which event introduces the situation in The Missing Magic Seeds?",
       "choices": [
-        "Luna finds the glow-seed box open and empty.",
-        "Burrow checks every tunnel and returns with empty paws.",
-        "That night, protected seedlings mark every path around Hollow Oak."
+        "Luna opened the glow-seed box and found it completely empty. She searched the shelf and floor, but not one tiny golden seed remained inside Hollow Oak.",
+        "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws.",
+        "That night, the friends placed small guards around each seedling. Their gold-green light marked every path near Hollow Oak, and no traveler had to walk in darkness."
       ],
-      "answer": "Luna finds the glow-seed box open and empty.",
+      "answer": "Luna opened the glow-seed box and found it completely empty. She searched the shelf and floor, but not one tiny golden seed remained inside Hollow Oak.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Luna finds the glow-seed box open and empty."
+      "evidenceText": "Luna opened the glow-seed box and found it completely empty. She searched the shelf and floor, but not one tiny golden seed remained inside Hollow Oak."
     },
     {
       "id": "moonwood-tales-c-19-q2",
       "prompt": "Which event shows that the first attempt fails in The Missing Magic Seeds?",
       "choices": [
-        "Burrow checks every tunnel and returns with empty paws.",
-        "Luna finds the glow-seed box open and empty.",
-        "That night, protected seedlings mark every path around Hollow Oak."
+        "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws.",
+        "Luna opened the glow-seed box and found it completely empty. She searched the shelf and floor, but not one tiny golden seed remained inside Hollow Oak.",
+        "That night, the friends placed small guards around each seedling. Their gold-green light marked every path near Hollow Oak, and no traveler had to walk in darkness."
       ],
-      "answer": "Burrow checks every tunnel and returns with empty paws.",
+      "answer": "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Burrow checks every tunnel and returns with empty paws. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Burrow checks every tunnel and returns with empty paws."
+      "evidenceText": "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws."
     },
     {
       "id": "moonwood-tales-c-19-q3",
       "prompt": "Which event resolves the central problem in The Missing Magic Seeds?",
       "choices": [
-        "That night, protected seedlings mark every path around Hollow Oak.",
-        "Luna finds the glow-seed box open and empty.",
-        "Burrow checks every tunnel and returns with empty paws."
+        "That night, the friends placed small guards around each seedling. Their gold-green light marked every path near Hollow Oak, and no traveler had to walk in darkness.",
+        "Luna opened the glow-seed box and found it completely empty. She searched the shelf and floor, but not one tiny golden seed remained inside Hollow Oak.",
+        "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws."
       ],
-      "answer": "That night, protected seedlings mark every path around Hollow Oak.",
+      "answer": "That night, the friends placed small guards around each seedling. Their gold-green light marked every path near Hollow Oak, and no traveler had to walk in darkness.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "That night, protected seedlings mark every path around Hollow Oak. This event shows how the central problem is resolved.",
+      "rationale": "That night, the friends placed small guards around each seedling. Their gold-green light marked every path near Hollow Oak, and no traveler had to walk in darkness. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "That night, protected seedlings mark every path around Hollow Oak."
+      "evidenceText": "That night, the friends placed small guards around each seedling. Their gold-green light marked every path near Hollow Oak, and no traveler had to walk in darkness."
     }
   ]
 }

@@ -75,7 +75,7 @@ function SentenceExpressOnboarding({ onStart }) {
           Rebuild the sentence train: couple the word cars in order!
         </p>
         <div style={{ marginTop: 14, display: "grid", gap: 8, textAlign: "left", fontWeight: 600, fontSize: ".88rem", lineHeight: 1.45 }}>
-          <span>Listen to the station master, then click or tap the word cars in order.</span>
+          <span>Listen to the station master, then tap the word cars in order.</span>
           <span>Swap the rusty car and load the missing crate when they roll in.</span>
           <span>Pick the capital engine and the right end-mark caboose ( . ! ? ).</span>
         </div>
@@ -92,6 +92,7 @@ function SentenceExpressOnboarding({ onStart }) {
           border: "3px solid #10151d",
           borderRadius: 12,
           padding: "8px 22px",
+          minHeight: 56,
           fontWeight: 900,
           fontSize: "1rem"
           }}

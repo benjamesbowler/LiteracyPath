@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-level-a-01-colors",
-  "contentHash": "sha256:4354e2b285479317dc2fde315b12fe026eb9e880806eda6297ff60290595d42a",
+  "contentHash": "sha256:94d07de0fd933e29a6b3281925aca3e459baaeb2fae237523fe70863ae2e3f92",
   "questions": [
     {
       "id": "first-facts-level-a-01-colors-q1",
-      "prompt": "Which sentence tells about a ball and hat in Colors?",
+      "prompt": "Which sentence tells about the ball and hat in Colors?",
       "choices": [
-        "A ball and hat are red.",
-        "The bright sun is yellow.",
-        "We can see many colours!"
+        "The ball and hat are red.",
+        "The bright sun looks yellow.",
+        "We can see many colors!"
       ],
-      "answer": "A ball and hat are red.",
+      "answer": "The ball and hat are red.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "A ball and hat are red."
+      "evidenceText": "The ball and hat are red."
     },
     {
       "id": "first-facts-level-a-01-colors-q2",
       "prompt": "Which sentence tells about the bright sun in Colors?",
       "choices": [
-        "The bright sun is yellow.",
-        "A ball and hat are red.",
-        "We can see many colours!"
+        "The bright sun looks yellow.",
+        "The ball and hat are red.",
+        "We can see many colors!"
       ],
-      "answer": "The bright sun is yellow.",
+      "answer": "The bright sun looks yellow.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 3,
-      "evidenceText": "The bright sun is yellow."
+      "evidenceText": "The bright sun looks yellow."
     },
     {
       "id": "first-facts-level-a-01-colors-q3",
       "prompt": "What is the big idea of Colors?",
       "choices": [
-        "We can see many colours!",
-        "Only a ball and hat are red.",
-        "Only the bright sun is yellow."
+        "We can see many colors!",
+        "Only the ball and hat are red.",
+        "Only the bright sun looks yellow."
       ],
-      "answer": "We can see many colours!",
+      "answer": "We can see many colors!",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A ball and hat are red. The bright sun is yellow. We can see many colours! Together, these facts show the whole-book big idea: We can see many colours!",
+      "rationale": "The ball and hat are red. The bright sun looks yellow. We can see many colors! Together, these facts show the whole-book big idea: We can see many colors!",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "A ball and hat are red."
+          "evidenceText": "The ball and hat are red."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "The bright sun is yellow."
+          "evidenceText": "The bright sun looks yellow."
         }
       ],
       "distractorRationales": {
-        "Only a ball and hat are red.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only the bright sun is yellow.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only the ball and hat are red.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only the bright sun looks yellow.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 7,
-      "evidenceText": "We can see many colours!"
+      "evidenceText": "We can see many colors!"
     }
   ]
 }

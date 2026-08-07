@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-23-my-body",
-  "contentHash": "sha256:23d564dd4ddb919d7fd8ce148337c31faf74699cb28fdcc4a158617fe1a0380f",
+  "contentHash": "sha256:fea2b48daf9949133917c2370edb0233932f6081fa641c832296ea928392b4f8",
   "questions": [
     {
       "id": "first-facts-a-23-my-body-q1",
       "prompt": "Which sentence tells about my head in My Body?",
       "choices": [
-        "My head holds my face and brain.",
-        "My legs and feet help me move.",
-        "My body belongs to me."
+        "My head holds my brain and face.",
+        "My legs and feet carry me.",
+        "This is my body. It belongs to me."
       ],
-      "answer": "My head holds my face and brain.",
+      "answer": "My head holds my brain and face.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "My head holds my face and brain."
+      "evidenceText": "My head holds my brain and face."
     },
     {
       "id": "first-facts-a-23-my-body-q2",
       "prompt": "Which sentence tells about my legs and feet in My Body?",
       "choices": [
-        "My legs and feet help me move.",
-        "My head holds my face and brain.",
-        "My body belongs to me."
+        "My legs and feet carry me.",
+        "My head holds my brain and face.",
+        "This is my body. It belongs to me."
       ],
-      "answer": "My legs and feet help me move.",
+      "answer": "My legs and feet carry me.",
       "kind": "text",
-      "skill": "function",
+      "skill": "key_detail",
       "evidencePage": 4,
-      "evidenceText": "My legs and feet help me move."
+      "evidenceText": "My legs and feet carry me."
     },
     {
       "id": "first-facts-a-23-my-body-q3",
       "prompt": "What is the big idea of My Body?",
       "choices": [
-        "My body belongs to me.",
-        "Only my head holds my face and brain.",
-        "Only my legs and feet help me move."
+        "This is my body. It belongs to me.",
+        "Only my head holds my brain and face.",
+        "Only my legs and feet carry me."
       ],
-      "answer": "My body belongs to me.",
+      "answer": "This is my body. It belongs to me.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "My head holds my face and brain. My legs and feet help me move. My body belongs to me. Together, these facts show the whole-book big idea: My body belongs to me.",
+      "rationale": "My head holds my brain and face. My legs and feet carry me. This is my body. It belongs to me. Together, these facts show the whole-book big idea: This is my body. It belongs to me.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "My head holds my face and brain."
+          "evidenceText": "My head holds my brain and face."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "My legs and feet help me move."
+          "evidenceText": "My legs and feet carry me."
         }
       ],
       "distractorRationales": {
-        "Only my head holds my face and brain.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only my legs and feet help me move.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only my head holds my brain and face.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only my legs and feet carry me.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
-      "evidenceText": "My body belongs to me."
+      "evidenceText": "This is my body. It belongs to me."
     }
   ]
 }

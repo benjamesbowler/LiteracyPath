@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "ab-c-06",
-  "contentHash": "sha256:0bbda2afcb7a1b6e3b8f848711b20e400c7a682c04ec61b6abee6a2006ab7870",
+  "contentHash": "sha256:9b1bc10c05787c627de8d75e5a0a0afc6af44b35c8d67644b9f3ee09769e34ab",
   "questions": [
     {
       "id": "ab-c-06-q1",
       "prompt": "Which event introduces the situation in Aiden and Betty and the Science Fair?",
       "choices": [
-        "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
-        "For several mornings, the closed jar looked unchanged on its high shelf.",
-        "Their project won third place. The judges praised their daily record."
+        "“Science Fair!” Miss Okafor announced. Aiden's notebook was open before she finished speaking.",
+        "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf.",
+        "“Third place!” Miss Okafor cheered. Their careful daily record had caught the judges' attention."
       ],
-      "answer": "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
+      "answer": "“Science Fair!” Miss Okafor announced. Aiden's notebook was open before she finished speaking.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately."
+      "evidenceText": "“Science Fair!” Miss Okafor announced. Aiden's notebook was open before she finished speaking."
     },
     {
       "id": "ab-c-06-q2",
       "prompt": "Which event shows that the first attempt fails in Aiden and Betty and the Science Fair?",
       "choices": [
-        "For several mornings, the closed jar looked unchanged on its high shelf.",
-        "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
-        "Their project won third place. The judges praised their daily record."
+        "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf.",
+        "“Science Fair!” Miss Okafor announced. Aiden's notebook was open before she finished speaking.",
+        "“Third place!” Miss Okafor cheered. Their careful daily record had caught the judges' attention."
       ],
-      "answer": "For several mornings, the closed jar looked unchanged on its high shelf.",
+      "answer": "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "For several mornings, the closed jar looked unchanged on its high shelf. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 5,
-      "evidenceText": "For several mornings, the closed jar looked unchanged on its high shelf."
+      "evidenceText": "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf."
     },
     {
       "id": "ab-c-06-q3",
       "prompt": "Which event resolves the central problem in Aiden and Betty and the Science Fair?",
       "choices": [
-        "Their project won third place. The judges praised their daily record.",
-        "Miss Okafor announced the Science Fair. Aiden opened his notebook immediately.",
-        "For several mornings, the closed jar looked unchanged on its high shelf."
+        "“Third place!” Miss Okafor cheered. Their careful daily record had caught the judges' attention.",
+        "“Science Fair!” Miss Okafor announced. Aiden's notebook was open before she finished speaking.",
+        "Morning one: no crystals. Morning two: still none. Socks stared up at the high shelf."
       ],
-      "answer": "Their project won third place. The judges praised their daily record.",
+      "answer": "“Third place!” Miss Okafor cheered. Their careful daily record had caught the judges' attention.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Their project won third place. The judges praised their daily record. This event shows how the central problem is resolved.",
+      "rationale": "“Third place!” Miss Okafor cheered. Their careful daily record had caught the judges' attention. This event shows how the central problem is resolved.",
       "evidencePage": 11,
-      "evidenceText": "Their project won third place. The judges praised their daily record."
+      "evidenceText": "“Third place!” Miss Okafor cheered. Their careful daily record had caught the judges' attention."
     }
   ]
 }

@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "gr-b-32",
-  "contentHash": "sha256:8e040ab16c25e78a7ba5ea95a9de10625120fd5656549f821a5c939377cfadea",
+  "contentHash": "sha256:f7950470c418abcaeca2423d73456f8ac0926b619b9caa019203f0b011ce08cd",
   "questions": [
     {
       "id": "gr-b-32-q1",
-      "prompt": "Which sentence tells about an apple in Fruits?",
+      "prompt": "Which fact is introduced first in Fruits?",
       "choices": [
-        "An apple is a fruit.",
-        "A grape is a fruit.",
-        "Fruits grow from flowers."
+        "Bite an apple. It feels crisp.",
+        "Grapes grow together in bunches.",
+        "Fruits come in many colors, shapes, and sizes."
       ],
-      "answer": "An apple is a fruit.",
+      "answer": "Bite an apple. It feels crisp.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "An apple is a fruit."
+      "evidenceText": "Bite an apple. It feels crisp."
     },
     {
       "id": "gr-b-32-q2",
-      "prompt": "Which sentence tells about a grape in Fruits?",
+      "prompt": "Which sentence tells about grapes in Fruits?",
       "choices": [
-        "A grape is a fruit.",
-        "An apple is a fruit.",
-        "Fruits grow from flowers."
+        "Grapes grow together in bunches.",
+        "Bite an apple. It feels crisp.",
+        "Fruits come in many colors, shapes, and sizes."
       ],
-      "answer": "A grape is a fruit.",
+      "answer": "Grapes grow together in bunches.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "sequence",
       "evidencePage": 3,
-      "evidenceText": "A grape is a fruit."
+      "evidenceText": "Grapes grow together in bunches."
     },
     {
       "id": "gr-b-32-q3",
       "prompt": "What is the big idea of Fruits?",
       "choices": [
-        "Fruits grow from flowers.",
-        "Only an apple is a fruit.",
-        "Only a grape is a fruit."
+        "A flower can grow into a fruit.",
+        "Only bite an apple.",
+        "Only grapes grow together in bunches."
       ],
-      "answer": "Fruits grow from flowers.",
+      "answer": "A flower can grow into a fruit.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "An apple is a fruit. A grape is a fruit. Fruits grow from flowers. Together, these facts show the whole-book big idea: Fruits grow from flowers.",
+      "rationale": "Bite an apple. It feels crisp. Grapes grow together in bunches. Fruits come in many colors, shapes, and sizes. Together, these facts show the whole-book big idea: A flower can grow into a fruit.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "An apple is a fruit."
+          "evidenceText": "Bite an apple. It feels crisp."
         },
         {
           "evidencePage": 3,
-          "evidenceText": "A grape is a fruit."
+          "evidenceText": "Grapes grow together in bunches."
         }
       ],
       "distractorRationales": {
-        "Only an apple is a fruit.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only a grape is a fruit.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only bite an apple.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only grapes grow together in bunches.": "Page 3 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
-      "evidencePage": 6,
-      "evidenceText": "Fruits grow from flowers."
+      "evidencePage": 5,
+      "evidenceText": "Fruits come in many colors, shapes, and sizes."
     }
   ]
 }

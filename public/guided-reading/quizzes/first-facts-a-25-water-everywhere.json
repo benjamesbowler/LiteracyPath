@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-25-water-everywhere",
-  "contentHash": "sha256:d2c35573ef29bb78037c83756d332cf69234f367eb1a9bd7299ee7ceac9c4517",
+  "contentHash": "sha256:f2e5e6972d5eb585e0e506ad25ab921ba8c68e5ac4ada4af227fcdfe49041232",
   "questions": [
     {
       "id": "first-facts-a-25-water-everywhere-q1",
       "prompt": "Which fact is introduced first in Water Everywhere?",
       "choices": [
-        "Water fills oceans rivers and clouds.",
-        "People drink water every day.",
-        "Water shapes our blue planet."
+        "Water fills oceans, rivers, lakes, and clouds.",
+        "People need clean water to drink.",
+        "Water shapes and supports life on our blue planet."
       ],
-      "answer": "Water fills oceans rivers and clouds.",
+      "answer": "Water fills oceans, rivers, lakes, and clouds.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Water fills oceans rivers and clouds."
+      "evidenceText": "Water fills oceans, rivers, lakes, and clouds."
     },
     {
       "id": "first-facts-a-25-water-everywhere-q2",
       "prompt": "Which sentence tells about people in Water Everywhere?",
       "choices": [
-        "People drink water every day.",
-        "Water fills oceans rivers and clouds.",
-        "Water shapes our blue planet."
+        "People need clean water to drink.",
+        "Water fills oceans, rivers, lakes, and clouds.",
+        "Water shapes and supports life on our blue planet."
       ],
-      "answer": "People drink water every day.",
+      "answer": "People need clean water to drink.",
       "kind": "text",
-      "skill": "key_detail",
+      "skill": "function",
       "evidencePage": 4,
-      "evidenceText": "People drink water every day."
+      "evidenceText": "People need clean water to drink."
     },
     {
       "id": "first-facts-a-25-water-everywhere-q3",
       "prompt": "What is the big idea of Water Everywhere?",
       "choices": [
-        "Water shapes our blue planet.",
-        "Only water fills oceans rivers and clouds.",
-        "Only people drink water every day."
+        "Water shapes and supports life on our blue planet.",
+        "Only water fills oceans, rivers, lakes, and clouds.",
+        "Only people need clean water to drink."
       ],
-      "answer": "Water shapes our blue planet.",
+      "answer": "Water shapes and supports life on our blue planet.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Water fills oceans rivers and clouds. People drink water every day. Water shapes our blue planet. Together, these facts show the whole-book big idea: Water shapes our blue planet.",
+      "rationale": "Water fills oceans, rivers, lakes, and clouds. People need clean water to drink. Water shapes and supports life on our blue planet. Together, these facts show the whole-book big idea: Water shapes and supports life on our blue planet.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Water fills oceans rivers and clouds."
+          "evidenceText": "Water fills oceans, rivers, lakes, and clouds."
         },
         {
           "evidencePage": 4,
-          "evidenceText": "People drink water every day."
+          "evidenceText": "People need clean water to drink."
         }
       ],
       "distractorRationales": {
-        "Only water fills oceans rivers and clouds.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only people drink water every day.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only water fills oceans, rivers, lakes, and clouds.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only people need clean water to drink.": "Page 4 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "Water shapes our blue planet."
+      "evidenceText": "Water shapes and supports life on our blue planet."
     }
   ]
 }

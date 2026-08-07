@@ -7,6 +7,16 @@ The live book modules are the authority:
 - `src/data/guidedStoryBooks.js`
 - `src/data/firstFactsActualLevelABooks.js`
 
+The editorial craft evidence used to revise those manuscripts is:
+
+- [`HUMAN_WRITING_EVIDENCE_DATABASE.json`](./HUMAN_WRITING_EVIDENCE_DATABASE.json)
+
+It contains short, source-bounded examples of actual human-written children's-book
+language, each analysed for a transferable craft move and rewrite lesson. It is not
+a manuscript source or a bank of wording to imitate. `npm run
+check:guided-reading-writing-evidence` enforces the 100-example floor, source and
+quotation limits, A/B/C coverage, and fiction/nonfiction coverage.
+
 Every readable word and page narration must resolve through the current production
 audio paths. Continuous reading follows page order and page timing. Current automated
 coverage tests enforce these contracts.

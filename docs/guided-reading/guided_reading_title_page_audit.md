@@ -1,6 +1,6 @@
 # Guided Reading Title Page Audit
 
-Generated: 2026-08-02T02:04:08.227Z
+Generated: 2026-08-05T08:50:03.228Z
 
 ## Strategy
 
@@ -54,11 +54,11 @@ Visible nonfiction books: 76
 | first-facts-level-a-18-my-body | My Body | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp | My Body / by Mara Lane / illustrated by Theo Finch |
 | first-facts-level-a-19-day-and-night | Day and Night | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-19/cover.webp | Day and Night / by Mara Lane / illustrated by Theo Finch |
 | first-facts-level-a-20-space | Space | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-20/cover.webp | Space / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-01-look-at-the-colours | Colours We Can See | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-01/cover.webp | Colours We Can See / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-02-the-four-seasons | Seasons in a Temperate Place | nonfiction | B | 9 | 10 | /guided-reading/nonfiction/first-facts/book-02/cover.webp | Seasons in a Temperate Place / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-03-little-seeds-grow | A Seed Germinates | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-03/cover.webp | A Seed Germinates / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-01-look-at-the-colors | Colors We Can See | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-01/cover.webp | Colors We Can See / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-02-the-four-seasons | Seasons Change | nonfiction | B | 9 | 10 | /guided-reading/nonfiction/first-facts/book-02/cover.webp | Seasons Change / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-03-little-seeds-grow | A Seed Starts to Grow | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-03/cover.webp | A Seed Starts to Grow / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-04-what-is-weather | What is Weather? | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-04/cover.webp | What is Weather? / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-05-flowers-and-trees | Flowering Plants and Trees | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-05/cover.webp | Flowering Plants and Trees / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-05-flowers-and-trees | Flowers and Trees | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-05/cover.webp | Flowers and Trees / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-06-baby-animals | Baby Animals | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-06/cover.webp | Baby Animals / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-07-animals-on-the-farm | Animals on the Farm | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-07/cover.webp | Animals on the Farm / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-08/cover.webp | Animals in the Ocean / by Mara Lane / illustrated by Theo Finch |
@@ -75,7 +75,7 @@ Visible nonfiction books: 76
 | first-facts-a-19-day-and-night | Day and Night | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-19/cover.webp | Day and Night / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-20-my-five-senses | My Five Senses | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-20/cover.webp | My Five Senses / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-21-how-i-grow | Ways I Grow | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-21/cover.webp | Ways I Grow / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-22-staying-healthy | Habits That Support Health | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-22/cover.webp | Habits That Support Health / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-22-staying-healthy | Healthy Habits | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-22/cover.webp | Healthy Habits / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-23-my-body | My Body | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-23/cover.webp | My Body / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-24/cover.webp | Rocks and Pebbles / by Mara Lane / illustrated by Theo Finch |
 | first-facts-a-25-water-everywhere | Water Everywhere | nonfiction | B | 9 | 10 | /guided-reading/nonfiction/first-facts/book-25/cover.webp | Water Everywhere / by Mara Lane / illustrated by Theo Finch |
@@ -111,7 +111,7 @@ Visible nonfiction books: 76
 | ja-b-10 | James, Anna and Chips go Camping | fiction | B | 14 | 15 | /guided-reading/series/james-and-anna/book-10/cover.webp | James, Anna and Chips go Camping / by Ava Stone / illustrated by Finn Blue |
 | ab-c-01 | Aiden and Betty Start Grade 1 | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-01/cover.webp | Aiden and Betty Start Grade 1 / by Nora Bell / illustrated by LiteracyPath Studio |
 | ab-c-02 | Aiden and Betty have a Yard Sale | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-02/cover.webp | Aiden and Betty have a Yard Sale / by Nora Bell / illustrated by LiteracyPath Studio |
-| ab-c-03 | Aiden and Betty go on Holiday | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-03/cover.webp | Aiden and Betty go on Holiday / by Nora Bell / illustrated by LiteracyPath Studio |
+| ab-c-03 | Aiden and Betty Go on Vacation | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-03/cover.webp | Aiden and Betty Go on Vacation / by Nora Bell / illustrated by LiteracyPath Studio |
 | ab-c-04 | Aiden and Betty and Socks | fiction | C | 14 | 15 | /guided-reading/series/aiden-and-betty/book-04/cover.webp | Aiden and Betty and Socks / by Nora Bell / illustrated by LiteracyPath Studio |
 | ab-c-05 | Socks Goes Missing | fiction | C | 14 | 15 | /guided-reading/series/aiden-and-betty/book-05/cover.webp | Socks Goes Missing / by Nora Bell / illustrated by LiteracyPath Studio |
 | ab-c-06 | Aiden and Betty and the Science Fair | fiction | C | 13 | 14 | /guided-reading/series/aiden-and-betty/book-06/cover.webp | Aiden and Betty and the Science Fair / by Nora Bell / illustrated by LiteracyPath Studio |
@@ -196,7 +196,7 @@ Visible nonfiction books: 76
 | meadow-pals-30-cuddlys-yarn-ball | Cuddly's Yarn Ball | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-30/cover.webp | Cuddly's Yarn Ball / by Nora Bell / illustrated by LiteracyPath Studio |
 | meadow-pals-31-bouncys-hay-lift | Bouncy's Hay Lift | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-31/cover.webp | Bouncy's Hay Lift / by Nora Bell / illustrated by LiteracyPath Studio |
 | meadow-pals-32-tinys-giant-berry | Tiny's Giant Berry | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-32/cover.webp | Tiny's Giant Berry / by Nora Bell / illustrated by LiteracyPath Studio |
-| meadow-pals-33-braves-beetle-bridge | Brave's Beetle Bridge | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-33/cover.webp | Brave's Beetle Bridge / by Nora Bell / illustrated by LiteracyPath Studio |
+| meadow-pals-33-braves-beetle-bridge | Brave's Beetle Tunnel | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-33/cover.webp | Brave's Beetle Tunnel / by Nora Bell / illustrated by LiteracyPath Studio |
 | meadow-pals-34-grumpys-sun-clock | Grumpy's Sun Clock | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-34/cover.webp | Grumpy's Sun Clock / by Nora Bell / illustrated by LiteracyPath Studio |
 | meadow-pals-35-gigglys-round-wheel | Giggly's Round Wheel | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-35/cover.webp | Giggly's Round Wheel / by Nora Bell / illustrated by LiteracyPath Studio |
 | dino-pals-21-fancys-moonleaf-arch | Fancy's Moonleaf Arch | fiction | B | 8 | 9 | /guided-reading/series/dino-pals/book-21/cover.webp | Fancy's Moonleaf Arch / by Nora Bell / illustrated by LiteracyPath Studio |

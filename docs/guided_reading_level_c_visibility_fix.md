@@ -1,6 +1,6 @@
 # Guided Reading Visibility Audit
 
-Generated: 2026-08-02T02:03:52.853Z
+Generated: 2026-08-05T12:08:04.019Z
 
 ## Current Policy
 
@@ -54,11 +54,11 @@ Visible nonfiction books: 76
 | first-facts-level-a-18-my-body | My Body | Non-fiction | A | approved | 7 | yes | none |
 | first-facts-level-a-19-day-and-night | Day and Night | Non-fiction | A | approved | 7 | yes | none |
 | first-facts-level-a-20-space | Space | Non-fiction | A | approved | 7 | yes | none |
-| first-facts-a-01-look-at-the-colours | Colours We Can See | Non-fiction | B | approved | 7 | yes | none |
-| first-facts-a-02-the-four-seasons | Seasons in a Temperate Place | Non-fiction | B | approved | 9 | yes | none |
-| first-facts-a-03-little-seeds-grow | A Seed Germinates | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-01-look-at-the-colors | Colors We Can See | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-02-the-four-seasons | Seasons Change | Non-fiction | B | approved | 9 | yes | none |
+| first-facts-a-03-little-seeds-grow | A Seed Starts to Grow | Non-fiction | B | approved | 7 | yes | none |
 | first-facts-a-04-what-is-weather | What is Weather? | Non-fiction | B | approved | 8 | yes | none |
-| first-facts-a-05-flowers-and-trees | Flowering Plants and Trees | Non-fiction | B | approved | 8 | yes | none |
+| first-facts-a-05-flowers-and-trees | Flowers and Trees | Non-fiction | B | approved | 8 | yes | none |
 | first-facts-a-06-baby-animals | Baby Animals | Non-fiction | B | approved | 8 | yes | none |
 | first-facts-a-07-animals-on-the-farm | Animals on the Farm | Non-fiction | B | approved | 8 | yes | none |
 | first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | Non-fiction | B | approved | 8 | yes | none |
@@ -75,7 +75,7 @@ Visible nonfiction books: 76
 | first-facts-a-19-day-and-night | Day and Night | Non-fiction | B | approved | 7 | yes | none |
 | first-facts-a-20-my-five-senses | My Five Senses | Non-fiction | B | approved | 8 | yes | none |
 | first-facts-a-21-how-i-grow | Ways I Grow | Non-fiction | B | approved | 7 | yes | none |
-| first-facts-a-22-staying-healthy | Habits That Support Health | Non-fiction | B | approved | 7 | yes | none |
+| first-facts-a-22-staying-healthy | Healthy Habits | Non-fiction | B | approved | 7 | yes | none |
 | first-facts-a-23-my-body | My Body | Non-fiction | B | approved | 8 | yes | none |
 | first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | Non-fiction | B | approved | 7 | yes | none |
 | first-facts-a-25-water-everywhere | Water Everywhere | Non-fiction | B | approved | 9 | yes | none |
@@ -111,7 +111,7 @@ Visible nonfiction books: 76
 | ja-b-10 | James, Anna and Chips go Camping | Fiction | B | approved | 14 | yes | none |
 | ab-c-01 | Aiden and Betty Start Grade 1 | Fiction | C | approved | 13 | yes | none |
 | ab-c-02 | Aiden and Betty have a Yard Sale | Fiction | C | approved | 13 | yes | none |
-| ab-c-03 | Aiden and Betty go on Holiday | Fiction | C | approved | 13 | yes | none |
+| ab-c-03 | Aiden and Betty Go on Vacation | Fiction | C | approved | 13 | yes | none |
 | ab-c-04 | Aiden and Betty and Socks | Fiction | C | approved | 14 | yes | none |
 | ab-c-05 | Socks Goes Missing | Fiction | C | approved | 14 | yes | none |
 | ab-c-06 | Aiden and Betty and the Science Fair | Fiction | C | approved | 13 | yes | none |
@@ -196,7 +196,7 @@ Visible nonfiction books: 76
 | meadow-pals-30-cuddlys-yarn-ball | Cuddly's Yarn Ball | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-31-bouncys-hay-lift | Bouncy's Hay Lift | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-32-tinys-giant-berry | Tiny's Giant Berry | Fiction | A | approved | 8 | yes | none |
-| meadow-pals-33-braves-beetle-bridge | Brave's Beetle Bridge | Fiction | A | approved | 8 | yes | none |
+| meadow-pals-33-braves-beetle-bridge | Brave's Beetle Tunnel | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-34-grumpys-sun-clock | Grumpy's Sun Clock | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-35-gigglys-round-wheel | Giggly's Round Wheel | Fiction | A | approved | 8 | yes | none |
 | dino-pals-21-fancys-moonleaf-arch | Fancy's Moonleaf Arch | Fiction | B | approved | 8 | yes | none |

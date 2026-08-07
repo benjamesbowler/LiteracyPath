@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-03-clucky-lays-an-egg",
-  "contentHash": "sha256:7366d71b4eecb7912947688ead3f733ae21751e838add6e241417bdf897052aa",
+  "contentHash": "sha256:94a6664bb671a66ce14695197b4c95ad595ffd604406c6d46fcdcdb4dd23da21",
   "questions": [
     {
       "id": "meadow-pals-03-clucky-lays-an-egg-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Clucky needs a safe nest.",
         "The hat tips over.",
-        "Clucky moves it to straw."
+        "Clucky moves her egg to straw."
       ],
       "answer": "Clucky needs a safe nest.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "The hat tips over.",
         "Clucky needs a safe nest.",
-        "Clucky moves it to straw."
+        "Clucky moves her egg to straw."
       ],
       "answer": "The hat tips over.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-03-clucky-lays-an-egg-q3",
       "prompt": "What happens at the end of Clucky Lays an Egg?",
       "choices": [
-        "Clucky moves it to straw.",
+        "Clucky moves her egg to straw.",
         "Clucky needs a safe nest.",
         "The hat tips over."
       ],
-      "answer": "Clucky moves it to straw.",
+      "answer": "Clucky moves her egg to straw.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Clucky moves it to straw. This event shows how the central problem is resolved.",
+      "rationale": "Clucky moves her egg to straw. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Clucky moves it to straw."
+      "evidenceText": "Clucky moves her egg to straw."
     }
   ]
 }

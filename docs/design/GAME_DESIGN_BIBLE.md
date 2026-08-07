@@ -179,3 +179,87 @@ If a field is unknown, mark it unknown. Do not convert an untested assumption in
 - **Data:** normal local/cloud game progress only—score, stars, completed words and resumable round checkpoint. No new identifier, profile or network service.
 - **Automated checks:** `rocketRunRounds.test.js`, `premiumGameStandard.test.js`, `gameCheckpoints.test.js`, and the all-games iPad activity viewport browser check.
 - **Physical-device result:** unknown until the changed build is exercised on a real supported iPad; browser emulation is not recorded as a physical-device pass.
+
+### Flagship arcade records
+
+The ten records below are version 2.0 premium passes. They share these verified product decisions: progress contains only the existing score, stars, completed-item count and resumable checkpoint; no new identifier or network service is introduced; sound-off leaves the essential goal and current literacy unit printed; reduced motion removes or slows decorative intensity without changing the answer rule; and a completed run ends with a scored debrief and an explicit **Back to Arcade** action. Their shared automated coverage is `premiumGameStandard.test.js`, `gameSurfaces.test.js`, `gameCheckpoints.test.js`, `gameAudioLifecycle.test.js` and the all-games activity-viewport browser check. Physical-device result remains unknown until each changed build is exercised on a real supported iPad.
+
+#### Letter Leap 2.0
+
+- **Age/reading band and construct:** early readers encode spoken words by collecting their graphemes in order; later levels extend to words within sentences. Platform movement is the non-target demand.
+- **Controls:** Left/Right or A/D moves; Up/W/Space jumps; held touch controls use pointer cancellation and lost-capture release.
+- **Level ladder and prompt/audio:** ten difficulty-led stages move from short taught words to longer words and sentence legs. The persistent slots show the completed spelling and next letter; the spoken target can be replayed.
+- **Generator and ambiguity:** `curriculumLadder.js` supplies the ordered targets; only the next required grapheme advances the word. `curriculumLadder.test.js` exercises ladder depth and determinism.
+- **Feedback and reward:** a wrong collision leaves the next slot visible; difficult stages re-enter the catch-up queue. Score, coins, stars and completion reflect ordered spelling rather than survival time.
+
+#### Sound Racer 2.0
+
+- **Age/reading band and construct:** early readers discriminate whether a word begins with the target grapheme/phoneme. Lane steering and light hazards are non-target demands.
+- **Controls:** Left/Right or A/D, tap-side steering and swipe have parity; keyboard input accepts either letter case.
+- **Level ladder and prompt/audio:** ten tracks change the onset demand and world before raising track pressure. The tutorial names the target, shows an example and keeps a 56-pixel replay action.
+- **Generator and ambiguity:** `soundRacerTracks.js` rebuilds each gate set with sound-distinct distractors; `soundRacerTracks.test.js` covers the track and tutorial rules.
+- **Feedback and reward:** wrong gates name the mismatch; the target remains recoverable. Boost, score and stars follow correct sound gates, not vehicle speed.
+
+#### Word Bridge 2.0
+
+- **Age/reading band and construct:** early readers encode words and ordered sentence parts. Horizontal movement, carrying and placement are non-target demands.
+- **Controls:** Left/Right or A/D moves; Space/Enter/E/Up picks, drops or rings; touch controls and the replay control meet the 56-pixel floor.
+- **Level ladder and prompt/audio:** ten levels progress from word building to longer ordered constructions. Persistent bridge slots show completed parts and the next empty position.
+- **Generator and ambiguity:** `wordBridgeLevels.js` supplies a complete fresh tile bank per target; `wordBridgeLevels.test.js` verifies the ordered solution and distractors.
+- **Feedback and reward:** a misplaced tile is returned without removing the clue. Bridge progress, score and stars reflect correctly placed language parts.
+
+#### Sound Beat 2.0
+
+- **Age/reading band and construct:** early readers segment a word into phonemes and blend the ordered sequence. Beat timing supports the action but does not replace the sound decision.
+- **Controls:** Space/Enter/Up or a stage tap activates the current sound; the same action blends on GO.
+- **Level ladder and prompt/audio:** `soundBeatTracks.js` changes phoneme complexity before BPM and presents every sound visually as well as aurally.
+- **Generator and ambiguity:** every beat belongs to one ordered target sequence; `soundBeatTracks.test.js` verifies the tracks and mercy policy.
+- **Feedback and reward:** misses widen the timing window while leaving the sound visible. Score and stars reflect completed segmentation/blending sequences.
+
+#### Rhyme Pop 2.0
+
+- **Age/reading band and construct:** early readers identify words sharing the cued rime. Aiming the launcher is the non-target demand.
+- **Controls:** pointer/touch aims and pops; Left/Right or A/D cycles a visible, non-answer-revealing keyboard focus ring; Space/Enter/Up fires.
+- **Level ladder and prompt/audio:** the cue remains printed at the launcher and can be replayed. Later levels widen vocabulary and distractor closeness rather than shrinking targets.
+- **Generator and ambiguity:** `rhymePopLevels.js` builds fresh balloon sets with independently checked rhyme membership; `rhymePopLevels.test.js` verifies the banks.
+- **Feedback and reward:** every popped word is named; a miss leaves the remaining rhymes in play. Only found rhymes advance progress and score.
+
+#### Sound Safari 2.0
+
+- **Age/reading band and construct:** early readers segment a spoken word into its ordered sounds. Moving the net is the non-target demand.
+- **Controls:** Arrow keys or W/A/S/D move the net; Space/Enter catches; pointer/touch positions and catches directly.
+- **Level ladder and prompt/audio:** the field guide keeps the word and next sound readable. Later levels conceal more support and introduce longer sound sequences.
+- **Generator and ambiguity:** `soundSafariRounds.js` builds a fresh critter field for every step; `soundSafariRounds.test.js` checks capture order, uniqueness and presented stars.
+- **Feedback and reward:** the first error names the selected sound; support increases without revealing later answers. Progress records ordered sounds completed.
+
+#### Reel & Read 2.0
+
+- **Age/reading band and construct:** developing readers apply word-part, meaning and morphology knowledge. Boat steering and casting are non-target demands.
+- **Controls:** Left/Right or A/D steers; Space/Enter/E/Up/Down casts; drag and held touch buttons provide direct alternatives.
+- **Level ladder and prompt/audio:** ten levels per difficulty mix word parts, meaning matches and morphology; ordered constructions retain visible catch slots.
+- **Generator and ambiguity:** `reelReadLevels.js` proves every catch against the current rule and expected order; `gameSurfaces.test.js` exercises all three task types and distractors.
+- **Feedback and reward:** a wrong fish explains why it does not fit while the clue remains. Score and stars count literacy catches, not steering precision.
+
+#### Sentence Grove 2.0
+
+- **Age/reading band and construct:** developing readers select the unique word or mark that repairs a sentence. Driving through the grove is the non-target demand.
+- **Controls:** Arrow keys or W/A/S/D drive; Space/Enter/E cuts; touch movement and CUT controls meet the 56-pixel floor.
+- **Level ladder and prompt/audio:** ten repairs per difficulty progress through capitals, end marks, vocabulary and grammar; the exact broken sentence stays printed and replayable.
+- **Generator and ambiguity:** `starGalleryRounds.js` supplies one valid repair per fresh tree set; `starGalleryRounds.test.js` verifies the rounds.
+- **Feedback and reward:** a wrong tree names the choice and adds a specific repair hint. Score and stars follow sentences fixed.
+
+#### Sentence Express 2.0
+
+- **Age/reading band and construct:** developing readers reconstruct sentence order, capitals, missing words and punctuation. Train coupling is the non-target demand.
+- **Controls:** Tab/Shift+Tab moves focus; Enter/Space or tap chooses cars and repairs. All primary repair, replay, whistle and continuation controls meet the 56-pixel floor and show keyboard focus.
+- **Level ladder and prompt/audio:** ten stations per difficulty add engine capitals, rusty-word repairs, missing crates and caboose punctuation while preserving the full sentence goal.
+- **Generator and ambiguity:** `sentenceExpressLevels.js` creates authored, uniquely solvable trains; `sentenceExpressLevels.test.js` checks level and fault integrity.
+- **Feedback and reward:** a wrong part names the fault without clearing the train. Express departures, score and stars reflect completed sentence work.
+
+#### Spell & Skate 2.0
+
+- **Age/reading band and construct:** early to developing readers encode a spoken word with ordered graphemes, then recognise the completed word. Skating is the non-target demand.
+- **Controls:** Arrow keys or W/A/S/D skate, Space/Enter performs a trick, Shift/B boosts, and the on-screen movement, replay and action controls meet the 56-pixel floor.
+- **Level ladder and prompt/audio:** ten levels per difficulty introduce single-letter spellings, digraphs, vowel teams and split digraphs before increasing movement pressure.
+- **Generator and ambiguity:** `grammarGrindLevels.js` rebuilds three unique grapheme choices at every step and one correct final gate; `gameSurfaces.test.js` exercises every difficulty and repeated-error rule.
+- **Feedback and reward:** the first miss teaches the contrast; a repeated miss points to the correct spelling. Score, combo and stars reflect completed word builds and recoveries.

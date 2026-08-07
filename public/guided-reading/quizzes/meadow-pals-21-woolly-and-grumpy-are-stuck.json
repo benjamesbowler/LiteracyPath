@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-21-woolly-and-grumpy-are-stuck",
-  "contentHash": "sha256:1d1a6ea3bad2bb064219ea88eee04b69d7632d2225a33559d2177e1df87491c1",
+  "contentHash": "sha256:99723a2da4c860ec65d5900eba02ebdeb685a2e26620e0afc7fb9bb0cca86381",
   "questions": [
     {
       "id": "meadow-pals-21-woolly-and-grumpy-are-stuck-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Woolly and Grumpy are stuck.",
         "The knot gets tighter.",
-        "They walk different ways."
+        "Now they leave space between them."
       ],
       "answer": "Woolly and Grumpy are stuck.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "The knot gets tighter.",
         "Woolly and Grumpy are stuck.",
-        "They walk different ways."
+        "Now they leave space between them."
       ],
       "answer": "The knot gets tighter.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "meadow-pals-21-woolly-and-grumpy-are-stuck-q3",
       "prompt": "What happens at the end of Woolly and Grumpy Are Stuck?",
       "choices": [
-        "They walk different ways.",
+        "Now they leave space between them.",
         "Woolly and Grumpy are stuck.",
         "The knot gets tighter."
       ],
-      "answer": "They walk different ways.",
+      "answer": "Now they leave space between them.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "They walk different ways. This event shows how the central problem is resolved.",
+      "rationale": "Now they leave space between them. This event shows how the central problem is resolved.",
       "evidencePage": 9,
-      "evidenceText": "They walk different ways."
+      "evidenceText": "Now they leave space between them."
     }
   ]
 }

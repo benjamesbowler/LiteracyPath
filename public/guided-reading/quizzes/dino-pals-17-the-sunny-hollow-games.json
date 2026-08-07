@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-17-the-sunny-hollow-games",
-  "contentHash": "sha256:7ad83988a0b2e6f87cd3f1b6951576ab594ea764ca895671027fc1e6d44fe1dc",
+  "contentHash": "sha256:01b554f2b085872f362d1603c8a523a6899d67cea88a29f65641366b7257d81a",
   "questions": [
     {
       "id": "dino-pals-17-the-sunny-hollow-games-q1",
       "prompt": "Which event begins The Sunny Hollow Games?",
       "choices": [
-        "Bossy opens the first Sunny Hollow Games.",
-        "Wiggly's tail ruins the tidy corner.",
-        "Cheeky records Grumpy's strongest grumpy face."
+        "Bossy starts the first Games in the Hollow.",
+        "Wiggly sorts the fruit. His tail flings it wide.",
+        "Cheeky picks Grumpy's best scowl."
       ],
-      "answer": "Bossy opens the first Sunny Hollow Games.",
+      "answer": "Bossy starts the first Games in the Hollow.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Bossy opens the first Sunny Hollow Games."
+      "evidenceText": "Bossy starts the first Games in the Hollow."
     },
     {
       "id": "dino-pals-17-the-sunny-hollow-games-q2",
       "prompt": "Which event shows the first plan fails in The Sunny Hollow Games?",
       "choices": [
-        "Wiggly's tail ruins the tidy corner.",
-        "Bossy opens the first Sunny Hollow Games.",
-        "Cheeky records Grumpy's strongest grumpy face."
+        "Wiggly sorts the fruit. His tail flings it wide.",
+        "Bossy starts the first Games in the Hollow.",
+        "Cheeky picks Grumpy's best scowl."
       ],
-      "answer": "Wiggly's tail ruins the tidy corner.",
+      "answer": "Wiggly sorts the fruit. His tail flings it wide.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Wiggly's tail ruins the tidy corner. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Wiggly sorts the fruit. His tail flings it wide. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Wiggly's tail ruins the tidy corner."
+      "evidenceText": "Wiggly sorts the fruit. His tail flings it wide."
     },
     {
       "id": "dino-pals-17-the-sunny-hollow-games-q3",
       "prompt": "Which event solves the problem in The Sunny Hollow Games?",
       "choices": [
-        "Cheeky records Grumpy's strongest grumpy face.",
-        "Bossy opens the first Sunny Hollow Games.",
-        "Wiggly's tail ruins the tidy corner."
+        "Cheeky picks Grumpy's best scowl.",
+        "Bossy starts the first Games in the Hollow.",
+        "Wiggly sorts the fruit. His tail flings it wide."
       ],
-      "answer": "Cheeky records Grumpy's strongest grumpy face.",
+      "answer": "Cheeky picks Grumpy's best scowl.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Cheeky records Grumpy's strongest grumpy face. This event shows how the central problem is resolved.",
+      "rationale": "Cheeky picks Grumpy's best scowl. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Cheeky records Grumpy's strongest grumpy face."
+      "evidenceText": "Cheeky picks Grumpy's best scowl."
     }
   ]
 }

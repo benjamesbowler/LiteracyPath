@@ -2,65 +2,65 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "level-c-nonfiction-06-spiders",
-  "contentHash": "sha256:b1ba398f9751224926ba5f3d78444211c5dbe26ec5aed376da90118924b53997",
+  "contentHash": "sha256:f836e91edbd8d2fefd299fa16b93bcf07c87cdbec73236924cddc029f95ed5e2",
   "questions": [
     {
       "id": "level-c-nonfiction-06-spiders-q1",
       "prompt": "How many legs does a spider have?",
       "choices": [
-        "Spiders are arachnids with eight legs and two main body sections.",
-        "Spiders are insects with six legs and three body sections.",
-        "Spiders are animals with four legs and one body section."
+        "A spider has eight legs and two body sections—but no wings.",
+        "A spider has six legs and three body sections.",
+        "A spider has four legs and one body section."
       ],
-      "answer": "Spiders are arachnids with eight legs and two main body sections.",
+      "answer": "A spider has eight legs and two body sections—but no wings.",
       "kind": "text",
       "skill": "key_detail",
       "evidencePage": 1,
-      "evidenceText": "Spiders are arachnids with eight legs and two main body sections."
+      "evidenceText": "A spider has eight legs and two body sections—but no wings. How does it catch flying insects?"
     },
     {
       "id": "level-c-nonfiction-06-spiders-q2",
       "prompt": "Which sentence tells about other spiders in Spiders?",
       "choices": [
-        "Other spiders build sheet or tangled webs for different prey.",
-        "Spiders are arachnids with eight legs and two main body sections.",
-        "Most spiders cannot harm people and help control insect populations."
+        "Other spiders make flat sheets, deep funnels, or loose tangles.",
+        "A spider has eight legs and two body sections—but no wings. How does it catch flying insects?",
+        "That garden web may catch insects before they reach the tomatoes."
       ],
-      "answer": "Other spiders build sheet or tangled webs for different prey.",
+      "answer": "Other spiders make flat sheets, deep funnels, or loose tangles.",
       "kind": "text",
-      "skill": "function",
+      "skill": "cause_effect",
       "evidencePage": 4,
-      "evidenceText": "Other spiders build sheet or tangled webs for different prey."
+      "evidenceText": "Other spiders make flat sheets, deep funnels, or loose tangles."
     },
     {
       "id": "level-c-nonfiction-06-spiders-q3",
       "prompt": "What is the big idea of Spiders?",
       "choices": [
         "Spiders use their bodies, silk, and senses to survive.",
-        "Only spiders are arachnids with eight legs and two main body sections.",
-        "Only silk egg sacs protect developing spiderlings."
+        "Only tiny spinnerets at its rear make strong, stretchy silk.",
+        "Only a web spider feels trapped prey tugging on the silk."
       ],
       "answer": "Spiders use their bodies, silk, and senses to survive.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "Spiders are arachnids with eight legs and two main body sections. Other spiders build sheet or tangled webs for different prey. Most spiders cannot harm people and help control insect populations. Together, these facts show the whole-book big idea: Spiders use their bodies, silk, and senses to survive.",
+      "rationale": "A spider has eight legs and two body sections—but no wings. How does it catch flying insects? Other spiders make flat sheets, deep funnels, or loose tangles. That garden web may catch insects before they reach the tomatoes. Together, these facts show the whole-book big idea: Spiders use their bodies, silk, and senses to survive.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
-          "evidenceText": "Spiders are arachnids with eight legs and two main body sections."
+          "evidenceText": "A spider has eight legs and two body sections—but no wings. How does it catch flying insects?"
         },
         {
           "evidencePage": 4,
-          "evidenceText": "Other spiders build sheet or tangled webs for different prey."
+          "evidenceText": "Other spiders make flat sheets, deep funnels, or loose tangles."
         }
       ],
       "distractorRationales": {
-        "Only spiders are arachnids with eight legs and two main body sections.": "Page 1 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
-        "Only silk egg sacs protect developing spiderlings.": "Page 8 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
+        "Only tiny spinnerets at its rear make strong, stretchy silk.": "Page 2 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea.",
+        "Only a web spider feels trapped prey tugging on the silk.": "Page 6 gives the fact without \"only\". The other pages give different facts, so this choice is too small to be the whole book's big idea."
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 9,
-      "evidenceText": "Most spiders cannot harm people and help control insect populations."
+      "evidenceText": "That garden web may catch insects before they reach the tomatoes."
     }
   ]
 }

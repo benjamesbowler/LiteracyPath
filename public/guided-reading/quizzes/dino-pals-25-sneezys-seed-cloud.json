@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-25-sneezys-seed-cloud",
-  "contentHash": "sha256:3045c8d1f11122f248da802ff695851db2519e566b9fb4eb03e73640e5675b3e",
+  "contentHash": "sha256:a979b84e420f3781dc9747279ea5b9bf6af1e143d06af9b8275f28a6deca218a",
   "questions": [
     {
       "id": "dino-pals-25-sneezys-seed-cloud-q1",
       "prompt": "Which event begins Sneezy's Seed Cloud?",
       "choices": [
-        "Dry seed fluff drifts toward Cozy Cave.",
-        "He warns everyone then blows one careful sneeze.",
-        "Sneezy sweeps the fluff onto the wet leaf."
+        "Tickly seed fluff drifts toward Cozy Cave.",
+        "\"Stand back!\" Sneezy gives one careful sneeze.",
+        "Sneezy sweeps the fluff onto the damp leaf."
       ],
-      "answer": "Dry seed fluff drifts toward Cozy Cave.",
+      "answer": "Tickly seed fluff drifts toward Cozy Cave.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Dry seed fluff drifts toward Cozy Cave."
+      "evidenceText": "Tickly seed fluff drifts toward Cozy Cave."
     },
     {
       "id": "dino-pals-25-sneezys-seed-cloud-q2",
       "prompt": "Which event shows the first plan fails in Sneezy's Seed Cloud?",
       "choices": [
-        "He warns everyone then blows one careful sneeze.",
-        "Dry seed fluff drifts toward Cozy Cave.",
-        "Sneezy sweeps the fluff onto the wet leaf."
+        "\"Stand back!\" Sneezy gives one careful sneeze.",
+        "Tickly seed fluff drifts toward Cozy Cave.",
+        "Sneezy sweeps the fluff onto the damp leaf."
       ],
-      "answer": "He warns everyone then blows one careful sneeze.",
+      "answer": "\"Stand back!\" Sneezy gives one careful sneeze.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "He warns everyone then blows one careful sneeze. This shows that the first attempt does not solve the central problem.",
+      "rationale": "\"Stand back!\" Sneezy gives one careful sneeze. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "He warns everyone then blows one careful sneeze."
+      "evidenceText": "\"Stand back!\" Sneezy gives one careful sneeze."
     },
     {
       "id": "dino-pals-25-sneezys-seed-cloud-q3",
       "prompt": "Which event solves the problem in Sneezy's Seed Cloud?",
       "choices": [
-        "Sneezy sweeps the fluff onto the wet leaf.",
-        "Dry seed fluff drifts toward Cozy Cave.",
-        "He warns everyone then blows one careful sneeze."
+        "Sneezy sweeps the fluff onto the damp leaf.",
+        "Tickly seed fluff drifts toward Cozy Cave.",
+        "\"Stand back!\" Sneezy gives one careful sneeze."
       ],
-      "answer": "Sneezy sweeps the fluff onto the wet leaf.",
+      "answer": "Sneezy sweeps the fluff onto the damp leaf.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Sneezy sweeps the fluff onto the wet leaf. This event shows how the central problem is resolved.",
+      "rationale": "Sneezy sweeps the fluff onto the damp leaf. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "Sneezy sweeps the fluff onto the wet leaf."
+      "evidenceText": "Sneezy sweeps the fluff onto the damp leaf."
     }
   ]
 }

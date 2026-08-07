@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.2",
   "bookId": "first-facts-a-06-baby-animals",
-  "contentHash": "sha256:8d7b2a940b556bcc3e0b306259199e0a1c848fd3654f8b91c7fd9d3c95d37105",
+  "contentHash": "sha256:b3a2204fde631741347dfdfb39001a54edaa19cdb9979b4bbd9d9d8bf5673be7",
   "questions": [
     {
       "id": "first-facts-a-06-baby-animals-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "A young dog is called a puppy.",
         "A young chicken is called a chick.",
-        "Young animals grow and learn new skills."
+        "They grow bigger and learn new things."
       ],
       "answer": "A young dog is called a puppy.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "A young chicken is called a chick.",
         "A young dog is called a puppy.",
-        "Young animals grow and learn new skills."
+        "They grow bigger and learn new things."
       ],
       "answer": "A young chicken is called a chick.",
       "kind": "text",
@@ -36,14 +36,14 @@
       "id": "first-facts-a-06-baby-animals-q3",
       "prompt": "What is the big idea of Baby Animals?",
       "choices": [
-        "Young animals grow and learn new skills.",
+        "They grow bigger and learn new things.",
         "Only a young dog is called a puppy.",
         "Only a young chicken is called a chick."
       ],
-      "answer": "Young animals grow and learn new skills.",
+      "answer": "They grow bigger and learn new things.",
       "kind": "text",
       "skill": "main_idea",
-      "rationale": "A young dog is called a puppy. A young chicken is called a chick. Young animals grow and learn new skills. Together, these facts show the whole-book big idea: Young animals grow and learn new skills.",
+      "rationale": "A young dog is called a puppy. A young chicken is called a chick. They grow bigger and learn new things. Together, these facts show the whole-book big idea: They grow bigger and learn new things.",
       "supportingEvidence": [
         {
           "evidencePage": 1,
@@ -60,7 +60,7 @@
       },
       "bigIdeaPolicy": "single-big-idea-v1",
       "evidencePage": 8,
-      "evidenceText": "Young animals grow and learn new skills."
+      "evidenceText": "They grow bigger and learn new things."
     }
   ]
 }

@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-31",
-  "contentHash": "sha256:ca5752b185d9baa3b19386528b3185f10d72110ae3ffe5b5109fe2c06ca4cd91",
+  "contentHash": "sha256:5c708821b7f0863e71b9eef471540409638c75f2ac6eabbfbfadaf69eb547e5b",
   "questions": [
     {
       "id": "moonwood-tales-c-31-q1",
       "prompt": "Which event introduces the situation in Burrow's Round Tunnel?",
       "choices": [
-        "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
-        "A thick root bends his tunnel left.",
-        "A narrow firm gap crosses beneath its deepest point."
+        "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
+        "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
+        "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly."
       ],
-      "answer": "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
+      "answer": "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Burrow plans a short tunnel from Hollow Oak to Fern's garden."
+      "evidenceText": "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel."
     },
     {
       "id": "moonwood-tales-c-31-q2",
       "prompt": "Which event shows that the first attempt fails in Burrow's Round Tunnel?",
       "choices": [
-        "A thick root bends his tunnel left.",
-        "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
-        "A narrow firm gap crosses beneath its deepest point."
+        "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
+        "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
+        "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly."
       ],
-      "answer": "A thick root bends his tunnel left.",
+      "answer": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "A thick root bends his tunnel left. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "A thick root bends his tunnel left."
+      "rationale": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start."
     },
     {
       "id": "moonwood-tales-c-31-q3",
       "prompt": "Which event resolves the central problem in Burrow's Round Tunnel?",
       "choices": [
-        "A narrow firm gap crosses beneath its deepest point.",
-        "Burrow plans a short tunnel from Hollow Oak to Fern's garden.",
-        "A thick root bends his tunnel left."
+        "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly.",
+        "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
+        "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start."
       ],
-      "answer": "A narrow firm gap crosses beneath its deepest point.",
+      "answer": "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "A narrow firm gap crosses beneath its deepest point. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "A narrow firm gap crosses beneath its deepest point."
+      "rationale": "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly. This event shows how the central problem is resolved.",
+      "evidencePage": 10,
+      "evidenceText": "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly."
     }
   ]
 }

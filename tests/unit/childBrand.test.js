@@ -78,7 +78,7 @@ test("the entry gateway gives students and teachers their own branded destinatio
 
   assert.doesNotMatch(entrySource, /className="pals-entry-brand"/, "the child logo must not brand the whole gateway");
   assert.match(entrySource, /className="entry-brand-logo entry-student-logo"/);
-  assert.match(entrySource, /import teacherMarkUrl from "\.\.\/assets\/logomark\.svg"/);
+  assert.match(entrySource, /import teacherMarkUrl from "\.\.\/assets\/logomark\.png"/);
   assert.match(entrySource, /className="entry-teacher-name">\{TEACHER_BRAND\.name\}<\/span>/);
   assert.match(entrySource, /className="entry-teacher-tools">\{TEACHER_BRAND\.areaName\}<\/span>/);
   assert.match(entrySource, /className="student-entry-card-cta pals-cta">Start playing<\/span>/);

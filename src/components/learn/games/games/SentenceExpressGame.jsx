@@ -785,7 +785,7 @@ export default function SentenceExpressGame({
           <h2>HOW TO PLAY</h2>
           <p className="sx-ticketsub">Rebuild the sentence train so it rolls away reading just right!</p>
           <ul style={{ textAlign: "left", margin: "0 0 14px", paddingLeft: 20, lineHeight: 1.55, fontSize: 14, fontWeight: 600 }}>
-            <li>Tap (or click) the siding cars in order to couple the sentence.</li>
+            <li>Tap the siding cars in order to couple the sentence.</li>
             <li>Fix the faults: pick the capital engine, swap the rusty car, load the lost crate, choose the end-mark caboose.</li>
             <li>Tap "Hear it again" to listen, then PULL WHISTLE when the track is ready.</li>
           </ul>

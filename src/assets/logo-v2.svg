@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 100" fill="none" role="img" aria-labelledby="literacy-guide-logo-title literacy-guide-logo-description">
+  <title id="literacy-guide-logo-title">Literacy Guide</title>
+  <desc id="literacy-guide-logo-description">An open book forms a guiding lighthouse in negative space beside the Literacy Guide wordmark.</desc>
+
+  <!-- The two pages create a tapered lighthouse/path in the central negative space. -->
+  <path d="M8 27C22 24 35 26 48 34V78C35 69 22 66 8 69V27Z" fill="#172033"/>
+  <path d="M92 27C78 24 65 26 52 34V78C65 69 78 66 92 69V27Z" fill="#159A8A"/>
+
+  <!-- Page turn / forward path. -->
+  <path d="M8 73C24 70 37 74 50 84C63 74 76 70 92 73" stroke="#172033" stroke-width="4" stroke-linecap="round"/>
+  <path d="M50 84C63 74 76 70 92 73" stroke="#159A8A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- A single restrained beacon anchors the guiding-light idea. -->
+  <circle cx="50" cy="17" r="7" fill="#D68A11"/>
+  <path d="M43 28L50 22L57 28" stroke="#D68A11" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wordmark. -->
+  <text x="118" y="61" font-family="Inter, Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="38" font-weight="750" letter-spacing="-1.25" fill="#172033">Literacy</text>
+  <text x="274" y="61" font-family="Inter, Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="38" font-weight="750" letter-spacing="-1.25" fill="#159A8A">Guide</text>
+  <path d="M120 74H357" stroke="#D68A11" stroke-width="3" stroke-linecap="round"/>
+</svg>
