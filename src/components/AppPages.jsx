@@ -1579,6 +1579,8 @@ export function TeacherReportsPage({
     ? "Loading the full class list and saved assessment results. Report figures, printing and new downloads are paused until this finishes."
     : "Some class or assessment results could not be confirmed. Report figures are hidden rather than treating missing information as zero; printing and new downloads are paused.";
 
+  const [classSpreadsheetBusy, setClassSpreadsheetBusy] = useState(false);
+
   function retryReportSources() {
     if (!historyReady) onRetryAssessmentHistory?.();
     if (!answersReady) onRetryAnswerHistory?.(selectedClassId);
@@ -1628,15 +1630,54 @@ export function TeacherReportsPage({
     ? "No classes yet"
     : `${classReportingModel.className || "Class"} report`;
 
-  function exportClassSpreadsheet() {
+  /**
+   * The class workbook.
+   *
+   * This used to write `class-report.csv` — a provenance preamble stapled to a
+   * flat dump of every saved assessment attempt. That answered "what rows are in
+   * the database". It did not answer "who do I see on Monday", which is the only
+   * question a class report exists to answer.
+   *
+   * The raw attempt CSV is still available beside it for anyone who wants to
+   * pivot the source rows themselves.
+   */
+  async function exportClassSpreadsheet() {
+    if (!reportSourcesReady || typeof window === "undefined") return;
+    if (classSpreadsheetBusy) return;
+    setClassSpreadsheetBusy(true);
+    try {
+      const provenanceRows = buildExportProvenanceRows({
+        reportTitle: "Class report",
+        className: classReportingModel.className,
+        learnerCount: Number(classReportingModel.snapshot?.totalStudents || 0),
+        filters: `Class assessment period: ${selectedDatePeriod.label}`,
+        evidenceSource: classAssessmentHistory,
+        definitions: "Each Data row is one student-by-skill result inside the selected class assessment period."
+      });
+      const { exportClassReportWorkbook } = await import("../utils/exportClassReportWorkbook.js");
+      await exportClassReportWorkbook({
+        model: classReportingModel,
+        periodLabel: selectedDatePeriod.label,
+        teacherName,
+        generatedAt: new Date(),
+        provenanceRows
+      });
+    } catch (error) {
+      console.error("Class report workbook export failed:", error);
+    } finally {
+      setClassSpreadsheetBusy(false);
+    }
+  }
+
+  function exportClassAttemptRows() {
     if (!reportSourcesReady || typeof window === "undefined") return;
     const provenanceRows = buildExportProvenanceRows({
-      reportTitle: "Class report",
+      reportTitle: "Class report — raw attempts",
       className: classReportingModel.className,
       learnerCount: Number(classReportingModel.snapshot?.totalStudents || 0),
       filters: `Class assessment period: ${selectedDatePeriod.label}`,
       evidenceSource: classAssessmentHistory,
-      definitions: "Each data row is one saved assessment attempt inside the selected class assessment period."
+      definitions: "Each row is one saved assessment attempt inside the selected class assessment period."
     });
     const csv = [
       exportProvenanceCsvPreamble(provenanceRows),
@@ -1647,7 +1688,7 @@ export function TeacherReportsPage({
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "class-report.csv";
+    anchor.download = "class-report-attempts.csv";
     anchor.click();
     URL.revokeObjectURL(url);
   }
@@ -1693,11 +1734,20 @@ export function TeacherReportsPage({
           </label>
           <button
             className="lp-button lp-button-secondary"
-            disabled={!reportSourcesReady}
+            disabled={!reportSourcesReady || classSpreadsheetBusy}
             onClick={exportClassSpreadsheet}
             type="button"
           >
-            Export spreadsheet
+            {classSpreadsheetBusy ? "Building spreadsheet…" : "Export spreadsheet"}
+          </button>
+          <button
+            className="lp-button lp-button-quiet"
+            disabled={!reportSourcesReady}
+            onClick={exportClassAttemptRows}
+            title="The raw saved attempts, for your own pivot tables."
+            type="button"
+          >
+            Export raw rows
           </button>
           <button
             className="lp-button lp-button-primary"

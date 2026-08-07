@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { buildStudentReportingWorkspaceModel } from "../data/studentReportingWorkspaceModel.js";
 import {
-  buildSimpleHfwRows
 } from "../data/simpleStudentReports.js";
 import {
   buildIndividualElFormalAssessmentReport,
@@ -16,8 +15,8 @@ import {
   buildStoryQuestRows,
   collectStudentEngagementAreas
 } from "../utils/exportReportSections.js";
-import { buildStudentWorkspaceCsvRows } from "../utils/exportStudentWorkspaceCsv.js";
 import { buildExportProvenanceRows, resolveExportTimeZone } from "../utils/exportProvenance.js";
+import { LEARNING_EVIDENCE_POLICY } from "../policy/learningPolicy.js";
 import {
   EL_EXPORT_GRADE_OPTIONS,
   EL_EXPORT_WINDOW_OPTIONS,
@@ -806,36 +805,8 @@ function ElBenchmarkEvidenceSection({ report }) {
   );
 }
 
-function csvCell(value) {
-  const text = Array.isArray(value) ? value.join(", ") : String(value ?? "");
-  return `"${text.replace(/"/g, '""')}"`;
-}
 
-function downloadReportRows(rows = [], filename = "student-report.csv") {
-  if (typeof document === "undefined" || !rows.length) return false;
-  const headers = Array.from(new Set(rows.flatMap(row => Object.keys(row || {}))));
-  const csv = [
-    headers.map(csvCell).join(","),
-    ...rows.map(row => headers.map(header => csvCell(row?.[header])).join(","))
-  ].join("\n");
-  const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = filename;
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-  URL.revokeObjectURL(url);
-  return true;
-}
 
-function safeReportFilename(value = "student") {
-  return String(value || "student")
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "") || "student";
-}
 
 export function FinishedReportPage({
   backLabel = "Back to dashboard",
@@ -1163,38 +1134,36 @@ export function FinishedReportPage({
         if (!downloaded) return;
       } else if (activeReportView === "guided-reading") {
         await exportReadingReport?.();
-      } else if (activeReportView === "hfw") {
-        const rows = buildSimpleHfwRows(reportingWorkspace, studentName).map(row => ({
-          student: studentName,
-          word: row.key,
-          exposures: row.attempts,
-          correctAnswers: row.correct ?? "",
-          accuracyPercent: row.accuracy ?? "",
-          accuracyBand: row.band,
-          learningStatus: row.statusLabel
-        }));
-        const date = new Date().toISOString().slice(0, 10);
-        const downloaded = downloadReportRows(
-          rows,
-          `${safeReportFilename(studentName)}-high-frequency-words-${date}.csv`
-        );
-        if (!downloaded) throw new Error("No high-frequency-word rows are available for export.");
       } else {
-        const rows = buildStudentWorkspaceCsvRows(activeReportView, reportingWorkspace, {
+        /**
+         * One workbook, not six single-view CSVs.
+         *
+         * The old path wrote a flat row dump per report view, in export-only
+         * vocabulary that disagreed with the screen ("Growing" where the screen
+         * said "Developing", "Not started yet" where it said "Not checked"). A
+         * teacher who wanted the whole picture downloaded five files and joined
+         * them by hand. This is the whole picture, in the screen's own words,
+         * plus a Teach next sheet the screen cannot put on paper.
+         */
+        const provenanceRows = buildExportProvenanceRows({
+          reportTitle: "Student report",
           className,
           learnerName: studentName,
           learnerId: progressScopeKey || assessmentHistory[0]?.studentId || "",
           generatedAt: reportGeneratedAt,
           timeZone: reportTimeZone,
-          filters: { "Report view": activeReportView },
+          filters: { "Opened from": activeReportView },
           evidenceSource: reportEvidenceSource
         });
-        const date = new Date().toISOString().slice(0, 10);
-        const downloaded = downloadReportRows(
-          rows,
-          `${safeReportFilename(studentName)}-${activeReportView}-${date}.csv`
-        );
-        if (!downloaded) throw new Error("No report rows are available for export.");
+        const { exportStudentReportWorkbook } = await import("../utils/exportStudentReportWorkbook.js");
+        await exportStudentReportWorkbook({
+          workspace: reportingWorkspace,
+          studentName,
+          className,
+          generatedAt: new Date(),
+          periodLabel: `Latest ${LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays} days`,
+          provenanceRows
+        });
       }
       setActionFeedback({ kind: "success", message: "Report data downloaded." });
     } catch (error) {

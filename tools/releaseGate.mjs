@@ -37,6 +37,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [3, 8, 9, 10]
   },
   {
+    id: "reporting-bible",
+    label: "Reporting bible has not drifted",
+    command: ["npm", "run", "check:reporting-bible"],
+    areas: [4, 8, 10]
+  },
+  {
     id: "app-copy",
     label: "Plain-language copy on teacher, child, family, and export surfaces",
     command: ["npm", "run", "check:app-copy"],

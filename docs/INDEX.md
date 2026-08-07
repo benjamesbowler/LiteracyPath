@@ -11,6 +11,16 @@ A dated document must never override current code.
 - [Shared agent context](brain/START-HERE.md)
 - [Instructional standards](instructional/instructional_standards.md)
 - [Current-system cleanup record](CURRENT_SYSTEM_CLEANUP_2026-07-31.md)
+- [**The Reporting Bible**](reporting/REPORTING_BIBLE.md) — governing: what we report, to whom, and what we refuse to report
+
+## Reporting
+
+- [The Reporting Bible](reporting/REPORTING_BIBLE.md) — **GOVERNING.** Overrides any other document or
+  code comment on reporting. Its numbers live in `src/policy/reportingBible.js`.
+- [Multilingual learner language reporting](reporting/MLL_LANGUAGE_REPORTING.md) — the WIDA-aligned MLL
+  module. Note "EL" in this codebase means EL Education, not English Learner.
+- [Reporting audit 2026-08-06](reporting/REPORTING_AUDIT_2026-08-06.md) — every surface and export
+  against the bible, severity-ranked, with what is still open.
 
 ## Current learning and assessment rules
 
@@ -53,6 +63,11 @@ random-guess percentage, or separate 80%, 85%, or 90% assessment pass rule.
 - [Shared game curriculum](GAME_CURRICULUM_FRAMEWORK_2026-07-06.md)
 - [Sound Seekers world blueprint](SOUND_SEEKERS_WORLD_V2_BLUEPRINT.md)
 - [3D asset library](3D_ASSET_LIBRARY.md)
+
+## Product plans
+
+- [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
+  content, no parent reporting. Spec only; no code.
 
 ## Operations, research, legal and security
 
