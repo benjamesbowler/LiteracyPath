@@ -106,6 +106,7 @@ export function AppSurface({ surface }) {
     letterItems, loadAdminDashboard, loadClassDashboard, loadClasses, loadStudentProgress, loadStudents, loadingClasses,
     loadingStudents,
     awaitingEmailConfirmation, resendEmailConfirmation,
+    nudgeTeacherAccountReview, teacherAccountNudgeBusy, pendingAccountAlert,
     logInDemoTeacher, logInTeacher, logOutStudent, logOutTeacher, mastery,
     message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
     openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
@@ -615,6 +616,16 @@ export function AppSurface({ surface }) {
     const isRejected = status === "rejected";
     const isDisabled = status === "disabled";
     const decisionReason = String(teacherAccountRecord?.rejection_reason || "").trim();
+    const isPendingApproval = !isSetupRequired && !isRejected && !isDisabled;
+    const hasNudged = Boolean(teacherAccountRecord?.nudged_at);
+    // The submission DATE, not elapsed days: reading a clock during render is
+    // impure, and "submitted on 5 August" tells this person what they need
+    // without one. The admin side does compute the wait in days, because there
+    // it is the number that drives an action.
+    const submittedAt = teacherAccountRecord?.requested_at || teacherAccountRecord?.created_at;
+    const submittedLabel = submittedAt
+      ? new Date(submittedAt).toLocaleDateString(undefined, { day: "numeric", month: "long" })
+      : "";
     const statusHeading = isSetupRequired
       ? "Account setup needs attention"
       : isRejected
@@ -642,6 +653,37 @@ export function AppSurface({ surface }) {
                 </p>
               )}
             </div>
+            {isPendingApproval && (
+              // The old screen was a dead end: one sentence saying somebody must
+              // approve you, and a Sign out button. No timeframe, no way to
+              // check, no way back — while on the other side nothing told the
+              // administrator the request existed at all, because there is no
+              // mail or webhook anywhere in this application. This is the half
+              // the waiting person can do something about.
+              <div className="auth-waiting-panel">
+                <p>
+                  Requests are usually reviewed within one working day. You will be able to
+                  sign in as soon as yours is approved — nothing else is needed from you.
+                </p>
+                {submittedLabel && (
+                  <p className="muted-text">Submitted {submittedLabel}.</p>
+                )}
+                {hasNudged ? (
+                  <p className="auth-waiting-confirmed">
+                    Your request has been moved to the top of the queue.
+                  </p>
+                ) : (
+                  <button
+                    className="report-button"
+                    disabled={teacherAccountNudgeBusy}
+                    onClick={nudgeTeacherAccountReview}
+                    type="button"
+                  >
+                    {teacherAccountNudgeBusy ? "Sending…" : "I am still waiting"}
+                  </button>
+                )}
+              </div>
+            )}
             <button className="main-button" onClick={logOutTeacher} type="button">
               Sign out
             </button>
@@ -959,6 +1001,49 @@ export function AppSurface({ surface }) {
       data-student-session-id={isStudentMode ? studentSessionId || "" : ""}
       {...(isStudentMode ? learnerAccessibilityDataAttributes(learnerAccessibility) : {})}
     >
+      {/*
+        THE ONLY THING THAT TELLS AN ADMINISTRATOR SOMEONE IS WAITING.
+
+        There is no mail, no webhook, no edge function and no realtime
+        subscription anywhere in this application — verified by searching for
+        every one of them. A teacher signs up and the request sits in a table
+        that is read only when somebody remembers to open the admin dashboard
+        and click "Teacher requests". Manual approval was kept deliberately,
+        which makes that the load-bearing gap.
+
+        So the banner sits outside the dashboard, on every screen, and it leads
+        with the WAIT rather than the count: "3 waiting" is easy to postpone,
+        "one since 1 August" is not. It is not dismissible, because the thing it
+        is reporting does not go away when it is dismissed — approving the
+        requests is what removes it.
+      */}
+      {isAdmin && !isStudentMode && pendingAccountAlert?.waiting > 0 && (
+        <button
+          className="admin-waiting-banner"
+          onClick={openAdminDashboard}
+          type="button"
+          data-waiting={pendingAccountAlert.waiting}
+        >
+          <strong>
+            {pendingAccountAlert.waiting === 1
+              ? "1 teacher is waiting for approval"
+              : `${pendingAccountAlert.waiting} teachers are waiting for approval`}
+          </strong>
+          <span>
+            {pendingAccountAlert.oldestRequestedAt && (
+              <>Oldest since {new Date(pendingAccountAlert.oldestRequestedAt)
+                .toLocaleDateString(undefined, { day: "numeric", month: "long" })}. </>
+            )}
+            {pendingAccountAlert.asked > 0 && (
+              <>{pendingAccountAlert.asked} asked about it. </>
+            )}
+            {pendingAccountAlert.blocked > 0 && (
+              <>{pendingAccountAlert.blocked} cannot be approved until a school is set. </>
+            )}
+            Review them now.
+          </span>
+        </button>
+      )}
       {!isFocusedShell && (
         <Suspense fallback={<aside className="lg-sidebar" aria-label="Loading main navigation" />}>
           <Sidebar

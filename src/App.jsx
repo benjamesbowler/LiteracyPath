@@ -224,6 +224,12 @@ export default function App() {
   // so the copy can name the address the person actually typed — half of
   // "I never got the email" is a typo in it.
   const [awaitingEmailConfirmation, setAwaitingEmailConfirmation] = useState("");
+  // Guards the nudge button against a double press; the write is idempotent
+  // enough not to matter, but a button that does nothing visible invites one.
+  const [teacherAccountNudgeBusy, setTeacherAccountNudgeBusy] = useState(false);
+  // The waiting-teacher count, loaded on admin sign-in rather than when the
+  // admin dashboard is opened. Nothing else in the app announces a queue.
+  const [pendingAccountAlert, setPendingAccountAlert] = useState(null);
   const [teacherAccountStatus, setTeacherAccountStatus] = useState("signed_out");
   const [teacherAccountRecord, setTeacherAccountRecord] = useState(null);
   const [teacherSchoolName, setTeacherSchoolName] = useState("");
@@ -860,7 +866,7 @@ export default function App() {
     loadStudentProgress, loadStudents, logInDemoTeacher, logInTeacher,
     logOutStudent, logOutTeacher, normalizeApprovalStatus, openAdminDashboard,
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
-    retryTeacherSchoolName, resendEmailConfirmation,
+    retryTeacherSchoolName, resendEmailConfirmation, nudgeTeacherAccountReview,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
     assignMissingSymbolPasswords,
@@ -894,6 +900,8 @@ export default function App() {
     setAnswerHistory, setAppView, setArchivedStudentList, setAssessmentHistory,
     setAssessmentMode, setAssessmentTransitioning, setAuthLoading, setAuthMessage,
     awaitingEmailConfirmation, setAwaitingEmailConfirmation,
+    teacherAccountNudgeBusy, setTeacherAccountNudgeBusy,
+    pendingAccountAlert, setPendingAccountAlert,
     setAuthMode, setAuthPassword, setAuthReady, setCheckpointDecision,
     setClassDashboard, setClassList, setCorrectAnswered, setCurrentQuestion,
     setCurrentSkillIndex, setDiagnosticFollowUp, setElBenchmarkDraftSaveFailed, setElBenchmarkSession,
@@ -2904,7 +2912,7 @@ export default function App() {
       adminStudents, adminTeachers, allQuestions, allowPassageAudio, answerHistory, answerQuestion, appView,
       applyStudentSession, archivedStudentList, assessmentFullscreen, assessmentHistory, assessmentHistoryReadState, assessmentMode, assessmentTransitioning,
       assignQuestPractice, authDisplayName, authEmail, authLoading, authMessage, authMode, awaitingEmailConfirmation,
-      resendEmailConfirmation,
+      resendEmailConfirmation, nudgeTeacherAccountReview, teacherAccountNudgeBusy, pendingAccountAlert,
       authPassword, authReady, authReconnecting, authSchoolName, authUsername,
       checkpointDecision, chunkLoadFailure, classDashboard, classDashboardReadState, classList, classListReadState,
       clearQuestPractice, completePasswordReset, continueCheckpointSkill, correctAnswered, coverageSnapshot, createClass,

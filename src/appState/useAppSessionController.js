@@ -80,7 +80,8 @@ export const SCHOOL_NAME_MAX_LENGTH = 120;
 const PENDING_ACCOUNT_COLUMNS =
   "id, user_id, email, username, display_name, name, role, status, approval_status, school_id, " +
   "created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, " +
-  "rejected_by, rejection_reason, email_confirmed_at, email_confirmation_source";
+  "rejected_by, rejection_reason, email_confirmed_at, email_confirmation_source, " +
+  "nudged_at, nudge_count";
 
 /** Postgres unique_violation — the pending row already exists. */
 function isDuplicatePendingAccountError(error) {
@@ -130,6 +131,8 @@ export function useAppSessionController(context) {
     setAnswerHistory, setAppView, setArchivedStudentList, setAssessmentHistory,
     setAssessmentMode, setAssessmentTransitioning, setAuthLoading, setAuthMessage,
     setAuthMode, setAuthPassword, setAuthReady, awaitingEmailConfirmation, setAwaitingEmailConfirmation, setCheckpointDecision,
+    teacherAccountNudgeBusy, setTeacherAccountNudgeBusy,
+    setPendingAccountAlert,
     setClassDashboard, setClassList, setCorrectAnswered, setCurrentQuestion,
     setCurrentSkillIndex, setDiagnosticFollowUp, setElBenchmarkDraftSaveFailed, setElBenchmarkSession,
     setEntryMode, setFeedback, setGuidedReadingRecords, setIsAdmin,
@@ -1488,6 +1491,14 @@ export function useAppSessionController(context) {
       } else {
         setAdminStatusError(null);
         setIsAdmin(adminCheck.isAdmin);
+        // Load the waiting count the moment we know this is an administrator,
+        // not when they happen to open the dashboard. Nothing else in this
+        // application will ever tell them a teacher is waiting — there is no
+        // mail, no webhook and no realtime subscription anywhere in it — so a
+        // queue that only announces itself on the screen nobody visits is the
+        // same as no queue at all. Fire and forget: a failure here must never
+        // delay or block sign-in.
+        if (adminCheck.isAdmin) void loadPendingAccountAlert();
       }
 
       const accessCheck = {
@@ -1917,6 +1928,10 @@ export function useAppSessionController(context) {
       )
     );
     setMessage(`Teacher account ${normalizedStatus}.`);
+    // Keep the app-wide banner honest. Without this it would still claim three
+    // teachers are waiting immediately after you approved one of them, and a
+    // notice that is wrong about its own count stops being read.
+    void loadPendingAccountAlert();
     return {
       ok: true,
       account: updatedAccount
@@ -2104,6 +2119,85 @@ export function useAppSessionController(context) {
       return;
     }
     setAuthMessage(`Confirmation link sent again to ${email}. It can take a minute to arrive.`);
+  }
+
+  /**
+   * A count, not a dashboard. Reads only the columns the banner needs, from
+   * pending rows only, so it is cheap enough to run on every admin sign-in —
+   * unlike loadAdminDashboard, which pages the entire table and filters in
+   * JavaScript.
+   *
+   * Never throws and never surfaces an error. It exists to make a queue
+   * visible; if it fails, the administrator is exactly where they were before
+   * it existed, and an error banner about a notification would be worse than
+   * silence.
+   */
+  async function loadPendingAccountAlert() {
+    try {
+      const { data, error } = await supabase
+        .table("pending_teacher_accounts")
+        .select("id, requested_at, created_at, nudged_at, school_id, approval_status, status")
+        .eq("approval_status", "pending");
+      if (error || !Array.isArray(data)) return;
+
+      const oldest = data.reduce((earliest, row) => {
+        const at = new Date(row.requested_at || row.created_at || 0).getTime();
+        return Number.isFinite(at) && at > 0 && (earliest === null || at < earliest) ? at : earliest;
+      }, null);
+
+      setPendingAccountAlert({
+        waiting: data.length,
+        asked: data.filter(row => row.nudged_at).length,
+        // Blocked accounts are counted in `waiting` like any other, so without
+        // this the banner would send someone to a queue where every Approve
+        // button is disabled and nothing says why.
+        blocked: data.filter(row => !row.school_id).length,
+        oldestRequestedAt: oldest ? new Date(oldest).toISOString() : ""
+      });
+    } catch (error) {
+      console.warn("Could not read the teacher request count.", error);
+    }
+  }
+
+  /**
+   * The waiting teacher raises their hand.
+   *
+   * There is no mail in this application, so an administrator learns a request
+   * exists only by remembering to open the dashboard. This is the half of the
+   * fix the person actually affected can perform: it stamps their own row, and
+   * the review queue sorts nudged requests to the top and shows how many times
+   * they have asked. A rising count on an old request is the clearest signal in
+   * the queue that somebody has been left waiting.
+   *
+   * Writes the applicant's OWN row through the existing row-level security
+   * policy — no privileged function, and the audit trigger still refuses any
+   * attempt to touch a decision column from here.
+   */
+  async function nudgeTeacherAccountReview() {
+    const accountId = teacherAccountRecord?.id;
+    if (!accountId || teacherAccountNudgeBusy) return;
+
+    setTeacherAccountNudgeBusy(true);
+    const nudgedAt = new Date().toISOString();
+    const { data, error } = await supabase
+      .table("pending_teacher_accounts")
+      .update({
+        nudged_at: nudgedAt,
+        nudge_count: Number(teacherAccountRecord?.nudge_count || 0) + 1
+      })
+      .eq("id", accountId)
+      .select(PENDING_ACCOUNT_COLUMNS)
+      .maybeSingle();
+    setTeacherAccountNudgeBusy(false);
+
+    if (error) {
+      console.warn("Could not flag the account request as waiting.", error);
+      // Deliberately not surfaced as a failure. Nothing the teacher can do
+      // about it, and "we could not tell them" on top of "you are still
+      // waiting" is a worse screen than simply staying quiet.
+      return;
+    }
+    if (data) setTeacherAccountRecord(data);
   }
 
   // ── Preview-only demo teacher login ─────────────────────────────────────
@@ -4008,7 +4102,7 @@ export function useAppSessionController(context) {
     profileStorageKey, regenerateClassCode, requestPasswordReset, resetSelectedStudentProgress,
     retryTeacherSchoolName,
     resetStudentSymbolPassword, saveGuidedReadingRecord, saveTeacherSchool, setStudentAccessibilitySettings,
-    resendEmailConfirmation,
+    resendEmailConfirmation, nudgeTeacherAccountReview, loadPendingAccountAlert,
     setStudentReducedChoiceMode, signUpTeacher, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus,
   };
 }

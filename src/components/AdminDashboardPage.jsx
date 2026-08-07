@@ -239,7 +239,19 @@ export function AdminDashboardPage({
     }
   }
 
-  const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
+  // Ordered by who has been left waiting longest, with anyone who has actually
+  // asked first. Nothing in this application tells an administrator a request
+  // exists — no mail, no webhook, no realtime — so when the queue is finally
+  // opened, the order it appears in is the only prioritisation there is.
+  // Alphabetical or insertion order would bury the person who has waited a week.
+  const pendingSignupAccounts = [...pendingAccounts.filter(isPendingTeacherAccount)]
+    .sort((left, right) => {
+      const asked = Number(Boolean(right.nudged_at)) - Number(Boolean(left.nudged_at));
+      if (asked !== 0) return asked;
+      const leftAt = new Date(left.requested_at || left.created_at || 0).getTime();
+      const rightAt = new Date(right.requested_at || right.created_at || 0).getTime();
+      return leftAt - rightAt;
+    });
   const reviewedSignupAccounts = pendingAccounts.filter(account => !isPendingTeacherAccount(account));
   const visibleSignupCount = pendingSignupAccounts.length;
   // Requests you cannot act on. They are counted in the pill like any other, so
@@ -451,7 +463,20 @@ export function AdminDashboardPage({
                           </div>
                         )}
                       </td>
-                      <td data-label="Status">{accountStatus}</td>
+                      <td data-label="Status">
+                        {accountStatus}
+                        {account.nudged_at && (
+                          // They pressed "I am still waiting". Shown here rather
+                          // than only in the sort order, because a request that
+                          // has asked twice is a different thing from one that
+                          // has asked once and the order alone cannot say so.
+                          <span className="admin-account-nudged" title="This teacher asked about their request">
+                            {Number(account.nudge_count) > 1
+                              ? `Asked ${account.nudge_count}×`
+                              : "Asked"}
+                          </span>
+                        )}
+                      </td>
                       <td data-label="Requested">{(account.requested_at || account.created_at) ? new Date(account.requested_at || account.created_at).toLocaleDateString() : ""}</td>
                       <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
                       <td data-label="Actions">

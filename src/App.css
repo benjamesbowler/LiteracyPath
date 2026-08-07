@@ -16877,6 +16877,73 @@ select:focus {
   flex: 1 1 112px;
 }
 
+/* The waiting-teacher banner. Full width, above everything, on every screen —
+   it is the only thing in the app that reports a queue, so it does not get to
+   be subtle. Amber rather than red: someone is waiting, nothing is broken. */
+.admin-waiting-banner {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 18px;
+  border: 0;
+  border-bottom: 2px solid #c98a12;
+  background: #fdf3dc;
+  color: #6b4708;
+  font: inherit;
+  cursor: pointer;
+}
+
+.admin-waiting-banner:hover,
+.admin-waiting-banner:focus-visible {
+  background: #fbe9c0;
+}
+
+.admin-waiting-banner strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.admin-waiting-banner span {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* "Asked" chip in the review queue. */
+.admin-account-nudged {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #fdf3dc;
+  border: 1px solid #c98a12;
+  color: #6b4708;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* The waiting teacher's own panel — a timeframe and a way to raise their hand,
+   replacing a screen whose only affordance was Sign out. */
+.auth-waiting-panel {
+  background: #f4f7f9;
+  border: 1px solid #b9c8d2;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 4px;
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.auth-waiting-panel p {
+  margin: 0;
+}
+
+.auth-waiting-confirmed {
+  font-weight: 700;
+  color: #1f6b4a;
+}
+
 /* The "confirm your email" block on the sign-in card. Given its own panel
    rather than another line of message text, because it is the only thing
    standing between this person and an account. */
