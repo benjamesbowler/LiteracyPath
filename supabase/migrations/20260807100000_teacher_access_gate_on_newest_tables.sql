@@ -31,102 +31,114 @@ begin;
  * Part 1 — add the gate
  * ------------------------------------------------------------------ */
 
--- reading_sessions. Four separate policies rather than one FOR ALL, matching
--- the shape the original migration chose.
+-- EACH TABLE IS GUARDED because the hosted database is not guaranteed to be in
+-- step with this repository. Applying this file against a database that has not
+-- yet run 20260806120000_multilingual_learner_profile.sql previously died with
+-- 42P01 relation "public.mll_language_assessments" does not exist, halfway
+-- through, leaving some policies replaced and some not.
+--
+-- A migration that aborts partway is worse than one that skips: the operator
+-- cannot tell what landed. This one applies what it can, says out loud what it
+-- skipped, and is safe to run again once the missing migration is applied.
+do $gate$
+declare
+  v_skipped text[] := '{}';
+begin
 
-drop policy if exists "Teachers read their reading sessions" on public.reading_sessions;
-create policy "Teachers read their reading sessions"
-  on public.reading_sessions for select to authenticated
-  using (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-  );
+if to_regclass('public.reading_sessions') is not null then
+  -- Four single-command policies rather than one FOR ALL, matching the shape
+  -- the original migration chose. A read-only leak is still a leak.
+  drop policy if exists "Teachers read their reading sessions" on public.reading_sessions;
+  create policy "Teachers read their reading sessions"
+    on public.reading_sessions for select to authenticated
+    using (public.current_actor_has_teacher_access() and teacher_id = auth.uid());
 
-drop policy if exists "Teachers create their reading sessions" on public.reading_sessions;
-create policy "Teachers create their reading sessions"
-  on public.reading_sessions for insert to authenticated
-  with check (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-  );
+  drop policy if exists "Teachers create their reading sessions" on public.reading_sessions;
+  create policy "Teachers create their reading sessions"
+    on public.reading_sessions for insert to authenticated
+    with check (public.current_actor_has_teacher_access() and teacher_id = auth.uid());
 
-drop policy if exists "Teachers update their reading sessions" on public.reading_sessions;
-create policy "Teachers update their reading sessions"
-  on public.reading_sessions for update to authenticated
-  using (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-  )
-  with check (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-  );
+  drop policy if exists "Teachers update their reading sessions" on public.reading_sessions;
+  create policy "Teachers update their reading sessions"
+    on public.reading_sessions for update to authenticated
+    using (public.current_actor_has_teacher_access() and teacher_id = auth.uid())
+    with check (public.current_actor_has_teacher_access() and teacher_id = auth.uid());
 
-drop policy if exists "Teachers delete their reading sessions" on public.reading_sessions;
-create policy "Teachers delete their reading sessions"
-  on public.reading_sessions for delete to authenticated
-  using (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-  );
+  drop policy if exists "Teachers delete their reading sessions" on public.reading_sessions;
+  create policy "Teachers delete their reading sessions"
+    on public.reading_sessions for delete to authenticated
+    using (public.current_actor_has_teacher_access() and teacher_id = auth.uid());
+else
+  v_skipped := v_skipped || 'reading_sessions'::text;
+end if;
 
--- MLL tables. `current_actor_has_teacher_access()` already returns true for an
--- app admin, so the separate `is_app_admin` disjunct stays only to keep the
--- admin read path identical to what it was.
+-- MLL tables. current_actor_has_teacher_access() already returns true for an
+-- app admin, so the separate is_app_admin disjunct stays only to keep the admin
+-- read path identical to what it was.
 
-drop policy if exists mll_language_assessments_teacher_access on public.mll_language_assessments;
-create policy mll_language_assessments_teacher_access
-  on public.mll_language_assessments
-  for all
-  to authenticated
-  using (
-    public.current_actor_has_teacher_access()
-    and (teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
-  )
-  with check (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-    and exists (
-      select 1
-      from public.students s
-      where s.id = mll_language_assessments.student_id
-        and s.teacher_id = auth.uid()
+if to_regclass('public.mll_language_assessments') is not null then
+  drop policy if exists mll_language_assessments_teacher_access on public.mll_language_assessments;
+  create policy mll_language_assessments_teacher_access
+    on public.mll_language_assessments for all to authenticated
+    using (
+      public.current_actor_has_teacher_access()
+      and (teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
     )
-  );
+    with check (
+      public.current_actor_has_teacher_access()
+      and teacher_id = auth.uid()
+      and exists (
+        select 1 from public.students s
+        where s.id = mll_language_assessments.student_id and s.teacher_id = auth.uid()
+      )
+    );
+else
+  v_skipped := v_skipped || 'mll_language_assessments'::text;
+end if;
 
-drop policy if exists mll_exit_criteria_teacher_access on public.mll_exit_criteria;
-create policy mll_exit_criteria_teacher_access
-  on public.mll_exit_criteria
-  for all
-  to authenticated
-  using (
-    public.current_actor_has_teacher_access()
-    and (teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
-  )
-  with check (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-  );
-
-drop policy if exists mll_family_contacts_teacher_access on public.mll_family_contacts;
-create policy mll_family_contacts_teacher_access
-  on public.mll_family_contacts
-  for all
-  to authenticated
-  using (
-    public.current_actor_has_teacher_access()
-    and (teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
-  )
-  with check (
-    public.current_actor_has_teacher_access()
-    and teacher_id = auth.uid()
-    and exists (
-      select 1
-      from public.students s
-      where s.id = mll_family_contacts.student_id
-        and s.teacher_id = auth.uid()
+if to_regclass('public.mll_exit_criteria') is not null then
+  drop policy if exists mll_exit_criteria_teacher_access on public.mll_exit_criteria;
+  create policy mll_exit_criteria_teacher_access
+    on public.mll_exit_criteria for all to authenticated
+    using (
+      public.current_actor_has_teacher_access()
+      and (teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
     )
-  );
+    with check (public.current_actor_has_teacher_access() and teacher_id = auth.uid());
+else
+  v_skipped := v_skipped || 'mll_exit_criteria'::text;
+end if;
+
+if to_regclass('public.mll_family_contacts') is not null then
+  drop policy if exists mll_family_contacts_teacher_access on public.mll_family_contacts;
+  create policy mll_family_contacts_teacher_access
+    on public.mll_family_contacts for all to authenticated
+    using (
+      public.current_actor_has_teacher_access()
+      and (teacher_id = auth.uid() or public.is_app_admin(auth.uid()))
+    )
+    with check (
+      public.current_actor_has_teacher_access()
+      and teacher_id = auth.uid()
+      and exists (
+        select 1 from public.students s
+        where s.id = mll_family_contacts.student_id and s.teacher_id = auth.uid()
+      )
+    );
+else
+  v_skipped := v_skipped || 'mll_family_contacts'::text;
+end if;
+
+if array_length(v_skipped, 1) is not null then
+  raise warning
+    'Teacher access gate SKIPPED for tables that do not exist yet: %. Apply the migration that creates them (20260806120000_multilingual_learner_profile.sql for the mll_* tables, 20260801090000_synced_guided_reading.sql for reading_sessions), then run THIS FILE AGAIN. Until then a rejected teacher keeps access to them.',
+    array_to_string(v_skipped, ', ');
+else
+  raise notice 'Teacher access gate applied to all four tables.';
+end if;
+
+end
+$gate$;
 
 /* ------------------------------------------------------------------ *
  * Part 2 — stop this happening again, in CI rather than here
