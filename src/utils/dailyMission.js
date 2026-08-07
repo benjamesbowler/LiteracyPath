@@ -7,6 +7,7 @@ import { recordDailyChest } from "./hollowState.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
+import { filterPublishedGuidedReadingBooks } from "../data/guidedReadingPublication.js";
 import {
   DAILY_MISSION_KINDS,
   firstUncelebratedMissionStep,
@@ -206,11 +207,23 @@ function currentQuestCycle(scope) {
   return playable.find(cycle => !(quest.cycles?.[cycle.id]?.stars > 0)) || playable[0];
 }
 
-function nextBook(scope) {
+/**
+ * `quarantinedBookIds` is the publication blocklist (see
+ * `src/data/guidedReadingPublication.js`). It has to be applied HERE and not
+ * only on the library shelf, because the mission tile links straight to a book
+ * by id. Without this filter a book an admin had explicitly pulled could still
+ * be advertised to a child as the book of the day — the one failure mode the
+ * blocklist exists to prevent.
+ */
+function nextBook(scope, quarantinedBookIds) {
   const records = readJson(`literacyPath.guidedReadingRecords.${encodeURIComponent(scope)}`, {});
-  const ordered = [...GUIDED_READING_BOOK_INDEX].sort((a, b) =>
+  const ordered = filterPublishedGuidedReadingBooks(
+    [...GUIDED_READING_BOOK_INDEX],
+    quarantinedBookIds
+  ).sort((a, b) =>
     String(a.level).localeCompare(String(b.level)) || String(a.id).localeCompare(String(b.id))
   );
+  if (!ordered.length) return null;
   const unread = ordered.filter(book => !records[book.id]?.completed);
   const pool = unread.length ? unread : ordered;
   // Stay at the child's working level: the lowest level that still has
@@ -233,9 +246,9 @@ function todaysGame(scope, cycle) {
   return { game, why: letters ? `Practise your ${letters} sounds while you play.` : "A fresh game for today." };
 }
 
-export function buildDailyMission(scope) {
+export function buildDailyMission(scope, quarantinedBookIds) {
   const cycle = currentQuestCycle(scope) || {};
-  const book = nextBook(scope);
+  const book = nextBook(scope, quarantinedBookIds);
   const gamePick = todaysGame(scope, cycle) || {};
   const game = gamePick.game || {};
 

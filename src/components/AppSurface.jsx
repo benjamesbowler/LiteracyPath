@@ -80,8 +80,8 @@ import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
 import { ReadingSessionRecoveryDialog } from "./guided-reading/ReadingSessionRecoveryDialog.jsx";
 import { endReadingSession } from "../data/readingSession.js";
 import {
-  approvedGuidedReadingBookIds,
-  filterApprovedGuidedReadingBooks,
+  filterPublishedGuidedReadingBooks,
+  quarantinedGuidedReadingBookIds,
   loadGuidedReadingBookReviews,
   saveGuidedReadingBookReview
 } from "../data/guidedReadingPublication.js";
@@ -168,8 +168,10 @@ export function AppSurface({ surface }) {
     return () => window.clearTimeout(timer);
   }, [authReady, isAdmin, refreshGuidedReadingReviews, sessionMode, studentSession?.token, teacherId]);
 
-  const approvedReadingBookIds = useMemo(
-    () => approvedGuidedReadingBookIds(guidedReadingReviewState.rows),
+  // Books are live by default. This is the list of the ones an admin has pulled,
+  // and it is the only thing that removes a book from a child's shelf.
+  const quarantinedReadingBookIds = useMemo(
+    () => quarantinedGuidedReadingBookIds(guidedReadingReviewState.rows),
     [guidedReadingReviewState.rows]
   );
 
@@ -197,14 +199,14 @@ export function AppSurface({ surface }) {
     let active = true;
     import("../utils/guidedReading/runtimeBooks.js").then(module => {
       if (active) {
-        setReadingFollowerBooks(filterApprovedGuidedReadingBooks(
+        setReadingFollowerBooks(filterPublishedGuidedReadingBooks(
           module.getRuntimeGuidedReadingBooks(),
-          approvedReadingBookIds
+          quarantinedReadingBookIds
         ));
       }
     });
     return () => { active = false; };
-  }, [approvedReadingBookIds, sessionMode, studentSession?.token]);
+  }, [quarantinedReadingBookIds, sessionMode, studentSession?.token]);
 
   const handleReadingSessionEnded = useCallback(() => {
     setActiveReadingSession(null);
@@ -1048,6 +1050,7 @@ export function AppSurface({ surface }) {
           <StudentHomePage
             studentName={studentName}
             progressScopeKey={childProgressScopeKey}
+            quarantinedBookIds={quarantinedReadingBookIds}
             onOpenPhonicsLearn={() => {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.PHONICS_LEARN);
@@ -1495,7 +1498,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
             <StudentBooksPage
-              approvedBookIds={approvedReadingBookIds}
+              quarantinedBookIds={quarantinedReadingBookIds}
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
               teacherId={teacherId}
@@ -1894,7 +1897,7 @@ export function AppSurface({ surface }) {
       /></Suspense>}
 
       <ReadingSessionSetup
-        approvedBookIds={approvedReadingBookIds}
+        quarantinedBookIds={quarantinedReadingBookIds}
         classId={selectedClassId}
         client={isSupabaseConfigured ? supabase : null}
         onClose={() => setReadingSetupOpen(false)}

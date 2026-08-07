@@ -33,7 +33,7 @@ import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js
 import { isGuidedReadingAssetDeleted } from "../data/deletedMediaManifest.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import { getRuntimeGuidedReadingBooks } from "../utils/guidedReading/runtimeBooks.js";
-import { filterApprovedGuidedReadingBooks } from "../data/guidedReadingPublication.js";
+import { filterPublishedGuidedReadingBooks } from "../data/guidedReadingPublication.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import {
   KNOWLEDGE_JOURNEYS,
@@ -143,7 +143,7 @@ export function StudentBooksPage({
   // screen that draws an empty library because nobody passed it a list is the
   // "load failure rendered as empty data" mistake with extra steps.
   books = null,
-  approvedBookIds = null,
+  quarantinedBookIds = null,
   publicationStatus = "ready",
   guidedReadingRecords = {},
   studentProgress = null,
@@ -175,10 +175,10 @@ export function StudentBooksPage({
   // memo below on every render.
   const library = useMemo(() => {
     const runtimeBooks = books || getRuntimeGuidedReadingBooks();
-    return approvedBookIds === null
-      ? runtimeBooks
-      : filterApprovedGuidedReadingBooks(runtimeBooks, approvedBookIds);
-  }, [approvedBookIds, books]);
+    // Every book is live unless an admin has pulled it. `null` means the review
+    // list could not be read, which shows everything rather than nothing.
+    return filterPublishedGuidedReadingBooks(runtimeBooks, quarantinedBookIds);
+  }, [quarantinedBookIds, books]);
 
   // The app's existing answer to "what level is this child on": a teacher-set
   // level, else the level of the last book they actually read, else A. It is
@@ -279,11 +279,12 @@ export function StudentBooksPage({
   }
 
   if (library.length === 0) {
+    // Reaching here now means the book data itself failed to load — publication
+    // no longer withholds anything, so "waiting for a grown-up to approve them"
+    // would be a lie. Say the true thing instead.
     const libraryMessage = publicationStatus === "loading"
       ? "Your books are getting ready."
-      : publicationStatus === "ready"
-        ? "Your grown-ups are preparing your reading choices."
-        : "Books are not available right now. Ask a grown-up to try again later.";
+      : "Your books did not load. Ask a grown-up to try again.";
     return (
       <StudentGlassShell
         studentName={studentName}
@@ -302,8 +303,8 @@ export function StudentBooksPage({
           </div>
           <div className="kg-glass kg-library-preparing" role="status">
             <span aria-hidden="true">📚</span>
-            <strong>Come back soon</strong>
-            <p>There are no reading books to choose just yet.</p>
+            <strong>Try again in a moment</strong>
+            <p>The books could not be loaded right now.</p>
           </div>
         </div>
       </StudentGlassShell>

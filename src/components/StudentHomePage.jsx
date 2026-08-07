@@ -302,6 +302,10 @@ export function StudentHomePage({
   onOpenSoundSeekers,
   onOpenStoryQuests,
   onOpenGuidedReading,
+  // The publication blocklist. The mission's book tile deep-links to a book by
+  // id, so it needs the same filter the library shelf uses — otherwise a book
+  // an admin had explicitly pulled could still be the advertised book of the day.
+  quarantinedBookIds,
   onOpenRewards,
   onLogout,
   logoutLabel = "Sign out",
@@ -310,7 +314,10 @@ export function StudentHomePage({
   // The home page re-mounts on every visit, so reading once at mount keeps
   // the mission state fresh after each activity.
   const [status] = useState(() => getMissionStatus(progressScopeKey));
-  const mission = useMemo(() => buildDailyMission(progressScopeKey), [progressScopeKey]);
+  const mission = useMemo(
+    () => buildDailyMission(progressScopeKey, quarantinedBookIds),
+    [progressScopeKey, quarantinedBookIds]
+  );
   const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [guideChoiceReady, setGuideChoiceReady] = useState(() => Boolean(getCompanion(progressScopeKey)));

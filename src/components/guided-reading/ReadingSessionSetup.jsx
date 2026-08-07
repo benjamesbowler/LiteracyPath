@@ -4,11 +4,11 @@ import { warmQuestOfflineAssets } from "../../utils/offlineShell.js";
 import { TeacherFunnelStep } from "../TeacherFunnelStep.jsx";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 import "./readingSession.css";
-import { filterApprovedGuidedReadingBooks } from "../../data/guidedReadingPublication.js";
+import { filterPublishedGuidedReadingBooks } from "../../data/guidedReadingPublication.js";
 
 export function ReadingSessionSetup({
   open,
-  approvedBookIds = [],
+  quarantinedBookIds = [],
   client,
   classId,
   students = [],
@@ -28,13 +28,13 @@ export function ReadingSessionSetup({
     let active = true;
     import("../../utils/guidedReading/runtimeBooks.js").then(module => {
       if (!active) return;
-      setBooks(filterApprovedGuidedReadingBooks(
+      setBooks(filterPublishedGuidedReadingBooks(
         module.getRuntimeGuidedReadingBooks(),
-        approvedBookIds
+        quarantinedBookIds
       ));
     });
     return () => { active = false; };
-  }, [approvedBookIds, open]);
+  }, [quarantinedBookIds, open]);
 
   useEffect(() => {
     if (step === 2) secondStepRef.current?.focus();

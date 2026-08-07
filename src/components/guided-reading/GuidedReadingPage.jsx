@@ -2644,7 +2644,7 @@ export function GuidedReadingPage({
                     onClick={() => submitPublicationReview("approved")}
                     type="button"
                   >
-                    {reviewBusy ? "Saving…" : "Pass and activate"}
+                    {reviewBusy ? "Saving…" : "Pass and keep live"}
                   </button>
                   <button
                     className="lp-button lp-button-danger"

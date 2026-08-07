@@ -43,10 +43,10 @@ export function GuidedReadingReviewPanel({
     <section className="admin-guided-review page-stack" data-review-load-status={reviewStatus}>
       <header className="admin-section-heading">
         <div>
-          <p className="panel-label">Child publication gate</p>
+          <p className="panel-label">Child publication</p>
           <h3>Guided Reading review</h3>
           <p className="muted-text">
-            Children only receive books marked Live. New and failed books stay hidden everywhere on the child side.
+            Every book is live to children by default. Failing a book removes it everywhere on the child side until it is fixed and passed again.
           </p>
         </div>
         <button className="lp-button lp-button-secondary" disabled={reviewStatus === "loading"} onClick={onRefresh} type="button">
@@ -56,7 +56,7 @@ export function GuidedReadingReviewPanel({
 
       {reviewError && (
         <div className="admin-section-warning" role="alert">
-          Reviews could not be loaded. Child libraries remain closed until the publication service is available.
+          Reviews could not be loaded, so any failed books may still be showing. Child libraries stay open — refresh to re-apply the quarantine list.
         </div>
       )}
 
