@@ -193,7 +193,8 @@
     "check:reporting-bible": "node tools/checkReportingBible.mjs && node --test tests/unit/reportingBible.test.js tests/unit/mllLanguageReporting.test.js",
     "check:teacher-gate-live": "node tools/db/checkTeacherGateDrift.mjs",
     "check:teacher-email-confirmation": "node tools/db/verifyTeacherEmailConfirmation.mjs",
-    "check:gate-migration-resilience": "node tools/db/verifyGateMigrationOnPartialDatabase.mjs"
+    "check:gate-migration-resilience": "node tools/db/verifyGateMigrationOnPartialDatabase.mjs",
+    "sync": "bash tools/sync.sh"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

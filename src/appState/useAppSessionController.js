@@ -14,6 +14,7 @@ import {
 } from "../data/teacherRosterOperations.js";
 import { selectAllRows } from "../data/pagedSelect.js";
 import { setEphemeralNetworkMode } from "../data/boundaries/facade.js";
+import { setSampleContentScope } from "../policy/freeTierContent.js";
 import { beginTryModeSession } from "../policy/tryModeSession.js";
 import {
   isUnconfirmedEmailError,
@@ -262,6 +263,11 @@ export function useAppSessionController(context) {
     if (!session) return null;
 
     setEphemeralNetworkMode(true);
+    // The third boundary, set at the same moment as the other two. Every child
+    // surface reads it in one line instead of five layers of prop threading —
+    // and a surface that forgot a prop would silently show everything, which is
+    // the failure this design exists to remove.
+    setSampleContentScope(true);
 
     setLetterIndex(0);
     setLetterAssessment([]);
@@ -291,6 +297,7 @@ export function useAppSessionController(context) {
       console.warn("Could not restore storage after the try session.", error);
     }
     setEphemeralNetworkMode(false);
+    setSampleContentScope(false);
     setTrySession(null);
     setSessionMode("teacher");
     setStudentSessionId("");

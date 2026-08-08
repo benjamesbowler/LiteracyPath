@@ -29,6 +29,7 @@ import { useMemo, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { storyQuests } from "../data/storyQuests.js";
+import { filterSample } from "../policy/freeTierContent.js";
 import {
   isStoryQuestTeacherPreviewScope,
   loadStoryQuestProgress,
@@ -83,7 +84,9 @@ function readStoryQuestState(progressScopeKey = "default") {
 export function StudentStoryQuestsPage({
   studentName,
   progressScopeKey = "default",
-  quests = storyQuests,
+  // filterSample returns the SAME array when the session sees everything, so a
+  // normal child is unaffected; a try session gets the sample.
+  quests = filterSample("storyQuests", storyQuests),
   readingLevel = "",
   onNavigate,
   onHome,

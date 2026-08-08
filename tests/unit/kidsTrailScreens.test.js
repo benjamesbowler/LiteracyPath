@@ -447,7 +447,10 @@ test("Sound Trail delegates to the one playable quest instead of drawing a dupli
 });
 
 test("every displayed value on the Adventure Map comes from a named source", () => {
-  assert.match(mapCode, /elSkillsBlockCycles\.filter\(cycle => cycle\.cycleNumber\)/);
+  // Still derived from the named source and still filtered by cycleNumber — the
+  // sample filter now wraps it, so a try session sees a slice while a normal
+  // child sees the same array untouched.
+  assert.match(mapCode, /filterSample\("cycles", elSkillsBlockCycles\)\.filter\(cycle => cycle\.cycleNumber\)/);
   assert.match(mapCode, /WORLD_LANDMARKS_WIDE\[part\.id\]/);
   assert.match(mapCode, /WIDE_WORLDS\.find/);
   assert.match(mapCode, /read\.cycles\?\.\[cycleId\]\?\.stars/);

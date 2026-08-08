@@ -82,3 +82,37 @@ test("the child sees where the shelf stops, with the grown-up told why", () => {
   assert.match(booksPage, /sampleLimitCopy\.childHeading/);
   assert.match(booksPage, /sampleLimitCopy\.adultBody/);
 });
+
+test("the sample scope is set with the other two boundaries, and cleared with them", () => {
+  const start = controller.slice(controller.indexOf("function startTryMode"));
+  const body = start.slice(0, start.indexOf("function endTryMode"));
+  assert.match(body, /setSampleContentScope\(true\)/);
+  assert.ok(
+    body.indexOf("setEphemeralNetworkMode(true)") < body.indexOf("APP_VIEWS.STUDENT_HOME"),
+    "boundaries must close before a child surface is shown"
+  );
+  const end = controller.slice(controller.indexOf("function endTryMode"), controller.indexOf("function restoreStudentSession"));
+  assert.match(end, /setSampleContentScope\(false\)/);
+});
+
+test("games, phonics cycles and story quests all read the sample scope", () => {
+  const surfaces = {
+    "components/learn/games/GameArcadeHub.jsx": /filterSample\("games"/,
+    "components/StudentAdventureMapPage.jsx": /filterSample\("cycles"/,
+    "components/StudentStoryQuestsPage.jsx": /filterSample\("storyQuests"/
+  };
+  for (const [file, pattern] of Object.entries(surfaces)) {
+    assert.match(read(file), pattern, `${file} does not apply the sample`);
+  }
+});
+
+test("sampled surfaces compute per render, not at module load", () => {
+  // The scope is set when a try session starts, long after these modules are
+  // evaluated. A module-level constant would capture the full list forever.
+  const hub = read("components/learn/games/GameArcadeHub.jsx");
+  assert.ok(!/^const (ARCADE_GAMES|PRACTICE_GAMES|TABS) =/m.test(hub),
+    "arcade shelves must be functions, not module constants");
+  const map = read("components/StudentAdventureMapPage.jsx");
+  assert.ok(!/^const PLAYABLE_CYCLES =/m.test(map),
+    "playable cycles must be a function, not a module constant");
+});

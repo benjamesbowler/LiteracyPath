@@ -179,3 +179,53 @@ export const SAMPLE_LIMIT_COPY = Object.freeze({
     + "A school account opens all of it, keeps every child's progress, and gives teachers the reports.",
   callToAction: "See the full version"
 });
+
+/* ------------------------------------------------------------------ *
+ * Session scope
+ * ------------------------------------------------------------------ */
+
+/**
+ * Whether this session sees the sample rather than everything.
+ *
+ * A MODULE VALUE, NOT A PROP, and that is deliberate. The slice is a property of
+ * the SESSION, exactly like the swapped storage and the closed network — it is
+ * not a property of any component tree. It is set once, at the same moment as
+ * the other two boundaries, and every surface reads it in one line instead of
+ * five layers of prop threading. Threading it would also mean a surface that
+ * forgot the prop silently showed everything, which is the failure mode this
+ * whole design exists to remove.
+ *
+ * Default is OFF, so nothing changes for any account that exists today.
+ */
+let sampleScopeActive = false;
+
+export function setSampleContentScope(active) {
+  sampleScopeActive = Boolean(active);
+}
+
+export function isSampleContentScope() {
+  return sampleScopeActive;
+}
+
+const RESOLVERS = Object.freeze({
+  books: sampleBookIds,
+  games: sampleGameIds,
+  cycles: sampleCycleIds,
+  storyQuests: sampleStoryQuestIds
+});
+
+/**
+ * The one line every child-facing surface uses.
+ *
+ * Returns the SAME ARRAY untouched when the session sees everything, so no
+ * existing child travels a new code path because a sample plan exists for
+ * somebody else. An unknown kind returns the list unchanged rather than
+ * throwing — a typo must not empty a shelf.
+ */
+export function filterSample(kind, items = []) {
+  if (!sampleScopeActive) return items;
+  const resolve = RESOLVERS[kind];
+  if (!resolve) return items;
+  const allowed = resolve(items);
+  return items.filter(item => allowed.has(item?.id));
+}

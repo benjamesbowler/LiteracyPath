@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { GAME_LIST } from "../../../data/learnGamesData";
+import { filterSample } from "../../../policy/freeTierContent.js";
 import { worldForDifficulty, worldStyle } from "../../../utils/palWorlds.js";
 import { supabase } from "../../../supabaseClient.js";
 import {
@@ -18,18 +19,20 @@ const DIFFICULTIES = ["easy", "medium", "hard"];
 
 // The arcade shows only the arcade-tier games (the new playable games). The
 // worksheet-style games live in the Daily Challenge + EL maps instead.
-const ARCADE_GAMES = GAME_LIST.filter(game => (game.surfaces || []).includes("arcade"));
+// Computed per render rather than at module load: the sample scope is set when
+// a try session starts, which happens long after this module is evaluated.
+const arcadeGames = () => filterSample("games", GAME_LIST).filter(game => (game.surfaces || []).includes("arcade"));
 // The quieter skill-practice games. Before this shelf existed they were only
 // reachable through one random Daily Mission deep-link - unplayable on demand.
-const PRACTICE_GAMES = GAME_LIST.filter(game =>
+const practiceGames = () => filterSample("games", GAME_LIST).filter(game =>
   !(game.surfaces || []).includes("arcade") && !game.hidden && game.id !== "word-climb");
 
 // Two tabs: the arcade line-up, and the quieter phonics practice games. Before
 // the tabs the practice games sat in a shelf below the arcade grid, which
 // pushed the arcade off-screen once the line-up grew past eight.
-const TABS = [
-  { id: "arcade", label: "Arcade", games: ARCADE_GAMES },
-  { id: "practice", label: "Phonics Practice", games: PRACTICE_GAMES }
+const tabsFor = () => [
+  { id: "arcade", label: "Arcade", games: arcadeGames() },
+  { id: "practice", label: "Phonics Practice", games: practiceGames() }
 ];
 
 function readStudentToken() {
@@ -140,13 +143,14 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   // A Today's-Mission deep link opens straight into a game; land on the tab
   // that game lives in, so closing the player returns to the right shelf.
   const [tab, setTab] = useState(() => {
-    const homeTab = TABS.find(entry => entry.games.some(game => game.id === activeGame?.id));
+    const homeTab = tabsFor().find(entry => entry.games.some(game => game.id === activeGame?.id));
     return homeTab ? homeTab.id : "arcade";
   });
 
   const totals = useMemo(() => {
-    const completed = ARCADE_GAMES.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
-    const points = ARCADE_GAMES.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
+    const arcade = arcadeGames();
+    const completed = arcade.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
+    const points = arcade.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
     return { completed, points };
   }, [progress]);
 
@@ -159,7 +163,10 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   }
 
   const world = worldForDifficulty(progress.difficulty);
-  const visibleGames = (TABS.find(entry => entry.id === tab) || TABS[0]).games;
+  // Recomputed each render so a try session's sample takes effect; the scope is
+  // set at session start, after this module was evaluated.
+  const tabs = tabsFor();
+  const visibleGames = (tabs.find(entry => entry.id === tab) || tabs[0]).games;
   const recommendedGame = visibleGames.find(game => (
     (getLearnGameProgress(progress, game.id).stars || 0) === 0
   )) || visibleGames[0];
@@ -209,7 +216,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
 
       {/* Tabs: the arcade line-up, and the phonics practice games */}
       <div className="lg-arcade-tabs" role="tablist" aria-label="Game sets">
-        {TABS.map(entry => (
+        {tabs.map(entry => (
           <button
             key={entry.id}
             type="button"
@@ -275,7 +282,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       {/* Slim bottom banner: points + high-score board */}
       <div className="lg-arcade-bottomband" data-child-progress="">
         <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
-        <span className="lg-arcade-played">{totals.completed} of {ARCADE_GAMES.length} games played</span>
+        <span className="lg-arcade-played">{totals.completed} of {arcadeGames().length} games played</span>
         <button
           type="button"
           className="lg-arcade-highscores"

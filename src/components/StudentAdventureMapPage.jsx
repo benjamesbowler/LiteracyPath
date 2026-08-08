@@ -34,6 +34,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
+import { filterSample } from "../policy/freeTierContent.js";
 import {
   WIDE_WORLDS,
   WORLD_LANDMARKS_WIDE,
@@ -121,7 +122,9 @@ function readMapProgress(scopeKey) {
   }
 }
 
-const PLAYABLE_CYCLES = elSkillsBlockCycles.filter(cycle => cycle.cycleNumber);
+// A function, not a constant: the sample scope is set when a try session starts,
+// which is long after this module is evaluated.
+const playableCycles = () => filterSample("cycles", elSkillsBlockCycles).filter(cycle => cycle.cycleNumber);
 
 export function StudentAdventureMapPage({
   studentName,
@@ -155,10 +158,10 @@ export function StudentAdventureMapPage({
   // The land the child is standing in: the one holding their first unfinished
   // stop. Same rule the mode itself uses to pick its home world, so the sign on
   // this screen and the map inside the mode never disagree.
-  const currentCycle = PLAYABLE_CYCLES.find(cycle => starsFor(cycle.id) <= 0)
-    || PLAYABLE_CYCLES[PLAYABLE_CYCLES.length - 1];
+  const currentCycle = playableCycles().find(cycle => starsFor(cycle.id) <= 0)
+    || playableCycles()[playableCycles().length - 1];
   const part = adventureMapPartFor(currentCycle?.cycleNumber || 1);
-  const worldCycles = PLAYABLE_CYCLES.filter(cycle => (
+  const worldCycles = playableCycles().filter(cycle => (
     cycle.cycleNumber >= part.first && cycle.cycleNumber <= part.last
   ));
   const landmarks = WORLD_LANDMARKS_WIDE[part.id] || [];
