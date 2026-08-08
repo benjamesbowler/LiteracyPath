@@ -1,5 +1,11 @@
 {
   "installCommand": "npm install --include=dev --no-audit --no-fund",
+  "rewrites": [
+    {
+      "source": "/soundkeys/:path*",
+      "destination": "/"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

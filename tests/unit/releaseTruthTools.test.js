@@ -177,6 +177,16 @@ test("CSP release gate is enforced by deployment headers and hostile browser pro
   }
 });
 
+test("SoundKeys direct route is rewritten to the SPA entry point", () => {
+  const vercelConfig = JSON.parse(readFileSync(
+    new URL("../../vercel.json", import.meta.url),
+    "utf8"
+  ));
+  assert.ok(vercelConfig.rewrites?.some(rewrite => (
+    rewrite.source === "/soundkeys/:path*" && rewrite.destination === "/"
+  )));
+});
+
 test("sync-chaos release gate combines real queue/merge units with a two-device browser journey", () => {
   const packageJson = JSON.parse(readFileSync(
     new URL("../../package.json", import.meta.url),
