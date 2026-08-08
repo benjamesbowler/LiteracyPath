@@ -3,7 +3,7 @@ import { STORY_CONTENT_POLICY_VERSION } from "./storyContentPolicy.js";
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 206,
-  sourceFingerprint: "c851bd85e80cc7818c1354f1ec604d792bc3e3cfc770c6266b2081d890b0d63c",
+  sourceFingerprint: "50af050c4cb73dfec55eb247121ce9106513f624ec4088fc91b1c07e01fd4c05",
   status: "audited-fail",
   policyVersion: STORY_CONTENT_POLICY_VERSION,
   reviewedAt: "2026-08-05",

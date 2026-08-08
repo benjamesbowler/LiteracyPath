@@ -1,6 +1,6 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-08-05T08:50:03.140Z
+Generated: 2026-08-08T05:46:39.451Z
 
 ## What This Check Proves
 

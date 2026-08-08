@@ -1,7 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { SoundKeysApp } from './features/soundkeys/SoundKeysApp.jsx'
+import './features/soundkeys/home.css'
 // Imported AFTER App so these rules land last in the cascade: the child-facing
 // wide-layout + vibrant reskin layer always wins.
 import './styles/student-vibrant.css'
@@ -59,10 +62,12 @@ window.addEventListener('vite:preloadError', event => {
   }
 })
 
+const Root = window.location.pathname.replace(/\/$/, '') === '/soundkeys' ? SoundKeysApp : App
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary logLabel="App root crashed" fallback={<AppCrashFallback />}>
-      <App />
+      <Root />
     </ErrorBoundary>
   </StrictMode>,
 )

@@ -1242,6 +1242,7 @@ export function AppSurface({ surface }) {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.STUDENT_REWARDS);
             }}
+            onOpenSoundKeys={() => { window.location.assign("/soundkeys"); }}
             onLogout={trySession ? finishTrySession : isStudentMode ? logOutStudent : returnToTeacherDashboard}
             logoutLabel={trySession ? "Finish" : isStudentMode ? "Sign out" : "Teacher dashboard"}
             logoutAriaLabel={trySession ? "Finish the try-out" : isStudentMode ? "Log out" : "Return to teacher dashboard"}

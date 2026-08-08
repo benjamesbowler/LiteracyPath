@@ -7,11 +7,11 @@
 - Active Story Quests: **14**
 - Active page scenes: **341**
 - Manuscript, graph, and declared-level checks: **pass**
-- Exact current page narrations: **206/341**
-- Changed page narrations awaiting authorization and regeneration: **135/341**
+- Exact current page narrations: **341/341**
+- Changed page narrations awaiting authorization and regeneration: **0/341**
 - Fully approved now: **1** — `dp_ra_b_05_shys_snail_shade`
 - Audited but release-blocked: **13**
-- Guided Reading is also release-blocked while **1,197** changed page narrations and **433** isolated-word clips await authorization, generation, and listening validation.
+- Guided Reading narration generation is complete: all **1,861** active page narrations and **900** isolated-word clips resolve to exact current LEDA audio. Listening validation remains open.
 - Guided Reading now fail-closes all pages without exact-current-text narration: **1,201** pages carry the rebuild flag, comprising the **1,197** missing page clips plus **4** exact clips that still await listening clearance.
 
 No book or quest may be marked approved merely because its previous audio file still exists. The narration must resolve from the exact current page text, the file must be present, and the final clip must pass human listening validation.
@@ -62,10 +62,8 @@ The final visual pass is complete. All **341** active Story Quest scenes resolve
 
 ## Remaining release gates
 
-1. Receive explicit authorization before sending the changed page text to Google Cloud Text-to-Speech.
-2. Generate the **135** Story Quest clips plus the outstanding Guided Reading audio.
-3. Listen to the final clips for exact wording, pronunciation, pacing, glitches, and child suitability.
-4. Clear `narrationNeedsRebuild` only where the exact current-text file exists and passes listening validation.
+1. Listen to the final clips for exact wording, pronunciation, pacing, glitches, and child suitability.
+2. Perform the final child-browser traversal before changing any remaining verdict to approved.
 5. Recalculate source fingerprints, rerun policy and release checks, and perform a final child-browser traversal before changing any remaining verdict to approved.
 
 The browser evidence recorded for earlier fingerprints remains useful historical evidence, but it is not a release claim for the changed quests. Hosted admin status is not considered verified until the live admin surface is checked directly.
