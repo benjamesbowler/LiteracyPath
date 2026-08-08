@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './styles/fonts.js'
 import './index.css'
 import App from './App.jsx'
 import { SoundKeysApp } from './features/soundkeys/SoundKeysApp.jsx'

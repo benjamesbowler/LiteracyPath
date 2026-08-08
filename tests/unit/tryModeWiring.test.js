@@ -72,9 +72,14 @@ test("a full-content session passes no allowed list, so nothing changes for it",
 });
 
 test("the try entry exists and says what it costs", () => {
-  assert.match(entryPage, /onTry/);
-  assert.match(entryPage, /nothing is saved/i);
+  // The header button is a door, not the disclosure. The honest "nothing is
+  // saved" wording lives on the page it opens, where an adult has stopped to
+  // read — a top-bar button is not the place for a paragraph.
+  assert.match(entryPage, /className="lp-landing-try"/);
+  assert.match(entryPage, /Try for free/);
   assert.match(appSurface, /onTry=\{\(\) => setEntryMode\("try"\)\}/);
+  const notice = read("policy/tryModeSession.js");
+  assert.match(notice, /nothing about your child is stored or sent anywhere/i);
 });
 
 test("the child sees where the shelf stops, with the grown-up told why", () => {
@@ -115,4 +120,40 @@ test("sampled surfaces compute per render, not at module load", () => {
   const map = read("components/StudentAdventureMapPage.jsx");
   assert.ok(!/^const PLAYABLE_CYCLES =/m.test(map),
     "playable cycles must be a function, not a module constant");
+});
+
+test("no font is fetched from Google, and the CSP would not allow it", () => {
+  // The last third-party request from a child's browser. On the school product
+  // it was a negotiable subprocessor; on an anonymous children's try-out it is
+  // a request to Google before the child has touched anything, which undercuts
+  // the one claim the whole mode rests on.
+  const html = readFileSync(new URL("../../index.html", import.meta.url), "utf8");
+  assert.ok(!/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(html),
+    "index.html still links Google Fonts");
+
+  // Belt and braces: even if a link came back, the CSP now refuses it, so the
+  // regression is visible in the browser console rather than silent.
+  const vercel = readFileSync(new URL("../../vercel.json", import.meta.url), "utf8");
+  assert.ok(!/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(vercel),
+    "the CSP still permits Google font domains");
+
+  // And the families are actually present, so this is a swap rather than a deletion.
+  const fonts = readFileSync(new URL("../../src/styles/fonts.js", import.meta.url), "utf8");
+  for (const family of ["anton", "baloo-2", "press-start-2p", "fredoka", "inter", "lexend", "nunito"]) {
+    assert.match(fonts, new RegExp(`@fontsource/${family}/`), `${family} is not self-hosted`);
+  }
+  const main = readFileSync(new URL("../../src/main.jsx", import.meta.url), "utf8");
+  assert.match(main, /import '\.\/styles\/fonts\.js'/);
+});
+
+test("the landing page keeps exactly two side-by-side destination cards", () => {
+  // A third item was added to that grid on 2026-08-07 and broke the two-column
+  // layout. The try-out entry belongs in the header, not in this grid.
+  const entry = readFileSync(new URL("../../src/components/StudentEntryPage.jsx", import.meta.url), "utf8");
+  // Matched with a trailing space so `student-entry-card-text` — which appears
+  // inside each card — is not counted as a card itself.
+  const cards = entry.match(/className="student-entry-card /g) || [];
+  assert.equal(cards.length, 2, `expected 2 destination cards, found ${cards.length}`);
+  assert.ok(!/student-entry-try/.test(entry), "the try entry must not sit in the card grid");
+  assert.match(entry, /className="lp-landing-try"/);
 });
