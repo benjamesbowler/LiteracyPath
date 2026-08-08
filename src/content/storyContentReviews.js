@@ -8,7 +8,7 @@ export const guidedReadingPolicyBaseline = Object.freeze({
   policyVersion: STORY_CONTENT_POLICY_VERSION,
   reviewedAt: "2026-08-05",
   reviewer: "Codex editorial audit",
-  claim: "All 206 books and 1,861 active pages have completed the current manuscript and illustration audit. Publication approval remains blocked while 1,197 changed page narrations and 433 isolated-word clips await explicit TTS authorization, generation, and human listening validation."
+  claim: "All 206 books and 1,861 active pages have completed the current manuscript and illustration audit. Exact-current-text Leda narration resolves for all 1,861 page narrations and 900 isolated-word clips. Publication approval remains blocked until human listening validation is complete."
 });
 
 const historicalStoryQuestPolicyReviews = Object.freeze([
@@ -505,20 +505,20 @@ const historicalStoryQuestPolicyReviews = Object.freeze([
 ]);
 
 const currentStoryQuestReviewState = Object.freeze({
-  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "3ca1e261d3514b07bbc9c3c0871730df35c3784e7317048ad3b372565304d1e2", pages: 24, routes: 1329, exactAudio: 10, pendingAudio: 14 }),
-  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "144f7b9b35fafc89393a948f065d2c29cefa6873aff4b87c7f8a17e3aa6f4d47", pages: 23, routes: 604, exactAudio: 15, pendingAudio: 8 }),
-  mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "e263fcc406e888e67ab4b4cebb6002165c1887327a053490a1bcfd373e39b8ec", pages: 27, routes: 616, exactAudio: 13, pendingAudio: 14 }),
-  mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "90927ae348e824bf8e35c0b8c5338dd7559b6d53c643aa0956002bfde83b18c0", pages: 30, routes: 532, exactAudio: 9, pendingAudio: 21 }),
-  dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "584e11d86320470ea5555878e35e113c7e2c54a8e71ff5b2a7e4bac785f02865", pages: 21, routes: 133, exactAudio: 12, pendingAudio: 9 }),
-  dp_ra_b_02_sunnys_rainy_day_rescue: Object.freeze({ fingerprint: "ed375081d2bb7e04bc9e7126ac811faa2b97a461b6251942bb4c151304bf0e11", pages: 22, routes: 108, exactAudio: 10, pendingAudio: 12 }),
-  dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "7b1bbfc866c73ba856d817928a3a055e68776565e1926b26fcc01eef98c40b87", pages: 34, routes: 69, exactAudio: 15, pendingAudio: 19 }),
-  dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "501ca57be053c103798f5858ae601a6474f77b414848cf48605cda5a7e35f03e", pages: 35, routes: 67, exactAudio: 20, pendingAudio: 15 }),
-  dp_ra_b_05_shys_snail_shade: Object.freeze({ fingerprint: "ddfc6d52127963ad33b888173ac5130572c38b161931d029aa9dacb2cbe899ae", pages: 15, routes: 32, exactAudio: 15, pendingAudio: 0 }),
-  story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "0503d141d5d6d290f74332460f67b6cb4e3d7f3cdc4082d9c76121b9503c0e3f", pages: 10, routes: 46, exactAudio: 8, pendingAudio: 2 }),
-  mp_ra_a_01_muddy_splashy_missing_hat: Object.freeze({ fingerprint: "811df839e077ff5940a1b36bdd8c5deffb509f1bcf74fbe780f79316cf62f077", pages: 20, routes: 106, exactAudio: 18, pendingAudio: 2 }),
-  mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "419bff52e2b80226b257aaa5c69ece61231fbefbf093a2e1c38d739f07c6ec69", pages: 21, routes: 86, exactAudio: 17, pendingAudio: 4 }),
-  mp_ra_a_03_bouncy_speedy_fast_map: Object.freeze({ fingerprint: "6cfbce5b087db0a21865a2983b05f20abd8117ecd2dd4aeed11cc6dbfdf38ae0", pages: 27, routes: 119, exactAudio: 18, pendingAudio: 9 }),
-  mp_ra_a_04_brave_tiny_big_little_rescue: Object.freeze({ fingerprint: "8da25d0cdf0d838d3c013234fc3f924a98a988daf4519686cc5506b5e21bc68e", pages: 32, routes: 102, exactAudio: 26, pendingAudio: 6 })
+  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "3ca1e261d3514b07bbc9c3c0871730df35c3784e7317048ad3b372565304d1e2", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 24 }),
+  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "144f7b9b35fafc89393a948f065d2c29cefa6873aff4b87c7f8a17e3aa6f4d47", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 23 }),
+  mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "e263fcc406e888e67ab4b4cebb6002165c1887327a053490a1bcfd373e39b8ec", pages: 27, routes: 616, exactAudio: 27, pendingAudio: 0, listeningPending: 27 }),
+  mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "90927ae348e824bf8e35c0b8c5338dd7559b6d53c643aa0956002bfde83b18c0", pages: 30, routes: 532, exactAudio: 30, pendingAudio: 0, listeningPending: 30 }),
+  dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "584e11d86320470ea5555878e35e113c7e2c54a8e71ff5b2a7e4bac785f02865", pages: 21, routes: 133, exactAudio: 21, pendingAudio: 0, listeningPending: 21 }),
+  dp_ra_b_02_sunnys_rainy_day_rescue: Object.freeze({ fingerprint: "ed375081d2bb7e04bc9e7126ac811faa2b97a461b6251942bb4c151304bf0e11", pages: 22, routes: 108, exactAudio: 22, pendingAudio: 0, listeningPending: 22 }),
+  dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "7b1bbfc866c73ba856d817928a3a055e68776565e1926b26fcc01eef98c40b87", pages: 34, routes: 69, exactAudio: 34, pendingAudio: 0, listeningPending: 34 }),
+  dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "501ca57be053c103798f5858ae601a6474f77b414848cf48605cda5a7e35f03e", pages: 35, routes: 67, exactAudio: 35, pendingAudio: 0, listeningPending: 35 }),
+  dp_ra_b_05_shys_snail_shade: Object.freeze({ fingerprint: "ddfc6d52127963ad33b888173ac5130572c38b161931d029aa9dacb2cbe899ae", pages: 15, routes: 32, exactAudio: 15, pendingAudio: 0, listeningPending: 0 }),
+  story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "0503d141d5d6d290f74332460f67b6cb4e3d7f3cdc4082d9c76121b9503c0e3f", pages: 10, routes: 46, exactAudio: 10, pendingAudio: 0, listeningPending: 10 }),
+  mp_ra_a_01_muddy_splashy_missing_hat: Object.freeze({ fingerprint: "811df839e077ff5940a1b36bdd8c5deffb509f1bcf74fbe780f79316cf62f077", pages: 20, routes: 106, exactAudio: 20, pendingAudio: 0, listeningPending: 20 }),
+  mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "419bff52e2b80226b257aaa5c69ece61231fbefbf093a2e1c38d739f07c6ec69", pages: 21, routes: 86, exactAudio: 21, pendingAudio: 0, listeningPending: 21 }),
+  mp_ra_a_03_bouncy_speedy_fast_map: Object.freeze({ fingerprint: "6cfbce5b087db0a21865a2983b05f20abd8117ecd2dd4aeed11cc6dbfdf38ae0", pages: 27, routes: 119, exactAudio: 27, pendingAudio: 0, listeningPending: 27 }),
+  mp_ra_a_04_brave_tiny_big_little_rescue: Object.freeze({ fingerprint: "8da25d0cdf0d838d3c013234fc3f924a98a988daf4519686cc5506b5e21bc68e", pages: 32, routes: 102, exactAudio: 32, pendingAudio: 0, listeningPending: 32 })
 });
 
 export const storyQuestPolicyReviews = Object.freeze(
@@ -526,7 +526,10 @@ export const storyQuestPolicyReviews = Object.freeze(
     const current = currentStoryQuestReviewState[review.id];
     if (!current) return review;
 
-    const audioReady = current.pendingAudio === 0;
+    const audioReady = current.pendingAudio === 0 && current.listeningPending === 0;
+    const audioViolation = current.pendingAudio > 0
+      ? `audio-truth: ${current.pendingAudio} page narrations still require exact-text generation.`
+      : `audio-truth: ${current.listeningPending} exact-current-text Leda page narrations still require human listening validation.`;
     return Object.freeze({
       ...review,
       sourceFingerprint: current.fingerprint,
@@ -539,11 +542,11 @@ export const storyQuestPolicyReviews = Object.freeze(
       mandatoryViolations: audioReady
         ? Object.freeze([])
         : Object.freeze([
-            `audio-truth: ${current.pendingAudio} changed page narrations await authorization, generation, and listening validation.`
+            audioViolation
           ]),
       summary: audioReady
         ? `The current manuscript, branching graph, and strict visual audit pass for all ${current.pages} active pages across ${current.routes.toLocaleString("en-US")} finite routes. All ${current.exactAudio} pages resolve to exact-current-text Leda narration, so the current review remains approved.`
-        : `The current manuscript, branching graph, and strict visual audit pass for all ${current.pages} active pages across ${current.routes.toLocaleString("en-US")} finite routes. Exact-current-text Leda narration is available for ${current.exactAudio} pages; release approval is withheld until the remaining ${current.pendingAudio} changed page narrations are authorized, regenerated, and listened to.`,
+        : `The current manuscript, branching graph, and strict visual audit pass for all ${current.pages} active pages across ${current.routes.toLocaleString("en-US")} finite routes. Exact-current-text Leda narration is available for all ${current.exactAudio} pages; release approval is withheld until the remaining ${current.listeningPending} clips pass human listening validation.`,
       routeEvidence: Object.freeze({
         completeRoutes: current.routes,
         pageNodes: current.pages,
@@ -559,6 +562,7 @@ export const storyQuestPolicyReviews = Object.freeze(
         pages: current.pages,
         exactTextMappings: current.exactAudio,
         pendingExactTextMappings: current.pendingAudio,
+        pendingListeningValidation: current.listeningPending,
         voice: "en-US-Chirp3-HD-Leda",
         format: "MP3 128 kbps from 24 kHz LINEAR16 source"
       })

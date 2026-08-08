@@ -5,7 +5,7 @@
   "gateSemantics": {
     "mode": "fail-closed",
     "rule": "Every active page must have an exact displayed-text hash, image path, image-file hash and approved/replace decision. Any changed text, path or image bytes invalidate this audit record and require re-audit.",
-    "releaseFingerprintSha256": "b3dc6ee4eeb2f9a5edc51a694cd27ba6aeb45a3b542b45e5245c4fbc0bad7b76"
+    "releaseFingerprintSha256": "61851cd90dd434678138352dcac725bcd37a10ab6c5c3dc8c9e79793c1d073f7"
   },
   "scope": {
     "activeBooksAudited": 206,
@@ -20530,11 +20530,11 @@
       "displayedText": "Pip's legs wobbled as he reached for the first hold. He breathed slowly, checked each grip, and climbed one careful step at a time.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-01/page-006.webp",
       "textSha256": "2724d76079d6ffa4cfa3cf1d6910a314c3de6150bbee076de49bf4f8e8e48ae9",
-      "imageSha256": "b446af7fb1d73be9ab9e00a9f21dd87bf8809484b4fd1d8c3a92c9c7ab882e58",
+      "imageSha256": "8363486deb0473614d946631bda39a6094b08d02e1a224e394bbfab9639c4246",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-01",
@@ -20544,11 +20544,11 @@
       "displayedText": "When Pip reached the top, his worried face opened into a grin. He climbed down safely, then carried the warm stone toward Fog Marsh.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-01/page-007.webp",
       "textSha256": "7ca8d9ab0721012457e742659f9bd813448aa5227bbc0b79a609d6f56db2ea6e",
-      "imageSha256": "085375e36da812a42b9cfe41b35fa37691b4537477487ca2d5e855d50b03cbf7",
+      "imageSha256": "7ccdc0886209a68f1d9ceb62b99847404669462070f42ee70002ded4396ea182",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-01",
@@ -20684,11 +20684,11 @@
       "displayedText": "By afternoon, the enormous stem pushed straight through Hollow Oak's roof. Pip and the others stepped back as heavy branches spread above their heads.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-02/page-005.webp",
       "textSha256": "b2c7c4eab0d35a893ca5d223001c88a562527eae9683e16fd91cc2c3dcfbd1db",
-      "imageSha256": "8d55a8ee4880ee3ec4bd467e7c2f84a6ae346a47ab44801de015abe0c4f68014",
+      "imageSha256": "53cd6a81808e115242093ee6d00dc80b4dfc9012e834392a49c796458dc77786",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-02",
@@ -24730,11 +24730,11 @@
       "displayedText": "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-001.webp",
       "textSha256": "1193b4811bc95f1c6608b0d70a6dfa5c826f3c60069d79074a5b94230c173550",
-      "imageSha256": "3b677d76976ed742ba23891c9ded0e001c08c75faef99f32fe7cb7882b61de12",
+      "imageSha256": "8648ab5c7eea2f250ea03a0fc81a3ba535bcf79938512ba2577504f6386eecb2",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24744,11 +24744,11 @@
       "displayedText": "The ringing made every lantern rattle against its hook. Pip watched one sway farther with each chime. He needed to quiet the bell before it fell.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-002.webp",
       "textSha256": "fb95fc7757d4b24d43729077be49d1173a88145549dde090c053c0dee837dbc7",
-      "imageSha256": "f8adcf7eda6b47bb91d0deac5fd192393f45d02e1fef31dd2525855af34c1d10",
+      "imageSha256": "398d4fa1f62ca05c6c9b005853873cf827bcf0e5e23016f50fcb02a324ef59c1",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24758,11 +24758,11 @@
       "displayedText": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-003.webp",
       "textSha256": "cb0e4d3127fb339c3d45c0a1ee65e92a0e600e846ae7907991ca4df589f213a0",
-      "imageSha256": "1c54f2b6e38ecc2061b4901f449e4b6c88a7b3c8c65c906315fec27779bce708",
+      "imageSha256": "6211e70d98799898b2958baa3e524ed41d548b5cedc466f2e69b2ba9752c0793",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24772,11 +24772,11 @@
       "displayedText": "Pip released the rope and pressed one palm against the wooden floor. With every chime, a root trembled under his hand. The shaking came from below.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-004.webp",
       "textSha256": "b04c118a8e632bb86441278cbfd1473cf93967a8aef607c5c6257d8d3a1f74cc",
-      "imageSha256": "d4dbc0a840c149a65ef39fc1cb4720b7857a8d62a5070feae550eb92d12452c7",
+      "imageSha256": "4bed488cca63b4f8c389fac29b3a97083122a38f92259bf51f11702e933a5f61",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24786,11 +24786,11 @@
       "displayedText": "Burrow dug carefully beneath the floor while Pip followed the trembling root. Soon they uncovered a buried branch tugging a second rope. That rope led upward.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-005.webp",
       "textSha256": "d6850cb9bade191cc313c9cfc622d4f891fac39d8580ca6cf540719c0aa667f2",
-      "imageSha256": "f588ad55576d7fba14e650a872b6607ac1329cf517c2ebbdd7303a73e32054ac",
+      "imageSha256": "57c6dd3451aee8e99a93f4425ec19275a6ac929836ac37f034227fa1f8ac845e",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24814,11 +24814,11 @@
       "displayedText": "Pip pushed a wooden wedge beside the branch to hold it still. For one moment, the bell stopped. Then a gust knocked the wedge loose.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-007.webp",
       "textSha256": "bcd26a8289ccbb428760ee82380fb59838a684ad9943ab75c1c9900f321f9a40",
-      "imageSha256": "c7a7379ad7406e6c5332a97bd08a67cdfcd46376f63d3f7cedb98670b8b5be81",
+      "imageSha256": "7dc0aed35953436dcc8b27ce70107e5527ba8c92b6174955229aa71603f21fd6",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24828,11 +24828,11 @@
       "displayedText": "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-008.webp",
       "textSha256": "17d07c61b33cd737267cdd3c01184d31c4f79b3e8b52e2d6733c36db17610a7d",
-      "imageSha256": "515fad28548fe61556b9aa1e9d006f1f363198297812faaa320f853bc9bd704b",
+      "imageSha256": "2dfb5b90267f1c300324b4a10761c5c4df428ad8564c2e244bbcdf638cc060eb",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24842,11 +24842,11 @@
       "displayedText": "Another gust bent the old tree and tugged its buried branch. This time, the tied rope could not move. Above them, the bell stayed silent, and one fallen lantern rested below it.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-009.webp",
       "textSha256": "44f3347deacb843a8540d30bf05745a576235df672b263922a6d2ba9a9fea315",
-      "imageSha256": "bf7192dbfa91fb03bf9b42195b955b7c80bb6db7ff8cb632daef30ab10089a94",
+      "imageSha256": "a8b3bbe4ee7d3625b3fed310a28c09e41242ff6c45d0ce39d78a2680a62b5988",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-26",
@@ -24856,11 +24856,11 @@
       "displayedText": "Pip rehung the fallen lantern beside the still bell. Burrow listened while the wind rushed outside. Not one clang disturbed Hollow Oak, and every lantern stayed safely hooked.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-26/page-010.webp",
       "textSha256": "6024d395592540e9044cb4dea2732815aaf2fc55d7b51152be3bf79b1dd6afdb",
-      "imageSha256": "7d55a2085261f165f5845254a4381738a8a0367a4698354f42c42c6d7bd51b4f",
+      "imageSha256": "f865fe373264e31c4b35baf84f053e057650954bad52dfeb2ee415c6b7afbd28",
       "status": "approved",
       "issueCodes": [],
       "issues": [],
-      "regenerationBrief": "Level C was re-audited at full-book and original-image resolution against the approved runtime manuscript. Corrected hard mismatches and AI artifacts were replaced with bright clean classic 2D cartoon art; character continuity, anatomy, visible actions, object counts, factual safety, covers, endings, and sequence flow were checked. Existing accurate legacy textured art was retained where permitted."
+      "regenerationBrief": "Replacement generated and visually verified against exact page text, cast, action, and neighboring Moonwood storybook art."
     },
     {
       "bookId": "moonwood-tales-c-27",

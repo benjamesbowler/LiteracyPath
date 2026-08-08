@@ -168,7 +168,7 @@ if (unflaggedGuidedPagesWithoutExactAudio.length) {
 
 if (guidedReadingPolicyBaseline.status !== "approved") {
   releaseBlocks.push(
-    `guided-reading catalogue: manuscript and illustration review is complete for ${activeBooks.length} books; exact-current-text audio authorization, regeneration, and listening validation remain open`
+    `guided-reading catalogue: manuscript and illustration review is complete for ${activeBooks.length} books; exact-current-text Leda audio resolves, but human listening validation remains open`
   );
 }
 

@@ -42,7 +42,7 @@ test("every readable Guided Reading word token has current Leda audio", async ()
     for (const page of book.pages || []) {
       if (page.active === false) continue;
       const pageText = Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
-      const readableTokens = (pageText.match(/[A-Za-z0-9'-]+/g) || [])
+      const readableTokens = (pageText.match(/[A-Za-z0-9'’—–-]+/g) || [])
         .filter(token => /[A-Za-z0-9]/.test(token));
       for (const token of readableTokens) {
         const audioPath = getGuidedReadingWordProductionAudioPath({ text: token });

@@ -9,10 +9,11 @@
 - Manuscript, graph, and declared-level checks: **pass**
 - Exact current page narrations: **341/341**
 - Changed page narrations awaiting authorization and regeneration: **0/341**
+- Page clips awaiting human listening validation: **340/341** (Shy's Snail Shade remains the only fully approved quest)
 - Fully approved now: **1** — `dp_ra_b_05_shys_snail_shade`
 - Audited but release-blocked: **13**
-- Guided Reading narration generation is complete: all **1,861** active page narrations and **900** isolated-word clips resolve to exact current LEDA audio. Listening validation remains open.
-- Guided Reading now fail-closes all pages without exact-current-text narration: **1,201** pages carry the rebuild flag, comprising the **1,197** missing page clips plus **4** exact clips that still await listening clearance.
+- Guided Reading narration generation is complete: all **1,861** active page narrations and **900** isolated-word clips resolve to exact current LEDA audio. Human listening validation remains open.
+- Guided Reading exact-current-text narration rebuild flags: **0**; all active page clips resolve to current text and the Leda voice mapping.
 
 No book or quest may be marked approved merely because its previous audio file still exists. The narration must resolve from the exact current page text, the file must be present, and the final clip must pass human listening validation.
 

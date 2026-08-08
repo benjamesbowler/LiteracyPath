@@ -169,7 +169,7 @@ for (const book of selectedBooks) {
     if (page.active === false) continue;
     const pageText = canonicalVisibleText(readablePageText(page));
 
-    const visibleWordTokens = (pageText.match(/[A-Za-z0-9'-]+/g) || [])
+    const visibleWordTokens = (pageText.match(/[A-Za-z0-9'’—–-]+/g) || [])
       .filter(token => /[A-Za-z0-9]/.test(token));
     for (const token of visibleWordTokens) {
       const wordText = readableWordText(token);
