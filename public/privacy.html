@@ -3,6 +3,9 @@
   LiteracyPath Privacy Policy.
   EXTERNAL-READY DRAFT: qualified legal review is still required.
   Keep this page in sync with docs/legal/PRIVACY_POLICY.md.
+  tools/checkLegalPack.mjs reads the "Last reviewed against the product" date
+  out of that source file and requires it to appear here, so the two cannot
+  drift apart silently.
 -->
 <html lang="en">
 <head>
@@ -21,12 +24,15 @@
     .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(15,23,42,.06); }
     h1 { font-size: 1.9rem; margin: 0 0 6px; color: var(--teal); }
     h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+    h3 { font-size: 1.02rem; margin: 22px 0 6px; }
     p, li { color: var(--ink); }
     .meta { color: var(--muted); font-size: .92rem; margin: 0 0 8px; }
     a { color: var(--teal); }
     ul { padding-left: 22px; }
     li { margin: 4px 0; }
     .note { background: #e3f4f2; border: 1px solid #c0e6e3; border-radius: 12px; padding: 14px 16px; margin: 18px 0; color: #084e4a; font-size: .95rem; }
+    .route { border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 12px; padding: 4px 18px 14px; margin: 16px 0; background: #fbfdfd; }
+    .route h3 { margin-top: 16px; }
     footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 26px; }
     @media (max-width: 560px) {
       main { padding: 20px 12px 48px; }
@@ -38,7 +44,7 @@
   <main>
     <article class="card">
       <h1>LiteracyPath Privacy Policy</h1>
-      <p class="meta">Last reviewed against the product: 25 July 2026</p>
+      <p class="meta">Last reviewed against the product: 8 August 2026</p>
 
       <div class="note">
         This is an external-review-ready draft. Qualified legal review is still
@@ -48,10 +54,36 @@
       </div>
 
       <p>
-        LiteracyPath is a teacher-managed early-literacy and phonics service for
-        learners roughly aged 4–7. A school or authorised adult creates and manages
-        learner access. We do not knowingly offer independent child sign-up or
-        collect information from children outside this school-managed context.
+        LiteracyPath is an early-literacy and phonics service for learners roughly
+        aged 4–7. There are two ways to reach it, and almost every answer below
+        depends on which one you are using — so they come first.
+      </p>
+
+      <div class="route">
+        <h3>Route 1 — the school-authorised service</h3>
+        <p>
+          A school or other authorised adult creates and manages learner access.
+          Teachers hold accounts; learners are placed on a roster by an adult and
+          sign in with a picture code. Progress is stored, reports are produced,
+          and the school directs what happens to the records. This is the
+          school-managed context, and it is what most of this policy describes.
+        </p>
+        <h3>Route 2 — the anonymous try-out</h3>
+        <p>
+          Anyone can open the try-out from the front page and use a sample of the
+          activities with no account, no sign-up, and no information collected
+          about them or their child. Nothing is stored on the device and nothing
+          is sent to our database. There is no progress, no report, no
+          leaderboard and no assessment, because each of those needs something
+          kept, and this route keeps nothing.
+        </p>
+      </div>
+
+      <p>
+        A child can therefore reach LiteracyPath without a school, but only
+        through a route that collects nothing. There is deliberately no third
+        option in which a child uses the product outside a school while data is
+        kept about them.
       </p>
 
       <h2>Who we are</h2>
@@ -64,10 +96,13 @@
       </p>
 
       <h2>Information we collect</h2>
+
+      <h3>On Route 1, the school-authorised service</h3>
       <ul>
         <li><strong>Teacher and administrator account:</strong> email, display name,
           school, approval and role information, classes, settings, and account
-          activity.</li>
+          activity. An email address must be confirmed before an account can be
+          approved.</li>
         <li><strong>Learner roster and access:</strong> first or chosen display name,
           class membership, and picture-code credential material for typing-free
           sign-in.</li>
@@ -92,12 +127,57 @@
         Schools should not enter unnecessary sensitive information.
       </p>
 
+      <h3>On Route 2, the anonymous try-out</h3>
+      <p>
+        Nothing that identifies a person, and nothing that would let the same
+        person be recognised on a later visit.
+      </p>
+      <ul>
+        <li><strong>No account and no sign-up.</strong> There is no email field, no
+          password, and no code to enter.</li>
+        <li><strong>A nickname you are given rather than type.</strong> It is picked
+          at random from a fixed list of ordinary words, such as “Sunny Otter”.
+          There is no name box anywhere in the try-out, which is deliberate: a text
+          field is how a real child’s real name ends up in a database. The nickname
+          is not derived from your device, network address or the time, so two
+          children on one device are not linkable and one child is not
+          recognisable on a second visit.</li>
+        <li><strong>Nothing written to the device.</strong> For the duration of the
+          try-out the app’s browser storage is replaced with an in-memory object
+          that is discarded when the page closes. If that replacement cannot be
+          made, the try-out refuses to start rather than running against real
+          storage.</li>
+        <li><strong>Nothing sent to our database.</strong> Every database and
+          sign-in call in the app passes through a single boundary, and in this
+          mode that boundary refuses all of them outright.</li>
+        <li><strong>No cookies are set by us</strong>, on this route or any other.</li>
+      </ul>
+      <p>
+        <strong>One honest caveat.</strong> “We collect nothing” is a statement
+        about LiteracyPath, not about the internet. Loading any web page lets the
+        server hosting it see the request. Our host, Vercel, records ordinary
+        request metadata — IP address, user agent, URL and time — in platform
+        logs, exactly as it does for every visitor to every site it serves. We do
+        not receive that joined to a person, we hold no identifier that could be
+        joined to it, and we do not use it to build a profile. It is not nothing,
+        and this page does not claim otherwise.
+      </p>
+      <p>
+        Beyond that, your browser is instructed by our content security policy to
+        refuse every network connection except to our own site and our database
+        provider, so no advertising, analytics, font or tracking service can
+        receive anything from either route. There is no analytics product in the
+        application at all.
+      </p>
+
       <h2>How we use information</h2>
       <p>
         We use information to provide adult and learner access, administer classes,
         deliver and adapt learning, store progress and evidence, create reports,
         protect the service, recover saves, respond to requests, and carry out
-        approved return or deletion operations.
+        approved return or deletion operations. On the anonymous try-out none of
+        this applies, because there is nothing to apply it to — the activities run
+        in your browser for as long as the page is open.
       </p>
       <p>
         We do not show advertising, sell or rent personal data, build marketing
@@ -119,19 +199,27 @@
         and explain an alternative learning route. We may verify and route a request
         through the school to protect the learner and education record.
       </p>
+      <p>
+        The anonymous try-out sits outside that arrangement in both directions. No
+        school authority is needed, because no personal information is collected —
+        and equally there is nothing to ask us to show, correct or delete, because
+        no record is made. If you want a child’s work kept, that needs a school
+        account. The try-out says so before a child starts and again when they
+        leave.
+      </p>
 
       <h2 id="providers-regions">Storage, providers, and regions</h2>
       <ul>
         <li><strong>Supabase</strong> provides teacher authentication, database
           storage and functions, first-party operational error records, backups, and
-          platform support.</li>
+          platform support. It receives nothing from the anonymous try-out.</li>
         <li><strong>Vercel</strong> hosts and delivers the web application and may
           process ordinary request metadata such as IP address, user agent, URL, and
-          time in platform logs.</li>
-        <li><strong>Google Fonts</strong> may receive ordinary network metadata when
-          a connected user opens certain printable/exported HTML documents that
-          request a font. Removing or self-hosting those fonts is an open launch
-          decision.</li>
+          time in platform logs. This applies to every visitor, including anonymous
+          ones, and is the caveat described above.</li>
+        <li><strong>Google Fonts</strong> is no longer used and receives nothing. The
+          typefaces are now self-hosted from our own site, and our content security
+          policy no longer permits a request to Google’s font domains.</li>
       </ul>
       <p>
         Supabase and Vercel are the current hosted-service providers. Their final
@@ -150,9 +238,10 @@
       <p>
         Authorised school staff can see records for their own school or class under
         scoped access controls. Child-facing leaderboards use server-derived scope
-        and pseudonyms rather than learner, class, or school identifiers. We disclose
-        personal data to approved providers only for the service, to the Customer
-        under its authority, or where law requires it.
+        and pseudonyms rather than learner, class, or school identifiers, and are
+        switched off entirely on the anonymous route. We disclose personal data to
+        approved providers only for the service, to the Customer under its
+        authority, or where law requires it.
       </p>
 
       <h2>Retention and deletion</h2>
@@ -179,15 +268,24 @@
         provider-verified log, replica, cache, support-copy, and backup expiry.
         Restored backups must replay deletion controls before use.
       </p>
+      <p>
+        An anonymous try-out session has no retention period, because it makes no
+        record. It ends when the page closes. The only surviving trace is the
+        host’s platform log described above, whose expiry is a provider setting
+        rather than one of ours.
+      </p>
 
       <h2>Security and incidents</h2>
       <p>
         Controls include tenant ownership, scoped database functions, teacher
-        authentication and approval, expiring learner access, throttling,
-        pseudonymous leaderboards, browser security headers, privacy-minimal logs,
-        release tests, immutable assessment evidence, and recovery procedures. No
-        online service is risk-free, and independent security review and live
-        exercises remain open.
+        authentication with confirmed email and manual approval, expiring learner
+        access, throttling, pseudonymous leaderboards, browser security headers,
+        privacy-minimal logs, release tests, immutable assessment evidence, and
+        recovery procedures. The anonymous route’s two guarantees — nothing written
+        to the device, nothing reaching the database — are enforced at single
+        choke points and covered by tests that fail if either is removed. No online
+        service is risk-free, and independent security review and live exercises
+        remain open.
       </p>
 
       <h2>International processing</h2>

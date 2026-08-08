@@ -1,7 +1,7 @@
 # LiteracyPath school, parent, and learner privacy materials
 
 > **Status:** EXTERNAL-READY DRAFT — LOCAL ADAPTATION AND QUALIFIED LEGAL REVIEW REQUIRED
-> **Version:** 2026-07-24
+> **Version:** 2026-08-08
 > **Use:** select the correct material only after the school and counsel identify the legal basis
 
 These materials do not assume that consent is always the lawful basis. A school
@@ -9,6 +9,15 @@ must decide its authority under local law. In a US COPPA school-consent model,
 the operator remains responsible for its COPPA duties and must give the school
 the required direct notice. The school’s authority is limited to the educational
 context and not an unrelated commercial use.
+
+**Scope of these materials.** Everything in sections A to G concerns the
+school-authorised service, which is the only route on which information about a
+learner is collected at all. The product also offers an anonymous try-out that
+collects nothing and requires no authorisation from anyone; it is covered
+separately in section H, because a school asked to sign an authorisation is
+entitled to know it exists and a parent may well have used it before the school
+ever raised the subject. Do not use sections A to G to describe the try-out —
+they would materially overstate what happens on it.
 
 ## A. Operator’s direct notice to a school
 
@@ -34,9 +43,20 @@ progress/evidence, reports, access security, support, reliability, and approved
 data-rights/deletion operations.
 
 **Disclosure:** Supabase processes authentication and application data; Vercel
-hosts the application and processes ordinary request metadata. Some connected
-print/export documents currently request Google Fonts; this must be removed or
-approved before launch. See `SUBPROCESSORS.md`.
+hosts the application and processes ordinary request metadata such as IP
+address, user agent, URL, and time in platform logs. No third-party
+advertising, analytics, or tracking service receives anything, and the browser
+content security policy permits no connection except to the application's own
+origin and Supabase. Fonts were previously requested from Google by certain
+print/export documents; they are now self-hosted and Google receives nothing.
+See `SUBPROCESSORS.md`.
+
+**Other routes into the same application:** an anonymous try-out is open to the
+public and collects no information about anyone. It creates no account, writes
+nothing to the device, and sends nothing to the database, so it is outside this
+authorisation and outside the school's records entirely. Section H covers it.
+There is no other route: no adult outside a school can currently create a
+learner whose work is kept.
 
 **Prohibited purposes:** no advertising, sale, unrelated commercial profiling,
 or identifiable learner-data training of an AI model.
@@ -108,6 +128,13 @@ You can ask the school to show you the information, correct it, obtain a copy,
 stop further use where applicable, or delete it subject to law. You can also ask
 what happens if you do not want your child to use the service and what
 equivalent learning option the school provides.
+
+If you have already tried LiteracyPath at home from its front page without
+making an account, that is a different thing from what the school is asking
+about. The public try-out keeps nothing at all — no name, no account, and no
+record of what your child did — so nothing from it is held about your child and
+nothing from it reaches the school. What the school is asking about here is the
+version that does keep your child's work, so that their teacher can see it.
 
 Contact the school first for education records. The final notice must include
 the school privacy contact, LiteracyPath privacy contact, retention periods,
@@ -184,6 +211,64 @@ the effect on saved history, the date of change, and an equivalent accessible
 learning option. Withdrawal must be recorded and propagated to the operator.
 Deletion is not complete until active systems, subprocessors, and the verified
 backup lifecycle are addressed.
+
+## H. The anonymous try-out — no authorisation, no consent, no record
+
+This section exists so that nobody has to guess. The try-out is a deliberate
+legal object, not an oversight, and the argument for it is short: there is
+nothing to authorise because there is nothing collected.
+
+**What it is.** Anyone can open the try-out from the front page, pick a starting
+level, and use a sample of the books, games, letter activities, and story quests.
+No account is created and no sign-up exists on that path.
+
+**Why no consent is sought.** Consent, school authorisation, and a lawful basis
+are all mechanisms for permitting the collection or use of personal information.
+On this route there is none to permit. The visitor is given a nickname picked at
+random from a fixed word list; there is no name field anywhere, because a text
+box is how a real child's real name reaches a database. The nickname is not
+derived from the device, the network address, or the time, so it cannot be used
+to recognise the same child twice or to link two children on one device. Nothing
+is written to the device: the application's browser storage is replaced for the
+session with an in-memory object discarded when the page closes, and if that
+replacement fails the try-out refuses to run rather than fall back to real
+storage. Nothing is sent to the database: every database and sign-in call in the
+application passes through one boundary, and on this route that boundary refuses
+all of them. Both guarantees are enforced at single choke points and covered by
+tests that fail if either is removed.
+
+**What is still true, and must not be glossed over.** The application is served
+by a web host, and that host records ordinary request metadata — IP address,
+user agent, URL, and time — in platform logs, exactly as it does for every
+visitor to every site it serves. The operator does not receive that joined to a
+person and holds no identifier that could be joined to it, but it is not nothing.
+Any statement that the try-out "collects nothing" should be read as a statement
+about LiteracyPath rather than about web hosting. The provider log retention
+period is an unresolved deployment fact.
+
+**Where the operator's duties still sit.** No collection does not mean no
+responsibility. Content shown to an unaccompanied child must still be
+age-appropriate; the sample deliberately excludes anything that assesses or
+scores a child, because a result nobody may keep is a waste of a child's
+attention and an invitation to build a record for it later. The absence of a
+persistent identifier also removes the usual means of abuse detection, so
+availability and rate protection remain operator problems rather than
+account-level ones.
+
+**What a school should take from this.** The try-out is outside the school's
+records and outside this authorisation. A parent using it at home creates no
+education record, produces no data the school holds, and generates nothing a
+data-rights request could be answered with. If a family wants a child's work
+kept, the school-authorised service is currently the only route that does that.
+
+**Open questions for counsel.** Whether an anonymous, collection-free service
+still triggers notice obligations in any target region; whether the host's
+platform logs are personal data in the operator's hands when the operator holds
+nothing to join them to; whether the "support for internal operations"
+reasoning is even reached when no persistent identifier is created; and what
+must change if a persistent identifier is ever introduced on this route for any
+reason, including anti-abuse. These are carried as unchecked items in
+`COUNSEL_REVIEW_CHECKLIST.md`.
 
 ## Official review sources
 

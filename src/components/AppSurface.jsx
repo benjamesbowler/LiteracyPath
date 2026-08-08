@@ -188,11 +188,38 @@ export function AppSurface({ surface }) {
   }, []);
 
   useEffect(() => {
+    // THE TRY-OUT HAS NO NETWORK, SO IT MUST NOT ASK.
+    //
+    // Entering try-mode flips sessionMode to "student", which re-runs this
+    // effect, which asks for the admin quarantine list — and the ephemeral
+    // boundary refuses it by throwing. `void` on an async call turns that into
+    // an unhandled rejection, which is how it showed up: a page error on the
+    // child's first screen.
+    //
+    // Skipping the read is not a workaround for the refusal, it is the correct
+    // behaviour. Books are live by default and the quarantine list is the only
+    // thing that removes one, so a session that cannot read it sees the full
+    // shelf — which is exactly what the sample filter then narrows.
+    if (trySession) return undefined;
+    // AND NOBODY WITH NO SESSION ASKS EITHER.
+    //
+    // This used to run for every visitor, including one who had only just
+    // loaded the front page and signed into nothing. Two things were wrong with
+    // that. It is an unauthenticated read of admin review rows by somebody who
+    // cannot see a book yet — work done for no reason. And it left a request in
+    // flight across the moment try-mode begins: when that request failed, the
+    // Supabase SDK's own retry went out DURING the anonymous session, from
+    // inside the SDK, where the ephemeral boundary cannot see it. Nothing about
+    // a child was in it, but "nothing is sent" should not need that footnote.
+    //
+    // The list is only ever used by an admin reviewing books and by a signed-in
+    // child's shelf, so those are the only two sessions that fetch it.
+    if (!teacherId && !studentSession?.token) return undefined;
     const timer = window.setTimeout(() => {
       void refreshGuidedReadingReviews();
     }, 0);
     return () => window.clearTimeout(timer);
-  }, [authReady, isAdmin, refreshGuidedReadingReviews, sessionMode, studentSession?.token, teacherId]);
+  }, [authReady, isAdmin, refreshGuidedReadingReviews, sessionMode, studentSession?.token, teacherId, trySession]);
 
   // Books are live by default. This is the list of the ones an admin has pulled,
   // and it is the only thing that removes a book from a child's shelf.
@@ -486,8 +513,19 @@ export function AppSurface({ surface }) {
   // Fail safely if student mode was restored without its complete learner
   // identity. Never render an empty child shell; return to the child login
   // flow where the session can be established again.
+  //
+  // THE TRY-OUT IS EXEMPT, AND MUST BE. This guard tests for a token, and the
+  // anonymous try-out deliberately has none — there is no account to issue one
+  // and obtaining one would mean the collection the whole mode exists to avoid.
+  // Without the exemption a child who pressed "Start playing" was handed the
+  // class-code login screen: a token-less session read as a broken session.
+  //
+  // A try session is complete by construction. `startTryMode` sets the nickname
+  // and the synthetic scope id together or returns null, so there is no state in
+  // which `trySession` exists and the child identity is half-built.
   if (
     sessionMode === "student"
+    && !trySession
     && (!studentSession?.token || !studentSessionId || !nameSaved)
   ) {
     return (
