@@ -82,6 +82,8 @@ jobs:
         run: npm run check:quest-slice-camera
       - name: Screenshot gate (fails on console errors / 404s / stuck loads)
         run: npm run shots
+      - name: SoundKeys MIDI device and permission gate
+        run: npm run check:soundkeys-midi
       - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@v4

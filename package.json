@@ -122,6 +122,7 @@
     "check:guided-reading-measure": "node --test tests/unit/guidedReadingMeasure.test.js && playwright test tests/release/guided-reading-measure.spec.js --project=desktop",
     "check:locked-item-affordance": "node --test tests/unit/lockedItemAffordance.test.js && playwright test tests/release/locked-item-affordance.spec.js --project=desktop",
     "check:sound-racer-tutorial": "node --test tests/unit/soundRacerTracks.test.js tests/unit/soundSeekersArcadeAudit.test.js && playwright test tests/release/sound-racer-tutorial.spec.js --project=desktop",
+    "check:soundkeys-midi": "node --test tests/unit/soundKeysMidi.test.js && playwright test tests/release/soundkeys-midi.spec.js --project=desktop",
     "check:fullscreen-overlay-semantics": "node --test tests/unit/fullscreenOverlayNames.test.js && playwright test tests/release/fullscreen-overlay-semantics.spec.js --project=desktop",
     "check:child-surface-rules": "node --test tests/unit/childSurfaceRules.test.js && playwright test tests/release/child-surface-rules.spec.js --project=desktop",
     "check:student-emphasis-budget": "node --test tests/unit/studentEmphasisBudget.test.js && playwright test tests/release/student-emphasis-budget.spec.js --project=desktop",
