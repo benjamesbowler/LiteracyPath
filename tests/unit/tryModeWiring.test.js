@@ -157,3 +157,63 @@ test("the landing page keeps exactly two side-by-side destination cards", () => 
   assert.ok(!/student-entry-try/.test(entry), "the try entry must not sit in the card grid");
   assert.match(entry, /className="lp-landing-try"/);
 });
+
+test("a try session is not mistaken for a broken student session", () => {
+  // THE BUG: pressing "Start playing" landed the child on the class-code login
+  // screen. The recovery guard below returns any student session missing a
+  // token to the login flow — and the anonymous try-out deliberately has no
+  // token, because obtaining one means the account and the collection the mode
+  // exists to avoid. A token-less session read as a half-restored one.
+  const surface = read("components/AppSurface.jsx");
+  const guard = surface.match(
+    /sessionMode === "student"\s*&&[\s\S]{0,200}?!studentSession\?\.token[\s\S]{0,120}?\)\s*\{/
+  );
+  assert.ok(guard, "the student-session recovery guard has moved or changed shape");
+  assert.match(
+    guard[0],
+    /!trySession/,
+    "the recovery guard must exempt the anonymous try-out, which has no token by design"
+  );
+});
+
+test("nobody without a session asks the database for the book quarantine list", () => {
+  // Two separate problems, one guard. An anonymous visitor on the front page was
+  // doing an unauthenticated read of admin review rows; and because that request
+  // was still in flight when try-mode began, the Supabase SDK's own retry went
+  // out DURING the anonymous session, from inside the SDK where the ephemeral
+  // boundary cannot reach it. Verified in a real browser: zero external requests
+  // for the whole try session.
+  const surface = read("components/AppSurface.jsx");
+  const effect = surface.match(
+    /useEffect\(\(\) => \{[\s\S]{0,2200}?refreshGuidedReadingReviews\(\);[\s\S]{0,200}?\}, \[[^\]]*\]\);/
+  );
+  assert.ok(effect, "the guided-reading review effect has moved");
+  assert.match(effect[0], /if \(trySession\) return undefined;/,
+    "try-mode must not ask for the quarantine list");
+  assert.match(effect[0], /if \(!teacherId && !studentSession\?\.token\) return undefined;/,
+    "a visitor with no session must not ask for the quarantine list");
+  assert.match(effect[0], /trySession\]/, "trySession must be in the dependency list");
+});
+
+test("the arcade doorway counts the games the session can actually reach", () => {
+  // The tile read "11 games" while the sampled arcade held four. The one visitor
+  // most likely to count is the one being sold to.
+  const home = read("components/StudentHomePage.jsx");
+  const counter = home.match(/function arcadeGameCount\(\)[\s\S]{0,320}?\n\}/);
+  assert.ok(counter, "arcadeGameCount has moved");
+  assert.match(counter[0], /filterSample\("games", GAME_LIST\)/,
+    "the doorway count must go through the sample filter");
+  assert.match(home, /import \{ filterSample \} from "\.\.\/policy\/freeTierContent\.js"/);
+});
+
+test("the sample notice sits after the books, not before them", () => {
+  // It was rendered above the shelf, so a child arriving for the first time was
+  // congratulated — "You read everything in the free set. Well done!" — before
+  // they had opened anything, and the shelf looked empty when it was full.
+  const books = read("components/StudentBooksPage.jsx");
+  const noteAt = books.indexOf("kg-sample-note");
+  const gridAt = books.indexOf("kg-book-card");
+  assert.ok(noteAt > 0 && gridAt > 0, "the shelf markup has moved");
+  assert.ok(noteAt > gridAt,
+    "end-of-shelf copy must render after the book grid, not above it");
+});

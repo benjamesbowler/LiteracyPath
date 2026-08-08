@@ -1,14 +1,17 @@
 # Legal deployment facts and open decisions
 
 > **Status:** EXTERNAL-READY DRAFT — OWNER CONFIRMATION AND QUALIFIED LEGAL REVIEW REQUIRED
-> **Reviewed against repository:** 2026-07-25
+> **Reviewed against repository:** 2026-08-08
 > **Purpose:** prevent contracts and notices from inventing deployment facts
 
 ## Confirmed product facts
 
 | Fact | Current evidence |
 |---|---|
-| Product | LiteracyPath, a teacher-managed early-literacy and phonics web application |
+| Product | LiteracyPath, an early-literacy and phonics web application, school-managed on its only data-collecting route |
+| Routes into the product | Exactly two: the school-authorised service, and an anonymous try-out that creates no account. No route exists on which an adult outside a school can create a learner whose work is kept |
+| Anonymous try-out | Assigns a random nickname from a fixed word list with no name input anywhere; replaces the application's browser storage with an in-memory object for the session and refuses to start if that swap fails; refuses every database and authentication call at the single boundary all of them pass through; excludes progress, reporting, export, leaderboards, and assessments. Both boundaries are covered by tests that fail if either is removed |
+| Third-party runtime recipients | None. The content security policy permits connections only to the application's own origin and Supabase; no analytics, advertising, tracking, or font service is present in the application |
 | Intended learner age | Approximately 4–7 |
 | Current operator/contact | Benjamin Bowler; `benjamesbowler@gmail.com`, as published in the current privacy draft |
 | Teacher data | Email, display name, school name, account/approval state, classes, settings, and service activity |
@@ -21,7 +24,7 @@
 | Browser storage | Local storage/cache supports offline or fallback progress, settings, reports, queues, and recovery |
 | Production AI | No learner-facing AI processing is wired into the deployed browser runtime |
 | Authoring-only AI/import tools | Repository tools may use OpenAI, BytePlus, Wikimedia Commons, and dictionary services with non-personal content |
-| Fonts | The app permits Google Fonts; some print/export documents request fonts from Google when opened online |
+| Fonts | Self-hosted from the application bundle. Google Fonts was removed on 2026-08-07 and the content security policy no longer permits its domains |
 | Security evidence | RLS migrations, scoped database functions, CSP, throttling, privacy-minimal logs, error redaction, immutable evidence, release gates, and a recovery runbook exist; several live/external exercises remain open |
 
 ## Owner-required facts before contract or public launch
@@ -41,7 +44,14 @@ attach evidence, and date the decision before counsel approves final documents.
 | Minimum customer age and authorised buyer | Commercial/legal decision | Unconfirmed |
 | Supabase project organisation, plan, primary region, replicas, backups, support access, DPA, and transfer terms | Provider dashboard and executed provider terms | Unconfirmed |
 | Vercel team, plan, deployment regions, logs, analytics settings, DPA, and transfer terms | Provider dashboard and executed provider terms | Unconfirmed |
-| Google Fonts disposition | Remove/self-host, or approve and disclose provider/transfer position | Unresolved |
+| Google Fonts disposition | Remove/self-host, or approve and disclose provider/transfer position | **Resolved 2026-08-07.** Self-hosted via Fontsource; verified by loading the built application and observing zero requests to fonts.googleapis.com or fonts.gstatic.com, with the content security policy tightened so a reintroduction fails loudly. Counsel still confirms the removal at review |
+| Legal position of the anonymous try-out | Counsel finding per target region on whether a collection-free child-facing route creates notice, consent, or authorisation duties | Not completed |
+| Status of host platform request logs for anonymous visitors | Counsel finding on whether provider-side request metadata is personal data in the operator's hands where no joinable identifier is held | Not assessed |
+| Provider log retention and region for anonymous traffic | Vercel plan settings and executed provider terms | Unconfirmed |
+| Abuse, rate-limiting, and availability protection without a persistent identifier | Product design plus counsel review of any identifier introduced for that purpose | Unconfirmed |
+| Direct family route: lawful basis and verifiable parental consent mechanism | Counsel decision per target region before the route is built | Not completed |
+| Direct family route: adult-versus-child registration assurance, direct notice with no school in between, and rights/deletion routing | Product design and counsel approval before the route is built | Not completed |
+| Direct family route: whether the operator becomes a controller rather than a processor for those records | Counsel role analysis | Not assessed |
 | School-configurable retention schedule | Product policy and operational job evidence | Implemented with preview, exact confirmation, immutable run records, and tests; school/counsel-approved values remain unconfirmed |
 | Default inactive-account and end-of-year deletion periods | Counsel/customer decision and operational evidence | Unconfirmed |
 | Backup deletion/expiry and deletion propagation | Provider settings and tested procedure | Product tracks target dates and requires an evidence reference before verification; provider settings and live evidence remain unconfirmed |

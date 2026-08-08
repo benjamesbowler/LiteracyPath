@@ -53,6 +53,7 @@ import { computeHollow, freshSpendableCoinCount } from "../utils/hollowEconomy.j
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 import { CHILD_BRAND } from "../data/childBrand.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
+import { filterSample } from "../policy/freeTierContent.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { stopAtIndex } from "../data/questSequence.js";
 import { currentStopIndex } from "../utils/questProgress.js";
@@ -261,8 +262,16 @@ function planTodaysStops({ missionStatus, readable, heroMissionKind }) {
 // How many games the Arcade really holds. The mock says twelve; the repo's
 // arcade-tagged list is the truth, so the doorway counts it rather than
 // repeating a placeholder.
+//
+// Counted THROUGH the sample filter, or the doorway lies to the one visitor
+// most likely to be counting. On the anonymous try-out the arcade holds a
+// handful of games; a tile promising eleven and delivering four is a worse
+// first impression than a tile that says four. `filterSample` returns the same
+// array untouched for every full-content session, so this is a no-op for
+// everybody else.
 function arcadeGameCount() {
-  return GAME_LIST.filter(game => (game.surfaces || []).includes("arcade") && !game.hidden).length;
+  return filterSample("games", GAME_LIST)
+    .filter(game => (game.surfaces || []).includes("arcade") && !game.hidden).length;
 }
 
 // THE EXACT STOP the hero is continuing, from real progress. Every branch

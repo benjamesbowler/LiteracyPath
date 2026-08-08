@@ -1,7 +1,7 @@
 # LiteracyPath qualified counsel review checklist
 
 > **Status:** EXTERNAL-READY DRAFT — NO LEGAL REVIEW RECORDED
-> **Pack version:** 2026-07-24
+> **Pack version:** 2026-08-08
 > **Completion rule:** only the named qualified reviewer may record approval
 
 Automated checks must never populate the reviewer or approval fields.
@@ -65,12 +65,27 @@ Automated checks must never populate the reviewer or approval fields.
 ## Providers, regions, and transfers
 
 - [ ] Verify Supabase and Vercel legal entities, plans, regions, replicas, backups, logs, remote access, DPAs, and onward providers.
-- [ ] Remove/self-host Google Fonts or approve and disclose its request/transfer position.
+- [ ] Confirm the Google Fonts removal is complete in the shipped build and that no font, analytics, or tracking origin remains reachable under the content security policy.
 - [ ] Confirm authoring-only tools are technically and operationally separated from Customer Data.
 - [ ] Complete provider security/assurance review and written protection requirements.
 - [ ] Approve subprocessor notice period, objection, remedy, and emergency-change process.
 - [ ] Map all restricted transfers and remote access.
 - [ ] Execute adequacy/SCC/UK IDTA or Addendum mechanisms and transfer assessments as required.
+
+## Anonymous try-out and non-school routes
+
+The product now has a public route that requires no account and is designed to
+collect nothing. It is a distinct legal object from the school service and needs
+its own findings rather than an assumption that "no data" ends the analysis.
+
+- [ ] Confirm that an anonymous, collection-free child-facing service creates no notice, consent, or authorisation obligation in each target region, or specify what it does create.
+- [ ] Decide whether the host's platform request logs are personal data in the operator's hands where the operator holds no identifier capable of being joined to them.
+- [ ] Confirm whether COPPA's "support for internal operations" reasoning is reached at all where no persistent identifier is created, and what changes if one ever is.
+- [ ] Assess the Children's code position for an unaccompanied child on a route with no age signal, no account, and no profiling.
+- [ ] Approve the wording shown to an adult before and after the try-out, including the claim that nothing is stored and the platform-log caveat.
+- [ ] Confirm that withholding assessments, reporting, leaderboards, and exports from the anonymous route is sufficient to keep it outside the education-record and profiling regimes.
+- [ ] Decide what abuse, rate-limiting, or availability protection is permissible on a route that must not create an identifier.
+- [ ] Rule on the planned direct family route before it is built: lawful basis, verifiable parental consent mechanism, adult-versus-child distinction, direct notice with no school in between, rights and deletion routing, and whether the operator becomes a controller.
 
 ## Retention, rights, incidents, and recovery
 

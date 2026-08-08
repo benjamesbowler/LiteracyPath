@@ -1,13 +1,26 @@
 # LiteracyPath region and education-privacy matrix
 
 > **Status:** EXTERNAL-READY DRAFT — QUALIFIED LOCAL LEGAL REVIEW REQUIRED
-> **Version:** 2026-07-24
+> **Version:** 2026-08-08
 > **Rule:** this matrix identifies decisions and gates; it does not declare compliance
 
 Law, regulator guidance, school status, child age, funding, location, contract,
 and actual processing determine the result. Counsel must verify the law in force
 on the deployment date and add state, provincial, sector, employment, consumer,
 and public-records rules that apply.
+
+## Which route this matrix covers
+
+The decision matrix below concerns the school-authorised service, where personal
+information about a learner is collected. The product also offers an anonymous
+try-out that creates no account, writes nothing to the device, and sends nothing
+to the database. Every regime in the matrix is triggered by collection or use of
+personal information, so on that route the entries are not so much satisfied as
+never reached — which is a different finding and must be recorded as one rather
+than inferred from a column of blanks. The open questions specific to it are in
+`COUNSEL_REVIEW_CHECKLIST.md` and section H of
+`SCHOOL_PARENT_CONSENT_MATERIALS.md`. The planned direct family route would be
+a third case and is not built.
 
 ## Decision matrix
 
@@ -34,16 +47,21 @@ The following are required regardless of which legal basis counsel selects:
 - exercised access, correction, export, restriction, and deletion workflow;
 - specific active, inactivity, end-of-year, termination, log, and backup periods;
 - DPIA/child-impact review before high-risk or new-purpose processing;
-- incident roles, evidence, school notice, and jurisdiction-specific clocks; and
-- equivalent accessible learning where a digital interaction is unsuitable.
+- incident roles, evidence, school notice, and jurisdiction-specific clocks;
+- equivalent accessible learning where a digital interaction is unsuitable; and
+- no route outside a school on which anything about a child is kept, unless and
+  until counsel approves a lawful basis and consent mechanism for one.
 
 ## Current readiness gaps
 
 The implementation pack is ready for external review, but launch is not legally
-cleared. Contracting identity, regions, provider terms, Google Fonts disposition,
-retention jobs, rights workflow, transfer mechanisms, DPIAs, role/lawful-basis
-records, target-state review, independent accessibility testing, security
-assessment, and counsel approval remain open in `LEGAL_DEPLOYMENT_FACTS.md`.
+cleared. Contracting identity, regions, provider terms, retention jobs, rights
+workflow, transfer mechanisms, DPIAs, role/lawful-basis records, target-state
+review, the legal position of the anonymous route, independent accessibility
+testing, security assessment, and counsel approval remain open in
+`LEGAL_DEPLOYMENT_FACTS.md`. The Google Fonts disposition, previously listed
+here, is resolved: the fonts are self-hosted and the content security policy no
+longer permits the request.
 
 ## Official sources checked for this draft
 

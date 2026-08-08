@@ -340,16 +340,6 @@ export function StudentBooksPage({
         data-library-view={showKnowledge ? "knowledge" : "books"}
         data-sample-library={sampleLimitCopy ? "true" : undefined}
       >
-        {/* Where the shelf stops, and why — never a padlock with nothing behind
-            it. The child sentence is readable by a five-year-old; the second is
-            for the grown-up beside them, who is the one who can act on it. */}
-        {sampleLimitCopy && (
-          <div className="kg-sample-note" role="note">
-            <strong>{sampleLimitCopy.childHeading}</strong>
-            <p>{sampleLimitCopy.childBody}</p>
-            <p className="kg-sample-adult">{sampleLimitCopy.adultBody}</p>
-          </div>
-        )}
         <div className="kg-books-head">
           <div>
             <h1 className="kg-title" data-child-title="">Books</h1>
@@ -635,6 +625,26 @@ export function StudentBooksPage({
             </section>
           ))}
         </div>}
+
+        {/* WHERE THE SHELF STOPS, AND WHY — and note where this sits: AFTER the
+            books, not above them.
+            It was above them, which meant a child opening the shelf for the
+            first time was greeted with "That's the end of the try-out books.
+            You read everything in the free set. Well done!" before they had
+            read anything. Congratulating a five-year-old for work they have not
+            done is worse than saying nothing, and it made the shelf look empty
+            even though it was full.
+            The copy is written for the end of a shelf, so it belongs at the end
+            of the shelf. The child sentence is readable by a five-year-old; the
+            second is for the grown-up beside them, who is the one who can act
+            on it — never a padlock with nothing behind it. */}
+        {sampleLimitCopy && (
+          <div className="kg-sample-note" role="note">
+            <strong>{sampleLimitCopy.childHeading}</strong>
+            <p>{sampleLimitCopy.childBody}</p>
+            <p className="kg-sample-adult">{sampleLimitCopy.adultBody}</p>
+          </div>
+        )}
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>
