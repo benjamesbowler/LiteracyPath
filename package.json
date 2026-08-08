@@ -25,6 +25,7 @@
     "check:validate:guided-stories": "node tools/runAuditScript.mjs --check tools/auditGuidedStoryBooks.js",
     "check:story-content-policy": "node tools/checkStoryContentPolicy.mjs",
     "check:story-content-release": "node tools/checkStoryContentPolicy.mjs --release",
+    "check:sel-book-drafts": "node tools/checkSelBookDrafts.mjs",
     "check:guided-reading-story-bible": "node tools/checkGuidedReadingStoryBible.mjs",
     "check:guided-reading-writing-evidence": "node tools/checkGuidedReadingWritingEvidence.mjs",
     "check:guided-reading-human-voice": "node tools/checkGuidedReadingHumanVoice.mjs",

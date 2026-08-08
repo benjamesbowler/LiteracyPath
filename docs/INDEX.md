@@ -38,6 +38,7 @@ A dated document must never override current code.
 - [Guided Reading](guided-reading/INDEX.md)
 - [Story and Story Quest bible](content/STORY_AND_STORY_QUEST_BIBLE.md)
 - [Story writing standard](content/STORY_BIBLE_PART_1_WRITING.md)
+- [Little Literacy Guides SEL Books 1-10](content/sel-books/README.md)
 - [Story canon](content/STORY_BIBLE_PART_2_CANON.md)
 - [Story Quest authoring rules](STORY_QUEST_REWRITE_2026-07-26.md)
 
