@@ -37,3 +37,6 @@ authority: orientation-only
 - [Graph schema](SCHEMA.md)
 - [Local-first agent memory decision](decisions/2026-08-03-local-first-agent-memory.md)
 - [Agent-memory research](research/2026-08-03-agent-memory-landscape.md)
+- [Bounded agent workflow decision](decisions/2026-08-08-bounded-agent-workflow.md)
+- [Agent task brief](AGENT_TASK_BRIEF.md)
+- [Agent efficiency and creative-tools audit](research/2026-08-08-agent-efficiency-and-creative-tools-audit.md)

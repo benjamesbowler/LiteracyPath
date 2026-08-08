@@ -10,6 +10,8 @@ A dated document must never override current code.
 - [Repository rules](../AGENTS.md)
 - [Shared agent context](brain/START-HERE.md)
 - [Agent efficiency and creative-tools audit (2026-08-08)](brain/research/2026-08-08-agent-efficiency-and-creative-tools-audit.md)
+- [Bounded agent workflow decision](brain/decisions/2026-08-08-bounded-agent-workflow.md)
+- [Agent task brief](brain/AGENT_TASK_BRIEF.md)
 - [Instructional standards](instructional/instructional_standards.md)
 - [Current-system cleanup record](CURRENT_SYSTEM_CLEANUP_2026-07-31.md)
 - [**The Reporting Bible**](reporting/REPORTING_BIBLE.md) — governing: what we report, to whom, and what we refuse to report

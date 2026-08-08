@@ -30,6 +30,27 @@ audit beside it.
 - Brain notes orient agents but never override the running application,
   automated checks, this file, or the authoritative source linked by the note.
 
+## Bounded agent workflow
+
+For substantial work, use the three-lane workflow in
+[`docs/brain/decisions/2026-08-08-bounded-agent-workflow.md`](docs/brain/decisions/2026-08-08-bounded-agent-workflow.md):
+
+1. **Research/planning** defines scope, current sources, acceptance criteria,
+   and risks.
+2. **Implementation** makes the smallest scoped change and does not broaden
+   the task or alter release authority.
+3. **Verification/release** runs focused checks, inspects the diff, and records
+   evidence before handoff.
+
+Use [`docs/brain/AGENT_TASK_BRIEF.md`](docs/brain/AGENT_TASK_BRIEF.md) when a
+task needs delegation or more than one independent work lane. The parent task
+owns scope and the final merge/release decision. Never let an agent rewrite its
+own permissions, production gates, Supabase behavior, or task scope.
+
+Do not add a hosted memory provider, remote MCP, self-modifying agent harness,
+or opaque installer unless the user has approved that specific service and a
+privacy, cost, and rollback review is recorded first.
+
 Do not keep old and new policies or designs in parallel. The only exception is
 an A/B test the user has explicitly requested; that test must have a named,
 current selection path and the losing variant must be removed when the test ends.
