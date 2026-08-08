@@ -11,6 +11,8 @@ Reading catalogue until the publication gate is complete.
 - Text-band gate: passing with `npm run check:sel-book-drafts`.
 - Image production: started with the first A1 cover/opening-scene candidate:
   `public/images/guided-reading/sel-books/llg-sel-a-01/cover-v1.png`.
+- Media manifest: generated at `docs/content/sel-books/SEL_MEDIA_MANIFEST.json`
+  with one exact-text image/audio record for all 240 pages.
 - Page art: not yet complete or approved.
 - Narration: exact page scripts are locked in the manuscript source; no production
   narration is installed yet.
