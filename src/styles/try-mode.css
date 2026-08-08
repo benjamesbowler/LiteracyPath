@@ -97,59 +97,24 @@
   margin: 0;
 }
 
-/* The try-out entry on the public landing page. Deliberately quieter than the
-   two primary cards — it is a way in for somebody without a code, not a third
-   kind of user, and giving it equal weight would push children who DO have a
-   code towards the mode that keeps none of their work. */
-.student-entry-try {
-  grid-column: 1 / -1;
-  display: grid;
-  gap: 2px;
-  text-align: left;
-  padding: 12px 16px;
-  border: 1px dashed var(--lp-color-border-strong, #b9c8d2);
-  border-radius: 10px;
+/* "Try for free" in the top bar, beside Sign in.
+   Deliberately the quieter of the two: it is the no-commitment door, so it
+   should read as an option on the way to signing in rather than as a rival to
+   it. It lives in the header and NOT in the child/teacher card grid below —
+   that grid is two cards side by side and adding a third item broke it. */
+.lp-landing-try {
+  border: 1.5px solid currentColor;
   background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  padding: 10px 18px;
   font: inherit;
+  font-weight: 650;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-.student-entry-try:hover,
-.student-entry-try:focus-visible {
-  border-style: solid;
-  background: #f6f9fb;
-}
-
-.student-entry-try-title {
-  font-weight: 700;
-}
-
-.student-entry-try-text {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* Where a sample shelf stops. Sits inside the child library, so it has to read
-   as part of that world rather than as an error — hence the warm background and
-   the child sentence first, with the grown-up's explanation beneath it. */
-.kg-sample-note {
-  background: #fdf6e6;
-  border: 1px solid #d9b45f;
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 12px;
-}
-
-.kg-sample-note strong {
-  display: block;
-  font-size: 1.05rem;
-}
-
-.kg-sample-note p {
-  margin: 4px 0 0;
-}
-
-.kg-sample-adult {
-  font-size: 0.85rem;
-  opacity: 0.8;
+.lp-landing-try:hover,
+.lp-landing-try:focus-visible {
+  background: rgba(23, 107, 74, 0.08);
 }

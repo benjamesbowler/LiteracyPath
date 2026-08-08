@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './styles/fonts.js'
 import './index.css'
 import App from './App.jsx'
 // Imported AFTER App so these rules land last in the cascade: the child-facing

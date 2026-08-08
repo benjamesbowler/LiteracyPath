@@ -101,6 +101,16 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
           <a href="#for-children">For children</a>
           <a href="#three-worlds">What's inside</a>
           <a href="#for-teachers">For teachers</a>
+          {/* Sits BEFORE Sign in and styled as the quieter of the two. It is the
+              no-commitment door for a visitor with no account, so it belongs on
+              the way to signing in rather than competing with it — and it is
+              deliberately out of the child/teacher card grid below, which is a
+              two-card layout and stays that way. */}
+          {onTry && (
+            <button type="button" className="lp-landing-try" onClick={onTry}>
+              Try for free
+            </button>
+          )}
           <button type="button" className="lp-landing-signin" onClick={onTeacher}>
             Sign in
           </button>
@@ -144,18 +154,6 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
             <span className="student-entry-card-cta pals-cta">Start playing</span>
           </button>
 
-          {/* The anonymous try-out. Placed under the child card rather than as a
-              third equal option: it is a way IN for somebody who has no code, not
-              a third kind of user, and giving it equal weight would push existing
-              children towards a mode that saves none of their work. */}
-          {onTry && (
-            <button className="student-entry-try" onClick={onTry} type="button">
-              <span className="student-entry-try-title">No code? Try it now</span>
-              <span className="student-entry-try-text">
-                A sample of the books and games. No sign-up, and nothing is saved.
-              </span>
-            </button>
-          )}
 
           <button
             className="student-entry-card teacher-entry"
