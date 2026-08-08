@@ -14,8 +14,8 @@ Reading catalogue until the publication gate is complete.
 - Media manifest: generated at `docs/content/sel-books/SEL_MEDIA_MANIFEST.json`
   with one exact-text image/audio record for all 240 pages.
 - Page art: not yet complete or approved.
-- Narration: exact page scripts are locked in the manuscript source; no production
-  narration is installed yet.
+- Narration: all 240 page clips have been generated with
+  `en-US-Chirp3-HD-Leda` and are awaiting listening review.
 - Publication: hidden/draft-only. No book is child-visible.
 
 ## Media rules

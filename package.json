@@ -27,6 +27,7 @@
     "check:story-content-release": "node tools/checkStoryContentPolicy.mjs --release",
     "check:sel-book-drafts": "node tools/checkSelBookDrafts.mjs",
     "build:sel-book-media-manifest": "node tools/buildSelBookMediaManifest.mjs",
+    "generate:sel-book-leda-audio": "node tools/generateSelBookLedaAudio.mjs",
     "check:guided-reading-story-bible": "node tools/checkGuidedReadingStoryBible.mjs",
     "check:guided-reading-writing-evidence": "node tools/checkGuidedReadingWritingEvidence.mjs",
     "check:guided-reading-human-voice": "node tools/checkGuidedReadingHumanVoice.mjs",
