@@ -62,7 +62,9 @@ test("normal child full-book audio ignores stale group-reading state", async ({ 
   const readWholeBook = reader.getByRole("button", { name: "Read whole book", exact: true });
   await expect(readWholeBook).toBeVisible();
   await expect(readWholeBook).toBeEnabled();
+  await expect(reader.locator(".guided-audio-notice")).toHaveCount(0);
   await readWholeBook.click();
   await expect(reader.getByRole("button", { name: "Stop book", exact: true })).toBeVisible();
+  await expect(reader.locator(".guided-audio-notice")).toHaveCount(0);
   await expect.poll(() => page.evaluate(() => window.__guidedReadingPlayCalls.length)).toBeGreaterThan(0);
 });
