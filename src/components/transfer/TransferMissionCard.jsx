@@ -1,0 +1,3 @@
+import { TRANSFER_CONTEXTS } from "../../content/transfer/transferContextPolicy.js";
+
+export function TransferMissionCard({mission,onStart}){if(!mission)return null;const context=TRANSFER_CONTEXTS[mission.context];return <section className="transfer-card" aria-labelledby="transfer-card-title"><div><span>Use it somewhere new · {context.label}</span><h2 id="transfer-card-title">A three-step transfer mission</h2><p>{mission.instruction}</p><small>Why now: you have already worked on this sound-spelling target. This is one separate practice sample, not a new level or score.</small></div><button type="button" onClick={onStart}>Try the mission</button></section>}

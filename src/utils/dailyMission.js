@@ -7,7 +7,7 @@ import { recordDailyChest } from "./hollowState.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
-import { filterPublishedGuidedReadingBooks } from "../data/guidedReadingPublication.js";
+import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
 import {
   DAILY_MISSION_KINDS,
   firstUncelebratedMissionStep,
@@ -208,18 +208,15 @@ function currentQuestCycle(scope) {
 }
 
 /**
- * `quarantinedBookIds` is the publication blocklist (see
- * `src/data/guidedReadingPublication.js`). It has to be applied HERE and not
- * only on the library shelf, because the mission tile links straight to a book
- * by id. Without this filter a book an admin had explicitly pulled could still
- * be advertised to a child as the book of the day — the one failure mode the
- * blocklist exists to prevent.
+ * `approvedBookIds` is the fail-closed publication allowlist. It has to be
+ * applied here as well as on the shelf because the mission tile deep-links to
+ * a book by id.
  */
-function nextBook(scope, quarantinedBookIds) {
+function nextBook(scope, approvedBookIds) {
   const records = readJson(`literacyPath.guidedReadingRecords.${encodeURIComponent(scope)}`, {});
   const ordered = filterPublishedGuidedReadingBooks(
     [...GUIDED_READING_BOOK_INDEX],
-    quarantinedBookIds
+    approvedBookIds
   ).sort((a, b) =>
     String(a.level).localeCompare(String(b.level)) || String(a.id).localeCompare(String(b.id))
   );
@@ -246,9 +243,9 @@ function todaysGame(scope, cycle) {
   return { game, why: letters ? `Practise your ${letters} sounds while you play.` : "A fresh game for today." };
 }
 
-export function buildDailyMission(scope, quarantinedBookIds) {
+export function buildDailyMission(scope, approvedBookIds) {
   const cycle = currentQuestCycle(scope) || {};
-  const book = nextBook(scope, quarantinedBookIds);
+  const book = nextBook(scope, approvedBookIds);
   const gamePick = todaysGame(scope, cycle) || {};
   const game = gamePick.game || {};
 

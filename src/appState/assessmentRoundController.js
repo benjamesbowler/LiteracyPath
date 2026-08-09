@@ -15,17 +15,13 @@ import { getAnswerRecordPromptAnswerSignature, getRepeatOptionSetSignature } fro
 import { getEarlySkillRuntimeEligibilityIssues, getTargetObjectImage, isRuntimeEligibleEarlySkillQuestion, normalizeEarlySkillId } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion";
 import { buildAssessmentAttemptRecord, extractMasteryFromAssessmentAttempt, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery, saveAssessmentAttempt } from "../data/assessmentHistoryStore";
 import { buildSkillMasterySummaryRows } from "../data/skillMasterySummary.js";
-import { isGenericInstructionAudioPath } from "../utils/assessmentAudioRoles";
+import { isGenericInstructionAudioPath } from "../utils/assessmentAudioPolicy.js";
 import { APP_VIEWS } from "./appViews.js";
 import { getAssessmentAttemptType } from "./assessmentSessionHelpers.js";
 import { preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
 import { speakWithBrowser as speakWithBrowserFallback } from "../utils/audio/speakWithBrowser.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
 import { insertWithRetry } from "../utils/insertQueue.js";
-import {
-  getLedaInstructionAudioPath,
-  getLedaWordAudioPath
-} from "../data/ledaProductionAudio.js";
 import {
   assessmentAttemptsToSkillLedger,
   computeSkillStatus,
@@ -2093,9 +2089,8 @@ export function createAssessmentRoundController(context) {
         audioPath
       });
     }
-    const ledaAudioPath = options.audioRole === "target_word"
-      ? getLedaWordAudioPath(text)
-      : getLedaInstructionAudioPath(text) || getLedaWordAudioPath(text);
+    const { resolveAssessmentLedaAudioPath } = await import("../utils/assessmentLedaResolver.js");
+    const ledaAudioPath = resolveAssessmentLedaAudioPath(text, options.audioRole);
     const preferredAudioPath = ledaAudioPath || audioPath || "";
 
     if (requireApprovedAudio && !preferredAudioPath) return;

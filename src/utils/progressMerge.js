@@ -359,6 +359,48 @@ export function reconcileQuestSaveWithStored(writer, stored) {
 export function computeHydratedValue(area, key, existing, payload) {
   const base = existing && typeof existing === "object" ? existing : {};
 
+  // Transfer missions are evidence samples, not mastery. Completion and
+  // evidence must union across devices, while the most recently updated
+  // unfinished mission remains the resumable state.
+  if (area === "transfer_missions") {
+    const cloud = payload && typeof payload === "object" ? payload : {};
+    const unionBy = (left, right, identity) => {
+      const rows = new Map();
+      for (const row of [...(left || []), ...(right || [])]) {
+        if (row && identity(row)) rows.set(identity(row), row);
+      }
+      return [...rows.values()];
+    };
+    const localActiveAt = String(base.active?.updatedAt || "");
+    const cloudActiveAt = String(cloud.active?.updatedAt || "");
+    return {
+      schemaVersion: 1,
+      completed: [...new Set([...(base.completed || []), ...(cloud.completed || [])])],
+      evidence: unionBy(base.evidence, cloud.evidence, row => `${row.missionId}:${row.contentVersion}`),
+      offers: unionBy(base.offers, cloud.offers, row => `${row.missionId}:${row.offeredAt}`),
+      active: cloudActiveAt > localActiveAt ? cloud.active : (base.active || cloud.active || null)
+    };
+  }
+
+  if (area === "reading_passport") {
+    const cloud = payload && typeof payload === "object" ? payload : {};
+    const reflections = { ...(cloud.reflections || {}) };
+    for (const [bookId, localReflection] of Object.entries(base.reflections || {})) {
+      const cloudReflection = reflections[bookId];
+      if (!cloudReflection || String(localReflection.updatedAt || "") >= String(cloudReflection.updatedAt || "")) {
+        reflections[bookId] = localReflection;
+      }
+    }
+    return { schemaVersion: 1, reflections };
+  }
+
+  if (area === "cooperative_story_quest") {
+    const cloud = payload && typeof payload === "object" ? payload : {};
+    const evidence = new Map();
+    for (const row of [...(cloud.evidence || []), ...(base.evidence || [])]) if (row?.questId) evidence.set(`${row.questId}:${row.contentVersion}`, row);
+    return { schemaVersion: 1, completed: [...new Set([...(base.completed || []), ...(cloud.completed || [])])], evidence: [...evidence.values()] };
+  }
+
   // Per-letter mastery status: never downgrade.
   if (area === "phonics_letters" || area === "cvc") {
     if (key === "__all__") {

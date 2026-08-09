@@ -51,6 +51,46 @@ function getStoryQuestPageAudioUrl(page) {
   return getLedaInstructionAudioPath(pageText) || page.audioUrl || "";
 }
 
+function storyQuestWordProgressLabel(seenCount = 0, totalCount = 0) {
+  const total = Math.max(0, Number(totalCount) || 0);
+  const seen = Math.min(total, Math.max(0, Number(seenCount) || 0));
+  const remaining = total - seen;
+  if (!total) return "Story words";
+  if (!remaining) return "All story words seen";
+  return `${remaining} more story ${remaining === 1 ? "word" : "words"} to see`;
+}
+
+function closeMoreMenuAndRun(event, action) {
+  event.currentTarget.closest("details")?.removeAttribute("open");
+  action();
+}
+
+function StoryQuestMoreMenu({ isFullscreen, onRestart, onToggleFullscreen }) {
+  return (
+    <details className="story-quest-more-menu">
+      <summary className="lp-button lp-button-secondary" aria-label="More story controls">
+        More
+      </summary>
+      <div className="story-quest-more-actions" aria-label="More story controls" role="group">
+        <button
+          className="lp-button lp-button-secondary"
+          onClick={event => closeMoreMenuAndRun(event, onRestart)}
+          type="button"
+        >
+          Start over
+        </button>
+        <button
+          className="lp-button lp-button-secondary"
+          onClick={event => closeMoreMenuAndRun(event, onToggleFullscreen)}
+          type="button"
+        >
+          {isFullscreen ? "Exit full screen" : "Full screen"}
+        </button>
+      </div>
+    </details>
+  );
+}
+
 export function StoryQuestPlayer({
   quest,
   initialPageId = "",
@@ -110,6 +150,7 @@ export function StoryQuestPlayer({
   }, [initialWordSignature, quest, visitedPageIds]);
   const targetWordTotal = quest?.targetWords?.length || 0;
   const wordProgressPercent = targetWordTotal ? (foundWords.length / targetWordTotal) * 100 : 0;
+  const wordProgressLabel = storyQuestWordProgressLabel(foundWords.length, targetWordTotal);
   const currentPageWords = (currentPage?.skillTags || [])
     .filter(tag => !["short_a", "hfw_1_25"].includes(String(tag).toLowerCase()))
     .slice(0, 4);
@@ -352,8 +393,15 @@ export function StoryQuestPlayer({
           </div>
         </header>
 
-        <div className="story-quest-image-placeholder story-quest-complete-panel" role="img" aria-label={`${quest.title} complete`}>
+        <div className="story-quest-image-placeholder story-quest-complete-panel">
           <span>Great reading!</span>
+          {targetWordTotal > 0 && (
+            <p>
+              {foundWords.length >= targetWordTotal
+                ? "You saw every story word."
+                : `You saw ${foundWords.length} ${foundWords.length === 1 ? "story word" : "story words"} on this adventure. Try another path to see ${targetWordTotal - foundWords.length} more.`}
+            </p>
+          )}
         </div>
 
         <div className="story-quest-choice-grid">
@@ -394,28 +442,27 @@ export function StoryQuestPlayer({
           <button className="lp-button lp-button-secondary" disabled={history.length === 0} onClick={goBack} type="button">
             Previous scene
           </button>
-          <button className="lp-button lp-button-secondary" onClick={restart} type="button">
-            Restart story
-          </button>
-          <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-            {isFullscreen ? "Exit full screen" : "Full screen"}
-          </button>
           {onExit && (
             <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
               Back to Story Quests
             </button>
           )}
+          <StoryQuestMoreMenu
+            isFullscreen={isFullscreen}
+            onRestart={restart}
+            onToggleFullscreen={toggleFullscreen}
+          />
         </div>
       </header>
 
       <div
         className="story-quest-progress"
-        aria-label={`Scene ${currentSceneNumber} on this route. ${foundWords.length} of ${targetWordTotal} story words seen.`}
+        aria-label={`Scene ${currentSceneNumber} on this route. ${wordProgressLabel}.`}
         role="status"
       >
         <div className="story-quest-progress-top">
           <span>Scene {currentSceneNumber}</span>
-          <span>{foundWords.length}/{targetWordTotal} story words seen</span>
+          <span>{wordProgressLabel}</span>
         </div>
         <div className="story-quest-progress-bar">
           <span style={{ width: `${wordProgressPercent}%` }} />
@@ -475,7 +522,7 @@ export function StoryQuestPlayer({
       </div>
 
       <div className="story-quest-word-panel" aria-label="Story words seen">
-        <span>{foundWords.length}/{targetWordTotal} story words seen</span>
+        <span>{wordProgressLabel}</span>
         <div>
           {(quest.targetWords || []).map(word => {
             const normalizedWord = word.toLowerCase();

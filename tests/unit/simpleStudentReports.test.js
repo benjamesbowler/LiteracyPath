@@ -52,7 +52,7 @@ test("simple skill copy states tries and correct answers without overstating mas
   // requirement for evidence on different calendar days.
   assert.equal(
     row.whyNotSecure,
-    "75% accuracy is below the Secure range of 85% or more."
+    "75% accuracy is below the Secure range of 90% or more."
   );
   assert.doesNotMatch(row.whyNotSecure, /\bday\b/i);
 });
@@ -78,7 +78,7 @@ test("simple report explanations never compare correct answers with independent 
   );
   assert.equal(
     row.whyNotSecure,
-    "66.7% accuracy is below the Secure range of 85% or more."
+    "66.7% accuracy is below the Secure range of 90% or more."
   );
   assert.doesNotMatch(row.whyNotSecure, /right every time/i);
 });
@@ -119,7 +119,7 @@ test("simple copy labels current and all-time windows instead of mixing them", (
   assert.equal(row.statusLabel, "Needs support");
   assert.equal(
     row.whyNotSecure,
-    "0% accuracy is below the Secure range of 85% or more."
+    "0% accuracy is below the Secure range of 90% or more."
   );
 });
 

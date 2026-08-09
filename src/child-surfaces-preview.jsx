@@ -31,6 +31,7 @@ import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
 import { StudentStoryQuestsPage } from "./components/StudentStoryQuestsPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
+import { GUIDED_READING_BOOK_INDEX } from "./data/generated/guidedReadingBookIndex.generated.js";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
 
@@ -82,7 +83,13 @@ function StudentHomeSurface() {
 // The phase-D front door, with the real reader handed in exactly as the router
 // hands it in — so the preview and the app agree about what a child lands on.
 function ReadingLibrarySurface() {
-  const [records, setRecords] = useState({});
+  const [records, setRecords] = useState(() => PREVIEW_PARAMS.get("passport") === "1"
+    ? Object.fromEntries(GUIDED_READING_BOOK_INDEX.slice(0, 2).map((book, index) => [book.id, {
+      completed: true,
+      completedAt: `2026-08-0${index + 1}T10:00:00Z`,
+      buddyReader: index === 0 ? { turns: [{ reader: "child" }, { reader: "leda" }] } : undefined
+    }]))
+    : {});
   const save = (bookId, nextRecord) => {
     setRecords(current => ({ ...current, [bookId]: nextRecord }));
   };
@@ -92,6 +99,8 @@ function ReadingLibrarySurface() {
       studentName="Aaron"
       progressScopeKey={PREVIEW_SCOPE}
       studentId={PREVIEW_SCOPE}
+      approvedBookIds={GUIDED_READING_BOOK_INDEX.map(book => book.id)}
+      publicationStatus="ready"
       guidedReadingRecords={records}
       renderReader={({ bookId, onExit }) => (
         <PreviewShell active="books">

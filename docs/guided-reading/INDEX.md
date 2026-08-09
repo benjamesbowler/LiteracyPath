@@ -28,6 +28,7 @@ book has an `approved` row and becomes available immediately. A failed book has 
 later review. The current authority for this gate is:
 
 - `supabase/migrations/20260803120000_guided_reading_publication_gate.sql`
+- `supabase/migrations/20260809090000_guided_reading_fail_closed_publication.sql`
 - `src/data/guidedReadingPublication.js`
 - `src/components/admin/GuidedReadingReviewPanel.jsx`
 - the child and shared-reading filters wired through `src/components/AppSurface.jsx`

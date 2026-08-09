@@ -66,6 +66,9 @@ import {
 import { nextReadingWordMark } from "../../hooks/readingSessionMarkTarget.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../../utils/audio/childAudioLifecycle.js";
 import { AUDIO_GUIDED_READING_PATHS } from "../../data/generated/audioGuidedReadingPaths.generated.js";
+import { BuddyReaderBar } from "./BuddyReaderBar.jsx";
+import { appendBuddyTurn, buildBuddyReaderPlan, summarizeBuddyReader } from "../../utils/guidedReading/buddyReader.js";
+import "../../styles/buddy-reader.css";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 const GUIDED_READING_WORD_RATE = 0.9;
@@ -541,6 +544,8 @@ export function GuidedReadingPage({
   const [teacherNotesOpen, setTeacherNotesOpen] = useState(false);
   const [isReaderFullscreen, setIsReaderFullscreen] = useState(false);
   const [readerLayoutVersion, setReaderLayoutVersion] = useState(0);
+  const [buddyStartPage, setBuddyStartPage] = useState(null);
+  const [buddyHeardPages, setBuddyHeardPages] = useState([]);
   const guidedReaderShellRef = useRef(null);
   const missionReturnPendingRef = useRef(false);
   const pageAudioRef = useRef(null);
@@ -609,6 +614,11 @@ export function GuidedReadingPage({
   const allPagesHaveAudio = Boolean(selectedBook?.pages?.length) &&
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
+  const buddyPlan = useMemo(() => buddyStartPage === null
+    ? []
+    : buildBuddyReaderPlan(selectedBook?.pages?.length || 0, buddyStartPage), [buddyStartPage, selectedBook?.pages?.length]);
+  const buddyTurn = buddyPlan.find(turn => turn.pageIndex === pageIndex) || null;
+  const buddySummary = summarizeBuddyReader(record.buddyReader);
   // "class" is the whole-class read opened from the Resources shelf: a teacher
   // reading to the room, with no single student to attribute anything to. It
   // keeps every reading tool and drops every capture control, because a note or
@@ -1325,6 +1335,9 @@ export function GuidedReadingPage({
         setIsPageAudioPlaying(false);
         setIsReadAloudLoading(false);
         setHighlightedSentenceIndex(null);
+        if (buddyTurn?.reader === "leda") {
+          setBuddyHeardPages(previous => previous.includes(pageIndex) ? previous : [...previous, pageIndex]);
+        }
       };
       audio.onerror = () => {
         pageAudioRef.current = null;
@@ -1353,6 +1366,34 @@ export function GuidedReadingPage({
       audio.pause();
       setIsReadAloudPaused(true);
     }
+  }
+
+  function saveBuddyTurn(reader) {
+    const completedAt = new Date().toISOString();
+    const previous = getWorkingRecord();
+    const buddyReader = appendBuddyTurn(previous.buddyReader, {
+      pageIndex,
+      pageNumber: page?.pageNumber || pageIndex + 1,
+      reader,
+      completedAt,
+      evidenceKind: "turn_completed",
+      scored: false
+    });
+    touchBookProgress(pageIndex, { buddyReader });
+  }
+
+  function finishBuddyTurn(reader) {
+    saveBuddyTurn(reader);
+    if (pageIndex >= selectedBook.pages.length - 1) {
+      const previous = getWorkingRecord();
+      touchBookProgress(pageIndex, {
+        buddyReader: { ...previous.buddyReader, completedAt: new Date().toISOString() }
+      });
+      setBuddyStartPage(null);
+      setBuddyHeardPages([]);
+      return;
+    }
+    goToNextPage();
   }
 
   function showReadAloudPage(nextPageIndex) {
@@ -2410,6 +2451,51 @@ export function GuidedReadingPage({
               </div>
             </div>
 
+            {isStudentMode && canReadWholeBook && !activeGroupSession && buddyStartPage === null && (
+              <section className="buddy-reader-launch" aria-label="Buddy Reader option">
+                <div>
+                  <strong>Take turns with Leda</strong>
+                  <span>You read one page, Leda reads the next. Nothing is recorded.</span>
+                </div>
+                <button
+                  className="lp-button lp-button-secondary"
+                  onClick={() => {
+                    stopPageAudio();
+                    setBuddyHeardPages([]);
+                    setBuddyStartPage(pageIndex);
+                  }}
+                  type="button"
+                >
+                  Read with Leda
+                </button>
+              </section>
+            )}
+
+            {isStudentMode && buddyTurn && (
+              <BuddyReaderBar
+                reader={buddyTurn.reader}
+                pageNumber={pageIndex + 1}
+                isAudioPlaying={isPageAudioPlaying}
+                isAudioLoading={isReadAloudLoading}
+                ledaTurnHeard={buddyHeardPages.includes(pageIndex)}
+                onChildDone={() => finishBuddyTurn("child")}
+                onHearLeda={togglePageAudio}
+                onLedaDone={() => finishBuddyTurn("leda")}
+                onStop={() => {
+                  stopPageAudio();
+                  setBuddyStartPage(null);
+                  setBuddyHeardPages([]);
+                }}
+              />
+            )}
+            {!isStudentMode && !isReviewMode && buddySummary.totalTurns > 0 && (
+              <section className="buddy-reader-teacher-summary" aria-label="Buddy Reader evidence">
+                <strong>Buddy Reader evidence</strong>
+                <span>{buddySummary.childTurns} student turns · {buddySummary.ledaTurns} Leda turns</span>
+                <small>Turn completion only. No voice, pronunciation, speed, or fluency score was collected.</small>
+              </section>
+            )}
+
             {isReaderFullscreen && (
               <p className="guided-fullscreen-info guided-page-status" role="status" aria-live="polite" aria-label="Reading progress">
                 Page {pageIndex + 1} of {selectedBook.pages.length}
@@ -2644,7 +2730,7 @@ export function GuidedReadingPage({
                     onClick={() => submitPublicationReview("approved")}
                     type="button"
                   >
-                    {reviewBusy ? "Saving…" : "Pass and keep live"}
+                    {reviewBusy ? "Saving…" : "Pass and publish"}
                   </button>
                   <button
                     className="lp-button lp-button-danger"

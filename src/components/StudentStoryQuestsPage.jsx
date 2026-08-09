@@ -41,6 +41,7 @@ import {
   buildQuestGrid,
   reachedStoryWorld
 } from "../policy/childLibraryPolicy.js";
+import { CooperativeStoryQuestPage } from "./cooperative-story/CooperativeStoryQuestPage.jsx";
 
 // The Arcade filter's world colours, from the spec's token table. The card
 // tints that go with them are literal rgba in kids-library.css rather than a
@@ -97,6 +98,7 @@ export function StudentStoryQuestsPage({
   renderQuest
 }) {
   const [playingId, setPlayingId] = useState("");
+  const [cooperativeOpen, setCooperativeOpen] = useState(false);
   // Held in state and re-read when the child comes back from a story, so the
   // badges show the progress the player just saved rather than the state this
   // screen started in. Re-read in the event handler, never in an effect.
@@ -135,6 +137,8 @@ export function StudentStoryQuestsPage({
     });
   }
 
+  if (cooperativeOpen) return <CooperativeStoryQuestPage scopeKey={progressScopeKey} onClose={() => setCooperativeOpen(false)} />;
+
   return (
     <StudentGlassShell
       studentName={studentName}
@@ -163,6 +167,7 @@ export function StudentStoryQuestsPage({
             {read.ok ? "You choose what happens" : "We could not open your stories"}
           </span>
           <span className="kg-spacer" />
+          <button type="button" className="kg-button kg-button--sm kg-glass kg-glass--strong" onClick={() => setCooperativeOpen(true)}>Story Crew</button>
 
           {/* THE WORLD FILTER, WHICH IS ALSO THE OLD LEVEL FILTER. The shelf
               page grouped stories by Level A / B / C and let a child jump

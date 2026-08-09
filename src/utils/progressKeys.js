@@ -5,7 +5,7 @@
 export const PROGRESS_AREAS = [
   "story_quests", "phonics_letters", "cvc", "learn_games",
   "el_quest", "daily_mission", "profile", "guided_reading", "hollow",
-  "phonics_quest"
+  "phonics_quest", "transfer_missions", "reading_passport", "cooperative_story_quest"
 ];
 
 export function localProgressStorageKey(area, scopeKey) {
@@ -20,6 +20,9 @@ export function localProgressStorageKey(area, scopeKey) {
   if (area === "guided_reading") return `literacyPath.guidedReadingRecords.${scope}`;
   if (area === "hollow") return `lp-hollow:${scopeKey || "default"}`;
   if (area === "phonics_quest") return `lp-quest:${scopeKey || "default"}`;
+  if (area === "transfer_missions") return `lp-transfer-missions:${scopeKey || "default"}`;
+  if (area === "reading_passport") return `lp-reading-passport:${scopeKey || "default"}`;
+  if (area === "cooperative_story_quest") return `lp-cooperative-story-quest:${scopeKey || "default"}`;
   return "";
 }
 

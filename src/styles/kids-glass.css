@@ -175,6 +175,7 @@
 
   /* the hard floor for anything a child taps */
   --kg-hit: 44px;
+  --kg-physical-hit: var(--kg-hit);
 
   /* motion */
   --kg-bob-duration: 3.4s;
@@ -650,6 +651,24 @@
   min-height: var(--kg-hit) !important;
 }
 
+/* The canvas is uniformly scaled on tablets and laptops. This second floor is
+   written in design pixels by kidsStage.js so every enabled control still has
+   a 44px-or-larger physical box after that transform. It covers legacy child
+   controls that pre-date the kg component classes as well. */
+.kg-stage :is(
+  button:not([disabled]),
+  a[href],
+  input:not([disabled]),
+  select:not([disabled]),
+  textarea:not([disabled]),
+  summary,
+  [role="button"]:not([aria-disabled="true"]),
+  [tabindex]:not([tabindex="-1"])
+) {
+  min-width: var(--kg-physical-hit) !important;
+  min-height: var(--kg-physical-hit) !important;
+}
+
 .kg-stage .kg-button {
   display: inline-flex;
   align-items: center;
@@ -889,6 +908,18 @@
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.kg-stage .kg-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 .kg-stage .kg-currency--stars .kg-currency-caption {

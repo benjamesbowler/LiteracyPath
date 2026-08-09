@@ -4,7 +4,7 @@ import {
   getReadingSessionPresence,
   saveReadingMarks,
   setReadingSessionPage
-} from "../data/readingSession.js";
+} from "../data/readingSessionCore.js";
 
 function operationDelay(attempt) {
   return Math.min(8000, 1000 * (2 ** Math.max(0, attempt - 1)));

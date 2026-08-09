@@ -40,7 +40,10 @@ test("Today attention requires enough results and states the rule in plain langu
 
   assert.deepEqual(briefing.attention.map(row => row.id), ["ready"]);
   assert.match(briefing.attention[0].evidence, /12 answers on CVC · 33% accuracy/);
-  assert.match(briefing.attention[0].policyBasis, /after 8 current answers/);
+  assert.match(
+    briefing.attention[0].policyBasis,
+    new RegExp(`after ${TEACHER_TODAY_POLICY.minimumResponsesForAttention} current answers`)
+  );
   assert.deepEqual(
     Object.keys(briefing.attention[0].explanation),
     ["evidence", "dependency", "confidence", "unlock"]

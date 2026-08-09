@@ -6,7 +6,6 @@ import { fileURLToPath } from "node:url";
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const policyPath = "src/policy/learningPolicy.js";
 const conclusionFiles = [
-  "src/components/AdminDashboardPage.jsx",
   "src/components/teacher/teacherClassModel.js",
   "src/components/TeacherStudentsPage.jsx",
   // Removed 2026-07-27: src/components/teacher/TeacherProgressOverview.jsx was

@@ -32,54 +32,7 @@
  */
 
 import { readFileSync } from "node:fs";
-
-// Every RPC the frontend can call, taken from the domain boundary allowlist.
-// Keep this in step with src/data/boundaries/facade.js.
-const REQUIRED_FUNCTIONS = {
-  admin_set_teacher_account_status: ["p_account_id", "p_status", "p_rejection_reason"],
-  teacher_prepare_learner_deletion: ["p_student_id", "p_requester_role", "p_verification_method"],
-  teacher_delete_learner_data_staged: ["p_request_id", "p_student_id", "p_subject_ref", "p_confirmation"],
-  teacher_complete_learner_deletion: ["p_request_id", "p_subject_ref", "p_cleanup_proof"],
-  teacher_get_learner_deletion_status: ["p_request_id", "p_subject_ref"],
-  teacher_export_learner_data: ["p_student_id", "p_requester_role", "p_verification_method"],
-  teacher_list_learner_data_rights: ["p_student_id"],
-  teacher_set_student_archived: ["p_student_id", "p_class_id", "p_archived"],
-  teacher_transfer_student: ["p_student_id", "p_source_class_id", "p_target_class_id"],
-  teacher_set_student_symbol_password: ["p_student_id", "p_sequence", "p_set_at"],
-  teacher_reset_student_progress: ["p_student_id", "p_reset_at"],
-  teacher_delete_saved_assessment_report: ["p_report_id"],
-  teacher_delete_empty_class: ["p_class_id"],
-  teacher_regenerate_class_code: ["p_class_id"],
-  teacher_set_class_code_expiry: ["p_class_id", "p_expires_at"],
-  teacher_set_class_leaderboard_scope: ["p_class_id", "p_scope"],
-  teacher_create_demo_class: [],
-  teacher_set_school: ["p_school_name"],
-  teacher_class_access_log: ["p_class_id", "p_limit"],
-  teacher_class_access_summary: ["p_class_id"],
-  teacher_save_instructional_group: ["p_class_id", "p_name", "p_criteria", "p_student_ids", "p_evidence_snapshot"],
-  teacher_review_instructional_group: ["p_group_id", "p_student_ids", "p_evidence_snapshot"],
-  teacher_assign_instructional_group_follow_up: ["p_group_id", "p_owner_label", "p_activity", "p_planned_for"],
-  teacher_create_insight_intervention: ["p_action_type", "p_class_id", "p_insight", "p_student_ids", "p_targets", "p_owner_label", "p_activity", "p_planned_for"],
-  teacher_create_intervention_follow_up: ["p_parent_intervention_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"],
-  teacher_create_intervention_plan: ["p_class_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"],
-  teacher_update_planned_intervention: ["p_intervention_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"],
-  teacher_delete_planned_intervention: ["p_intervention_id"],
-  teacher_mark_intervention_delivered: ["p_intervention_id"],
-  teacher_record_intervention_outcome: ["p_intervention_id", "p_outcome", "p_outcome_note"],
-  teacher_review_intervention: ["p_intervention_id", "p_next_review_on"],
-  teacher_cancel_intervention: ["p_intervention_id", "p_reason"],
-  teacher_record_insight_observation: ["p_class_id", "p_insight", "p_student_ids", "p_note", "p_owner_label", "p_follow_up_activity", "p_follow_up_on"],
-  student_class_by_code: ["p_code", "p_device_id"],
-  student_login: ["p_student_id", "p_sequence", "p_device_id", "p_code"],
-  student_get_progress: ["p_token"],
-  student_save_progress: ["p_token", "p_area", "p_key", "p_payload"],
-  student_log_activity_v2: ["p_token", "p_client_event_id", "p_area", "p_item_id", "p_event", "p_payload", "p_occurred_at", "p_delivery_attempts"],
-  student_report_activity_sync_health: ["p_token", "p_device_id", "p_attempted", "p_delivered", "p_recovered", "p_storage_failures", "p_pending", "p_lost", "p_oldest_pending_at"],
-  get_game_leaderboard: ["p_student_token", "p_limit"],
-  find_or_create_school: ["p_name"],
-  list_school_names: [],
-  report_app_error: ["p_client_event_id", "p_release_id", "p_fingerprint", "p_severity", "p_surface", "p_error_type", "p_source", "p_stack_frames", "p_sample_rate"]
-};
+import { LIVE_DATABASE_FUNCTIONS as REQUIRED_FUNCTIONS } from "./liveDatabaseFunctionContract.mjs";
 
 function readEnvFile(path) {
   try {

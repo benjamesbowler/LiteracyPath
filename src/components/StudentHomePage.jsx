@@ -58,6 +58,12 @@ import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { stopAtIndex } from "../data/questSequence.js";
 import { currentStopIndex } from "../utils/questProgress.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
+import { skillBlueprints } from "../content/blueprints/skillBlueprints.js";
+import { TRANSFER_MISSIONS } from "../content/transfer/transferMissionRegistry.js";
+import { TransferMissionCard } from "./transfer/TransferMissionCard.jsx";
+import { TransferMissionRunner } from "./transfer/TransferMissionRunner.jsx";
+import { readTransferMissionProgress } from "../policy/transferMissionPolicy.js";
+import { selectTransferMission } from "../utils/transfer/selectTransferMission.js";
 import {
   buildStudentHomeCardState,
   buildStudentHomeContinuation,
@@ -312,10 +318,10 @@ export function StudentHomePage({
   onOpenSoundSeekers,
   onOpenStoryQuests,
   onOpenGuidedReading,
-  // The publication blocklist. The mission's book tile deep-links to a book by
-  // id, so it needs the same filter the library shelf uses — otherwise a book
-  // an admin had explicitly pulled could still be the advertised book of the day.
-  quarantinedBookIds,
+  // The approval allowlist. The mission deep-links by id, so it must use the
+  // same fail-closed publication set as the library shelf.
+  approvedBookIds,
+  taughtTargetKeys = [],
   onOpenRewards,
   onLogout,
   logoutLabel = "Sign out",
@@ -325,8 +331,8 @@ export function StudentHomePage({
   // the mission state fresh after each activity.
   const [status] = useState(() => getMissionStatus(progressScopeKey));
   const mission = useMemo(
-    () => buildDailyMission(progressScopeKey, quarantinedBookIds),
-    [progressScopeKey, quarantinedBookIds]
+    () => buildDailyMission(progressScopeKey, approvedBookIds),
+    [progressScopeKey, approvedBookIds]
   );
   const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
@@ -347,6 +353,20 @@ export function StudentHomePage({
     );
   });
   const [accountOpen, setAccountOpen] = useState(false);
+  const [transferProgress,setTransferProgress]=useState(()=>readTransferMissionProgress(progressScopeKey));
+  const [openTransferMission,setOpenTransferMission]=useState(null);
+  const transferMission=useMemo(()=>{
+    const activeMission=TRANSFER_MISSIONS.find(candidate=>(
+      candidate.id===transferProgress.active?.missionId
+      && candidate.contentVersion===transferProgress.active?.contentVersion
+      && candidate.review?.status==="approved"
+    ));
+    if(activeMission)return activeMission;
+    const today=new Date().toISOString().slice(0,10);
+    const supportedFormats=taughtTargetKeys.flatMap(key=>Object.values(skillBlueprints[key]?.formatsByLevel||{}).flat());
+    const todaysOffers=transferProgress.offers.filter(offer=>String(offer.offeredAt||"").startsWith(today)).length;
+    return selectTransferMission({candidateMissions:TRANSFER_MISSIONS,taughtTargetKeys,completedMissionIds:transferProgress.completed,supportedFormats,offeredToday:todaysOffers,recentContexts:transferProgress.offers.slice(-2).map(offer=>offer.context)});
+  },[taughtTargetKeys,transferProgress]);
 
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
@@ -787,6 +807,8 @@ export function StudentHomePage({
           </div>
         </section>
 
+        {transferMission && <TransferMissionCard mission={transferMission} onStart={()=>setOpenTransferMission(transferMission)} />}
+
         {/* b. THE REST OF TODAY — a checklist, not three more buttons, and
             never a second copy of the hero's instruction (see planTodaysStops). */}
         <section
@@ -852,7 +874,7 @@ export function StudentHomePage({
             <h2 className="kg-section-title" id="kg-home-explore-title">Or go anywhere you like</h2>
             <button
               type="button"
-              className="kg-speaker kg-glass"
+              className="kg-speaker kg-glass kg-home-explore-hear"
               aria-label="Hear this"
               onClick={() => hear(
                 `Or go anywhere you like. ${doors.map(door => door.title).join(". ")}.`
@@ -913,6 +935,7 @@ export function StudentHomePage({
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>
+      {openTransferMission&&<TransferMissionRunner mission={openTransferMission} scopeKey={progressScopeKey} progress={transferProgress} onProgress={setTransferProgress} onComplete={setTransferProgress} onClose={()=>setOpenTransferMission(null)}/>}
 
       {overlays}
     </StudentGlassShell>

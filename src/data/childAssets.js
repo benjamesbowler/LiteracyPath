@@ -36,6 +36,50 @@ const blockedAssessmentImageAssetNotes = {
   bud: "The current bud image is visually ambiguous and is blocked from active assessment use until a clear unopened flower bud replacement is QA-approved. Clean audio is preserved.",
   nut: "The current nut image looks like an acorn and is blocked from active assessment use. Audio is preserved."
 };
+
+// These child-safe pictures were visually reviewed for a single, concrete
+// meaning before being admitted to image-led Learn Games. Keeping the
+// overrides here lets every game use the normal recorded-word audio resolver
+// while preventing ambiguous text-only cards from reaching children.
+const curatedChildWordImageOverrides = {
+  bath: "/images/assessment/digraphs/bath.webp",
+  bench: "/media/vocabulary/images/bench.webp",
+  branch: "/media/vocabulary/images/branch.webp",
+  chin: "/media/vocabulary/images/chin.webp",
+  chop: "/media/vocabulary/images/chop.webp",
+  crunch: "/images/assessment/generated/sequencing/child-bites-apple.webp",
+  den: "/media/vocabulary/images/den.webp",
+  drink: "/media/vocabulary/images/drink.webp",
+  fast: "/media/vocabulary/images/fast.webp",
+  frost: "/media/vocabulary/images/frost.webp",
+  grin: "/media/vocabulary/images/grin.webp",
+  grump: "/images/emotions/angry_child.png",
+  jig: "/images/assessment/generated/concepts/dancer.webp",
+  jump: "/media/initial-sounds/images/j/jump.webp",
+  kick: "/media/vocabulary/images/kick.webp",
+  kit: "/media/vocabulary/images/kit.webp",
+  long: "/media/vocabulary/images/long.webp",
+  lunch: "/images/assessment/digraphs/lunch.webp",
+  milk: "/images/assessment/blends/milk.webp",
+  moth: "/media/vocabulary/images/moth.webp",
+  munch: "/images/assessment/language/variants/antonyms-synonyms/eat-munch-01.webp",
+  nest: "/images/assessment/blends/nest.webp",
+  pet: "/media/vocabulary/images/pet.webp",
+  shrimp: "/images/assessment/blends/shrimp.webp",
+  sing: "/images/assessment/generated/concepts/sing.webp",
+  slept: "/media/vocabulary/images/sleeping.webp",
+  snap: "/media/vocabulary/images/snap.webp",
+  soft: "/media/vocabulary/images/soft.webp",
+  splash: "/images/assessment/blends/splash.webp",
+  spring: "/media/vocabulary/images/spring.webp",
+  stretch: "/images/assessment/language/variants/verbs/stretch-01.webp",
+  swim: "/media/vocabulary/images/swim.webp",
+  swift: "/media/vocabulary/images/fast.webp",
+  thank: "/images/assessment/hfw/variants/hfw-76-100/thank-l1p1-02.webp",
+  thrill: "/images/emotions/excited_child.png",
+  wet: "/media/vocabulary/images/wet.webp"
+};
+
 function blockAssessmentImageIfNeeded(key, asset, { allowBlockedAssessmentImage = false } = {}) {
   if (!asset || !Object.hasOwn(blockedAssessmentImageAssetNotes, key)) return asset;
   if (allowBlockedAssessmentImage) return asset;
@@ -575,7 +619,15 @@ export function getChildWordAsset(word, options = {}) {
       source: k3VocabularyMedia[key].source
     }
     : null;
-  const candidates = [localAsset, importedAsset, vocabularyAsset];
+  const curatedImage = curatedChildWordImageOverrides[key]
+    ? {
+      word: key,
+      image: curatedChildWordImageOverrides[key],
+      fallbackImage: curatedChildWordImageOverrides[key],
+      source: "curated_child_word_image"
+    }
+    : null;
+  const candidates = [localAsset, importedAsset, vocabularyAsset, curatedImage];
   const primary = candidates.find(Boolean);
   if (!primary) return blockAssessmentImageIfNeeded(key, null, options);
 
@@ -589,7 +641,9 @@ export function getChildWordAsset(word, options = {}) {
         importedAsset?.fallbackImage ||
         importedAsset?.image ||
         vocabularyAsset?.image ||
-        vocabularyAsset?.fallbackImage,
+        vocabularyAsset?.fallbackImage ||
+        curatedImage?.image ||
+        curatedImage?.fallbackImage,
       source: first("source")
     };
   return blockAssessmentImageIfNeeded(key, {

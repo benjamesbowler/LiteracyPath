@@ -4,7 +4,7 @@ export const CVC_WORDS = {
     "bug", "run", "box", "fox", "map", "lip", "leg", "pig", "top", "mat",
     "rat", "sat", "can", "pan", "man", "fan", "ran", "big", "dig", "wig",
     "hop", "pop", "mop", "fun", "bun", "hen", "ten", "net", "wet", "jet",
-    "sit", "hit", "bit", "pot", "hot", "dot", "mud", "hug", "jam", "van"
+    "sit", "hit", "kit", "pot", "hot", "dot", "mud", "hug", "jam", "van"
   ],
   medium: [
     "ship", "fish", "frog", "crab", "tree", "star", "flag", "sock", "lamp", "ring",
@@ -177,7 +177,7 @@ export const WORD_FAMILIES = {
   "-UN": ["sun", "run", "fun", "bun"],
   "-EN": ["pen", "hen", "ten", "men", "den"],
   "-ET": ["net", "wet", "jet", "pet", "get", "vet"],
-  "-OT": ["pot", "hot", "dot", "got", "not", "lot"],
+  "-OT": ["pot", "hot", "dot", "got", "cot", "lot"],
   "-UG": ["bug", "hug", "mug", "rug", "dug", "jug"],
   "-IN": ["pin", "win", "fin", "bin", "tin", "chin"]
 };
@@ -429,7 +429,7 @@ export const GAME_LIST = [
     skill: "Build words from sounds",
     category: "Phonics",
     ...GAME_ACCENTS.green,
-    icon: "/images/learn-games/icon-sound-slide.png",
+    icon: "/images/learn-games/art/soundkeys.webp",
     description: "Play the sounds in order to build a word with your keyboard or a MIDI keyboard.",
     fullBleed: true,
     surfaces: ["arcade"]

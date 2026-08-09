@@ -1,0 +1,33 @@
+.ll-student-surface {
+  min-height: 100dvh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: clamp(1rem, 3vh, 2rem);
+  padding: max(1.25rem, env(safe-area-inset-top)) clamp(1rem, 5vw, 3rem) max(1.25rem, env(safe-area-inset-bottom));
+  overflow: hidden;
+  background: radial-gradient(circle at 88% 12%, rgba(218, 174, 124, .24), transparent 30%), #f8f1e7;
+  color: #23483d;
+  font-family: Andika, ui-rounded, system-ui, sans-serif;
+}
+.ll-student-surface header { text-align: center; }
+.ll-student-surface h1 { margin: .5rem 0 0; font-size: clamp(2rem, 7vw, 4.5rem); line-height: 1; }
+.ll-live-pill { display: inline-flex; padding: .45rem .85rem; border-radius: 999px; background: #315e50; color: #fff; font-weight: 700; }
+.ll-instruction { text-align: center; font-size: clamp(1.1rem, 3vw, 1.6rem); font-weight: 600; }
+.ll-instruction p { margin: 0; }
+.ll-response-region { align-self: center; width: 100%; }
+.ll-empty-choices { display: grid; place-items: center; min-height: 8rem; }
+.ll-choice-grid { align-self: center; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.75rem, 2vw, 1.25rem); width: min(760px, 100%); margin: auto; }
+.ll-choice-grid button, .ll-tile-bank button, .ll-answer-line button { min-height: 5rem; border: 3px solid #315e50; border-radius: 1.25rem; background: #fffdf8; color: #173b32; box-shadow: 0 6px 0 #c9b28f; font: 700 clamp(2rem, 8vw, 4.8rem)/1 Andika, sans-serif; }
+.ll-choice-grid button:active, .ll-tile-bank button:active { transform: translateY(3px); box-shadow: 0 3px 0 #c9b28f; }
+.ll-tile-task { align-self: center; display: grid; gap: 1rem; width: min(820px, 100%); margin: auto; }
+.ll-answer-line, .ll-tile-bank { min-height: 6.5rem; display: flex; align-items: center; justify-content: center; gap: .65rem; padding: .75rem; border-radius: 1.25rem; }
+.ll-answer-line { border: 3px dashed #9b7654; background: rgba(255,255,255,.5); color: #6d5a43; font-weight: 700; }
+.ll-answer-line button, .ll-tile-bank button { width: clamp(4.5rem, 14vw, 7rem); min-height: clamp(4.5rem, 14vw, 7rem); }
+.ll-send-button, .ll-retry { justify-self: center; min-height: 3.5rem; border: 0; border-radius: 999px; padding: .75rem 1.5rem; background: #b75f43; color: white; font: 700 1.1rem/1.2 Andika, sans-serif; }
+.ll-send-button:disabled { opacity: .45; }
+.ll-progress { text-align: center; font-weight: 700; color: #527267; }
+.ll-wait-mark { width: .75rem; height: .75rem; margin: auto; border-radius: 50%; background: #b75f43; }
+.ll-student-surface button:focus-visible { outline: 4px solid #e19a3e; outline-offset: 4px; }
+@media (max-width: 520px) { .ll-choice-grid { grid-template-columns: 1fr 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ll-student-surface *, .ll-student-surface *::before, .ll-student-surface *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }

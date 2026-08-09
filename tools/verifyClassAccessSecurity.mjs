@@ -53,7 +53,9 @@ assert.doesNotMatch(
 );
 assert.match(settings, /Unusual sign-in activity/);
 assert.match(settings, /No student names, passwords, class codes, device IDs, or network addresses are stored here/);
-assert.match(settings, /Code expiry/);
+assert.match(settings, /<span>Code expires<\/span>[\s\S]{0,220}<select/);
+assert.match(settings, /onChange=\{event => changeExpiry\(event\.target\.value\)\}/);
+assert.match(settings, /saveClassCodeExpiry\(\{[\s\S]{0,180}expiresAt/);
 assert.match(seed, /insert into public\.class_access_events/i);
 assert.match(seed, /'rate_limited'/i);
 assert.match(

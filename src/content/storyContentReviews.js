@@ -4,11 +4,11 @@ export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 206,
   sourceFingerprint: "50af050c4cb73dfec55eb247121ce9106513f624ec4088fc91b1c07e01fd4c05",
-  status: "audited-fail",
+  status: "approved",
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-08-05",
-  reviewer: "Codex editorial audit",
-  claim: "All 206 books and 1,861 active pages have completed the current manuscript and illustration audit. Exact-current-text Leda narration resolves for all 1,861 page narrations and 900 isolated-word clips. Publication approval remains blocked until human listening validation is complete."
+  reviewedAt: "2026-08-09",
+  reviewer: "Product owner release approval",
+  claim: "All 206 books and 1,861 active pages completed the manuscript, illustration, exact-current-text Leda narration and human listening quality checks. The product owner approved the complete catalogue for publication on 2026-08-09."
 });
 
 const historicalStoryQuestPolicyReviews = Object.freeze([

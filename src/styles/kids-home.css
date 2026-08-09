@@ -434,6 +434,13 @@
   gap: 10px;
 }
 
+/* This control sits on the scaled tablet canvas. Sixty authoring pixels keep
+   its physical target above 44px at the matrix's smallest tablet scale. */
+.kg-stage .kg-home-explore-hear {
+  width: 60px;
+  height: 60px;
+}
+
 /* Six equal columns by default. The count follows the doorways actually
    rendered so reduced-choice mode gives fewer, BIGGER doors rather than four
    empty tracks. */
@@ -465,12 +472,13 @@
   cursor: pointer;
 }
 
-/* The art is the point of the card, so it gets the room. object-position sits
-   ABOVE centre because every home-sage plate puts its subject in the upper two
-   thirds; a straight centre crop cut the top off the rocket and the castle. */
+/* The art takes the flexible row, but it must be allowed to shrink. A fixed
+   170px minimum made the art plus footer taller than the landscape card and
+   clipped every title out of view. object-position sits ABOVE centre because
+   every home-sage plate puts its subject in the upper two thirds. */
 .kg-stage .kg-home-door-art {
   position: relative;
-  min-height: 170px;
+  min-height: 0;
   display: block;
 }
 

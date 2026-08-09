@@ -31,6 +31,10 @@ import { TEACHER_COPY, countPhrase, progressPhrase } from "../copy/teacherCopy.j
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
+import { selectAllRows } from "../data/pagedSelect.js";
+import { detectMisconceptionSignals } from "../utils/misconceptionDetective.js";
+import { MisconceptionDetectivePanel } from "./teacher/MisconceptionDetectivePanel.jsx";
+import "../styles/misconception-detective.css";
 
 const TODAY_ZONE_PREVIEW = 3;
 
@@ -580,7 +584,9 @@ export function TeacherTodayPage({
   createDemoClass,
   teacherId,
   message,
-  onStartReadingSession
+  onStartReadingSession,
+  misconceptionAnswersSeed = null,
+  misconceptionSeedState = "ready"
 }) {
   const [creatingDemo, setCreatingDemo] = useState(false);
   const [demoError, setDemoError] = useState("");
@@ -592,6 +598,9 @@ export function TeacherTodayPage({
     loading: true,
     unavailable: false
   });
+  const [misconceptionRead, setMisconceptionRead] = useState(() => Array.isArray(misconceptionAnswersSeed)
+    ? { classId: selectedClassId, status: misconceptionSeedState, rows: misconceptionAnswersSeed }
+    : { classId: null, status: "idle", rows: [] });
   const supportPlannerHeadingRef = useRef(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
@@ -656,6 +665,34 @@ export function TeacherTodayPage({
     loadStudentsRef.current?.(selectedClassId);
     loadClassDashboardRef.current?.(selectedClassId);
   }, [classListReadState?.status, selectedClassId]);
+
+  useEffect(() => {
+    let live = true;
+    if (Array.isArray(misconceptionAnswersSeed)) return () => { live = false; };
+    const studentIds = rosterRead.complete ? studentList.map(student => student.id).filter(Boolean) : [];
+    if (!selectedClassId || !studentIds.length) return () => { live = false; };
+    const since = new Date(Date.now() - 120 * 24 * 60 * 60 * 1000).toISOString();
+    selectAllRows(() => supabase
+      .table("answers")
+      .select("student_id,skill,diagnostic_target,chosen_answer,correct_answer,is_correct,answered_at")
+      .in("student_id", studentIds)
+      .gte("answered_at", since)
+      .order("answered_at", { ascending: false }))
+      .then(result => {
+        if (!live) return;
+        setMisconceptionRead({
+          classId: selectedClassId,
+          status: result.error || result.truncated ? "error" : "ready",
+          rows: result.error || result.truncated ? [] : result.data
+        });
+      });
+    return () => { live = false; };
+  }, [misconceptionAnswersSeed, rosterRead.complete, selectedClassId, studentList]);
+
+  const misconceptionSignals = useMemo(() => detectMisconceptionSignals({
+    answers: misconceptionRead.classId === selectedClassId ? misconceptionRead.rows : [],
+    students: studentList
+  }), [misconceptionRead, selectedClassId, studentList]);
 
   const handleSupportQueueChange = useCallback(nextState => {
     const count = Number(nextState?.count || 0);
@@ -926,13 +963,20 @@ export function TeacherTodayPage({
       )}
 
       {selectedClass && rosterRead.complete && dashboardRead.complete && !hasIncompleteEvidence && (
-        <TodayBriefing
-          rows={studentRows}
-          onLoadStudent={onLoadStudent}
-          onStartCheck={onStartCheck}
-          onOpenClasses={onOpenClasses}
-          onOpenProgress={onOpenProgress}
-        />
+        <>
+          <TodayBriefing
+            rows={studentRows}
+            onLoadStudent={onLoadStudent}
+            onStartCheck={onStartCheck}
+            onOpenClasses={onOpenClasses}
+            onOpenProgress={onOpenProgress}
+          />
+          <MisconceptionDetectivePanel
+            signals={misconceptionSignals}
+            state={misconceptionRead.classId === selectedClassId ? misconceptionRead.status : "loading"}
+            onOpenStudent={onLoadStudent}
+          />
+        </>
       )}
 
       {selectedClass && rosterRead.complete && dashboardRead.complete && (

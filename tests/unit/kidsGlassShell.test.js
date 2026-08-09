@@ -219,6 +219,17 @@ test("the metrics are written to the DOM as custom properties, not held in React
   assert.deepEqual(metrics, { scale: 1, stageWidth: 1194 });
   assert.equal(written["--kg-scale"], "1");
   assert.equal(written["--kg-stage-width"], "1194px");
+  assert.equal(written["--kg-physical-hit"], "45px");
+  const portraitTabletWritten = {};
+  applyKidsStageMetrics(
+    { style: { setProperty: (name, value) => { portraitTabletWritten[name] = value; } } },
+    { innerWidth: 768, innerHeight: 1024 }
+  );
+  assert.equal(
+    portraitTabletWritten["--kg-physical-hit"],
+    "45px",
+    "the native portrait-tablet layout must not compensate for a transform it does not use"
+  );
   assert.deepEqual(
     applyKidsStageMetrics(null, { innerWidth: 800, innerHeight: 600 }),
     { scale: 1, stageWidth: KIDS_STAGE_WIDTH }
@@ -502,6 +513,13 @@ test("44 x 44 is enforced as a floor for everything a child taps", () => {
   // it or a child control silently shrinks below the target size.
   assert.match(floor[0], /min-width: var\(--kg-hit\) !important/);
   assert.match(floor[0], /min-height: var\(--kg-hit\) !important/);
+  assert.match(css, /min-width: var\(--kg-physical-hit\) !important/);
+  assert.match(css, /min-height: var\(--kg-physical-hit\) !important/);
+  assert.match(
+    css,
+    /\.kg-stage \.kg-speaker--lg \{[\s\S]*?width:\s*66px;[\s\S]*?height:\s*66px;/,
+    "the large speaker must be large in both dimensions before stage scaling"
+  );
 });
 
 test("the header and the tab bar are built to the spec's exact geometry", () => {

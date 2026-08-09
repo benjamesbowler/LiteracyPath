@@ -242,29 +242,29 @@ The field convention of "80% across two sessions" is convention, not evidence. F
 
 ([PMC5843573](https://pmc.ncbi.nlm.nih.gov/articles/PMC5843573/))
 
-The 80% convention loses roughly 19 percentage points of retained accuracy against 90%. **Secure
-therefore requires four gates, all of them:**
+The 80% convention loses roughly 19 percentage points of retained accuracy against 90%. The product
+therefore separates a **current Secure acquisition judgement** from the stronger claim that learning
+has been retained:
 
 | Gate | Criterion |
 |---|---|
 | **1. Accuracy** | ≥ 90% correct on the target construct |
 | **2. Volume** | ≥ 10 scored items (Law 2) |
-| **3. Stability** | Met on ≥ 2 separate days |
-| **4. Retention** | Re-probe 14-28 days later; **demote on failure** |
+| **3. Stability** | Retained-learning check: met on ≥ 2 separate days |
+| **4. Retention** | Retained-learning check: re-probe 14-28 days later; **demote Secure on failure** |
 
 Where a rate criterion exists for the construct (letter-sound correspondence, high-frequency words, oral
 reading), accuracy alone is insufficient and the rate criterion is a fifth gate. Precision teaching is
 right that mastery is accuracy *plus* rate; accuracy alone does not predict automaticity.
 
-**These gates are stated in the UI.** "Secure — 90%+ on 3 days, retained at 4 weeks" is a claim a teacher
-can evaluate and disagree with. A green checkmark is not.
+**The claim boundary is stated in the UI and exports.** Gates 1 and 2 create a current Secure status.
+The app only claims **retained learning** when gates 3 and 4 are present as well. A failed later check
+demotes Secure; a missing later check means retention is unknown, not failed and not silently assumed.
 
-**Migration note.** The existing policy is 85/70/50 with a floor of 8 scored responses
-(`LEARNING_EVIDENCE_POLICY`). Moving to 90/10 will reduce the number of Secures. **That reduction is
-correct, not a regression** — the same call Ben already made on 2026-07-31 for the roster/report split
-("The roster will show fewer Secures — that is intended, it currently overstates"). The bible's numbers
-are the target; the audit sequences the migration so it lands with a version stamp rather than silently
-restating history.
+**Migration note.** Version `2026.08.09-a4.3c` moved the shared learning policy from 85/8 to 90/10,
+so every screen and export now uses the same current Secure threshold. Retention validation remains a
+separate longitudinal claim until every governed evidence source records distinct days and re-probes.
+That limitation is explicit; the UI must never manufacture the missing checks.
 
 ### IV.3 Aggregation
 
@@ -867,8 +867,9 @@ If a reviewer reads one page, this is it.
 3. **Status and growth are orthogonal.** Never merged. Growth is normed on starting point.
 4. **No trend line below 5 points.** Robust estimator, not OLS. Four-point rule output is labeled provisional.
 5. **Every score carries an uncertainty band.** ORF ±10 WCPM single passage.
-6. **Secure = 90% accuracy, ≥10 items, ≥2 separate days, retention re-probe at 14-28 days**, plus a rate
-   criterion where one exists.
+6. **Current Secure = 90% accuracy and ≥10 recent items. Retained learning additionally requires ≥2
+   separate days and a retention re-probe at 14-28 days.** A failed retention check demotes Secure. A
+   rate criterion is also required where one exists.
 7. **Tier suggestions are suggestions.** Evidence exposed, override prominent, actor logged. The RTI
    notice is non-dismissible.
 8. **Family reports: 8th-grade reading level, no percentiles, summary block at top, four-page guide shipped.**

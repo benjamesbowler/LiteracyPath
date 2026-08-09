@@ -27,6 +27,10 @@
 // unchanged and still in use — reduced-choice mode is a teacher setting that
 // outlives the layout, and tap-to-hear is how a pre-reader uses either shape.
 
+import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
+import { STUDENT_TAB_BAR } from "./studentTabBar.js";
+export { STUDENT_TAB_BAR } from "./studentTabBar.js";
+
 export const STUDENT_RAIL_HOME = Object.freeze({
   id: "home",
   label: "Home",
@@ -62,14 +66,6 @@ export const STUDENT_RAIL_DESTINATIONS = Object.freeze([
 // The five tabs, left to right, exactly as the spec's table orders them. Labels
 // are one short high-frequency word each: the icon carries the meaning for a
 // child who cannot read the label yet.
-export const STUDENT_TAB_BAR = Object.freeze([
-  Object.freeze({ id: "home", label: "Home", icon: "home" }),
-  Object.freeze({ id: "sounds", label: "Sounds", icon: "soundWaves" }),
-  Object.freeze({ id: "books", label: "Books", icon: "book" }),
-  Object.freeze({ id: "games", label: "Games", icon: "arcade" }),
-  Object.freeze({ id: "hollow", label: "Hollow", icon: "hollow" })
-]);
-
 export const STUDENT_TAB_FALLBACK = "home";
 
 // Every place, keyed by id, including Home. Built from the two lists above so
@@ -139,4 +135,3 @@ export function speakStudentRailLabel(text = "", browserWindow = globalThis.wind
     return false;
   }
 }
-import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";

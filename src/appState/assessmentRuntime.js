@@ -41,7 +41,7 @@ import {
   isRuntimeEligibleEarlySkillQuestion,
   normalizeEarlySkillId
 } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
-import { normalizeAssessmentAudioRoles } from "../utils/assessmentAudioRoles.js";
+import { normalizeAssessmentAudioRoles } from "../utils/assessmentAudioPolicy.js";
 
 export const PURE_EARLY_PHONICS_SKILL_IDS = new Set([
   "initial_sounds",

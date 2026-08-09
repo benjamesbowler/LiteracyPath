@@ -22,7 +22,7 @@ import {
  *     are neutral states with neutral colours. A child who has not been assessed
  *     has not failed anything.
  */
-export const REPORTING_BIBLE_VERSION = "2026.08.06-bible-1";
+export const REPORTING_BIBLE_VERSION = "2026.08.09-bible-2";
 
 /* ------------------------------------------------------------------ *
  * Part IV — one status vocabulary, everywhere
@@ -172,8 +172,8 @@ export const REPORTING_BIBLE_POLICY = Object.freeze({
    * https://pmc.ncbi.nlm.nih.gov/articles/PMC5843573/
    */
   mastery: Object.freeze({
-    accuracyPercentMinimum: 90,
-    scoredItemsMinimum: 10,
+    accuracyPercentMinimum: LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum,
+    scoredItemsMinimum: LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses,
     separateDaysMinimum: 2,
     separateDaysHighStakes: 3,
     retentionReprobeMinDays: 14,
@@ -361,8 +361,10 @@ export function evaluateEvidenceSufficiency(scoredItems, options = {}) {
 }
 
 /**
- * The four mastery gates, evaluated together. Returns which gates passed and,
- * where a gate failed, the plain sentence a teacher reads on the tile.
+ * Evaluate the two gates used for a current Secure learning-status judgement
+ * and, separately, the stability and retention checks needed to call that
+ * learning retained. The app must not imply that a retention re-probe happened
+ * when the stored evidence does not contain one.
  */
 export function evaluateMasteryGates({
   accuracyPercent = null,
@@ -417,21 +419,34 @@ export function evaluateMasteryGates({
     });
   }
 
-  const failed = gates.filter(gate => !gate.passed);
+  const secureGates = gates.filter(gate => gate.id === "accuracy" || gate.id === "volume");
+  const retainedGates = gates.filter(gate => gate.id !== "rate");
+  const failedSecureGates = secureGates.filter(gate => !gate.passed);
+  const failedRetainedGates = retainedGates.filter(gate => !gate.passed);
+  const failedRateGate = gates.find(gate => gate.id === "rate" && !gate.passed);
   const demoted = rules.demoteOnRetentionFailure && retentionPassed === false;
+  const secure = failedSecureGates.length === 0 && !failedRateGate && !demoted;
+  const retentionValidated = secure && failedRetainedGates.length === 0;
 
   return {
     policyVersion: REPORTING_BIBLE_VERSION,
     gates,
-    secure: failed.length === 0 && !demoted,
+    secure,
+    retentionValidated,
     demoted,
-    /** The line rendered under a tile: the first unmet gate, in plain words. */
+    /** The line rendered under a current-status tile. */
     whyNotSecure: demoted
       ? "This slipped on a later check, so it is no longer counted as secure."
-      : failed.length === 0
+      : failedSecureGates.length === 0 && !failedRateGate
         ? ""
-        : failed[0].detail,
-    summary: `Secure means ${rules.accuracyPercentMinimum}%+ across at least ${rules.scoredItemsMinimum} items on ${daysNeeded}+ separate days, still there ${rules.retentionReprobeMinDays}-${rules.retentionReprobeMaxDays} days later.`
+        : (failedSecureGates[0] || failedRateGate).detail,
+    whyNotRetentionValidated: retentionValidated
+      ? ""
+      : demoted
+        ? "This slipped on a later check, so retention is not validated."
+        : (failedRetainedGates[0] || failedRateGate)?.detail || "Retention has not been validated.",
+    summary: `Secure means ${rules.accuracyPercentMinimum}%+ across at least ${rules.scoredItemsMinimum} items from recent scored evidence.`,
+    retentionSummary: `Retained learning means Secure evidence on ${daysNeeded}+ separate days and a successful re-check ${rules.retentionReprobeMinDays}-${rules.retentionReprobeMaxDays} days later.`
   };
 }
 
@@ -760,29 +775,17 @@ export const STANDING_NOTICES = Object.freeze({
  * ------------------------------------------------------------------ */
 
 /**
- * The bible and `learningPolicy` describe the same world at different strictness.
- * This function reports the deltas so a migration is deliberate and dated rather
- * than an accident. `tools/checkReportingBible.mjs` prints it.
+ * Remaining implementation deltas are explicit. Accuracy and evidence-volume
+ * thresholds are owned by `learningPolicy`; this list names evidence the app
+ * does not yet collect consistently enough to claim everywhere.
  */
 export function reportingBibleMigrationDeltas() {
   return [
     {
-      id: "secure_accuracy",
-      from: `${LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum}%`,
-      to: `${REPORTING_BIBLE_POLICY.mastery.accuracyPercentMinimum}%`,
-      effect: "Fewer Secures. Intended — 85% retains ~69% at 3-4 weeks, 90% retains ~88%."
-    },
-    {
-      id: "minimum_items",
-      from: `${LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses} scored responses`,
-      to: `${REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems} scored items for any judgement, ${REPORTING_BIBLE_POLICY.evidenceSufficiency.confidentMinimumScoredItems} for a confident one`,
-      effect: "More tiles read 'Not enough results'. Intended — subscores below 10 items carry no information."
-    },
-    {
       id: "retention",
-      from: "no retention gate on concept tiles",
-      to: `re-probe ${REPORTING_BIBLE_POLICY.mastery.retentionReprobeMinDays}-${REPORTING_BIBLE_POLICY.mastery.retentionReprobeMaxDays} days later, demote on failure`,
-      effect: "Secure becomes revocable. This is the point of it."
+      from: "current Secure status from recent acquisition evidence",
+      to: `add a separate retained-learning marker after a re-probe ${REPORTING_BIBLE_POLICY.mastery.retentionReprobeMinDays}-${REPORTING_BIBLE_POLICY.mastery.retentionReprobeMaxDays} days later`,
+      effect: "Do not label learning retained until the required longitudinal evidence exists."
     },
     {
       id: "status_vocabulary",

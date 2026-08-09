@@ -1,104 +1,31 @@
+import { normalizeGuidedReadingReview } from "../policy/guidedReadingApprovalPolicy.js";
+
+export {
+  GUIDED_READING_PUBLICATION_MODEL,
+  GUIDED_READING_REVIEW_STATUSES,
+  approvedGuidedReadingBookIds,
+  filterApprovedGuidedReadingBooks,
+  filterPublishedGuidedReadingBooks,
+  guidedReadingReviewMap,
+  normalizeGuidedReadingReview,
+  quarantinedGuidedReadingBookIds
+} from "../policy/guidedReadingApprovalPolicy.js";
+
 /**
  * Guided Reading publication.
  *
- * THIS IS A BLOCKLIST, NOT AN ALLOWLIST. Every authored book is live to children
- * by default. A book leaves the child side only when an app admin explicitly
- * fails it, and only with a repair note saying why.
- *
- * It used to be the other way round — fail-closed, nothing visible until
- * approved — and the consequence was that with an empty review table, all 206
- * books were invisible to every child while the Daily Mission cheerfully
- * advertised a "book of the day" that led to an empty shelf. A review queue
- * nobody had worked through was silently the same thing as having no library.
- *
- * The safety property that matters is preserved and is arguably stronger: an
- * admin can still pull a bad book instantly, and now that action is visible in
- * the data as a deliberate act rather than as the absence of one.
+ * Child publication is fail-closed. A book is visible only after an app admin
+ * records an explicit approval. Missing rows, an unreadable review service, and
+ * newly authored books remain off child and teacher-assignment surfaces until
+ * their content and media have been reviewed.
  */
-export const GUIDED_READING_REVIEW_STATUSES = Object.freeze({
-  APPROVED: "approved",
-  PENDING: "pending",
-  QUARANTINED: "quarantined"
-});
-
-/** Books live by default; only an explicit fail removes one. */
-export const GUIDED_READING_PUBLICATION_MODEL = "open_by_default";
-
-export function normalizeGuidedReadingReview(row = {}) {
-  const status = String(row.status || "").toLowerCase();
-  const bookId = row.book_id || row.bookId;
-  if (!bookId || !["approved", "quarantined"].includes(status)) return null;
-  return Object.freeze({
-    bookId: String(bookId),
-    status,
-    reviewNote: String(row.review_note ?? row.reviewNote ?? ""),
-    reviewedAt: row.reviewed_at || row.reviewedAt || "",
-    reviewedBy: row.reviewed_by || row.reviewedBy || ""
-  });
-}
-
-export function guidedReadingReviewMap(rows = []) {
-  return Object.fromEntries(
-    rows
-      .map(normalizeGuidedReadingReview)
-      .filter(Boolean)
-      .map(review => [review.bookId, review])
-  );
-}
-
-export function approvedGuidedReadingBookIds(rows = []) {
-  return rows
-    .map(normalizeGuidedReadingReview)
-    .filter(review => review?.status === GUIDED_READING_REVIEW_STATUSES.APPROVED)
-    .map(review => review.bookId);
-}
-
-/** The only list that removes anything from a child's shelf. */
-export function quarantinedGuidedReadingBookIds(rows = []) {
-  return rows
-    .map(normalizeGuidedReadingReview)
-    .filter(review => review?.status === GUIDED_READING_REVIEW_STATUSES.QUARANTINED)
-    .map(review => review.bookId);
-}
-
-/**
- * The child-facing filter. Everything passes except books an admin has failed.
- *
- * `quarantinedBookIds` of `null` or `undefined` means "we could not read the
- * review list" — and that resolves to showing every book. A publication service
- * that is briefly unreachable must not empty a five-year-old's library; the
- * cost of that outage is far higher than the cost of a quarantined book staying
- * up for a few minutes longer.
- */
-export function filterPublishedGuidedReadingBooks(books = [], quarantinedBookIds = []) {
-  if (!quarantinedBookIds) return books;
-  const quarantined = quarantinedBookIds instanceof Set
-    ? quarantinedBookIds
-    : new Set(quarantinedBookIds);
-  if (!quarantined.size) return books;
-  return books.filter(book => !quarantined.has(book?.id));
-}
-
-/**
- * @deprecated The allowlist model. Retained only so an old caller fails loudly
- * rather than silently hiding a library. Use `filterPublishedGuidedReadingBooks`.
- */
-export function filterApprovedGuidedReadingBooks(books = [], approvedBookIds = []) {
-  const approved = approvedBookIds instanceof Set
-    ? approvedBookIds
-    : new Set(approvedBookIds);
-  return books.filter(book => approved.has(book?.id));
-}
-
 export async function loadGuidedReadingBookReviews({ client } = {}) {
   if (!client?.table) {
-    // Not an error state any more. With no publication service configured there
-    // is nothing quarantined, so every book is live.
     return {
-      complete: true,
+      complete: false,
       error: null,
       rows: [],
-      status: "open"
+      status: "unavailable"
     };
   }
 
@@ -108,8 +35,6 @@ export async function loadGuidedReadingBookReviews({ client } = {}) {
     .order("reviewed_at", { ascending: false });
 
   if (error) {
-    // Same reasoning as the no-client case: an unreadable review list means we
-    // know of nothing to withhold, not that we should withhold everything.
     return { complete: false, error, rows: [], status: "error" };
   }
 

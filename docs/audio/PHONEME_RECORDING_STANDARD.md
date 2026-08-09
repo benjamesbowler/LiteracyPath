@@ -54,8 +54,17 @@ coarticulation makes arbitrary word cuts poor isolated teaching sounds.
    in the generated technical review. Automated checks cannot approve
    pronunciation, accent suitability, word contamination or teaching quality.
 6. Only reviewed, rights-cleared masters may be normalized and installed into
-   the public audio bank. Installation is intentionally separate from this
-   intake tool so a recording cannot become live merely by passing file checks.
+  the public audio bank. Installation is intentionally separate from this
+  intake tool so a recording cannot become live merely by passing file checks.
+
+If a Sound Seekers cue is missing in future, run `npm run
+prepare:missing-phoneme-recording`. This creates a focused pack for only the
+cues listed by the runtime's `NEEDS_AUDIO` authority. The list is currently
+empty: the reviewed Leda `/ʊ/` cue as in `book` and natural `/aʊ/` interjection
+as in `cow` completed the final two gaps. Check any future returned files with
+`npm run check:missing-phoneme-recording -- --input
+/absolute/path/to/incoming`. The focused command still requires completed rights
+metadata and human phonics review.
 
 ## Acceptance rules
 

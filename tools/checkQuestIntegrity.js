@@ -14,6 +14,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const releaseMode = process.argv.includes("--release");
 
 const { QUEST_STOPS, QUEST_SHELL_IDS, NEEDS_AUDIO, taughtThrough } =
   await import(path.join(ROOT, "src/data/questSequence.js"));
@@ -85,11 +86,6 @@ for (const stop of QUEST_STOPS) {
 // Silence is allowed (the Listen button hides itself). A path that points at
 // nothing is not — that is how you ship a button that does nothing.
 const needsAudio = new Set(NEEDS_AUDIO);
-const alternativeSoundIds = new Set(
-  QUEST_STOPS.flatMap(stop => (stop.teach || [])
-    .filter(entry => entry.kind === "alt")
-    .map(entry => entry.id))
-);
 const silent = [];
 for (const stop of QUEST_STOPS) {
   for (const entry of stop.teach) {
@@ -99,10 +95,9 @@ for (const stop of QUEST_STOPS) {
     if (entry.kind === "blend" || entry.kind === "morph") continue;
 
     const id = entry.id;
-    // An alt pronunciation is a NEW sound for an OLD spelling, so it needs its
-    // own clip — and playing the base grapheme's other sound would actively
-    // teach the wrong thing. Until it's recorded, it is silent.
-    const candidates = entry.kind === "alt" ? [] : graphemeCandidates(id);
+    // Quest audio resolution applies the stricter rule for alternative
+    // pronunciations: only their dedicated /audio/quest/alt clip counts.
+    const candidates = graphemeCandidates(id);
     const found = candidates.find(p => fs.existsSync(path.join(ROOT, "public", p)));
 
     if (!found) {
@@ -112,15 +107,14 @@ for (const stop of QUEST_STOPS) {
   }
 }
 if (silent.length) {
-  warn(`${silent.length} sounds have no gold-voice recording yet and will play SILENT (this is by design — never a robot voice):\n    ${silent.join("\n    ")}`);
+  const message = `${silent.length} sounds have no gold-voice recording yet and will play SILENT (this is by design — never a robot voice):\n    ${silent.join("\n    ")}`;
+  if (releaseMode) fail(message);
+  else warn(message);
 }
 
 // Anything in NEEDS_AUDIO that HAS turned up should be removed from the list,
 // or the list rots into a lie.
 for (const g of NEEDS_AUDIO) {
-  // Alternative pronunciations must not inherit a base grapheme recording:
-  // that would teach the wrong sound.
-  if (alternativeSoundIds.has(g)) continue;
   const candidates = graphemeCandidates(g);
   if (candidates.some(p => fs.existsSync(path.join(ROOT, "public", p)))) {
     fail(`NEEDS_AUDIO still lists "${g}", but a recording now exists. Remove it from the list.`);

@@ -456,7 +456,17 @@ function letterSoundSlide(card, cycle, world) {
         <div class="p-words p-words-${words.length || 1}">${pics}</div>
       </div>
     </div>`,
-  { cls: "p-letter-slide", section: "Sounds", audio: phoneme, teacher: tip, char: "wave" });
+  {
+    cls: "p-letter-slide",
+    section: "Sounds",
+    audio: phoneme,
+    teacher: tip,
+    char: "wave",
+    attrs: {
+      "data-live-kind": "grapheme_choice",
+      "data-live-target": card.spelling
+    }
+  });
 }
 
 function writingSvg(text) {
@@ -533,7 +543,16 @@ function sightWordSlide(word, cycle, world) {
         ${audioButton(wordAudio(word), "Read it")}
       </div>
     </div>`,
-  { cls: "p-sight-slide", section: "Words", audio: wordAudio(word), char: "read" });
+  {
+    cls: "p-sight-slide",
+    section: "Words",
+    audio: wordAudio(word),
+    char: "read",
+    attrs: {
+      "data-live-kind": "word_choice",
+      "data-live-target": word
+    }
+  });
 }
 
 function blendSlides(cycle, world) {
@@ -544,7 +563,16 @@ function blendSlides(cycle, world) {
       <p class="p-kicker">Blend with me</p>
       <div class="p-compound" data-blend-word="${esc(word)}">${letters}${ICON_ARROW}<button class="p-made" data-play="${esc(wordAudio(word))}" type="button">${esc(word)}</button></div>
       <h2 class="p-h2">Say each sound on its own. Then say the whole word.</h2>`,
-    { cls: "p-blend", section: "Blending", audio: wordAudio(word), char: "wave" });
+    {
+      cls: "p-blend",
+      section: "Blending",
+      audio: wordAudio(word),
+      char: "wave",
+      attrs: {
+        "data-live-kind": "arrange_tiles",
+        "data-live-target": word
+      }
+    });
   });
 }
 
@@ -990,7 +1018,7 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Caprasimo&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>${DECK_CSS}</style></head>
-<body>
+<body data-deck-key="${esc(`${cycleId}:${dayKey}`)}">
 <div id="scaler"><div id="stage">
   <header id="rail"><span id="rail-title">${esc(railLabel)}</span><nav id="rail-sections" aria-label="Lesson sections"></nav></header>
   <div id="deck">${slides.join("")}</div>
@@ -1014,7 +1042,18 @@ export function presentationSlideIndex(cycleId, { day = "" } = {}) {
     const cls = match[1].trim();
     const attrs = match[2] || "";
     const section = /data-section="([^"]*)"/.exec(attrs)?.[1] || "";
-    out.push({ index: out.length, cls, section });
+    const liveKind = /data-live-kind="([^"]*)"/.exec(attrs)?.[1] || "";
+    const liveTarget = /data-live-target="([^"]*)"/.exec(attrs)?.[1] || "";
+    out.push({
+      index: out.length,
+      cls,
+      section,
+      liveKind,
+      liveTarget,
+      livePromptId: liveKind && liveTarget
+        ? `slide-${out.length}-${liveKind}-${liveTarget}`
+        : ""
+    });
     match = re.exec(html);
   }
   return out;

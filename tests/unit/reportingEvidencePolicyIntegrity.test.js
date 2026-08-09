@@ -259,7 +259,7 @@ function checkpointAttempt({
   attemptId,
   studentId,
   skillName = "Initial Sounds",
-  correctCount = 8,
+  correctCount = 10,
   completedAt = "2026-07-20T10:00:00.000Z",
   formatType = "INITIAL_SOUND"
 }) {
@@ -272,12 +272,12 @@ function checkpointAttempt({
     skillName,
     administrationStatus: "completed",
     completedAt,
-    totalQuestions: 8,
+    totalQuestions: 10,
     correctCount,
     formVersion: "form-a",
     contentVersion: "content-a",
     scoringVersion: "score-a",
-    questionRecords: Array.from({ length: 8 }, (_, index) => ({
+    questionRecords: Array.from({ length: 10 }, (_, index) => ({
       questionId: `${attemptId}-q-${index + 1}`,
       itemType: formatType.startsWith("HFW") ? "sight_word" : "initial_sound",
       itemKey: formatType.startsWith("HFW") ? "the" : "m",
@@ -384,8 +384,8 @@ test("class support skills combine current results across sittings", () => {
       correctCount: 0,
       completedAt: `2026-07-${20 + index}T10:00:00.000Z`
     });
-    attempt.totalQuestions = 4;
-    attempt.questionRecords = attempt.questionRecords.slice(0, 4);
+    attempt.totalQuestions = 5;
+    attempt.questionRecords = attempt.questionRecords.slice(0, 5);
     return attempt;
   });
   const report = buildClassReportModel({
@@ -465,7 +465,7 @@ test("one learner needing support does not become a whole-class focus", () => {
       checkpointAttempt({
         attemptId: `${student.id}-a`,
         studentId: student.id,
-        correctCount: index === 0 ? 0 : 8
+        correctCount: index === 0 ? 0 : 10
       }),
       checkpointAttempt({
         attemptId: `${student.id}-b`,
@@ -512,7 +512,7 @@ test("class report collapses skill-name aliases into one canonical row", () => {
   assert.equal(report.heatmap.length, 1);
   assert.equal(report.heatmap[0].canonicalSkillName, "Initial Sounds");
   assert.deepEqual(report.heatmap[0].rawSkillNames, ["Initial Sound", "Initial Sounds"]);
-  assert.ok(report.heatmap[0].cells.every(cell => cell.scoredResponses === 16));
+  assert.ok(report.heatmap[0].cells.every(cell => cell.scoredResponses === 20));
 });
 
 test("class report includes reconciled saved answers without inventing assessment sittings", () => {
@@ -553,7 +553,7 @@ test("class report separates verified status from additional saved-answer histor
   const verifiedAttempt = checkpointAttempt({
     attemptId: "verified-check",
     studentId: "student-1",
-    correctCount: 8
+    correctCount: 10
   });
   const answerHistory = Array.from({ length: 20 }, (_, index) => ({
     id: `mixed-answer-${index + 1}`,
@@ -579,15 +579,15 @@ test("class report separates verified status from additional saved-answer histor
   const cell = report.heatmap[0].cells[0];
 
   assert.equal(student.status.id, "not_enough_evidence");
-  assert.equal(student.totalQuestions, 8);
+  assert.equal(student.totalQuestions, 10);
   assert.equal(student.accuracy, 100);
   assert.equal(student.savedAnswers, 20);
-  assert.equal(student.selectedPeriodTotalQuestions, 28);
-  assert.equal(student.selectedPeriodCorrectCount, 14);
-  assert.equal(student.selectedPeriodAccuracy, 50);
+  assert.equal(student.selectedPeriodTotalQuestions, 30);
+  assert.equal(student.selectedPeriodCorrectCount, 16);
+  assert.equal(student.selectedPeriodAccuracy, 53);
   assert.equal(cell.statusId, "mastered");
-  assert.equal(cell.selectedPeriodScoredResponses, 28);
-  assert.equal(cell.selectedPeriodCorrectResponses, 14);
+  assert.equal(cell.selectedPeriodScoredResponses, 30);
+  assert.equal(cell.selectedPeriodCorrectResponses, 16);
   assert.deepEqual(student.supportSkills, []);
 });
 
@@ -608,7 +608,7 @@ test("class report keeps older rows in an explicitly selected historical period"
   assert.equal(report.provenanceEvidence.length, 1);
   assert.equal(report.historicalEvidence.length, 1);
   assert.equal(report.snapshot.attempts, 1);
-  assert.equal(report.studentRows[0].totalQuestions, 8);
+  assert.equal(report.studentRows[0].totalQuestions, 10);
   assert.equal(report.studentRows[0].status.id, "not_enough_evidence");
 });
 

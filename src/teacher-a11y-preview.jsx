@@ -29,6 +29,7 @@ import { loadStudentProfile } from "./utils/studentProfile.js";
 import { computeHydratedValue } from "./utils/progressMerge.js";
 
 const params = new URLSearchParams(window.location.search);
+const PREVIEW_NOW = Date.now();
 const surface = params.get("surface") || "today";
 const showLearnerDrawer = params.get("learner") === "1";
 const previewStartsWithoutClass = params.get("class") === "none";
@@ -69,6 +70,19 @@ const students = [
     lastActive: "2026-07-21T09:00:00.000Z"
   }
 ];
+const misconceptionPreviewAnswers = params.has("misconception") ? [
+  ["2026-08-01T10:00:00Z", "pin", "pan"],
+  ["2026-08-02T10:00:00Z", "pin", "pan"],
+  ["2026-08-03T10:00:00Z", "pin", "pan"]
+].map(([answered_at, chosen_answer, correct_answer]) => ({
+  student_id: studentId,
+  skill: "CVC Short Vowels",
+  diagnostic_target: "cvc_short_vowels",
+  chosen_answer,
+  correct_answer,
+  is_correct: false,
+  answered_at
+})) : null;
 const progressRows = [
   {
     ...students[0],
@@ -302,6 +316,8 @@ function Dashboard({ page }) {
         onOpenClasses={noop}
         onOpenProgress={noop}
         teacherId=""
+        misconceptionAnswersSeed={misconceptionPreviewAnswers}
+        misconceptionSeedState={params.has("misconception-error") ? "error" : "ready"}
         schoolName="LiteracyPath Audit School"
         hasSchool={true}
       />
@@ -311,6 +327,7 @@ function Dashboard({ page }) {
   return (
     <TeacherStudentsPage
       classList={classList}
+      studentList={previewStudents}
       selectedClassId={selectedClassId}
       setSelectedClassId={setSelectedClassId}
       setStudentList={noop}
@@ -414,6 +431,7 @@ function Intent({ intent }) {
       intent={intent}
       teacherId=""
       classList={classList}
+      studentList={previewStudents}
       selectedClassId={classId}
       cycleId={teacherCycleOptions()[5]?.id || ""}
       onOpenGuidedReading={noop}
@@ -455,6 +473,13 @@ function Reports() {
   const [selectedReportView, setSelectedReportView] = useState(
     () => readTeacherFunnelParams().get("report") || ""
   );
+  const impactAnswersSeed = useMemo(() => {
+    const now = PREVIEW_NOW;
+    return [studentId, "student-aisha"].flatMap((rowStudentId, studentIndex) => [
+      ...Array.from({ length: 5 }, (_, index) => ({ student_id: rowStudentId, skill: "CVC Short Vowels", is_correct: index < (studentIndex ? 4 : 5), answered_at: new Date(now - (index + 1) * 86400000).toISOString() })),
+      ...Array.from({ length: 5 }, (_, index) => ({ student_id: rowStudentId, skill: "CVC Short Vowels", is_correct: index < 2, answered_at: new Date(now - (30 + index) * 86400000).toISOString() }))
+    ]);
+  }, []);
   return (
     <TeacherReportsHubPage
       classList={classList}
@@ -463,6 +488,7 @@ function Reports() {
       onSelectClass={asyncNoop}
       studentRows={previewProgressRows}
       studentList={previewStudents}
+      impactAnswersSeed={impactAnswersSeed}
       selectedStudentId={studentId}
       selectedStudentName="Aarav"
       onSelectStudent={asyncNoop}

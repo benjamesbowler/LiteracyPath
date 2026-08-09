@@ -9,6 +9,15 @@ import {
   PRESENTATION_DAYS
 } from "../utils/present/presentationBuilder.js";
 import { EL_CYCLE_POEMS } from "../data/elCyclePoems.js";
+import { buildLiveLessonContent } from "../content/liveLessons/liveLessonContent.js";
+import {
+  createLiveLessonEventId,
+  endLiveLesson,
+  getActiveLiveLesson,
+  getLiveLessonSnapshot,
+  setLiveLessonSlide,
+  startLiveLesson
+} from "../data/liveLessonCore.js";
 import "../styles/worksheets.css";
 import "../styles/present.css";
 
@@ -67,7 +76,14 @@ function postPreviewToFrame(frame, index) {
   }
 }
 
-export function PresentPage({ className = "", currentCycleId = "", onBack }) {
+export function PresentPage({
+  className = "",
+  classId = "",
+  currentCycleId = "",
+  students = [],
+  client = null,
+  onBack
+}) {
   const cycleOptions = useMemo(() => presentationCycleOptions(), []);
   const teachingCycles = useMemo(
     () => cycleOptions.filter(option => option.type !== "assessment"),
@@ -91,6 +107,13 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
   const [fallbackUrl, setFallbackUrl] = useState("");
   const fallbackRef = useRef("");
   const frameRef = useRef(null);
+  const [liveSetupOpen, setLiveSetupOpen] = useState(false);
+  const [liveSelected, setLiveSelected] = useState([]);
+  const [liveSession, setLiveSession] = useState(null);
+  const [liveSnapshot, setLiveSnapshot] = useState([]);
+  const [liveBusy, setLiveBusy] = useState(false);
+  const [liveError, setLiveError] = useState("");
+  const recoveryCheckedRef = useRef(false);
 
   const cycle = useMemo(() => getPresentationCycle(cycleId), [cycleId]);
   const isFluency = (cycle?.cycleNumber || 0) >= 25;
@@ -112,6 +135,20 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
       return "";
     }
   }, [cycleId, effectiveDay]);
+
+  const liveContent = useMemo(() => {
+    try {
+      return buildLiveLessonContent(cycleId, { day: effectiveDay });
+    } catch {
+      return null;
+    }
+  }, [cycleId, effectiveDay]);
+  const liveDeckKey = `${cycleId}:${effectiveDay}`;
+
+  const availableStudents = useMemo(
+    () => students.filter(student => !student.archived_at && !student.archivedAt),
+    [students]
+  );
 
   const dayCounts = useMemo(() => {
     const out = { "": 0 };
@@ -147,6 +184,115 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
   useEffect(() => {
     postPreviewToFrame(frameRef.current, preview);
   }, [preview]);
+
+  useEffect(() => {
+    if (!client || recoveryCheckedRef.current) return;
+    recoveryCheckedRef.current = true;
+    let active = true;
+    getActiveLiveLesson({ client }).then(data => {
+      const recovered = data?.session;
+      if (!active || !recovered?.id) return;
+      setCycleId(recovered.cycle_id);
+      setDay(recovered.day_key || "");
+      setLiveSelected(recovered.student_ids || []);
+      setLiveSession(recovered);
+    }).catch(() => {
+      if (active) setLiveError("We could not check for an earlier Class Quest session. Refresh this page before starting another one.");
+    });
+    return () => { active = false; };
+  }, [client]);
+
+  useEffect(() => {
+    if (!liveSession?.id || !client) return undefined;
+    function receiveSlide(data) {
+      if (data?.type !== "lp-present-slide" || data.deckKey !== liveDeckKey) return;
+      const slideIndex = Number(data.index);
+      if (!Number.isInteger(slideIndex)) return;
+      void setLiveLessonSlide({
+        client,
+        sessionId: liveSession.id,
+        slideIndex,
+        clientEventId: createLiveLessonEventId("slide")
+      }).catch(() => setLiveError("The class devices did not receive the latest slide. Move back and forward once to retry."));
+    }
+    function handleProjectorMessage(event) {
+      if (event.origin !== window.location.origin) return;
+      receiveSlide(event.data);
+    }
+    let channel = null;
+    try {
+      if ("BroadcastChannel" in window) {
+        channel = new BroadcastChannel("lp-present-live");
+        channel.addEventListener("message", event => receiveSlide(event.data));
+      }
+    } catch {
+      channel = null;
+    }
+    window.addEventListener("message", handleProjectorMessage);
+    return () => {
+      window.removeEventListener("message", handleProjectorMessage);
+      channel?.close();
+    };
+  }, [client, liveDeckKey, liveSession?.id]);
+
+  useEffect(() => {
+    if (!liveSession?.id || !client) return undefined;
+    let stopped = false;
+    let timer;
+    async function poll() {
+      try {
+        const data = await getLiveLessonSnapshot({ client, sessionId: liveSession.id });
+        if (!stopped && data?.ok !== false) setLiveSnapshot(data?.students || []);
+      } catch {
+        // The deck must remain teachable if private diagnostics briefly fail.
+      }
+      if (!stopped) timer = window.setTimeout(poll, 3000);
+    }
+    void poll();
+    return () => { stopped = true; window.clearTimeout(timer); };
+  }, [client, liveSession?.id]);
+
+  function openLiveSetup() {
+    setLiveSelected(availableStudents.map(student => student.id));
+    setLiveError("");
+    setLiveSetupOpen(true);
+  }
+
+  async function handleStartLive() {
+    if (!client || !classId || !liveContent || !liveSelected.length) return;
+    setLiveBusy(true);
+    setLiveError("");
+    try {
+      const data = await startLiveLesson({ client, classId, studentIds: liveSelected, content: liveContent });
+      if (data?.ok === false) throw new Error(data.error || "live_lesson_not_started");
+      setLiveSession(data.session);
+      setLiveSetupOpen(false);
+      setLiveSnapshot([]);
+    } catch (error) {
+      const code = String(error?.message || "");
+      setLiveError(code.includes("student_busy")
+        ? "One of these learners is already in another teacher-led session. End that session or remove the learner, then try again."
+        : "Class Quest could not start. Your learner choices are still here; check the connection and try again.");
+    } finally {
+      setLiveBusy(false);
+    }
+  }
+
+  async function handleEndLive() {
+    if (!liveSession?.id || !client || liveBusy) return;
+    setLiveBusy(true);
+    try {
+      const data = await endLiveLesson({ client, sessionId: liveSession.id });
+      if (data?.ok === false) throw new Error(data.error || "live_lesson_not_ended");
+      setLiveSession(null);
+      setLiveSnapshot([]);
+      setLiveError("");
+    } catch {
+      setLiveError("The session did not end yet. Keep this page open and try again.");
+    } finally {
+      setLiveBusy(false);
+    }
+  }
 
   function replaceFallbackUrl(url) {
     if (fallbackRef.current) {
@@ -224,6 +370,17 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
           </p>
         </div>
         <div className="pr-head-actions">
+          {!liveSession && (
+            <button
+              type="button"
+              className="ws-ghost pr-live-start"
+              onClick={openLiveSetup}
+              disabled={!client || !classId || !availableStudents.length || !liveContent?.prompts?.length}
+              title={!client ? "Class Quest Live needs an internet connection" : undefined}
+            >
+              Start Class Quest Live
+            </button>
+          )}
           <button type="button" className="ws-primary pr-present" onClick={handlePresent}>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v2H3V4Zm1 3h16v9H13v2l3 2v1H8v-1l3-2v-2H4V7Z" /></svg>
             Present full screen
@@ -231,12 +388,72 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
         </div>
       </header>
 
+      {liveError && <p className="pr-live-error" role="alert">{liveError}</p>}
+
+      {liveSetupOpen && (
+        <section className="pr-live-setup" aria-labelledby="live-setup-title">
+          <div>
+            <p className="pr-live-kicker">Private learner devices</p>
+            <h2 id="live-setup-title">Who is joining Class Quest?</h2>
+            <p>Responses help you notice who may need support. They never change mastery automatically, and names or scores never appear on the projector.</p>
+          </div>
+          <div className="pr-live-roster" role="group" aria-label="Learners joining">
+            {availableStudents.map(student => {
+              const selected = liveSelected.includes(student.id);
+              return (
+                <label key={student.id} className={selected ? "selected" : ""}>
+                  <input
+                    type="checkbox"
+                    checked={selected}
+                    onChange={() => setLiveSelected(ids => selected ? ids.filter(id => id !== student.id) : [...ids, student.id])}
+                  />
+                  <span>{student.name || "Learner"}</span>
+                </label>
+              );
+            })}
+          </div>
+          <div className="pr-live-setup-actions">
+            <button type="button" className="ws-ghost" onClick={() => setLiveSetupOpen(false)} disabled={liveBusy}>Cancel</button>
+            <button type="button" className="ws-primary" onClick={handleStartLive} disabled={liveBusy || !liveSelected.length}>
+              {liveBusy ? "Starting…" : `Start with ${liveSelected.length} learner${liveSelected.length === 1 ? "" : "s"}`}
+            </button>
+          </div>
+        </section>
+      )}
+
+      {liveSession && (
+        <section className="pr-live-panel" aria-labelledby="live-panel-title">
+          <div className="pr-live-panel-head">
+            <div>
+              <p className="pr-live-kicker">Live now · private to you</p>
+              <h2 id="live-panel-title">Class response check</h2>
+            </div>
+            <button type="button" className="ws-ghost" onClick={handleEndLive} disabled={liveBusy}>
+              {liveBusy ? "Ending…" : "End Class Quest"}
+            </button>
+          </div>
+          <div className="pr-live-status-list">
+            {liveSelected.map(id => {
+              const student = availableStudents.find(item => item.id === id);
+              const status = liveSnapshot.find(item => item.student_id === id);
+              return (
+                <div key={id} className={`pr-live-status${status?.responded ? (status.is_correct ? " correct" : " check") : ""}`}>
+                  <strong>{student?.name || "Learner"}</strong>
+                  <span>{status?.responded ? (status.is_correct ? "Ready" : "Check in") : status?.connected ? "Thinking" : "Joining"}</span>
+                </div>
+              );
+            })}
+          </div>
+          <p className="pr-live-note">“Check in” is a teaching cue, not a score. Ask the learner what they noticed before deciding the next step.</p>
+        </section>
+      )}
+
       <div className="pr-grid">
         <div className="pr-choices">
           <section className="pr-card" aria-label="Presentation options">
             <label className="ws-field">
               <span>Cycle</span>
-              <select value={cycleId} onChange={e => chooseCycle(e.target.value)}>
+              <select value={cycleId} onChange={e => chooseCycle(e.target.value)} disabled={Boolean(liveSession)}>
                 <optgroup label="Teaching cycles">
                   {teachingCycles.map(opt => (
                     <option key={opt.id} value={opt.id}>{opt.label}</option>
@@ -262,6 +479,7 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
                       type="button"
                       className={`pr-day${day === tile.value ? " active" : ""}`}
                       aria-pressed={day === tile.value}
+                      disabled={Boolean(liveSession)}
                       onClick={() => chooseDay(tile.value)}
                     >
                       <span className="pr-day-name">{tile.short}</span>
@@ -272,6 +490,7 @@ export function PresentPage({ className = "", currentCycleId = "", onBack }) {
                     type="button"
                     className={`pr-day${day === "" ? " active" : ""}`}
                     aria-pressed={day === ""}
+                    disabled={Boolean(liveSession)}
                     onClick={() => chooseDay("")}
                   >
                     <span className="pr-day-name">Whole</span>

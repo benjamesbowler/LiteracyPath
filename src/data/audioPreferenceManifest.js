@@ -8,10 +8,30 @@ import {
   DEFERRED_ATOMIC_SOUND_KEYS,
   getPreferredPhonemeAudioPath
 } from "./phonemeAudioBank.js";
-import {
-  getLedaWordAudioPath,
-  isLedaProductionAudioPath
-} from "./ledaProductionAudio.js";
+import { LEDA_WORD_AUDIO } from "./generated/ledaWordAudio.generated.js";
+
+function normalizeLedaWord(value = "") {
+  return String(value || "")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/^hfw:/iu, "")
+    .replace(/[’‘]/gu, "'")
+    .replace(/[“”]/gu, "\"")
+    .replace(/[–—]/gu, "-")
+    .replace(/\s+/gu, " ")
+    .replace(/[.!?]+$/gu, "")
+    .trim();
+}
+
+function getLedaWordAudioPath(value = "") {
+  return LEDA_WORD_AUDIO[normalizeLedaWord(value)] || "";
+}
+
+function isLedaProductionAudioPath(value = "") {
+  return /^\/audio\/production\/en-US\/(?:supplemental|isolated_word|letter_name|assessment_prompt|assessment_passage|instruction|guided_page|story_page|poem|report)\//u.test(
+    String(value || "")
+  );
+}
 
 function normalizeAudioPreferenceKey(value) {
   return String(value || "")

@@ -733,7 +733,7 @@ export function addHowToReadSheet(workbook, {
     alignment: { vertical: "top", wrapText: true }
   });
   row += 1;
-  gates.gates.forEach((gate, index) => {
+  gates.gates.filter(gate => gate.id === "accuracy" || gate.id === "volume").forEach((gate, index) => {
     writeCell(sheet, `B${row}`, `Gate ${index + 1}`, { font: WORKBOOK_FONTS.kpiLabel, alignment: { vertical: "top" } });
     writeCell(sheet, `C${row}`, gate.label, { font: WORKBOOK_FONTS.body, alignment: { vertical: "top", wrapText: true } });
     row += 1;
@@ -746,6 +746,26 @@ export function addHowToReadSheet(workbook, {
     { font: WORKBOOK_FONTS.body, alignment: { vertical: "top", wrapText: true } }
   );
   sheet.getRow(row).height = 42;
+  row += 2;
+
+  row = addSectionHeading(sheet, row, "How retained learning is confirmed", "", { span: 2 });
+  writeCell(sheet, `B${row}`, "The rule", { font: WORKBOOK_FONTS.kpiLabel, alignment: { vertical: "top" } });
+  writeCell(sheet, `C${row}`, gates.retentionSummary, {
+    font: WORKBOOK_FONTS.body,
+    alignment: { vertical: "top", wrapText: true }
+  });
+  row += 1;
+  gates.gates.filter(gate => gate.id === "stability" || gate.id === "retention").forEach((gate, index) => {
+    writeCell(sheet, `B${row}`, `Check ${index + 1}`, { font: WORKBOOK_FONTS.kpiLabel, alignment: { vertical: "top" } });
+    writeCell(sheet, `C${row}`, gate.label, { font: WORKBOOK_FONTS.body, alignment: { vertical: "top", wrapText: true } });
+    row += 1;
+  });
+  writeCell(sheet, `B${row}`, "Important", { font: WORKBOOK_FONTS.kpiLabel, alignment: { vertical: "top" } });
+  writeCell(sheet, `C${row}`, "Secure describes current acquisition evidence. This workbook only claims retained learning when the later checks are present.", {
+    font: WORKBOOK_FONTS.body,
+    alignment: { vertical: "top", wrapText: true }
+  });
+  sheet.getRow(row).height = 30;
   row += 2;
 
   row = addSectionHeading(sheet, row, "Why some skills show no judgement", "", { span: 2 });

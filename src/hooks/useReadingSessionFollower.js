@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useReducer, useRef } from "react";
 import {
   getStudentReadingSession,
-  readingSessionMediaUrls,
   READING_SESSION_CONTENT_VERSION
-} from "../data/readingSession.js";
+} from "../data/readingSessionCore.js";
 import { warmQuestOfflineAssets } from "../utils/offlineShell.js";
 import {
   followerRetryDelay,
@@ -62,6 +61,7 @@ export function useReadingSessionFollower({
       dispatch({ type: "session", session, ...resolved });
       if (session && warmedSessionRef.current !== session.id) {
         warmedSessionRef.current = session.id;
+        const { readingSessionMediaUrls } = await import("../data/readingSession.js");
         void warmQuestOfflineAssets(
           readingSessionMediaUrls(resolved.book, session.page_numbers),
           { chapterId: `reading-${session.id}` }

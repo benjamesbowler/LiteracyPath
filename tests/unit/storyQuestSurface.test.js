@@ -115,8 +115,8 @@ test("Story Quest reader reserves one viewport without nested story-text scrolli
   );
   assert.match(
     playerStyles,
-    /\.story-quest-active-page \.story-quest-header-actions \.lp-button,[\s\S]*?\.story-quest-reader:fullscreen \.story-quest-audio-button\s*\{[\s\S]*?min-height:\s*44px !important;/,
-    "reader controls must retain a 44px touch target in compact and fullscreen layouts"
+    /\.story-quest-active-page \.story-quest-header-actions \.lp-button,[\s\S]*?\.story-quest-reader:fullscreen \.story-quest-audio-button\s*\{[\s\S]*?min-height:\s*56px !important;/,
+    "child reader controls must retain the Game Bible's 56px touch target in compact and fullscreen layouts"
   );
   assert.match(
     playerStyles,
@@ -257,6 +257,9 @@ test("Story Quest teacher-preview copy reports exposure, not mastery or future p
   assert.doesNotMatch(playerSource, /story words found/);
   assert.doesNotMatch(learnAreaSource, /words found/);
   assert.match(playerSource, /story words seen/);
+  assert.match(playerSource, /more story \$\{remaining === 1 \? "word" : "words"\} to see/);
+  assert.doesNotMatch(playerSource, /\{foundWords\.length\}\/\{targetWordTotal\}/);
+  assert.match(playerSource, /More story controls/);
   // 2026-07-29 phase D: the SHELF no longer counts anything. It used to lead
   // with "3 complete", "2 in progress" and "30 of 119 story words seen", and
   // the child UI caps its numeric systems at two — stars and coins. The word

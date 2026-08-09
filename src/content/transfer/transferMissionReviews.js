@@ -1,0 +1,1 @@
+export const TRANSFER_MISSION_REVIEW = Object.freeze({version:1,status:"approved",reviewedAt:"2026-08-09",checks:Object.freeze({taughtPrerequisites:true,blueprintFormats:true,nonScoredRehearsal:true,noSingleEventDemotion:true,keyboardAndTouch:true,noChildMediaCollection:true,separateContextClaims:true})});

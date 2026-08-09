@@ -12,6 +12,8 @@ import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
+import { ImpactDashboardPage } from "./teacher/impact/ImpactDashboardPage.jsx";
+import { supabase } from "../supabaseClient.js";
 
 // ── THE SAME SHAPE AS CHECKS ────────────────────────────────────────────────
 //
@@ -29,7 +31,7 @@ const WHOLE_CLASS = "class";
 // What each style answers, in one line. The labels come from the one list of
 // report styles so the funnel and the report page can never disagree.
 const STYLE_QUESTIONS = Object.freeze({
-  "whole-child": "A short summary of what is secure, developing, and not assessed yet.",
+  "whole-child": "A short summary of what is Secure, Developing, and Not checked.",
   "skills-check": "How accurate has this student been in each skill assessment?",
   "guided-reading": "Which books has this student read, and what needed support?",
   hfw: "Which of the hundred most common words does this student know?",
@@ -91,7 +93,8 @@ export function TeacherReportsHubPage({
   // The hash this funnel was opened with. Left undefined the page reads the
   // live URL; tests and previews pass one in so a mid-funnel state can be set
   // up the same way a reload would produce it.
-  routeHash = undefined
+  routeHash = undefined,
+  impactAnswersSeed = null
 }) {
   const params = readTeacherFunnelParams(routeHash);
   const [who, setWho] = useState(() => {
@@ -104,6 +107,7 @@ export function TeacherReportsHubPage({
   const [editingStep, setEditingStep] = useState(0);
   const [studentSearch, setStudentSearch] = useState("");
   const [studentPage, setStudentPage] = useState(1);
+  const [impactOpen, setImpactOpen] = useState(false);
 
   const classHeadingRef = useRef(null);
   const whoHeadingRef = useRef(null);
@@ -301,6 +305,9 @@ export function TeacherReportsHubPage({
   const styleAnswer = wholeClass
     ? "Class summary"
     : currentStyle ? currentStyle.label : "";
+  if (impactOpen) {
+    return <ImpactDashboardPage client={supabase} className={verifiedClassName} students={rows} answersSeed={impactAnswersSeed} onClose={() => setImpactOpen(false)} />;
+  }
   // StudentReportShell owns the main landmark once an individual report is
   // open. The funnel owns it in every other state, including class reports.
   // This keeps exactly one, non-nested main landmark throughout the route.
@@ -320,6 +327,7 @@ export function TeacherReportsHubPage({
             detailed reading and practice reports stay one tap away.
           </p>
         </div>
+        <button className="lp-button lp-button-secondary" disabled={!hasClass || !rosterRead.complete} type="button" onClick={() => setImpactOpen(true)}>Open Impact Dashboard</button>
       </section>
 
       <div className="teacher-funnel">

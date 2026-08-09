@@ -164,7 +164,7 @@ async function checkBibleAgreesWithPolicy() {
     {
       name: "mastery accuracy",
       value: REPORTING_BIBLE_POLICY.mastery.accuracyPercentMinimum,
-      pattern: /\*\*Secure = (\d+)% accuracy/
+      pattern: /\*\*Current Secure = (\d+)% accuracy/
     },
     {
       name: "judgement item floor",

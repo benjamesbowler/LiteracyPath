@@ -1,33 +1,33 @@
 import { CHILD_BRAND } from "../data/childBrand.js";
+import { PRODUCT_CATALOG_FACTS } from "../data/productCatalogFacts.js";
 import { TEACHER_BRAND } from "../data/teacherBrand.js";
 import teacherMarkUrl from "../assets/logomark.png";
 import "../styles/landing.css";
 
 // The public landing page (2026-07-28 redesign). One React surface, same two
 // exits as the old "Choose your space" gateway - onStudent / onTeacher - so
-// session logic upstream is untouched. Every number on this page is derived
-// from the real data (guidedReadingBooks: 176 levelled books across levels
-// A-C; GAME_LIST: 21 games; 27 cycles) - the design mock's placeholder
-// figures were corrected rather than copied.
+// session logic upstream is untouched. Every catalogue number comes from the
+// lightweight verified public-facts module, whose unit contract compares it
+// with the authoritative book, game and cycle datasets.
 
 const FEATURE_TILES = [
   {
     id: "library",
     image: "/images/home-sage/reading-library.webp",
     title: "Reading library",
-    text: "176 levelled books across three levels, read aloud with tap-any-word help."
+    text: `${PRODUCT_CATALOG_FACTS.guidedReadingBooks} levelled books across three levels, with read-aloud and tap-any-word help.`
   },
   {
     id: "skills",
     image: "/images/home-sage/adventure-map.webp",
     title: "Skills quest",
-    text: "A map of 27 cycles that always starts at the right next sound."
+    text: `A map of ${PRODUCT_CATALOG_FACTS.skillCycles} cycles that always starts at the right next sound.`
   },
   {
     id: "arcade",
     image: "/images/home-sage/arcade.webp",
     title: "Game arcade",
-    text: "Rhyme Pop, Sound Racer, Word Bridge and 18 more — every one is real reading practice."
+    text: `Rhyme Pop, Sound Racer and ${PRODUCT_CATALOG_FACTS.learningGames - 2} more — every one is real reading practice.`
   },
   {
     id: "stories",
@@ -185,9 +185,9 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
         </div>
 
         <dl className="lp-landing-stats" aria-label="What the platform includes">
-          <div><dt>176</dt><dd>levelled books</dd></div>
-          <div><dt>27</dt><dd>skill cycles</dd></div>
-          <div><dt>21</dt><dd>learning games</dd></div>
+          <div><dt>{PRODUCT_CATALOG_FACTS.guidedReadingBooks}</dt><dd>levelled books</dd></div>
+          <div><dt>{PRODUCT_CATALOG_FACTS.skillCycles}</dt><dd>skill cycles</dd></div>
+          <div><dt>{PRODUCT_CATALOG_FACTS.learningGames}</dt><dd>learning games</dd></div>
           <div className="lp-landing-stat-note"><dt>Nicknames only</dt><dd>never surnames</dd></div>
         </dl>
       </section>

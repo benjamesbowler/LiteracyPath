@@ -301,6 +301,42 @@
   gap: 8px;
 }
 
+.story-quest-more-menu {
+  position: relative;
+}
+
+.story-quest-more-menu > summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  cursor: pointer;
+}
+
+.story-quest-more-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.story-quest-more-actions {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  right: 0;
+  display: grid;
+  gap: 6px;
+  width: max-content;
+  min-width: 180px;
+  padding: 8px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 12px;
+  background: var(--lp-color-surface);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+}
+
+.story-quest-more-actions .lp-button {
+  width: 100%;
+}
+
 .story-quest-progress {
   display: grid;
   gap: 6px;
@@ -968,7 +1004,7 @@
 
   .story-quest-header-actions {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 5px;
     justify-content: stretch;
   }
@@ -1260,7 +1296,7 @@
 .story-quest-active-page .story-quest-choice-button,
 .story-quest-reader.fullscreen .story-quest-choice-button,
 .story-quest-reader:fullscreen .story-quest-choice-button {
-  min-height: 48px;
+  min-height: 56px;
   padding: 7px 8px;
   color: #172033;
   font-size: clamp(0.92rem, 1.8vw, 1.22rem);
@@ -1279,6 +1315,21 @@
   height: 100%;
   max-width: 860px;
   max-height: 100%;
+}
+
+.story-quest-complete-panel {
+  align-content: center;
+  gap: 12px;
+  padding: 24px;
+}
+
+.story-quest-complete-panel p {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.4;
 }
 
 @media (orientation: landscape) and (max-height: 680px) {
@@ -1355,7 +1406,7 @@
   .story-quest-active-page .story-quest-choice-button,
   .story-quest-reader.fullscreen .story-quest-choice-button,
   .story-quest-reader:fullscreen .story-quest-choice-button {
-    min-height: 46px;
+    min-height: 56px;
     padding: 6px;
     font-size: clamp(0.84rem, 3.5vw, 1rem);
   }
@@ -1414,7 +1465,7 @@
 .story-quest-reader.fullscreen .story-quest-header-actions,
 .story-quest-reader:fullscreen .story-quest-header-actions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 6px;
   justify-self: center;
   width: min(100%, 520px);
@@ -1582,7 +1633,7 @@
 .story-quest-reader.fullscreen .story-quest-choice-button,
 .story-quest-reader:fullscreen .story-quest-choice-button {
   min-width: 0;
-  min-height: 48px;
+  min-height: 56px;
   padding: 7px 8px;
   border-radius: 10px;
   font-size: clamp(0.92rem, 1.8vw, 1.22rem);
@@ -1696,7 +1747,7 @@
 
   .story-quest-reader.fullscreen .story-quest-choice-button,
   .story-quest-reader:fullscreen .story-quest-choice-button {
-    min-height: 46px;
+    min-height: 56px;
     padding: 6px;
     font-size: clamp(0.9rem, 3.6vw, 1.05rem);
   }
@@ -1806,7 +1857,7 @@
 .story-quest-active-page .story-quest-audio-button,
 .story-quest-reader.fullscreen .story-quest-audio-button,
 .story-quest-reader:fullscreen .story-quest-audio-button {
-  min-height: 44px !important;
+  min-height: 56px !important;
 }
 
 .story-quest-reader-complete.fullscreen,

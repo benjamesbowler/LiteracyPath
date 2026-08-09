@@ -82,6 +82,7 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   },
   "teacher_class_access_log(uuid, integer)": { p_class_id: EXPECTED.teacherA.classId, p_limit: 1 },
   "teacher_class_access_summary(uuid)": { p_class_id: EXPECTED.teacherA.classId },
+  "teacher_close_worksheet_instance(uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000" },
   "teacher_create_insight_intervention(text, uuid, jsonb, uuid[], text[], text, text, date)": {
     p_action_type: "plan_small_group",
     p_class_id: EXPECTED.teacherA.classId,
@@ -110,6 +111,16 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_activity: "Audit",
     p_planned_for: "2026-07-25"
   },
+  "teacher_create_lesson_plan(uuid, uuid, uuid[], jsonb, jsonb, timestamp with time zone)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_intervention_id: null,
+    p_learner_ids: [EXPECTED.teacherA.studentId],
+    p_recipe: {},
+    p_evidence_source: {},
+    p_scheduled_for: null
+  },
+  "teacher_create_press_project(uuid, uuid[], jsonb)": { p_class_id: EXPECTED.teacherA.classId, p_learner_ids: [EXPECTED.teacherA.studentId], p_project_rules: {} },
+  "teacher_create_worksheet_instance(uuid, uuid[], jsonb)": { p_class_id: EXPECTED.teacherA.classId, p_learner_ids: [EXPECTED.teacherA.studentId], p_recipe: {} },
   "teacher_complete_learner_deletion(uuid, text, jsonb)": {
     p_request_id: "00000000-0000-0000-0000-000000000000",
     p_subject_ref: "0".repeat(64),
@@ -133,6 +144,9 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_end_reading_session(uuid)": {
     p_session_id: "00000000-0000-0000-0000-000000000000"
   },
+  "teacher_end_live_lesson(uuid)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000"
+  },
   "teacher_export_learner_data(uuid, text, text)": {
     p_student_id: EXPECTED.teacherA.studentId,
     p_requester_role: "school",
@@ -142,10 +156,15 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_request_id: "00000000-0000-0000-0000-000000000000",
     p_subject_ref: "0".repeat(64)
   },
+  "teacher_get_active_live_lesson()": {},
   "teacher_get_reading_session_presence(uuid)": {
     p_session_id: "00000000-0000-0000-0000-000000000000"
   },
+  "teacher_get_live_lesson_snapshot(uuid)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000"
+  },
   "teacher_list_learner_data_rights(uuid)": { p_student_id: EXPECTED.teacherA.studentId },
+  "teacher_list_press_work(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_mark_intervention_delivered(uuid)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000"
   },
@@ -154,6 +173,10 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_requester_role: "school",
     p_verification_method: "authorised_school_official"
   },
+  "teacher_read_lesson_plan(uuid)": {
+    p_plan_id: "00000000-0000-0000-0000-000000000000"
+  },
+  "teacher_read_worksheet_history(uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000" },
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)": {
     p_class_id: EXPECTED.teacherA.classId,
     p_insight: {},
@@ -168,16 +191,27 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_outcome: "effective",
     p_outcome_note: "Anonymous access probe"
   },
+  "teacher_record_lesson_delivery(uuid, text, uuid[], text, text, jsonb)": {
+    p_plan_id: "00000000-0000-0000-0000-000000000000",
+    p_client_event_id: "anonymous-access-probe",
+    p_learner_ids: [EXPECTED.teacherA.studentId],
+    p_completion_state: "not_delivered",
+    p_notes: "Anonymous access probe",
+    p_observed_support: {}
+  },
+  "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000", p_client_event_id: "anonymous-access-probe", p_marks: [], p_note: "", p_supersedes_batch_id: null },
   "teacher_regenerate_class_code(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_reset_student_progress(uuid, timestamp with time zone)": {
     p_student_id: EXPECTED.teacherA.studentId,
     p_reset_at: "2026-07-27T00:00:00.000Z"
   },
+  "teacher_resolve_worksheet_code(text)": { p_code: "AAAAAAAA" },
   "teacher_review_instructional_group(uuid, uuid[], jsonb)": {
     p_group_id: "00000000-0000-0000-0000-000000000000",
     p_student_ids: [],
     p_evidence_snapshot: {}
   },
+  "teacher_review_book_revision(uuid, uuid, text, jsonb)": { p_book_id: "00000000-0000-0000-0000-000000000000", p_revision_id: "00000000-0000-0000-0000-000000000000", p_decision: "approved", p_review: {} },
   "teacher_review_intervention(uuid, date)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000",
     p_next_review_on: "2026-07-25"
@@ -200,11 +234,24 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_session_id: "00000000-0000-0000-0000-000000000000",
     p_page_index: 0
   },
+  "teacher_set_live_lesson_slide(uuid, integer, text)": {
+    p_session_id: "00000000-0000-0000-0000-000000000000",
+    p_slide_index: 0,
+    p_client_event_id: "anonymous-access-probe"
+  },
   "teacher_start_reading_session(uuid, text, integer[], uuid[], text)": {
     p_class_id: EXPECTED.teacherA.classId,
     p_book_id: "audit-probe",
     p_page_numbers: [1],
     p_student_ids: [EXPECTED.teacherA.studentId],
+    p_content_version: "audit-probe"
+  },
+  "teacher_start_live_lesson(uuid, uuid[], text, text, jsonb, text)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_student_ids: [EXPECTED.teacherA.studentId],
+    p_cycle_id: "cycle-1",
+    p_day_key: "monday",
+    p_content: {},
     p_content_version: "audit-probe"
   },
   "teacher_cancel_intervention(uuid, text)": {
@@ -237,6 +284,13 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_set_at: "2026-07-27T00:00:00.000Z"
   },
   "teacher_set_school(text)": { p_school_name: EXPECTED.schoolName },
+  "teacher_update_draft_lesson_plan(uuid, integer, uuid[], jsonb, timestamp with time zone)": {
+    p_plan_id: "00000000-0000-0000-0000-000000000000",
+    p_expected_revision: 1,
+    p_learner_ids: [EXPECTED.teacherA.studentId],
+    p_recipe: {},
+    p_scheduled_for: null
+  },
   "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000",
     p_owner_label: "Audit",
@@ -487,7 +541,11 @@ async function verifyAnonymousBoundary(anonymous) {
     "teacher_insight_observations",
     "class_access_events",
     "data_rights_requests",
-    "school_retention_policies"
+    "school_retention_policies",
+    "live_lesson_sessions",
+    "live_lesson_participants",
+    "live_lesson_presence",
+    "live_lesson_responses"
   ];
   for (const table of forbiddenTables) {
     const result = await anonymous.from(table).select("*", { count: "exact", head: true });
@@ -505,7 +563,7 @@ async function verifyAnonymousBoundary(anonymous) {
   }
 
   const schoolNames = requireData(
-    await anonymous.rpc("list_school_names"),
+    await anonymous.rpc("search_school_names", { p_prefix: "[AU" }),
     "signed-out school autocomplete"
   );
   assert(Array.isArray(schoolNames), "signed-out school autocomplete did not return a list");
@@ -574,6 +632,18 @@ async function verifyAnonymousBoundary(anonymous) {
     anonymous.rpc("get_game_leaderboard", {
       p_student_token: "invalid",
       p_limit: 5
+    }),
+    anonymous.rpc("student_get_live_lesson", {
+      p_token: "invalid",
+      p_slide_index: null,
+      p_content_ok: true
+    }),
+    anonymous.rpc("student_submit_live_response", {
+      p_token: "invalid",
+      p_session_id: "00000000-0000-0000-0000-000000000000",
+      p_prompt_id: "invalid",
+      p_response: "invalid",
+      p_client_event_id: "audit-invalid-live-response"
     })
   ];
   const invalidResults = await Promise.all(invalidTokenChecks);

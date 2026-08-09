@@ -10,7 +10,7 @@ test("A4.3 class summary shows both weighted views, counts, and weak-comparabili
   await page.goto("/preview/learning-policy.html");
 
   const preview = page.locator('[data-preview-surface="learning-policy"]');
-  await expect(preview).toHaveAttribute("data-learning-policy-version", "2026.07.28-a4.3b");
+  await expect(preview).toHaveAttribute("data-learning-policy-version", "2026.08.09-a4.3c");
   await preview.getByText("Class overview", { exact: true }).click();
 
   const summary = preview.getByRole("region", { name: "Class summary" });
@@ -31,7 +31,7 @@ test("A4.3 class summary shows both weighted views, counts, and weak-comparabili
   await expect(learnerWeighted.locator("dt")).toHaveText("Averaging students equally");
   await expect(learnerWeighted.locator("dd")).toContainText("66%");
   await expect(learnerWeighted.locator("dd")).toContainText(
-    "2 students with at least 8 scored answers each."
+    "2 students with at least 10 scored answers each."
   );
   await expect(responseWeighted.locator("dt")).toHaveText("Averaging every answer equally");
   await expect(responseWeighted.locator("dd")).toContainText("71.9%");

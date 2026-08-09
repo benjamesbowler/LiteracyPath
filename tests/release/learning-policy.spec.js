@@ -17,7 +17,7 @@ test("A4.1/A4.2 sparse evidence is withheld by the versioned live UI policy", as
   await page.goto("/preview/learning-policy.html");
 
   const preview = page.locator('[data-preview-surface="learning-policy"]');
-  await expect(preview).toHaveAttribute("data-learning-policy-version", "2026.07.28-a4.3b");
+  await expect(preview).toHaveAttribute("data-learning-policy-version", "2026.08.09-a4.3c");
 
   await preview.getByRole("button", { name: "Open Amara" }).click();
   const studentDetails = preview.getByRole("region", { name: "Student details: Amara" });

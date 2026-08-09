@@ -40,15 +40,12 @@ export const QUEST_ACTS = [
   { n: 3, id: "moonwood", title: "Moonwood Tales", world: "moonwood", blurb: "Twenty enchanted stops through Moonwood." }
 ];
 
-// Graphemes with no gold-voice recording yet. The app stays SILENT for these
-// (never a browser voice — see docs/IMPROVEMENT_LOOPS.md rule #3) and the
-// Listen button hides itself. Listed here so the check reports them as a known
-// gap instead of failing, and so a replacement request can be generated from it.
-export const NEEDS_AUDIO = [
-  "y_ie", "y_ee", "oo_short", "ow_ou", "c_s", "g_j", "ch_k", "ea_e",
-  // Alternative pronunciations require their own recordings. A base cue
-  // must never be reused for the wrong sound, even when one exists.
-];
+// Graphemes with no release-approved recording. The app stays SILENT for any
+// entry here (never a browser voice — see docs/IMPROVEMENT_LOOPS.md rule #3),
+// and the Listen button hides itself. The product-owner-approved exact-sound
+// reuse decisions, including the reviewed Leda /ʊ/ and /aʊ/ cues, live in
+// questAudio.js. There are currently no unresolved Sound Seekers teaching cues.
+export const NEEDS_AUDIO = [];
 
 // ── SORT DATA — the one thing that CANNOT be derived ────────────────────────
 //

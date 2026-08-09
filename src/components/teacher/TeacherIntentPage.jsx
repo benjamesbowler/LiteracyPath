@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { TeacherLessonComposerPage } from "./lessons/TeacherLessonComposerPage.jsx";
+import { PressReviewQueuePage } from "./decodablePress/PressReviewQueuePage.jsx";
+import { FamilyBridgePage } from "./family/FamilyBridgePage.jsx";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { getClassListReadView } from "../../appState/classListReadState.js";
 import { teacherCycleOptions } from "./teacherCycleReference.js";
@@ -118,13 +121,20 @@ export function TeacherIntentPage({
   teacherId,
   selectedClassId = "",
   cycleId = "",
+  client = null,
   loadingClasses = false,
   onRetryClasses,
   onOpenClasses,
   onOpenWorksheets,
   onOpenPresent,
-  onOpenGuidedReading
+  onOpenGuidedReading,
+  lessonComposerRequest = 0,
+  onLessonComposerRequestHandled,
+  studentList = []
 }) {
+  const [lessonComposerOpen, setLessonComposerOpen] = useState(Boolean(lessonComposerRequest));
+  const [pressOpen, setPressOpen] = useState(false);
+  const [familyBridgeOpen, setFamilyBridgeOpen] = useState(false);
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
   // 2026-07-27: a selected class id with an empty class list means the classes have not
@@ -156,6 +166,26 @@ export function TeacherIntentPage({
     onOpenPresent,
     onOpenGuidedReading
   });
+
+  if (lessonComposerOpen) {
+    return (
+      <TeacherPageShell className="teacher-intent-page teacher-resources-page" intent={intent}>
+        <TeacherLessonComposerPage client={client} classId={selectedClassId} cycleId={cycleId} students={studentList} onClose={() => { setLessonComposerOpen(false); onLessonComposerRequestHandled?.(); }} />
+      </TeacherPageShell>
+    );
+  }
+
+  if (pressOpen) {
+    return (
+      <TeacherPageShell className="teacher-intent-page teacher-resources-page" intent={intent}>
+        <PressReviewQueuePage client={client} classId={selectedClassId} cycleId={cycleId} students={studentList} onClose={() => setPressOpen(false)} />
+      </TeacherPageShell>
+    );
+  }
+
+  if (familyBridgeOpen && cycle?.cycleNumber) {
+    return <TeacherPageShell className="teacher-intent-page teacher-resources-page" intent={intent}><FamilyBridgePage cycleNumber={cycle.cycleNumber} students={studentList} onClose={() => setFamilyBridgeOpen(false)} /></TeacherPageShell>;
+  }
 
   return (
     <TeacherPageShell
@@ -198,6 +228,27 @@ export function TeacherIntentPage({
           ) : (
             <>
               <section className="teacher-resource-tools" aria-label={copy.toolsLabel}>
+                <article className="teacher-resource-card teacher-resource-card-featured">
+                  <p className="teacher-resource-kind" data-resource-kind="lesson-composer">Teaching plan</p>
+                  <h3>Small-group lesson composer</h3>
+                  <p className="teacher-resource-body">Turn the selected phonics cycle into an 8, 12 or 20 minute lesson with reviewed examples, connected reading, access supports and an exit observation.</p>
+                  <ul className="teacher-resource-points"><li>Choose the learners and target</li><li>Teach on screen or print one pack</li><li>Practice evidence never changes mastery automatically</li></ul>
+                  <button className="lp-button lp-button-primary teacher-resource-action" onClick={() => setLessonComposerOpen(true)} type="button">Plan a small-group lesson</button>
+                </article>
+                <article className="teacher-resource-card teacher-resource-card-featured">
+                  <p className="teacher-resource-kind" data-resource-kind="family-bridge">Home connection</p>
+                  <h3>Family Bridge</h3>
+                  <p className="teacher-resource-body">Print five short activities linked to the selected cycle, with reviewed family directions in English, Spanish or Simplified Chinese.</p>
+                  <ul className="teacher-resource-points"><li>No family account or child upload</li><li>No voice, photo, camera or completion tracking</li><li>English sounds and words stay unchanged</li></ul>
+                  <button className="lp-button lp-button-primary teacher-resource-action" disabled={!cycle?.cycleNumber} onClick={() => setFamilyBridgeOpen(true)} type="button">{cycle?.cycleNumber ? "Make a family plan" : "Choose a teaching cycle first"}</button>
+                </article>
+                <article className="teacher-resource-card teacher-resource-card-featured">
+                  <p className="teacher-resource-kind" data-resource-kind="decodable-press">Writing project</p>
+                  <h3>Class Decodable Press</h3>
+                  <p className="teacher-resource-body">Assign a four-page decodable story, review the exact submitted revision and optionally approve it for the private class library.</p>
+                  <ul className="teacher-resource-points"><li>Frozen taught-code word bank</li><li>Approved local scenes only</li><li>No child voice, photo, camera or image upload</li></ul>
+                  <button className="lp-button lp-button-primary teacher-resource-action" onClick={() => setPressOpen(true)} type="button">Open Decodable Press</button>
+                </article>
                 {tools.map(tool => (
                   <article className="teacher-resource-card" key={tool.id}>
                     <p className="teacher-resource-kind" data-resource-kind={tool.id}>

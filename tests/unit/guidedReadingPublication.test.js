@@ -4,6 +4,7 @@ import test from "node:test";
 
 import {
   GUIDED_READING_PUBLICATION_MODEL,
+  approvedGuidedReadingBookIds,
   filterPublishedGuidedReadingBooks,
   guidedReadingReviewMap,
   loadGuidedReadingBookReviews,
@@ -27,8 +28,12 @@ const openByDefaultMigration = readFileSync(
   new URL("../../supabase/migrations/20260807090000_guided_reading_open_by_default.sql", import.meta.url),
   "utf8"
 );
+const failClosedMigration = readFileSync(
+  new URL("../../supabase/migrations/20260809090000_guided_reading_fail_closed_publication.sql", import.meta.url),
+  "utf8"
+);
 
-test("Guided Reading is open by default and only a failed review removes a book", () => {
+test("Guided Reading publishes only explicitly approved books", () => {
   const rows = [
     { book_id: "approved-book", status: "approved", review_note: "" },
     { book_id: "quarantined-book", status: "quarantined", review_note: "Fix the image." }
@@ -39,26 +44,25 @@ test("Guided Reading is open by default and only a failed review removes a book"
     { id: "never-reviewed-book" }
   ];
 
-  assert.equal(GUIDED_READING_PUBLICATION_MODEL, "open_by_default");
+  assert.equal(GUIDED_READING_PUBLICATION_MODEL, "approved_only");
+  assert.deepEqual(approvedGuidedReadingBookIds(rows), ["approved-book"]);
   assert.deepEqual(quarantinedGuidedReadingBookIds(rows), ["quarantined-book"]);
 
-  // A book nobody has reviewed reaches children. That is the point of the change.
   assert.deepEqual(
-    filterPublishedGuidedReadingBooks(books, quarantinedGuidedReadingBookIds(rows)),
-    [{ id: "approved-book" }, { id: "never-reviewed-book" }]
+    filterPublishedGuidedReadingBooks(books, approvedGuidedReadingBookIds(rows)),
+    [{ id: "approved-book" }]
   );
 
-  // An empty review table means an open library, not an empty one.
-  assert.deepEqual(filterPublishedGuidedReadingBooks(books, []), books);
+  assert.deepEqual(filterPublishedGuidedReadingBooks(books, []), []);
 });
 
-test("an unreadable review list shows every book rather than none", async () => {
-  // A publication service blip must never empty a five-year-old's shelf.
-  assert.deepEqual(filterPublishedGuidedReadingBooks([{ id: "a" }], null), [{ id: "a" }]);
-  assert.deepEqual(filterPublishedGuidedReadingBooks([{ id: "a" }], undefined), [{ id: "a" }]);
+test("an unreadable review list fails closed", async () => {
+  assert.deepEqual(filterPublishedGuidedReadingBooks([{ id: "a" }], null), []);
+  assert.deepEqual(filterPublishedGuidedReadingBooks([{ id: "a" }], undefined), []);
 
   const noService = await loadGuidedReadingBookReviews({});
-  assert.equal(noService.status, "open");
+  assert.equal(noService.status, "unavailable");
+  assert.equal(noService.complete, false);
   assert.deepEqual(noService.rows, []);
   assert.equal(noService.error, null);
 });
@@ -90,36 +94,30 @@ test("a failed review requires a repair note before any write", async () => {
   assert.match(result.error.message, /needs fixing/i);
 });
 
-test("every child Guided Reading entry path receives the quarantine blocklist", () => {
+test("every Guided Reading entry path receives the approval allowlist", () => {
   assert.match(
     appSurfaceSource,
     /setReadingFollowerBooks\(filterPublishedGuidedReadingBooks\(/
   );
-  assert.match(appSurfaceSource, /<StudentBooksPage[\s\S]*?quarantinedBookIds=\{quarantinedReadingBookIds\}/);
+  assert.match(appSurfaceSource, /<StudentBooksPage[\s\S]*?approvedBookIds=\{approvedReadingBookIds\}/);
   assert.match(appSurfaceSource, /renderReader=\{\(\{ bookId, books, onExit \}\)[\s\S]*?<GuidedReadingPage[\s\S]*?books=\{books\}/);
-  assert.match(appSurfaceSource, /<ReadingSessionSetup[\s\S]*?quarantinedBookIds=\{quarantinedReadingBookIds\}/);
-
-  // The old allowlist filter must not creep back into a child path.
-  assert.ok(!/filterApprovedGuidedReadingBooks/.test(appSurfaceSource));
+  assert.match(appSurfaceSource, /<ReadingSessionSetup[\s\S]*?approvedBookIds=\{approvedReadingBookIds\}/);
 });
 
-test("the daily mission never advertises a book an admin has pulled", () => {
-  // The mission's book tile deep-links by id, bypassing the library shelf. If
-  // the blocklist stopped at the shelf, a failed book would still be the
-  // advertised "book of the day" and one tap would open it.
+test("the daily mission advertises only an approved book", () => {
   const dailyMissionSource = readFileSync(
     new URL("../../src/utils/dailyMission.js", import.meta.url),
     "utf8"
   );
   assert.match(dailyMissionSource, /filterPublishedGuidedReadingBooks\(\s*\[\.\.\.GUIDED_READING_BOOK_INDEX\]/);
-  assert.match(dailyMissionSource, /buildDailyMission\(scope, quarantinedBookIds\)/);
+  assert.match(dailyMissionSource, /buildDailyMission\(scope, approvedBookIds\)/);
 
   const studentHomeSource = readFileSync(
     new URL("../../src/components/StudentHomePage.jsx", import.meta.url),
     "utf8"
   );
-  assert.match(studentHomeSource, /buildDailyMission\(progressScopeKey, quarantinedBookIds\)/);
-  assert.match(appSurfaceSource, /<StudentHomePage[\s\S]*?quarantinedBookIds=\{quarantinedReadingBookIds\}/);
+  assert.match(studentHomeSource, /buildDailyMission\(progressScopeKey, approvedBookIds\)/);
+  assert.match(appSurfaceSource, /<StudentHomePage[\s\S]*?approvedBookIds=\{approvedReadingBookIds\}/);
 });
 
 test("the admin decision appears only at the end and provides Pass and Fail actions", () => {
@@ -127,20 +125,20 @@ test("the admin decision appears only at the end and provides Pass and Fail acti
     guidedReadingPageSource,
     /isReviewMode && !isReaderFullscreen && pageIndex === selectedBook\.pages\.length - 1/
   );
-  assert.match(guidedReadingPageSource, /Pass and keep live/);
+  assert.match(guidedReadingPageSource, /Pass and publish/);
   assert.match(guidedReadingPageSource, /Fail to quarantine/);
 });
 
-test("database access exposes the quarantine list publicly and reserves review writes for app admins", () => {
-  // The child side reads what to HIDE, not what to show.
+test("database access exposes only approvals publicly and reserves review writes for app admins", () => {
   assert.match(
-    openByDefaultMigration,
-    /to anon, authenticated\s+using \(status = 'quarantined'\)/
+    failClosedMigration,
+    /to anon, authenticated\s+using \(status = 'approved'\)/
   );
   assert.match(
-    openByDefaultMigration,
-    /drop policy if exists "Anyone can read approved guided reading books"/
+    failClosedMigration,
+    /drop policy if exists "Anyone can read quarantined guided reading books"/
   );
+  assert.match(openByDefaultMigration, /using \(status = 'quarantined'\)/, "the superseded migration remains auditable");
   assert.match(
     publicationMigration,
     /App admins can read all guided reading reviews[\s\S]*?public\.is_app_admin\(auth\.uid\(\)\)/

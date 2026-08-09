@@ -77,6 +77,18 @@ export const KIDS_CONTENT_HEIGHT =
 // stops shrinking and the viewport clips instead of producing 20px text.
 const MIN_SCALE = 0.4;
 
+// ui-quality-pass.css switches the child stage to an unscaled native phone
+// layout at this exact breakpoint. Above it the canvas transform is active, so
+// a 44 design-px button can become a 33 physical-px target on a portrait iPad.
+const NATIVE_PHONE_MAX_WIDTH = 700;
+const NATIVE_PORTRAIT_TABLET_MAX_WIDTH = 900;
+const PHYSICAL_TARGET_PX = 45;
+
+function usesNativeViewportLayout(width, height) {
+  return width <= NATIVE_PHONE_MAX_WIDTH
+    || (width <= NATIVE_PORTRAIT_TABLET_MAX_WIDTH && height >= width);
+}
+
 function clampNumber(value, low, high) {
   return Math.min(high, Math.max(low, value));
 }
@@ -171,7 +183,13 @@ export function applyKidsStageMetrics(element, view = globalThis) {
   const viewport = readKidsVisibleViewport(view);
   const metrics = computeKidsStageMetrics(viewport.width, viewport.height);
   if (!element?.style) return { scale: 1, stageWidth: KIDS_STAGE_WIDTH };
+  const effectiveScale = usesNativeViewportLayout(viewport.width, viewport.height)
+    ? 1
+    : metrics.scale;
   element.style.setProperty("--kg-scale", String(metrics.scale));
   element.style.setProperty("--kg-stage-width", `${metrics.stageWidth}px`);
+  // The small safety pixel prevents sub-pixel rounding from turning 44 into
+  // 43.999 in Chromium's physical bounding box.
+  element.style.setProperty("--kg-physical-hit", `${PHYSICAL_TARGET_PX / effectiveScale}px`);
   return metrics;
 }

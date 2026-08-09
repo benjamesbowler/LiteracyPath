@@ -2,31 +2,16 @@ import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "rea
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import logoUrl from "../assets/logo.png";
-import { TeacherContextBar } from "./teacher/TeacherContextBar.jsx";
-import { teacherCycleOptions } from "./teacher/teacherCycleReference.js";
 import { supabase, isSupabaseConfigured } from "../supabaseClient.js";
 import { skillTree } from "../skillTree.js";
-import {
-  AdvancedPhonicsPatternAssessmentPage,
-  AssessmentPage,
-  AuthPage,
-  CheckpointDecisionPage,
-  DashboardSummary,
-  GuidedReadingPage,
-  LetterAssessmentPage,
-  TeacherReportsPage
-} from "./AppPages.jsx";
+import { AuthPage } from "./AuthPage.jsx";
 import { ErrorBoundary } from "./ErrorBoundary.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
-import { StudentAdventureMapPage } from "./StudentAdventureMapPage.jsx";
 import { StudentEntryPage } from "./StudentEntryPage.jsx";
 import { TryModePage, TryModeEndPage } from "./TryModePage.jsx";
 import { SAMPLE_LIMIT_COPY, sampleBookIds } from "../policy/freeTierContent.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
-import { StudentHomePage } from "./StudentHomePage.jsx";
 import { StudentLoginFlow } from "./StudentLoginFlow.jsx";
-import { StudentSoundTrailPage } from "./StudentSoundTrailPage.jsx";
-import StudentGlassShell from "./StudentGlassShell.jsx";
 import { RouteLoadingFallback as LazyPageFallback } from "./RouteLoadingFallback.jsx";
 import {
   AdminDashboardPage,
@@ -73,21 +58,67 @@ import {
 import { getSelectedClassName } from "../appState/studentSessionHelpers.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { learnerAccessibilityDataAttributes } from "../accessibility/learnerAccessibility.js";
-import { STUDENT_TAB_BAR } from "../policy/studentRailPolicy.js";
-import { resolveConfirmedElPlacement } from "../policy/literacyExperiencePolicy.js";
+import { STUDENT_TAB_BAR } from "../policy/studentTabBar.js";
+import { resolveConfirmedElPlacement } from "../policy/elPlacementPolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
-import { ReadingSessionSetup } from "./guided-reading/ReadingSessionSetup.jsx";
-import { StudentReadingFollower } from "./StudentReadingFollower.jsx";
 import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
 import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
-import { ReadingSessionRecoveryDialog } from "./guided-reading/ReadingSessionRecoveryDialog.jsx";
-import { endReadingSession } from "../data/readingSession.js";
+import { useLiveLessonFollower } from "../hooks/useLiveLessonFollower.js";
+import { endReadingSession } from "../data/readingSessionCore.js";
+import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import {
-  filterPublishedGuidedReadingBooks,
-  quarantinedGuidedReadingBookIds,
-  loadGuidedReadingBookReviews,
-  saveGuidedReadingBookReview
-} from "../data/guidedReadingPublication.js";
+  approvedGuidedReadingBookIds,
+  filterPublishedGuidedReadingBooks
+} from "../policy/guidedReadingApprovalPolicy.js";
+
+function lazyAppPage(exportName) {
+  return lazyWithRetry(() => import("./AppPages.jsx").then(module => ({
+    default: module[exportName]
+  })));
+}
+
+const AdvancedPhonicsPatternAssessmentPage = lazyAppPage("AdvancedPhonicsPatternAssessmentPage");
+const AssessmentPage = lazyAppPage("AssessmentPage");
+const CheckpointDecisionPage = lazyAppPage("CheckpointDecisionPage");
+const DashboardSummary = lazyAppPage("DashboardSummary");
+const GuidedReadingPage = lazyAppPage("GuidedReadingPage");
+const LetterAssessmentPage = lazyAppPage("LetterAssessmentPage");
+const TeacherReportsPage = lazyAppPage("TeacherReportsPage");
+
+const TeacherContextBar = lazyWithRetry(() =>
+  import("./teacher/TeacherContextBar.jsx").then(module => ({ default: module.TeacherContextBar }))
+);
+
+const ReadingSessionRecoveryDialog = lazyWithRetry(() =>
+  import("./guided-reading/ReadingSessionRecoveryDialog.jsx").then(module => ({
+    default: module.ReadingSessionRecoveryDialog
+  }))
+);
+const ReadingSessionSetup = lazyWithRetry(() =>
+  import("./guided-reading/ReadingSessionSetup.jsx").then(module => ({
+    default: module.ReadingSessionSetup
+  }))
+);
+const StudentAdventureMapPage = lazyWithRetry(() =>
+  import("./StudentAdventureMapPage.jsx").then(module => ({
+    default: module.StudentAdventureMapPage
+  }))
+);
+const StudentGlassShell = lazyWithRetry(() => import("./StudentGlassShell.jsx"));
+const StudentHomePage = lazyWithRetry(() =>
+  import("./StudentHomePage.jsx").then(module => ({ default: module.StudentHomePage }))
+);
+const StudentReadingFollower = lazyWithRetry(() =>
+  import("./StudentReadingFollower.jsx").then(module => ({ default: module.StudentReadingFollower }))
+);
+const StudentLiveLessonOverlay = lazyWithRetry(() =>
+  import("./live-lessons/StudentLiveLessonOverlay.jsx").then(module => ({
+    default: module.StudentLiveLessonOverlay
+  }))
+);
+const StudentSoundTrailPage = lazyWithRetry(() =>
+  import("./StudentSoundTrailPage.jsx").then(module => ({ default: module.StudentSoundTrailPage }))
+);
 
 export function AppSurface({ surface }) {
   const {
@@ -173,9 +204,11 @@ export function AppSurface({ surface }) {
   // does not name a skill yet, so this stays empty and Reports opens unfiltered
   // until it does.
   const [soundMapSkillFilter, setSoundMapSkillFilter] = useState("");
+  const [lessonComposerRequest, setLessonComposerRequest] = useState(0);
 
   const refreshGuidedReadingReviews = useCallback(async () => {
     setGuidedReadingReviewState({ error: null, rows: [], status: "loading" });
+    const { loadGuidedReadingBookReviews } = await import("../data/guidedReadingPublication.js");
     const result = await loadGuidedReadingBookReviews({
       client: isSupabaseConfigured ? supabase : null
     });
@@ -191,15 +224,15 @@ export function AppSurface({ surface }) {
     // THE TRY-OUT HAS NO NETWORK, SO IT MUST NOT ASK.
     //
     // Entering try-mode flips sessionMode to "student", which re-runs this
-    // effect, which asks for the admin quarantine list — and the ephemeral
+    // effect, which asks for the publication approval list — and the ephemeral
     // boundary refuses it by throwing. `void` on an async call turns that into
     // an unhandled rejection, which is how it showed up: a page error on the
     // child's first screen.
     //
     // Skipping the read is not a workaround for the refusal, it is the correct
-    // behaviour. Books are live by default and the quarantine list is the only
-    // thing that removes one, so a session that cannot read it sees the full
-    // shelf — which is exactly what the sample filter then narrows.
+    // behaviour. The anonymous try-out stores and sends nothing, so it cannot
+    // fetch publication approvals. Fail closed and tell the shelf the approval
+    // service is unavailable rather than publishing unchecked books.
     if (trySession) return undefined;
     // AND NOBODY WITH NO SESSION ASKS EITHER.
     //
@@ -221,12 +254,15 @@ export function AppSurface({ surface }) {
     return () => window.clearTimeout(timer);
   }, [authReady, isAdmin, refreshGuidedReadingReviews, sessionMode, studentSession?.token, teacherId, trySession]);
 
-  // Books are live by default. This is the list of the ones an admin has pulled,
-  // and it is the only thing that removes a book from a child's shelf.
-  const quarantinedReadingBookIds = useMemo(
-    () => quarantinedGuidedReadingBookIds(guidedReadingReviewState.rows),
-    [guidedReadingReviewState.rows]
+  // One explicit approval is required before a book reaches any child-facing
+  // entry path or the teacher's synchronized-reading picker.
+  const approvedReadingBookIds = useMemo(
+    () => approvedGuidedReadingBookIds(trySession ? [] : guidedReadingReviewState.rows),
+    [guidedReadingReviewState.rows, trySession]
   );
+  const guidedReadingPublicationStatus = trySession
+    ? "unavailable"
+    : guidedReadingReviewState.status;
 
   /**
    * The sample entitlement's allowed book ids, or null when this session sees
@@ -244,6 +280,7 @@ export function AppSurface({ surface }) {
 
   const reviewGuidedReadingBook = useCallback(async review => {
     if (!isAdmin) return { ok: false, error: new Error("App admin access is required.") };
+    const { saveGuidedReadingBookReview } = await import("../data/guidedReadingPublication.js");
     const result = await saveGuidedReadingBookReview({
       client: isSupabaseConfigured ? supabase : null,
       reviewerId: teacherId,
@@ -268,12 +305,12 @@ export function AppSurface({ surface }) {
       if (active) {
         setReadingFollowerBooks(filterPublishedGuidedReadingBooks(
           module.getRuntimeGuidedReadingBooks(),
-          quarantinedReadingBookIds
+          approvedReadingBookIds
         ));
       }
     });
     return () => { active = false; };
-  }, [quarantinedReadingBookIds, sessionMode, studentSession?.token]);
+  }, [approvedReadingBookIds, sessionMode, studentSession?.token]);
 
   const handleReadingSessionEnded = useCallback(() => {
     setActiveReadingSession(null);
@@ -292,6 +329,11 @@ export function AppSurface({ surface }) {
     token: studentSession?.token || "",
     books: readingFollowerBooks,
     enabled: sessionMode === "student" && readingFollowerBooks.length > 0
+  });
+  const liveLessonFollower = useLiveLessonFollower({
+    client: isSupabaseConfigured ? supabase : null,
+    token: studentSession?.token || "",
+    enabled: sessionMode === "student" && Boolean(studentSession?.token)
   });
 
   useEffect(() => {
@@ -332,11 +374,11 @@ export function AppSurface({ surface }) {
   const [teacherCycleId, setTeacherCycleId] = useState(() => {
     try {
       const stored = window.localStorage.getItem("lp-teacher-cycle");
-      if (stored && teacherCycleOptions().some(option => option.id === stored)) return stored;
+      if (/^cycle-(?:[1-9]|[1-7][0-9]|80)$/u.test(stored || "")) return stored;
     } catch {
       // localStorage unavailable - fall through to the first cycle.
     }
-    return teacherCycleOptions()[0]?.id || "";
+    return "cycle-1";
   });
   function changeTeacherCycle(nextCycleId) {
     setTeacherCycleId(nextCycleId);
@@ -1099,6 +1141,19 @@ export function AppSurface({ surface }) {
     );
   };
 
+  if (isStudentMode && liveLessonFollower.session) {
+    return (
+      <ErrorBoundary
+        resetKey={`live-lesson-${liveLessonFollower.session.id}`}
+        fallback={<PageErrorFallback />}
+      >
+        <Suspense fallback={<LazyPageFallback label="Joining the class lesson…" />}>
+          <StudentLiveLessonOverlay follower={liveLessonFollower} />
+        </Suspense>
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary
       resetKey={`app-shell-${appView}-${isStudentMode ? studentSessionId || "none" : "teacher"}`}
@@ -1250,7 +1305,8 @@ export function AppSurface({ surface }) {
           <StudentHomePage
             studentName={studentName}
             progressScopeKey={childProgressScopeKey}
-            quarantinedBookIds={quarantinedReadingBookIds}
+            approvedBookIds={approvedReadingBookIds}
+            taughtTargetKeys={Object.entries(mastery).filter(([,record])=>Number(record?.attempts||0)>0).map(([skillId])=>skillId)}
             onOpenPhonicsLearn={() => {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.PHONICS_LEARN);
@@ -1403,6 +1459,7 @@ export function AppSurface({ surface }) {
               classList={classList}
               classListReadState={classListReadState}
               loadingClasses={loadingClasses}
+              studentList={studentList}
               loadClasses={loadClasses}
               selectedClassId={selectedClassId}
               createClass={createClass}
@@ -1541,6 +1598,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="teacher-resources">
           <Suspense fallback={<LazyPageFallback label="Loading resources..." />}>
             <TeacherIntentPage
+              client={supabase}
               intent="resources"
               classList={classList}
               classListReadState={classListReadState}
@@ -1548,8 +1606,11 @@ export function AppSurface({ surface }) {
               selectedClassId={selectedClassId}
               cycleId={teacherCycleId}
               loadingClasses={loadingClasses}
+              studentList={studentList}
               onRetryClasses={loadClasses}
               onOpenWorksheets={() => goToTeacherIntent(APP_VIEWS.WORKSHEETS)}
+              lessonComposerRequest={lessonComposerRequest}
+              onLessonComposerRequestHandled={() => setLessonComposerRequest(0)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
               onOpenGuidedReading={bookId => {
                 // GUIDED_READING is the per-student conference and only renders
@@ -1698,13 +1759,15 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
             <StudentBooksPage
-              quarantinedBookIds={quarantinedReadingBookIds}
+              approvedBookIds={approvedReadingBookIds}
               allowedBookIds={sampleBookIdSet}
               sampleLimitCopy={trySession ? SAMPLE_LIMIT_COPY : null}
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
               teacherId={teacherId}
               studentId={studentId}
+              client={supabase}
+              studentSessionToken={studentSession?.token || ""}
               guidedReadingRecords={guidedReadingRecords}
               studentProgress={guidedReadingStudentProgress}
               recommendationEvidenceReady={selectedStudentEvidenceReady}
@@ -1716,7 +1779,7 @@ export function AppSurface({ surface }) {
                 setStudentArcadeOpen(false);
                 setAppView(APP_VIEWS.LEARN);
               }}
-              publicationStatus={guidedReadingReviewState.status}
+              publicationStatus={guidedReadingPublicationStatus}
               renderReader={({ bookId, books, onExit }) => withStudentRail("books", (
                 <GuidedReadingPage
                   books={books}
@@ -1926,9 +1989,16 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="worksheets">
           <Suspense fallback={<LazyPageFallback label="Loading worksheets..." />}>
             <WorksheetGeneratorPage
+              client={isSupabaseConfigured ? supabase : null}
               teacherId={teacherId}
+              classId={selectedClassId}
               className={getSelectedClassName(classList, selectedClassId)}
+              studentList={studentList}
               onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
+              onPlanLesson={() => {
+                setLessonComposerRequest(request => request + 1);
+                goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES);
+              }}
             />
           </Suspense>
         </PageBoundary>
@@ -1939,7 +2009,10 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading Present mode..." />}>
             <PresentPage
               className={getSelectedClassName(classList, selectedClassId)}
+              classId={selectedClassId}
               currentCycleId={teacherCycleId}
+              students={studentList}
+              client={isSupabaseConfigured ? supabase : null}
               onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             />
           </Suspense>
@@ -2098,8 +2171,8 @@ export function AppSurface({ surface }) {
         onCancel={() => setResetProgressDialogOpen(false)}
       /></Suspense>}
 
-      <ReadingSessionSetup
-        quarantinedBookIds={quarantinedReadingBookIds}
+      {readingSetupOpen && <Suspense fallback={null}><ReadingSessionSetup
+        approvedBookIds={approvedReadingBookIds}
         classId={selectedClassId}
         client={isSupabaseConfigured ? supabase : null}
         onClose={() => setReadingSetupOpen(false)}
@@ -2112,9 +2185,9 @@ export function AppSurface({ surface }) {
         }}
         open={readingSetupOpen}
         students={studentList.filter(student => !student.archived_at)}
-      />
+      /></Suspense>}
 
-      <ReadingSessionRecoveryDialog
+      {abandonedReadingSession?.teacher_id === teacherId && <Suspense fallback={null}><ReadingSessionRecoveryDialog
         onEnd={async () => {
           const data = await endReadingSession({
             client: supabase,
@@ -2131,10 +2204,12 @@ export function AppSurface({ surface }) {
           setGuidedInitialBookId(session.book_id);
           setAppView(APP_VIEWS.TEACHER_GUIDED_READING);
         }}
-        session={abandonedReadingSession?.teacher_id === teacherId ? abandonedReadingSession : null}
-      />
+        session={abandonedReadingSession}
+      /></Suspense>}
 
-      <StudentReadingFollower follower={readingFollower} />
+      {readingFollower.connection !== "idle" && (
+        <Suspense fallback={null}><StudentReadingFollower follower={readingFollower} /></Suspense>
+      )}
 
       {appView === APP_VIEWS.FINISHED && (
         <PageBoundary resetKey="finished-report">

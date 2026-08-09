@@ -537,6 +537,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [8, 10]
   },
   {
+    id: "live-database-functions",
+    label: "Every browser-callable RPC is visible in the hosted PostgREST schema",
+    command: ["npm", "run", "check:live-database"],
+    areas: [5, 6, 7, 8, 10]
+  },
+  {
     id: "audit-school-seed",
     label: "Deterministic non-production audit school",
     command: ["npm", "run", "check:audit-school-seed"],
@@ -683,6 +689,30 @@ export const RELEASE_GATES = Object.freeze([
     command: ["npm", "run", "check:media-quality"],
     areas: [1, 3, 4, 10],
     planned: true
+  },
+  {
+    id: "public-media-policy",
+    label: "No known watermarked batch or forbidden public-media reference",
+    command: ["npm", "run", "check:public-media-policy"],
+    areas: [1, 3, 4, 8, 10]
+  },
+  {
+    id: "assessment-media-sizes",
+    label: "Assessment images and audio meet delivery-size and file-format limits",
+    command: ["npm", "run", "check:assessment-media-sizes"],
+    areas: [1, 3, 9, 10]
+  },
+  {
+    id: "media-review-release",
+    label: "Every published assessment, Guided Reading, and Story Quest media pairing has a human decision",
+    command: ["npm", "run", "check:media-review-release"],
+    areas: [1, 3, 4, 10]
+  },
+  {
+    id: "sound-seekers-audio",
+    label: "Every Sound Seekers teaching sound has release-approved audio",
+    command: ["npm", "run", "check:quest-release"],
+    areas: [1, 2, 3, 4, 10]
   },
   {
     id: "device-matrix",

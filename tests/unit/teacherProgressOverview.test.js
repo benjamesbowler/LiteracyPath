@@ -144,7 +144,7 @@ test("class distribution keeps sparse evidence outside accuracy bands", () => {
   const summary = buildTeacherProgressOverview(rows, { now: POLICY_NOW });
   const counts = Object.fromEntries(summary.distribution.map(band => [band.id, band.count]));
 
-  assert.equal(PROGRESS_MIN_RESPONSES, 8);
+  assert.equal(PROGRESS_MIN_RESPONSES, 10);
   assert.deepEqual(counts, {
     secure: 1,
     developing: 1,
@@ -171,7 +171,7 @@ test("weak class comparability suppresses the single headline without hiding bot
     {
       id: "one",
       name: "One",
-      answered: 8,
+      answered: 10,
       accuracy: 100,
       evidenceSkills: ["Initial Sounds", "Final Sounds"],
       lastActive: "2026-07-23T09:00:00.000Z"
@@ -179,7 +179,7 @@ test("weak class comparability suppresses the single headline without hiding bot
     {
       id: "two",
       name: "Two",
-      answered: 40,
+      answered: 50,
       accuracy: 50,
       evidenceSkills: ["Initial Sounds", "Final Sounds"],
       lastActive: "2026-07-23T09:00:00.000Z"

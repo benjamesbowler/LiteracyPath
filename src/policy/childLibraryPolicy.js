@@ -202,7 +202,7 @@ export function pickContinueBook({ books = [], records = {} } = {}) {
 
 /**
  * A window of `slots` books, wrapping. The Books screen shows eight at a time
- * out of 176; the wrap is what lets one "More books" tile walk the whole shelf
+ * out of 206; the wrap is what lets one "More books" tile walk the whole shelf
  * without a scrollbar and without a page number (a page counter would be a
  * third numeric system).
  */

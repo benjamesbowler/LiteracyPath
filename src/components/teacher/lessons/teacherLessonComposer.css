@@ -1,0 +1,43 @@
+.lesson-composer { display: grid; gap: 1rem; }
+.lesson-composer-evidence { border: 1px solid color-mix(in srgb, var(--teacher-accent, #315f54) 30%, transparent); border-radius: 14px; background: #f3f8f5; padding: .9rem 1rem; color: #29433d; }
+.lesson-composer-layout { display: grid; grid-template-columns: minmax(240px, 300px) minmax(0, 1fr); gap: 1rem; align-items: start; }
+.lesson-composer-controls, .lesson-composer-preview { border: 1px solid rgba(27, 47, 42, .14); border-radius: 18px; background: #fff; box-shadow: 0 10px 30px rgba(29, 55, 47, .07); }
+.lesson-composer-controls { display: grid; gap: 1rem; padding: 1rem; position: sticky; top: 1rem; }
+.lesson-composer-controls label { display: grid; gap: .4rem; font-weight: 650; }
+.lesson-composer-controls select { min-height: 44px; border: 1px solid #9fafa9; border-radius: 10px; padding: .55rem .7rem; background: #fff; color: #172b26; }
+.lesson-composer-controls fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.lesson-composer-controls legend { font-weight: 750; margin-bottom: .45rem; }
+.lesson-composer-segmented { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem; }
+.lesson-composer-segmented button { min-height: 42px; border: 1px solid #a9b7b2; border-radius: 9px; background: #fff; color: #29433d; font-weight: 700; }
+.lesson-composer-segmented button.is-selected { border-color: #315f54; background: #315f54; color: #fff; }
+.lesson-composer-checks { display: grid; gap: .35rem; max-height: 180px; overflow: auto; padding-right: .2rem; }
+.lesson-composer-checks label { grid-template-columns: auto 1fr; align-items: center; font-weight: 500; min-height: 34px; }
+.lesson-composer-checks input { width: 18px; height: 18px; accent-color: #315f54; }
+.lesson-composer-preview { padding: 1rem; min-width: 0; }
+.lesson-composer-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; margin-bottom: 1rem; }
+.lesson-composer-summary > div { border-radius: 12px; background: #f5f6f3; padding: .75rem; display: grid; gap: .15rem; }
+.lesson-composer-summary span { color: #61706b; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; }
+.lesson-sequence { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+.lesson-sequence > li { display: grid; grid-template-columns: 34px 1fr; gap: .8rem; border: 1px solid #e1e7e4; border-radius: 14px; padding: .9rem; }
+.lesson-sequence > li.is-delivering { border-color: #315f54; box-shadow: 0 0 0 3px rgba(49, 95, 84, .12); }
+.lesson-step-number { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: #e5eee9; color: #23483e; font-weight: 800; }
+.lesson-step-role { margin: 0 0 .1rem; color: #687873; text-transform: uppercase; letter-spacing: .07em; font-size: .72rem; font-weight: 800; }
+.lesson-sequence h3 { margin: 0 0 .5rem; }
+.lesson-sequence p { margin: .3rem 0; line-height: 1.45; }
+.lesson-step-examples { color: #315f54; }
+.lesson-step-materials { color: #66726e; font-size: .9rem; }
+.lesson-composer-supports { margin-top: 1rem; border-radius: 14px; background: #f6f3eb; padding: .9rem; }
+.lesson-composer-actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1rem; }
+.lesson-composer-save { margin: .75rem 0 0; border-radius: 10px; padding: .7rem .8rem; background: #edf5f1; color: #23483e; }
+.lesson-composer-save-error { background: #fff0ed; color: #7d2e25; }
+.lesson-delivery-bar { position: sticky; bottom: .75rem; margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; border-radius: 14px; background: #1d3730; color: #fff; padding: .65rem; box-shadow: 0 12px 30px rgba(16, 35, 30, .25); }
+.lesson-delivery-bar button { min-height: 40px; border: 1px solid rgba(255,255,255,.4); border-radius: 9px; background: #fff; color: #17342c; padding: .45rem .8rem; font-weight: 750; }
+.lesson-delivery-bar button:disabled { opacity: .45; }
+.lesson-delivery-finish { margin-top: .65rem; border: 1px solid #d9e3df; border-radius: 14px; padding: .8rem; background: #f8faf9; display: grid; gap: .65rem; }
+.lesson-delivery-finish label { display: grid; gap: .35rem; font-weight: 700; }
+.lesson-delivery-finish textarea { min-height: 82px; resize: vertical; border: 1px solid #a9b7b2; border-radius: 9px; padding: .6rem; font: inherit; }
+.lesson-delivery-finish div { display: flex; gap: .5rem; flex-wrap: wrap; }
+.lesson-delivery-finish button { min-height: 42px; border: 1px solid #315f54; border-radius: 9px; background: #fff; color: #244a40; padding: .5rem .8rem; font-weight: 750; }
+.lesson-composer-warning { padding: 2rem; text-align: center; color: #586862; }
+@media (max-width: 800px) { .lesson-composer-layout { grid-template-columns: 1fr; } .lesson-composer-controls { position: static; } .lesson-composer-summary { grid-template-columns: repeat(2, 1fr); } }
+@media print { body * { visibility: hidden !important; } .lesson-composer-preview, .lesson-composer-preview * { visibility: visible !important; } .lesson-composer-preview { position: absolute; inset: 0; box-shadow: none; border: 0; } .lesson-composer-actions, .lesson-delivery-bar { display: none !important; } .lesson-sequence > li { break-inside: avoid; } }

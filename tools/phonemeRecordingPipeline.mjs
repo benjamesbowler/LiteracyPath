@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { PHONEME_RECORDING_TARGETS } from "../src/data/phonemeRecordingSpec.js";
+import { NEEDS_AUDIO } from "../src/data/questSequence.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const defaultOutput = path.join(root, ".artifacts", "phoneme-recording");
@@ -27,18 +28,30 @@ function parseArgs(argv) {
   return { command, options };
 }
 
-function allTakes() {
-  return PHONEME_RECORDING_TARGETS.flatMap(item => item.takeIds.map((takeId, takeIndex) => ({
+function selectedTargets(scope = "all") {
+  if (scope === "all") return PHONEME_RECORDING_TARGETS;
+  if (scope !== "missing-human") {
+    throw new Error(`Unknown recording scope: ${scope}. Use all or missing-human.`);
+  }
+  const requested = new Set(NEEDS_AUDIO);
+  const selected = PHONEME_RECORDING_TARGETS.filter(item => requested.has(item.key));
+  const missingSpecs = NEEDS_AUDIO.filter(key => !selected.some(item => item.key === key));
+  if (missingSpecs.length) throw new Error(`Missing recording specifications for: ${missingSpecs.join(", ")}`);
+  return selected;
+}
+
+function allTakes(targets) {
+  return targets.flatMap(item => item.takeIds.map((takeId, takeIndex) => ({
     ...item,
     takeId,
     variant: item.takeIds.length > 1 ? takeIndex + 1 : ""
   })));
 }
 
-function prepare(outputDirectory) {
+function prepare(outputDirectory, targets) {
   mkdirSync(outputDirectory, { recursive: true });
   const rows = [["take_id", "curriculum_key", "kind", "ipa", "anchor_for_performer_only", "direction", "review_status", "review_notes"]];
-  for (const item of allTakes()) {
+  for (const item of allTakes(targets)) {
     rows.push([item.takeId, item.key, item.kind, item.ipa, item.anchor, item.direction, "pending", ""]);
   }
   writeFileSync(path.join(outputDirectory, "recording-session.csv"), `${rows.map(row => row.map(csvCell).join(",")).join("\n")}\n`);
@@ -68,7 +81,7 @@ Record each take as its own file named by the \`take_id\` in \`recording-session
 
 No file produced by this preparation command is runtime-approved audio.
 `);
-  console.log(`Prepared ${allTakes().length} takes for ${PHONEME_RECORDING_TARGETS.length} curriculum cues in ${outputDirectory}`);
+  console.log(`Prepared ${allTakes(targets).length} takes for ${targets.length} curriculum cues in ${outputDirectory}`);
 }
 
 function resolveTakeFile(inputDirectory, takeId) {
@@ -111,16 +124,16 @@ function validateRights(inputDirectory) {
   return problems;
 }
 
-function check(inputDirectory, outputDirectory) {
+function check(inputDirectory, outputDirectory, targets) {
   if (!inputDirectory || !existsSync(inputDirectory)) throw new Error("Pass an existing source directory with --input");
   mkdirSync(outputDirectory, { recursive: true });
   const problems = validateRights(inputDirectory);
-  const expected = new Set(allTakes().flatMap(item => audioExtensions.map(extension => `${item.takeId}${extension}`)));
+  const expected = new Set(allTakes(targets).flatMap(item => audioExtensions.map(extension => `${item.takeId}${extension}`)));
   const unexpected = readdirSync(inputDirectory).filter(file => audioExtensions.includes(path.extname(file).toLowerCase()) && !expected.has(file));
   if (unexpected.length) problems.push(`unexpected audio files: ${unexpected.join(", ")}`);
 
   const rows = [["take_id", "curriculum_key", "file", "sha256", "duration_seconds", "sample_rate", "channels", "technical_status", "human_phonics_review", "notes"]];
-  for (const item of allTakes()) {
+  for (const item of allTakes(targets)) {
     const filePath = resolveTakeFile(inputDirectory, item.takeId);
     if (!filePath) {
       problems.push(`missing take: ${item.takeId}`);
@@ -153,8 +166,8 @@ function check(inputDirectory, outputDirectory) {
   writeFileSync(path.join(outputDirectory, "check-summary.json"), `${JSON.stringify({
     checkedAt: new Date().toISOString(),
     inputDirectory: path.resolve(inputDirectory),
-    cueCount: PHONEME_RECORDING_TARGETS.length,
-    takeCount: allTakes().length,
+    cueCount: targets.length,
+    takeCount: allTakes(targets).length,
     passed: problems.length === 0,
     problems
   }, null, 2)}\n`);
@@ -163,17 +176,36 @@ function check(inputDirectory, outputDirectory) {
     process.exitCode = 1;
     return;
   }
-  console.log(`Technical intake passed for ${allTakes().length} takes. Human phonics review is still required.`);
+  console.log(`Technical intake passed for ${allTakes(targets).length} takes. Human phonics review is still required.`);
+}
+
+function recordNoMissingTargets(outputDirectory, scope) {
+  mkdirSync(outputDirectory, { recursive: true });
+  writeFileSync(path.join(outputDirectory, "check-summary.json"), `${JSON.stringify({
+    checkedAt: new Date().toISOString(),
+    inputDirectory: null,
+    scope,
+    cueCount: 0,
+    takeCount: 0,
+    passed: true,
+    problems: []
+  }, null, 2)}\n`);
+  console.log(`No ${scope} phoneme recording gaps remain; no private intake directory is needed.`);
 }
 
 const { command, options } = parseArgs(process.argv.slice(2));
 const outputDirectory = path.resolve(options.output || defaultOutput);
+const targets = selectedTargets(options.scope || "all");
 
 if (command === "prepare") {
-  prepare(outputDirectory);
+  prepare(outputDirectory, targets);
 } else if (command === "check") {
-  if (!options.input) throw new Error("Pass the private source directory with --input /absolute/path/to/incoming");
-  check(path.resolve(options.input), outputDirectory);
+  if (targets.length === 0) {
+    recordNoMissingTargets(outputDirectory, options.scope || "all");
+  } else {
+    if (!options.input) throw new Error("Pass the private source directory with --input /absolute/path/to/incoming");
+    check(path.resolve(options.input), outputDirectory, targets);
+  }
 } else {
   throw new Error(`Unknown command: ${command}. Use prepare or check.`);
 }

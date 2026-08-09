@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../supabaseClient.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
-import { AUDIO_QUEST_PATHS } from "../data/generated/audioQuestPaths.generated.js";
+import { STUDENT_LOGIN_VOICE_AUDIO } from "../data/generated/shellAudioPaths.generated.js";
 import { SYMBOL_PASSWORD_LENGTH } from "../data/symbolPasswordIcons.js";
 import {
   loadCompatibleStudentClass,
@@ -10,10 +10,6 @@ import {
 import { classifyStudentCodeRecovery } from "../policy/studentLoginRecovery.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 import { CHILD_COPY } from "../copy/childCopy.js";
-import {
-  getLedaInstructionAudioPath,
-  getLedaWordAudioPath
-} from "../data/ledaProductionAudio.js";
 
 // Recorded Leda prompts only. Missing clips stay silent and the picture-first
 // UI remains usable; browser TTS is never used.
@@ -27,10 +23,9 @@ const VOICE_LINES = {
 };
 
 function speakLine(key, options = {}) {
-  const text = VOICE_LINES[key];
-  if (!text) return false;
-  const src = getLedaInstructionAudioPath(text) || getLedaWordAudioPath(text);
-  if (!AUDIO_QUEST_PATHS.has(src)) return false;
+  if (!VOICE_LINES[key]) return false;
+  const src = STUDENT_LOGIN_VOICE_AUDIO[key];
+  if (!src) return false;
   playCueAudio(src, { volume: options.volume ?? 0.9 });
   return true;
 }

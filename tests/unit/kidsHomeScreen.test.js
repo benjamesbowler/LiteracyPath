@@ -183,6 +183,12 @@ test("the home layout keeps the spec's vertical geometry and assumes no fixed wi
   );
   assert.match(css, /grid-template-columns:\s*repeat\(var\(--kg-door-count, 6\), minmax\(0, 1fr\)\)/);
   assert.match(css, /grid-template-columns:\s*repeat\(var\(--kg-stop-count, 3\), minmax\(0, 1fr\)\)/);
+  assert.match(
+    css,
+    /\.kg-stage \.kg-home-door-art \{[\s\S]*?min-height:\s*0;/,
+    "door art must yield to the footer instead of clipping the title on short landscape cards"
+  );
+  assert.doesNotMatch(css, /\.kg-stage \.kg-home-door-art \{[\s\S]*?min-height:\s*170px;/);
 });
 
 test("the three stop states are separated on size, fill, ring and ink — not on one of them", () => {

@@ -1,0 +1,2 @@
+import { TRANSFER_CONTEXTS } from "../../content/transfer/transferContextPolicy.js";
+export function TransferMissionResult({mission,onClose}){return <section className="transfer-result"><span>Mission complete</span><h2>You used it in a {TRANSFER_CONTEXTS[mission.context].label.toLowerCase()}.</h2><p>This is one transfer sample. It does not change a secure skill or turn into a grade by itself.</p><button type="button" onClick={onClose}>Back home</button></section>}

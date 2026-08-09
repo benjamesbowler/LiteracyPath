@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
-const reportPath = path.join(repoRoot, "docs", "validation", "media_overwrite_risk_audit.md");
+const reportPath = path.join(repoRoot, ".artifacts", "audits", "media_overwrite_risk_audit.md");
 
 const LIVE_ROOTS = [
   "public/images",

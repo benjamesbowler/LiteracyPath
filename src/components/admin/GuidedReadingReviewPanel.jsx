@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import { guidedReadingReviewMap } from "../../data/guidedReadingPublication.js";
+import { guidedReadingReviewMap } from "../../policy/guidedReadingApprovalPolicy.js";
 import { getRuntimeGuidedReadingBooks } from "../../utils/guidedReading/runtimeBooks.js";
 import { GuidedReadingPage } from "../guided-reading/GuidedReadingPage.jsx";
 
@@ -46,7 +46,7 @@ export function GuidedReadingReviewPanel({
           <p className="panel-label">Child publication</p>
           <h3>Guided Reading review</h3>
           <p className="muted-text">
-            Every book is live to children by default. Failing a book removes it everywhere on the child side until it is fixed and passed again.
+            A book reaches children only after it is passed here. Failing it keeps it quarantined until it is fixed and passed again.
           </p>
         </div>
         <button className="lp-button lp-button-secondary" disabled={reviewStatus === "loading"} onClick={onRefresh} type="button">
@@ -56,7 +56,7 @@ export function GuidedReadingReviewPanel({
 
       {reviewError && (
         <div className="admin-section-warning" role="alert">
-          Reviews could not be loaded, so any failed books may still be showing. Child libraries stay open — refresh to re-apply the quarantine list.
+          Reviews could not be loaded. Child libraries fail closed, so unchecked books remain hidden until the approval list loads again.
         </div>
       )}
 

@@ -1030,6 +1030,10 @@
   font: 900 1.15rem var(--phonics-font-display);
 }
 
+.phonics-arcade-surface .phonics-arcade-loading {
+  color: #EAF6F2;
+}
+
 .cvc-picker,
 .cvc-learning-flow {
   width: 100%;

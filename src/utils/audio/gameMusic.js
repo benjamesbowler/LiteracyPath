@@ -4,7 +4,7 @@ const TRACKS = {
   "rocket-run": {
     title: "Rocket Run",
     volume: 0.25,
-    sources: ["/audio/music/arcade/rocket-run-loop.mp3"]
+    sources: ["/audio/music/arcade/neon-arcade-run-loop.mp3", "/audio/music/arcade/rocket-run-loop.mp3"]
   },
   "letter-leap": {
     title: "Letter Leap",
@@ -14,7 +14,7 @@ const TRACKS = {
   "sound-racer": {
     title: "Sound Racer",
     volume: 0.24,
-    sources: ["/audio/music/arcade/sound-racer-loop.mp3"]
+    sources: ["/audio/music/arcade/coin-drop-carnival-loop.mp3", "/audio/music/arcade/sound-racer-loop.mp3"]
   },
   "word-bridge": {
     title: "Word Bridge",
@@ -29,7 +29,7 @@ const TRACKS = {
   "rhyme-pop": {
     title: "Rhyme Pop",
     volume: 0.24,
-    sources: ["/audio/music/arcade/rhyme-pop-loop.mp3"]
+    sources: ["/audio/music/arcade/bubble-ticket-parade-loop.mp3", "/audio/music/arcade/rhyme-pop-loop.mp3"]
   },
   "sound-safari": {
     title: "Sound Safari",
@@ -44,7 +44,7 @@ const TRACKS = {
   "reel-read": {
     title: "Reel Read",
     volume: 0.23,
-    sources: ["/audio/music/arcade/reel-read-loop.mp3"]
+    sources: ["/audio/music/arcade/bubble-ticket-parade-alt-loop.mp3", "/audio/music/arcade/reel-read-loop.mp3"]
   },
   "sentence-express": {
     title: "Sentence Express",
@@ -54,7 +54,7 @@ const TRACKS = {
   "grammar-grind": {
     title: "Grammar Grind",
     volume: 0.26,
-    sources: ["/audio/music/arcade/grammar-grind-loop.mp3"]
+    sources: ["/audio/music/arcade/candy-coin-carousel-loop.mp3", "/audio/music/arcade/grammar-grind-loop.mp3"]
   },
   meadow: {
     title: "Morning on the Sound Trail",

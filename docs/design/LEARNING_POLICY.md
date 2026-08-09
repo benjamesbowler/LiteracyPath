@@ -9,8 +9,8 @@ numeric cutoff.
 
 ## Current contract
 
-- **Secure:** 85–100%.
-- **Developing:** 70–84%.
+- **Secure:** 90–100%.
+- **Developing:** 70–89%.
 - **Needs support:** below 70%.
 - **Not enough evidence:** the accuracy does not meet the declared conclusion
   scope, is missing or stale, or has an otherwise insufficient confidence
@@ -18,13 +18,14 @@ numeric cutoff.
 - **Not checked:** no scored evidence exists.
 - Accuracy conclusions use evidence from the latest 90-day window.
 - Every policy call declares one of three scopes:
-  - **General learner/class:** at least eight current scored responses across
+  - **General learner/class:** at least ten current scored responses across
     at least two distinct skills. One heavily practised skill cannot become a
     whole-learner or whole-class judgement.
-  - **Named skill:** at least eight current scored responses for that named
+  - **Named skill:** at least ten current scored responses for that named
     skill. The UI must keep the skill name attached to the conclusion.
-  - **Exact item:** at least three independent current attempts at that exact
-    item. Repeated variants in one sitting count once.
+  - **Exact item instructional progression:** at least three independent current
+    attempts at that exact item. Repeated variants in one sitting count once.
+    This is a practice-progression rule, not a reportable proficiency judgement.
 - Stronger general confidence requires at least 20 responses across at least
   three skills; moderate general confidence requires at least two skills.
   Single-skill evidence is sufficient only for an explicitly named skill or
@@ -40,6 +41,10 @@ numeric cutoff.
   policy-ready learners, at least 70% policy-ready learner coverage, and no
   more than a 4:1 response-count imbalance. When any condition fails, both
   descriptive views remain visible but the single headline is suppressed.
+- **Secure** is a current acquisition judgement. A separate retained-learning
+  claim additionally needs Secure evidence on at least two separate days and a
+  successful re-probe 14–28 days later. Until those longitudinal observations
+  are stored, the app must not claim that retention has been validated.
 
 Every derived conclusion stores `policyVersion`. Historical assessment records
 retain their recorded scoring-policy version; current report conclusions also

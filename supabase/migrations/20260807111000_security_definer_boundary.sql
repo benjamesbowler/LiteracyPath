@@ -89,7 +89,18 @@ grant execute on function public.get_game_leaderboard(text, integer) to anon, au
 grant execute on function public.report_app_error(
   uuid, text, text, text, text, text, text, text[], numeric
 ) to anon, authenticated;
-grant execute on function public.list_school_names() to anon, authenticated;
+-- Some hosted databases received the later bounded search_school_names(text)
+-- repair before this migration was recorded. In that state list_school_names()
+-- has already been dropped; do not make this historical boundary impossible to
+-- replay. The following 20260807130000/131000 migrations establish the final,
+-- bounded school-search grant either way.
+do $legacy_school_lookup$
+begin
+  if to_regprocedure('public.list_school_names()') is not null then
+    grant execute on function public.list_school_names() to anon, authenticated;
+  end if;
+end
+$legacy_school_lookup$;
 grant execute on function public.report_assessment_question(
   text, uuid, text, uuid, jsonb
 ) to anon, authenticated;

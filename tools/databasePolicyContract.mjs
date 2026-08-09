@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260807131000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260809163000_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
@@ -15,10 +15,16 @@ export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "student_class_by_code(text, text)",
   "student_get_progress(text)",
   "student_get_reading_session(text, integer, boolean)",
+  "student_get_live_lesson(text, integer, boolean)",
+  "student_list_press_projects(text)",
   "student_log_activity_v2(text, text, text, text, text, jsonb, timestamp with time zone, integer)",
   "student_login(uuid, text, text, text)",
   "student_report_activity_sync_health(text, text, bigint, bigint, bigint, bigint, bigint, bigint, timestamp with time zone)",
-  "student_save_progress(text, text, text, jsonb)"
+  "student_save_progress(text, text, text, jsonb)",
+  "student_save_book_revision(text, uuid, uuid, text, jsonb, jsonb)",
+  "student_submit_book_revision(text, uuid, uuid)",
+  "student_read_class_press_library(text)",
+  "student_submit_live_response(text, uuid, text, jsonb, text)"
 ]);
 
 export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
@@ -39,26 +45,40 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_assign_instructional_group_follow_up(uuid, text, text, date)",
   "teacher_class_access_log(uuid, integer)",
   "teacher_class_access_summary(uuid)",
+  "teacher_close_worksheet_instance(uuid)",
   "teacher_complete_learner_deletion(uuid, text, jsonb)",
   "teacher_create_insight_intervention(text, uuid, jsonb, uuid[], text[], text, text, date)",
   "teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date)",
   "teacher_create_intervention_plan(uuid, text, text, uuid[], text, text, date)",
+  "teacher_create_lesson_plan(uuid, uuid, uuid[], jsonb, jsonb, timestamp with time zone)",
+  "teacher_create_press_project(uuid, uuid[], jsonb)",
+  "teacher_create_worksheet_instance(uuid, uuid[], jsonb)",
   "teacher_delete_empty_class(uuid)",
   "teacher_delete_learner_data_staged(uuid, uuid, text, text)",
   "teacher_delete_planned_intervention(uuid)",
   "teacher_delete_saved_assessment_report(text)",
   "teacher_end_reading_session(uuid)",
+  "teacher_end_live_lesson(uuid)",
   "teacher_export_learner_data(uuid, text, text)",
   "teacher_get_learner_deletion_status(uuid, text)",
+  "teacher_get_active_live_lesson()",
   "teacher_get_reading_session_presence(uuid)",
+  "teacher_get_live_lesson_snapshot(uuid)",
   "teacher_list_learner_data_rights(uuid)",
+  "teacher_list_press_work(uuid)",
   "teacher_mark_intervention_delivered(uuid)",
   "teacher_prepare_learner_deletion(uuid, text, text)",
+  "teacher_read_lesson_plan(uuid)",
+  "teacher_read_worksheet_history(uuid)",
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)",
   "teacher_record_intervention_outcome(uuid, text, text)",
+  "teacher_record_lesson_delivery(uuid, text, uuid[], text, text, jsonb)",
+  "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)",
   "teacher_regenerate_class_code(uuid)",
   "teacher_reset_student_progress(uuid, timestamp with time zone)",
+  "teacher_resolve_worksheet_code(text)",
   "teacher_review_instructional_group(uuid, uuid[], jsonb)",
+  "teacher_review_book_revision(uuid, uuid, text, jsonb)",
   "teacher_review_intervention(uuid, date)",
   "teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)",
   "teacher_save_reading_marks(uuid, uuid, integer, jsonb, text)",
@@ -66,11 +86,14 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_set_class_code_expiry(uuid, timestamp with time zone)",
   "teacher_set_class_leaderboard_scope(uuid, text)",
   "teacher_set_reading_session_page(uuid, integer)",
+  "teacher_set_live_lesson_slide(uuid, integer, text)",
   "teacher_set_student_archived(uuid, uuid, boolean)",
   "teacher_set_student_symbol_password(uuid, text, timestamp with time zone)",
   "teacher_start_reading_session(uuid, text, integer[], uuid[], text)",
+  "teacher_start_live_lesson(uuid, uuid[], text, text, jsonb, text)",
   "teacher_transfer_student(uuid, uuid, uuid)",
   "teacher_set_school(text)",
+  "teacher_update_draft_lesson_plan(uuid, integer, uuid[], jsonb, timestamp with time zone)",
   "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)"
 ]);
 

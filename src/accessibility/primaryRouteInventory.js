@@ -10,7 +10,7 @@ export const A11Y_PRIMARY_ROUTES = Object.freeze([
     id: "phonics",
     audience: "student",
     url: "/preview/child-surfaces.html?surface=phonics",
-    settledSelector: ".phonics-picker h2"
+    settledSelector: ".phonics-picker h1"
   }),
   Object.freeze({ id: "arcade", audience: "student", url: "/preview/child-surfaces.html?surface=arcade" }),
   Object.freeze({ id: "adventure-map", audience: "student", url: "/preview/child-surfaces.html?surface=adventure-map" }),
@@ -49,6 +49,7 @@ export const A11Y_KEY_MODAL_STATES = Object.freeze([
   Object.freeze({
     id: "teacher-child-options",
     url: "/preview/teacher-a11y.html?surface=classes&learner=1",
+    openSummary: "More for Aarav",
     openControl: "Student settings",
     dialogName: "Options for Aarav"
   }),

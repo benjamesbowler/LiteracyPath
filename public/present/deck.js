@@ -47,6 +47,9 @@
   var railSections = document.getElementById('rail-sections');
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var idx = 0, started = false;
+  var deckKey = document.body.getAttribute('data-deck-key') || '';
+  var liveChannel = null;
+  try { if ('BroadcastChannel' in window) liveChannel = new BroadcastChannel('lp-present-live'); } catch { liveChannel = null; }
 
   // ── Embedded preview ─────────────────────────────────────────────────────
   // PresentPage renders this same document in a same-origin <iframe srcdoc>
@@ -195,6 +198,14 @@
     resetTimer(s);
     animateWriting(s);
     if (started && s.getAttribute('data-audio')) playAudio(s.getAttribute('data-audio'));
+    // A projector window reports only its slide number to the teacher page.
+    // No learner identity or response data ever crosses into the projected view.
+    if (!embedded && window.opener) {
+      try { window.opener.postMessage({ type: 'lp-present-slide', deckKey: deckKey, index: idx }, window.location.origin); } catch { /* opener closed */ }
+    }
+    if (!embedded) {
+      try { liveChannel && liveChannel.postMessage({ type: 'lp-present-slide', deckKey: deckKey, index: idx }); } catch { /* channel unavailable */ }
+    }
   }
   function go(d){ show(idx + d); }
 

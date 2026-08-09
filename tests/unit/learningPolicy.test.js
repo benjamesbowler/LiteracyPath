@@ -16,11 +16,11 @@ const NOW = new Date("2026-07-24T12:00:00.000Z");
 test("learning policy publishes one versioned threshold and evidence contract", () => {
   assert.equal(LEARNING_EVIDENCE_POLICY.version, LEARNING_POLICY_VERSION);
   assert.deepEqual(LEARNING_EVIDENCE_POLICY.accuracyPercent, {
-    secureMinimum: 85,
+    secureMinimum: 90,
     developingMinimum: 70,
     intensiveSupportMaximum: 50
   });
-  assert.equal(LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses, 8);
+  assert.equal(LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses, 10);
   assert.equal(LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerSkillDiversity, 2);
   assert.equal(LEARNING_EVIDENCE_POLICY.minimumEvidence.exactItemIndependentAttempts, 3);
   assert.equal(LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays, 90);
@@ -35,8 +35,8 @@ test("learning policy publishes one versioned threshold and evidence contract", 
 
 test("accuracy bands use the canonical Secure, Developing, and Needs support vocabulary", () => {
   assert.equal(rawLearningStatus(100), LEARNING_STATUS_IDS.SECURE);
-  assert.equal(rawLearningStatus(85), LEARNING_STATUS_IDS.SECURE);
-  assert.equal(rawLearningStatus(84), LEARNING_STATUS_IDS.DEVELOPING);
+  assert.equal(rawLearningStatus(90), LEARNING_STATUS_IDS.SECURE);
+  assert.equal(rawLearningStatus(89), LEARNING_STATUS_IDS.DEVELOPING);
   assert.equal(rawLearningStatus(70), LEARNING_STATUS_IDS.DEVELOPING);
   assert.equal(rawLearningStatus(69), LEARNING_STATUS_IDS.NEEDS_SUPPORT);
 });

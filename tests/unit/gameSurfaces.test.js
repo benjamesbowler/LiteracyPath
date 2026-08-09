@@ -61,6 +61,12 @@ test("every arcade game has a registered component", () => {
   }
 });
 
+test("SoundKeys uses its own premium word-building artwork", () => {
+  const soundKeys = GAME_LIST.find(game => game.id === "soundkeys");
+  assert.equal(soundKeys?.icon, "/images/learn-games/art/soundkeys.webp");
+  assert.notEqual(soundKeys?.icon, "/images/learn-games/icon-sound-slide.png");
+});
+
 test("Reel & Read mixes word parts, meaning, and morphology", () => {
   for (const difficulty of ["easy", "medium", "hard"]) {
     const ladder = reelReadLadder(difficulty);

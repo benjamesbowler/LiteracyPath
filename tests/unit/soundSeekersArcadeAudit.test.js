@@ -44,10 +44,10 @@ test("gold voice policy stays recorded-only across shared phonics and login audi
     assert.doesNotMatch(text, /SpeechSynthesisUtterance|createOscillator/, `${name} reintroduced synthetic speech`);
   }
   assert.match(phonicsHook, /AUDIO_PHONEME_PATHS\.has\(src\)/);
-  assert.match(loginFlow, /AUDIO_QUEST_PATHS\.has\(src\)/);
+  assert.match(loginFlow, /STUDENT_LOGIN_VOICE_AUDIO\[key\]/);
+  assert.match(loginFlow, /playCueAudio\(src/);
   assert.doesNotMatch(loginFlow, /speakWithBrowser/);
   assert.doesNotMatch(loginFlow, /\/audio\/ui\/voice\//);
-  assert.match(loginFlow, /getLedaInstructionAudioPath\(text\)/);
   for (const text of [
     "Ask your teacher for the class code.",
     "Who are you?",

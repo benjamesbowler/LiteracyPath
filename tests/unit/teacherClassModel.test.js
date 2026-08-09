@@ -188,7 +188,7 @@ test("current conclusions use the 90-day summary while lifetime activity stays v
       accuracy: 97,
       evidenceSkills: ["Initial Sounds", "Final Sounds", "CVC Words"],
       lastActive: "2026-07-20T09:00:00.000Z",
-      currentAnswered: 8,
+      currentAnswered: 10,
       currentCorrect: 2,
       currentAccuracy: 25,
       currentEvidenceSkills: ["CVC Words"],
@@ -200,7 +200,7 @@ test("current conclusions use the 90-day summary while lifetime activity stays v
 
   assert.equal(row.answered, 30);
   assert.equal(row.accuracy, 97);
-  assert.equal(row.learningConclusion.attempts, 8);
+  assert.equal(row.learningConclusion.attempts, 10);
   assert.equal(row.learningConclusion.accuracy, 25);
   assert.equal(row.learningConclusion.status.label, "Not enough results");
   assert.match(row.learningConclusion.reason, /required skills/i);

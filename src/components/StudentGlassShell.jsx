@@ -124,12 +124,12 @@ function Currency({ kind, value, ok, caption, label, onClick }) {
   return (
     <Tag
       className={`kg-currency kg-currency--${kind}`}
-      {...(onClick ? { type: "button", onClick } : {})}
-      aria-label={label}
+      {...(onClick ? { type: "button", onClick, "aria-label": label } : {})}
     >
       {kind === "stars" ? <StarGlyph /> : <CoinGlyph />}
       <span className="kg-currency-value" aria-hidden="true">{shown}</span>
       <span className="kg-currency-caption" aria-hidden="true">{caption}</span>
+      {!onClick && <span className="kg-visually-hidden">{label}</span>}
     </Tag>
   );
 }

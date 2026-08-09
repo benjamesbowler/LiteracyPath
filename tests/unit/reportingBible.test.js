@@ -108,14 +108,16 @@ test("non-numeric evidence counts do not become a judgement", () => {
 
 /* --------------------------- mastery gates --------------------------- */
 
-test("secure needs all four gates", () => {
+test("Secure uses current acquisition gates while retained learning needs all four gates", () => {
   const pass = { accuracyPercent: 95, scoredItems: 20, separateDays: 3, retentionPassed: true };
   assert.equal(evaluateMasteryGates(pass).secure, true);
+  assert.equal(evaluateMasteryGates(pass).retentionValidated, true);
 
   assert.equal(evaluateMasteryGates({ ...pass, accuracyPercent: 89 }).secure, false);
   assert.equal(evaluateMasteryGates({ ...pass, scoredItems: 9 }).secure, false);
-  assert.equal(evaluateMasteryGates({ ...pass, separateDays: 1 }).secure, false);
-  assert.equal(evaluateMasteryGates({ ...pass, retentionPassed: null }).secure, false);
+  assert.equal(evaluateMasteryGates({ ...pass, separateDays: 1 }).secure, true);
+  assert.equal(evaluateMasteryGates({ ...pass, separateDays: 1 }).retentionValidated, false);
+  assert.equal(evaluateMasteryGates({ ...pass, retentionPassed: null }).retentionValidated, false);
 });
 
 test("90 percent is the accuracy bar, not the field's 80 percent convention", () => {
@@ -129,6 +131,7 @@ test("failing a retention check demotes, and says so in plain words", () => {
     accuracyPercent: 100, scoredItems: 30, separateDays: 5, retentionPassed: false
   });
   assert.equal(demoted.secure, false);
+  assert.equal(demoted.retentionValidated, false);
   assert.equal(demoted.demoted, true);
   assert.match(demoted.whyNotSecure, /slipped/);
 });
@@ -143,18 +146,20 @@ test("a rate criterion becomes a fifth gate only when the construct has one", ()
   assert.equal(withRate.secure, false);
 });
 
-test("high-stakes skills need a third separate day", () => {
+test("high-stakes retained-learning claims need a third separate day", () => {
   const twoDays = { accuracyPercent: 95, scoredItems: 20, separateDays: 2, retentionPassed: true };
-  assert.equal(evaluateMasteryGates(twoDays).secure, true);
-  assert.equal(evaluateMasteryGates({ ...twoDays, highStakes: true }).secure, false);
+  assert.equal(evaluateMasteryGates(twoDays).retentionValidated, true);
+  assert.equal(evaluateMasteryGates({ ...twoDays, highStakes: true }).retentionValidated, false);
 });
 
 test("the mastery rule is stated in words a teacher can argue with", () => {
   const summary = evaluateMasteryGates({}).summary;
   assert.match(summary, /90%/);
   assert.match(summary, /10 items/);
-  assert.match(summary, /separate days/);
-  assert.match(summary, /14-28 days/);
+  assert.doesNotMatch(summary, /separate days/);
+  const retentionSummary = evaluateMasteryGates({}).retentionSummary;
+  assert.match(retentionSummary, /separate days/);
+  assert.match(retentionSummary, /14-28 days/);
 });
 
 /* --------------------------- growth and trend --------------------------- */
@@ -302,25 +307,25 @@ test("every export carries the FERPA banner", () => {
 
 /* --------------------------- migration honesty --------------------------- */
 
-test("the migration deltas name every place the bible is stricter than today's policy", () => {
+test("the migration deltas name only longitudinal evidence not yet collected everywhere", () => {
   const deltas = reportingBibleMigrationDeltas();
   const ids = deltas.map(delta => delta.id);
-  assert.ok(ids.includes("secure_accuracy"));
-  assert.ok(ids.includes("minimum_items"));
+  assert.ok(!ids.includes("secure_accuracy"));
+  assert.ok(!ids.includes("minimum_items"));
+  assert.ok(ids.includes("retention"));
   deltas.forEach(delta => {
     assert.ok(delta.effect.length > 10, `${delta.id} does not say what changes for a teacher`);
   });
 });
 
-test("the bible is stricter than the policy it supersedes, in the stated direction", () => {
-  assert.ok(
-    REPORTING_BIBLE_POLICY.mastery.accuracyPercentMinimum >
-      LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum,
-    "the bible's accuracy bar must be at least as high as the existing one"
+test("the bible and learning policy share the same current Secure thresholds", () => {
+  assert.equal(
+    REPORTING_BIBLE_POLICY.mastery.accuracyPercentMinimum,
+    LEARNING_EVIDENCE_POLICY.accuracyPercent.secureMinimum
   );
-  assert.ok(
-    REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems >=
-      LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses
+  assert.equal(
+    REPORTING_BIBLE_POLICY.evidenceSufficiency.judgementMinimumScoredItems,
+    LEARNING_EVIDENCE_POLICY.minimumEvidence.learnerScoredResponses
   );
 });
 

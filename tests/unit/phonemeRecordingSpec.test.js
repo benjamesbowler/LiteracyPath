@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { PHONEME_RECORDING_TARGETS } from "../../src/data/phonemeRecordingSpec.js";
-import { QUEST_STOPS } from "../../src/data/questSequence.js";
+import { NEEDS_AUDIO, QUEST_STOPS } from "../../src/data/questSequence.js";
 
 test("every Sound Seekers sound-only curriculum cue has a recording specification", () => {
   const excludedKinds = new Set(["blend", "morph"]);
@@ -33,4 +33,13 @@ test("known multi-pronunciation spellings require separate takes", () => {
   assert.deepEqual(targets.th.takeIds, ["th-unvoiced", "th-voiced"]);
   assert.deepEqual(targets.u_e.takeIds, ["u-e-yoo", "u-e-oo"]);
   assert.deepEqual(targets.ew.takeIds, ["ew-yoo", "ew-oo"]);
+});
+
+test("every declared missing human Sound Seekers cue is a dedicated alternative take", () => {
+  const targets = Object.fromEntries(PHONEME_RECORDING_TARGETS.map(item => [item.key, item]));
+  assert.deepEqual(NEEDS_AUDIO, []);
+  for (const key of NEEDS_AUDIO) {
+    assert.equal(targets[key]?.kind, "alternative", `${key} needs an alternative recording specification`);
+    assert.deepEqual(targets[key]?.takeIds, [key]);
+  }
 });

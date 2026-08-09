@@ -50,8 +50,8 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 }
 
 test("all domain registries expose the complete reviewed backend surface", () => {
-  assert.equal(BOUNDARY_TABLES.length, 24);
-  assert.equal(BOUNDARY_RPCS.length, 60);
+  assert.equal(BOUNDARY_TABLES.length, 37);
+  assert.equal(BOUNDARY_RPCS.length, 83);
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("reading_sessions"));
   assert.ok(BOUNDARY_TABLES.includes("assessment_attempts"));
@@ -62,12 +62,16 @@ test("all domain registries expose the complete reviewed backend surface", () =>
   assert.ok(BOUNDARY_TABLES.includes("teacher_instructional_group_reviews"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_intervention_events"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_account_decision_events"));
+  assert.ok(BOUNDARY_TABLES.includes("teacher_lesson_plans"));
+  assert.ok(BOUNDARY_TABLES.includes("teacher_lesson_plan_deliveries"));
   assert.ok(BOUNDARY_TABLES.includes("worksheet_bank"));
   assert.ok(BOUNDARY_TABLES.includes("entitlements"));
   assert.ok(BOUNDARY_RPCS.includes("student_login"));
   assert.ok(BOUNDARY_RPCS.includes("report_assessment_question"));
   assert.ok(BOUNDARY_RPCS.includes("admin_review_assessment_question_report"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_export_learner_data"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_create_lesson_plan"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_record_lesson_delivery"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_delete_learner_data_staged"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_complete_learner_deletion"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_reset_student_progress"));
@@ -88,6 +92,15 @@ test("all domain registries expose the complete reviewed backend surface", () =>
     "teacher_set_reading_session_page",
     "teacher_start_reading_session"
   ]) assert.ok(BOUNDARY_RPCS.includes(readingRpc));
+  for (const liveLessonRpc of [
+    "student_get_live_lesson",
+    "student_submit_live_response",
+    "teacher_end_live_lesson",
+    "teacher_get_live_lesson_snapshot",
+    "teacher_get_active_live_lesson",
+    "teacher_set_live_lesson_slide",
+    "teacher_start_live_lesson"
+  ]) assert.ok(BOUNDARY_RPCS.includes(liveLessonRpc));
   assert.ok(!BOUNDARY_RPCS.includes("teacher_cancel_planned_intervention"));
   assert.deepEqual(FACADE_TABLES, BOUNDARY_TABLES);
   assert.deepEqual(FACADE_RPCS, BOUNDARY_RPCS);

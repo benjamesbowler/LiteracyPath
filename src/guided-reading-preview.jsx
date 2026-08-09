@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";
@@ -18,6 +18,9 @@ export function GuidedReadingPreview() {
   const requestedBookId = params.get("book") || "moonwood-tales-c-25";
   const book = guidedReadingBooks.find(item => item.id === requestedBookId) || guidedReadingBooks[0];
   const [records, setRecords] = useState({});
+  useEffect(() => {
+    window.__guidedReadingPreviewRecords = records;
+  }, [records]);
   const [quizResult, setQuizResult] = useState(null);
   const staleGroupHost = params.has("stale-group") ? {
     session: {

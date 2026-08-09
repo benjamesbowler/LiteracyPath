@@ -56,12 +56,11 @@ test("the exit screen names the nickname captured before teardown", () => {
   assert.ok(captureAt < teardownAt, "capture the nickname before ending the session");
 });
 
-test("the shelf applies the entitlement slice after the publication blocklist", () => {
-  // The two fail in OPPOSITE directions and the order encodes which wins.
+test("the shelf applies the entitlement slice after the publication allowlist", () => {
   const memo = booksPage.slice(booksPage.indexOf("filterPublishedGuidedReadingBooks(runtimeBooks"));
-  const blocklistAt = memo.indexOf("filterPublishedGuidedReadingBooks");
+  const publicationAt = memo.indexOf("filterPublishedGuidedReadingBooks");
   const sliceAt = memo.indexOf("filterToEntitlement");
-  assert.ok(blocklistAt > -1 && sliceAt > blocklistAt);
+  assert.ok(publicationAt > -1 && sliceAt > publicationAt);
   assert.match(booksPage, /hasFullContent: !allowedBookIds/);
 });
 
@@ -176,7 +175,7 @@ test("a try session is not mistaken for a broken student session", () => {
   );
 });
 
-test("nobody without a session asks the database for the book quarantine list", () => {
+test("nobody without a session asks the database for the book approval list", () => {
   // Two separate problems, one guard. An anonymous visitor on the front page was
   // doing an unauthenticated read of admin review rows; and because that request
   // was still in flight when try-mode began, the Supabase SDK's own retry went
@@ -189,10 +188,11 @@ test("nobody without a session asks the database for the book quarantine list", 
   );
   assert.ok(effect, "the guided-reading review effect has moved");
   assert.match(effect[0], /if \(trySession\) return undefined;/,
-    "try-mode must not ask for the quarantine list");
+    "try-mode must not ask for the approval list");
   assert.match(effect[0], /if \(!teacherId && !studentSession\?\.token\) return undefined;/,
-    "a visitor with no session must not ask for the quarantine list");
+    "a visitor with no session must not ask for the approval list");
   assert.match(effect[0], /trySession\]/, "trySession must be in the dependency list");
+  assert.match(surface, /guidedReadingPublicationStatus = trySession[\s\S]{0,80}?"unavailable"/);
 });
 
 test("the arcade doorway counts the games the session can actually reach", () => {

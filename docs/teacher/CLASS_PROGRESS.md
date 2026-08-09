@@ -10,7 +10,7 @@ class, group, and learner in the teacher profile and route hash.
 
 | View | Evidence | Interpretation guard |
 |---|---|---|
-| Distribution | Current assessment accuracy for every active learner | A learner needs at least 8 scored responses before entering an accuracy band. |
+| Distribution | Current assessment accuracy for every active learner | A learner needs at least 10 scored responses before entering an accuracy band. |
 | Coverage | Learners with any evidence, policy-ready learners, scored responses, and exact sound targets reached | Coverage means evidence exists; it does not claim mastery. |
 | Groups | Learners sharing a current curriculum focus or exact Sound Seekers re-teaching signal | Suggestions are transparent and never auto-assign a learner. |
 | Outliers | Policy-ready learners at least 15 percentage points from the class median | The class median and response count stay visible beside the flag. |
@@ -40,12 +40,12 @@ same five bases:
 | Attempts | Scored responses for learner/class and named-skill conclusions; independent attempts for an exact item. |
 | Diversity | Distinct assessment skills represented in the saved response history. |
 | Recency | Latest saved evidence date in UTC, or an explicit no-time state. |
-| Confidence | `Insufficient evidence` below 8 learner responses; `Limited diversity` when policy-ready evidence covers fewer than 2 skills; `Moderate evidence` at 8+ responses across 2+ skills; `Stronger evidence` at 20+ responses across 3+ skills. |
+| Confidence | `Insufficient evidence` below 10 learner responses; `Limited diversity` when policy-ready evidence covers fewer than 2 skills; `Moderate evidence` at 10+ responses across 2+ skills; `Stronger evidence` at 20+ responses across 3+ skills. |
 | Support use | Supported versus recorded Sound Seekers encounters when the source captures it; otherwise `Not captured in scored checks`, never an invented zero. |
 
-An overall learner/class accuracy conclusion requires 8 scored responses
+An overall learner/class accuracy conclusion requires 10 scored responses
 across at least 2 distinct skills. A conclusion for one explicitly named skill
-requires 8 scored responses for that skill. Exact-item accuracy requires 3
+requires 10 scored responses for that skill. Exact-item instructional progression requires 3
 independent attempts. Below the relevant threshold, the product retains the
 raw record but renders `Insufficient evidence`; one named skill can never
 silently become a whole-learner band or class average. Suggested groups exclude

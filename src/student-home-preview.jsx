@@ -119,6 +119,7 @@ export function StudentHomePreview() {
       <StudentHomePage
         studentName="Aaron"
         progressScopeKey={PREVIEW_SCOPE}
+        taughtTargetKeys={PREVIEW_SCENARIO === "transfer" ? ["cvc_short_vowels"] : []}
         onOpenPhonicsLearn={() => openDestination("phonics-learning")}
         onOpenArcade={() => openDestination("arcade")}
         onOpenSkillsBlockQuest={() => openDestination("adventure-map")}

@@ -115,6 +115,11 @@ if (missingWordImages.length) {
   process.exit(1);
 }
 
+if (fallbackWordCards.length) {
+  console.error(`Learn Games still contain ${fallbackWordCards.length} text-only word card(s): ${fallbackWordCards.join(", ")}`);
+  process.exit(1);
+}
+
 const safariCoverage = soundSafariAudioCoverage();
 const invalidSafariBanks = Object.entries(safariCoverage).filter(([, result]) => (
   result.total !== 30 || result.recorded.length !== 30 || result.missing.length > 0

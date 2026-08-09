@@ -593,6 +593,59 @@
     display: none;
   }
 
+  /* The rebuilt Story Quests front door must reflow too. Its landscape header
+     otherwise gives the world tray a 690px intrinsic width and clips both the
+     filters and story cards on a 320px phone. */
+  .kg-stage .kg-quests {
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .kg-stage .kg-quests-head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .kg-stage .kg-quests-head > .kg-spacer {
+    display: none;
+  }
+
+  .kg-stage .kg-quests-pill {
+    grid-column: 2;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment-tray {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    min-width: 0;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment {
+    min-width: 0 !important;
+    padding-inline: 6px;
+  }
+
+  .kg-stage .kg-quest-region,
+  .kg-stage .kg-quest-grid {
+    overflow: visible;
+  }
+
+  .kg-stage .kg-quest-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .kg-stage .kg-quest-card {
+    min-height: 250px;
+  }
+
   /* Arcade */
   .kg-stage .student-surface-arcade,
   .kg-stage .student-surface-arcade .lg-arcade,
@@ -881,5 +934,16 @@
     min-height: 0;
     overflow: hidden;
     padding: 6px;
+  }
+}
+
+/* Portrait tablets need a portrait application, not a shrunken 1024px-wide
+   landscape canvas floating between two empty bands. Their routes already
+   reflow below 900px; this lets that responsive work use the whole screen. */
+@media (min-width: 701px) and (max-width: 900px) and (orientation: portrait) {
+  .kg-stage {
+    width: 100vw !important;
+    height: 100dvh;
+    transform: translate(-50%, -50%);
   }
 }

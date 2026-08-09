@@ -256,10 +256,15 @@ function assertLazyCspCompatibleBundle() {
   assert.ok(exportChunk, "the user-action-only report export chunk is missing");
   const exportSource = readFileSync(path.join(distAssetsPath, exportChunk), "utf8");
   assert.doesNotMatch(exportSource, /(^|[^\w$.])eval\s*\(/, "the report export chunk contains direct eval");
+  // Guided Reading completion workbook construction remains a tested library,
+  // but the live report action now builds its focused workbook in App.jsx. It
+  // therefore has no standalone production loader chunk. Assert only the two
+  // loaders that are reachable from the current app instead of requiring dead
+  // code to be bundled to satisfy this check.
   const lazyLoaderChunks = files.filter(file => (
-    /^(?:metricDefinitions|exportElAssessmentExcel|exportGuidedReadingCompletionExcel)-.*\.js$/.test(file)
+    /^(?:metricDefinitions|exportElAssessmentExcel)-.*\.js$/.test(file)
   ));
-  assert.equal(lazyLoaderChunks.length, 3, "the three report export loader chunks are missing");
+  assert.equal(lazyLoaderChunks.length, 2, "the two reachable report export loader chunks are missing");
   for (const loaderChunk of lazyLoaderChunks) {
     const loaderSource = readFileSync(path.join(distAssetsPath, loaderChunk), "utf8");
     assert.match(
@@ -321,6 +326,10 @@ async function assertLargeExportMemory() {
 
 async function main() {
   const { snapshots, normalizedWorkbooks } = await currentSnapshots();
+  if (process.argv.includes("--print-normalized-student")) {
+    console.log(JSON.stringify(normalizedWorkbooks.studentEl));
+    return;
+  }
   if (process.argv.includes("--print-normalized")) {
     console.log(JSON.stringify({ schemaVersion: 1, normalizedWorkbooks }, null, 2));
     return;

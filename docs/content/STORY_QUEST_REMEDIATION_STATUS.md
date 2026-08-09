@@ -1,6 +1,6 @@
 # Story Quest remediation status
 
-**Current source truth — 2026-08-09.** Story Quest manuscripts, routes, illustrations, exact-text narrations and externally completed human listening validation are approved for release. Guided Reading human-audio validation remains pending.
+**Current source truth — 2026-08-09.** Story Quest and Guided Reading manuscripts, routes, illustrations, exact-text narrations and completed human listening validation are approved for release.
 
 ## Current result
 
@@ -12,7 +12,7 @@
 - Page clips awaiting human listening validation: **0/341**
 - Fully approved now: **14** Story Quests
 - Audited but release-blocked: **0**
-- Guided Reading narration generation is complete: all **1,861** active page narrations and **900** isolated-word clips resolve to exact current LEDA audio. Human listening validation remains open.
+- Guided Reading narration and listening validation are complete: all **1,861** active page narrations and **900** isolated-word clips resolve to exact current LEDA audio and the product owner approved the complete 206-book catalogue for release on 2026-08-09.
 - Guided Reading exact-current-text narration rebuild flags: **0**; all active page clips resolve to current text and the Leda voice mapping.
 
 No book or quest may be marked approved merely because its previous audio file still exists. The narration must resolve from the exact current page text, the file must be present, and the final clip must pass human listening validation.
@@ -63,4 +63,4 @@ The final visual pass is complete. All **341** active Story Quest scenes resolve
 
 ## Release state
 
-Story Quest content approval and human listening validation are complete. Guided Reading human-audio validation remains pending. Recalculate source fingerprints and rerun the policy and release checks before deployment.
+Story Quest and Guided Reading content approval and human listening validation are complete. The release policy, Story Bible, human-voice and visual-alignment gates pass; all 206 Guided Reading books are explicitly approved in the hosted fail-closed allowlist.

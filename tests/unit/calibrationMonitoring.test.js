@@ -18,21 +18,21 @@ test("the calibration preview is deterministic, complete, and explicitly synthet
   assert.equal(first.sourceMode, "seeded_preview");
   assert.equal(first.humanValidationStatus, "not_started");
   assert.equal(first.participants.length, 72);
-  assert.equal(first.itemEvents.length, 1152);
+  assert.equal(first.itemEvents.length, 1440);
 
   const model = buildCalibrationMonitoringModel(first);
   assert.equal(model.state, "seeded_preview");
   assert.equal(model.source.humanValidationStatus, "not_started");
   assert.match(model.source.disclaimer, /not child evidence/i);
   assert.deepEqual(model.failures, []);
-  assert.equal(model.summary.items, 8);
+  assert.equal(model.summary.items, 10);
   assert.ok(model.summary.reteachReviewCandidates > 0);
   assert.ok(model.summary.differentialReviewCandidates > 0);
 });
 
 test("difficulty monitoring reports evidence counts and withholds automatic decisions", () => {
   const model = buildCalibrationMonitoringModel(CALIBRATION_SEED_DATASET);
-  assert.equal(model.difficultyRows.length, 8);
+  assert.equal(model.difficultyRows.length, 10);
   for (const row of model.difficultyRows) {
     assert.ok(row.responses >= CALIBRATION_MONITORING_POLICY.minimumItemResponses);
     assert.equal(row.evidenceReady, true);

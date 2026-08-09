@@ -8,7 +8,13 @@ import { fileURLToPath } from "node:url";
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(repoRoot, "dist");
 const analysisPath = path.join(distDir, "bundle-analysis.json");
-const artifactDir = path.join(repoRoot, "docs", "release", "artifacts");
+const artifactDir = path.join(repoRoot, ".artifacts", "audits");
+const shellBudgets = Object.freeze({
+  requests: 70,
+  javascriptRequests: 45,
+  javascriptBytes: 2_500_000,
+  totalBytes: 6_000_000
+});
 const mimeTypes = Object.freeze({
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -99,6 +105,10 @@ async function captureShell(browser, origin, surface) {
     const url = new URL(response.url());
     if (url.origin !== origin) return;
     requests.push({
+      bytes: (() => {
+        const builtPath = safeBuiltPath(url.pathname);
+        return builtPath && fs.existsSync(builtPath) ? fs.statSync(builtPath).size : 0;
+      })(),
       path: url.pathname,
       status: response.status(),
       type: response.request().resourceType()
@@ -149,6 +159,25 @@ try {
           .join(", ")}`
       );
     }
+    const javascriptRequests = requests.filter(request => request.path.endsWith(".js"));
+    const javascriptBytes = javascriptRequests.reduce((total, request) => total + request.bytes, 0);
+    const totalBytes = requests.reduce((total, request) => total + request.bytes, 0);
+    if (requests.length > shellBudgets.requests) {
+      failures.push(`${surface} shell made ${requests.length} requests; budget is ${shellBudgets.requests}`);
+    }
+    if (javascriptRequests.length > shellBudgets.javascriptRequests) {
+      failures.push(
+        `${surface} shell loaded ${javascriptRequests.length} JavaScript files; budget is ${shellBudgets.javascriptRequests}`
+      );
+    }
+    if (javascriptBytes > shellBudgets.javascriptBytes) {
+      failures.push(
+        `${surface} shell loaded ${javascriptBytes} raw JavaScript bytes; budget is ${shellBudgets.javascriptBytes}`
+      );
+    }
+    if (totalBytes > shellBudgets.totalBytes) {
+      failures.push(`${surface} shell loaded ${totalBytes} raw bytes; budget is ${shellBudgets.totalBytes}`);
+    }
   }
 
   const generatedAt = new Date().toISOString();
@@ -156,6 +185,7 @@ try {
     schemaVersion: 1,
     generatedAt,
     result: failures.length ? "FAIL" : "PASS",
+    budgets: shellBudgets,
     forbiddenDeferredChunkCount: forbiddenFiles.size,
     failures,
     surfaces: { student, teacher }
@@ -171,19 +201,22 @@ try {
     "",
     `Generated: ${generatedAt}`,
     "",
-    "| Surface | Requests | JavaScript | Deferred bank/route violations | HTTP failures |",
-    "|---|---:|---:|---:|---:|",
+    "| Surface | Requests | JavaScript | JS raw | Total raw | Deferred bank/route violations | HTTP failures |",
+    "|---|---:|---:|---:|---:|---:|---:|",
     ...Object.entries({ student, teacher }).map(([surface, requests]) => {
       const javascript = requests.filter(request => request.path.endsWith(".js")).length;
+      const javascriptBytes = requests
+        .filter(request => request.path.endsWith(".js"))
+        .reduce((total, request) => total + request.bytes, 0);
+      const totalBytes = requests.reduce((total, request) => total + request.bytes, 0);
       const deferred = requests.filter(request => forbiddenFiles.has(path.basename(request.path))).length;
       const httpFailures = requests.filter(request => request.status >= 400).length;
-      return `| ${surface} | ${requests.length} | ${javascript} | ${deferred} | ${httpFailures} |`;
+      return `| ${surface} | ${requests.length} | ${javascript} | ${(javascriptBytes / 1_000_000).toFixed(2)} MB | ${(totalBytes / 1_000_000).toFixed(2)} MB | ${deferred} | ${httpFailures} |`;
     }),
     "",
     failures.length
       ? `Result: FAIL — ${failures.join("; ")}`
-      : "Result: PASS — both production shells load zero assessment-bank, guided-reading, "
-        + "benchmark, export, 3D, or game-engine chunks."
+      : "Result: PASS — both production shells stay inside request and raw-byte budgets and load zero assessment-bank, Guided Reading, benchmark, export, 3D, or game-engine chunks."
   ].join("\n");
   fs.writeFileSync(path.join(artifactDir, "first-load-network.md"), `${summary}\n`);
   console.log(summary);

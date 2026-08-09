@@ -10,7 +10,7 @@ import {
  * student-home recommendations all live here. Reporting and presentation code
  * may ask this module for a conclusion; it must not recreate these rules.
  */
-export const LEARNING_POLICY_VERSION = "2026.07.28-a4.3b";
+export const LEARNING_POLICY_VERSION = "2026.08.09-a4.3c";
 export const STUDENT_HOME_RECOMMENDATION_POLICY_VERSION = "2026.07.24";
 
 export const LEARNING_STATUS_IDS = Object.freeze({
@@ -39,12 +39,12 @@ export const LEARNING_EVIDENCE_POLICY = Object.freeze({
   id: "literacy-learning-evidence",
   version: LEARNING_POLICY_VERSION,
   accuracyPercent: Object.freeze({
-    secureMinimum: 85,
+    secureMinimum: 90,
     developingMinimum: 70,
     intensiveSupportMaximum: 50
   }),
   minimumEvidence: Object.freeze({
-    learnerScoredResponses: 8,
+    learnerScoredResponses: 10,
     learnerSkillDiversity: 2,
     exactItemIndependentAttempts: 3
   }),

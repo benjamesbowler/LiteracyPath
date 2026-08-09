@@ -22,6 +22,9 @@ import {
   transferRosterStudent
 } from "../data/teacherRosterOperations.js";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
+import { TransferEvidencePanel } from "./teacher/transfer/TransferEvidencePanel.jsx";
+import { ReadingPassportEvidencePanel } from "./teacher/ReadingPassportEvidencePanel.jsx";
+import { CooperativeStoryEvidencePanel } from "./teacher/CooperativeStoryEvidencePanel.jsx";
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
@@ -650,6 +653,13 @@ export function TeacherStudentsPage({
   const [savingAccessibilityIds, setSavingAccessibilityIds] = useState([]);
   const [accessibilityStudent, setAccessibilityStudent] = useState(null);
   const [dataRightsStudent, setDataRightsStudent] = useState(null);
+  const [transferEvidenceRead, setTransferEvidenceRead] = useState({
+    studentId: null,
+    state: "idle",
+    evidence: [],
+    reflections: {},
+    cooperativeEvidence: []
+  });
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const loadClassesRef = useRef(loadClasses);
@@ -658,6 +668,36 @@ export function TeacherStudentsPage({
   const newClassInputRef = useRef(null);
   const newStudentInputRef = useRef(null);
   const rosterImportRef = useRef(null);
+
+  useEffect(() => {
+    let live = true;
+    if (!selectedStudentId) return () => { live = false; };
+    supabase
+      .table("student_progress")
+      .select("area,payload,updated_at")
+      .eq("student_id", selectedStudentId)
+      .in("area", ["transfer_missions", "reading_passport", "cooperative_story_quest"])
+      .eq("key", "__all__")
+      .then(({ data, error }) => {
+        if (!live) return;
+        if (error) {
+          setTransferEvidenceRead({ studentId: selectedStudentId, state: "error", evidence: [], reflections: {}, cooperativeEvidence: [] });
+          return;
+        }
+        const rows = Array.isArray(data) ? data : [];
+        const transfer = rows.find(row => row.area === "transfer_missions")?.payload;
+        const passport = rows.find(row => row.area === "reading_passport")?.payload;
+        const cooperative = rows.find(row => row.area === "cooperative_story_quest")?.payload;
+        setTransferEvidenceRead({
+          studentId: selectedStudentId,
+          state: "ready",
+          evidence: Array.isArray(transfer?.evidence) ? transfer.evidence : [],
+          reflections: passport?.reflections && typeof passport.reflections === "object" ? passport.reflections : {},
+          cooperativeEvidence: Array.isArray(cooperative?.evidence) ? cooperative.evidence : []
+        });
+      });
+    return () => { live = false; };
+  }, [selectedStudentId]);
   function focusNewClassInput() {
     setClassToolsOpen(true);
     window.requestAnimationFrame(() => {
@@ -2541,6 +2581,25 @@ export function TeacherStudentsPage({
                 </p>
               )}
             </section>
+
+            <section className="teacher-student-panel-section">
+              {transferEvidenceRead.studentId !== selectedStudentId ? (
+                <p className="muted-text" role="status">Loading transfer evidence…</p>
+              ) : transferEvidenceRead.state === "error" ? (
+                <p className="muted-text" role="alert">Transfer evidence could not be loaded. Try opening this student again.</p>
+              ) : (
+                <TransferEvidencePanel evidence={transferEvidenceRead.evidence} />
+              )}
+            </section>
+
+            {transferEvidenceRead.studentId === selectedStudentId && transferEvidenceRead.state === "ready" && (
+              <section className="teacher-student-panel-section">
+                <ReadingPassportEvidencePanel reflections={transferEvidenceRead.reflections} />
+              </section>
+            )}
+            {transferEvidenceRead.studentId === selectedStudentId && transferEvidenceRead.state === "ready" && (
+              <section className="teacher-student-panel-section"><CooperativeStoryEvidencePanel evidence={transferEvidenceRead.cooperativeEvidence} /></section>
+            )}
 
             <details className="teacher-student-panel-more">
               <summary>More for {selectedStudentRow.name}</summary>

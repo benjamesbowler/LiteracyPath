@@ -33,7 +33,7 @@ import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js
 import { isGuidedReadingAssetDeleted } from "../data/deletedMediaManifest.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import { getRuntimeGuidedReadingBooks } from "../utils/guidedReading/runtimeBooks.js";
-import { filterPublishedGuidedReadingBooks } from "../data/guidedReadingPublication.js";
+import { filterPublishedGuidedReadingBooks } from "../policy/guidedReadingApprovalPolicy.js";
 import { filterToEntitlement } from "../policy/freeTierContent.js";
 import { speakStudentRailLabel } from "../policy/studentRailPolicy.js";
 import {
@@ -42,6 +42,8 @@ import {
   knowledgeJourneyBooks
 } from "../data/knowledgeJourneys.js";
 import { classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
+import { DecodablePressHomePage } from "./decodablePress/DecodablePressHomePage.jsx";
+import { ReadingPassportPage } from "./reading-passport/ReadingPassportPage.jsx";
 import {
   BOOK_SHELF_SLOTS,
   bookCollectionId,
@@ -139,12 +141,14 @@ export function StudentBooksPage({
   progressScopeKey = "default",
   teacherId = "",
   studentId = "",
+  client = null,
+  studentSessionToken = "",
   // The runtime library, injectable so a harness can shelve four books instead
   // of 176. `null` means "use the real one" rather than "there are none": a
   // screen that draws an empty library because nobody passed it a list is the
   // "load failure rendered as empty data" mistake with extra steps.
   books = null,
-  quarantinedBookIds = null,
+  approvedBookIds = null,
   // The sample plan's book ids, or null for an account that sees everything.
   allowedBookIds = null,
   // Shown where the shelf stops. Null for a full-content account, which is why
@@ -170,6 +174,8 @@ export function StudentBooksPage({
   const [knowledgeJourneyId, setKnowledgeJourneyId] = useState(KNOWLEDGE_JOURNEYS[0]?.id || "");
   const [showKnowledge, setShowKnowledge] = useState(false);
   const [collectionId, setCollectionId] = useState("all");
+  const [pressOpen, setPressOpen] = useState(false);
+  const [passportOpen, setPassportOpen] = useState(false);
 
   const recordsOk = useMemo(
     () => readGuidedRecordsState({ teacherId, studentId }),
@@ -181,16 +187,11 @@ export function StudentBooksPage({
   // memo below on every render.
   const library = useMemo(() => {
     const runtimeBooks = books || getRuntimeGuidedReadingBooks();
-    // Every book is live unless an admin has pulled it. `null` means the review
-    // list could not be read, which shows everything rather than nothing.
-    const live = filterPublishedGuidedReadingBooks(runtimeBooks, quarantinedBookIds);
-    // The entitlement slice is applied AFTER the publication blocklist, and the
-    // two fail in opposite directions on purpose. An unreadable blocklist shows
-    // every book, because emptying a five-year-old's library is the worse
-    // outcome. A missing entitlement list shows none, because the worse outcome
-    // there is giving away the paid product.
+    // Publication and entitlement both fail closed. Approval is applied first,
+    // so a paid entitlement can never make an unchecked book visible.
+    const live = filterPublishedGuidedReadingBooks(runtimeBooks, approvedBookIds);
     return filterToEntitlement(live, allowedBookIds, { hasFullContent: !allowedBookIds });
-  }, [quarantinedBookIds, allowedBookIds, books]);
+  }, [approvedBookIds, allowedBookIds, books]);
 
   // The app's existing answer to "what level is this child on": a teacher-set
   // level, else the level of the last book they actually read, else A. It is
@@ -291,12 +292,11 @@ export function StudentBooksPage({
   }
 
   if (library.length === 0) {
-    // Reaching here now means the book data itself failed to load — publication
-    // no longer withholds anything, so "waiting for a grown-up to approve them"
-    // would be a lie. Say the true thing instead.
     const libraryMessage = publicationStatus === "loading"
       ? "Your books are getting ready."
-      : "Your books did not load. Ask a grown-up to try again.";
+      : publicationStatus === "ready"
+        ? "Your books are waiting for a grown-up's review."
+        : "Your approved books could not be checked. Ask a grown-up to try again.";
     return (
       <StudentGlassShell
         studentName={studentName}
@@ -315,12 +315,22 @@ export function StudentBooksPage({
           </div>
           <div className="kg-glass kg-library-preparing" role="status">
             <span aria-hidden="true">📚</span>
-            <strong>Try again in a moment</strong>
-            <p>The books could not be loaded right now.</p>
+            <strong>{publicationStatus === "ready" ? "Books are being checked" : "Try again in a moment"}</strong>
+            <p>{publicationStatus === "ready"
+              ? "Only books a grown-up has checked can appear here."
+              : "Approved books could not be checked right now."}</p>
           </div>
         </div>
       </StudentGlassShell>
     );
+  }
+
+  if (pressOpen && client && studentSessionToken) {
+    return <DecodablePressHomePage client={client} token={studentSessionToken} onClose={() => setPressOpen(false)} />;
+  }
+
+  if (passportOpen) {
+    return <ReadingPassportPage books={library} records={guidedReadingRecords} scopeKey={progressScopeKey} onClose={() => setPassportOpen(false)} />;
   }
 
   return (
@@ -426,6 +436,22 @@ export function StudentBooksPage({
             Story Quests
             <ChevronGlyph />
           </button>
+          <button
+            type="button"
+            className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
+            onClick={() => setPassportOpen(true)}
+          >
+            Reading Passport
+            <ChevronGlyph />
+          </button>
+          {client && studentSessionToken && <button
+            type="button"
+            className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
+            onClick={() => setPressOpen(true)}
+          >
+            Make a book
+            <ChevronGlyph />
+          </button>}
         </div>
 
         {!showKnowledge && (panelBook

@@ -3,8 +3,8 @@ import {
   LEARNING_POLICY_VERSION
 } from "../policy/learningPolicy.js";
 
-export const CALIBRATION_MONITORING_VERSION = "2026.07.25-a4.10";
-export const CALIBRATION_SEED_VERSION = "LP-CALIBRATION-SEED-2026.07.25";
+export const CALIBRATION_MONITORING_VERSION = "2026.08.09-a4.11";
+export const CALIBRATION_SEED_VERSION = "LP-CALIBRATION-SEED-2026.08.09";
 
 export const CALIBRATION_MONITORING_POLICY = Object.freeze({
   version: CALIBRATION_MONITORING_VERSION,
@@ -19,12 +19,14 @@ export const CALIBRATION_MONITORING_POLICY = Object.freeze({
 const SEED_ITEMS = Object.freeze([
   { itemId: "cal-initial-m", skillId: "initial_sounds", label: "Initial /m/", probability: 0.88 },
   { itemId: "cal-cvc-cat", skillId: "cvc_short_vowels", label: "Read cat", probability: 0.76 },
+  { itemId: "cal-blend-flag", skillId: "blends", label: "Read flag", probability: 0.71 },
   { itemId: "cal-digraph-sh", skillId: "digraphs", label: "Read ship", probability: 0.68 },
   { itemId: "cal-hfw-said", skillId: "hfw_26_50", label: "Read said", probability: 0.61 },
   { itemId: "cal-noun-person", skillId: "nouns", label: "Identify a person noun", probability: 0.73 },
   { itemId: "cal-sentence-meaning", skillId: "sentence_comprehension", label: "Sentence meaning", probability: 0.57 },
   { itemId: "cal-inference-clue", skillId: "inference", label: "Use a text clue", probability: 0.49 },
-  { itemId: "cal-context-word", skillId: "context_clues", label: "Infer a word meaning", probability: 0.65 }
+  { itemId: "cal-context-word", skillId: "context_clues", label: "Infer a word meaning", probability: 0.65 },
+  { itemId: "cal-vocab-meaning", skillId: "vocabulary", label: "Choose a word meaning", probability: 0.67 }
 ]);
 
 const ABILITY_ADJUSTMENTS = Object.freeze({

@@ -40,6 +40,33 @@ const TAUGHT_BLENDS = new Set(
   QUEST_STOPS.flatMap(stop => (stop.teach || []).filter(entry => entry.kind === "blend").map(entry => entry.id))
 );
 
+// Alternative pronunciations are deliberately stricter than the shared
+// phoneme bank. A reviewed /s/ cue can support ordinary phoneme practice, but
+// it is not the dedicated "c says /s/" recording promised by Sound Seekers.
+// Keep these silent until their own human takes exist under quest/alt.
+const TAUGHT_ALTERNATIVE_SOUNDS = new Set(
+  QUEST_STOPS.flatMap(stop => (stop.teach || []).filter(entry => entry.kind === "alt").map(entry => entry.id))
+);
+
+// Product-owner-approved exact-sound reuse for alternative spellings. These
+// are intentionally explicit: an alternative may never inherit a base cue by
+// spelling alone. y_ie and y_ee reuse the spoken letter names because their
+// pronunciations are exactly /aɪ/ and /i/; the remaining aliases reuse the
+// already-reviewed isolated phoneme with the same sound.
+const APPROVED_QUEST_ALTERNATIVE_CANDIDATES = Object.freeze({
+  y_ie: [getLedaProductionAudioPath("i", ["letter_name"])],
+  y_ee: [getLedaProductionAudioPath("e", ["letter_name"])],
+  // Existing Leda review-bank cues: /ʊː/ as in book, and the natural
+  // interjection "Ow!" for /aʊ/ as in cow. These are not the long /uː/
+  // "ooh" used for moon.
+  oo_short: ["/audio/phonemes/reviewed/short-oo.mp3"],
+  ow_ou: ["/audio/phonemes/reviewed/ow-cow.mp3"],
+  c_s: phonemeAudioCandidates("s"),
+  g_j: phonemeAudioCandidates("j"),
+  ch_k: phonemeAudioCandidates("k"),
+  ea_e: phonemeAudioCandidates("e")
+});
+
 function firstExisting(paths) {
   return paths.find(path => AUDIO_QUEST_PATHS.has(path) && !isKnownBadAudioPath(path)) || "";
 }
@@ -47,12 +74,16 @@ function firstExisting(paths) {
 // Every place a grapheme's recording could live, in preference order.
 // Exported so the content check can report exactly which paths it looked at.
 export function graphemeCandidates(grapheme) {
+  const key = String(grapheme || "").toLowerCase().trim();
+  if (TAUGHT_ALTERNATIVE_SOUNDS.has(key)) return altPronunciationCandidates(key);
   return phonemeAudioCandidates(grapheme);
 }
 
 // "" when nothing is recorded. Callers MUST treat "" as "hide the button".
 export function graphemeSrc(grapheme) {
-  return getPreferredPhonemeAudioPath(grapheme);
+  const key = String(grapheme || "").toLowerCase().trim();
+  if (TAUGHT_ALTERNATIVE_SOUNDS.has(key)) return firstExisting(altPronunciationCandidates(key));
+  return getPreferredPhonemeAudioPath(key);
 }
 
 // A blend can be SAID even with no clip of its own: it is two sounds the
@@ -102,6 +133,13 @@ export function blendCandidateSrcs(blend) {
 // an OLD spelling, so it needs its own clip; until those are recorded the honest
 // fallback is a word that contains it, not the base grapheme's other sound.
 // Returning "" is correct and safe: silent, with the button hidden.
+export function altPronunciationCandidates(altId) {
+  const key = String(altId || "").toLowerCase().trim();
+  if (!key) return [];
+  return APPROVED_QUEST_ALTERNATIVE_CANDIDATES[key]
+    || [`/audio/quest/alt/${key}.mp3`];
+}
+
 export function altPronunciationSrc(altId) {
-  return firstExisting([`/audio/quest/alt/${String(altId || "").toLowerCase()}.mp3`]);
+  return firstExisting(altPronunciationCandidates(altId));
 }

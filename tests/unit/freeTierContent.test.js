@@ -156,9 +156,8 @@ test("a sample account sees only the sample, and a missing list shows nothing", 
   assert.equal(filtered.length, ids.size);
   assert.ok(filtered.every(book => ids.has(book.id)));
 
-  // Fail CLOSED here, unlike the guided-reading publication blocklist. There the
-  // cost of an outage was emptying a child's library; here the cost of a
-  // mistake is giving away the paid product.
+  // Entitlement and Guided Reading publication both fail closed. A missing
+  // entitlement list must not expose paid content.
   assert.deepEqual(filterToEntitlement(GUIDED_READING_BOOK_INDEX, null, { hasFullContent: false }), []);
 });
 
