@@ -4,6 +4,7 @@ import { getChildWordAsset } from "../../data/childAssets";
 import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
+import { computeHydratedValue } from "../../utils/progressMerge.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
@@ -536,6 +537,18 @@ export function ElSkillsQuest({
 
   const activeCycle = playableCycles.find(cycle => cycle.id === activeCycleId) || null;
   const round = rounds[roundIndex] || null;
+
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
+      const stored = loadQuestProgress(progressScopeKey);
+      setProgress(previous => event.detail?.resetApplied
+        ? stored
+        : computeHydratedValue("el_quest", "__all__", previous, stored));
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [progressScopeKey]);
 
   useEffect(() => {
     answerLockRef.current = false;

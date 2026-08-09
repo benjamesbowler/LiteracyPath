@@ -144,13 +144,16 @@ export function collectGuidedReadingCompletionRecords({
   students = [],
   classes = [],
   guidedReadingRecordsByStudent = [],
-  teacherId = ""
+  teacherId = "",
+  allowLocalFallback = false
 } = {}) {
   const bookById = new Map(guidedReadingBooks.map(book => [book.id, book]));
   const studentById = new Map(students.map(student => [student.id, student]));
   const storageRows = guidedReadingRecordsByStudent.length
     ? guidedReadingRecordsByStudent
-    : getStorageRecords({ students, teacherId });
+    : allowLocalFallback
+      ? getStorageRecords({ students, teacherId })
+      : [];
   const completionRows = [];
 
   storageRows.forEach(row => {

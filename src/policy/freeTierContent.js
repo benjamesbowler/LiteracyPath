@@ -143,9 +143,14 @@ export function sampleCycleIds(cycles = []) {
 }
 
 export function sampleStoryQuestIds(quests = []) {
-  const chosen = strideSample(
-    [...quests].sort((a, b) => String(a.id).localeCompare(String(b.id)))
-  ).map(quest => quest.id);
+  // Story Quests are shown world-first. A flat stride can select only Dino or
+  // Moonwood stories, leaving the first Meadow shelf empty for a try-out
+  // visitor even though the catalogue contains playable stories. Keep the
+  // sample representative of the same A/B/C progression as the full shelf.
+  const chosen = stratifiedSample([...quests], {
+    groupBy: quest => String(quest?.level || "").trim().toUpperCase(),
+    idOf: quest => quest?.id
+  }).map(quest => quest.id);
   return applyOverrides(chosen, quests.map(quest => quest?.id), "storyQuests");
 }
 

@@ -74,7 +74,7 @@ async function readJson(filePath, label) {
   try {
     source = await readFile(filePath, "utf8");
   } catch (error) {
-    throw new Error(`Could not read ${label} JSON at ${filePath}: ${error.message}`);
+    throw new Error(`Could not read ${label} JSON at ${filePath}: ${error.message}`, { cause: error });
   }
 
   try {
@@ -88,11 +88,12 @@ async function readJson(filePath, label) {
         return JSON.parse(embedded[1]);
       } catch (embeddedError) {
         throw new Error(
-          `Could not parse embedded ${label} manuscript data at ${filePath}: ${embeddedError.message}`
+          `Could not parse embedded ${label} manuscript data at ${filePath}: ${embeddedError.message}`,
+          { cause: embeddedError }
         );
       }
     }
-    throw new Error(`Could not parse ${label} data at ${filePath}: ${error.message}`);
+    throw new Error(`Could not parse ${label} data at ${filePath}: ${error.message}`, { cause: error });
   }
 }
 

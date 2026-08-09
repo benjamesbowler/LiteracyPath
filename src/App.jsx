@@ -107,6 +107,22 @@ export default function App() {
     return () => window.removeEventListener("lp-progress-hydrated", handleProfileHydration);
   }, [studentId]);
   useEffect(() => {
+    function handleGuidedReadingHydration(event) {
+      if (event.detail?.studentId && event.detail.studentId !== studentId) return;
+      if (!Array.isArray(event.detail?.rows) || !event.detail.rows.some(row => row.area === "guided_reading")) return;
+      const key = getGuidedReadingStorageKeyForSession({ studentId });
+      if (!key) return;
+      try {
+        const parsed = JSON.parse(localStorage.getItem(key) || "{}");
+        setGuidedReadingRecords(parsed && typeof parsed === "object" ? parsed : {});
+      } catch {
+        setGuidedReadingRecords({});
+      }
+    }
+    window.addEventListener("lp-progress-hydrated", handleGuidedReadingHydration);
+    return () => window.removeEventListener("lp-progress-hydrated", handleGuidedReadingHydration);
+  }, [studentId]);
+  useEffect(() => {
     if (sessionMode !== "student") return undefined;
     return applyLearnerAccessibilityToDocument(learnerAccessibility);
   }, [learnerAccessibility, sessionMode]);

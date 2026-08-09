@@ -11,7 +11,7 @@ import { GUIDED_READING_STORY_BIBLE_REWRITES as GUIDED_READING_CORE_REWRITES } f
 import { GUIDED_READING_HUMAN_FICTION_REWRITES } from "../content/guidedReadingHumanFictionRewrites.js";
 import { GUIDED_READING_WORLD_FICTION_REWRITES } from "../content/guidedReadingWorldFictionRewrites.js";
 import { GUIDED_READING_NARRATION_CLEARANCE } from "./generated/guidedReadingNarrationClearance.generated.js";
-import { LEDA_PRODUCTION_VOICE } from "./ledaProductionAudio.js";
+import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
 
 const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   ...GUIDED_READING_CORE_REWRITES,

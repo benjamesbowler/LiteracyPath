@@ -172,7 +172,7 @@ export function AuthPage({
             have clicked it.
           </p>
           <p className="muted-text">
-            Not arrived? Check the spam folder first — then send it again.
+            Not arrived? Look in the spam folder first — then send it again.
           </p>
           <button
             className="report-button"

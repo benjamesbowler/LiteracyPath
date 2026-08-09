@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { guidedReadingSelBooksDraft } from "../src/data/guidedReadingSelBooks.draft.js";
 
 const failures = [];
-const words = text => String(text || "").replace(/[.,!?;:()\"']/g, "").split(/\s+/).filter(Boolean);
+const words = text => String(text || "").replace(/[.,!?;:()"']/g, "").split(/\s+/).filter(Boolean);
 
 assert.equal(guidedReadingSelBooksDraft.length, 30, "SEL draft collection must contain 30 books");
 for (const level of ["A", "B", "C"]) {
@@ -26,7 +26,7 @@ for (const book of guidedReadingSelBooksDraft) {
     const count = words(entry.text).length;
     if (count > pageLimit) failures.push(`${book.id} page ${index + 1}: ${count} words exceeds ${pageLimit}`);
     if (!entry.scene) failures.push(`${book.id} page ${index + 1}: missing illustration state`);
-    if (book.level === "A" && /[,;:\-]|\b(says|said)\b/i.test(entry.text)) {
+    if (book.level === "A" && /[,;:-]|\b(says|said)\b/i.test(entry.text)) {
       failures.push(`${book.id} page ${index + 1}: Level A punctuation/dialogue exceeds the band`);
     }
   });

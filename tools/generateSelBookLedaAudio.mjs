@@ -18,7 +18,6 @@ const selectedBooks = requestedBook
   : guidedReadingSelBooksDraft;
 if (requestedBook && !selectedBooks.length) throw new Error(`Unknown SEL book: ${requestedBook}`);
 
-const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const hash = value => createHash("sha256").update(value).digest("hex").slice(0, 10);
 const outputDir = path.join(root, "public/audio/production/en-US/guided_page");
 const manifestPath = path.join(root, "docs/content/sel-books/SEL_MEDIA_MANIFEST.json");

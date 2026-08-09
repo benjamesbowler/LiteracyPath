@@ -30,7 +30,7 @@
 // seven-point arc is gone: it was invented, and it stood the Farm Gate in the
 // middle of a carrot patch.
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
@@ -138,6 +138,16 @@ export function StudentAdventureMapPage({
 }) {
   const [openCycleId, setOpenCycleId] = useState("");
   const [speechStatus, setSpeechStatus] = useState("");
+  const [, setHydrationRevision] = useState(0);
+
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
+      setHydrationRevision(revision => revision + 1);
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [progressScopeKey]);
 
   // THE ADMIN'S STOP POSITIONS, LOADED THE WAY THE MODE LOADS THEM. The cached
   // copy paints on the first frame; the fetch refreshes it and falls back to
@@ -151,7 +161,7 @@ export function StudentAdventureMapPage({
     return () => { alive = false; };
   }, []);
 
-  const read = useMemo(() => readMapProgress(progressScopeKey), [progressScopeKey]);
+  const read = readMapProgress(progressScopeKey);
 
   const starsFor = cycleId => Number(read.cycles?.[cycleId]?.stars) || 0;
 

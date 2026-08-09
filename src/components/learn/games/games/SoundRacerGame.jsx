@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import {
+  getLearnGameBestSplit,
+  saveLearnGameBestSplit
+} from "../../../../utils/learnGamesProgress.js";
+import {
   playCorrectChime,
   playSoftBuzz,
   playCelebrationFanfare,
@@ -500,11 +504,8 @@ function startGame(THREE, mount, opts) {
   const prewarmingMaps = new Set();
   // Bests are per-student (scoped by the signed-in session), not per-device:
   // two siblings on one iPad must not share ghost times.
-  let bestScope = "default";
-  try {
-    bestScope = JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.studentId || "default";
-  } catch { /* no session - keep default */ }
-  const bestKey = index => `lp:sound-racer-best:${bestScope}:${difficulty}:${index}`;
+  const bestScope = opts.progressScopeKey || "default";
+  const legacyBestKey = index => `lp:sound-racer-best:${bestScope}:${difficulty}:${index}`;
 
   function material(color, opts = {}) {
     const config = {
@@ -2657,20 +2658,23 @@ function startGame(THREE, mount, opts) {
   }
 
   function getBest(index) {
+    const synced = getLearnGameBestSplit(bestScope, "sound-racer", difficulty, index);
+    if (synced) return synced;
     try {
-      const data = localStorage.getItem(bestKey(index));
-      return data ? JSON.parse(data) : null;
+      const raw = window.localStorage.getItem(legacyBestKey(index));
+      const legacy = raw ? JSON.parse(raw) : null;
+      if (legacy && typeof legacy === "object") {
+        saveLearnGameBestSplit(bestScope, "sound-racer", difficulty, index, legacy);
+        return legacy;
+      }
     } catch {
-      return null;
+      // A legacy device-only best is optional; the cloud record remains canonical.
     }
+    return null;
   }
 
   function setBest(index, data) {
-    try {
-      localStorage.setItem(bestKey(index), JSON.stringify(data));
-    } catch {
-      /* storage is optional */
-    }
+    saveLearnGameBestSplit(bestScope, "sound-racer", difficulty, index, data);
   }
 
   function startLevel() {
@@ -3297,6 +3301,7 @@ function startGame(THREE, mount, opts) {
 export default function SoundRacerGame({
   difficulty = "easy",
   startLevel = 0,
+  progressScopeKey = "default",
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
@@ -3327,6 +3332,7 @@ export default function SoundRacerGame({
           const startedApi = startGame(THREE, mountRef.current, {
             difficulty,
             startLevel,
+            progressScopeKey,
             onScoreUpdate,
             onProgressUpdate,
             onComplete,

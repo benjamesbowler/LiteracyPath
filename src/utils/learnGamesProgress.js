@@ -60,6 +60,45 @@ export function getLearnGameProgress(progress, gameId) {
   };
 }
 
+export function getLearnGameBestSplit(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty, levelIndex) {
+  const progress = loadLearnGamesProgress(progressScopeKey);
+  const splits = progress?.games?.[gameId]?.bestSplits?.[String(difficulty || "")];
+  const value = splits?.[String(levelIndex)];
+  return value && typeof value === "object" ? value : null;
+}
+
+export function saveLearnGameBestSplit(
+  progressScopeKey = DEFAULT_SCOPE,
+  gameId,
+  difficulty,
+  levelIndex,
+  split = {}
+) {
+  const current = loadLearnGamesProgress(progressScopeKey);
+  const previous = getLearnGameProgress(current, gameId);
+  const difficultyKey = String(difficulty || "");
+  const levelKey = String(levelIndex);
+  const existing = previous.bestSplits?.[difficultyKey]?.[levelKey] || {};
+  const next = {
+    ...current,
+    games: {
+      ...current.games,
+      [gameId]: {
+        ...previous,
+        bestSplits: {
+          ...(previous.bestSplits || {}),
+          [difficultyKey]: {
+            ...(previous.bestSplits?.[difficultyKey] || {}),
+            [levelKey]: { ...existing, ...split }
+          }
+        }
+      }
+    }
+  };
+  saveLearnGamesProgress(progressScopeKey, next);
+  return next;
+}
+
 export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, stars = 0, score = 0, wordsCompleted = 0) {
   const current = loadLearnGamesProgress(progressScopeKey);
   const previous = getLearnGameProgress(current, gameId);

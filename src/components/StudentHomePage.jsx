@@ -270,8 +270,9 @@ function planTodaysStops({ missionStatus, readable, heroMissionKind }) {
 // array untouched for every full-content session, so this is a no-op for
 // everybody else.
 function arcadeGameCount() {
+  const arcadeGames = GAME_LIST.filter(game => (game.surfaces || []).includes("arcade") && !game.hidden);
   return filterSample("games", GAME_LIST)
-    .filter(game => (game.surfaces || []).includes("arcade") && !game.hidden).length;
+    .filter(game => arcadeGames.includes(game)).length;
 }
 
 // THE EXACT STOP the hero is continuing, from real progress. Every branch

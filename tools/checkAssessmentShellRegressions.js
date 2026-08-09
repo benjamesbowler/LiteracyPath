@@ -8,6 +8,8 @@ const repoRoot = path.resolve(__dirname, "..");
 
 const appSource = fs.readFileSync(path.join(repoRoot, "src", "App.jsx"), "utf8");
 const appPagesSource = fs.readFileSync(path.join(repoRoot, "src", "components", "AppPages.jsx"), "utf8");
+const appSurfaceSource = fs.readFileSync(path.join(repoRoot, "src", "components", "AppSurface.jsx"), "utf8");
+const assessmentControllerSource = fs.readFileSync(path.join(repoRoot, "src", "appState", "assessmentRoundController.js"), "utf8");
 const failures = [];
 
 function expect(condition, message) {
@@ -33,7 +35,7 @@ expect(
 
 expect(
   appSource.includes("toggleAssessmentFullscreen") &&
-    appSource.includes("assessment-fullscreen-app"),
+    appSurfaceSource.includes("assessment-fullscreen-app"),
   "Assessment fullscreen toggle and app-level fullscreen class are required."
 );
 
@@ -49,8 +51,8 @@ expect(
   "Vowel choice audio must not speak the label 'short a' as browser text."
 );
 
-const setQuestionIndex = appSource.indexOf("setCurrentQuestion(preparedQuestion);");
-const preloadIndex = appSource.lastIndexOf("preloadAssessmentQuestionWindow(", setQuestionIndex);
+const setQuestionIndex = assessmentControllerSource.indexOf("setCurrentQuestion(preparedQuestion);");
+const preloadIndex = assessmentControllerSource.lastIndexOf("preloadAssessmentQuestionWindow(", setQuestionIndex);
 expect(
   preloadIndex !== -1 && setQuestionIndex !== -1 && preloadIndex < setQuestionIndex,
   "Assessment question media should be preloaded before the next question is committed."

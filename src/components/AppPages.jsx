@@ -99,9 +99,16 @@ function getShortVowelLetter(value = "") {
     .match(/^(?:short[_\s-]*)?([aeiou])$/)?.[1] || "";
 }
 
+// Keep short-vowel cues explicit at the assessment boundary so a label
+// fallback can never become a spoken letter name or browser-generated cue.
+const SHORT_VOWEL_AUDIO_PATHS = Object.freeze(
+  Object.fromEntries("aeiou".split("").map(letter => [letter, getPreferredPhonemeAudioPath(letter)]))
+);
+
 function getPhonemeAudioPath(value = "", fallbackPath = "") {
   const shortVowel = getShortVowelLetter(value);
   const normalized = shortVowel || String(value || "").trim().toLowerCase();
+  if (shortVowel && SHORT_VOWEL_AUDIO_PATHS[shortVowel]) return SHORT_VOWEL_AUDIO_PATHS[shortVowel];
   const preferred = getPreferredPhonemeAudioPath(normalized);
   if (preferred) return preferred;
   const safeFallback = String(fallbackPath || "");

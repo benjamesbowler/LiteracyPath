@@ -1,10 +1,10 @@
 import {
   LEDA_PRODUCTION_AUDIO_BY_ROLE,
-  LEDA_PRODUCTION_AUDIO_ROLES,
-  LEDA_PRODUCTION_VOICE
+  LEDA_PRODUCTION_AUDIO_ROLES
 } from "./generated/ledaProductionAudio.generated.js";
 import { LEDA_RUNTIME_SUPPLEMENT_AUDIO } from "./generated/ledaRuntimeSupplement.generated.js";
 import { STORY_QUEST_LEDA_AUDIO } from "./generated/storyQuestLedaAudio.generated.js";
+import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
 
 export { LEDA_PRODUCTION_AUDIO_ROLES, LEDA_PRODUCTION_VOICE };
 

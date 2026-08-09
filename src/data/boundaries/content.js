@@ -2,6 +2,7 @@ import { assertOptionalFields, validateCommonRow } from "./schema.js";
 
 export const CONTENT_TABLES = new Set([
   "app_config",
+  "entitlements",
   "guided_reading_book_reviews",
   "worksheet_bank"
 ]);
@@ -25,6 +26,14 @@ export function validateContentRow(row, label) {
   return assertOptionalFields(row, {
     book_id: "string",
     key: "string",
+    account_id: "string",
+    account_type: "string",
+    plan_id: "string",
+    content_scope_id: "string",
+    learner_slots: ["number", "null"],
+    starts_at: ["string", "null"],
+    ends_at: ["string", "null"],
+    features: "object",
     name: "string",
     review_note: "string",
     reviewed_at: "string",

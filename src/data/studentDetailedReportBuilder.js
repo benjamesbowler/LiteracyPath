@@ -390,6 +390,7 @@ export function buildIndividualStudentDetailedReport({
   assessmentHistory = [],
   itemMastery = {},
   guidedReadingRecords = null,
+  allowLocalFallback = false,
   teacherId = "",
   dateRange = {},
   selectedSections = DEFAULT_REPORT_SECTIONS,
@@ -401,7 +402,8 @@ export function buildIndividualStudentDetailedReport({
   const classId = getClassId(student);
   const records = filterRecords({ assessmentHistory, studentId, dateRange });
   const skillSections = aggregateAttempts(records);
-  const effectiveGuidedReadingRecords = guidedReadingRecords || readGuidedReadingRecords({ teacherId, studentId });
+  const effectiveGuidedReadingRecords = guidedReadingRecords
+    || (allowLocalFallback ? readGuidedReadingRecords({ teacherId, studentId }) : {});
   const guidedReading = buildGuidedReadingSection(effectiveGuidedReadingRecords);
   const totalQuestions = records.reduce((sum, record) => sum + record.totalQuestions, 0);
   const correctCount = records.reduce((sum, record) => sum + record.correctCount, 0);

@@ -505,20 +505,20 @@ const historicalStoryQuestPolicyReviews = Object.freeze([
 ]);
 
 const currentStoryQuestReviewState = Object.freeze({
-  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "3ca1e261d3514b07bbc9c3c0871730df35c3784e7317048ad3b372565304d1e2", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 24 }),
-  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "144f7b9b35fafc89393a948f065d2c29cefa6873aff4b87c7f8a17e3aa6f4d47", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 23 }),
-  mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "e263fcc406e888e67ab4b4cebb6002165c1887327a053490a1bcfd373e39b8ec", pages: 27, routes: 616, exactAudio: 27, pendingAudio: 0, listeningPending: 27 }),
-  mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "90927ae348e824bf8e35c0b8c5338dd7559b6d53c643aa0956002bfde83b18c0", pages: 30, routes: 532, exactAudio: 30, pendingAudio: 0, listeningPending: 30 }),
-  dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "584e11d86320470ea5555878e35e113c7e2c54a8e71ff5b2a7e4bac785f02865", pages: 21, routes: 133, exactAudio: 21, pendingAudio: 0, listeningPending: 21 }),
-  dp_ra_b_02_sunnys_rainy_day_rescue: Object.freeze({ fingerprint: "ed375081d2bb7e04bc9e7126ac811faa2b97a461b6251942bb4c151304bf0e11", pages: 22, routes: 108, exactAudio: 22, pendingAudio: 0, listeningPending: 22 }),
-  dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "7b1bbfc866c73ba856d817928a3a055e68776565e1926b26fcc01eef98c40b87", pages: 34, routes: 69, exactAudio: 34, pendingAudio: 0, listeningPending: 34 }),
-  dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "501ca57be053c103798f5858ae601a6474f77b414848cf48605cda5a7e35f03e", pages: 35, routes: 67, exactAudio: 35, pendingAudio: 0, listeningPending: 35 }),
+  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "d3e56c4b0c5fbab0a1c04ca071d0423f41aba6753a1c6f30836fbd16284247f1", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "243691457ccffc44c7c5a9801aba4ab73c68ea28ae9076ef4898bb2cad0a2ebf", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "68185519d35e3c94a909ce2b54fedd7dcc092f09e80d75dec3e24be9d6dca606", pages: 27, routes: 616, exactAudio: 27, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "e5884a8c9f4a14e0d3150797a91f009ed4414abadf41028080edeb35b543e2ff", pages: 30, routes: 532, exactAudio: 30, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "f11fc3793bb1641ed7a31c7282161130dd33e5e4e551ebce0f8db9eb0356d9eb", pages: 21, routes: 133, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_02_sunnys_rainy_day_rescue: Object.freeze({ fingerprint: "310588331bfae8e53d291a33059b3df6202d9da4c209b3e16672ff644d5f0982", pages: 22, routes: 108, exactAudio: 22, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "a373441af7d94e79d45c20d6e6d9eb79c1eea296cf7fd2e2d45519ac741693d8", pages: 34, routes: 69, exactAudio: 34, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "31cb20488389a660072ff07ff59a509803fb6b1703f69be3e99aeaa1f3bd5d2d", pages: 35, routes: 67, exactAudio: 35, pendingAudio: 0, listeningPending: 0 }),
   dp_ra_b_05_shys_snail_shade: Object.freeze({ fingerprint: "ddfc6d52127963ad33b888173ac5130572c38b161931d029aa9dacb2cbe899ae", pages: 15, routes: 32, exactAudio: 15, pendingAudio: 0, listeningPending: 0 }),
-  story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "0503d141d5d6d290f74332460f67b6cb4e3d7f3cdc4082d9c76121b9503c0e3f", pages: 10, routes: 46, exactAudio: 10, pendingAudio: 0, listeningPending: 10 }),
-  mp_ra_a_01_muddy_splashy_missing_hat: Object.freeze({ fingerprint: "811df839e077ff5940a1b36bdd8c5deffb509f1bcf74fbe780f79316cf62f077", pages: 20, routes: 106, exactAudio: 20, pendingAudio: 0, listeningPending: 20 }),
-  mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "419bff52e2b80226b257aaa5c69ece61231fbefbf093a2e1c38d739f07c6ec69", pages: 21, routes: 86, exactAudio: 21, pendingAudio: 0, listeningPending: 21 }),
-  mp_ra_a_03_bouncy_speedy_fast_map: Object.freeze({ fingerprint: "6cfbce5b087db0a21865a2983b05f20abd8117ecd2dd4aeed11cc6dbfdf38ae0", pages: 27, routes: 119, exactAudio: 27, pendingAudio: 0, listeningPending: 27 }),
-  mp_ra_a_04_brave_tiny_big_little_rescue: Object.freeze({ fingerprint: "8da25d0cdf0d838d3c013234fc3f924a98a988daf4519686cc5506b5e21bc68e", pages: 32, routes: 102, exactAudio: 32, pendingAudio: 0, listeningPending: 32 })
+  story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "aaf0e1f1084c9deecf7f449a30e64a0f34a2e1e3ba6f88f3e725086102e55050", pages: 10, routes: 46, exactAudio: 10, pendingAudio: 0, listeningPending: 0 }),
+  mp_ra_a_01_muddy_splashy_missing_hat: Object.freeze({ fingerprint: "e45ea08ec01148f3b31dae5c78954159889f8764492f9db31dba313ba7feccd8", pages: 20, routes: 106, exactAudio: 20, pendingAudio: 0, listeningPending: 0 }),
+  mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "c98e8d8f718112283600d3e30a6b6776ae685ec3db596e06b34b1c215f258885", pages: 21, routes: 86, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
+  mp_ra_a_03_bouncy_speedy_fast_map: Object.freeze({ fingerprint: "40e567f5b6ef7748b7b6caa83fb2f36aecb5e29727c9c534305a9b9e782a3a83", pages: 27, routes: 119, exactAudio: 27, pendingAudio: 0, listeningPending: 0 }),
+  mp_ra_a_04_brave_tiny_big_little_rescue: Object.freeze({ fingerprint: "94bacac37ee1d7d8c33ee3465a7a21358616cfa6b77ef0eb0ef7233d7bed1e31", pages: 32, routes: 102, exactAudio: 32, pendingAudio: 0, listeningPending: 0 })
 });
 
 export const storyQuestPolicyReviews = Object.freeze(

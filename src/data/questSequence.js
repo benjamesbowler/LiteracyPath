@@ -45,15 +45,9 @@ export const QUEST_ACTS = [
 // Listen button hides itself. Listed here so the check reports them as a known
 // gap instead of failing, and so a replacement request can be generated from it.
 export const NEEDS_AUDIO = [
-  "aw", "ore", "air", "are", "ear", "ure", "le", "tion",
   "y_ie", "y_ee", "oo_short", "ow_ou", "c_s", "g_j", "ch_k", "ea_e",
-  // Final V23 human-ear deferrals. Their old runtime files were deleted.
-  "b", "e", "j", "zz", "sh", "ch", "th", "nk",
-  // Superseded clean-human recordings were deleted rather than retained as
-  // fallbacks. These remain silent until a new human-approved source exists.
-  "a_e", "e_e", "i_e", "o_e", "u_e",
-  "ai", "ay", "ee", "ea", "igh", "ie", "oa", "ow", "oe", "oo", "ue",
-  "ew", "oi", "oy", "or", "er", "ir", "ur"
+  // Alternative pronunciations require their own recordings. A base cue
+  // must never be reused for the wrong sound, even when one exists.
 ];
 
 // ── SORT DATA — the one thing that CANNOT be derived ────────────────────────

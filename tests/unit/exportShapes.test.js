@@ -6,8 +6,10 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   buildEngagementRow,
+  buildEngagementRows,
   buildReportContextRows,
   buildStoryQuestRows,
+  collectStudentEngagementAreas,
   emptyEngagementCells,
   emptyStoryQuestCells,
   ENGAGEMENT_HEADERS,
@@ -19,6 +21,7 @@ import {
 } from "../../src/utils/exportReportSections.js";
 import {
   buildGuidedReadingCompletionWorkbookData,
+  collectGuidedReadingCompletionRecords,
   createGuidedReadingCompletionWorkbook,
   GUIDED_READING_COMPLETION_HEADERS,
   GUIDED_READING_COMPLETION_SHEETS
@@ -318,6 +321,23 @@ test("engagement row stays sane with no recorded progress", () => {
   assert.equal(row.coinsSpent, 0);
   assert.equal(row.coinsEarned, earnedCoins({}, 0), "an untouched wallet still shows the welcome gift");
   assert.equal(row.lastActiveAt, "");
+});
+
+test("teacher engagement exports do not silently read this browser's local progress", () => {
+  assert.equal(
+    collectStudentEngagementAreas({ id: "s1" }),
+    null,
+    "cloud-backed teacher exports need an explicit snapshot or an explicit local fallback"
+  );
+  const rows = buildEngagementRows({ students: [{ id: "s1", name: "Maya" }] });
+  assert.equal(rows[0].gamesPlayed, 0);
+});
+
+test("guided reading exports require cloud records unless local fallback is explicit", () => {
+  assert.deepEqual(
+    collectGuidedReadingCompletionRecords({ students: [{ id: "s1", name: "Maya" }] }),
+    []
+  );
 });
 
 // ── Guided reading workbook boundary ────────────────────────────────────────

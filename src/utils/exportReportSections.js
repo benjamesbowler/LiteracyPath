@@ -324,8 +324,9 @@ function resolveClassName(student = {}, classes = []) {
 }
 
 // override wins; otherwise read this browser's localStorage for the student.
-export function collectStudentEngagementAreas(student = {}, override = null) {
+export function collectStudentEngagementAreas(student = {}, override = null, { allowLocalFallback = false } = {}) {
   if (override && typeof override === "object") return override;
+  if (!allowLocalFallback) return null;
   const scope = studentProgressScopeKey(student);
   return {
     mission: readLocalArea("daily_mission", scope),
@@ -343,14 +344,14 @@ export function collectStoryQuestProgressForStudent(student = {}, override = nul
   return readLocalArea("story_quests", studentProgressScopeKey(student)) || {};
 }
 
-export function buildEngagementRows({ students = [], classes = [], engagementByStudent = null } = {}) {
+export function buildEngagementRows({ students = [], classes = [], engagementByStudent = null, allowLocalFallback = false } = {}) {
   const lookup = byStudentLookup(engagementByStudent);
   return uniqueStudents(students)
     .map(student => buildEngagementRow({
       studentName: student.name || "Unknown student",
       studentId: student.id || "",
       className: resolveClassName(student, classes),
-      areas: collectStudentEngagementAreas(student, lookup(student.id))
+      areas: collectStudentEngagementAreas(student, lookup(student.id), { allowLocalFallback }) || {}
     }))
     .sort((a, b) => a.studentName.localeCompare(b.studentName));
 }

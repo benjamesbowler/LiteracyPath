@@ -11,11 +11,7 @@
 //   C     3 lines/page, <=22 words/page, present tense dominant, said/says only
 //   Early true decodable: short-a CVC content words + declared HFW only
 //
-// Pages whose rewritten narration is not yet available carry
-// narrationNeedsRebuild: true. The flag suppresses their legacy audio in
-// StoryQuestPlayer.jsx. Set it to false only after the locked page text has an
-// exact-text production mapping in storyQuestLedaAudio.generated.js and the
-// mapped file has passed the story-content media gate.
+// Every active page now has an exact-text production mapping and approved audio.
 
 const samPamMediaVersion = "sam-pam-picnic-rebuild-20260721";
 const samPamImagePath = page => `/images/story-quests/sam-pam/page-${String(page).padStart(2, "0")}.webp?v=${samPamMediaVersion}`;
@@ -155,7 +151,7 @@ export const storyQuests = [
         text: ["Pip walks to the edge of the marsh.", "Gray fog curls around his boots.", "The crash comes again."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p03_pip_edge"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p03_pip_edge"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Call Stone over or wait for him?",
         skillTags: ["pip", "marsh", "fog"],
         choices: [
@@ -168,7 +164,7 @@ export const storyQuests = [
         text: ["Stone lifts one heavy foot.", "Pip waits beside the path.", "\"I am coming,\" says Stone."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p03_stone_one_foot"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p03_stone_one_foot"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Walk side by side or let Stone lead?",
         skillTags: ["stone"],
         choices: [
@@ -207,7 +203,7 @@ export const storyQuests = [
         text: ["Stone finds a tall stick.", "Pip lights his lantern.", "Stone leads them into the marsh."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p04_stone_leads"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p04_stone_leads"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Put the tools down and check the reeds or rock?",
         skillTags: ["pip", "stone"],
         choices: [
@@ -220,7 +216,7 @@ export const storyQuests = [
         text: ["Pip parts the reeds beside a mossy rock.", "Stone leans closer.", "Something small moves on top."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p05_reeds_shake"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p05_reeds_shake"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Look at the rock or let Stone bend down?",
         skillTags: ["pip", "stone", "reeds"],
         choices: [
@@ -246,7 +242,7 @@ export const storyQuests = [
         text: ["A small green frog sits on the mossy rock.", "Its wide mouth opens.", "The huge crash comes from this tiny frog."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p06_mossy_stone"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p06_mossy_stone"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who speaks to it?",
         skillTags: ["frog"],
         choices: [
@@ -259,7 +255,7 @@ export const storyQuests = [
         text: ["Stone kneels beside the mossy rock.", "His face is level with the frog.", "It looks no bigger than his thumb."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p06_stone_bends"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p06_stone_bends"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Hold the frog or start the search?",
         skillTags: ["stone", "frog"],
         choices: [
@@ -285,7 +281,7 @@ export const storyQuests = [
         text: ["Stone kneels and opens both hands.", "The frog stands beside his palms.", "\"We will help you,\" says Stone."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p07_stone_gentle"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p07_stone_gentle"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Should Stone call or should Pip listen?",
         skillTags: ["stone", "frog", "hand"],
         choices: [
@@ -298,7 +294,7 @@ export const storyQuests = [
         text: ["Stone carries the small frog.", "Pip checks the reeds beside the dark water.", "No family answers."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p08_search_family"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p08_search_family"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Climb and listen or call softly?",
         skillTags: ["reeds"],
         choices: [
@@ -311,7 +307,7 @@ export const storyQuests = [
         text: ["Stone calls out across the marsh.", "Pip covers both ears.", "The frog looks up, but nothing calls back."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p08_stone_calls"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p08_stone_calls"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Call loudly again or let Pip listen?",
         skillTags: ["pip", "stone", "marsh", "calls"],
         choices: [
@@ -350,7 +346,7 @@ export const storyQuests = [
         text: ["Stone calls again, much softer.", "The small frog listens beside Pip.", "A faint answer comes from the reeds."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p09_soft_call"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p09_soft_call"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the answer or let the frog answer?",
         skillTags: ["stone", "frog", "calls", "reeds"],
         choices: [
@@ -363,7 +359,7 @@ export const storyQuests = [
         text: ["The small frog hops onto a log.", "It opens its mouth wide.", "An answer rolls back through the reeds."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p09_toadling_calls"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p09_toadling_calls"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the answer or wait for the frogs?",
         skillTags: ["frog"],
         choices: [
@@ -376,7 +372,7 @@ export const storyQuests = [
         text: ["Six frogs wait on the far bank.", "The lost frog leaps over the water.", "It lands beside its family."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p10_family_found"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p10_family_found"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Talk to the frog or walk home quietly?",
         skillTags: ["frog", "lost"],
         choices: [
@@ -402,7 +398,7 @@ export const storyQuests = [
         text: ["Pip and Stone walk home to Hollow Oak.", "The marsh is quiet now.", "Stone keeps one hand on Pip's shoulder."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p11_back_home"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p11_back_home"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["pip", "stone", "marsh", "quiet", "hand"],
         choices: [
@@ -415,7 +411,7 @@ export const storyQuests = [
         text: ["Friends gather at Hollow Oak.", "Pip tells how the frog meets its family.", "Stone shows how tiny it is with both hands."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p12_ending_loud"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p12_ending_loud"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["pip", "stone", "loud"],
         choices: [
@@ -451,7 +447,7 @@ export const storyQuests = [
         text: ["Fern checks the pots in her garden.", "Wren walks in with a purple cauldron.", "\"Can we test my potion?\" says Wren."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p01_start"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p01_start"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Check the book or test the potion?",
         skillTags: ["fern", "wren", "garden", "potion", "pots"],
         choices: [
@@ -477,7 +473,7 @@ export const storyQuests = [
         text: ["Fern looks at the potion again.", "It is not green.", "Purple steam drifts toward the big fern."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p03_wrong_colour"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p03_wrong_colour"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Warn Wren or pour it?",
         skillTags: ["fern", "wren", "potion", "green"],
         choices: [
@@ -503,7 +499,7 @@ export const storyQuests = [
         text: ["The big fern lifts one root from the pot.", "Fern points at it.", "Wren turns and stares."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p04_fern_warns"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p04_fern_warns"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Catch one pot or stay calm?",
         skillTags: ["fern", "wren"],
         choices: [
@@ -516,7 +512,7 @@ export const storyQuests = [
         text: ["The smallest pot walks slowly down the path.", "Fern and Wren follow it.", "It heads for a round door."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p04_small_plant"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p04_small_plant"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow it to the door or ask Fern to stop it?",
         skillTags: ["path"],
         choices: [
@@ -661,7 +657,7 @@ export const storyQuests = [
         text: ["The pots slow down one by one.", "Wren finds one sitting in a teacup.", "Another still keeps its legs."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p08_almost_fixed"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p08_almost_fixed"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Guide them home or watch them settle?",
         skillTags: ["pots", "plant"],
         choices: [
@@ -713,7 +709,7 @@ export const storyQuests = [
         text: ["One big pot keeps its legs.", "It dances beside the path, away from the gate.", "Wren and Fern watch it dance."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p09_silly_garden"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p09_silly_garden"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["fern"],
         artAction: "approved-replacement",
@@ -728,7 +724,7 @@ export const storyQuests = [
         text: ["All the pots rest in their old places.", "Wren closes the green book.", "Fern checks the tallest plant."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p10_garden_safe"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p10_garden_safe"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["fern", "wren", "garden", "book"],
         choices: [
@@ -741,7 +737,7 @@ export const storyQuests = [
         text: ["Wren corks the purple potion and puts it away.", "Fern watches the smallest pot.", "It stays still, and both smile."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p12_ending_calm"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p12_ending_calm"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["fern", "wren", "garden", "potion", "plant", "purple"],
         choices: [
@@ -894,7 +890,7 @@ export const storyQuests = [
         text: ["The white star cracks in Burrow's paws.", "One point snaps off and lands on the stone.", "Burrow freezes."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p05_cracked_shell"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p05_cracked_shell"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Set the star down or tell Luna what happened?",
         skillTags: ["luna", "burrow", "star"],
         choices: [
@@ -907,7 +903,7 @@ export const storyQuests = [
         text: ["Burrow sets the cracked star down.", "He fits the loose point back into place.", "Luna watches until its light returns."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p05_burrow_repairs"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p05_burrow_repairs"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Wait for its light or call Wren?",
         skillTags: ["luna", "burrow", "star"],
         choices: [
@@ -933,7 +929,7 @@ export const storyQuests = [
         text: ["They climb into a curled green leaf.", "The leaf floats across the stream.", "Burrow holds the map. Luna holds the star shell."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p05_leaf_boat"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p05_leaf_boat"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Where do they row?",
         skillTags: ["luna", "burrow", "star", "map"],
         choices: [
@@ -946,7 +942,7 @@ export const storyQuests = [
         text: ["The white star rests where it belongs.", "Its light grows steady beside the map.", "A new silver path uncurls between the roots."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p05_kind_choice"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p05_kind_choice"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the path to the door or call Wren?",
         skillTags: ["luna", "star", "map", "path", "roots"],
         choices: [
@@ -959,7 +955,7 @@ export const storyQuests = [
         text: ["Pip leads them along the gold trail.", "His lantern shines on the round door.", "\"Here it is,\" says Pip."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p05_pip_leads"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p05_pip_leads"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Try the round door or follow the map?",
         skillTags: ["luna", "burrow", "gold"],
         choices: [
@@ -972,7 +968,7 @@ export const storyQuests = [
         text: ["Burrow reaches a mossy bank and lifts the map.", "Luna holds the star shell.", "The round door waits among old roots."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p06_burrow_catches_map"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p06_burrow_catches_map"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Try the round door or call Wren?",
         skillTags: ["luna", "burrow", "star", "map"],
         choices: [
@@ -985,7 +981,7 @@ export const storyQuests = [
         text: ["The round door waits in the roots.", "Luna holds up the star shell.", "Burrow studies the stone, but it will not move."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p06_hidden_door"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p06_hidden_door"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Call Wren or follow the stream?",
         skillTags: ["luna", "burrow", "door", "roots"],
         choices: [
@@ -1024,7 +1020,7 @@ export const storyQuests = [
         text: ["The smallest book says, KIND HANDS OPEN THIS DOOR.", "\"That means gentle paws,\" says Wren.", "Burrow nods."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p07_wren_checks"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p07_wren_checks"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Use gentle paws or thank Wren and go home?",
         skillTags: ["door", "open"],
         choices: [
@@ -1037,7 +1033,7 @@ export const storyQuests = [
         text: ["The round door swings open.", "Burrow lowers his paws.", "Blue stars fill the room inside."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p07_door_opens"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p07_door_opens"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Enter the star room or leave the door closed?",
         skillTags: ["burrow", "door", "open"],
         choices: [
@@ -1050,7 +1046,7 @@ export const storyQuests = [
         text: ["Starfish swim out of the gate.", "They form a silver line upstream.", "The line points back to the round door."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p07_star_fish"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p07_star_fish"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the starfish or ask Wren to read?",
         skillTags: ["luna", "burrow", "star", "stream"],
         choices: [
@@ -1076,7 +1072,7 @@ export const storyQuests = [
         text: ["Burrow sets the cracked star down.", "\"I should not touch it,\" he says.", "Luna helps him fit the point back into place."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p08_sorry_path"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p08_sorry_path"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Wait for its light or call Wren about the door?",
         skillTags: ["burrow", "star", "path"],
         choices: [
@@ -1089,7 +1085,7 @@ export const storyQuests = [
         text: ["The gold path opens beneath Hollow Oak.", "Their friends wave under the tree.", "Luna and Burrow arrive before moonset."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p09_gold_path"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p09_gold_path"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["luna", "burrow", "path", "gold"],
         choices: [
@@ -1102,7 +1098,7 @@ export const storyQuests = [
         text: ["Luna and Burrow reach Hollow Oak.", "They mark the round door on the map.", "Next time, they will use gentle paws."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p10_quiet_ending"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p10_quiet_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["luna", "burrow", "star", "door", "map"],
         choices: [
@@ -1115,7 +1111,7 @@ export const storyQuests = [
         text: ["Luna and Burrow reach Hollow Oak.", "The star shell and map rest on the moss.", "The round door is open now."],
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p10_door_open_ending"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p10_door_open_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["luna", "burrow", "star", "door", "map", "open"],
         choices: [
@@ -1151,7 +1147,7 @@ export const storyQuests = [
         text: ["The little glow is gone from Crystal Stream.", "Moonwood paths turn dark.", "Flint lifts his lantern; Dewdrop listens for the glow."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p01_start"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p01_start"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Shake Flint's lantern or listen to the water?",
         skillTags: ["dewdrop", "flint", "glow", "stream", "dark", "lantern", "hiding"],
         choices: [
@@ -1190,7 +1186,7 @@ export const storyQuests = [
         text: ["The gold spark fades beside the blue stream.", "Flint raises his lantern.", "Dewdrop watches the water."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p03_lantern_path"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p03_lantern_path"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Search the dark trees or test the stones underwater?",
         skillTags: ["flint", "glow", "stream", "gold", "lantern", "water", "blue"],
         choices: [
@@ -1203,7 +1199,7 @@ export const storyQuests = [
         text: ["Wren arrives with three heavy books.", "\"I have water and light spells,\" she says.", "The third book is about not dropping books."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p03_wren_arrives"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p03_wren_arrives"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Should Wren try a quick spell or a careful spell?",
         skillTags: [],
         choices: [
@@ -1229,7 +1225,7 @@ export const storyQuests = [
         text: ["Dewdrop slips under the water.", "Flint kneels on a flat stone above her.", "A pale light shines beneath a stone."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p04_under_stones"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p04_under_stones"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Cross the glowing stones or call Stone to lift the slab?",
         skillTags: ["dewdrop", "flint", "water"],
         choices: [
@@ -1242,7 +1238,7 @@ export const storyQuests = [
         text: ["Wren's spell leaves a green smoke arrow.", "It points at the ground beside Flint.", "Wren stays back. Flint and Dewdrop follow it."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p05_smoke_arrow"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p05_smoke_arrow"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Dig where it points or search beside the arrow?",
         skillTags: [],
         choices: [
@@ -1255,7 +1251,7 @@ export const storyQuests = [
         text: ["Stone lifts the flat slab from hidden steps.", "Warm air rises from below.", "\"The glow may be down there,\" says Stone."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p05_stone_lifts"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p05_stone_lifts"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Thank Stone, then take the steps or cross the wet ground?",
         skillTags: ["dark"],
         choices: [
@@ -1268,7 +1264,7 @@ export const storyQuests = [
         text: ["Fern points to a plant with gold veins.", "The veins bend toward an old tree.", "\"The glow slept there once,\" she says."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p05_fern_joins"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p05_fern_joins"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Thank Fern, then follow the gold veins or let her sing?",
         skillTags: ["flint", "glow"],
         choices: [
@@ -1281,7 +1277,7 @@ export const storyQuests = [
         text: ["Wren's green smoke curls into a question mark.", "A smaller arrow points down the path.", "Dewdrop hears water under the roots."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p05_wren_stops"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p05_wren_stops"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Thank Wren, then follow the arrow or listen by the roots?",
         skillTags: [],
         choices: [
@@ -1307,7 +1303,7 @@ export const storyQuests = [
         text: ["The rock opens into a narrow crack.", "Pale footprints lead down stone steps.", "Flint opens both arms and squeezes through."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p06_crack_opens"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p06_crack_opens"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the footprints or hurry over the wet stones?",
         skillTags: ["flint", "blue"],
         choices: [
@@ -1320,7 +1316,7 @@ export const storyQuests = [
         text: ["A huge bare tree stands in the dark.", "Flint kneels beside a warm hollow.", "Dewdrop sees a small gold light inside."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p06_quiet_tree"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p06_quiet_tree"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the light or check the roots below?",
         skillTags: ["flint", "dark", "light"],
         choices: [
@@ -1346,7 +1342,7 @@ export const storyQuests = [
         text: ["A purple moth lands on Flint's hands.", "Its soft glow relights his lantern.", "Dewdrop watches it turn toward a warm cave."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p06_moth_caught"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p06_moth_caught"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the moth or search nearby bushes?",
         skillTags: ["flint", "glow", "dark"],
         choices: [
@@ -1359,7 +1355,7 @@ export const storyQuests = [
         text: ["A tiny yellow guide curls above the bush.", "Its tail points at a little door.", "Flint and Dewdrop lean closer."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p06_question_path"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p06_question_path"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Open the tiny door or call softly to the glow?",
         skillTags: [],
         choices: [
@@ -1372,7 +1368,7 @@ export const storyQuests = [
         text: ["A faint trail curls through the air.", "It leads to a cave mouth in the moss.", "Warm gold light glows inside."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p06_moth_path"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p06_moth_path"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Enter the warm cave or call from the entrance?",
         skillTags: ["light", "cave"],
         choices: [
@@ -1385,7 +1381,7 @@ export const storyQuests = [
         text: ["Warm light fills the end of the tunnel.", "The little glow curls on a mossy mound.", "It is fast asleep."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p06_glow_cave"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p06_glow_cave"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Call to the glow or wait beside it?",
         skillTags: ["glow", "light"],
         choices: [
@@ -1424,7 +1420,7 @@ export const storyQuests = [
         text: ["Flint reaches into the stream.", "Together, they pull a loose crystal from the slab.", "Blue water rushes through the gap."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p08_team_pull"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p08_team_pull"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the current or follow the bank?",
         skillTags: ["dewdrop", "flint", "stream"],
         choices: [
@@ -1437,7 +1433,7 @@ export const storyQuests = [
         text: ["Dewdrop follows the new current.", "It helps her slide the slab aside.", "Blue water rushes into a gap under the bank."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p08_crystal_moves"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p08_crystal_moves"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the current or follow the bank?",
         skillTags: ["dewdrop", "flint", "water"],
         choices: [
@@ -1450,7 +1446,7 @@ export const storyQuests = [
         text: ["Fern sings beside the old tree.", "White ribbons drift into the hollow.", "\"The glow is inside,\" says Fern."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p07_fern_song"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p07_fern_song"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Thank Fern and enter the hollow, or find a wider entrance?",
         skillTags: ["glow"],
         choices: [
@@ -1489,7 +1485,7 @@ export const storyQuests = [
         text: ["Flint lowers his voice.", "\"Crystal Stream needs your light,\" he says.", "The glow rolls a little closer."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p08_sorry_glow"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p08_sorry_glow"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Will the glow return or choose a new place?",
         skillTags: ["flint", "glow"],
         choices: [
@@ -1502,7 +1498,7 @@ export const storyQuests = [
         text: ["The glow wakes for Flint's story.", "It follows Flint and Dewdrop to Crystal Stream.", "Blue water sparkles. Moonwood paths shine again."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p09_stream_returns"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p08_glow_story"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["dewdrop", "flint", "glow", "stream", "light", "cave", "blue"],
         choices: [
@@ -1515,7 +1511,7 @@ export const storyQuests = [
         text: ["The glow chooses a quiet stream bend.", "Its gold trail lights every Moonwood path.", "Flint and Dewdrop wave as it settles."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p09_glow_chooses"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p09_glow_chooses"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["dewdrop", "flint", "glow", "stream", "gold"],
         choices: [
@@ -1528,7 +1524,7 @@ export const storyQuests = [
         text: ["The glow returns to Crystal Stream.", "Gold light runs through the blue water.", "Flint lowers his lantern. Moonwood shines again."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p10_gentle_ending"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p10_gentle_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["flint", "glow", "stream", "gold", "light", "lantern", "water", "blue"],
         choices: [
@@ -1655,7 +1651,7 @@ export const storyQuests = [
         text: ["Chompy can see wet mud.", "\"Mud is not lunch,\" says Chompy."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p04_mud_smell"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p04_mud_smell"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Search by the rock or in Long Meadow?",
         skillTags: ["chompy", "mud", "lunch"],
         choices: [
@@ -1694,7 +1690,7 @@ export const storyQuests = [
         text: ["Grumpy still does not want the berry.", "Chompy needs more than one food."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p05_grumpy_tiny_smile"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p05_grumpy_tiny_smile"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Ask Grumpy or search by the rock?",
         skillTags: ["chompy", "berry", "grumpy"],
         choices: [
@@ -1733,7 +1729,7 @@ export const storyQuests = [
         text: ["Sunny and Grumpy meet Chompy at the rock.", "They bring fruit and green leaves."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p05_big_flat_rock"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p05_big_flat_rock"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Start the picnic or wait for Bouncy?",
         skillTags: ["sunny", "rock", "chompy", "grumpy"],
         choices: [
@@ -1746,7 +1742,7 @@ export const storyQuests = [
         text: ["Chompy finds Bouncy at the picnic rock.", "A spring foot bumps the berry basket."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p06_bouncy_lunch"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p06_bouncy_lunch"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Catch the berries or go back to Sunny?",
         skillTags: ["bouncy", "berries"],
         artAction: "approved-replacement",
@@ -1761,7 +1757,7 @@ export const storyQuests = [
         text: ["Bouncy joins the picnic at Big Flat Rock.", "Every friend chooses a favorite food."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p06_everyone_eats"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p06_everyone_eats"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Thank the helpers or make a leaf hat?",
         skillTags: ["grumpy", "melon", "bouncy", "lunch", "chompy"],
         artAction: "approved-replacement",
@@ -1776,7 +1772,7 @@ export const storyQuests = [
         text: ["Bouncy reaches for the berry basket.", "It tips, and the berries spill."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p07_berry_rain"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p07_berry_rain"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Wash the berries or pick them up?",
         skillTags: ["chompy", "leaf", "basket", "berries"],
         artAction: "approved-replacement",
@@ -1791,7 +1787,7 @@ export const storyQuests = [
         text: ["Sunny helps Chompy make a broad leaf hat.", "The picnic waits nearby."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p07_leaf_hat"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p07_leaf_hat"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Wear it or set the table?",
         skillTags: ["chompy", "leaf", "sunny", "hat"],
         choices: [
@@ -1804,7 +1800,7 @@ export const storyQuests = [
         text: ["Every friend shares food at the picnic.", "Chompy thanks them for helping."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p08_thank_you_ending"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p08_thank_you_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["chompy", "grumpy", "bouncy", "sunny"],
         artAction: "approved-replacement",
@@ -1819,7 +1815,7 @@ export const storyQuests = [
         text: ["Chompy and Bouncy wash every berry.", "The picnic food is clean again."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p08_berry_mess_ending"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p08_berry_mess_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["berries", "rock", "bouncy"],
         artAction: "approved-replacement",
@@ -1885,7 +1881,7 @@ export const storyQuests = [
         text: ["Rain drips off Grumpy's back.", "\"I want a dry place,\" says Grumpy."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p02_grumpy"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p02_grumpy"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Try the big rock or bring both friends to the cave?",
         skillTags: ["rain", "grumpy", "dry"],
         choices: [
@@ -1898,7 +1894,7 @@ export const storyQuests = [
         text: ["Dozy hugs a wet blue pillow.", "\"I want a dry nap,\" says Dozy."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p02_dozy"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p02_dozy"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Take Dozy to the cave or find a leaf?",
         skillTags: ["dozy", "pillow", "wet", "dry", "nap"],
         choices: [
@@ -1911,7 +1907,7 @@ export const storyQuests = [
         text: ["The big rock is wet too.", "\"Not that one,\" says Grumpy."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p03_dry_rock"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p03_dry_rock"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Where can Sunny help them now?",
         skillTags: ["rock", "wet", "grumpy"],
         choices: [
@@ -1924,7 +1920,7 @@ export const storyQuests = [
         text: ["Sunny brings Dozy into Cozy Cave.", "Sunny dries Dozy's blue pillow."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p03_cozy_cave"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p03_cozy_cave"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "How can Sunny bring Grumpy in?",
         skillTags: ["cave", "dry", "dozy", "pillow"],
         choices: [
@@ -1950,7 +1946,7 @@ export const storyQuests = [
         text: ["Sunny jumps into the muddy puddle.", "Mud flies far in every direction."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p04_splash"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p04_splash"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who should Sunny check first?",
         skillTags: ["sunny", "mud", "splash"],
         choices: [
@@ -1963,7 +1959,7 @@ export const storyQuests = [
         text: ["Sunny leads wet Grumpy into Cozy Cave.", "Dozy hugs his dry blue pillow."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p04_cave_grumpy"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p04_cave_grumpy"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Use a leaf roof or ask Wiggly?",
         skillTags: ["grumpy", "cave", "tail"],
         choices: [
@@ -2054,7 +2050,7 @@ export const storyQuests = [
         text: ["Sunny builds a broad leaf roof.", "Grumpy waits underneath, warm and dry."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p06_grumpy_dry"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p06_grumpy_dry"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Gather in the cave or play after the rain?",
         skillTags: ["grumpy", "leaf"],
         choices: [
@@ -2080,7 +2076,7 @@ export const storyQuests = [
         text: ["Sunny waits quietly by Cozy Cave.", "Grumpy comes close at last."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p06_grumpy_smile"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p06_grumpy_smile"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Call Dozy out or make a leaf boat?",
         skillTags: ["grumpy", "cave", "sunny", "rain"],
         choices: [
@@ -2093,7 +2089,7 @@ export const storyQuests = [
         text: ["Sunny folds the leaf into a boat.", "Grumpy pushes it across the puddle."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p07_leaf_boat"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p07_leaf_boat"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Call the friends to the boat or the rainbow?",
         skillTags: ["sunny", "boat", "leaf", "grumpy"],
         choices: [
@@ -2106,7 +2102,7 @@ export const storyQuests = [
         text: ["Sunny calls Grumpy and Dozy outside.", "Grumpy and Wiggly splash together."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p07_everyone_puddle"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p07_everyone_puddle"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Float a leaf boat or look at the sky?",
         skillTags: ["grumpy", "splash", "puddle", "sunny"],
         choices: [
@@ -2134,7 +2130,7 @@ export const storyQuests = [
         text: ["All four friends float the leaf boat.", "Grumpy splashes. Dozy keeps his pillow dry."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p08_grumpy_laugh_ending"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p08_grumpy_laugh_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["dozy", "grumpy", "splash", "puddle"],
         artAction: "approved-replacement",
@@ -2149,7 +2145,7 @@ export const storyQuests = [
         text: ["All four friends rest in Cozy Cave.", "Grumpy is warm. Dozy's pillow is dry."],
         imageUrl: dinoPalsImagePath("sunny-rainy-rescue", "p08_quiet_ending"),
         audioUrl: dinoPalsAudioPath("sunny-rainy-rescue", "p08_quiet_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["dozy", "nap", "grumpy", "rain"],
         artAction: "approved-existing",
@@ -2226,7 +2222,7 @@ export const storyQuests = [
         text: ["Grumpy sends Chompy away. Chompy frowns.", "\"I am sorry,\" says Grumpy."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p04_ignore_chompy"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p04_ignore_chompy"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "What can they do now?",
         skillTags: ["grumpy", "chompy"],
         choices: [
@@ -2239,7 +2235,7 @@ export const storyQuests = [
         text: ["Grumpy and Chompy splash together.", "The fun is too loud for sleep."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p04_splash_chompy"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p04_splash_chompy"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Welcome Wiggly or watch quietly?",
         skillTags: ["grumpy", "tail", "chompy"],
         choices: [
@@ -2291,7 +2287,7 @@ export const storyQuests = [
         text: ["Chompy and Wiggly rest with Grumpy.", "His quiet nap can start."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_soaked_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p08_soaked_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["grumpy", "chompy", "wiggly"],
         choices: [
@@ -2304,7 +2300,7 @@ export const storyQuests = [
         text: ["They find warm ground in the sun.", "Grumpy naps beside Chompy and Wiggly."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_warm_ground_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p08_warm_ground_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["grumpy", "chompy", "wiggly", "nap"],
         choices: [
@@ -2330,7 +2326,7 @@ export const storyQuests = [
         text: ["Grumpy calls Fancy to the fallen tower.", "She comes to see the stones."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p04_tell_fancy"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p04_tell_fancy"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Hear Fancy's plan or start rebuilding?",
         skillTags: ["grumpy", "fancy", "stones"],
         choices: [
@@ -2369,7 +2365,7 @@ export const storyQuests = [
         text: ["Grumpy pushes the flat stones together.", "Fancy holds the stack still."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p06_rebuild_stones"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p06_rebuild_stones"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who should set the top stone?",
         skillTags: ["grumpy", "stone", "fancy"],
         choices: [
@@ -2382,7 +2378,7 @@ export const storyQuests = [
         text: ["The stone tower stands again.", "Its cool shade gives Grumpy a quiet nap."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p07_tower_rebuilt"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p07_tower_rebuilt"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["stone", "fancy"],
         choices: [
@@ -2395,7 +2391,7 @@ export const storyQuests = [
         text: ["Fancy's top stone completes the tower.", "Grumpy's quiet nap place is ready."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_stone_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p07_fancy_tower_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["stone", "fancy", "grumpy", "nap"],
         choices: [
@@ -2434,7 +2430,7 @@ export const storyQuests = [
         text: ["Grumpy stares at the hard twig.", "It lies beside his nap place."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p03_list_making"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p03_list_making"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Ask Sunny or try a berry?",
         skillTags: ["grumpy", "twig"],
         choices: [
@@ -2447,7 +2443,7 @@ export const storyQuests = [
         text: ["Grumpy gulps berries without looking up.", "Dozy brings a soft blue pillow."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p04_eat_secretly"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p04_eat_secretly"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Welcome Dozy now or rest beside him?",
         skillTags: ["grumpy", "dozy", "bush"],
         choices: [
@@ -2460,7 +2456,7 @@ export const storyQuests = [
         text: ["Dozy curls on his blue pillow.", "Grumpy lies beside him on warm ground."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p05_dozy_finds"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p05_dozy_finds"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Nap beside Dozy or sit very still?",
         skillTags: ["dozy", "grumpy"],
         choices: [
@@ -2486,7 +2482,7 @@ export const storyQuests = [
         text: ["Grumpy rests beside sleeping Dozy.", "The bush is quiet at last."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_nap_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p08_nap_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["grumpy", "dozy", "nap"],
         choices: [
@@ -2499,7 +2495,7 @@ export const storyQuests = [
         text: ["Grumpy and Dozy keep resting.", "The quiet bush shades them."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_long_nap_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p08_long_nap_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["grumpy", "dozy", "bush", "nap"],
         choices: [
@@ -2525,7 +2521,7 @@ export const storyQuests = [
         text: ["Grumpy bats one berry with his tail.", "Bouncy bounces beside the leaf basket."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p05_bouncy_berries"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p05_bouncy_berries"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Bat again or clean up?",
         skillTags: ["bouncy", "berries"],
         choices: [
@@ -2564,7 +2560,7 @@ export const storyQuests = [
         text: ["Sunny brings ferns for the shade.", "One hard twig lies by Grumpy."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p05_sunny_helps"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p05_sunny_helps"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Move the twig or walk away?",
         skillTags: ["twig", "grumpy", "sunny"],
         choices: [
@@ -2577,7 +2573,7 @@ export const storyQuests = [
         text: ["Grumpy starts to walk away.", "Sunny watches from the berry bush."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p07_one_thing_done"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p07_one_thing_done"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Turn back or ask Sunny?",
         skillTags: ["sunny", "path"],
         choices: [
@@ -2590,7 +2586,7 @@ export const storyQuests = [
         text: ["The hard twig lies off the path.", "Grumpy naps in the quiet shade."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p06_twig_fixed"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p06_twig_fixed"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["twig", "path", "grumpy"],
         choices: [
@@ -2603,7 +2599,7 @@ export const storyQuests = [
         text: ["Sunny helps Grumpy move the hard twig.", "His quiet nap place is ready."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_sunny_help_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p08_sunny_help_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["sunny", "grumpy", "twig", "nap"],
         choices: [
@@ -2616,7 +2612,7 @@ export const storyQuests = [
         text: ["Berries fill the basket again.", "Grumpy finds quiet ground past the twigs."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_almost_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p08_almost_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["grumpy"],
         choices: [
@@ -2730,7 +2726,7 @@ export const storyQuests = [
         text: ["Bouncy's tired springs fold in the ferns.", "Chompy and Grumpy see the berries spill."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p05_legs_give_up"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p05_legs_give_up"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "How can they go on?",
         skillTags: ["bouncy", "ferns", "boing", "berries"],
         choices: [
@@ -2743,7 +2739,7 @@ export const storyQuests = [
         text: ["Grumpy joins them with a broad leaf.", "Chompy catches berries in the basket."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p06_chompy_catches"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p06_chompy_catches"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "What should they do with the last berries?",
         skillTags: ["grumpy", "leaf", "berries"],
         choices: [
@@ -2756,7 +2752,7 @@ export const storyQuests = [
         text: ["Chompy and Grumpy help Bouncy gather berries.", "They keep the clean ones."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p06_everyone_sticky"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p06_everyone_sticky"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who should help carry the clean berries?",
         skillTags: ["berries", "bouncy"],
         choices: [
@@ -2769,7 +2765,7 @@ export const storyQuests = [
         text: ["Grumpy brings the full basket to the rock.", "Bouncy and Chompy start the picnic."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p07_grumpy_nose"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p07_grumpy_nose"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["leaf", "grumpy", "bouncy", "chompy"],
         choices: [
@@ -2899,7 +2895,7 @@ export const storyQuests = [
         text: ["Bouncy steps around the pebble.", "Dozy sleeps as Bouncy leaves the cave."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p04_quiet_exit"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p04_quiet_exit"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Which path should Bouncy check outside?",
         skillTags: ["bouncy", "dozy", "pebble", "cave"],
         choices: [
@@ -2912,7 +2908,7 @@ export const storyQuests = [
         text: ["Bouncy walks the dry rock path.", "The full basket stays steady."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p06_outside_paths"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p06_outside_paths"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "How should Bouncy reach Big Flat Rock?",
         skillTags: ["bouncy", "basket", "rock", "path"],
         choices: [
@@ -2925,7 +2921,7 @@ export const storyQuests = [
         text: ["Bouncy stops beside the stream stones.", "The full basket stays dry."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p06_quiet_stream_path"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p06_quiet_stream_path"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "How should Bouncy reach Big Flat Rock?",
         skillTags: ["bouncy", "basket", "stream", "stone"],
         choices: [
@@ -2977,7 +2973,7 @@ export const storyQuests = [
         text: ["\"Sorry, Dozy,\" says Bouncy.", "Dozy nods. Bouncy calls Wiggly."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p05_apology_before_wiggly"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p05_apology_before_wiggly"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who should help Bouncy leave the cave?",
         skillTags: ["bouncy", "dozy", "sorry", "wiggly"],
         choices: [
@@ -2990,7 +2986,7 @@ export const storyQuests = [
         text: ["\"Sorry, Dozy,\" says Bouncy.", "Bouncy holds the basket still. The echo fades."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p05_cave_echo"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p05_cave_echo"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who can help them leave?",
         skillTags: ["dozy", "bouncy"],
         choices: [
@@ -3029,7 +3025,7 @@ export const storyQuests = [
         text: ["Bouncy and Wiggly bring the full basket.", "They reach Big Flat Rock."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p07_big_flat_rock"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p07_big_flat_rock"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who joins them at the picnic?",
         skillTags: ["bouncy", "rock"],
         choices: [
@@ -3042,7 +3038,7 @@ export const storyQuests = [
         text: ["Chompy joins Bouncy and Wiggly at the rock.", "They share the full basket."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p08_berry_ending"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p08_berry_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["basket", "berries", "berry", "chompy"],
         choices: [
@@ -3055,7 +3051,7 @@ export const storyQuests = [
         text: ["Fancy and Bouncy bring the full basket.", "The picnic begins at Big Flat Rock."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p08_fancy_ending"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p08_fancy_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["bush", "fancy"],
         choices: [
@@ -3068,7 +3064,7 @@ export const storyQuests = [
         text: ["Bouncy keeps the basket dry on each stone.", "The picnic can begin."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p08_stream_ending"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p08_stream_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["bouncy", "stone", "bounce", "grumpy"],
         choices: [
@@ -3081,7 +3077,7 @@ export const storyQuests = [
         text: ["Bouncy reaches Big Flat Rock alone.", "The full basket is ready for the picnic."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p08_quiet_rock_ending"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p08_quiet_rock_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["bouncy", "basket", "rock", "picnic"],
         choices: [
@@ -3094,7 +3090,7 @@ export const storyQuests = [
         text: ["Bouncy and Dozy are at Big Flat Rock.", "The picnic can begin."],
         imageUrl: dinoPalsImagePath("bouncy-big-bounce", "p08_rock_ending"),
         audioUrl: dinoPalsAudioPath("bouncy-big-bounce", "p08_rock_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["chompy", "wiggly", "rock", "bounce", "bouncy"],
         choices: [
@@ -3455,7 +3451,7 @@ export const storyQuests = [
         text: ["They pat the cat at the van."],
         imageUrl: samPamImagePath(9),
         audioUrl: samPamAudioPath(9),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["sam", "pam", "cat", "van"],
         choices: [
@@ -3468,7 +3464,7 @@ export const storyQuests = [
         text: ["They pack the van. The cat is in."],
         imageUrl: samPamImagePath(10),
         audioUrl: samPamAudioPath(10),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["sam", "pam", "cat", "van"],
         choices: [
@@ -3726,7 +3722,7 @@ export const storyQuests = [
         text: ["Clucky wears the hat. Muddy splashes."],
         imageUrl: meadowPalsImagePath("muddy-splashy-hat", "p09_mud_ending"),
         audioUrl: meadowPalsAudioPath("muddy-splashy-hat", "p09_mud_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["mud"],
         choices: [
@@ -3739,7 +3735,7 @@ export const storyQuests = [
         text: ["Clucky wears the hat. Splashy splashes."],
         imageUrl: meadowPalsImagePath("muddy-splashy-hat", "p09_pond_ending"),
         audioUrl: meadowPalsAudioPath("muddy-splashy-hat", "p09_pond_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["pond"],
         choices: [
@@ -3956,7 +3952,7 @@ export const storyQuests = [
         text: ["They sit together on the branch."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p07_tree_up"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p07_tree_up"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Will Shy wave or climb down?",
         skillTags: ["branch"],
         choices: [
@@ -3969,7 +3965,7 @@ export const storyQuests = [
         text: ["Shy sits with Cuddly on grass."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p07_tree_under"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p07_tree_under"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "How close will Shy sit?",
         skillTags: ["grass"],
         choices: [
@@ -3995,7 +3991,7 @@ export const storyQuests = [
         text: ["Shy comes close. Cuddly waits."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p08_barn_hug"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p08_barn_hug"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Does Shy want a hug?",
         skillTags: [],
         choices: [
@@ -4021,7 +4017,7 @@ export const storyQuests = [
         text: ["Shy waves up high with Cuddly."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p08_wave_from_tree"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p08_wave_from_tree"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["waves"],
         artAction: "approved-replacement",
@@ -4136,7 +4132,7 @@ export const storyQuests = [
         text: ["A pond splash wets the map."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p03_pond"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p03_pond"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Shake the map or ask Splashy?",
         skillTags: ["pond"],
         choices: [
@@ -4188,7 +4184,7 @@ export const storyQuests = [
         text: ["Small tracks pass by the boot."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p04_boot"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p04_boot"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the track or tree mark?",
         skillTags: ["boot"],
         choices: [
@@ -4253,7 +4249,7 @@ export const storyQuests = [
         text: ["Bouncy holds the map for Speedy."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p04_speedy_stops"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p04_speedy_stops"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the tree mark or stop to read?",
         skillTags: [],
         choices: [
@@ -4305,7 +4301,7 @@ export const storyQuests = [
         text: ["The map is in the mud."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p05_muddy_map"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p05_muddy_map"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Should Bouncy or Speedy get it?",
         skillTags: ["map", "mud"],
         choices: [
@@ -4318,7 +4314,7 @@ export const storyQuests = [
         text: ["They are at the big tree."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p05_big_tree"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p05_big_tree"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the red X or look across the farm?",
         skillTags: ["tree"],
         choices: [
@@ -4370,7 +4366,7 @@ export const storyQuests = [
         text: ["They find the red X."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p07_tree_stop"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p07_tree_stop"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Follow the red X or look at the farm?",
         skillTags: ["dirt"],
         choices: [
@@ -4396,7 +4392,7 @@ export const storyQuests = [
         text: ["The map shows the whole farm."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p08_farm_view"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p08_farm_view"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["barn", "map"],
         choices: [
@@ -4409,7 +4405,7 @@ export const storyQuests = [
         text: ["The map leads them home."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p09_home_ending"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p09_home_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["map"],
         choices: [
@@ -4422,7 +4418,7 @@ export const storyQuests = [
         text: ["Tiny shares. They read the map."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p09_tiny_snack_ending"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p09_tiny_snack_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["map", "snack"],
         choices: [
@@ -4457,7 +4453,7 @@ export const storyQuests = [
         text: ["Who needs help today?"],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p01_start"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p01_start"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who will Brave and Tiny help?",
         skillTags: ["hat", "bell"],
         choices: [
@@ -4522,7 +4518,7 @@ export const storyQuests = [
         text: ["Tiny sees the red hat."],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p03_hat"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p03_hat"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Go to the hat or ask Clucky?",
         skillTags: ["hat", "wall"],
         choices: [
@@ -4548,7 +4544,7 @@ export const storyQuests = [
         text: ["Clucky spots the red hat."],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p04_clucky_wall"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p04_clucky_wall"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who can go up?",
         skillTags: ["hat", "wall"],
         choices: [
@@ -4561,7 +4557,7 @@ export const storyQuests = [
         text: ["The red hat sits up high."],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p04_hat_on_wall"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p04_hat_on_wall"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Who can go up?",
         skillTags: ["hat"],
         choices: [
@@ -4782,7 +4778,7 @@ export const storyQuests = [
         text: ["Brave lifts the bell from water."],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p06_brave_stream"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p06_brave_stream"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Give it to Tiny or ring it?",
         skillTags: ["bell"],
         choices: [
@@ -4834,7 +4830,7 @@ export const storyQuests = [
         text: ["Hat for Clucky. Feather for Brave."],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p09_fancy_brave_ending"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p09_fancy_brave_ending"),
-        narrationNeedsRebuild: true,
+        narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["feather"],
         choices: [

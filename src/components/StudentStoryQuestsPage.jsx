@@ -25,7 +25,7 @@
 // "You are on page 3" survives because a page is a position in the story being
 // read, not a score.
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { storyQuests } from "../data/storyQuests.js";
@@ -101,6 +101,15 @@ export function StudentStoryQuestsPage({
   // badges show the progress the player just saved rather than the state this
   // screen started in. Re-read in the event handler, never in an effect.
   const [read, setRead] = useState(() => readStoryQuestState(progressScopeKey));
+
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
+      setRead(readStoryQuestState(progressScopeKey));
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [progressScopeKey]);
 
   const reachedWorld = useMemo(
     () => reachedStoryWorld({ quests, progress: read.progress, readingLevel }),

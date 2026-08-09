@@ -892,7 +892,9 @@ export function FinishedReportPage({
     quests: storyQuests
   }), [progressScopeKey, storyQuestRawProgress, studentName]);
   const progressAreas = useMemo(() => (
-    progressScopeKey ? collectStudentEngagementAreas({ id: progressScopeKey }) : {}
+    progressScopeKey
+      ? collectStudentEngagementAreas({ id: progressScopeKey }, null, { allowLocalFallback: true })
+      : {}
   ), [progressScopeKey]);
   const engagementRow = useMemo(() => {
     if (!progressScopeKey) return null;

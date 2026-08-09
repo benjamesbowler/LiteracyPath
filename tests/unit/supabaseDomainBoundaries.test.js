@@ -49,8 +49,8 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
   };
 }
 
-test("all five domain registries expose the complete reviewed backend surface", () => {
-  assert.equal(BOUNDARY_TABLES.length, 23);
+test("all domain registries expose the complete reviewed backend surface", () => {
+  assert.equal(BOUNDARY_TABLES.length, 24);
   assert.equal(BOUNDARY_RPCS.length, 60);
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("reading_sessions"));
@@ -63,6 +63,7 @@ test("all five domain registries expose the complete reviewed backend surface", 
   assert.ok(BOUNDARY_TABLES.includes("teacher_intervention_events"));
   assert.ok(BOUNDARY_TABLES.includes("teacher_account_decision_events"));
   assert.ok(BOUNDARY_TABLES.includes("worksheet_bank"));
+  assert.ok(BOUNDARY_TABLES.includes("entitlements"));
   assert.ok(BOUNDARY_RPCS.includes("student_login"));
   assert.ok(BOUNDARY_RPCS.includes("report_assessment_question"));
   assert.ok(BOUNDARY_RPCS.includes("admin_review_assessment_question_report"));

@@ -99,6 +99,14 @@ test("the phonics sample spans early and late cycles", () => {
 test("story quests are sampled too", () => {
   const ids = sampleStoryQuestIds(storyQuests);
   assert.ok(ids.size >= 1 && ids.size < storyQuests.length);
+  const sampledLevels = new Set(
+    storyQuests
+      .filter(quest => ids.has(quest.id))
+      .map(quest => String(quest.level || "").trim().toUpperCase())
+  );
+  assert.ok(sampledLevels.has("A"), "the try-out must include a Meadow story");
+  assert.ok(sampledLevels.has("B"), "the try-out must include a Dino story");
+  assert.ok(sampledLevels.has("C"), "the try-out must include a Moonwood story");
 });
 
 /* ------------------------------------------------------------------ *

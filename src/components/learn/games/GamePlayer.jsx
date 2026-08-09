@@ -334,6 +334,7 @@ export function GamePlayer({
               <GameComponent
                 difficulty={difficulty}
                 startLevel={startLevel}
+                progressScopeKey={progressScopeKey}
                 onScoreUpdate={setScore}
                 onProgressUpdate={handleProgressUpdate}
                 onComplete={handleComplete}

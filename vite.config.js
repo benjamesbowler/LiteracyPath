@@ -280,8 +280,36 @@ export default defineConfig({
           if (id.includes('/src/data/guidedStoryBooks')) {
             return 'guided-reading-stories'
           }
+          if (id.includes('/src/data/generated/guidedReadingNarrationClearance.generated')) {
+            return 'guided-reading-narration-clearance'
+          }
+          if (id.includes('/src/data/generated/guidedReadingLedaGaps.generated')) {
+            return 'guided-reading-leda-gaps'
+          }
+          if (id.includes('/src/data/generated/guidedReadingQuizzes.generated')) {
+            return 'guided-reading-quizzes'
+          }
+          if (id.includes('/src/data/generated/guidedReadingNarrationProvenance.generated')) {
+            return 'guided-reading-narration-provenance'
+          }
+          if (id.includes('/src/content/guidedReadingStoryBibleRewrites')) {
+            return 'guided-reading-story-bible-rewrites'
+          }
+          if (id.includes('/src/content/guidedReadingHumanFictionRewrites')) {
+            return 'guided-reading-human-fiction-rewrites'
+          }
+          if (id.includes('/src/content/guidedReadingWorldFictionRewrites')) {
+            return 'guided-reading-world-fiction-rewrites'
+          }
           if (id.includes('/src/data/guidedReadingBooks')) {
             return 'guided-reading-runtime'
+          }
+          // Keep the large Guided Reading catalogues independently cacheable.
+          // The runtime combines them for product behavior, but a child should
+          // not pay for every authored series when only one shelf or book is
+          // being opened.
+          if (id.includes('/src/data/guidedReadingWorldExpansionBooks')) {
+            return 'guided-reading-world-expansion'
           }
         }
       }

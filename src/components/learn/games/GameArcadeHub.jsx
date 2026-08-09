@@ -140,6 +140,15 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   });
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
+      setProgress(loadLearnGamesProgress(progressScopeKey));
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [progressScopeKey]);
   // A Today's-Mission deep link opens straight into a game; land on the tab
   // that game lives in, so closing the player returns to the right shelf.
   const [tab, setTab] = useState(() => {
