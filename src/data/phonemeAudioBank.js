@@ -1,6 +1,6 @@
 import { getApprovedPhonicsPatternAudioPath } from "./approvedPhonicsPatternAudio.js";
 import { getApprovedPhonemeAudioPath } from "./approvedPhonemeAudio.js";
-import { AUDIO_FILE_PATHS } from "./generated/audioFilePaths.generated.js";
+import { AUDIO_PHONEME_PATHS } from "./generated/audioPhonemePaths.generated.js";
 import { isKnownBadAudioPath } from "./knownBadWordAudio.js";
 
 const SHORT_VOWELS = new Set(["a", "e", "i", "o", "u"]);
@@ -57,7 +57,7 @@ export function phonemeAudioCandidates(value, { anchor = "" } = {}) {
 
 export function getPreferredPhonemeAudioPath(value, options = {}) {
   return phonemeAudioCandidates(value, options)
-    .find(filePath => AUDIO_FILE_PATHS.has(filePath) && !isKnownBadAudioPath(filePath)) || "";
+    .find(filePath => AUDIO_PHONEME_PATHS.has(filePath) && !isKnownBadAudioPath(filePath)) || "";
 }
 
 export function hasPreferredPhonemeAudio(value, options = {}) {

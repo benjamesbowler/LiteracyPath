@@ -21,7 +21,7 @@
 // the caller hides its Listen button, and the app is SILENT. Silence is fine.
 // A robot voice teaching a child the wrong phoneme is not.
 
-import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
+import { AUDIO_QUEST_PATHS } from "../data/generated/audioQuestPaths.generated.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
 import {
   getPreferredPhonemeAudioPath,
@@ -41,7 +41,7 @@ const TAUGHT_BLENDS = new Set(
 );
 
 function firstExisting(paths) {
-  return paths.find(path => AUDIO_FILE_PATHS.has(path) && !isKnownBadAudioPath(path)) || "";
+  return paths.find(path => AUDIO_QUEST_PATHS.has(path) && !isKnownBadAudioPath(path)) || "";
 }
 
 // Every place a grapheme's recording could live, in preference order.

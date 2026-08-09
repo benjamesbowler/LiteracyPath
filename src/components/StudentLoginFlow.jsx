@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../supabaseClient.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
-import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
+import { AUDIO_QUEST_PATHS } from "../data/generated/audioQuestPaths.generated.js";
 import { SYMBOL_PASSWORD_LENGTH } from "../data/symbolPasswordIcons.js";
 import {
   loadCompatibleStudentClass,
@@ -30,7 +30,7 @@ function speakLine(key, options = {}) {
   const text = VOICE_LINES[key];
   if (!text) return false;
   const src = getLedaInstructionAudioPath(text) || getLedaWordAudioPath(text);
-  if (!AUDIO_FILE_PATHS.has(src)) return false;
+  if (!AUDIO_QUEST_PATHS.has(src)) return false;
   playCueAudio(src, { volume: options.volume ?? 0.9 });
   return true;
 }

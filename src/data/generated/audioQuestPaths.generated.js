@@ -14,4 +14,4 @@ export function hasAudioFilePath(value = "") {
     ?.has(path.slice(slash + 1)) || false;
 }
 
-export const AUDIO_FILE_PATHS = Object.freeze({ has: hasAudioFilePath });
+export const AUDIO_QUEST_PATHS = Object.freeze({ has: hasAudioFilePath });

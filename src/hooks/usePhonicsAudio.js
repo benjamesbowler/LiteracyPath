@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Howl, Howler } from "howler";
-import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
+import { AUDIO_PHONEME_PATHS } from "../data/generated/audioPhonemePaths.generated.js";
 
 const soundCache = new Map();
 const failedSources = new Set();
@@ -12,7 +12,13 @@ export function hasPhonicsAudioSource(src) {
   return Boolean(
     src
     && !src.startsWith(GENERATED_PHONEME_PREFIX)
-    && AUDIO_FILE_PATHS.has(src)
+    && (
+      AUDIO_PHONEME_PATHS.has(src)
+      // Leda paths have already been resolved from the production audio
+      // registry by their caller. Keep that shared hook from importing the
+      // much larger quest manifest into the initial bundle.
+      || src.startsWith("/audio/production/en-US/")
+    )
   );
 }
 

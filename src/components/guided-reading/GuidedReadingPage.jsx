@@ -65,7 +65,7 @@ import {
 } from "./readingSessionUi.js";
 import { nextReadingWordMark } from "../../hooks/readingSessionMarkTarget.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../../utils/audio/childAudioLifecycle.js";
-import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
+import { AUDIO_GUIDED_READING_PATHS } from "../../data/generated/audioGuidedReadingPaths.generated.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 const GUIDED_READING_WORD_RATE = 0.9;
@@ -1621,7 +1621,7 @@ export function GuidedReadingPage({
 
   function findExistingGuidedReadingWordAudio(word = {}) {
     const candidates = [...new Set(getGuidedReadingWordAudioCandidates(word))];
-    return candidates.find(candidate => AUDIO_FILE_PATHS.has(candidate)) || "";
+    return candidates.find(candidate => AUDIO_GUIDED_READING_PATHS.has(candidate)) || "";
   }
 
   function prepareWordSupportAudio(audioPath) {

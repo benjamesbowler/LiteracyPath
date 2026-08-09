@@ -1,7 +1,7 @@
 import { Howl, Howler } from "howler";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
-import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
+import { AUDIO_QUEST_PATHS } from "../data/generated/audioQuestPaths.generated.js";
 import { phonemeAudioCandidates } from "../data/phonemeAudioBank.js";
 import {
   getLedaInstructionAudioPath,
@@ -13,7 +13,7 @@ import {
 function existingAudioPaths(paths) {
   // Clips verified defective by ear are skipped so the chain falls through
   // to a good copy (or stays silent) instead of teaching the wrong thing.
-  return paths.filter(p => p && AUDIO_FILE_PATHS.has(p) && !isKnownBadAudioPath(p));
+  return paths.filter(p => p && AUDIO_QUEST_PATHS.has(p) && !isKnownBadAudioPath(p));
 }
 
 const howlCache = new Map();

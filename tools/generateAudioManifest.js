@@ -10,6 +10,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
 const outFile = path.join(root, "src", "data", "generated", "audioFilePaths.generated.js");
 const choiceKeysOutFile = path.join(root, "src", "data", "generated", "audioChoiceKeys.generated.js");
+const phonemeOutFile = path.join(root, "src", "data", "generated", "audioPhonemePaths.generated.js");
+const guidedReadingOutFile = path.join(root, "src", "data", "generated", "audioGuidedReadingPaths.generated.js");
+const questOutFile = path.join(root, "src", "data", "generated", "audioQuestPaths.generated.js");
 
 const files = [];
 function walk(dir) {
@@ -41,9 +44,10 @@ const compactDirectories = Object.fromEntries(
     names.join("\n")
   ])
 );
-const body = `${banner}
+function renderManifest(directoryMap, exportName) {
+  return `${banner}
 const AUDIO_FILE_NAMES_BY_DIRECTORY = new Map(
-  Object.entries(${JSON.stringify(compactDirectories)})
+  Object.entries(${JSON.stringify(directoryMap)})
     .map(([directory, names]) => [directory, new Set(names.split("\\n"))])
 );
 
@@ -56,10 +60,38 @@ export function hasAudioFilePath(value = "") {
     ?.has(path.slice(slash + 1)) || false;
 }
 
-export const AUDIO_FILE_PATHS = Object.freeze({ has: hasAudioFilePath });
+export const ${exportName} = Object.freeze({ has: hasAudioFilePath });
 `;
+}
+
+const phonemeDirectories = new Set([
+  "/audio/phonemes",
+  "/audio/phonemes/reviewed",
+  "/audio/quest/alt",
+  "/audio/production/en-US/isolated_word",
+  "/audio/production/en-US/letter_name",
+  "/audio/production/en-US/pattern"
+]);
+const guidedReadingDirectories = new Set([
+  "/audio/production/en-US/guided_page",
+  "/audio/production/en-US/supplemental",
+  "/audio/production/en-US/isolated_word",
+  "/audio/production/en-US/letter_name"
+]);
+// Quest and arcade audio can resolve instructional, story, supplemental and
+// word clips through the shared Leda resolver, so keep the complete lookup in
+// this on-demand feature manifest. Guided Reading still gets its own smaller
+// manifest and does not pay for this one until a quest/game is opened.
+const questDirectories = new Set(Object.keys(compactDirectories));
+const selectDirectories = directories => Object.fromEntries(
+  Object.entries(compactDirectories).filter(([directory]) => directories.has(directory))
+);
+
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
-fs.writeFileSync(outFile, body);
+fs.writeFileSync(outFile, renderManifest(compactDirectories, "AUDIO_FILE_PATHS"));
+fs.writeFileSync(phonemeOutFile, renderManifest(selectDirectories(phonemeDirectories), "AUDIO_PHONEME_PATHS"));
+fs.writeFileSync(guidedReadingOutFile, renderManifest(selectDirectories(guidedReadingDirectories), "AUDIO_GUIDED_READING_PATHS"));
+fs.writeFileSync(questOutFile, renderManifest(selectDirectories(questDirectories), "AUDIO_QUEST_PATHS"));
 const choiceKeys = files
   .map(file => file.match(/^\/audio\/choices\/([0-9a-f]{16})\.mp3$/)?.[1] || "")
   .filter(Boolean);
