@@ -7,7 +7,9 @@ import {
   getWorksheetCycle,
   buildWorksheetDocument,
   embedWorksheetImages,
-  WORKSHEET_PAGE_STAGES
+  WORKSHEET_PAGE_STAGES,
+  WORKSHEET_TYPES,
+  WORKSHEET_CATEGORIES
 } from "../../src/utils/worksheets/worksheetBuilder.js";
 
 const cycle10 = getWorksheetCycle("cycle-10");
@@ -54,6 +56,31 @@ test("available types match the cycle's content", () => {
   const cycle2 = getWorksheetCycle("cycle-2");
   assert.ok(!availableWorksheetTypes(cycle2).includes("wordBuilding"),
     "cycle 2 has only one unambiguous pictured decodable word");
+});
+
+test("the printable library includes practice, puzzles, colouring, crafts and games", () => {
+  const typeIds = new Set(WORKSHEET_TYPES.map(type => type.id));
+  for (const id of [
+    "wordSearch",
+    "letterColouring",
+    "sightWordColouring",
+    "cutAndSort",
+    "matchingCards",
+    "miniBook",
+    "rollAndRead"
+  ]) {
+    assert.ok(typeIds.has(id), `${id} is part of the printable bank`);
+  }
+
+  const categoryIds = new Set(WORKSHEET_CATEGORIES.map(category => category.id));
+  for (const id of ["practice", "puzzles", "colouring", "crafts", "games"]) {
+    assert.ok(categoryIds.has(id), `${id} is a browsable category`);
+  }
+
+  const cycleCounts = worksheetCycleOptions().map(option => (
+    availableWorksheetTypes(getWorksheetCycle(option.id)).length
+  ));
+  assert.ok(cycleCounts.every(count => count >= 8), "every teaching cycle has a substantial activity choice");
 });
 
 test("buildWorksheetDocument is deterministic (same recipe = same bytes)", () => {
@@ -134,8 +161,10 @@ function taughtLettersThrough(cycleNumber) {
   for (const cycle of allCycles) {
     if (cycle.cycleNumber > cycleNumber) break;
     for (const item of cycle.focusLetters || []) {
-      const spelling = String(item.spelling || "").toLowerCase();
-      if (/^[a-z]{1,2}$/.test(spelling)) taught.add(spelling);
+      const spellings = String(item.spelling || "").toLowerCase().trim().split(/\s+/).filter(Boolean);
+      for (const spelling of spellings) {
+        if (/^[a-z]{1,2}$/.test(spelling)) taught.add(spelling);
+      }
     }
   }
   return taught;
@@ -331,4 +360,67 @@ test("print documents are self-contained and expose stable task metadata", () =>
         `cycle ${cycle.cycleNumber} ${type}: duplicate task ids`);
     }
   }
+});
+
+test("word searches contain every declared cycle word in a forward direction", () => {
+  for (const cycleId of ["cycle-2", "cycle-10", "cycle-24", "cycle-27"]) {
+    const cycle = getWorksheetCycle(cycleId);
+    if (!availableWorksheetTypes(cycle).includes("wordSearch")) continue;
+    const { html } = buildWorksheetDocument({ cycleId, type: "wordSearch", pages: 3 });
+    const searches = [...html.matchAll(/data-task-kind="word-search"[^>]*data-answer="([^"]+)"[\s\S]*?<div class="ws-word-search"[^>]*>([\s\S]*?)<\/div>/g)];
+    assert.equal(searches.length, 3, `${cycleId} has one search per requested page`);
+    for (const [, answer, gridHtml] of searches) {
+      const cells = [...gridHtml.matchAll(/<span>([A-Z])<\/span>/g)].map(match => match[1]);
+      assert.equal(cells.length, 100, `${cycleId} word-search grid is 10 by 10`);
+      const grid = Array.from({ length: 10 }, (_unused, row) => cells.slice(row * 10, row * 10 + 10));
+      for (const word of answer.split("|").map(value => value.toUpperCase())) {
+        const found = grid.some((row, rowIndex) => row.some((_letter, colIndex) => (
+          [[0, 1], [1, 0], [1, 1]].some(([rowStep, colStep]) => (
+            word.split("").every((letter, index) => (
+              grid[rowIndex + rowStep * index]?.[colIndex + colStep * index] === letter
+            ))
+          ))
+        )));
+        assert.ok(found, `${cycleId} search contains ${word}`);
+      }
+    }
+  }
+});
+
+test("colouring pages expose outlined targets and target-specific code tasks", () => {
+  const letter = buildWorksheetDocument({ cycleId: "cycle-10", type: "letterColouring", pages: 2 }).html;
+  assert.match(letter, /data-task-kind="letter-colour-model"/);
+  assert.match(letter, /data-task-kind="letter-colour-code"/);
+  assert.match(letter, /data-mark="[^"]+"/);
+  assert.match(letter, /-webkit-text-stroke:\s*2px/);
+
+  const sight = buildWorksheetDocument({ cycleId: "cycle-10", type: "sightWordColouring", pages: 2 }).html;
+  assert.match(sight, /data-task-kind="sight-word-colour-model"/);
+  assert.match(sight, /data-task-kind="sight-word-colour-code"/);
+  assert.match(sight, />are<|>as<|>you</i, "the page uses Cycle 10 high-frequency words");
+});
+
+test("craft and game printables include usable physical mechanics", () => {
+  const recipes = [
+    ["cutAndSort", /ws-cut-grid[\s\S]*?ws-sort-mats/],
+    ["matchingCards", /ws-matching-cards[\s\S]*?matching-card-review/],
+    ["miniBook", /ws-fold-steps[\s\S]*?ws-mini-book/],
+    ["rollAndRead", /ws-roll-board[\s\S]*?ws-round-checks/]
+  ];
+  for (const [type, expected] of recipes) {
+    const { html } = buildWorksheetDocument({ cycleId: "cycle-10", type, pages: 2 });
+    assert.match(html, expected, `${type} contains its print mechanic`);
+    assert.doesNotMatch(visibleWorksheetText(html), /[—–]/, `${type} child copy uses plain punctuation`);
+  }
+});
+
+test("the mini-book uses a printable eight-panel fold layout", () => {
+  const { html } = buildWorksheetDocument({ cycleId: "cycle-10", type: "miniBook", pages: 1 });
+  const panels = [...html.matchAll(/class="ws-mini-panel[^"]*" data-panel=/g)];
+  const upsideDownPanels = [...html.matchAll(/class="ws-mini-panel ws-mini-upside-down[^"]*" data-panel=/g)];
+
+  assert.equal(panels.length, 8, "one sheet has eight mini-book panels");
+  assert.equal(upsideDownPanels.length, 4, "the top row is inverted for folding");
+  assert.match(html, /Open it\. Adult cuts the centre line/);
+  assert.match(html, /class="ws-mini-centre-cut"/);
 });

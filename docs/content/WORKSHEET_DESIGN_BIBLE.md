@@ -1,6 +1,6 @@
 # LiteracyPath Worksheet Design Bible
 
-**Policy version:** `2026-08-01.1`
+**Policy version:** `2026-08-09.1`
 **Applies to:** every generated, downloaded or printed LiteracyPath worksheet and practice pack for learners aged 4–12.
 **Parent standard:** [Question Design Bible](QUESTION_DESIGN_BIBLE.md).
 **Permanent gates:** `npm run check:worksheet-design-policy` and `npm run check:worksheet-print-layout`
@@ -170,6 +170,17 @@ Before release, argue for every alternative as if it were correct. Add context o
 - Poems and passages include the words the child is asked to find.
 - A repeated-reading page gives a readable text and separate marks for each read; it does not duplicate the same poem on every page.
 
+### Word searches, colouring, crafts and print games
+
+- Word searches use words taught in or before the selected cycle. Every declared target is placed in the grid and can be found across, down or diagonally in a forward direction for Band A and early Band B.
+- A word search includes a visible word list and a short reading, writing or recall follow-up. Finding letter strings alone is not represented as sufficient practice.
+- Colouring pages keep letters and words as live outlined text. The instruction names every target, and colour, dots or patterns never become the only way a category is identified.
+- Cut-out cards use visible cut guides, large safe margins and an explicit literacy action after cutting. Child-facing directions ask an adult to help when a cut or fold is required.
+- A sort states a rule visible in the printed cards, such as an exact grapheme or spelling ending. It never depends on the child guessing which cycle a word came from.
+- Matching-card sets contain complete pairs and add a read, spell, order, copy or memory prompt so the craft remains purposeful literacy practice.
+- A one-sheet mini-book uses the correct eight-panel order, upside-down top row, fold lines and adult centre-cut guide. Instructions must be sufficient to assemble the book without inventing missing steps.
+- Print games keep the reading target central, supply every board or tracker needed to play, and do not rely on a reward mechanic as evidence of learning.
+
 ### Comprehension, vocabulary and writing for Bands B–D
 
 - Supply the complete passage, image, diagram or source.
@@ -228,6 +239,9 @@ The permanent gate checks every available type for every cycle, normally at six 
 13. sight-word and letter hunts contain the declared number of targets;
 14. word-building answers contain only letters taught by that cycle;
 15. representative PDFs produce one physical page per logical page with no clipped instructional content.
+16. every word-search answer appears in its declared grid direction;
+17. colouring pages retain visible outlines in greyscale printing;
+18. cut, sort, matching and mini-book pages retain complete cut, fold and assembly guides.
 
 The release gate fails on any hard error. It may not be made green by suppressing a worksheet type, reducing the expected page count, changing the normaliser to count page labels, or recording a waiver without a versioned policy change.
 

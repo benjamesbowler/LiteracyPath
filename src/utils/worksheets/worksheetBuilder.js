@@ -15,10 +15,26 @@ import { getChildWordAsset } from "../../data/childAssets.js";
 import { openHtmlDocument } from "../openHtmlDocument.js";
 
 export const WORKSHEET_TYPES = [
-  { id: "letterFormation", label: "Letter formation", blurb: "Trace and write the cycle's focus letters, then hunt for them." },
-  { id: "wordBuilding", label: "Word building", blurb: "Read, complete and build words made from the cycle's sounds." },
-  { id: "sightWords", label: "Sight words", blurb: "Trace, find and use the cycle's sight words in real sentences." },
-  { id: "patternFluency", label: "Pattern & fluency", blurb: "Sort this cycle's spelling patterns, chain words and read the poem (cycles 25-27)." }
+  { id: "letterFormation", label: "Letter formation", category: "practice", format: "Write", blurb: "Trace and write the cycle's focus letters, then hunt for them." },
+  { id: "wordBuilding", label: "Word building", category: "practice", format: "Write", blurb: "Read, complete and build words made from the cycle's sounds." },
+  { id: "sightWords", label: "Sight words", category: "practice", format: "Write", blurb: "Trace, find and use the cycle's high-frequency words in real sentences." },
+  { id: "patternFluency", label: "Pattern and fluency", category: "practice", format: "Read", blurb: "Sort this cycle's spelling patterns, chain words and read the poem (cycles 25-27)." },
+  { id: "wordSearch", label: "Word search", category: "puzzles", format: "Puzzle", blurb: "Find cycle words in a print-friendly grid, then read and write them." },
+  { id: "letterColouring", label: "Colour the letters", category: "colouring", format: "Colour", blurb: "Colour, trace and spot the cycle's focus letters or graphemes." },
+  { id: "sightWordColouring", label: "Colour the sight words", category: "colouring", format: "Colour", blurb: "Use colour, dots and stripes to notice and remember high-frequency words." },
+  { id: "cutAndSort", label: "Cut and sort", category: "crafts", format: "Cut", blurb: "Cut out word or letter cards and sort them by a visible spelling rule." },
+  { id: "matchingCards", label: "Matching cards", category: "crafts", format: "Cut", blurb: "Make a set of cycle-matched cards for pairs, memory and quick reading." },
+  { id: "miniBook", label: "Foldable mini-book", category: "crafts", format: "Fold", blurb: "Cut and fold a small read, trace and write book for this cycle." },
+  { id: "rollAndRead", label: "Roll and read", category: "games", format: "Game", blurb: "Roll a die, read the matching row and record each completed round." }
+];
+
+export const WORKSHEET_CATEGORIES = [
+  { id: "all", label: "All activities" },
+  { id: "practice", label: "Core practice" },
+  { id: "puzzles", label: "Puzzles" },
+  { id: "colouring", label: "Colouring" },
+  { id: "crafts", label: "Cut and make" },
+  { id: "games", label: "Games" }
 ];
 
 function isFluencyCycle(cycle) {
@@ -35,9 +51,13 @@ export function availableWorksheetTypes(cycle) {
   // Early cycles may not yet have two decodable words with unambiguous picture
   // cues, so word building starts only when both the spelling and image contract
   // can be met.
-  if (hasRealLetters && pictureWordPool(cycle).length >= 2) ids.push("wordBuilding");
+  if (hasRealLetters && cycle.cycleNumber !== 24 && pictureWordPool(cycle).length >= 2) ids.push("wordBuilding");
   if ((cycle.highFrequencyWords || []).length > 0) ids.push("sightWords");
   if (isFluencyCycle(cycle)) ids.push("patternFluency");
+  if (wordSearchPool(cycle).length >= 4) ids.push("wordSearch");
+  if (hasRealLetters) ids.push("letterColouring");
+  if ((cycle.highFrequencyWords || []).length > 0) ids.push("sightWordColouring");
+  ids.push("cutAndSort", "matchingCards", "miniBook", "rollAndRead");
   return WORKSHEET_TYPES.filter(t => ids.includes(t.id)).map(t => t.id);
 }
 
@@ -89,17 +109,25 @@ const WORKSHEET_IMAGE_EXCLUSIONS = new Set(["bank", "pink", "sat", "six", "thin"
 function focusCards(cycle) {
   const cards = (cycle.focusLetters || []).length ? cycle.focusLetters : cycle.reviewLetters || [];
   return cards
-    .map(card => {
+    .flatMap(card => {
       const grapheme = card.grapheme || card.spelling || "";
-      const rawSpelling = (card.spelling || "").toLowerCase();
+      const rawSpelling = (card.spelling || "").toLowerCase().trim();
       // Legacy review cards store Aa as spelling "aa", Mm as "mm", and so
       // forth. That represents capital/lowercase forms, not a doubled grapheme.
       const isCasePair = /^[A-Z][a-z]$/.test(grapheme) && grapheme[0].toLowerCase() === grapheme[1];
-      return {
+      if (isCasePair) return [{
         grapheme,
         sound: card.sound || "",
-        spelling: isCasePair ? grapheme[1] : rawSpelling
-      };
+        spelling: grapheme[1]
+      }];
+      // Cycle 24 stores the fizzle-letter spellings in one curriculum field.
+      // Expand that field so ff, ss, zz and ll remain separate grapheme cards.
+      const spellings = rawSpelling.split(/\s+/).filter(Boolean);
+      return spellings.map(spelling => ({
+        grapheme: spellings.length > 1 ? spelling : grapheme,
+        sound: card.sound || "",
+        spelling
+      }));
     })
     .filter(card => /^[a-z]{1,2}$/.test(card.spelling));
 }
@@ -111,8 +139,10 @@ function taughtLettersThrough(cycleNumber) {
   for (const cycle of elSkillsBlockCycles) {
     if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
     for (const item of cycle.focusLetters || []) {
-      const spelling = (item.spelling || "").toLowerCase();
-      if (/^[a-z]$/.test(spelling) && !taught.includes(spelling)) taught.push(spelling);
+      const spellings = (item.spelling || "").toLowerCase().trim().split(/\s+/).filter(Boolean);
+      for (const spelling of spellings) {
+        if (/^[a-z]{1,2}$/.test(spelling) && !taught.includes(spelling)) taught.push(spelling);
+      }
     }
   }
   return taught;
@@ -241,6 +271,12 @@ const HFW_SENTENCES = {
 
 // ── Fluency cycle data (25-27): each cycle drills ITS OWN pattern ─────────────
 const CYCLE_PATTERNS = {
+  24: [
+    { label: "end with -ff", yes: ["off", "puff", "huff", "cuff"], no: ["sun", "map", "run", "top"] },
+    { label: "end with -ss", yes: ["mess", "kiss", "moss", "hiss"], no: ["cat", "dog", "hen", "rug"] },
+    { label: "end with -zz", yes: ["buzz", "fizz", "jazz", "fuzz"], no: ["bed", "cup", "log", "fan"] },
+    { label: "end with -ll", yes: ["bell", "fill", "hill", "doll"], no: ["pig", "net", "van", "red"] }
+  ],
   25: [
     { label: "end with -ay", yes: ["day", "say", "may", "play", "stay", "way"], no: ["sun", "map", "run", "top"] },
     { label: "end with -ll", yes: ["ball", "fall", "call", "tall", "bell", "fill"], no: ["bat", "mop", "net", "pin"] }
@@ -265,6 +301,47 @@ function rotate(list, by) {
   if (!list.length) return list;
   const n = ((by % list.length) + list.length) % list.length;
   return [...list.slice(n), ...list.slice(0, n)];
+}
+
+function uniqueTokens(values) {
+  const seen = new Set();
+  return values.filter(value => {
+    const clean = String(value || "").trim();
+    const key = clean.toLowerCase();
+    if (!clean || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function cyclePatternWords(cycle) {
+  return (CYCLE_PATTERNS[cycle.cycleNumber] || [])
+    .flatMap(pattern => [...pattern.yes, ...pattern.no]);
+}
+
+function cumulativeSightWords(cycle) {
+  return uniqueTokens([...sightWords(cycle), ...earlierSightWords(cycle).reverse()]);
+}
+
+// A shared, cycle-owned token shelf for the printable games and crafts. Current
+// cycle content always comes first; review material only fills spare spaces.
+function activityTokens(cycle) {
+  return uniqueTokens([
+    ...focusCards(cycle).map(card => card.spelling),
+    ...sightWords(cycle).map(displayWord),
+    ...cycleWords(cycle),
+    ...cyclePatternWords(cycle),
+    ...earlierSightWords(cycle).reverse().map(displayWord)
+  ]).filter(token => /^[a-z]{1,8}$/i.test(token));
+}
+
+function wordSearchPool(cycle) {
+  return uniqueTokens([
+    ...sightWords(cycle).map(displayWord),
+    ...cycleWords(cycle),
+    ...cyclePatternWords(cycle),
+    ...earlierSightWords(cycle).reverse().map(displayWord)
+  ]).filter(token => /^[a-z]{2,8}$/i.test(token));
 }
 
 function wordImage(word) {
@@ -735,11 +812,321 @@ function patternFluencyPage(cycle, page) {
   }
 }
 
+// ── Printable puzzles, colouring, crafts and games ──────────────────────────
+function makeWordSearch(cycle, page) {
+  const words = rotate(wordSearchPool(cycle), page * 2).slice(0, 6).map(word => word.toLowerCase());
+  const size = 10;
+  const grid = Array.from({ length: size }, () => Array(size).fill(""));
+  const directions = rotate([[1, 0], [0, 1], [1, 1]], page);
+  const candidates = [];
+  for (const [rowStep, colStep] of directions) {
+    for (let row = 0; row < size; row += 1) {
+      for (let col = 0; col < size; col += 1) candidates.push({ row, col, rowStep, colStep });
+    }
+  }
+
+  for (const [wordIndex, word] of words.entries()) {
+    const ordered = rotate(candidates, page * 17 + wordIndex * 23);
+    const position = ordered.find(({ row, col, rowStep, colStep }) => {
+      const endRow = row + rowStep * (word.length - 1);
+      const endCol = col + colStep * (word.length - 1);
+      if (endRow >= size || endCol >= size) return false;
+      return word.split("").every((letter, index) => {
+        const current = grid[row + rowStep * index][col + colStep * index];
+        return !current || current === letter;
+      });
+    });
+    if (!position) throw new Error(`Could not place worksheet word: ${word}`);
+    word.split("").forEach((letter, index) => {
+      grid[position.row + position.rowStep * index][position.col + position.colStep * index] = letter;
+    });
+  }
+
+  const fillers = taughtLettersThrough(cycle.cycleNumber || 1).filter(letter => letter.length === 1);
+  const safeFillers = fillers.length >= 2 ? fillers : ["a", "m"];
+  for (let row = 0; row < size; row += 1) {
+    for (let col = 0; col < size; col += 1) {
+      if (!grid[row][col]) grid[row][col] = safeFillers[(row * 7 + col * 3 + page) % safeFillers.length];
+    }
+  }
+  return { words, grid };
+}
+
+const WORD_SEARCH_FOLLOW_UPS = [
+  "Copy two words on the lines.",
+  "Read each found word to an adult.",
+  "Put a star beside the shortest word.",
+  "Write one found word from memory.",
+  "Choose a word and use it in a sentence.",
+  "Cover the word list. Write three words you remember."
+];
+
+function wordSearchPage(cycle, page) {
+  const { words, grid } = makeWordSearch(cycle, page);
+  const answer = words.map(displayWord).join("|");
+  const wordList = words.map(word => `<span>${esc(displayWord(word))}</span>`).join("");
+  const cells = grid.flat().map(letter => `<span>${esc(letter.toUpperCase())}</span>`).join("");
+  return `<div class="ws-block" data-task-kind="word-search" data-task-id="word-search-${page}" data-answer="${esc(answer)}">
+      <div class="ws-block-title small ws-instruction">Find and circle ${words.length} words. Look across, down and diagonally.</div>
+      <div class="ws-search-layout">
+        <div class="ws-word-search" aria-label="Word search letter grid">${cells}</div>
+        <div class="ws-search-words"><b>Words to find</b>${wordList}</div>
+      </div>
+    </div>
+    <div class="ws-block" data-task-kind="word-search-review" data-task-id="word-search-review-${page}" data-answer="${esc(answer)}">
+      <div class="ws-block-title small ws-instruction">${esc(WORD_SEARCH_FOLLOW_UPS[page % WORD_SEARCH_FOLLOW_UPS.length])}</div>
+      ${traceLines(page === 5 ? 3 : 2)}
+    </div>`;
+}
+
+const COLOUR_ACTIONS = [
+  ["blue", "green"],
+  ["red", "yellow"],
+  ["purple", "orange"],
+  ["dots", "stripes"],
+  ["zigzags", "circles"],
+  ["your favourite colour", "a different colour"]
+];
+
+function colourTileValues(targets, distractors, page, total = 24) {
+  const values = targets.flatMap(target => Array(6).fill(target));
+  const fillers = distractors.length ? distractors : targets;
+  while (values.length < total) values.push(fillers[(values.length + page) % fillers.length]);
+  return rotate(values, page * 5 + 3).slice(0, total);
+}
+
+function letterOutlineColourBlock(cards, page) {
+  const selected = rotate(cards, page).slice(0, 2);
+  const models = selected.map(card => card.spelling.length === 1
+    ? `${card.spelling.toUpperCase()}${card.spelling}`
+    : card.spelling);
+  const [firstAction, secondAction] = COLOUR_ACTIONS[page % COLOUR_ACTIONS.length];
+  return `<div class="ws-block" data-task-kind="letter-colour-model" data-task-id="letter-colour-model-${page}" data-answer="${esc(models.join("|"))}">
+      <div class="ws-block-title small ws-instruction">Fill each model with ${esc(firstAction)}. Trace it below.</div>
+      <div class="ws-colour-models">${models.map((model, index) => `<span aria-label="outline letter ${esc(model)}" data-mark="${esc(index ? secondAction : firstAction)}">${esc(model)}</span>`).join("")}</div>
+      ${traceLines(2)}
+    </div>`;
+}
+
+function letterColourGridBlock(cycle, cards, page) {
+  const targets = rotate(cards.map(card => card.spelling), page).slice(0, 2);
+  const taught = taughtLettersThrough(cycle.cycleNumber || 1);
+  const distractors = uniqueTokens([...cards.map(card => card.spelling), ...rotate(taught, page)])
+    .filter(value => !targets.includes(value));
+  const tiles = colourTileValues(targets, distractors, page);
+  const [firstAction, secondAction] = COLOUR_ACTIONS[page % COLOUR_ACTIONS.length];
+  const directions = targets.map((target, index) =>
+    `Fill each <b>${esc(target)}</b> box with ${esc(index ? secondAction : firstAction)}.`).join(" ");
+  return `<div class="ws-block" data-task-kind="letter-colour-code" data-task-id="letter-colour-code-${page}" data-answer="${esc(targets.join("|"))}">
+      <div class="ws-block-title small ws-instruction">${directions}</div>
+      <div class="ws-colour-grid">${tiles.map(value => `<span>${esc(value)}</span>`).join("")}</div>
+    </div>`;
+}
+
+function letterColouringPage(cycle, page) {
+  const cards = rotate(focusCards(cycle), page);
+  return `${letterOutlineColourBlock(cards, page)}${letterColourGridBlock(cycle, cards, page)}`;
+}
+
+function sightWordOutlineBlock(words, page) {
+  const selected = rotate(words, page).slice(0, 2);
+  const [firstAction, secondAction] = COLOUR_ACTIONS[page % COLOUR_ACTIONS.length];
+  return `<div class="ws-block" data-task-kind="sight-word-colour-model" data-task-id="sight-colour-model-${page}" data-answer="${esc(selected.map(displayWord).join("|"))}">
+      <div class="ws-block-title small ws-instruction">Colour each word. Read it as you colour.</div>
+      <div class="ws-colour-words">${selected.map((word, index) => `<span data-mark="${esc(index ? secondAction : firstAction)}">${esc(displayWord(word))}</span>`).join("")}</div>
+      ${traceLines(1)}
+    </div>`;
+}
+
+function sightWordColourGridBlock(cycle, words, page) {
+  const targets = rotate(words, page).slice(0, 2);
+  const distractors = cumulativeSightWords(cycle).filter(word => !targets.includes(word));
+  const tiles = colourTileValues(targets, distractors, page, 20);
+  const [firstAction, secondAction] = COLOUR_ACTIONS[page % COLOUR_ACTIONS.length];
+  const directions = targets.map((word, index) =>
+    `Fill each <b>${esc(displayWord(word))}</b> box with ${esc(index ? secondAction : firstAction)}.`).join(" ");
+  return `<div class="ws-block" data-task-kind="sight-word-colour-code" data-task-id="sight-colour-code-${page}" data-answer="${esc(targets.map(displayWord).join("|"))}">
+      <div class="ws-block-title small ws-instruction">${directions}</div>
+      <div class="ws-colour-word-grid">${tiles.map(word => `<span>${esc(displayWord(word))}</span>`).join("")}</div>
+    </div>`;
+}
+
+function sightWordColouringPage(cycle, page) {
+  const words = sightWords(cycle);
+  return `${sightWordOutlineBlock(words, page)}${sightWordColourGridBlock(cycle, words, page)}`;
+}
+
+const SORT_FINISHES = [
+  "Say each card after you sort it.",
+  "Trace each sorted card with your finger.",
+  "Put matching cards beside each other.",
+  "Read the cards from left to right.",
+  "Choose one card from each group and copy it.",
+  "Mix the cards and sort them once more."
+];
+
+function cutSortSpec(cycle, page) {
+  const patterns = CYCLE_PATTERNS[cycle.cycleNumber] || [];
+  if (patterns.length) {
+    const pattern = patterns[page % patterns.length];
+    const yes = rotate(pattern.yes, page).slice(0, 4);
+    const no = rotate(pattern.no, page).slice(0, 4);
+    return {
+      labels: [`Words that ${pattern.label}`, "Other words"],
+      pieces: rotate([
+        ...yes.map(text => ({ text, group: pattern.label })),
+        ...no.map(text => ({ text, group: "other" }))
+      ], page * 3)
+    };
+  }
+
+  const cards = rotate(focusCards(cycle), page);
+  if (cards.length >= 2) {
+    const selected = cards.slice(0, 2);
+    const pieces = selected.flatMap(card => {
+      const display = card.spelling.length === 1 ? [card.spelling.toUpperCase(), card.spelling] : [card.spelling, card.spelling];
+      return [...display, ...display].map(text => ({ text, group: card.spelling }));
+    });
+    return {
+      labels: selected.map(card => `${card.spelling} cards`),
+      pieces: rotate(pieces, page * 3)
+    };
+  }
+
+  const target = cards[0]?.spelling || sightWords(cycle)[0] || "a";
+  const otherLetters = taughtLettersThrough(cycle.cycleNumber || 1).filter(letter => letter !== target);
+  const others = rotate(otherLetters.length ? otherLetters : ["m", "s"], page).slice(0, 2);
+  const targetForms = target.length === 1 ? [target.toUpperCase(), target, target.toUpperCase(), target] : Array(4).fill(target);
+  const pieces = [
+    ...targetForms.map(text => ({ text, group: target })),
+    ...others.flatMap(text => [text.toUpperCase(), text].map(value => ({ text: value, group: "other" })))
+  ];
+  return { labels: [`${target} cards`, "Other letter cards"], pieces: rotate(pieces, page * 2) };
+}
+
+function cutAndSortPage(cycle, page) {
+  const spec = cutSortSpec(cycle, page);
+  const answer = spec.pieces.map(piece => `${piece.text}:${piece.group}`).join("|");
+  return `<div class="ws-block" data-task-kind="cut-sort-cards" data-task-id="cut-sort-cards-${page}" data-answer="${esc(answer)}">
+      <div class="ws-block-title small ws-instruction">Ask an adult to help cut out the cards.</div>
+      <div class="ws-cut-grid">${spec.pieces.map(piece => `<span data-sort="${esc(piece.group)}">${esc(displayWord(piece.text))}<small>cut</small></span>`).join("")}</div>
+    </div>
+    <div class="ws-block" data-task-kind="cut-sort-mats" data-task-id="cut-sort-mats-${page}" data-answer="${esc(spec.labels.join("|"))}">
+      <div class="ws-block-title small ws-instruction">Sort the cards. ${esc(SORT_FINISHES[page % SORT_FINISHES.length])}</div>
+      <div class="ws-sort-mats">${spec.labels.map(label => `<div><b>${esc(label)}</b></div>`).join("")}</div>
+    </div>`;
+}
+
+const PAIR_CHALLENGES = [
+  "Read each pair aloud.",
+  "Spell each pair aloud.",
+  "Put the pairs in alphabet order.",
+  "Choose two pairs and copy them.",
+  "Use one pair in a sentence.",
+  "Turn the cards over and play memory."
+];
+
+function matchingCardsPage(cycle, page) {
+  const tokens = rotate(activityTokens(cycle), page * 2).slice(0, 6);
+  const pairs = rotate(tokens.flatMap(token => [token, token]), page * 5);
+  const answer = tokens.map(displayWord).join("|");
+  return `<div class="ws-block" data-task-kind="matching-card-set" data-task-id="matching-cards-${page}" data-answer="${esc(answer)}">
+      <div class="ws-block-title small ws-instruction">Cut out the cards. Find the two cards in each pair.</div>
+      <div class="ws-matching-cards">${pairs.map(token => `<span>${esc(displayWord(token))}<small>cut</small></span>`).join("")}</div>
+    </div>
+    <div class="ws-block" data-task-kind="matching-card-review" data-task-id="matching-review-${page}" data-answer="${esc(answer)}">
+      <div class="ws-block-title small ws-instruction">${esc(PAIR_CHALLENGES[page % PAIR_CHALLENGES.length])}</div>
+      ${traceLines(2)}
+    </div>`;
+}
+
+const MINI_BOOK_MODES = [
+  { title: "My read and trace book", action: "Read", prompt: "Trace the word with your finger." },
+  { title: "My careful looking book", action: "Find", prompt: "Circle the word on each page." },
+  { title: "My matching book", action: "Match", prompt: "Say the word and copy it." },
+  { title: "My word building book", action: "Build", prompt: "Say each letter in order." },
+  { title: "My sentence book", action: "Use", prompt: "Read the word in a sentence." },
+  { title: "My remember it book", action: "Remember", prompt: "Cover the word and write it." }
+];
+
+function miniBookPanel(word, mode, index, upsideDown = false) {
+  const display = displayWord(word);
+  const sentence = HFW_SENTENCES[String(word).toLowerCase()]?.replace("___", display);
+  const body = mode.action === "Use" && sentence
+    ? `<span>${esc(sentence)}</span>`
+    : mode.action === "Build"
+      ? `<span class="ws-mini-boxes">${display.split("").map(() => "□").join(" ")}</span>`
+      : mode.action === "Remember"
+        ? '<span class="ws-mini-line"></span>'
+        : `<span class="ws-mini-word">${esc(display)}</span>`;
+  return `<div class="ws-mini-panel${upsideDown ? " ws-mini-upside-down" : ""}" data-panel="${index + 1}"><small>${esc(mode.action)}</small>${body}</div>`;
+}
+
+function miniBookPage(cycle, page) {
+  const mode = MINI_BOOK_MODES[page % MINI_BOOK_MODES.length];
+  const tokens = rotate(activityTokens(cycle), page * 2).slice(0, 7);
+  const answer = tokens.map(displayWord).join("|");
+  const logicalPanels = [
+    `<div class="ws-mini-panel ws-mini-cover" data-panel="cover"><small>Mini-book</small><b>${esc(mode.title)}</b></div>`,
+    ...tokens.map((word, index) => miniBookPanel(word, mode, index + 1))
+  ];
+  const layoutOrder = [4, 3, 2, 1, 5, 6, 7, 0];
+  const laidOutPanels = layoutOrder.map((logicalIndex, layoutIndex) => (
+    layoutIndex < 4
+      ? logicalPanels[logicalIndex].replace('class="ws-mini-panel', 'class="ws-mini-panel ws-mini-upside-down')
+      : logicalPanels[logicalIndex]
+  )).join("");
+  return `<div class="ws-block ws-fold-guide" data-task-kind="mini-book-fold" data-task-id="mini-book-fold-${page}" data-answer="fold|centre cut|push together">
+      <div class="ws-block-title small ws-instruction">Ask an adult to help with the folds and centre cut.</div>
+      <div class="ws-fold-steps"><span>1. Fold longways</span><span>2. Fold into four columns</span><span>3. Open it. Adult cuts the centre line</span><span>4. Fold longways and push the ends together</span></div>
+    </div>
+    <div class="ws-block" data-task-kind="mini-book-panels" data-task-id="mini-book-panels-${page}" data-answer="${esc(answer)}">
+      <div class="ws-block-title small ws-instruction">${esc(mode.prompt)}</div>
+      <div class="ws-mini-book">
+        ${laidOutPanels}
+        <span class="ws-mini-centre-cut">Adult cut</span>
+      </div>
+    </div>`;
+}
+
+const ROLL_CHALLENGES = [
+  "Read one row with an adult.",
+  "Read each word slowly, then smoothly.",
+  "Circle two words that look different.",
+  "Copy one word from every row you roll.",
+  "Use a rolled word in a spoken sentence.",
+  "Play again. Try to read without help."
+];
+
+function rollAndReadPage(cycle, page) {
+  const tokens = rotate(activityTokens(cycle), page * 3);
+  const rows = Array.from({ length: 6 }, (_unused, row) => {
+    const rowWords = Array.from({ length: 4 }, (_item, col) => tokens[(row * 3 + col + page) % tokens.length]);
+    return { number: row + 1, words: rowWords };
+  });
+  const answer = uniqueTokens(rows.flatMap(row => row.words)).map(displayWord).join("|");
+  return `<div class="ws-block" data-task-kind="roll-read-board" data-task-id="roll-read-board-${page}" data-answer="${esc(answer)}">
+      <div class="ws-block-title small ws-instruction">Roll a die. Read every word in that numbered row.</div>
+      <div class="ws-roll-board">${rows.map(row => `<div><b>${row.number}</b>${row.words.map(word => `<span>${esc(displayWord(word))}</span>`).join("")}</div>`).join("")}</div>
+    </div>
+    <div class="ws-block" data-task-kind="roll-read-tracker" data-task-id="roll-read-tracker-${page}" data-answer="six rounds">
+      <div class="ws-block-title small ws-instruction">${esc(ROLL_CHALLENGES[page % ROLL_CHALLENGES.length])}</div>
+      <div class="ws-round-checks"><span>Round 1 □</span><span>Round 2 □</span><span>Round 3 □</span><span>Round 4 □</span><span>Round 5 □</span><span>Round 6 □</span></div>
+    </div>`;
+}
+
 const PAGE_BUILDERS = {
   letterFormation: letterFormationPage,
   wordBuilding: wordBuildingPage,
   sightWords: sightWordsPage,
-  patternFluency: patternFluencyPage
+  patternFluency: patternFluencyPage,
+  wordSearch: wordSearchPage,
+  letterColouring: letterColouringPage,
+  sightWordColouring: sightWordColouringPage,
+  cutAndSort: cutAndSortPage,
+  matchingCards: matchingCardsPage,
+  miniBook: miniBookPage,
+  rollAndRead: rollAndReadPage
 };
 
 const WS_STYLES = `
@@ -780,6 +1167,16 @@ const WS_STYLES = `
   .ws-wordstrip,
   .ws-chain,
   .ws-pattern-row,
+  .ws-word-search,
+  .ws-search-words,
+  .ws-colour-models,
+  .ws-colour-words,
+  .ws-colour-grid,
+  .ws-colour-word-grid,
+  .ws-cut-grid,
+  .ws-matching-cards,
+  .ws-mini-book,
+  .ws-roll-board,
   .ws-poem { font-family: var(--ws-school-font); }
   .ws-trace-row { display: flex; gap: 26px; font-size: 52px; line-height: 1; margin-bottom: 6px; }
   .ws-trace { color: #aeb8c2; }
@@ -823,6 +1220,44 @@ const WS_STYLES = `
   .ws-col-head { font-weight: 700; margin-bottom: 8px; }
   .ws-pattern-row { display: grid; grid-template-columns: 190px 1fr; gap: 14px; margin: 12px 0; padding: 10px; border: 1.5px solid #94a3b8; border-radius: 8px; font-size: 20px; }
   .ws-read-checks { display: flex; gap: 24px; margin-top: 8px; font-size: 17px; }
+  .ws-search-layout { display: grid; grid-template-columns: minmax(0, 1fr) 42mm; gap: 12mm; align-items: start; }
+  .ws-word-search { width: 112mm; display: grid; grid-template-columns: repeat(10, 1fr); border: 2px solid #334155; }
+  .ws-word-search span { aspect-ratio: 1; display: grid; place-items: center; border: 0.5px solid #cbd5e1; font-size: 18px; font-weight: 700; }
+  .ws-search-words { display: grid; gap: 6px; padding: 10px; border: 2px solid #64748b; border-radius: 8px; font-size: 18px; }
+  .ws-search-words b { margin-bottom: 4px; font-family: Andika, Atkinson Hyperlegible, Arial, sans-serif; }
+  .ws-colour-models, .ws-colour-words { min-height: 38mm; display: flex; align-items: center; justify-content: space-around; gap: 18px; }
+  .ws-colour-models span, .ws-colour-words span { color: #fff; -webkit-text-stroke: 2px #334155; paint-order: stroke fill; font-size: 94px; font-weight: 800; line-height: 1; letter-spacing: 4px; }
+  .ws-colour-words span { font-size: 66px; letter-spacing: 1px; }
+  .ws-colour-grid { display: grid; grid-template-columns: repeat(8, 1fr); border: 2px solid #64748b; }
+  .ws-colour-grid span { min-height: 18mm; display: grid; place-items: center; border: 1px solid #94a3b8; font-size: 30px; font-weight: 700; }
+  .ws-colour-word-grid { display: grid; grid-template-columns: repeat(5, 1fr); border: 2px solid #64748b; }
+  .ws-colour-word-grid span { min-height: 20mm; display: grid; place-items: center; border: 1px solid #94a3b8; font-size: 21px; font-weight: 700; }
+  .ws-cut-grid, .ws-matching-cards { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px dashed #475569; border-left: 2px dashed #475569; }
+  .ws-cut-grid > span, .ws-matching-cards > span { min-height: 29mm; padding: 8px; border-right: 2px dashed #475569; border-bottom: 2px dashed #475569; display: grid; place-items: center; position: relative; font-size: 28px; font-weight: 700; text-align: center; }
+  .ws-cut-grid small, .ws-matching-cards small { position: absolute; right: 4px; bottom: 2px; color: #64748b; font: 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.08em; }
+  .ws-sort-mats { display: grid; grid-template-columns: 1fr 1fr; gap: 12mm; }
+  .ws-sort-mats > div { min-height: 55mm; padding: 10px; border: 2px solid #64748b; border-radius: 10px; text-align: center; }
+  .ws-sort-mats b { font-size: 19px; }
+  .ws-fold-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .ws-fold-steps span { flex: 1; padding: 8px 10px; border: 1.5px solid #64748b; border-radius: 8px; text-align: center; }
+  .ws-mini-book { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); border: 2px solid #334155; }
+  .ws-mini-panel { min-height: 48mm; padding: 8px; border-right: 1.5px dashed #64748b; border-bottom: 1.5px dashed #64748b; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; }
+  .ws-mini-panel:nth-child(4n) { border-right: 0; }
+  .ws-mini-panel:nth-child(n + 5) { border-bottom: 0; }
+  .ws-mini-upside-down { transform: rotate(180deg); }
+  .ws-mini-panel small { align-self: flex-start; color: #475569; font: 11px Arial, sans-serif; }
+  .ws-mini-cover b { font-size: 21px; }
+  .ws-mini-word { color: #fff; -webkit-text-stroke: 1.5px #334155; paint-order: stroke fill; font-size: 38px; font-weight: 800; }
+  .ws-mini-boxes { font-size: 27px; letter-spacing: 3px; }
+  .ws-mini-line { width: 85%; height: 24px; border-bottom: 2px solid #64748b; }
+  .ws-mini-centre-cut { position: absolute; left: 25%; top: 50%; width: 50%; border-top: 3px dashed #8a4109; color: #8a4109; font: 10px Arial, sans-serif; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; }
+  .ws-roll-board { display: grid; border: 2px solid #475569; }
+  .ws-roll-board > div { min-height: 14mm; display: grid; grid-template-columns: 14mm repeat(4, 1fr); border-bottom: 1.5px solid #94a3b8; }
+  .ws-roll-board > div:last-child { border-bottom: 0; }
+  .ws-roll-board b, .ws-roll-board span { display: grid; place-items: center; border-right: 1.5px solid #cbd5e1; font-size: 21px; }
+  .ws-roll-board b { background: #eef8f6; color: #064e49; font-family: Andika, Atkinson Hyperlegible, Arial, sans-serif; }
+  .ws-round-checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .ws-round-checks span { padding: 10px; border: 1.5px solid #64748b; border-radius: 8px; text-align: center; }
   .ws-footer { margin-top: auto; padding-top: 8px; text-align: center; color: #475569; font-size: 12px; }
   @media print { body { background: #fff; } .page { overflow: hidden; } }
 `;
@@ -845,7 +1280,7 @@ export function buildWorksheetDocument({ cycleId, type, pages = 1 }) {
       ${pageHeader(cycle, typeMeta.label)}
       <div class="ws-stage"><strong id="worksheet-title-${i + 1}">${esc(stage.label)}</strong><span>${esc(stage.purpose)}</span></div>
       ${builder(cycle, i)}
-      <div class="ws-footer">Literacy Guide · Cycle ${esc(cycle.cycleNumber)} · ${esc(typeMeta.label)} · Page ${i + 1} of ${count}</div>
+      <div class="ws-footer">Literacy Guide - Cycle ${esc(cycle.cycleNumber)} - ${esc(typeMeta.label)} - Page ${i + 1} of ${count}</div>
     </section>`;
   }).join("");
   const title = `Cycle ${cycle.cycleNumber} - ${typeMeta.label}`;

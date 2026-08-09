@@ -14,6 +14,7 @@ import { TeacherIntentPage } from "./components/teacher/TeacherIntentPage.jsx";
 import { teacherCycleOptions } from "./components/teacher/teacherCycleReference.js";
 import { TeacherAssessmentsPage } from "./components/TeacherAssessmentsPage.jsx";
 import { TeacherReportsHubPage } from "./components/TeacherReportsHubPage.jsx";
+import { WorksheetGeneratorPage } from "./components/WorksheetGeneratorPage.jsx";
 import { TeacherSettingsPage } from "./components/teacher/TeacherSettingsPage.jsx";
 import { FinishedReportPage } from "./components/FinishedReportPage.jsx";
 import { ELBenchmarkAssessmentPage } from "./components/assessment/ELBenchmarkAssessmentPage.jsx";
@@ -200,6 +201,7 @@ function viewForSurface(value) {
     assess: APP_VIEWS.ASSESSMENTS,
     progress: APP_VIEWS.REPORTS,
     resources: APP_VIEWS.TEACHER_RESOURCES,
+    worksheets: APP_VIEWS.TEACHER_RESOURCES,
     settings: APP_VIEWS.TEACHER_SETTINGS,
     report: APP_VIEWS.FINISHED,
     assessment: APP_VIEWS.EL_BENCHMARK,
@@ -793,6 +795,8 @@ function Surface() {
       return <Reports />;
     case "resources":
       return <Intent intent="resources" />;
+    case "worksheets":
+      return <WorksheetGeneratorPage className="Audit Class A" onBack={noop} />;
     case "settings":
       return <Settings />;
     case "report":

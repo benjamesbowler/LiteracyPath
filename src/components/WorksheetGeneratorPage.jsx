@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   WORKSHEET_TYPES,
+  WORKSHEET_CATEGORIES,
   worksheetCycleOptions,
   worksheetCycleLabel,
   getWorksheetCycle,
@@ -43,6 +44,8 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
   });
   const [type, setType] = useState("");
   const [pages, setPages] = useState(2);
+  const [category, setCategory] = useState("all");
+  const [activityQuery, setActivityQuery] = useState("");
   const [bank, setBank] = useState([]);
   const [bankReadState, setBankReadState] = useState({
     status: "loading",
@@ -54,10 +57,22 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
 
   const cycle = useMemo(() => getWorksheetCycle(cycleId), [cycleId]);
   const availableTypes = useMemo(() => availableWorksheetTypes(cycle), [cycle]);
+  const librarySize = useMemo(() => cycleOptions.reduce((total, option) => (
+    total + availableWorksheetTypes(getWorksheetCycle(option.id)).length
+  ), 0), [cycleOptions]);
 
   // Derived during render so a cycle change can't leave an invalid type
   // selected (no reset-in-effect needed).
   const effectiveType = availableTypes.includes(type) ? type : (availableTypes[0] || "");
+  const effectiveTypeMeta = WORKSHEET_TYPES.find(item => item.id === effectiveType);
+  const visibleActivityTypes = useMemo(() => {
+    const query = activityQuery.trim().toLowerCase();
+    return WORKSHEET_TYPES.filter(item => (
+      availableTypes.includes(item.id)
+      && (category === "all" || item.category === category)
+      && (!query || `${item.label} ${item.blurb} ${item.format}`.toLowerCase().includes(query))
+    ));
+  }, [activityQuery, availableTypes, category]);
 
   async function refreshBank() {
     setBankReadState({ status: "loading", message: "" });
@@ -188,47 +203,94 @@ export function WorksheetGeneratorPage({ className = "", onBack }) {
         </button>
       </nav>
       <header className="ws-page-head">
-        <h1>Worksheet generator</h1>
-        <p>Choose the teaching cycle and the practice you need. We will open a print preview.</p>
+        <h1>Printable activity library</h1>
+        <p>Choose a teaching cycle, then pick practice, puzzles, colouring, crafts or a classroom game.</p>
+        <p className="ws-library-count">{librarySize} cycle-matched activities across {cycleOptions.length} teaching cycles.</p>
         {className && <span className="ws-context">Class: {className}</span>}
       </header>
 
       <section className="ws-builder" aria-label="Worksheet options">
-        <label className="ws-field">
-          <span>Cycle</span>
-          <select value={cycleId} onChange={e => rememberCycle(e.target.value)}>
-            {cycleOptions.map(opt => (
-              <option key={opt.id} value={opt.id}>{worksheetCycleLabel(opt)}</option>
-            ))}
-          </select>
-        </label>
+        <div className="ws-builder-controls">
+          <label className="ws-field ws-cycle-field">
+            <span>Teaching cycle</span>
+            <select value={cycleId} onChange={e => rememberCycle(e.target.value)}>
+              {cycleOptions.map(opt => (
+                <option key={opt.id} value={opt.id}>{worksheetCycleLabel(opt)}</option>
+              ))}
+            </select>
+          </label>
 
-        <label className="ws-field">
-          <span>Worksheet type</span>
-          <select value={effectiveType} onChange={e => setType(e.target.value)}>
-            {availableTypes.map(id => (
-              <option key={id} value={id}>{TYPE_LABEL[id]}</option>
-            ))}
-          </select>
-        </label>
+          <label className="ws-field ws-pages-field">
+            <span>Pack length</span>
+            <select value={pages} onChange={e => setPages(Number(e.target.value))}>
+              {[1, 2, 3, 4, 5, 6].map(n => (
+                <option key={n} value={n}>{n} page{n === 1 ? "" : "s"}</option>
+              ))}
+            </select>
+          </label>
+        </div>
 
-        <label className="ws-field">
-          <span>Pages</span>
-          <select value={pages} onChange={e => setPages(Number(e.target.value))}>
-            {[1, 2, 3, 4, 5, 6].map(n => (
-              <option key={n} value={n}>{n} page{n === 1 ? "" : "s"}</option>
-            ))}
-          </select>
-        </label>
+        <fieldset className="ws-activity-picker">
+          <legend>Choose an activity</legend>
+          <p>{availableTypes.length} activities match {worksheetCycleLabel(cycle)}.</p>
+          <div className="ws-library-tools">
+            <label className="ws-field ws-search-field">
+              <span>Find an activity</span>
+              <input
+                type="search"
+                value={activityQuery}
+                onChange={event => setActivityQuery(event.target.value)}
+                placeholder="Try word search, colour or cut"
+              />
+            </label>
+            <div className="ws-category-filters" aria-label="Activity categories">
+              {WORKSHEET_CATEGORIES.map(item => (
+                <button
+                  key={item.id}
+                  type="button"
+                  aria-pressed={category === item.id}
+                  onClick={() => setCategory(item.id)}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
-        <p className="ws-blurb">{WORKSHEET_TYPES.find(t => t.id === effectiveType)?.blurb}</p>
-        <p className="ws-selection-summary" aria-live="polite">
-          <strong>{worksheetCycleLabel(cycle)}</strong>
-          {" · "}
-          {TYPE_LABEL[effectiveType] || "Choose a worksheet"}
-          {" · "}
-          {pages} page{pages === 1 ? "" : "s"}
-        </p>
+          {visibleActivityTypes.length ? (
+            <div className="ws-activity-grid" role="radiogroup" aria-label="Available printable activities">
+              {visibleActivityTypes.map(item => (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={effectiveType === item.id}
+                  className={`ws-activity-card${effectiveType === item.id ? " is-selected" : ""}`}
+                  onClick={() => setType(item.id)}
+                >
+                  <span className="ws-activity-format">{item.format}</span>
+                  <strong>{item.label}</strong>
+                  <span>{item.blurb}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="ws-library-empty" role="status">
+              <strong>No matching activities</strong>
+              <span>Clear the search or choose another category.</span>
+              <button type="button" onClick={() => { setActivityQuery(""); setCategory("all"); }}>
+                Show all activities
+              </button>
+            </div>
+          )}
+        </fieldset>
+
+        <div className="ws-selection-summary" aria-live="polite">
+          <span><b>Cycle</b>{worksheetCycleLabel(cycle)}</span>
+          <span><b>Activity</b>{TYPE_LABEL[effectiveType] || "Choose an activity"}</span>
+          <span><b>Pack</b>{pages} page{pages === 1 ? "" : "s"}</span>
+          <p>{effectiveTypeMeta?.blurb}</p>
+        </div>
 
         <div className="ws-actions">
           <button type="button" className="ws-primary" onClick={handleGenerate} disabled={!effectiveType}>

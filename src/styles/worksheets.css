@@ -1,7 +1,7 @@
 /* Worksheet generator page (teacher tool). The printed worksheet styles live
    inline in the generated document; these styles are only the on-screen UI. */
 .ws-page {
-  max-width: 880px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 24px 20px 48px;
 }
@@ -44,6 +44,12 @@
   max-width: 60ch;
 }
 
+.ws-page-head .ws-library-count {
+  margin-top: 10px;
+  color: var(--lp-color-primary, #0c6b65);
+  font-weight: 750;
+}
+
 .ws-context {
   display: inline-flex;
   align-items: center;
@@ -58,15 +64,18 @@
 }
 
 .ws-builder {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
   background: var(--lp-color-surface, #fff);
   border: 1px solid var(--lp-color-border, #e2e8f0);
   border-radius: 16px;
   box-shadow: var(--lp-shadow-card);
   padding: 20px;
   margin: 18px 0 28px;
+}
+
+.ws-builder-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(150px, 1fr);
+  gap: 16px;
 }
 
 .ws-field {
@@ -84,7 +93,14 @@
   border-radius: 10px;
   padding: 8px 12px;
   font: inherit;
-  background: #fff;
+  background: var(--lp-color-surface, #fff);
+  color: var(--lp-color-text-strong);
+}
+
+.ws-field select:focus-visible,
+.ws-field input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--lp-color-primary, #0c6b65) 35%, transparent);
+  outline-offset: 2px;
 }
 
 .ws-field-wide {
@@ -99,6 +115,148 @@
   color: var(--lp-color-text-strong);
 }
 
+.ws-activity-picker {
+  min-width: 0;
+  margin: 22px 0 18px;
+  padding: 0;
+  border: 0;
+}
+
+.ws-activity-picker legend {
+  padding: 0;
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-display, var(--lp-font-reading));
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.ws-activity-picker > p {
+  margin: 4px 0 14px;
+  color: var(--lp-color-text-muted, #475569);
+}
+
+.ws-library-tools {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.6fr);
+  gap: 14px 18px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.ws-category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ws-category-filters button,
+.ws-library-empty button {
+  min-height: 40px;
+  padding: 7px 12px;
+  border: 1.5px solid var(--lp-color-border, #cbd5e1);
+  border-radius: 10px;
+  background: var(--lp-color-surface, #fff);
+  color: var(--lp-color-text-strong);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ws-category-filters button[aria-pressed="true"] {
+  border-color: var(--lp-color-primary, #0c6b65);
+  background: var(--lp-color-primary-soft, #e7f3f1);
+  color: var(--lp-color-primary-strong, #064e49);
+}
+
+.ws-category-filters button:focus-visible,
+.ws-library-empty button:focus-visible,
+.ws-activity-card:focus-visible,
+.ws-primary:focus-visible,
+.ws-ghost:focus-visible,
+.ws-danger:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--lp-color-primary, #0c6b65) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.ws-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ws-activity-card {
+  min-height: 124px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 15px;
+  border: 1.5px solid var(--lp-color-border, #cbd5e1);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--lp-color-primary-soft, #e7f3f1) 18%, var(--lp-color-surface, #fff));
+  color: var(--lp-color-text-strong);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ws-activity-grid > .ws-activity-card {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ws-activity-card:hover {
+  border-color: color-mix(in srgb, var(--lp-color-primary, #0c6b65) 65%, var(--lp-color-border, #cbd5e1));
+}
+
+.ws-activity-card:active,
+.ws-category-filters button:active,
+.ws-primary:active,
+.ws-ghost:active,
+.ws-danger:active {
+  transform: translateY(1px);
+}
+
+.ws-activity-card.is-selected {
+  border-color: var(--lp-color-primary, #0c6b65);
+  box-shadow: inset 4px 0 0 var(--lp-color-primary, #0c6b65);
+  background: color-mix(in srgb, var(--lp-color-primary-soft, #e7f3f1) 58%, var(--lp-color-surface, #fff));
+}
+
+.ws-activity-card strong {
+  font-size: 1.02rem;
+}
+
+.ws-activity-card > span:last-child {
+  color: var(--lp-color-text-muted, #475569);
+  line-height: 1.45;
+}
+
+.ws-activity-format {
+  order: -1;
+  color: var(--lp-color-primary, #0c6b65);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.ws-library-empty {
+  display: grid;
+  justify-items: start;
+  gap: 5px;
+  padding: 18px;
+  border: 1.5px dashed var(--lp-color-border, #cbd5e1);
+  border-radius: 12px;
+  color: var(--lp-color-text-muted, #475569);
+}
+
+.ws-library-empty strong {
+  color: var(--lp-color-text-strong);
+}
+
+.ws-library-empty button {
+  margin-top: 8px;
+}
+
 .ws-blurb {
   grid-column: 1 / -1;
   margin: 0;
@@ -106,33 +264,41 @@
 }
 
 .ws-selection-summary {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 16px;
   margin: 0;
-  padding: 10px 12px;
+  padding: 13px 14px;
   border-left: 4px solid var(--lp-color-primary, #0c6b65);
   border-radius: 8px;
   background: var(--lp-color-primary-soft, #e7f3f1);
   color: var(--lp-color-text-strong);
 }
 
-.ws-selection-summary span {
+.ws-selection-summary > span {
+  display: grid;
+  gap: 2px;
+  font-weight: 700;
+}
+
+.ws-selection-summary b {
   color: var(--lp-color-text-muted, #475569);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .ws-selection-summary p {
-  flex-basis: 100%;
-  margin: 2px 0 0;
+  grid-column: 1 / -1;
+  margin: 1px 0 0;
   color: var(--lp-color-text-muted, #475569);
 }
 
 .ws-actions {
-  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 16px;
 }
 
 .ws-primary,
@@ -171,8 +337,7 @@
 }
 
 .ws-note {
-  grid-column: 1 / -1;
-  margin: 0;
+  margin: 12px 0 0;
   color: var(--lp-color-primary, #0c6b65);
   font-weight: 600;
 }
@@ -256,7 +421,18 @@
 }
 
 @media (max-width: 760px) {
-  .ws-builder { grid-template-columns: 1fr; }
+  .ws-page { padding-inline: 14px; }
+
+  .ws-builder-controls,
+  .ws-library-tools,
+  .ws-activity-grid,
+  .ws-selection-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .ws-selection-summary p {
+    grid-column: 1;
+  }
 
   .ws-field-wide {
     width: 100%;
