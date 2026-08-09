@@ -363,13 +363,13 @@ test("@teacher-child-lifecycle offers a real delete whose friction matches what 
   // destroys and stay disabled until the teacher types the display name.
   // The dialog is opened and cancelled: this fixture is shared, and the point
   // is the gate, not the destruction.
-  const options = await openStudentSettings(page, roster, "Aarav");
-  const archiveTrigger = options.getByRole("button", { name: "Archive student…", exact: true });
-  const deleteTrigger = options.getByRole("button", { name: "Delete student…", exact: true });
-  await expect(archiveTrigger).toBeVisible();
-  await expect(deleteTrigger).toBeVisible();
-  await expect(options).toContainText("Deleting is permanent. Archive instead");
-  await deleteTrigger.click();
+  const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
+  const removeTrigger = aaravRow.getByRole("button", {
+    name: "Remove Aarav from class",
+    exact: true
+  });
+  await expect(removeTrigger).toBeVisible();
+  await removeTrigger.click();
 
   const deleteDialog = page.getByRole("dialog", { name: "Delete Aarav permanently" });
   await expect(deleteDialog).toContainText(

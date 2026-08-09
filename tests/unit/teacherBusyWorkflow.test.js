@@ -50,11 +50,11 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   ]);
 
   // v2 Students: the five design columns — student (with sign-in state and the
-  // select box), current focus, accuracy, learning status, last active — are
-  // FIXED, so the column picker can no longer hide the sign-in state or the
-  // student's own name. It only adds the two detail columns.
+  // select box), current focus, accuracy, learning status, last active — and a
+  // direct roster action are FIXED. The column picker can only add the two
+  // detail columns.
   assert.match(students, /const DEFAULT_ROSTER_COLUMNS = \[\];/);
-  assert.match(students, /const ROSTER_FIXED_COLUMN_COUNT = 5;/);
+  assert.match(students, /const ROSTER_FIXED_COLUMN_COUNT = 6;/);
   assert.match(
     students,
     /const ROSTER_COLUMN_OPTIONS = \[\s*\{ id: "progress", label: "Progress" \},\s*\{ id: "sound-seekers", label: "Sound Seekers" \}\s*\];/
@@ -75,9 +75,13 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
   for (const group of ["Student details", "Learning support", "Class and records"]) {
     assert.match(students, new RegExp(group));
   }
-  // A roster row is now the selector and nothing else: every action for a
-  // student is in the panel the row fills, so no row carries buttons at all.
+  // The row still selects a student, but permanent removal must not be hidden
+  // two dialogs deep. The visible row action and panel action both open the
+  // same typed-confirmation workflow.
   assert.doesNotMatch(students, /<div className="teacher-row-actions">/);
+  assert.match(students, /aria-label=\{`Remove \$\{row\.name\} from class`\}/);
+  assert.match(students, />\s*Remove student…\s*<\/button>/);
+  assert.match(students, /onClick=\{\(\) => openRosterOperation\("delete", row\)\}/);
   assert.match(students, /className="teacher-roster-name teacher-open-student"/);
   assert.doesNotMatch(students, /Re-engage quiet readers|low attainment|highest current total/);
   assert.doesNotMatch(students, /No practice yet|<option value="not-started">Not started/);

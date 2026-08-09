@@ -26,7 +26,8 @@
   --lp-color-text-strong: #101828;
   /* Darkened to pass WCAG AA (4.5:1) on white surfaces */
   --lp-color-text-muted: #51607A;
-  --lp-color-text-subtle: #6B7585;
+  /* Keeps small teacher metadata above 4.5:1 on white, subtle and selected fills. */
+  --lp-color-text-subtle: #586579;
   --lp-color-surface: #ffffff;
   --lp-color-surface-warm: #ffffff;
   --lp-color-surface-subtle: #F8FAFC;
@@ -26655,6 +26656,14 @@ body {
   max-width: 100%;
 }
 
+.teacher-students-page .teacher-roster-remove-student {
+  min-height: 44px;
+  padding-inline: 6px;
+  color: var(--lp-color-danger);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 /* ── Student panel ──────────────────────────────────────────────────────── */
 .teacher-students-page .teacher-student-panel {
   flex: 1 1 340px;
@@ -26853,7 +26862,8 @@ body {
   font-weight: 600;
 }
 
-.teacher-students-page .teacher-student-panel-archive {
+.teacher-students-page .teacher-student-panel-archive,
+.teacher-students-page .teacher-student-panel-remove {
   color: var(--lp-color-danger);
 }
 

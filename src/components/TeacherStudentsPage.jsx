@@ -82,7 +82,7 @@ const ROSTER_COLUMN_OPTIONS = [
   { id: "sound-seekers", label: "Sound Seekers" }
 ];
 const DEFAULT_ROSTER_COLUMNS = [];
-const ROSTER_FIXED_COLUMN_COUNT = 5;
+const ROSTER_FIXED_COLUMN_COUNT = 6;
 const ROSTER_PAGE_SIZE = 10;
 
 function loadVisibleRosterColumns(teacherId) {
@@ -1045,19 +1045,22 @@ export function TeacherStudentsPage({
   );
   const selectedPageCount = rosterPageRows.filter(row => selectedRosterIds.includes(row.id)).length;
   const enabledRosterColumns = new Set(visibleRosterColumns);
-  // The roster grid keeps the approved five-column frame and appends one track
-  // per optional detail column, so the default view is the design exactly.
+  // The roster grid keeps the five learning columns plus a visible roster
+  // action. Removing a student used to be buried two dialogs deep under
+  // Student settings; the direct action still opens the same audited,
+  // typed-confirmation deletion workflow.
   const rosterGridTemplate = [
     "minmax(150px, 1.4fr)",
     "minmax(140px, 1fr)",
     "minmax(70px, 0.7fr)",
     "minmax(130px, 0.9fr)",
     "minmax(90px, 0.8fr)",
+    "minmax(92px, 0.65fr)",
     ...visibleRosterColumns.map(() => "minmax(140px, 1fr)")
   ].join(" ");
   const rosterGridStyle = {
     "--teacher-roster-grid-template": rosterGridTemplate,
-    "--teacher-roster-grid-min-width": `${620 + visibleRosterColumns.length * 150}px`
+    "--teacher-roster-grid-min-width": `${720 + visibleRosterColumns.length * 150}px`
   };
 
   // The roster summary is not a complete inventory of every record linked to a
@@ -2193,6 +2196,7 @@ export function TeacherStudentsPage({
                   <th scope="col" role="columnheader">Accuracy</th>
                   <th scope="col" role="columnheader">Status</th>
                   <th scope="col" role="columnheader">Last active</th>
+                  <th scope="col" role="columnheader">Actions</th>
                   {enabledRosterColumns.has("progress") && <th scope="col" role="columnheader">Progress</th>}
                   {enabledRosterColumns.has("sound-seekers") && <th scope="col" role="columnheader">Sound Seekers</th>}
                 </tr>
@@ -2279,6 +2283,17 @@ export function TeacherStudentsPage({
                       {resultsAvailable
                         ? formatLastActive(row.lastActive)
                         : "Results unavailable"}
+                    </td>
+                    <td data-label="Actions" role="cell">
+                      <button
+                        className="text-button teacher-roster-remove-student"
+                        type="button"
+                        aria-haspopup="dialog"
+                        aria-label={`Remove ${row.name} from class`}
+                        onClick={() => openRosterOperation("delete", row)}
+                      >
+                        Remove…
+                      </button>
                     </td>
                     {enabledRosterColumns.has("progress") && <td data-label="Progress" role="cell">
                       {resultsAvailable ? <div className="teacher-progress-cell">
@@ -2684,6 +2699,14 @@ export function TeacherStudentsPage({
                 onClick={() => openRosterOperation("archive", selectedStudentRow)}
               >
                 Archive
+              </button>
+              <button
+                className="text-button teacher-student-panel-remove"
+                type="button"
+                aria-haspopup="dialog"
+                onClick={() => openRosterOperation("delete", selectedStudentRow)}
+              >
+                Remove student…
               </button>
             </div>
           </>
