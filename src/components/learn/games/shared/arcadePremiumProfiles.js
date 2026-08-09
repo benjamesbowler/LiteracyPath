@@ -113,10 +113,19 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     retry: "The first miss teaches the contrast; a repeated miss points to the correct spelling.",
     completionTitle: "Skate line complete",
     rewardLabel: "words built"
+  }),
+  "soundkeys": Object.freeze({
+    version: "1.0",
+    mission: "Play the sounds in order to build the word.",
+    objective: "Blend ordered phonemes into a printed word.",
+    action: "Press a sound key or play its MIDI note.",
+    controls: Object.freeze(["Choose a sound: onscreen key or computer keyboard", "Optional: connect a MIDI keyboard"]),
+    retry: "Listen again, clear the row, and build the sounds from left to right.",
+    completionTitle: "Word lab complete",
+    rewardLabel: "words built"
   })
 });
 
 export function premiumProfileForGame(gameId) {
   return ARCADE_PREMIUM_PROFILES[String(gameId || "")] || null;
 }
-

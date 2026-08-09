@@ -21,5 +21,6 @@ export const LEARN_GAMES = {
   "reel-read": lazyWithRetry(() => import("./ReelReadGame.jsx")),
   "star-gallery": lazyWithRetry(() => import("./StarGalleryGame.jsx")),
   "sentence-express": lazyWithRetry(() => import("./SentenceExpressArcade.jsx")),
-  "grammar-grind": lazyWithRetry(() => import("./GrammarGrindGame.jsx"))
+  "grammar-grind": lazyWithRetry(() => import("./GrammarGrindGame.jsx")),
+  "soundkeys": lazyWithRetry(() => import("./SoundKeysGame.jsx"))
 };

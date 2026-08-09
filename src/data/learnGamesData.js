@@ -422,6 +422,17 @@ export const GAME_LIST = [
     is3D: true,
     fullBleed: true,
     surfaces: ["arcade"]
+  },
+  {
+    id: "soundkeys",
+    title: "SoundKeys",
+    skill: "Build words from sounds",
+    category: "Phonics",
+    ...GAME_ACCENTS.green,
+    icon: "/images/learn-games/icon-sound-slide.png",
+    description: "Play the sounds in order to build a word with your keyboard or a MIDI keyboard.",
+    fullBleed: true,
+    surfaces: ["arcade"]
   }
 ];
 import {

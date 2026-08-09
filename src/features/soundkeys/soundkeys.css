@@ -1,2 +1,76 @@
-.soundkeys-app{min-height:100vh;background:linear-gradient(160deg,#f9f4e9,#e8f3ef);color:#274740;font-family:Inter,ui-sans-serif,system-ui,sans-serif}.soundkeys-topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px clamp(18px,4vw,52px);background:#fffdf8;border-bottom:1px solid #d8e4df}.soundkeys-back{color:#397262;text-decoration:none;font-weight:700}.soundkeys-mark{display:block;font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-.04em}.soundkeys-topbar small{color:#799089}.soundkeys-actions{display:flex;align-items:center;gap:14px}.soundkeys-actions button{border:0;background:#eaf2ee;border-radius:12px;padding:10px 13px;font-size:20px;cursor:pointer}.soundkeys-midi-status{color:#9c6c2c;font-size:13px;font-weight:800}.soundkeys-midi-status.is-connected{color:#278263}.soundkeys-main{width:min(100%,1000px);margin:0 auto;padding:24px 20px 40px}.soundkeys-modebar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin-bottom:18px}.soundkeys-modebar button,.soundkeys-toggle{border:1px solid #c9dad4;border-radius:99px;background:#fff;padding:10px 14px;color:#486b61;font-weight:700;cursor:pointer}.soundkeys-modebar button.is-active{background:#397d69;color:white;border-color:#397d69}.soundkeys-toggle{display:flex;align-items:center;gap:6px;font-size:13px}.soundkeys-stage{min-height:390px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;border-radius:32px;background:#fffdf8;box-shadow:0 12px 32px #31584d18}.soundkeys-kicker{margin:0 0 14px;color:#bd7e24;font-size:12px;font-weight:900;letter-spacing:.18em}.soundkeys-stage h1{min-height:62px;margin:14px 0 8px;font-size:clamp(38px,8vw,74px);letter-spacing:.12em}.soundkeys-prompt{color:#718980}.soundkeys-target-image,.soundkeys-missing-image img{width:112px;height:112px;object-fit:contain;border-radius:22px}.soundkeys-listen{border:0;border-radius:16px;background:#f4d485;color:#684b17;padding:14px 20px;font-weight:800;cursor:pointer}.soundkeys-missing-image{display:flex;align-items:center;gap:18px}.soundkeys-missing-image strong{font-size:27px;letter-spacing:.14em}.soundkeys-result{display:flex;align-items:center;gap:16px;font-size:25px}.soundkeys-result-spark{color:#e2a62c}.soundkeys-result button,.soundkeys-controls button{border:0;border-radius:12px;background:#e6f0eb;color:#2e6958;padding:10px 14px;font-weight:800;cursor:pointer}.soundkeys-controls{display:flex;gap:10px;margin-top:20px}.soundkeys-keyboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(74px,1fr));gap:9px;margin:20px 0}.soundkeys-keyboard button{min-height:64px;border:2px solid #bed7cf;border-radius:16px;background:#fff;color:#2f6959;font-size:22px;font-weight:900;box-shadow:0 4px 0 #b0cbc2;cursor:pointer}.soundkeys-keyboard button:active{transform:translateY(3px);box-shadow:0 1px 0 #b0cbc2}.soundkeys-show-keyboard{display:block;margin:0 auto;border:0;background:transparent;color:#397262;font-weight:800;cursor:pointer}.soundkeys-help{min-height:20px;text-align:center;color:#6d837c;font-size:13px}.soundkeys-teacher{position:fixed;right:18px;top:78px;z-index:4;width:min(340px,calc(100% - 36px));padding:20px;border-radius:20px;background:#fff;box-shadow:0 16px 40px #244d402b}.soundkeys-teacher h2{margin-top:0}.soundkeys-teacher label{display:grid;gap:5px;margin:12px 0;color:#527069;font-weight:700;font-size:13px}.soundkeys-teacher input,.soundkeys-teacher select{padding:10px;border:1px solid #c6d9d2;border-radius:9px;font:inherit}.soundkeys-teacher>button{border:0;border-radius:10px;background:#397d69;color:white;padding:11px 15px;font-weight:800}@media(max-width:640px){.soundkeys-topbar{align-items:flex-start}.soundkeys-midi-status{max-width:90px;text-align:right}.soundkeys-stage{min-height:340px}.soundkeys-keyboard{grid-template-columns:repeat(4,1fr)}.soundkeys-keyboard button{min-height:58px}}
-.soundkeys-actions .soundkeys-midi-connect{min-height:44px;padding:10px 14px;background:#397d69;color:#fff;font-size:14px;font-weight:850;white-space:nowrap}.soundkeys-actions .soundkeys-midi-connect:hover:not(:disabled){background:#2f6c5a}.soundkeys-actions .soundkeys-midi-connect:focus-visible{outline:3px solid #f2b33d;outline-offset:3px}.soundkeys-actions .soundkeys-midi-connect:disabled{cursor:not-allowed;opacity:.55}@media(max-width:720px){.soundkeys-topbar{flex-wrap:wrap}.soundkeys-actions{width:100%;justify-content:flex-end}.soundkeys-midi-status{max-width:none}}
+.soundkeys-app,
+.soundkeys-game {
+  --sk-ink: #071426;
+  --sk-panel: #101f38;
+  --sk-panel-2: #162945;
+  --sk-lime: #b8ff3d;
+  --sk-cyan: #52fff0;
+  --sk-pink: #ff4f9a;
+  min-height: 100%;
+  background: radial-gradient(circle at 75% 10%, #1e4770 0, transparent 32%), linear-gradient(145deg, #071426, #0d1830 58%, #160e2c);
+  color: #f4f8ff;
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+}
+.soundkeys-app { min-height: 100dvh; }
+.soundkeys-topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px clamp(18px, 4vw, 52px); background: rgba(5, 14, 29, .84); border-bottom: 1px solid rgba(82, 255, 240, .18); }
+.soundkeys-back { color: var(--sk-cyan); text-decoration: none; font-weight: 900; }
+.soundkeys-mark { display: block; color: var(--sk-lime); font-size: clamp(22px, 3vw, 32px); font-weight: 950; letter-spacing: -.06em; }
+.soundkeys-topbar small { color: #9fb4d2; font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+.soundkeys-actions,.soundkeys-game-tools { display: flex; align-items: center; gap: 10px; }
+.soundkeys-actions > button:not(.soundkeys-midi-connect) { border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(255,255,255,.08); color: #fff; padding: 10px 12px; font-size: 18px; cursor: pointer; }
+.soundkeys-midi-status { color: #ffd56a; font-size: 11px; font-weight: 950; letter-spacing: .08em; }
+.soundkeys-midi-status.is-connected { color: var(--sk-lime); }
+.soundkeys-midi-connect { min-height: 42px; border: 0; border-radius: 12px; background: var(--sk-lime); color: #10200d; padding: 10px 14px; font-weight: 950; cursor: pointer; box-shadow: 0 4px 0 #6da31e; }
+.soundkeys-midi-connect:active { transform: translateY(2px); box-shadow: 0 2px 0 #6da31e; }
+.soundkeys-midi-connect:disabled { opacity: .55; cursor: wait; }
+.soundkeys-main { width: min(100%, 1060px); margin: 0 auto; padding: 24px 20px 40px; }
+.soundkeys-modebar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px; }
+.soundkeys-modebar button,.soundkeys-toggle { border: 1px solid rgba(82,255,240,.25); border-radius: 999px; background: rgba(255,255,255,.07); color: #c8daf3; padding: 10px 14px; font-weight: 850; cursor: pointer; }
+.soundkeys-modebar button.is-active { background: var(--sk-cyan); color: #071426; border-color: var(--sk-cyan); }
+.soundkeys-toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.soundkeys-stage { min-height: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px; border: 1px solid rgba(82,255,240,.18); border-radius: 28px; background: linear-gradient(145deg, rgba(16,31,56,.96), rgba(9,21,41,.96)); box-shadow: 0 24px 70px rgba(0,0,0,.3); }
+.soundkeys-kicker,.soundkeys-game-kicker { margin: 0 0 14px; color: var(--sk-cyan); font-size: 11px; font-weight: 950; letter-spacing: .2em; }
+.soundkeys-stage h1 { min-height: 62px; margin: 14px 0 8px; color: var(--sk-lime); font-size: clamp(38px, 8vw, 74px); letter-spacing: .12em; }
+.soundkeys-prompt,.soundkeys-help { color: #9fb4d2; }
+.soundkeys-target-image,.soundkeys-missing-image img { width: 112px; height: 112px; object-fit: contain; border-radius: 22px; background: rgba(255,255,255,.08); }
+.soundkeys-listen { border: 1px solid rgba(82,255,240,.5); border-radius: 12px; background: rgba(82,255,240,.1); color: var(--sk-cyan); padding: 12px 18px; font-weight: 900; cursor: pointer; }
+.soundkeys-missing-image { display: flex; align-items: center; gap: 18px; }
+.soundkeys-missing-image strong { font-size: 27px; letter-spacing: .14em; }
+.soundkeys-result { display: flex; align-items: center; gap: 16px; font-size: 25px; }
+.soundkeys-result-spark { color: var(--sk-lime); }
+.soundkeys-result button,.soundkeys-controls button,.soundkeys-retry { border: 0; border-radius: 12px; background: var(--sk-lime); color: #10200d; padding: 10px 14px; font-weight: 900; cursor: pointer; }
+.soundkeys-controls { display: flex; gap: 10px; margin-top: 20px; }
+.soundkeys-keyboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)); gap: 9px; margin: 20px 0; }
+.soundkeys-keyboard button { min-height: 64px; border: 2px solid rgba(82,255,240,.5); border-radius: 15px; background: linear-gradient(160deg, #203a5a, #12243f); color: #f4f8ff; font-size: 22px; font-weight: 950; box-shadow: 0 4px 0 #091323; cursor: pointer; }
+.soundkeys-keyboard button:hover { border-color: var(--sk-lime); color: var(--sk-lime); transform: translateY(-2px); }
+.soundkeys-keyboard button:active { transform: translateY(3px); box-shadow: 0 1px 0 #091323; }
+.soundkeys-show-keyboard { display: block; margin: 0 auto; border: 0; background: transparent; color: var(--sk-cyan); font-weight: 900; cursor: pointer; }
+.soundkeys-help { min-height: 20px; text-align: center; font-size: 13px; }
+.soundkeys-teacher { position: fixed; right: 18px; top: 78px; z-index: 4; width: min(340px, calc(100% - 36px)); padding: 20px; border: 1px solid rgba(82,255,240,.25); border-radius: 20px; background: var(--sk-panel); box-shadow: 0 16px 40px #0008; }
+.soundkeys-teacher h2 { margin-top: 0; color: var(--sk-lime); }
+.soundkeys-teacher label { display: grid; gap: 5px; margin: 12px 0; color: #c8daf3; font-weight: 700; font-size: 13px; }
+.soundkeys-teacher input,.soundkeys-teacher select { padding: 10px; border: 1px solid #53708f; border-radius: 9px; background: #071426; color: #fff; font: inherit; }
+.soundkeys-teacher > button { border: 0; border-radius: 10px; background: var(--sk-lime); color: #10200d; padding: 11px 15px; font-weight: 900; }
+
+/* Arcade game layout: dense enough for full-screen play, with one neon focus. */
+.soundkeys-game { position: relative; width: min(100%, 920px); min-height: min(100dvh, 820px); margin: 0 auto; padding: 22px clamp(16px, 4vw, 44px) 30px; }
+.soundkeys-game-brand { display: flex; align-items: center; gap: 10px; color: var(--sk-lime); font-size: clamp(24px, 4vw, 38px); font-weight: 950; letter-spacing: -.06em; }
+.soundkeys-game-brand small { align-self: end; margin-bottom: 5px; color: #9fb4d2; font-size: 10px; letter-spacing: .18em; }
+.soundkeys-game-orbit { width: 24px; height: 24px; border: 4px solid var(--sk-cyan); border-radius: 50%; box-shadow: 0 0 0 5px rgba(82,255,240,.12), 0 0 20px rgba(82,255,240,.55); }
+.soundkeys-game-tools { position: absolute; top: 24px; right: clamp(16px, 4vw, 44px); }
+.soundkeys-game-progress { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; margin: 26px 0 18px; color: #9fb4d2; font-size: 11px; font-weight: 950; letter-spacing: .12em; }
+.soundkeys-game-progress i { height: 7px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.12); }
+.soundkeys-game-progress b { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--sk-cyan), var(--sk-lime)); transition: width .35s ease; }
+.soundkeys-game-board { display: grid; grid-template-columns: minmax(170px, .75fr) minmax(0, 1.5fr); gap: 20px; align-items: stretch; padding: clamp(20px, 4vw, 38px); border: 1px solid rgba(82,255,240,.2); border-radius: 28px; background: linear-gradient(145deg, rgba(22,41,69,.96), rgba(10,24,45,.96)); box-shadow: 0 24px 60px rgba(0,0,0,.24); }
+.soundkeys-game-cue { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; border-right: 1px solid rgba(255,255,255,.1); padding-right: 20px; text-align: center; }
+.soundkeys-game-cue img { width: clamp(110px, 18vw, 170px); height: clamp(110px, 18vw, 170px); object-fit: contain; border-radius: 28px; background: rgba(255,255,255,.06); }
+.soundkeys-game-word { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.soundkeys-token-row { display: flex; gap: 9px; margin-bottom: 14px; }
+.soundkeys-token-row span { display: grid; place-items: center; width: clamp(48px, 8vw, 72px); height: clamp(58px, 10vw, 82px); border: 2px dashed rgba(82,255,240,.45); border-radius: 15px; color: #6983a5; font-size: clamp(24px, 5vw, 40px); font-weight: 950; }
+.soundkeys-token-row span.is-filled { border-style: solid; border-color: var(--sk-lime); color: var(--sk-lime); background: rgba(184,255,61,.1); }
+.soundkeys-game-word h2 { margin: 0; color: #fff; font-size: clamp(26px, 6vw, 56px); letter-spacing: .12em; }
+.soundkeys-game-word p { min-height: 22px; margin: 10px 0 0; color: #a9bdd9; font-weight: 750; }
+.soundkeys-game-word.has-feedback p { color: var(--sk-lime); }
+.soundkeys-game-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 16px; color: #7892b5; font-size: 12px; }
+.soundkeys-clear { border: 0; background: transparent; color: #ff91bd; font-weight: 900; cursor: pointer; }
+@media(max-width:640px){.soundkeys-topbar{align-items:flex-start;flex-wrap:wrap}.soundkeys-actions{width:100%;justify-content:flex-end}.soundkeys-game{min-height:100dvh}.soundkeys-game-tools{position:static;margin-top:12px}.soundkeys-game-progress{grid-template-columns:auto 1fr}.soundkeys-game-progress span:last-child{display:none}.soundkeys-game-board{grid-template-columns:1fr;gap:18px}.soundkeys-game-cue{border-right:0;border-bottom:1px solid rgba(255,255,255,.1);padding:0 0 18px}.soundkeys-game-cue img{width:104px;height:104px}.soundkeys-game-footer{flex-wrap:wrap}.soundkeys-game-footer>span{order:4;width:100%}}

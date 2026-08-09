@@ -10,6 +10,7 @@ import {
 import { GUIDED_READING_QUIZZES } from "../src/data/generated/guidedReadingQuizzes.generated.js";
 import { QUEST_STORY_QUESTIONS } from "../src/data/generated/questStoryQuestions.generated.js";
 import { SENTENCE_FIX } from "../src/data/learnGamesData.js";
+import { SOUNDKEY_WORDS } from "../src/features/soundkeys/content.js";
 import { elSkillsBlockCycles } from "../src/data/elSkillsBlockCycles.js";
 import { isQuestionBlockedByMediaQa } from "../src/data/mediaQaManifest.js";
 import { buildStationRounds, onsetGrapheme, sharesSound, stationsForCycle } from "../src/components/elQuest/elQuestEngine.js";
@@ -492,6 +493,26 @@ function auditArcade() {
         check(surface, id, level.segments.length >= 2 && level.segments.every(Boolean), "Q-ARCADE-TARGET", "The target has no usable ordered grapheme sequence.");
         check(surface, id, level.options.includes(level.correct), "Q-ARCADE-KEY", "The correct spelling is not one of the gates.");
         check(surface, id, new Set(level.options.map(option => String(option).toLowerCase())).size === level.options.length, "Q-ARCADE-DUPLICATE", "Duplicate spelling gates make the choice ambiguous.");
+      }
+    }
+    addRow(surface, total, before);
+  }
+
+  {
+    const surface = "Arcade · SoundKeys";
+    const before = failures.length;
+    let total = 0;
+    for (const difficulty of difficulties) {
+      const poolSize = difficulty === "easy" ? 12 : difficulty === "medium" ? 18 : 24;
+      const pool = SOUNDKEY_WORDS.slice(0, poolSize);
+      check(surface, `${difficulty}-ladder`, pool.length >= 10, "Q-ARCADE-LADDER", "SoundKeys needs at least ten playable word rounds.");
+      for (const [index, word] of pool.slice(0, 10).entries()) {
+        total += 1;
+        const id = `${difficulty}-${index + 1}`;
+        check(surface, id, Boolean(word.id && word.display && word.tokens?.length >= 2), "Q-ARCADE-TARGET", "The word round lacks an ordered sound sequence.");
+        check(surface, id, word.tokens.every(Boolean), "Q-ARCADE-KEY", "A SoundKeys round contains a blank sound.");
+        check(surface, id, word.tokens.join("") === word.id, "Q-ARCADE-WINNABLE", "The ordered sound sequence does not rebuild the target word.");
+        check(surface, id, Boolean(word.audio), "Q-ARCADE-AUDIO", "The SoundKeys target has no recorded word audio.");
       }
     }
     addRow(surface, total, before);
