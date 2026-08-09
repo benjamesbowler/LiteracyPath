@@ -1280,11 +1280,6 @@ export function AppSurface({ surface }) {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.STUDENT_REWARDS);
             }}
-            onOpenSoundKeys={() => {
-              try { window.localStorage.setItem("lp-open-game", "soundkeys"); } catch { /* Arcade still opens if storage is unavailable. */ }
-              setStudentArcadeOpen(true);
-              setAppView(APP_VIEWS.PHONICS_LEARN);
-            }}
             onLogout={trySession ? finishTrySession : isStudentMode ? logOutStudent : returnToTeacherDashboard}
             logoutLabel={trySession ? "Finish" : isStudentMode ? "Sign out" : "Teacher dashboard"}
             logoutAriaLabel={trySession ? "Finish the try-out" : isStudentMode ? "Log out" : "Return to teacher dashboard"}

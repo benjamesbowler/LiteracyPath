@@ -317,7 +317,6 @@ export function StudentHomePage({
   // an admin had explicitly pulled could still be the advertised book of the day.
   quarantinedBookIds,
   onOpenRewards,
-  onOpenSoundKeys,
   onLogout,
   logoutLabel = "Sign out",
   logoutAriaLabel = "Log out"
@@ -911,21 +910,6 @@ export function StudentHomePage({
             ))}
           </div>
         </section>
-
-        {onOpenSoundKeys && (
-          <section className="kg-home-create" aria-labelledby="kg-home-soundkeys-title">
-            <div className="kg-home-create-copy">
-              <span className="kg-home-create-spark" aria-hidden="true">♫</span>
-              <div>
-                <h2 className="kg-section-title" id="kg-home-soundkeys-title">SoundKeys</h2>
-                <p className="kg-body">Build words with sound keys.</p>
-              </div>
-            </div>
-            <button type="button" className="kg-button kg-button--md kg-home-create-button" onClick={onOpenSoundKeys} data-child-emphasis="choice">
-              Start SoundKeys
-            </button>
-          </section>
-        )}
 
         <span className="kg-speech" role="status" aria-live="polite">{speechStatus}</span>
       </div>

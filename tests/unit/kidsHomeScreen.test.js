@@ -123,6 +123,7 @@ test("the doorways carry the spec's titles, notes, tints and art", () => {
   // A pre-reader navigates by picture and icon; the note is the only part the
   // icons-only preference may remove.
   assert.match(code, /\{!iconsOnly && \(/);
+  assert.doesNotMatch(code, /kg-home-create|kg-home-soundkeys-title/, "SoundKeys belongs in Arcade, not as a seventh home strip");
 });
 
 test("the pre-reader affordances survive: speaker buttons and tap-to-hear", () => {
