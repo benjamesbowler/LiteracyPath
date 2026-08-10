@@ -9,6 +9,7 @@ import "./styles/home-sage.css";
 import "./styles/sage-subpages.css";
 import "./styles/sage-soft.generated.css";
 import "./styles/sage-form.css";
+import "./styles/ui-quality-pass.css";
 import { BookQuiz } from "./components/guided-reading/BookQuiz.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
 import { guidedReadingBooks } from "./data/guidedReadingBooks.js";

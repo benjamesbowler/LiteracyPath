@@ -346,6 +346,22 @@
 /* Phones receive a native responsive layout. Scaling the 1024px tablet canvas
    made every label and hit target roughly 40% of its intended size. */
 @media (max-width: 700px) {
+  .lg-sb-toggle,
+  .lg-sb-item {
+    min-width: 44px;
+    width: 44px;
+    min-height: 44px !important;
+    height: 44px;
+  }
+
+  .family-bridge .lp-button,
+  .impact-dashboard button,
+  .lesson-composer button,
+  .press-teacher button,
+  .misconception-detective button {
+    min-height: 44px !important;
+  }
+
   .guided-page-controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 5px;

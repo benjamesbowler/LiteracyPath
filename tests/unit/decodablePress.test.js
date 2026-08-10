@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { PRESS_ASSETS } from "../../src/content/decodablePress/pressAssetRegistry.js";
 import { PRESS_CONTENT_REVIEW } from "../../src/content/decodablePress/pressContentReviews.js";
 import { PRESS_PROJECT_TEMPLATES } from "../../src/content/decodablePress/pressProjectTemplates.js";
@@ -37,6 +38,13 @@ test("book revisions accept only reviewed local assets", () => {
   assert.equal(PRESS_CONTENT_REVIEW.checks.noChildCapture, true);
 });
 
+test("private drafts may be incomplete but submission validation stays fail closed", () => {
+  const pages = PRESS_PROJECT_TEMPLATES[0].pagePrompts.map((prompt, index) => ({ promptId: prompt.id, text: index === 0 ? "A first page." : "", assetId: PRESS_ASSETS[index].id }));
+  const draft = validatePressBook({ title: "A book in progress", pages }, { assetIds: PRESS_ASSETS.map(asset => asset.id), requireComplete: false });
+  assert.equal(draft.complete, false);
+  assert.throws(() => validatePressBook({ title: "A book in progress", pages }, { assetIds: PRESS_ASSETS.map(asset => asset.id) }), /Finish page 2/);
+});
+
 test("the printable booklet freezes one revision and keeps useful image alternatives", () => {
   const pages=PRESS_PROJECT_TEMPLATES[0].pagePrompts.map((prompt,index)=>({promptId:prompt.id,text:`Story page ${index+1}.`,assetId:PRESS_ASSETS[index].id}));
   const {html}=buildPressBookletDocument({book:{title:"A small plan",pages},authorName:"Mina",revisionId:"revision-exact-12345678"});
@@ -44,4 +52,12 @@ test("the printable booklet freezes one revision and keeps useful image alternat
   assert.equal((html.match(/<img /g)||[]).length,4);
   assert.equal((html.match(/ alt="[^"]+"/g)||[]).length,4);
   assert.match(html,/Teacher-approved revision revision/);
+});
+
+test("database contract permits partial private drafts but blocks incomplete submission and roster-name attribution", () => {
+  const sql = fs.readFileSync(new URL("../../supabase/migrations/20260809161500_press_partial_drafts.sql", import.meta.url), "utf8");
+  assert.match(sql, /char_length\(trim\(coalesce\(v_page->>'text',''\)\)\) > 240/);
+  assert.match(sql, /book_incomplete/);
+  assert.match(sql, /A reader in your class/);
+  assert.doesNotMatch(sql, /'author_name',s\.name/);
 });

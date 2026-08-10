@@ -691,7 +691,8 @@ export function TeacherTodayPage({
 
   const misconceptionSignals = useMemo(() => detectMisconceptionSignals({
     answers: misconceptionRead.classId === selectedClassId ? misconceptionRead.rows : [],
-    students: studentList
+    students: studentList,
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC"
   }), [misconceptionRead, selectedClassId, studentList]);
 
   const handleSupportQueueChange = useCallback(nextState => {

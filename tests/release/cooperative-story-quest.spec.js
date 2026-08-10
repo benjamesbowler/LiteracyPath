@@ -12,7 +12,7 @@ test("Story Crew passes one device through three evidence roles and stores no ch
   await page.getByRole("button", { name: "Footprints led to the gate." }).click();
   await page.getByRole("button", { name: "Pass to the next role" }).click();
   await expect(page.getByText("Pass to the Connector")).toBeVisible();
-  await page.getByRole("button", { name: "A trail-maker moved toward the gate." }).click();
+  await page.getByRole("button", { name: "Something moved from the packet toward the gate." }).click();
   await page.getByRole("button", { name: "Pass to the next role" }).click();
   await expect(page.getByText("Pass to the Story Crew")).toBeVisible();
   await page.getByRole("button", { name: "Follow the footprints and look near the hedge." }).click();

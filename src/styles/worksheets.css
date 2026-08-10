@@ -1,5 +1,6 @@
 /* Worksheet generator page (teacher tool). The printed worksheet styles live
    inline in the generated document; these styles are only the on-screen UI. */
+.worksheet-marking-confirm{position:fixed;z-index:1500;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:min(520px,calc(100vw - 32px));border:1px solid #9fb1aa;border-radius:16px;background:#fff;padding:1.25rem;box-shadow:0 24px 70px #173a3440;display:grid;gap:.75rem}.worksheet-marking-confirm h2,.worksheet-marking-confirm p{margin:0}.worksheet-marking-confirm>div{display:flex;gap:.6rem;flex-wrap:wrap}.worksheet-marking-confirm button{min-height:44px;border:1px solid #176b5b;border-radius:9px;padding:.55rem .9rem;font-weight:750}
 .ws-page {
   max-width: 1040px;
   margin: 0 auto;

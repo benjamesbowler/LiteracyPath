@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { LESSON_ADAPTATIONS } from "../../../content/lessons/lessonAdaptations.js";
 import { buildLessonComponentRegistry, lessonTargetsForCycle } from "../../../content/lessons/lessonComponentRegistry.js";
 import { buildSmallGroupLesson } from "../../../utils/lessons/buildSmallGroupLesson.js";
@@ -18,8 +18,10 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
   const [saveState, setSaveState] = useState({ status: "idle", message: "" });
   const [savedPlanId, setSavedPlanId] = useState("");
   const [deliveryNote, setDeliveryNote] = useState("");
+  const planVersionRef = useRef(0);
 
   function markPlanChanged() {
+    planVersionRef.current += 1;
     setSavedPlanId("");
     setSaveState(current => current.status === "saved" ? { status: "idle", message: "Lesson choices changed. Save this version before recording delivery." } : current);
   }
@@ -53,6 +55,7 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
 
   async function savePlan() {
     if (!client || !lesson) return;
+    const requestVersion = planVersionRef.current;
     setSaveState({ status: "saving", message: "Saving lesson plan…" });
     try {
       const registry = buildLessonComponentRegistry({ cycleId, targetKey, durationMinutes: duration });
@@ -72,10 +75,12 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
         recipe,
         evidenceSource: { kind: "teacher_selected", limitations: "No automatic diagnosis or mastery update." }
       });
+      if (requestVersion !== planVersionRef.current) return;
       setSavedPlanId(saved.plan_id);
       setSaveState({ status: "saved", message: "Lesson plan saved. The recipe and learner group are frozen for delivery." });
-    } catch (error) {
-      setSaveState({ status: "error", message: error?.message || "The lesson plan could not be saved." });
+    } catch {
+      if (requestVersion !== planVersionRef.current) return;
+      setSaveState({ status: "error", message: "The lesson plan could not be saved. Your choices are still here; try again." });
     }
   }
 
@@ -95,8 +100,8 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
       });
       setSaveState({ status: "saved", message: completionState === "not_delivered" ? "Lesson marked not delivered. No learner outcome was inferred." : "Delivery recorded as practice evidence. Mastery was not changed." });
       setDeliveryStep(null);
-    } catch (error) {
-      setSaveState({ status: "error", message: error?.message || "The lesson delivery could not be recorded." });
+    } catch {
+      setSaveState({ status: "error", message: "The lesson delivery could not be recorded. Your note is still here; try again." });
     }
   }
 

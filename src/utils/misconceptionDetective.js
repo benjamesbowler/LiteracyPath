@@ -1,7 +1,12 @@
 const MIN_REPEATED_ERRORS = 3;
+const LOOKBACK_DAYS = 56;
 
-function dayOf(value) {
-  return String(value || "").slice(0, 10);
+function dayOf(value, timeZone) {
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "";
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(date);
+  const byType = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return `${byType.year}-${byType.month}-${byType.day}`;
 }
 
 function classifyPattern({ target, chosen, correct }) {
@@ -30,11 +35,14 @@ function classifyPattern({ target, chosen, correct }) {
   };
 }
 
-export function detectMisconceptionSignals({ answers = [], students = [] } = {}) {
+export function detectMisconceptionSignals({ answers = [], students = [], timeZone = "UTC", now = new Date() } = {}) {
   const names = new Map(students.map(student => [String(student.id), student.name || "Student"]));
   const groups = new Map();
+  const cutoff = new Date(now).getTime() - LOOKBACK_DAYS * 86400000;
   for (const answer of answers) {
     if (answer?.is_correct !== false) continue;
+    const answeredAt = new Date(answer.answered_at).getTime();
+    if (!Number.isFinite(answeredAt) || answeredAt < cutoff || answeredAt > new Date(now).getTime()) continue;
     const studentId = String(answer.student_id || "");
     const target = String(answer.diagnostic_target || answer.skill || "").trim();
     const chosen = String(answer.chosen_answer || "").trim();
@@ -46,7 +54,7 @@ export function detectMisconceptionSignals({ answers = [], students = [] } = {})
     groups.set(key, group);
   }
   return [...groups.values()].flatMap(group => {
-    const dates = [...new Set(group.rows.map(row => dayOf(row.answered_at)).filter(Boolean))];
+    const dates = [...new Set(group.rows.map(row => dayOf(row.answered_at, timeZone)).filter(Boolean))];
     if (group.rows.length < MIN_REPEATED_ERRORS || (dates.length < 2 && group.rows.length < 4)) return [];
     const pattern = classifyPattern(group);
     const latestAt = group.rows.map(row => row.answered_at || "").sort().at(-1) || null;

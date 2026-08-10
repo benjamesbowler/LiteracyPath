@@ -1,4 +1,5 @@
 async function call(client, name, params) {
+  if (!client || typeof client.call !== "function") throw new Error("press_service_unavailable");
   const { data, error } = await client.call(name, params);
   if (error) throw error;
   if (!data?.ok) throw new Error(data?.error || "The book request could not be completed.");

@@ -114,8 +114,8 @@
 }
 
 .tcb-step {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 1.5px solid var(--lp-color-border-strong);
   border-radius: 8px;
   background: var(--lp-color-surface);
@@ -137,7 +137,7 @@
 }
 
 .tcb-cycle-select {
-  min-height: 40px;
+  min-height: 44px;
   max-width: min(46vw, 340px);
   padding: 8px 10px;
   border: 1.5px solid var(--lp-color-border-strong);

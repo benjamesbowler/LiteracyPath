@@ -1,15 +1,15 @@
 const mission = (id,targetKey,context,responseFormat,instruction,items) => Object.freeze({
   id,targetKey,context,responseFormat,instruction,
   evidenceUnit: targetKey === "cvc_short_vowels" ? "short_vowel" : "phonics_pattern",
-  prerequisiteKeys:Object.freeze([targetKey]),contentVersion:"transfer-v1-2026.08",
-  mechanic:"choice",mechanicRehearsal:Object.freeze({prompt:"Try the practice button. It will not count.",choices:Object.freeze(["Practice choice","Another choice"]),answer:"Practice choice"}),
+  prerequisiteKeys:Object.freeze([targetKey]),contentVersion:"transfer-v2-2026.08",
+  mechanic:"choice",mechanicRehearsal:Object.freeze({prompt:"Practice: which word has short a, /a/?",choices:Object.freeze(["map","mip"]),answer:"map",incorrectFeedback:"Listen to the middle: mip has /i/. Try the word with /a/.",help:"Choose the word with /a/. This practice does not count."}),
   items:Object.freeze(items.map(item=>Object.freeze(item))),accessibilityAlternative:"keyboard_or_touch_choice",
   masteryEligible:false,review:Object.freeze({status:"approved",reviewedAt:"2026-08-09",evidenceClaim:"separate_transfer_sample"})
 });
 
 const CVC=[
   mission("transfer-cvc-new-word","cvc_short_vowels","unfamiliar_word","SHORT_VOWEL_WORD","Pick the word with the short vowel shown.",[
-    {id:"cvc-nw-1",prompt:"Which word has short a?",choices:["dap","dep","dip"],answer:"dap"},{id:"cvc-nw-2",prompt:"Which word has short i?",choices:["zot","zim","zem"],answer:"zim"},{id:"cvc-nw-3",prompt:"Which word has short o?",choices:["vup","vep","vop"],answer:"vop"}
+    {id:"cvc-nw-1",prompt:"Which word has short a, /a/?",choices:["dap","dep","dip"],answer:"dap",incorrectFeedback:"Check the middle sound. We need /a/, like map."},{id:"cvc-nw-2",prompt:"Which word has short i, /i/?",choices:["zot","zim","zem"],answer:"zim",incorrectFeedback:"Check the middle sound. We need /i/, like sit."},{id:"cvc-nw-3",prompt:"Which word has short o, /o/?",choices:["vup","vep","vop"],answer:"vop",incorrectFeedback:"Check the middle sound. We need /o/, like hot."}
   ]),
   mission("transfer-cvc-sentence","cvc_short_vowels","controlled_sentence","SHORT_VOWEL_WORD","Choose the word that makes the sentence work.",[
     {id:"cvc-s-1",prompt:"The cat sat on the ___.",choices:["mat","met","mit"],answer:"mat"},{id:"cvc-s-2",prompt:"Dad put a lid on the ___.",choices:["pot","pet","pit"],answer:"pot"},{id:"cvc-s-3",prompt:"The red hen can ___.",choices:["hop","hep","hip"],answer:"hop"}

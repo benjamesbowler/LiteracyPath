@@ -14,6 +14,7 @@ import "./styles/sage-form.css";
 // a preview of a different page.
 import "./styles/kids-glass.css";
 import "./styles/kids-home.css";
+import "./styles/ui-quality-pass.css";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import {
   COMPANIONS,

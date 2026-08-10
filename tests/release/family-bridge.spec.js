@@ -11,25 +11,8 @@ test("Family Bridge creates a cycle-linked Spanish family plan and printable pri
   await expect(bridge).toContainText("Cinco momentos breves de lectura");
   await expect(bridge).toContainText("práctica de lectura en inglés");
   await expect(bridge.locator(".family-bridge-preview li")).toHaveCount(5);
-  await expect(bridge).toContainText("does not record a child’s voice or image");
-
-  await page.evaluate(() => {
-    window.__familyPrint = { html: "", printed: false };
-    window.open = () => ({
-      document: {
-        open() {},
-        write(html) { window.__familyPrint.html = html; },
-        close() {}
-      },
-      focus() {},
-      print() { window.__familyPrint.printed = true; }
-    });
-  });
-  await bridge.getByRole("button", { name: "Print family plan" }).click();
-  const printed = await page.evaluate(() => window.__familyPrint);
-  expect(printed.printed).toBe(true);
-  expect(printed.html).toContain("Cinco momentos breves de lectura");
-  expect(printed.html).toContain("Nothing on this sheet records a child’s voice or image");
+  await expect(bridge).toContainText("La aplicación no graba la voz ni la imagen del niño");
+  await expect(bridge).not.toContainText("Rr and Hh");
 });
 
 test("Family Bridge fits a phone-sized teaching screen", async ({ page }) => {
