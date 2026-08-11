@@ -36,6 +36,58 @@
   grid-template-rows: 232px auto minmax(0, 1fr);
 }
 
+/* Home music is a quiet header utility, not a second call to action. It uses
+   the same 48px geometry as the wallet and grown-ups controls, and its state is
+   carried by words as well as colour so sound and colour are never required to
+   understand it. */
+.kg-stage .kg-home-music-control {
+  --kg-self-border: rgba(255, 255, 255, 0.86);
+  --kg-self-shadow:
+    0 8px 20px -12px rgba(30, 60, 50, 0.34),
+    inset 0 1px 1px rgba(255, 255, 255, 0.92);
+  height: 48px;
+  min-width: 128px;
+  padding: 0 16px 0 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--kg-self-border);
+  border-radius: var(--kg-radius-pill);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--kg-self-shadow);
+  color: var(--kg-ink-muted);
+  font-family: var(--kg-font-display);
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.kg-stage .kg-home-music-control .kg-icon {
+  width: 21px;
+  height: 21px;
+}
+
+.kg-stage .kg-home-music-control[data-playback-state="playing"],
+.kg-stage .kg-home-music-control[data-playback-state="starting"] {
+  background: rgba(191, 227, 216, 0.76);
+  color: var(--kg-sage);
+}
+
+.kg-stage .kg-home-music-control[data-playback-state="waiting"] {
+  background: rgba(255, 244, 218, 0.66);
+  color: var(--kg-ink-brown);
+}
+
+.kg-stage .kg-home-music-control:disabled {
+  cursor: default;
+  color: var(--kg-ink-disabled);
+  background: rgba(255, 255, 255, 0.34);
+}
+
 /* ── a. Continue hero ─────────────────────────────────────────────────────── */
 /* The deep-green ground is a FALLBACK, not decoration: if the panorama fails to
    load the image hides itself, and white ink over a bare scrim would sit on the
@@ -636,6 +688,15 @@
    than to Home. */
 
 @media (hover: hover) and (pointer: fine) {
+  .kg-stage .kg-home-music-control:not(:disabled):hover {
+    background: rgba(255, 255, 255, 0.66);
+  }
+
+  .kg-stage .kg-home-music-control[data-playback-state="playing"]:hover,
+  .kg-stage .kg-home-music-control[data-playback-state="starting"]:hover {
+    background: rgba(191, 227, 216, 0.9);
+  }
+
   .kg-stage .kg-home-door:not([aria-disabled="true"]):hover {
     background: rgba(255, 255, 255, 0.58);
   }

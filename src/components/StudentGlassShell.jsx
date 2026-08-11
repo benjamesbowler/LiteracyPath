@@ -152,6 +152,7 @@ export default function StudentGlassShell({
   onNavigate,
   onHome,
   onGrownUps,
+  headerActions = null,
   contentScrolls = false,
   children
 }) {
@@ -255,6 +256,8 @@ export default function StudentGlassShell({
               : "Your coins are still loading. Open your Hollow."}
             onClick={() => goTo("hollow")}
           />
+
+          {headerActions}
 
           <button
             type="button"

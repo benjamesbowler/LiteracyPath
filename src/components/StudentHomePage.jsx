@@ -75,6 +75,7 @@ import {
   speakStudentRailLabel
 } from "../policy/studentRailPolicy.js";
 import StudentGlassShell from "./StudentGlassShell.jsx";
+import ChildHomeMusicControl from "./ChildHomeMusicControl.jsx";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -712,6 +713,7 @@ export function StudentHomePage({
       onNavigate={goToTab}
       onHome={() => setAccountOpen(false)}
       onGrownUps={() => setAccountOpen(open => !open)}
+      headerActions={<ChildHomeMusicControl key={progressScopeKey} scopeKey={progressScopeKey} />}
     >
       <div
         className="kg-screen kg-screen--home kg-home"

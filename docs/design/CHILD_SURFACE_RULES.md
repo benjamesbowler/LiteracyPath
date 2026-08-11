@@ -38,6 +38,20 @@ The implementation exposes these regions as `data-child-title`, `data-child-inst
   Only the first unfinished stop is interactive; completed and future stops
   are progress/context only.
 
+## Background audio rules
+
+- Child Home music is optional, non-instructional and deliberately quieter
+  than activity music. Its visible header control always says whether music is
+  on, off, waiting for a tap, or unavailable.
+- A saved on preference may request playback when Home opens, but browser
+  autoplay blocking must remain truthful: the control changes to **Play music**
+  and the next child interaction retries it.
+- Home music respects the learner's lower-audio-intensity setting and stops at
+  the child audio lifecycle boundary. It must never continue into a reader,
+  quest, assessment or game.
+- Tracks live in `src/data/childHomeMusic.js`. With one registered track it
+  loops; when more are registered the same player advances through the list.
+
 ## Identity and collection rules
 
 - “Little Literacy Guide” is the child-facing name for the persistent
