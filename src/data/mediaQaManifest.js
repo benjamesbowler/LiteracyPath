@@ -223,12 +223,11 @@ export function isMediaQaRuntimeAllowed(filePath, mediaType = "image", options =
     imageQaReviewNeededPaths.has(filePath)
   )) return false;
   const id = getMediaQaId(mediaType, filePath);
-  const override = readMediaQaOverrides()[id];
-  if (override?.status) {
-    if (override.status === "needs_replacement" && options.reviewMode) return true;
-    return !BLOCKING_STATUSES.has(override.status);
-  }
-
+  // Runtime eligibility must be identical for every learner and device. The
+  // old Media QA tool stored draft decisions in localStorage; those drafts are
+  // useful when reopening that review tool, but must never quarantine released
+  // assessment media in one browser only. Checked-in manifests below are the
+  // release authority.
   const seeds = mediaQaSeedManifest.filter(record => record.id === id);
   const statuses = seeds.map(record => record.status || "unreviewed");
   const blockingStatus = statuses.find(status => BLOCKING_STATUSES.has(status));
