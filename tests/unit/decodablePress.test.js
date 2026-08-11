@@ -61,3 +61,20 @@ test("database contract permits partial private drafts but blocks incomplete sub
   assert.match(sql, /A reader in your class/);
   assert.doesNotMatch(sql, /'author_name',s\.name/);
 });
+
+test("project creation keeps verified active learners when one requested roster row is stale", () => {
+  const sql = fs.readFileSync(new URL("../../supabase/migrations/20260809162500_press_project_active_roster_resilience.sql", import.meta.url), "utf8");
+  assert.match(sql, /array_agg\(distinct s\.id\)/);
+  assert.match(sql, /coalesce\(s\.is_archived,false\)=false/);
+  assert.match(sql, /'skipped_count'/);
+  assert.match(sql, /no_active_learners/);
+});
+
+test("the teacher assignment dialog shows every approved picture in named packs", () => {
+  const source = fs.readFileSync(new URL("../../src/components/teacher/decodablePress/PressProjectDialog.jsx", import.meta.url), "utf8");
+  assert.match(source, /Included picture packs/);
+  assert.match(source, /Characters/);
+  assert.match(source, /Story settings/);
+  assert.match(source, /Story parts/);
+  assert.match(source, /pack\.assets\.map/);
+});

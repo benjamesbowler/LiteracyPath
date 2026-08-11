@@ -16,7 +16,7 @@ export const FAMILY_BRIDGE_COPY = Object.freeze({
       sound: focus => `Find three things whose English names begin with ${focus}. Say each English name together.`,
       letters: focus => `Write ${focus} on small paper squares. Mix them up, find each one, and say its English sound.`,
       words: words => `Point to each quick word—${words}. Read it together, then find it in a book or on a label.`,
-      book: title => `Read ${title} together. Pause once to ask: “What do you notice?” There is no test.`,
+      book: () => "Choose any book you already have at home, or reread the quick words on this sheet. Pause once to ask: “What do you notice?” There is no test and no app sign-in.",
       celebrate: () => "Let the child choose a favourite word or page. Say what made that choice interesting."
     }
   },
@@ -31,7 +31,7 @@ export const FAMILY_BRIDGE_COPY = Object.freeze({
       sound: focus => `Busquen tres cosas cuyos nombres en inglés empiecen con ${focus}. Digan juntos cada nombre en inglés.`,
       letters: focus => `Escriban ${focus} en papelitos. Mézclenlos, encuentren cada uno y digan su sonido en inglés.`,
       words: words => `Señalen cada palabra rápida—${words}. Léanla juntos y búsquenla en un libro o una etiqueta.`,
-      book: title => `Lean juntos ${title}. Hagan una pausa para preguntar: “¿Qué notas?” No es un examen.`,
+      book: () => "Elijan cualquier libro que ya tengan en casa o vuelvan a leer las palabras rápidas de esta hoja. Hagan una pausa para preguntar: “¿Qué notas?” No es un examen y no hace falta iniciar sesión.",
       celebrate: () => "Dejen que el niño elija una palabra o página favorita. Comenten por qué fue interesante."
     }
   },
@@ -46,7 +46,7 @@ export const FAMILY_BRIDGE_COPY = Object.freeze({
       sound: focus => `找出三个英文名称以 ${focus} 开头的物品，一起说出每个英文名称。`,
       letters: focus => `把 ${focus} 写在小纸片上。打乱后逐个找出，并说出它的英语发音。`,
       words: words => `依次指着这些常用词：${words}。一起读，再到书本或标签中寻找。`,
-      book: title => `一起阅读《${title}》。中途问一次：“你注意到了什么？”这不是测验。`,
+      book: () => "选择家里已有的一本书，或重读本页上的常用词。中途问一次：“你注意到了什么？”这不是测验，也不需要登录应用。",
       celebrate: () => "让孩子选一个最喜欢的单词或页面，并聊聊为什么有趣。"
     }
   }

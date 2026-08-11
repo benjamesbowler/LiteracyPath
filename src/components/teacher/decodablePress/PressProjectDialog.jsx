@@ -15,6 +15,11 @@ export function PressProjectDialog({ client, classId, cycleId, students, onClose
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const template = PRESS_PROJECT_TEMPLATES.find(item => item.id === templateId);
+  const assetPacks = useMemo(() => ([
+    { id: "characters", title: "Characters", assets: PRESS_ASSETS.filter(asset => asset.kind === "character") },
+    { id: "settings", title: "Story settings", assets: PRESS_ASSETS.filter(asset => asset.kind === "setting") },
+    { id: "story-parts", title: "Story parts", assets: PRESS_ASSETS.filter(asset => asset.kind === "sticker") }
+  ]), []);
 
   function toggle(id) { setLearnerIds(current => current.includes(id) ? current.filter(value => value !== id) : [...current, id]); }
   async function create() {
@@ -32,7 +37,13 @@ export function PressProjectDialog({ client, classId, cycleId, students, onClose
     <header><div><p>New Class Decodable Press project</p><h2 id="press-project-title">Assign a meaningful four-page story</h2></div><button type="button" onClick={onClose}>Close</button></header>
     <label>Story shape<select value={templateId} onChange={event => setTemplateId(event.target.value)}><option value={PRESS_PROJECT_TEMPLATES[0].id}>{PRESS_PROJECT_TEMPLATES[0].title}</option>{PRESS_PROJECT_TEMPLATES.slice(1).map(item => <option key={item.id} value={item.id}>{item.title}</option>)}</select></label>
     <p>{template.description}</p>
-    <section><h3>Frozen curriculum pack</h3><p>Cycle {cycleNumber} · {bank.words.length} decodable words · {bank.highFrequencyWords.length} approved known words · {PRESS_ASSETS.length} local scenes</p></section>
+    <section><h3>Frozen curriculum pack</h3><p>Cycle {cycleNumber} · {bank.words.length} decodable words · {bank.highFrequencyWords.length} approved known words</p></section>
+    <section className="press-asset-packs" aria-labelledby="press-asset-packs-title">
+      <div><h3 id="press-asset-packs-title">Included picture packs</h3><p>Students choose from these approved local pictures. They cannot upload images.</p></div>
+      <div className="press-asset-pack-grid">
+        {assetPacks.map(pack => <article key={pack.id}><h4>{pack.title}</h4><div>{pack.assets.map(asset => <figure key={asset.id}><img src={asset.src} alt={asset.alt} /><figcaption>{asset.label}</figcaption></figure>)}</div></article>)}
+      </div>
+    </section>
     <fieldset><legend>Learners</legend>{students.map(student => <label key={student.id}><input type="checkbox" checked={learnerIds.includes(student.id)} onChange={() => toggle(student.id)} />{student.name}</label>)}</fieldset>
     <label>Deadline (optional)<input type="date" value={deadline} onChange={event => setDeadline(event.target.value)} /></label>
     <label className="press-class-library-check"><input type="checkbox" checked={allowClass} onChange={event => setAllowClass(event.target.checked)} /> Let me approve exact revisions for the private class library</label>

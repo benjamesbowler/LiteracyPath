@@ -1612,6 +1612,9 @@ export function AppSurface({ surface }) {
               lessonComposerRequest={lessonComposerRequest}
               onLessonComposerRequestHandled={() => setLessonComposerRequest(0)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
+              onOpenReports={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
+              onOpenStudents={() => goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES)}
+              onOpenToday={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
               onOpenGuidedReading={bookId => {
                 // GUIDED_READING is the per-student conference and only renders
                 // once a student is chosen. The Resources shelf is whole-class,
