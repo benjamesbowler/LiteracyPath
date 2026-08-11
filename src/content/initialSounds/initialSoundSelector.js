@@ -113,32 +113,70 @@ export function buildInitialSoundsProgressFromAnswerHistory(answerHistory = []) 
   return progress;
 }
 
-function getMediaCompleteLetters(level, { includeInactive = false, requireImportedMedia = true, itemFilter = null } = {}) {
+function getInitialSoundItemLetter(item = {}) {
+  return String(item.letter || item.itemKey || "").toLowerCase();
+}
+
+function getMediaCompleteLetters(level, {
+  includeInactive = false,
+  requireImportedMedia = true,
+  itemBank = initialSoundWordBank,
+  itemEligibility = isInitialSoundRuntimeEligible,
+  itemFilter = null
+} = {}) {
   return INITIAL_SOUND_LETTERS.filter(letter =>
-    initialSoundWordBank.some(item =>
-      item.letter === letter &&
+    itemBank.some(item =>
+      getInitialSoundItemLetter(item) === letter &&
       item.level === level &&
       (includeInactive || item.active !== false) &&
       (!requireImportedMedia || hasImportedInitialSoundImage(item)) &&
-      isInitialSoundRuntimeEligible(item) &&
+      itemEligibility(item) &&
       (!itemFilter || itemFilter(item))
     )
   );
 }
 
-function itemsForLetter({ letter, level, includeInactive, requireImportedMedia, itemFilter = null }) {
-  return initialSoundWordBank.filter(item =>
-    item.letter === letter &&
+function itemsForLetter({
+  letter,
+  level,
+  includeInactive,
+  requireImportedMedia,
+  itemBank,
+  itemEligibility,
+  itemFilter = null
+}) {
+  return itemBank.filter(item =>
+    getInitialSoundItemLetter(item) === letter &&
     item.level === level &&
     (includeInactive || item.active !== false) &&
     (!requireImportedMedia || hasImportedInitialSoundImage(item)) &&
-    isInitialSoundRuntimeEligible(item) &&
+    itemEligibility(item) &&
     (!itemFilter || itemFilter(item))
   );
 }
 
-function pickItemForLetter({ letter, level, progress, includeInactive, requireImportedMedia, itemFilter, random, sets, context }) {
-  const items = itemsForLetter({ letter, level, includeInactive, requireImportedMedia, itemFilter });
+function pickItemForLetter({
+  letter,
+  level,
+  progress,
+  includeInactive,
+  requireImportedMedia,
+  itemBank,
+  itemEligibility,
+  itemFilter,
+  random,
+  sets,
+  context
+}) {
+  const items = itemsForLetter({
+    letter,
+    level,
+    includeInactive,
+    requireImportedMedia,
+    itemBank,
+    itemEligibility,
+    itemFilter
+  });
   const usedWords = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
   const unused = items.filter(item => !usedWords.has(String(item.targetWord).toLowerCase()));
   const pool = unused.length ? unused : items;
@@ -187,9 +225,10 @@ function getProgressSets(studentProgress = {}) {
 }
 
 function selectionReasonFor(item, sets, { level, roundNumber }) {
-  const isMastered = sets.masteredLetters.has(item.letter);
-  const wasAssessed = sets.assessedLetters.has(item.letter);
-  const wasIncorrect = sets.incorrectLetters.has(item.letter);
+  const letter = getInitialSoundItemLetter(item);
+  const isMastered = sets.masteredLetters.has(letter);
+  const wasAssessed = sets.assessedLetters.has(letter);
+  const wasIncorrect = sets.incorrectLetters.has(letter);
 
   if (item.level > level && wasAssessed && roundNumber > 1) {
     return "level-up-review";
@@ -205,8 +244,9 @@ function selectionReasonFor(item, sets, { level, roundNumber }) {
 
 function scoreItem(item, sets, context) {
   const reason = selectionReasonFor(item, sets, context);
-  const mistakeBoost = Number(sets.repeatedMistakes[item.letter] || 0) * 3;
-  const distractorBoost = Number(sets.incorrectDistractorPatterns[item.letter] || 0);
+  const letter = getInitialSoundItemLetter(item);
+  const mistakeBoost = Number(sets.repeatedMistakes[letter] || 0) * 3;
+  const distractorBoost = Number(sets.incorrectDistractorPatterns[letter] || 0);
   const reasonScore = {
     new: 100,
     unmastered: 90,
@@ -222,6 +262,9 @@ function scoreItem(item, sets, context) {
 }
 
 function randomizeAnswerOptions(item, random) {
+  if (!Array.isArray(item.answerOptions) || item.answerOptions.some(option => option && typeof option === "object")) {
+    return item;
+  }
   const shuffled = shuffleItems(item.answerOptions, random);
   return {
     ...item,
@@ -237,6 +280,8 @@ export function getInitialSoundRound({
   seed = Date.now(),
   includeInactive = false,
   requireImportedMedia = true,
+  itemBank = initialSoundWordBank,
+  itemEligibility = isInitialSoundRuntimeEligible,
   itemFilter = null
 } = {}) {
   const safeLevel = Number(level) === 2 ? 2 : 1;
@@ -248,6 +293,8 @@ export function getInitialSoundRound({
     seed,
     includeInactive,
     requireImportedMedia,
+    itemBank,
+    itemEligibility,
     itemFilter
   }).items.map(item => randomizeAnswerOptions(item, random));
 }
@@ -259,6 +306,8 @@ export function getInitialSoundRoundPlan({
   seed = Date.now(),
   includeInactive = false,
   requireImportedMedia = true,
+  itemBank = initialSoundWordBank,
+  itemEligibility = isInitialSoundRuntimeEligible,
   itemFilter = null,
   // Letters already asked earlier in the current assessment round. On a
   // mid-round plan rebuild (the queue emptied before the round did) these are
@@ -274,6 +323,8 @@ export function getInitialSoundRoundPlan({
   const availableLetters = getMediaCompleteLetters(safeLevel, {
     includeInactive,
     requireImportedMedia,
+    itemBank,
+    itemEligibility,
     itemFilter
   });
   const blockedLetters = INITIAL_SOUND_LETTERS.filter(letter => !availableLetters.includes(letter));
@@ -289,7 +340,15 @@ export function getInitialSoundRoundPlan({
   const prioritizedLetters = stableShuffleLetters(selectableLetters, random)
     .sort((a, b) => {
       const bestScore = letter => {
-        const items = itemsForLetter({ letter, level: safeLevel, includeInactive, requireImportedMedia, itemFilter });
+        const items = itemsForLetter({
+          letter,
+          level: safeLevel,
+          includeInactive,
+          requireImportedMedia,
+          itemBank,
+          itemEligibility,
+          itemFilter
+        });
         return items.length ? Math.max(...items.map(item => scoreItem(item, sets, context))) : Number.NEGATIVE_INFINITY;
       };
       return bestScore(b) - bestScore(a);
@@ -313,7 +372,15 @@ export function getInitialSoundRoundPlan({
     const unusedReview = prioritizedLetters
       .filter(letter => !weak.includes(letter))
       .filter(letter => {
-        const items = itemsForLetter({ letter, level: safeLevel, includeInactive, requireImportedMedia, itemFilter });
+        const items = itemsForLetter({
+          letter,
+          level: safeLevel,
+          includeInactive,
+          requireImportedMedia,
+          itemBank,
+          itemEligibility,
+          itemFilter
+        });
         const used = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
         return items.some(item => !used.has(String(item.targetWord).toLowerCase()));
       });
@@ -335,6 +402,8 @@ export function getInitialSoundRoundPlan({
         progress,
         includeInactive,
         requireImportedMedia,
+        itemBank,
+        itemEligibility,
         itemFilter,
         random,
         sets,
@@ -352,6 +421,7 @@ export function getInitialSoundRoundPlan({
               : "spaced-review";
       return {
         ...item,
+        letter,
         selectionReason: reason,
         initialSoundLevel: safeLevel,
         initialSoundRoundPhase: phase

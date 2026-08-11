@@ -173,19 +173,26 @@ export function createAssessmentRoundController(context) {
     const level = forcedLevel || pathStep.level;
     const phase = forcedLevel ? 1 : pathStep.phase;
     initialSoundForcedLevelRef.current = null;
+    const runtimeInitialSoundItems = allQuestionsRef.current.filter(question =>
+      normalizeEarlySkillId(question.skillId || question.assessmentSkillId || question.skill) === "initial_sounds"
+    );
     const plan = getInitialSoundRoundPlan({
       studentProgress: { initialSoundsProgress: progress },
       level,
       roundNumber: level === 2 ? phase + 2 : phase,
       seed: Date.now() + Math.floor(Math.random() * 1000000),
       excludeLetters,
-      itemFilter: item => (
-        !questionUsesFailedAssessmentMedia(item, failedAssessmentMediaRef.current) &&
-        isRuntimeEligibleEarlySkillQuestion(item, {
-          skillId: "initial_sounds",
-          level
-        })
-      )
+      // Initial Sounds has a custom adaptive selector, but its question source
+      // is still the gate-published v3 bank loaded into allQuestionsRef. The old
+      // selector silently read its separate legacy word bank, which the v3
+      // routing guard correctly rejected and left every letter blocked.
+      itemBank: runtimeInitialSoundItems,
+      requireImportedMedia: false,
+      itemEligibility: item => isRuntimeEligibleEarlySkillQuestion(item, {
+        skillId: "initial_sounds",
+        level
+      }),
+      itemFilter: item => !questionUsesFailedAssessmentMedia(item, failedAssessmentMediaRef.current)
     });
 
     initialSoundRoundQueueRef.current = plan.items;

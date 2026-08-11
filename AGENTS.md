@@ -85,8 +85,17 @@ current selection path and the losing variant must be removed when the test ends
   deletions in an uncommitted cleanup.
 - Keep `docs/INDEX.md` and
   `docs/CURRENT_SYSTEM_CLEANUP_2026-07-31.md` aligned with any authority change.
-- Do not commit, push, publish, deploy, or mutate hosted data unless the user
-  explicitly requests that external action.
+- After completing and verifying a user-requested change, commit and push its
+  scoped files directly to `origin/main` without waiting for a second request.
+  An explicit instruction not to commit or push overrides this standing rule.
+- In a mixed worktree, stage only the current task's named files. Never include,
+  revert, or overwrite another task's changes in the automatic commit.
+- Fetch and re-check `origin/main` immediately before pushing. If the remote has
+  moved, preserve the mixed worktree and integrate the scoped commit safely
+  before retrying the push.
+- This standing permission covers Git commits and pushes only. Manual deploys,
+  releases, publication outside Git, and hosted-data mutations still require an
+  explicit request.
 
 ## Verification
 
