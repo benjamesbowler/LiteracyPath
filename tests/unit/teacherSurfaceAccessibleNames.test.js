@@ -57,6 +57,13 @@ test("the sign-in pictures dialog says one thing to everyone, without design rat
   assert.doesNotMatch(students, /teacher-visible by design/);
 });
 
+test("the class header exposes bulk random picture-code setup for students who need it", async () => {
+  const students = await source("src/components/TeacherStudentsPage.jsx");
+  assert.match(students, /Assign random picture codes \(\$\{studentsMissingSignIn\.length\}\)/);
+  assert.match(students, /Randomly assign three-picture sign-in codes to \$\{countPhrase\(studentsMissingSignIn\.length/);
+  assert.match(students, /onClick=\{giveEveryoneSignInPictures\}/);
+});
+
 test("the compact roster controls name the student they act on", async () => {
   const students = await source("src/components/TeacherStudentsPage.jsx");
 

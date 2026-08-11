@@ -1928,8 +1928,21 @@ export function TeacherStudentsPage({
           >
             Print sign-in cards
           </button>
+          {studentsMissingSignIn.length > 0 && (
+            <button
+              className="lp-button lp-button-primary"
+              type="button"
+              disabled={!selectedClass || !rosterRead.complete || assigningSignIn}
+              onClick={giveEveryoneSignInPictures}
+              aria-label={`Randomly assign three-picture sign-in codes to ${countPhrase(studentsMissingSignIn.length, "student", "students")}`}
+            >
+              {assigningSignIn
+                ? "Assigning picture codes…"
+                : `Assign random picture codes (${studentsMissingSignIn.length})`}
+            </button>
+          )}
           <button
-            className="lp-button lp-button-primary"
+            className="lp-button lp-button-secondary"
             type="button"
             disabled={!selectedClass || !rosterRead.complete}
             onClick={focusNewStudentInput}
