@@ -72,6 +72,9 @@ random-guess percentage, or separate 80%, 85%, or 90% assessment pass rule.
 
 - [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
   content, no parent reporting. Spec only; no code.
+- [Maths implementation dossier](maths/README.md) — implementation-ready Foundation–Year 2
+  architecture, curriculum, assessment, Number Stories, songs, manipulatives, arcade games,
+  media pipeline and delivery backlog. Spec only; no runtime code.
 
 ## Operations, research, legal and security
 
