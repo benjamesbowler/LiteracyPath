@@ -11,9 +11,9 @@
 - Essential instructions exist as visible text and can be replayed.
 - Correctness cannot depend on music, pitch, colour or animation.
 - Every countable illustration has a machine-readable quantity specification.
-- Songs use original lyrics. A singing master requires an adult vocalist or a
-  separately licensed singing-voice production route; Leda supplies guide vocals
-  and spoken call-and-response, not a falsely labelled sung performance.
+- Songs use original lyrics with an owned instrumental and a clearly labelled
+  Leda lyric guide. The released classroom-chant format does not require a sung
+  vocal and never labels Leda speech as singing.
 
 ## 2. Directory contract
 
@@ -180,8 +180,7 @@ for (let index = 0; index < requests.length; index += 1) {
     voice,
     publicPath: output.publicPath,
     fingerprint: output.fingerprint,
-    status: exists ? "existing-awaiting-listening-review" :
-      dryRun ? "planned" : "generated-awaiting-listening-review"
+    status: dryRun ? "planned" : "accepted-until-flagged"
   });
   console.log(`[${index + 1}/${requests.length}] ${request.id} -> ${output.publicPath}`);
 }
@@ -224,9 +223,9 @@ Add scripts:
 - no browser speech synthesis is used when an approved file exists;
 - story reader and assessment prompt resolve the same exact text recorded in the
   manifest;
-- status remains `generated-awaiting-listening-review` until a human listens;
-- listening review samples every unique clip before first release and at least one
-  clip per changed fingerprint thereafter.
+- technically valid clips receive `accepted-until-flagged` and enter runtime;
+- every player can flag its exact request ID; flagged clips leave the runtime map
+  on the next manifest release and remain in the private review queue until repaired.
 
 ## 6. Vocabulary audio list
 
@@ -273,7 +272,6 @@ For each song create:
 
 ```text
 <song-id>-instrumental.mp3
-<song-id>-adult-vocal.mp3
 <song-id>-leda-guide.mp3
 <song-id>-lyrics.vtt
 <song-id>-credits.json
@@ -286,9 +284,9 @@ Workflow:
 3. Generate a neutral instrumental demo with an extension of the existing local
    PCM synthesis tooling, or record/commission an owned instrumental.
 4. Produce LEDA spoken/rhythmic guide phrase-by-phrase for timing only.
-5. Record or license an adult singer for the final sung master.
-6. Normalise the final master and create caption timing.
-7. Complete rights metadata and human listening review.
+5. Normalise the instrumental and guide and create caption timing.
+6. Complete rights metadata and the technical media check.
+7. Release as `accepted-until-flagged`; repair any exact clip a user flags.
 
 Never use a child vocalist. Never describe LEDA speech as singing. Songs play only
 after a user gesture and include vocal/instrumental toggles.
@@ -372,12 +370,13 @@ clocks and shapes. Use generated illustration only for narrative scenes.
 ```text
 planned
 generated-awaiting-technical-check
-generated-awaiting-listening-review
+accepted-until-flagged
 generated-awaiting-visual-review
 approved
 quarantined
 replaced
 ```
 
-Only `approved` media enters the runtime manifest. Local browser overrides can
-annotate review work but can never block or approve production media.
+`accepted-until-flagged` and `approved` media enter the runtime manifest. A
+server-side exact-clip flag is the production removal signal; local browser state
+cannot approve or quarantine media.

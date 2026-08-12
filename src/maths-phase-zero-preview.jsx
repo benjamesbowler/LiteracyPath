@@ -31,10 +31,14 @@ const CLASS_ID = "00000000-0000-4000-8000-0000000000a1";
 const STUDENT_ID = "maths-phase-zero-child";
 const noop = () => {};
 const STUDENTS = Array.from({ length: 12 }, (_, index) => ({ id: `00000000-0000-4000-9000-${String(index + 1).padStart(12, "0")}`, name: ["Aaron", "Bella", "Chen", "Dani", "Eli", "Fatima", "Grace", "Hugo", "Ivy", "Jin", "Kai", "Lina"][index] }));
+const PREVIEW_ASSIGNMENT = Object.freeze({ id: "00000000-0000-4000-8000-00000000a551", skillId: "F-N-PART-10", activityType: "lesson", activityId: "F-N-PART-10-retrieve-1", title: "Make parts of ten", dueAt: null, completedAt: null });
+const PREVIEW_EVIDENCE = STUDENTS.slice(0, 7).flatMap((student, studentIndex) => Array.from({ length: 3 }, (_, index) => ({ id: `${student.id}-${index}`, studentId: student.id, skillId: "F-N-PART-10", eventType: "skills_check_response", occurredAt: new Date(Date.now() - index * 86400000).toISOString(), evidence: { schemaVersion: 1, source: "maths_skills_check", representation: index % 2 ? "part_whole" : "two_colour_frame", correct: studentIndex < 4 || index === 0, classification: studentIndex < 4 || index === 0 ? "correct" : "missing_part_mismatch", observedSignals: studentIndex < 4 || index === 0 ? [] : ["missing_part_mismatch"] } })));
 const mockClient = {
   call(name) {
-    if (name === "teacher_read_maths_evidence") return Promise.resolve({ data: { ok: true, events: [] }, error: null });
-    if (name === "student_list_maths_assignments") return Promise.resolve({ data: { ok: true, assignments: [] }, error: null });
+    if (["teacher_read_maths_evidence", "teacher_read_maths_evidence_page"].includes(name)) return Promise.resolve({ data: { ok: true, events: PREVIEW_EVIDENCE, hasMore: false }, error: null });
+    if (name === "teacher_read_maths_sync_health") return Promise.resolve({ data: { ok: true, learners: [{ studentId: STUDENTS[0].id, delivered: 8, pending: 0, rejected: 0, reportedAt: new Date().toISOString() }] }, error: null });
+    if (name === "teacher_list_maths_assignments") return Promise.resolve({ data: { ok: true, assignments: [{ ...PREVIEW_ASSIGNMENT, assignedCount: 12, completedCount: 5, createdAt: new Date().toISOString() }] }, error: null });
+    if (name === "student_list_maths_assignments") return Promise.resolve({ data: { ok: true, assignments: [PREVIEW_ASSIGNMENT] }, error: null });
     if (name === "teacher_create_maths_assignment") return Promise.resolve({ data: { ok: true, assignedCount: 12 }, error: null });
     if (name === "student_complete_maths_assignment") return Promise.resolve({ data: { ok: true }, error: null });
     return Promise.resolve({ data: { ok: true }, error: null });
@@ -51,6 +55,7 @@ function initialView() {
 
 function Preview() {
   const [appView, setAppView] = useState(initialView);
+  const [activeAssignment, setActiveAssignment] = useState(null);
 
   useEffect(() => {
     const restore = () => {
@@ -82,19 +87,19 @@ function Preview() {
             client={mockClient}
             token="preview-token"
             onOpenLiteracy={() => openSubject(SUBJECT_IDS.LITERACY)}
-            onOpenLearn={() => setAppView(APP_VIEWS.MATHS_LEARN)}
-            onOpenAssessment={() => setAppView(APP_VIEWS.MATHS_ASSESSMENT)}
-            onOpenStories={() => setAppView(APP_VIEWS.MATHS_STORIES)}
-            onOpenArcade={() => setAppView(APP_VIEWS.MATHS_ARCADE)}
+            onOpenLearn={assignment => { setActiveAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_LEARN); }}
+            onOpenAssessment={assignment => { setActiveAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_ASSESSMENT); }}
+            onOpenStories={assignment => { setActiveAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_STORIES); }}
+            onOpenArcade={assignment => { setActiveAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_ARCADE); }}
           />
         ) : appView === APP_VIEWS.MATHS_LEARN ? (
-          <MathsLessonPlayer client={mockClient} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
+          <MathsLessonPlayer assignment={activeAssignment} client={mockClient} onHome={() => { setActiveAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
         ) : appView === APP_VIEWS.MATHS_ASSESSMENT ? (
-          <MathsAssessmentPlayer client={mockClient} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
+          <MathsAssessmentPlayer assignment={activeAssignment} client={mockClient} onHome={() => { setActiveAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
         ) : appView === APP_VIEWS.MATHS_STORIES ? (
-          <MathsStoryLibrary onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentName="Aaron" />
+          <MathsStoryLibrary assignment={activeAssignment} client={mockClient} onHome={() => { setActiveAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
         ) : appView === APP_VIEWS.MATHS_ARCADE ? (
-          <MathsArcade client={mockClient} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
+          <MathsArcade assignment={activeAssignment} client={mockClient} onHome={() => { setActiveAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
         ) : (
           <StudentHomePage
             studentName="Aaron"

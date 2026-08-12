@@ -25,8 +25,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "maths-lesson",
-    primaryCue: "Next",
-    treatment: "One green next or finish action advances the seven-stage lesson; previous, model and manipulative controls remain quiet."
+    primaryCue: "Complete this step",
+    treatment: "The one strongest action names the required learning action until the learner has interacted, then becomes Next or Finish; previous and manipulative controls remain quiet."
   }),
   Object.freeze({
     id: "maths-check",

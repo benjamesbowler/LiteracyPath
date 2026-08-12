@@ -23,6 +23,10 @@ const readVolatilityMigration = fs.readFileSync(
   ),
   "utf8"
 );
+const releaseIntegrityMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260812120000_maths_release_integrity.sql", import.meta.url),
+  "utf8"
+);
 
 function functionBody(source, name) {
   const marker = `create function public.${name}`;
@@ -114,4 +118,23 @@ test("the final function boundary exposes only the intended Maths RPC roles", ()
     readVolatilityMigration,
     /alter function public\.teacher_read_maths_evidence\(uuid, uuid, integer\)\s+volatile/i
   );
+});
+
+test("release integrity recalculates assessment and game outcomes on the server", () => {
+  assert.match(releaseIntegrityMigration, /create function public\.maths_validate_student_evidence/i);
+  assert.match(releaseIntegrityMigration, /v_correct := v_response_text = v_expected_text/i);
+  assert.match(releaseIntegrityMigration, /v_correct := v_response_number is not null and v_response_number = v_expected_number/i);
+  assert.match(releaseIntegrityMigration, /'serverValidated',\s*true/i);
+  assert.match(releaseIntegrityMigration, /invalid_content_reference/i);
+  assert.match(releaseIntegrityMigration, /invalid_assignment_reference/i);
+});
+
+test("release integrity adds cursor pagination, sync health and RPC-only audio flags", () => {
+  assert.match(releaseIntegrityMigration, /create function public\.teacher_read_maths_evidence_page/i);
+  assert.match(releaseIntegrityMigration, /\(event\.occurred_at,event\.id\) < \(p_before_occurred_at,p_before_id\)/i);
+  assert.match(releaseIntegrityMigration, /create function public\.teacher_read_maths_sync_health/i);
+  assert.match(releaseIntegrityMigration, /create table public\.maths_media_issue_reports/i);
+  assert.match(releaseIntegrityMigration, /revoke all on table public\.maths_media_issue_reports from public, anon, authenticated/i);
+  assert.match(releaseIntegrityMigration, /student_report_maths_media_issue/i);
+  assert.match(releaseIntegrityMigration, /teacher_report_maths_media_issue/i);
 });

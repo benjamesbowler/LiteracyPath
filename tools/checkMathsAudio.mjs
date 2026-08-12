@@ -19,6 +19,7 @@ for (const row of mathsLedaAudioManifest) {
   if (probe.status !== 0) { failures.push(`${row.id}: cannot decode`); continue; }
   const stream = JSON.parse(probe.stdout).streams?.[0] || {};
   if (stream.sample_rate !== "44100" || stream.channels !== 1) failures.push(`${row.id}: expected mono 44.1 kHz`);
+  if (row.status === "planned") failures.push(`${row.id}: generated file cannot remain planned`);
 }
 if (failures.length) { console.error("Maths audio gate failed:\n" + failures.map(item => `- ${item}`).join("\n")); process.exit(1); }
-console.log(`Maths audio technical gate passed: ${mathsLedaAudioManifest.length} mappings, ${new Set(mathsLedaAudioManifest.map(row => row.publicPath)).size} exact Leda files. Human listening approval is still required.`);
+console.log(`Maths audio release gate passed: ${mathsLedaAudioManifest.length} mappings, ${new Set(mathsLedaAudioManifest.map(row => row.publicPath)).size} exact Leda files. Clips are accepted until individually flagged.`);

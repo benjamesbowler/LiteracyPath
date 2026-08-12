@@ -23,7 +23,7 @@ test("teacher can switch subjects and the Maths route survives reload, Back and 
   await page.getByRole("button", { name: "Maths" }).click();
   await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();
   await expect.poll(() => new URL(page.url()).hash).toBe(`#maths/teacher?class=${CLASS_ID}`);
-  await expect(page.getByText("The eight approved Foundation number skills now connect", { exact: false })).toBeVisible();
+  await expect(page.getByText("Eight approved number-sense skills connect", { exact: false })).toBeVisible();
 
   await page.reload();
   await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();

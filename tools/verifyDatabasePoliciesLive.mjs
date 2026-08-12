@@ -80,6 +80,10 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_activity: "Audit",
     p_planned_for: "2026-07-25"
   },
+  "teacher_archive_maths_assignment(uuid, uuid)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_assignment_id: "00000000-0000-0000-0000-000000000000"
+  },
   "teacher_class_access_log(uuid, integer)": { p_class_id: EXPECTED.teacherA.classId, p_limit: 1 },
   "teacher_class_access_summary(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_close_worksheet_instance(uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000" },
@@ -194,6 +198,13 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_student_id: EXPECTED.teacherA.studentId,
     p_limit: 1
   },
+  "teacher_read_maths_evidence_page(uuid, uuid, integer, timestamp with time zone, uuid)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_limit: 1,
+    p_before_occurred_at: null,
+    p_before_id: null
+  },
   "teacher_read_worksheet_history(uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000" },
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)": {
     p_class_id: EXPECTED.teacherA.classId,
@@ -226,6 +237,13 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_evidence: { schemaVersion: 1, observed: "anonymous probe" },
     p_occurred_at: "2026-08-12T00:00:00.000Z",
     p_content_version: "maths-audit-v1"
+  },
+  "teacher_report_maths_media_issue(text, text)": {
+    p_audio_id: "anonymous-probe",
+    p_reason: "playback_or_content_issue"
+  },
+  "teacher_read_maths_sync_health(uuid)": {
+    p_class_id: EXPECTED.teacherA.classId
   },
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000", p_client_event_id: "anonymous-access-probe", p_marks: [], p_note: "", p_supersedes_batch_id: null },
   "teacher_regenerate_class_code(uuid)": { p_class_id: EXPECTED.teacherA.classId },

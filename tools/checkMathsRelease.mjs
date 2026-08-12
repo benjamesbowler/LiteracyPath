@@ -23,4 +23,4 @@ if (failures.length) {
   console.error("Maths release gate failed:\n" + failures.map(message => `- ${message}`).join("\n"));
   process.exit(1);
 }
-console.log("Maths release content gate passed: 8 skills, 40 lessons, 160 checks, 4 stories, 4 games and 3 chants.");
+console.log("Maths release content gate passed: 8 skills, 40 lessons, 160 checks, 2 released stories (4 catalogued), 4 games and 3 chants.");

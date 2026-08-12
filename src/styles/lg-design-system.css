@@ -408,7 +408,9 @@ body {
   width: 100%;
   white-space: nowrap;
   position: relative;
-  transition: background 0.12s, color 0.12s;
+  /* Route selection must update immediately; a background transition briefly
+     left the previous section looking selected after navigation. */
+  transition: color 0.12s;
   min-height: 44px !important;
 }
 

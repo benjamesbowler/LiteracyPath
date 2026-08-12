@@ -213,10 +213,22 @@ function isPermanentEvidenceRejection(error) {
   return [
     "class_not_found",
     "client_event_id_conflict",
+    "invalid_assignment_reference",
+    "invalid_content_reference",
     "invalid_payload",
     "learner_archived",
     "learner_not_in_owned_class"
   ].includes(String(error?.code || ""));
+}
+
+export async function readTeacherMathsSyncHealth({ client, classId } = {}) {
+  if (!client?.call) throw new Error("The Maths evidence service is unavailable.");
+  const { data, error } = await client.call("teacher_read_maths_sync_health", {
+    p_class_id: classId
+  });
+  if (error) throw error;
+  if (!data?.ok) throw new Error(data?.error || "Maths sync health could not be read.");
+  return Array.isArray(data.learners) ? data.learners : [];
 }
 
 async function recordEntry({ client, entry, token = "", storage }) {
@@ -413,10 +425,18 @@ export async function clearAndVerifyMathsEvidenceForStudent({ studentId, storage
     if (record.entry.studentId !== scopedStudentId) continue;
     if (removeEntry(target, record.key)) removed += 1;
   }
+  const lessonPrefix = `lp-maths-lesson:v1:${scopedStudentId}:`;
+  for (let index = target.length - 1; index >= 0; index -= 1) {
+    const key = target.key(index);
+    if (!String(key || "").startsWith(lessonPrefix)) continue;
+    if (removeEntry(target, key)) removed += 1;
+  }
   const residuals = readAllQueueRecords(target)
     .filter(record => record.entry.studentId === scopedStudentId)
     .map(record => record.key);
-  if (residuals.length) {
+  const lessonResiduals = Array.from({ length: target.length }, (_, index) => target.key(index))
+    .filter(key => String(key || "").startsWith(lessonPrefix));
+  if (residuals.length || lessonResiduals.length) {
     const error = new Error("Queued Maths evidence remains after learner cleanup.");
     error.code = "LP_LOCAL_CLEANUP_INCOMPLETE";
     throw error;
@@ -428,15 +448,30 @@ export async function readTeacherMathsEvidence({
   client,
   classId,
   studentId = null,
-  limit = 500
+  limit = 5000
 } = {}) {
   if (!client?.call) throw new Error("The Maths evidence service is unavailable.");
-  const { data, error } = await client.call("teacher_read_maths_evidence", {
-    p_class_id: classId,
-    p_student_id: studentId,
-    p_limit: limit
-  });
-  if (error) throw error;
-  if (!data?.ok) throw new Error(data?.error || "Maths evidence could not be read.");
-  return Array.isArray(data.events) ? data.events : [];
+  const requestedLimit = Math.max(1, Math.min(20_000, Number(limit) || 5000));
+  const events = [];
+  let beforeOccurredAt = null;
+  let beforeId = null;
+  while (events.length < requestedLimit) {
+    const pageSize = Math.min(500, requestedLimit - events.length);
+    const { data, error } = await client.call("teacher_read_maths_evidence_page", {
+      p_class_id: classId,
+      p_student_id: studentId,
+      p_limit: pageSize,
+      p_before_occurred_at: beforeOccurredAt,
+      p_before_id: beforeId
+    });
+    if (error) throw error;
+    if (!data?.ok) throw new Error(data?.error || "Maths evidence could not be read.");
+    const rows = Array.isArray(data.events) ? data.events : [];
+    events.push(...rows);
+    if (!data.hasMore || !rows.length) break;
+    beforeOccurredAt = data.nextBeforeOccurredAt || rows.at(-1)?.occurredAt || null;
+    beforeId = data.nextBeforeId || rows.at(-1)?.id || null;
+    if (!beforeOccurredAt || !beforeId) break;
+  }
+  return events;
 }

@@ -4,6 +4,7 @@
   "composition": "Original LiteracyPath classroom chant bed",
   "generatedBy": "LiteracyPath deterministic synthesis",
   "childVoiceOrImage": false,
-  "adultVocalStatus": "not-produced-human-vocal-required",
+  "releaseStatus": "accepted-until-flagged",
+  "format": "owned-instrumental-plus-leda-lyric-guide",
   "guideVoice": "en-US-Chirp3-HD-Leda"
 }

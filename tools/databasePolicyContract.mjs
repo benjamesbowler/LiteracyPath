@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260812111000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260812121000_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
@@ -20,6 +20,8 @@ export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "student_log_activity_v2(text, text, text, text, text, jsonb, timestamp with time zone, integer)",
   "student_login(uuid, text, text, text)",
   "student_report_activity_sync_health(text, text, bigint, bigint, bigint, bigint, bigint, bigint, timestamp with time zone)",
+  "student_report_maths_evidence_sync_health(text, bigint, bigint, bigint)",
+  "student_report_maths_media_issue(text, text, text)",
   "student_record_maths_evidence(text, text, text, text, jsonb, timestamp with time zone, text)",
   "student_list_maths_assignments(text)",
   "student_complete_maths_assignment(text, uuid)",
@@ -46,6 +48,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "is_app_admin(uuid)",
   "set_app_config(text, jsonb)",
   "teacher_assign_instructional_group_follow_up(uuid, text, text, date)",
+  "teacher_archive_maths_assignment(uuid, uuid)",
   "teacher_class_access_log(uuid, integer)",
   "teacher_class_access_summary(uuid)",
   "teacher_close_worksheet_instance(uuid)",
@@ -75,11 +78,14 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_prepare_learner_deletion(uuid, text, text)",
   "teacher_read_lesson_plan(uuid)",
   "teacher_read_maths_evidence(uuid, uuid, integer)",
+  "teacher_read_maths_evidence_page(uuid, uuid, integer, timestamp with time zone, uuid)",
+  "teacher_read_maths_sync_health(uuid)",
   "teacher_read_worksheet_history(uuid)",
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)",
   "teacher_record_intervention_outcome(uuid, text, text)",
   "teacher_record_lesson_delivery(uuid, text, uuid[], text, text, jsonb)",
   "teacher_record_maths_evidence(uuid, uuid, text, text, text, jsonb, timestamp with time zone, text)",
+  "teacher_report_maths_media_issue(text, text)",
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)",
   "teacher_regenerate_class_code(uuid)",
   "teacher_reset_student_progress(uuid, timestamp with time zone)",

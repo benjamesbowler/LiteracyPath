@@ -7,6 +7,7 @@ import {
   flushMathsEvidenceQueue,
   readMathsEvidenceQueue,
   readTeacherMathsEvidence,
+  readTeacherMathsSyncHealth,
   recordStudentMathsEvidence,
   recordTeacherMathsEvidence
 } from "../../src/maths/data/mathsEvidenceStore.js";
@@ -247,7 +248,7 @@ test("a permanent backend rejection is removed instead of poisoning the retry qu
   assert.equal(readMathsEvidenceQueue({ storage }).length, 0);
 });
 
-test("teacher reads use the class-scoped evidence RPC", async () => {
+test("teacher reads use the class-scoped cursor-paginated evidence RPC", async () => {
   const calls = [];
   const events = [{ id: "event-1", skillId: "F-N-COUNT-10" }];
   const client = {
@@ -263,7 +264,25 @@ test("teacher reads use the class-scoped evidence RPC", async () => {
     limit: 25
   }), events);
   assert.deepEqual(calls, [{
-    name: "teacher_read_maths_evidence",
-    args: { p_class_id: "class-a", p_student_id: "student-a", p_limit: 25 }
+    name: "teacher_read_maths_evidence_page",
+    args: { p_class_id: "class-a", p_student_id: "student-a", p_limit: 25, p_before_occurred_at: null, p_before_id: null }
   }]);
+});
+
+test("teacher evidence reads follow cursor pages without duplicating the boundary row", async () => {
+  const pages = [
+    { ok: true, events: [{ id: "event-2", occurredAt: "2026-08-12T02:00:00Z" }], hasMore: true, nextBeforeOccurredAt: "2026-08-12T02:00:00Z", nextBeforeId: "event-2" },
+    { ok: true, events: [{ id: "event-1", occurredAt: "2026-08-12T01:00:00Z" }], hasMore: false }
+  ];
+  const calls = [];
+  const client = { call: async (name, args) => { calls.push({ name, args }); return { data: pages.shift(), error: null }; } };
+  const rows = await readTeacherMathsEvidence({ client, classId: "class-a", limit: 2 });
+  assert.deepEqual(rows.map(row => row.id), ["event-2", "event-1"]);
+  assert.equal(calls[1].args.p_before_id, "event-2");
+  assert.equal(calls[1].args.p_before_occurred_at, "2026-08-12T02:00:00Z");
+});
+
+test("teacher sync health is class scoped and normalised", async () => {
+  const client = { call: async () => ({ data: { ok: true, learners: [{ studentId: "s1", pending: 0, rejected: 0 }] }, error: null }) };
+  assert.deepEqual(await readTeacherMathsSyncHealth({ client, classId: "class-a" }), [{ studentId: "s1", pending: 0, rejected: 0 }]);
 });

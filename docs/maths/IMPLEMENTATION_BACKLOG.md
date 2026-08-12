@@ -59,8 +59,8 @@ Files:
 - update `src/appState/appViews.js`;
 - update `src/components/AppSurface.jsx` route rendering;
 - update the teacher and child navigation components;
-- add `src/maths/teacher/MathsTeacherDashboard.jsx` and
-  `src/maths/learn/MathsHome.jsx` empty-state shells.
+- add the Maths teacher workspace and `src/maths/learn/MathsHome.jsx` subject
+  entry surface.
 
 Acceptance:
 
@@ -171,9 +171,10 @@ action. Disable `Secure` until calibration is explicitly enabled.
 
 ### MATH-106 First content release
 
-Ship Stories 1–4 and Songs 1–3 from the launch pack. Generate exact LEDA audio,
-story images, captions and listening/visual review sheets. Ship Number Trail and
-Frame Foundry with Foundation content.
+Release Stories 1–2 and Songs 1–3 from the pilot launch pack; retain Stories 3–4
+as catalogued drafts until their skill coverage is released. Generate exact LEDA
+audio, story images and captions, with per-clip issue reporting. Ship Number Trail,
+Frame Foundry, Count and Carry, and Quantity Match with Foundation content.
 
 **Phase 1 exit:** a teacher can select a class, teach a number lesson, present it,
 assign practice, administer a valid skills check, see evidence, open a Number Story
@@ -258,7 +259,7 @@ parallel thresholds.
 - full unit, lint and build green;
 - Maths route browser matrix green;
 - all media technical checks green;
-- human visual and listening review complete;
+- visual review complete and Maths audio passes technical QA with exact-clip flagging enabled;
 - teacher workflows exercised against production Supabase;
 - rollback plan tested;
 - support and privacy documentation updated.
@@ -335,7 +336,7 @@ These are planning ranges, not promises:
 | Phase 4 | 4–8 weeks plus pilot calendar time |
 
 Parallel media/content production can shorten elapsed time, but release may not skip
-human visual/listening review or pilot calibration.
+visual review, audio technical QA, exact-clip flagging, or pilot calibration.
 
 ## 13. Definition of done for every ticket
 
@@ -347,7 +348,7 @@ human visual/listening review or pilot calibration.
 - unit and behavioural tests pass;
 - real browser path is exercised;
 - visual state is inspected at required breakpoints;
-- audio text matches authored text and has been listened to when released;
+- audio text matches authored text, passes technical QA and can be flagged by exact clip;
 - report claim matches stored evidence;
 - documentation and live database verifier are updated when contracts change;
 - only scoped files are staged and pushed after verification.

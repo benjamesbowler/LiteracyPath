@@ -48,6 +48,12 @@ window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("story_quests", PREVIEW_SCOPE));
+for (let index = window.localStorage.length - 1; index >= 0; index -= 1) {
+  const key = window.localStorage.key(index);
+  if (String(key || "").startsWith(`lp-maths-lesson:v1:${PREVIEW_SCOPE}:`)) {
+    window.localStorage.removeItem(key);
+  }
+}
 if (PREVIEW_PARAMS.get("unlockWords") === "1") {
   window.localStorage.setItem(
     `lp_phonics_progress_${PREVIEW_SCOPE}`,

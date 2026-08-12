@@ -58,12 +58,8 @@ src/maths/
 │   ├── MathsArcade.jsx
 │   └── games/
 ├── teacher/
-│   ├── MathsTeacherDashboard.jsx
-│   ├── MathsAssessmentHub.jsx
-│   ├── MathsPresentation.jsx
-│   ├── MathsSmallGroupComposer.jsx
-│   ├── MathsWorksheetGenerator.jsx
-│   └── MathsFamilyBridge.jsx
+│   ├── MathsTeacherWorkspace.jsx
+│   └── mathsWorksheetTasks.js
 ├── reports/
 │   ├── mathsReportingModel.js
 │   ├── MathsClassReport.jsx

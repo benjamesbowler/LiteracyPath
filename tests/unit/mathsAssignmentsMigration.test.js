@@ -3,6 +3,7 @@ import fs from "node:fs";
 import test from "node:test";
 
 const sql = fs.readFileSync(new URL("../../supabase/migrations/20260812110000_maths_assignments.sql", import.meta.url), "utf8");
+const integritySql = fs.readFileSync(new URL("../../supabase/migrations/20260812120000_maths_release_integrity.sql", import.meta.url), "utf8");
 
 test("Maths assignments are private and ownership-scoped through RPCs", () => {
   assert.match(sql, /alter table public\.maths_assignments enable row level security/i);
@@ -20,6 +21,14 @@ test("assignment completion is logistics only and carries no mastery claim", () 
   )?.[0] || "";
   assert.match(completionFunction, /completed_at = coalesce\(link\.completed_at, now\(\)\)/i);
   assert.doesNotMatch(completionFunction, /mastery|secure|proficiency/i);
+});
+
+test("release assignment completion requires enough matching cloud evidence", () => {
+  assert.match(integritySql, /create or replace function public\.student_complete_maths_assignment/i);
+  assert.match(integritySql, /count\(distinct event\.evidence->>'itemKey'\)[\s\S]*?>= 6/i);
+  assert.match(integritySql, /count\(distinct event\.evidence->>'roundId'\)[\s\S]*?>= 8/i);
+  assert.match(integritySql, /completion_evidence_required/i);
+  assert.match(integritySql, /maths_valid_assignment_content/i);
 });
 
 test("Maths assignments participate in the verified learner export chain", () => {

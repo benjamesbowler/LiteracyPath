@@ -234,6 +234,7 @@ export function AppSurface({ surface }) {
   // until it does.
   const [soundMapSkillFilter, setSoundMapSkillFilter] = useState("");
   const [lessonComposerRequest, setLessonComposerRequest] = useState(0);
+  const [activeMathsAssignment, setActiveMathsAssignment] = useState(null);
 
   const refreshGuidedReadingReviews = useCallback(async () => {
     setGuidedReadingReviewState({ error: null, rows: [], status: "loading" });
@@ -1436,10 +1437,10 @@ export function AppSurface({ surface }) {
               client={supabase}
               token={studentSession?.token || ""}
               onOpenLiteracy={() => goToSubjectHome(SUBJECT_IDS.LITERACY)}
-              onOpenLearn={() => setAppView(APP_VIEWS.MATHS_LEARN)}
-              onOpenAssessment={() => setAppView(APP_VIEWS.MATHS_ASSESSMENT)}
-              onOpenStories={() => setAppView(APP_VIEWS.MATHS_STORIES)}
-              onOpenArcade={() => setAppView(APP_VIEWS.MATHS_ARCADE)}
+              onOpenLearn={assignment => { setActiveMathsAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_LEARN); }}
+              onOpenAssessment={assignment => { setActiveMathsAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_ASSESSMENT); }}
+              onOpenStories={assignment => { setActiveMathsAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_STORIES); }}
+              onOpenArcade={assignment => { setActiveMathsAssignment(assignment || null); setAppView(APP_VIEWS.MATHS_ARCADE); }}
             />
           </Suspense>
         </PageBoundary>
@@ -1448,7 +1449,7 @@ export function AppSurface({ surface }) {
       {appView === APP_VIEWS.MATHS_LEARN && nameSaved && isStudentMode && (
         <PageBoundary resetKey={`maths-learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Maths lesson…" />}>
-            <MathsLessonPlayer client={supabase} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
+            <MathsLessonPlayer assignment={activeMathsAssignment} client={supabase} onHome={() => { setActiveMathsAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
           </Suspense>
         </PageBoundary>
       )}
@@ -1456,7 +1457,7 @@ export function AppSurface({ surface }) {
       {appView === APP_VIEWS.MATHS_ASSESSMENT && nameSaved && isStudentMode && (
         <PageBoundary resetKey={`maths-assessment-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Maths check…" />}>
-            <MathsAssessmentPlayer client={supabase} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
+            <MathsAssessmentPlayer assignment={activeMathsAssignment} client={supabase} onHome={() => { setActiveMathsAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
           </Suspense>
         </PageBoundary>
       )}
@@ -1464,7 +1465,7 @@ export function AppSurface({ surface }) {
       {appView === APP_VIEWS.MATHS_STORIES && nameSaved && isStudentMode && (
         <PageBoundary resetKey={`maths-stories-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading number stories…" />}>
-            <MathsStoryLibrary onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentName={studentName} />
+            <MathsStoryLibrary assignment={activeMathsAssignment} client={supabase} onHome={() => { setActiveMathsAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
           </Suspense>
         </PageBoundary>
       )}
@@ -1472,7 +1473,7 @@ export function AppSurface({ surface }) {
       {appView === APP_VIEWS.MATHS_ARCADE && nameSaved && isStudentMode && (
         <PageBoundary resetKey={`maths-arcade-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Maths Arcade…" />}>
-            <MathsArcade client={supabase} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
+            <MathsArcade assignment={activeMathsAssignment} client={supabase} onHome={() => { setActiveMathsAssignment(null); setAppView(APP_VIEWS.MATHS_STUDENT_HOME); }} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
           </Suspense>
         </PageBoundary>
       )}

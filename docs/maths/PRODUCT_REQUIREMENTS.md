@@ -101,17 +101,17 @@ choice area. It does not expose every strand at once.
 | Subject navigation | Shared Literacy/Maths switch | Direct links, back/forward and auth remain correct |
 | Curriculum | Full F–2 registry; approved slices released | Stable IDs, standards and prerequisites validated |
 | Teaching | Lesson player and presentation | Concrete→pictorial→abstract connection is explicit |
-| Manipulatives | 12 controlled accessible tools | Tap/keyboard alternative and serialisable state |
-| Assessment | 10 blueprints, untimed, resumable | Media/model valid; unadministered not incorrect |
+| Manipulatives | 5 Foundation Number Sense tools released | Tap/keyboard alternative and serialisable state; remaining tools planned |
+| Assessment | 5 Foundation Number Sense blueprints | 160 formula-generated models, untimed, media/model valid; unadministered not incorrect |
 | Evidence | Immutable, tenant-safe Maths event archive | Offline retry, idempotency and export/delete coverage |
 | Reports | Class and learner next-action reports | Source, count, freshness and representation visible |
 | Planning | Small-group composer | Exact teacher language, materials and exit observation |
 | Print | Maths worksheet generator | A4/Letter, grayscale and answer sheets |
-| Stories | 12 complete Number Stories | Exact text, model interactions, narration and prompts |
-| Songs | 10 original songs | Lyrics, instrumental, adult vocal/guide and captions |
-| Games | 8 integrated arcade games | Learning action is game action; no speed mastery |
+| Stories | 2 released Number Stories; 2 future-strand drafts held | Exact text, model interactions, narration and prompts |
+| Songs | 3 original classroom chants | Lyrics, owned instrumental and LEDA lyric guide |
+| Games | 4 integrated Foundation number games | Learning action is game action; no speed mastery |
 | Family | No-account Family Bridge | Common materials, five minutes, no child media |
-| Media | LEDA instruction/narration pipeline | Fingerprints, technical QA and human listening review |
+| Media | LEDA instruction/narration pipeline | Fingerprints, technical QA, accepted-until-flagged runtime and exact-clip review queue |
 | Privacy | Existing high-privacy child model | No camera, child recording, image upload or public data |
 
 ### P1 — fast follow
@@ -178,7 +178,8 @@ Forbidden:
 - Maths evidence: new immutable subject-specific table; no reuse of Literacy
   `answers` as an untyped catch-all.
 - Stories: read-with-help by default; listening/reading does not affect Maths score.
-- Audio: Leda for spoken content; adult vocalist or owned singing source for final
-  songs; no child recording.
+- Audio: Leda for spoken content; owned instrumentals and Leda lyric guides for the
+  pilot songs; no child recording. Technically valid clips remain available until
+  an exact clip is flagged for review.
 - Mastery: disabled until pilot calibration; reports use evidence states meanwhile.
 - Locale: AUD and metric at launch, with locale contract from day one.

@@ -21,17 +21,19 @@ behaviour.
 ## Implemented Foundation release candidate
 
 - 8 Foundation number-sense skills with 40 seven-stage lesson recipes;
-- 160 authored assessment items across visual interaction types;
+- 160 stable formula-generated assessment models across visual interaction types;
 - countable interactive manipulatives used in lessons and presentations;
-- 4 original Number Stories with generated cover art and exact-text LEDA assets;
+- 2 released original Number Stories, with 2 additional catalogued drafts, generated
+  cover art and exact-text LEDA assets;
 - 4 untimed curriculum games and 3 original chant/song packs;
 - teacher assignment, presentation, small-group, worksheet and reporting tools;
 - immutable Maths evidence plus RPC-only class assignments in Supabase;
 - no child voice, camera, image upload or speed-based mastery claim.
 
-Generated LEDA clips remain excluded from runtime until a human completes the
-listening-review sheet. Formal `Secure` judgements remain disabled until pilot
-calibration supplies sufficient teacher-observation evidence.
+Technically valid LEDA clips and the three owned instrumentals are accepted in
+runtime until a teacher or learner flags the exact clip. A flag enters the RPC-only
+review queue without recording a child. Formal `Secure` judgements remain disabled
+until pilot calibration supplies sufficient teacher-observation evidence.
 
 ## Decision
 
