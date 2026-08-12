@@ -184,27 +184,53 @@ const previewArchivedStudents = Array.from(
     };
   }
 );
-const assessmentHistory = [{
-  attemptId: "pa-audit-1",
-  assessmentType: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
-  skillId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
-  skillName: "EL Phonological & Phonemic Awareness",
-  studentId,
-  studentName: "Aarav",
-  classId,
-  teacherId: "teacher-a",
-  gradePath: "K",
-  benchmarkWindow: "EOY",
-  administrationStatus: "completed",
-  startedAt: "2026-07-23T09:00:00.000Z",
-  completedAt: "2026-07-23T09:10:00.000Z",
-  questionRecords: [{
-    questionId: "pa-one",
-    responseStatus: "correct",
-    isCorrect: true,
-    metadata: { strand: "rhyme" }
-  }]
-}];
+const assessmentHistory = [
+  {
+    attemptId: "pa-audit-1",
+    assessmentType: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+    skillId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+    skillName: "EL Phonological & Phonemic Awareness",
+    studentId,
+    studentName: "Aarav",
+    classId,
+    teacherId: "teacher-a",
+    gradePath: "K",
+    benchmarkWindow: "EOY",
+    administrationStatus: "completed",
+    startedAt: "2026-07-23T09:00:00.000Z",
+    completedAt: "2026-07-23T09:10:00.000Z",
+    questionRecords: [{
+      questionId: "pa-one",
+      responseStatus: "correct",
+      isCorrect: true,
+      metadata: { strand: "rhyme" }
+    }]
+  },
+  {
+    attemptId: "skill-audit-1",
+    assessmentType: "skill_checkpoint",
+    skillId: "initial_sounds",
+    skillName: "Initial Sounds",
+    studentId,
+    studentName: "Aarav",
+    classId,
+    teacherId: "teacher-a",
+    administrationStatus: "completed",
+    startedAt: "2026-08-12T09:00:00.000Z",
+    completedAt: "2026-08-12T09:05:00.000Z",
+    totalQuestions: 1,
+    correctCount: 1,
+    questionRecords: [{
+      questionId: "initial-m-one",
+      itemType: "initial_sound",
+      itemKey: "m",
+      targetSound: "m",
+      responseStatus: "correct",
+      isCorrect: true,
+      timestamp: "2026-08-12T09:02:00.000Z"
+    }]
+  }
+];
 const noop = () => {};
 const asyncNoop = async () => {};
 

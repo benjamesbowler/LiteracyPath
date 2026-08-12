@@ -164,6 +164,14 @@ Every new or substantially changed game records:
 
 If a field is unknown, mark it unknown. Do not convert an untested assumption into “pass.”
 
+### Vertical-slice brief contract
+
+Before a new flagship game—or a substantial change to one—moves beyond its first complete playable slice, write one machine-readable brief using `arcadeVerticalSliceBriefs.js`. The brief turns an ambitious creative prompt into an inspectable product contract. It must name the player promise, learning action, complete moment-to-moment loop, prompt and replay script, control parity, curriculum-first difficulty ladder, game-feel and forgiveness decisions, world/route rules, pause/checkpoint/completion behaviour, accessibility fallbacks, low-power behaviour, privacy footprint and the exact automated/browser/hardware evidence.
+
+`validateGameVerticalSliceBrief()` is the structural gate. It rejects missing fields, touch targets below 56 CSS pixels, incomplete pointer-release handling, movement counted as evidence, pressure-led difficulty, undeclared identifiers/services and physical-device claims that are not explicitly `pass`, `fail` or `unknown`. Passing it means the brief is complete enough to review; it does not replace runtime, screenshot, browser or child-play evidence.
+
+Letter Leap 2.0 is the reference brief. It records the real 0.12-second coyote window, 0.14-second jump buffer, catch-up queue, production-audio replay, checkpoint path and still-unknown physical-iPad result. `premiumGameStandard.test.js` checks the brief, named evidence files and implementation anchors so the plan cannot silently drift away from the playable slice.
+
 ### Rocket Run reference record
 
 - **Age/reading band:** early readers practising taught initial sounds.

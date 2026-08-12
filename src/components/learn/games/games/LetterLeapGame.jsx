@@ -15,7 +15,7 @@ import {
 } from "../../../../utils/curriculumLadder.js";
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { speak } from "../../../../utils/learnGamesAudio.js";
+import { hasRecordedSpeech, speak, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
 
 // Letter Leap — a real side-scrolling platformer (ported from the approved
@@ -89,13 +89,15 @@ function startGame(mount, opts) {
       '<div data-ll="word" style="display:flex;gap:7px"></div></div>' +
     '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:900;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:7px 14px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.26)">Coins x0</div>' +
     '<div data-ll="hearts" style="position:absolute;top:14px;right:16px;font-size:1.5rem;letter-spacing:2px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))">❤❤❤</div>' +
-    '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8ff6ff;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:5px 12px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)">Meadow</div>';
+    '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8ff6ff;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:5px 12px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)">Meadow</div>' +
+    '<button data-ll="hear" type="button" aria-label="Hear the word" style="display:none;position:absolute;top:86px;right:16px;width:56px;height:56px;pointer-events:auto;border:1px solid rgba(126,232,255,.5);background:rgba(7,12,32,.82);color:#fff;font-size:1.25rem;font-weight:900;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.3)">♪</button>';
   mount.appendChild(hud);
   const elWord = hud.querySelector('[data-ll="word"]');
   const elLab = hud.querySelector('[data-ll="lab"]');
   const elHearts = hud.querySelector('[data-ll="hearts"]');
   const elWorld = hud.querySelector('[data-ll="world"]');
   const elCoins = hud.querySelector('[data-ll="coins"]');
+  const elHear = hud.querySelector('[data-ll="hear"]');
   function updateCoins() { if (elCoins) elCoins.textContent = "Coins x" + coins + (starTokens ? "  Stars x" + starTokens : ""); }
 
   const padWrap = document.createElement("div");
@@ -215,6 +217,23 @@ function startGame(mount, opts) {
 
   function addScore(n) { score += n; opts.onScoreUpdate && opts.onScoreUpdate(score); }
   function groundY() { return H - GROUND_H; }
+
+  function canHearTarget() {
+    return Boolean(word && opts.getSound?.() && hasRecordedSpeech(word));
+  }
+  function syncHearControl() {
+    if (!elHear) return;
+    const available = hasRecordedSpeech(word || "");
+    const enabled = available && Boolean(opts.getSound?.());
+    elHear.dataset.audioAvailable = available ? "true" : "false";
+    elHear.disabled = !enabled;
+    elHear.style.display = enabled ? "grid" : "none";
+    elHear.setAttribute("aria-label", legs ? "Hear the current sentence word" : "Hear the word");
+  }
+  function speakTarget() {
+    if (canHearTarget()) void speakWord(word.toLowerCase());
+  }
+  elHear?.addEventListener("click", speakTarget);
 
   function shuffleArr(a) { for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
@@ -370,6 +389,7 @@ function startGame(mount, opts) {
     elLab.textContent = elLab.dataset.sentence === "1"
       ? (elLab.dataset.goal || "Build the sentence")
       : "Word " + (wIx + 1) + " of " + words.length + " · spell it";
+    syncHearControl();
   }
   function updateHearts() { elHearts.textContent = "❤".repeat(Math.max(0, hearts)) + "♡".repeat(Math.max(0, 3 - hearts)); }
 
@@ -982,6 +1002,7 @@ function startGame(mount, opts) {
       el.removeEventListener("pointercancel", up);
       el.removeEventListener("lostpointercapture", up);
     });
+    elHear?.removeEventListener("click", speakTarget);
     ro.disconnect();
     [cv, hud, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
   }
@@ -991,7 +1012,14 @@ function startGame(mount, opts) {
 export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
-  useEffect(() => { soundRef.current = isSoundEnabled; }, [isSoundEnabled]);
+  useEffect(() => {
+    soundRef.current = isSoundEnabled;
+    const hear = mountRef.current?.querySelector?.('[data-ll="hear"]');
+    if (!hear) return;
+    const enabled = isSoundEnabled && hear.dataset.audioAvailable === "true";
+    hear.disabled = !enabled;
+    hear.style.display = enabled ? "grid" : "none";
+  }, [isSoundEnabled]);
   useEffect(() => {
     if (!mountRef.current) return undefined;
     const api = startGame(mountRef.current, {

@@ -1098,6 +1098,13 @@ test("Whole Child uses strength precedence, reports direct conflicts, and treats
   assert.equal(mixed.byDomain[0].label, "Phonics");
   assert.equal(mixed.byDomain[0].items.length, 2);
   assert.equal(mixed.provenance.conflictsAreNotAveraged, true);
+  assert.equal(mixed.provenance.evidenceHealthIsDiagnosticOnly, true);
+  assert.equal(mixed.evidenceHealth.state, "review");
+  assert.equal(
+    mixed.evidenceHealth.signals.some(signal => signal.id === "source_conflict"),
+    true
+  );
+  assert.equal(mixed.evidenceHealth.doesNotChangeLearningStatus, true);
 });
 
 test("Whole Child does not keep an obsolete direct conflict forever", () => {

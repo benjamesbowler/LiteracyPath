@@ -43,6 +43,7 @@ import {
   computeSkillStatus,
   SKILL_STATUS_IDS
 } from "../policy/skillStatusPolicy.js";
+import { buildEvidenceHealth } from "./evidenceHealth.js";
 
 export const STUDENT_REPORTING_WORKSPACE_SCHEMA_VERSION = 1;
 
@@ -2902,6 +2903,7 @@ export function buildWholeChildKnowledgeModel({
   evidence = [],
   expectedConcepts = [],
   descriptiveAssessments = [],
+  sourceReads = [],
   conflictWindowDays = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays,
   now = new Date()
 } = {}) {
@@ -2952,6 +2954,12 @@ export function buildWholeChildKnowledgeModel({
   const nextSteps = wholeChildPriorityRows(concepts);
   const latestKnowledgeAt = latestDate(concepts.map(row => row.latestAt));
   const latestDescriptiveAt = latestDate(checkedDescriptiveAssessments.map(row => row.latestAt));
+  const evidenceHealth = buildEvidenceHealth({
+    concepts,
+    evidence: filteredEvidence,
+    sourceReads,
+    now
+  });
 
   return {
     reportKey: "whole_child",
@@ -2982,6 +2990,7 @@ export function buildWholeChildKnowledgeModel({
       || a.domainLabel.localeCompare(b.domainLabel)
     )),
     nextSteps,
+    evidenceHealth,
     descriptiveAssessments: checkedDescriptiveAssessments,
     concepts,
     evidence: filteredEvidence,
@@ -2992,6 +3001,7 @@ export function buildWholeChildKnowledgeModel({
       practiceCannotCreateSecure: true,
       missingMeansNotChecked: true,
       conflictsAreNotAveraged: true,
+      evidenceHealthIsDiagnosticOnly: true,
       descriptiveAssessmentsDoNotAffectMasteryCounts: true,
       priorityOrder: "Needs support, then Results differ, then Developing; newer teacher-led assessments first."
     }
@@ -3108,6 +3118,7 @@ export function buildStudentReportingWorkspaceModel({
       ...asArray(otherLearning.expectedConcepts)
     ],
     descriptiveAssessments: elAssessments.assessments.filter(row => row.descriptive),
+    sourceReads: evidenceRead.sourceReads,
     conflictWindowDays: wholeChildConflictWindowDays,
     now
   });

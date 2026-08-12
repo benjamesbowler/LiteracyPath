@@ -1,14 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
 
 import {
   hasCompletePremiumSetpieceSet,
   isPrimaryActionKey,
   laneDirectionForKey,
   premiumSetpieceBudget,
+  validateGameVerticalSliceBrief,
   verticalDirectionForKey
 } from "../../src/components/learn/games/shared/premiumGameStandard.js";
 import { ARCADE_PREMIUM_PROFILES } from "../../src/components/learn/games/shared/arcadePremiumProfiles.js";
+import { ARCADE_VERTICAL_SLICE_BRIEFS } from "../../src/components/learn/games/shared/arcadeVerticalSliceBriefs.js";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 
 test("premium 3D setpiece budgets scale up without burdening the low tier", () => {
@@ -65,4 +68,43 @@ test("every live arcade game has an individual premium mission and recovery prof
     assert.ok(profile.rewardLabel, `${game.id} needs a reward label`);
   }
   assert.equal(new Set(arcadeGames.map(game => ARCADE_PREMIUM_PROFILES[game.id].mission)).size, arcadeGames.length);
+});
+
+test("the reference vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
+  const brief = ARCADE_VERTICAL_SLICE_BRIEFS["letter-leap"];
+  assert.ok(brief);
+  assert.deepEqual(validateGameVerticalSliceBrief(brief), []);
+  assert.equal(brief.version, ARCADE_PREMIUM_PROFILES[brief.gameId].version);
+  for (const file of [...brief.validation.unit, ...brief.validation.browser]) {
+    assert.equal(existsSync(file), true, `${file} is named by the brief but does not exist`);
+  }
+  assert.equal(brief.validation.physicalDevice.status, "unknown");
+
+  const implementation = readFileSync("src/components/learn/games/games/LetterLeapGame.jsx", "utf8");
+  assert.match(implementation, /data-ll="hear"/);
+  assert.match(implementation, /hasRecordedSpeech\(word/);
+  for (const releaseEvent of brief.controls.pointerReleaseEvents) {
+    assert.match(implementation, new RegExp(releaseEvent));
+  }
+  for (const windowSeconds of ["0.12", "0.14"]) {
+    assert.match(implementation, new RegExp(windowSeconds.replace(".", "\\.")));
+  }
+});
+
+test("the vertical-slice gate rejects unsafe controls, evidence and privacy claims", () => {
+  const unsafe = structuredClone(ARCADE_VERTICAL_SLICE_BRIEFS["letter-leap"]);
+  unsafe.controls.minimumTargetCssPixels = 44;
+  unsafe.controls.pointerReleaseEvents = ["pointerup"];
+  unsafe.learning.movementCreatesEvidence = true;
+  unsafe.privacy.network = [];
+  unsafe.privacy.newExternalService = true;
+  unsafe.validation.physicalDevice.status = "claimed";
+
+  const issues = validateGameVerticalSliceBrief(unsafe);
+  assert.ok(issues.includes("controls.minimumTargetCssPixels must be at least 56"));
+  assert.ok(issues.includes("controls.pointerReleaseEvents must include pointercancel"));
+  assert.ok(issues.includes("learning.movementCreatesEvidence must be false"));
+  assert.ok(issues.includes("privacy.network needs at least one named item"));
+  assert.ok(issues.includes("privacy.newExternalService must be false or receive a separate privacy review"));
+  assert.ok(issues.includes("validation.physicalDevice.status must be pass, fail or unknown"));
 });

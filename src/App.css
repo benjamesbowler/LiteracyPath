@@ -7473,6 +7473,101 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   gap: 20px;
 }
 
+.simple-report-evidence-health {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--lp-color-border);
+  border-left: 5px solid var(--lp-color-success, #2f7d5b);
+  border-radius: var(--lp-radius-lg);
+  background: var(--lp-color-surface);
+}
+
+.simple-report-evidence-health.is-review {
+  border-left-color: var(--lp-color-danger, #b5473f);
+}
+
+.simple-report-evidence-health.is-collect {
+  border-left-color: var(--lp-color-warning, #ad6b17);
+}
+
+.simple-report-evidence-health > header {
+  display: grid;
+  grid-template-columns: minmax(200px, .7fr) minmax(0, 1.3fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.simple-report-evidence-health header > div {
+  display: grid;
+  gap: 3px;
+}
+
+.simple-report-evidence-health header span,
+.simple-report-evidence-health header h2,
+.simple-report-evidence-health header p,
+.simple-report-evidence-health li p {
+  margin: 0;
+}
+
+.simple-report-evidence-health header span {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.simple-report-evidence-health header h2 {
+  color: var(--lp-color-text-strong);
+  font-size: 19px;
+}
+
+.simple-report-evidence-health header p,
+.simple-report-evidence-health li p,
+.simple-report-evidence-health li small {
+  color: var(--lp-color-text-muted);
+  line-height: 1.5;
+}
+
+.simple-report-evidence-health details {
+  border-top: 1px solid var(--lp-color-border);
+}
+
+.simple-report-evidence-health summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--lp-color-primary-strong);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.simple-report-evidence-health ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.simple-report-evidence-health li {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: var(--lp-radius-md);
+  background: var(--lp-color-surface-subtle);
+}
+
+.simple-report-evidence-health li > span {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.simple-report-evidence-health-rule {
+  color: var(--lp-color-text-muted);
+}
+
 .simple-report-summary {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -8418,6 +8513,11 @@ body:has(.kg-viewport) .student-home-float { display: none; }
 
   .simple-report-summary {
     grid-template-columns: 1fr;
+  }
+
+  .simple-report-evidence-health > header {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .teacher-report-picker-controls,

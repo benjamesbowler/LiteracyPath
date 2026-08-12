@@ -148,6 +148,49 @@ function SimpleResultCollection({
 
 const OVERVIEW_PREVIEW_SIZE = 5;
 
+function EvidenceHealthReview({ health = {} }) {
+  const signals = Array.isArray(health.signals) ? health.signals : [];
+  const state = ["review", "collect", "clear"].includes(health.state)
+    ? health.state
+    : "clear";
+  return (
+    <section
+      className={`simple-report-evidence-health is-${state}`}
+      aria-label="Evidence review"
+    >
+      <header>
+        <div>
+          <span>Evidence review</span>
+          <h2>{health.label || "Evidence checks clear"}</h2>
+        </div>
+        <p>{health.summary || "No evidence-quality warning was found in the results shown."}</p>
+      </header>
+      {signals.length > 0 && (
+        <details>
+          <summary>
+            Why this needs attention ({signals.length} {signals.length === 1 ? "reason" : "reasons"})
+          </summary>
+          <ul>
+            {signals.map(signal => (
+              <li key={signal.id}>
+                <strong>{signal.title}</strong>
+                <p>{signal.detail}</p>
+                <small><strong>Next:</strong> {signal.action}</small>
+                {signal.labels?.length > 0 && (
+                  <span>{signal.labels.join(" · ")}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+      <small className="simple-report-evidence-health-rule">
+        This review never changes a learning status. Missing results are not a low result.
+      </small>
+    </section>
+  );
+}
+
 // Every group shows the same coloured tile the Skills view uses, so a teacher
 // sees the score, the status and the "why not secure" line without leaving the
 // overview. Only the first few are drawn until asked, which is what kept the
@@ -249,6 +292,9 @@ export function SimpleOverviewReportView({
   }
   return (
     <div className="simple-report-stack">
+      {workspace.wholeChild?.evidenceHealth && (
+        <EvidenceHealthReview health={workspace.wholeChild.evidenceHealth} />
+      )}
       <section className="simple-report-summary" aria-label="Learning overview">
         {groups.map(group => (
           <article className={group.id} key={group.id}>
