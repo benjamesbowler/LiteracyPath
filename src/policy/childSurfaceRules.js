@@ -1,6 +1,6 @@
 import { APP_VIEWS } from "../appState/appViews.js";
 
-export const CHILD_SURFACE_RULES_VERSION = "2026.07.24";
+export const CHILD_SURFACE_RULES_VERSION = "2026.08.12";
 
 export const CHILD_SURFACE_REQUIRED_REGIONS = Object.freeze([
   "title",
@@ -20,6 +20,11 @@ export const CHILD_SURFACE_ROUTES = Object.freeze([
     id: "student-home",
     label: "Student home",
     appView: APP_VIEWS.STUDENT_HOME
+  },
+  {
+    id: "maths-home",
+    label: "Maths home",
+    appView: APP_VIEWS.MATHS_STUDENT_HOME
   },
   {
     id: "phonics",

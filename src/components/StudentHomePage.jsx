@@ -76,6 +76,8 @@ import {
 } from "../policy/studentRailPolicy.js";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import ChildHomeMusicControl from "./ChildHomeMusicControl.jsx";
+import { SubjectSwitch } from "./SubjectSwitch.jsx";
+import { SUBJECT_IDS } from "../subjects/subjectRegistry.js";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -324,6 +326,7 @@ export function StudentHomePage({
   approvedBookIds,
   taughtTargetKeys = [],
   onOpenRewards,
+  onOpenMaths,
   onLogout,
   logoutLabel = "Sign out",
   logoutAriaLabel = "Log out"
@@ -713,7 +716,20 @@ export function StudentHomePage({
       onNavigate={goToTab}
       onHome={() => setAccountOpen(false)}
       onGrownUps={() => setAccountOpen(open => !open)}
-      headerActions={<ChildHomeMusicControl key={progressScopeKey} scopeKey={progressScopeKey} />}
+      headerActions={(
+        <>
+          {onOpenMaths && (
+            <SubjectSwitch
+              activeSubject={SUBJECT_IDS.LITERACY}
+              onSelectSubject={subjectId => {
+                if (subjectId === SUBJECT_IDS.MATHS) onOpenMaths();
+              }}
+              variant="child"
+            />
+          )}
+          <ChildHomeMusicControl key={progressScopeKey} scopeKey={progressScopeKey} />
+        </>
+      )}
     >
       <div
         className="kg-screen kg-screen--home kg-home"

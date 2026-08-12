@@ -152,7 +152,10 @@ export default function StudentGlassShell({
   onNavigate,
   onHome,
   onGrownUps,
+  showGrownUps = true,
   headerActions = null,
+  tabs = STUDENT_TAB_BAR,
+  showWallet = true,
   contentScrolls = false,
   children
 }) {
@@ -197,7 +200,10 @@ export default function StudentGlassShell({
   void profileRevision;
   const companion = getCompanion(scopeKey);
   const wallet = readWallet(scopeKey);
-  const activeTab = selectActiveStudentTab(active);
+  const navigationTabs = Array.isArray(tabs) ? tabs : STUDENT_TAB_BAR;
+  const activeTab = navigationTabs === STUDENT_TAB_BAR
+    ? selectActiveStudentTab(active)
+    : active;
   const name = studentName || "Reader";
   const goTo = tabId => {
     if (tabId === "home" && onHome) return onHome();
@@ -237,36 +243,42 @@ export default function StudentGlassShell({
 
           <span className="kg-spacer" />
 
-          <Currency
-            kind="stars"
-            ok={wallet.ok}
-            value={wallet.stars}
-            caption="stars"
-            label={wallet.ok
-              ? `${wallet.stars} stars you have won.`
-              : "Your stars are still loading."}
-          />
-          <Currency
-            kind="coins"
-            ok={wallet.ok}
-            value={wallet.coins}
-            caption="to spend"
-            label={wallet.ok
-              ? `${wallet.coins} coins to spend. Open your Hollow.`
-              : "Your coins are still loading. Open your Hollow."}
-            onClick={() => goTo("hollow")}
-          />
+          {showWallet && (
+            <>
+              <Currency
+                kind="stars"
+                ok={wallet.ok}
+                value={wallet.stars}
+                caption="stars"
+                label={wallet.ok
+                  ? `${wallet.stars} stars you have won.`
+                  : "Your stars are still loading."}
+              />
+              <Currency
+                kind="coins"
+                ok={wallet.ok}
+                value={wallet.coins}
+                caption="to spend"
+                label={wallet.ok
+                  ? `${wallet.coins} coins to spend. Open your Hollow.`
+                  : "Your coins are still loading. Open your Hollow."}
+                onClick={() => goTo("hollow")}
+              />
+            </>
+          )}
 
           {headerActions}
 
-          <button
-            type="button"
-            className="kg-iconbutton"
-            onClick={onGrownUps}
-            aria-label="Grown-ups"
-          >
-            <GlassIcon name="person" />
-          </button>
+          {showGrownUps && (
+            <button
+              type="button"
+              className="kg-iconbutton"
+              onClick={onGrownUps}
+              aria-label="Grown-ups"
+            >
+              <GlassIcon name="person" />
+            </button>
+          )}
         </header>
 
         {/* children are rendered as DIRECT children of .kg-main on purpose:
@@ -277,12 +289,13 @@ export default function StudentGlassShell({
           {children}
         </main>
 
-        <nav
-          className="kg-glass-chrome kg-tabbar"
-          aria-label="Where to go"
-          data-active-tab={activeTab}
-        >
-          {STUDENT_TAB_BAR.map(tab => {
+        {navigationTabs.length > 0 && (
+          <nav
+            className="kg-glass-chrome kg-tabbar"
+            aria-label="Where to go"
+            data-active-tab={activeTab}
+          >
+          {navigationTabs.map(tab => {
             const on = tab.id === activeTab;
             return (
               <button
@@ -298,7 +311,8 @@ export default function StudentGlassShell({
               </button>
             );
           })}
-        </nav>
+          </nav>
+        )}
       </div>
     </div>
   );

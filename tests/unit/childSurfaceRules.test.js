@@ -14,6 +14,7 @@ test("the child-surface registry names every signed-in route plus sign in and Ar
   assert.deepEqual(ids, [
     "student-login",
     "student-home",
+    "maths-home",
     "phonics",
     "arcade",
     "adventure-map",

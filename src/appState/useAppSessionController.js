@@ -66,6 +66,10 @@ import {
   isAdminRoutePath,
   withoutAdminQaHistoryState
 } from "./adminQaNavigation.js";
+import {
+  parseSubjectHomeHash,
+  resolveSubjectHomeView
+} from "../subjects/subjectRegistry.js";
 
 /**
  * Signup input limits, mirrored from the database so a bad value fails on the
@@ -223,7 +227,13 @@ export function useAppSessionController(context) {
     setStudentSessionName(session.studentName || "Reader");
     setSelectedClassId(session.classId || null);
     setNameSaved(true);
-    setAppView(APP_VIEWS.STUDENT_HOME);
+    setAppView(resolveSubjectHomeView({
+      audience: "student",
+      explicitHash: window.location.hash,
+      assignedSubject: session.assignedSubject,
+      recommendedSubject: session.recommendedSubject,
+      preferredSubject: session.preferredSubject
+    }));
     setMessage("");
     try {
       configureProgressSync({ ...session, mode: "student" });
@@ -381,6 +391,19 @@ export function useAppSessionController(context) {
     }
     return undefined;
   }, [sessionMode, appView, setAppView]);
+
+  const restoreStudentSubjectRouteFromHistory = useEffectEvent(() => {
+    const route = parseSubjectHomeHash(window.location.hash);
+    if (route?.audience !== "student" || !isStudentAllowedView(route.appView)) return;
+    setAppView(route.appView);
+  });
+
+  useEffect(() => {
+    if (sessionMode !== "student" || !studentSession?.token) return undefined;
+    const handleHashChange = () => restoreStudentSubjectRouteFromHistory();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [sessionMode, studentSession?.token]);
 
   useEffect(() => {
     function handlePreviewWriteBlocked(event) {

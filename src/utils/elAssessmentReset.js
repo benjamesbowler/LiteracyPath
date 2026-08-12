@@ -14,6 +14,10 @@ import {
   clearAndVerifyInsertQueueForStudent,
   readInsertQueue
 } from "./insertQueue.js";
+import {
+  clearAndVerifyMathsEvidenceForStudent,
+  readMathsEvidenceQueue
+} from "../maths/data/mathsEvidenceStore.js";
 
 const ASSESSMENT_HISTORY_PREFIX = "lpAssessmentHistory:v1:";
 const EL_ASSESSMENT_REPORT_PREFIX = "lpElAssessmentReports:v1:";
@@ -31,6 +35,7 @@ export const LEARNER_EVIDENCE_CLEANUP_STORES = Object.freeze([
   "el_benchmark_drafts",
   "guided_reading_assessment",
   "manual_assessment_drafts",
+  "maths_evidence_queue",
   "student_session",
   "teacher_profile"
 ]);
@@ -246,6 +251,11 @@ export async function clearLocalElAssessmentDataForStudent({
   let guidedReadingAssessmentsDeleted = 0;
   let manualAssessmentDraftsDeleted = 0;
 
+  const mathsEvidenceCleanup = await clearAndVerifyMathsEvidenceForStudent({
+    studentId,
+    storage
+  });
+
   for (const candidateTeacherId of teacherIds) {
     await blockAndWaitForElAssessmentReportOperations({
       teacherId: candidateTeacherId,
@@ -363,6 +373,12 @@ export async function clearLocalElAssessmentDataForStudent({
     }
   }
 
+  if (readMathsEvidenceQueue({ storage }).some(record => (
+    String(record.entry?.studentId || "") === String(studentId)
+  ))) {
+    throw new Error(`Could not clear queued Maths evidence for student ${studentId}.`);
+  }
+
   const rawSavedSession = storage.getItem(STUDENT_SESSION_STORAGE_KEY);
   if (rawSavedSession) {
     let savedSession = null;
@@ -400,6 +416,7 @@ export async function clearLocalElAssessmentDataForStudent({
     malformedProfilesRemoved,
     guidedReadingAssessmentsDeleted,
     manualAssessmentDraftsDeleted,
+    mathsEvidenceWritesDeleted: mathsEvidenceCleanup.removed,
     storageAvailable: true,
     residualCount: 0,
     storesChecked: [...LEARNER_EVIDENCE_CLEANUP_STORES]

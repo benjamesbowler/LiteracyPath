@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import logomarkUrl from "../assets/logomark.png";
 import { APP_VIEWS } from "../appState/appViews.js";
+import { SubjectSwitch } from "./SubjectSwitch.jsx";
+import { SUBJECT_IDS, subjectForAppView } from "../subjects/subjectRegistry.js";
 
 const STORAGE_KEY = "lg_sidebar_collapsed";
 
@@ -137,6 +139,15 @@ const TEACHER_INTENT_NAV_ITEMS = [
   },
 ];
 
+const MATHS_TEACHER_NAV_ITEMS = [
+  {
+    id: "maths-home",
+    label: "Maths overview",
+    icon: "dashboard",
+    views: [APP_VIEWS.MATHS_TEACHER_DASHBOARD]
+  }
+];
+
 export function Sidebar({
   appView,
   nameSaved = true,
@@ -149,6 +160,8 @@ export function Sidebar({
   goToTeacherReports,
   goToTeacherResources,
   goToTeacherSettings,
+  goToLiteracyHome,
+  goToMathsHome,
   logOutTeacher,
   isAdmin,
   openAdminDashboard,
@@ -166,6 +179,10 @@ export function Sidebar({
     collapsed
     || (compactViewport && !mobileExpanded)
   );
+  const activeSubject = subjectForAppView(appView);
+  const navigationItems = activeSubject === SUBJECT_IDS.MATHS
+    ? MATHS_TEACHER_NAV_ITEMS
+    : TEACHER_INTENT_NAV_ITEMS;
 
   useEffect(() => {
     try {
@@ -210,6 +227,7 @@ export function Sidebar({
       case "reports":     return goToTeacherReports?.();
       case "resources":   return goToTeacherResources?.();
       case "settings":    return goToTeacherSettings?.();
+      case "maths-home":  return goToMathsHome?.();
       case "admin":       return openAdminDashboard?.();
       default:            return null;
     }
@@ -237,7 +255,7 @@ export function Sidebar({
             <img src={logomarkUrl} alt="" width="16" height="16" />
           </div>
           <span className="lg-sb-name" aria-hidden={railCollapsed}>
-            Literacy Guide
+            {activeSubject === SUBJECT_IDS.MATHS ? "Literacy Path" : "Literacy Guide"}
           </span>
         </div>
         <button
@@ -250,6 +268,16 @@ export function Sidebar({
         </button>
       </div>
 
+      <SubjectSwitch
+        activeSubject={activeSubject}
+        onSelectSubject={subjectId => {
+          if (subjectId === SUBJECT_IDS.MATHS) goToMathsHome?.();
+          else goToLiteracyHome?.();
+          if (compactViewport) setMobileExpanded(false);
+        }}
+        variant="teacher"
+      />
+
       {/* ── Class / context label ── */}
       <div className="lg-sb-class" aria-hidden={railCollapsed}>
         {className || (studentName ? `Student: ${studentName}` : "No class selected")}
@@ -258,7 +286,7 @@ export function Sidebar({
       {/* ── Nav items ── */}
       <nav className="lg-sb-nav" aria-label="App sections">
         <div data-testid="teacher-primary-nav" role="group" aria-label="Teacher primary">
-          {TEACHER_INTENT_NAV_ITEMS.map(item => (
+          {navigationItems.map(item => (
             <div key={item.id} className="lg-sb-intent">
               <button
                 className={`lg-sb-item${isActive(item) ? " active" : ""}`}

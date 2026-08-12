@@ -27,6 +27,18 @@ export const APP_VIEWS = {
   TEACHER_SETTINGS: "teacherSettings",
   WORKSHEETS: "worksheets",
   PRESENT: "present",
+  MATHS_STUDENT_HOME: "mathsStudentHome",
+  MATHS_LEARN: "mathsLearn",
+  MATHS_STORIES: "mathsStories",
+  MATHS_ARCADE: "mathsArcade",
+  MATHS_ASSESSMENT: "mathsAssessment",
+  MATHS_TEACHER_DASHBOARD: "mathsTeacherDashboard",
+  MATHS_TEACHER_ASSESSMENTS: "mathsTeacherAssessments",
+  MATHS_TEACHER_REPORTS: "mathsTeacherReports",
+  MATHS_TEACHER_RESOURCES: "mathsTeacherResources",
+  MATHS_PRESENT: "mathsPresent",
+  MATHS_WORKSHEETS: "mathsWorksheets",
+  MATHS_SMALL_GROUPS: "mathsSmallGroups",
   ADMIN_DASHBOARD: "admin"
 };
 

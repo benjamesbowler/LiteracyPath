@@ -1,0 +1,703 @@
+.lp-subject-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 3px;
+  border-radius: 12px;
+}
+
+.lp-subject-switch-option {
+  min-width: 0;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease;
+}
+
+.lp-subject-switch-option svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lp-subject-switch-option:focus-visible {
+  outline: 3px solid #F8BE52;
+  outline-offset: 2px;
+}
+
+.lp-subject-switch--teacher {
+  margin: 10px 8px 2px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.lp-subject-switch--teacher .lp-subject-switch-option {
+  color: #AEBACD;
+  background: transparent;
+}
+
+.lp-subject-switch--teacher .lp-subject-switch-option:hover:not(.is-active) {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lp-subject-switch--teacher .lp-subject-switch-option.is-active {
+  color: #FFFFFF;
+  background: #176B61;
+  box-shadow: 0 5px 14px -8px rgba(0, 0, 0, 0.8);
+  cursor: default;
+}
+
+.lg-sidebar.collapsed .lp-subject-switch--teacher {
+  grid-template-columns: 1fr;
+  margin-inline: 5px;
+}
+
+.lg-sidebar.collapsed .lp-subject-switch--teacher .lp-subject-switch-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.teacher-entry-subject-switch {
+  position: fixed;
+  z-index: 45;
+  top: 18px;
+  right: 22px;
+}
+
+.teacher-entry-subject-switch .lp-subject-switch--teacher {
+  width: 190px;
+  margin: 0;
+  background: #172236;
+  box-shadow: 0 16px 32px -22px rgba(15, 23, 42, 0.75);
+}
+
+.lp-subject-switch--child {
+  width: 178px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 10px 22px -16px rgba(35, 70, 59, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+.lp-subject-switch--child .lp-subject-switch-option {
+  min-height: 42px;
+  color: #50665F;
+  background: transparent;
+}
+
+.lp-subject-switch--child .lp-subject-switch-option:hover:not(.is-active) {
+  color: #193B36;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.lp-subject-switch--child .lp-subject-switch-option.is-active {
+  color: #193B36;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 5px 14px -10px rgba(38, 73, 62, 0.7);
+  cursor: default;
+}
+
+/* Teacher Maths home ------------------------------------------------------- */
+
+.maths-teacher-dashboard {
+  --maths-ink: #182538;
+  --maths-muted: #617087;
+  --maths-violet: #6F56D9;
+  --maths-teal: #287D70;
+  min-height: 100%;
+  padding: clamp(28px, 4vw, 54px);
+  color: var(--maths-ink);
+  background:
+    radial-gradient(circle at 92% 2%, rgba(227, 217, 255, 0.72), transparent 28rem),
+    radial-gradient(circle at 8% 94%, rgba(207, 239, 229, 0.64), transparent 32rem),
+    #F4F6FA;
+}
+
+.maths-teacher-dashboard :is(h1, h2, h3, p) {
+  margin-top: 0;
+}
+
+.maths-preview-literacy {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  padding: 40px;
+  text-align: center;
+  background: #F4F6FA;
+}
+
+.maths-preview-literacy h1,
+.maths-preview-literacy p {
+  margin: 0;
+}
+
+.maths-preview-literacy h1 {
+  color: #182538;
+  font-size: clamp(34px, 5vw, 58px);
+  letter-spacing: -0.04em;
+}
+
+.maths-preview-literacy > p:last-child {
+  color: #617087;
+}
+
+.maths-teacher-hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 230px);
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+  max-width: 1180px;
+  margin: 0 auto 20px;
+  padding: clamp(28px, 5vw, 56px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(247, 244, 255, 0.93));
+  box-shadow: 0 24px 50px -38px rgba(48, 45, 84, 0.65);
+}
+
+.maths-teacher-hero::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  right: -85px;
+  bottom: -145px;
+  border-radius: 50%;
+  background: rgba(112, 87, 217, 0.08);
+}
+
+.maths-teacher-hero-copy,
+.maths-teacher-mark {
+  position: relative;
+  z-index: 1;
+}
+
+.maths-kicker,
+.maths-child-kicker {
+  margin-bottom: 8px;
+  color: var(--maths-violet, #6F56D9);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.maths-teacher-hero h1 {
+  max-width: 780px;
+  margin-bottom: 14px;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.01;
+  letter-spacing: -0.045em;
+}
+
+.maths-teacher-intro {
+  max-width: 760px;
+  margin-bottom: 22px;
+  color: var(--maths-muted);
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+.maths-context-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.maths-context-chips span,
+.maths-approved-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  color: #315A52;
+  background: #E9F4F0;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.maths-teacher-mark {
+  justify-self: center;
+  width: min(100%, 205px);
+  filter: drop-shadow(0 18px 26px rgba(69, 58, 124, 0.14));
+}
+
+.maths-readiness-note,
+.maths-status-grid,
+.maths-teacher-section,
+.maths-year-plan {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.maths-readiness-note {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 13px;
+  align-items: start;
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border: 1px solid #D5E7E1;
+  border-radius: 15px;
+  color: #315A52;
+  background: #F1F8F5;
+}
+
+.maths-readiness-note h2 {
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+.maths-readiness-note p {
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.maths-readiness-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: var(--maths-teal);
+  font-weight: 850;
+}
+
+.maths-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.maths-status-grid article {
+  display: grid;
+  gap: 3px;
+  padding: 20px 22px;
+  border: 1px solid #E1E6EE;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 34px -34px rgba(28, 45, 63, 0.7);
+}
+
+.maths-status-grid strong {
+  color: var(--maths-violet);
+  font-size: 29px;
+  line-height: 1;
+}
+
+.maths-status-grid span {
+  color: var(--maths-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.maths-teacher-section,
+.maths-year-plan {
+  margin-bottom: 34px;
+}
+
+.maths-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.maths-section-heading h2 {
+  margin-bottom: 0;
+  font-size: clamp(23px, 3vw, 31px);
+  letter-spacing: -0.025em;
+}
+
+.maths-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.maths-cycle-card {
+  min-height: 265px;
+  padding: 20px;
+  border: 1px solid #E1E5ED;
+  border-radius: 19px;
+  background: #FFFFFF;
+  box-shadow: 0 18px 36px -34px rgba(27, 39, 58, 0.75);
+}
+
+.maths-cycle-number {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: var(--maths-violet);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.maths-cycle-card h3 {
+  min-height: 44px;
+  margin-bottom: 15px;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.maths-cycle-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.maths-cycle-card li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 8px;
+  align-items: start;
+  color: #2E7769;
+}
+
+.maths-cycle-card li > span {
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: #3F9B83;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.maths-cycle-card li div {
+  display: grid;
+  gap: 2px;
+}
+
+.maths-cycle-card li strong {
+  color: var(--maths-ink);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.maths-cycle-card li small {
+  color: #7E899A;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.maths-cycle-planned {
+  color: var(--maths-muted);
+  font-size: 13px;
+}
+
+.maths-year-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.maths-year-plan-grid article {
+  display: grid;
+  gap: 8px;
+  padding: 17px 18px;
+  border: 1px solid #E1E5ED;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.maths-year-plan-grid article > span {
+  color: var(--maths-muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.maths-year-plan-grid strong {
+  font-size: 14px;
+}
+
+.maths-year-meter {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #E7E9EF;
+}
+
+.maths-year-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7C5CFC, #38A083);
+}
+
+/* Child Maths home --------------------------------------------------------- */
+
+.maths-child-home {
+  --maths-child-ink: #243B37;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
+  gap: 22px;
+  align-items: stretch;
+  padding: 24px 28px 28px;
+  color: var(--maths-child-ink);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(233, 226, 255, 0.9), transparent 31%),
+    radial-gradient(circle at 100% 92%, rgba(188, 232, 216, 0.74), transparent 35%);
+}
+
+.maths-child-orbit span {
+  position: absolute;
+  z-index: 0;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  color: rgba(65, 62, 112, 0.65);
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  font-family: var(--kg-font-display);
+  font-size: 24px;
+  font-weight: 800;
+  transform: rotate(-8deg);
+}
+
+.maths-child-orbit span:nth-child(1) { left: 2%; top: 8%; }
+.maths-child-orbit span:nth-child(2) { left: 52%; bottom: 4%; transform: rotate(8deg); }
+.maths-child-orbit span:nth-child(3) { right: 3%; top: 6%; transform: rotate(12deg); }
+
+.maths-child-hero,
+.maths-coming-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.maths-child-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(28px, 5vw, 62px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 31px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow:
+    0 26px 52px -40px rgba(35, 65, 57, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(18px);
+}
+
+.maths-child-kicker {
+  color: #6F56D9;
+}
+
+.maths-child-hero h1 {
+  max-width: 670px;
+  margin: 0 0 14px;
+  font-family: var(--kg-font-display);
+  font-size: clamp(38px, 5vw, 61px);
+  line-height: 1.01;
+  letter-spacing: -0.04em;
+}
+
+.maths-child-hero > p:not(.maths-child-kicker) {
+  max-width: 600px;
+  margin: 0 0 22px;
+  color: #5D716B;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.maths-number-path {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.maths-number-path span {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+  background: #6F56D9;
+  box-shadow: 0 9px 18px -12px #382D72;
+  font-family: var(--kg-font-display);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.maths-number-path span:nth-child(even) {
+  background: #38A083;
+}
+
+.maths-back-to-literacy {
+  min-height: 52px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 16px;
+  color: #FFFFFF;
+  background: #176B61;
+  box-shadow: 0 14px 24px -18px #0D4A42;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.maths-back-to-literacy:hover {
+  background: #115E56;
+}
+
+.maths-back-to-literacy:focus-visible {
+  outline: 4px solid #F8BE52;
+  outline-offset: 3px;
+}
+
+.maths-coming-grid {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.maths-coming-grid article {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  grid-template-rows: auto auto 1fr;
+  column-gap: 15px;
+  align-content: center;
+  padding: 17px 19px;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 23px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 18px 34px -32px rgba(35, 65, 57, 0.6);
+}
+
+.maths-coming-icon {
+  grid-row: 1 / 4;
+  align-self: center;
+  min-height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: #5C47B8;
+  background: #EEE9FF;
+  font-family: var(--kg-font-display);
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.maths-coming-grid article:nth-child(2) .maths-coming-icon {
+  color: #2A7767;
+  background: #E2F3EC;
+}
+
+.maths-coming-grid article:nth-child(3) .maths-coming-icon {
+  color: #9B5E1F;
+  background: #FFF0DA;
+}
+
+.maths-coming-grid h2 {
+  margin: 0;
+  font-family: var(--kg-font-display);
+  font-size: 21px;
+}
+
+.maths-coming-grid p {
+  margin: 2px 0 0;
+  color: #65756F;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.maths-coming-grid small {
+  align-self: end;
+  margin-top: 6px;
+  color: #77718F;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1050px) {
+  .maths-cycle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .maths-child-home {
+    grid-template-columns: minmax(0, 1.12fr) minmax(310px, 0.88fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .maths-teacher-dashboard {
+    padding: 18px;
+  }
+
+  .maths-teacher-hero {
+    grid-template-columns: 1fr;
+    padding: 26px;
+  }
+
+  .maths-teacher-mark {
+    display: none;
+  }
+
+  .maths-status-grid,
+  .maths-year-plan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .maths-cycle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .maths-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-subject-switch-option {
+    transition: none;
+  }
+}

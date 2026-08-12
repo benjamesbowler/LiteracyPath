@@ -8,6 +8,7 @@ export const LEARNER_LOCAL_CLEANUP_PROOF_STORES = Object.freeze([
   "el_reports",
   "guided_reading_assessment",
   "manual_assessment_drafts",
+  "maths_evidence_queue",
   "progress",
   "student_session",
   "teacher_profile"

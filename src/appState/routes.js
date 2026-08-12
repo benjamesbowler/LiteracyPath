@@ -43,6 +43,7 @@ const CLASS_ONLY_INTENTS = [
   "resources/worksheets",
   "resources/present",
   "resources/guided-reading",
+  "maths/teacher",
   "settings",
   "reports/class"
 ];
@@ -66,11 +67,16 @@ function parseTeacherRouteHash(hash = "") {
         : "whole-child"
     };
   }
+  const isMathsTeacherHome = path === "maths/teacher";
   const intentPath = path.startsWith("teacher/") ? path.slice("teacher/".length) : "";
-  const intent = intentPath.startsWith("settings/")
-    ? "settings"
-    : intentPath;
-  const appView = TEACHER_PATH_VIEWS[intent];
+  const intent = isMathsTeacherHome
+    ? "maths/teacher"
+    : intentPath.startsWith("settings/")
+      ? "settings"
+      : intentPath;
+  const appView = isMathsTeacherHome
+    ? APP_VIEWS.MATHS_TEACHER_DASHBOARD
+    : TEACHER_PATH_VIEWS[intent];
   if (!appView) return null;
   const learnerId = CLASS_ONLY_INTENTS.includes(intent)
     ? ""

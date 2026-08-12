@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260809163000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260812101000_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
@@ -20,6 +20,7 @@ export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "student_log_activity_v2(text, text, text, text, text, jsonb, timestamp with time zone, integer)",
   "student_login(uuid, text, text, text)",
   "student_report_activity_sync_health(text, text, bigint, bigint, bigint, bigint, bigint, bigint, timestamp with time zone)",
+  "student_record_maths_evidence(text, text, text, text, jsonb, timestamp with time zone, text)",
   "student_save_progress(text, text, text, jsonb)",
   "student_save_book_revision(text, uuid, uuid, text, jsonb, jsonb)",
   "student_submit_book_revision(text, uuid, uuid)",
@@ -69,10 +70,12 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_mark_intervention_delivered(uuid)",
   "teacher_prepare_learner_deletion(uuid, text, text)",
   "teacher_read_lesson_plan(uuid)",
+  "teacher_read_maths_evidence(uuid, uuid, integer)",
   "teacher_read_worksheet_history(uuid)",
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)",
   "teacher_record_intervention_outcome(uuid, text, text)",
   "teacher_record_lesson_delivery(uuid, text, uuid[], text, text, jsonb)",
+  "teacher_record_maths_evidence(uuid, uuid, text, text, text, jsonb, timestamp with time zone, text)",
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)",
   "teacher_regenerate_class_code(uuid)",
   "teacher_reset_student_progress(uuid, timestamp with time zone)",

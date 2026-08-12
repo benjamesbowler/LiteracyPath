@@ -1,6 +1,6 @@
 import { CHILD_SURFACE_ROUTES } from "./childSurfaceRules.js";
 
-export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.07.24";
+export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.08.12";
 
 export const STUDENT_EMPHASIS_VIEWPORTS = Object.freeze([
   Object.freeze({ id: "desktop", width: 1280, height: 900 }),
@@ -17,6 +17,11 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
     id: "student-home",
     primaryCue: "Continue Adventure Map",
     treatment: "The recommended learning card owns the largest card, named action bar, and continuation copy."
+  }),
+  Object.freeze({
+    id: "maths-home",
+    primaryCue: "Go to Literacy",
+    treatment: "The honest Phase 0 holding card is dominant; the only available action returns the learner to active Literacy learning."
   }),
   Object.freeze({
     id: "phonics",

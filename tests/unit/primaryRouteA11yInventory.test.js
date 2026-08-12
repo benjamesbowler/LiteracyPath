@@ -15,6 +15,7 @@ test("A3.3 inventory covers every primary child and authenticated teacher route"
     [
       "student-login",
       "student-home",
+      "maths-home",
       "phonics",
       "arcade",
       "adventure-map",
@@ -28,6 +29,7 @@ test("A3.3 inventory covers every primary child and authenticated teacher route"
     A11Y_PRIMARY_ROUTES.filter(row => row.audience === "teacher").map(row => row.id),
     [
       "teacher-dashboard",
+      "maths-teacher-dashboard",
       "teacher-children",
       "teacher-checks",
       "teacher-reports",

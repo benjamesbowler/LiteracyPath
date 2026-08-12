@@ -50,6 +50,8 @@
     "check:story-quest-levels": "node tools/checkStoryQuestLevels.js",
     "check:guided-reading-visibility": "node tools/checkGuidedReadingVisibility.js",
     "check:skill-progression": "node --test tests/unit/skillStatusPolicy.test.js tests/unit/assessmentSkillContracts.test.js",
+    "check:maths-curriculum": "node tools/checkMathsCurriculum.mjs && node --test tests/unit/mathsCurriculum.test.js tests/unit/subjectRegistry.test.js",
+    "check:maths-phase-zero": "npm run check:maths-curriculum && node --test tests/unit/mathsEvidenceStore.test.js tests/unit/mathsEvidenceMigration.test.js tests/unit/databasePolicyContract.test.js tests/unit/learnerDataRights.test.js tests/unit/elBenchmarkResetPropagation.test.js tests/unit/supabaseDomainBoundaries.test.js && node tools/checkSupabaseDomainBoundaries.mjs",
     "check:assessment-skill-contracts": "node --test tests/unit/assessmentSkillContracts.test.js",
     "check:export-compatibility": "node --expose-gc tools/checkExportCompatibility.mjs",
     "check:assessment-bank-loader": "node --test tests/unit/assessmentSkillContracts.test.js tests/unit/assessmentStrictAuditV3Pool.test.js",

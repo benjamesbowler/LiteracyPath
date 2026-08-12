@@ -176,6 +176,11 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_read_lesson_plan(uuid)": {
     p_plan_id: "00000000-0000-0000-0000-000000000000"
   },
+  "teacher_read_maths_evidence(uuid, uuid, integer)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_limit: 1
+  },
   "teacher_read_worksheet_history(uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000" },
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)": {
     p_class_id: EXPECTED.teacherA.classId,
@@ -198,6 +203,16 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_completion_state: "not_delivered",
     p_notes: "Anonymous access probe",
     p_observed_support: {}
+  },
+  "teacher_record_maths_evidence(uuid, uuid, text, text, text, jsonb, timestamp with time zone, text)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_client_event_id: "anonymous-maths-probe",
+    p_skill_id: "F-N-COUNT-10",
+    p_event_type: "teacher_observation",
+    p_evidence: { schemaVersion: 1, observed: "anonymous probe" },
+    p_occurred_at: "2026-08-12T00:00:00.000Z",
+    p_content_version: "maths-audit-v1"
   },
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000", p_client_event_id: "anonymous-access-probe", p_marks: [], p_note: "", p_supersedes_batch_id: null },
   "teacher_regenerate_class_code(uuid)": { p_class_id: EXPECTED.teacherA.classId },
@@ -545,7 +560,8 @@ async function verifyAnonymousBoundary(anonymous) {
     "live_lesson_sessions",
     "live_lesson_participants",
     "live_lesson_presence",
-    "live_lesson_responses"
+    "live_lesson_responses",
+    "maths_evidence_events"
   ];
   for (const table of forbiddenTables) {
     const result = await anonymous.from(table).select("*", { count: "exact", head: true });
@@ -644,6 +660,15 @@ async function verifyAnonymousBoundary(anonymous) {
       p_prompt_id: "invalid",
       p_response: "invalid",
       p_client_event_id: "audit-invalid-live-response"
+    }),
+    anonymous.rpc("student_record_maths_evidence", {
+      p_token: "invalid",
+      p_client_event_id: "audit-invalid-maths-evidence",
+      p_skill_id: "F-N-COUNT-10",
+      p_event_type: "practice_attempt",
+      p_evidence: { schemaVersion: 1, result: "correct" },
+      p_occurred_at: new Date().toISOString(),
+      p_content_version: "maths-audit-v1"
     })
   ];
   const invalidResults = await Promise.all(invalidTokenChecks);
@@ -667,6 +692,209 @@ async function verifyAnonymousBoundary(anonymous) {
     "sensitive remote error rejection"
   );
   assert.equal(sensitiveError?.ok, false);
+}
+
+async function verifyMathsEvidenceBoundary({
+  anonymous,
+  teacherA,
+  teacherB,
+  databaseUrl
+}) {
+  const childClientEventId = `maths-audit-child-${randomUUID()}`;
+  const teacherClientEventId = `maths-audit-teacher-${randomUUID()}`;
+  const occurredAt = new Date().toISOString();
+  let studentToken = "";
+
+  const masteryBefore = await runPsqlJson(
+    databaseUrl,
+    `select json_build_object('count', count(*)) from public.mastery `
+      + `where student_id = '${EXPECTED.teacherA.studentId}'::uuid `
+      + `and skill_id = 'F-N-COUNT-10';`
+  );
+
+  try {
+    const directRead = await teacherA.from("maths_evidence_events")
+      .select("id", { count: "exact", head: true });
+    assert(directRead.error, "teacher received direct Maths evidence table access");
+
+    const login = requireData(
+      await anonymous.rpc("student_login", {
+        p_student_id: EXPECTED.teacherA.studentId,
+        p_sequence: EXPECTED.studentPassword,
+        p_device_id: `maths-audit-${randomUUID()}`,
+        p_code: "QA7M2K"
+      }),
+      "Maths evidence child login"
+    );
+    assert.equal(login?.ok, true, "active audit learner could not sign in");
+    studentToken = login.token;
+
+    const childArgs = {
+      p_token: studentToken,
+      p_client_event_id: childClientEventId,
+      p_skill_id: "F-N-COUNT-10",
+      p_event_type: "practice_attempt",
+      p_evidence: { schemaVersion: 1, result: "correct", representation: "counter_tray" },
+      p_occurred_at: occurredAt,
+      p_content_version: "maths-foundation-v1"
+    };
+    const childWrite = requireData(
+      await anonymous.rpc("student_record_maths_evidence", childArgs),
+      "child Maths evidence write"
+    );
+    assert.equal(childWrite?.ok, true);
+    assert.equal(childWrite?.idempotent, false);
+
+    const childRetry = requireData(
+      await anonymous.rpc("student_record_maths_evidence", childArgs),
+      "idempotent child Maths evidence retry"
+    );
+    assert.equal(childRetry?.ok, true);
+    assert.equal(childRetry?.id, childWrite?.id);
+    assert.equal(childRetry?.idempotent, true);
+
+    const conflictingRetry = requireData(
+      await anonymous.rpc("student_record_maths_evidence", {
+        ...childArgs,
+        p_evidence: { schemaVersion: 1, result: "incorrect", representation: "counter_tray" }
+      }),
+      "conflicting child Maths evidence retry"
+    );
+    assert.equal(conflictingRetry?.ok, false);
+    assert.equal(conflictingRetry?.error, "client_event_id_conflict");
+
+    const teacherWrite = requireData(
+      await teacherA.rpc("teacher_record_maths_evidence", {
+        p_class_id: EXPECTED.teacherA.classId,
+        p_student_id: EXPECTED.teacherA.studentId,
+        p_client_event_id: teacherClientEventId,
+        p_skill_id: "F-N-COUNT-10",
+        p_event_type: "teacher_observation",
+        p_evidence: { schemaVersion: 1, observed: "counted ten objects one-to-one" },
+        p_occurred_at: occurredAt,
+        p_content_version: "maths-foundation-v1"
+      }),
+      "teacher Maths evidence write"
+    );
+    assert.equal(teacherWrite?.ok, true);
+
+    const crossWrite = requireData(
+      await teacherA.rpc("teacher_record_maths_evidence", {
+        p_class_id: EXPECTED.teacherB.classId,
+        p_student_id: EXPECTED.teacherB.studentId,
+        p_client_event_id: `maths-audit-cross-${randomUUID()}`,
+        p_skill_id: "F-N-COUNT-10",
+        p_event_type: "teacher_observation",
+        p_evidence: { schemaVersion: 1, observed: "must not persist" },
+        p_occurred_at: occurredAt,
+        p_content_version: "maths-foundation-v1"
+      }),
+      "cross-tenant Maths evidence write"
+    );
+    assert.equal(crossWrite?.ok, false);
+    assert.equal(crossWrite?.error, "learner_not_in_owned_class");
+
+    const crossRead = requireData(
+      await teacherB.rpc("teacher_read_maths_evidence", {
+        p_class_id: EXPECTED.teacherA.classId,
+        p_student_id: EXPECTED.teacherA.studentId,
+        p_limit: 10
+      }),
+      "cross-tenant Maths evidence read"
+    );
+    assert.equal(crossRead?.ok, false);
+    assert.equal(crossRead?.error, "class_not_found");
+
+    const ownerRead = requireData(
+      await teacherA.rpc("teacher_read_maths_evidence", {
+        p_class_id: EXPECTED.teacherA.classId,
+        p_student_id: EXPECTED.teacherA.studentId,
+        p_limit: 100
+      }),
+      "owned Maths evidence read"
+    );
+    assert.equal(ownerRead?.ok, true);
+    assert(ownerRead.events.some(event => event.clientEventId === childClientEventId));
+    assert(ownerRead.events.some(event => event.clientEventId === teacherClientEventId));
+
+    const exportPackage = requireData(
+      await teacherA.rpc("teacher_export_learner_data", {
+        p_student_id: EXPECTED.teacherA.studentId,
+        p_requester_role: "school",
+        p_verification_method: "authorised_school_official"
+      }),
+      "learner export with Maths evidence"
+    );
+    assert(Array.isArray(exportPackage?.mathsEvidence));
+    assert(exportPackage.mathsEvidence.some(event => event.clientEventId === childClientEventId));
+    assert(exportPackage.mathsEvidence.some(event => event.clientEventId === teacherClientEventId));
+
+    await runPsqlJson(
+      databaseUrl,
+      `with changed as (`
+        + `update public.student_sessions set revoked = true `
+        + `where token = '${studentToken}' returning token`
+        + `) select json_build_object('changed', (select count(*) from changed));`
+    );
+    const staleTokenWrite = requireData(
+      await anonymous.rpc("student_record_maths_evidence", {
+        ...childArgs,
+        p_client_event_id: `maths-audit-stale-${randomUUID()}`
+      }),
+      "stale-token Maths evidence write"
+    );
+    assert.equal(staleTokenWrite?.ok, false);
+    assert.equal(staleTokenWrite?.error, "invalid_student_session");
+
+    const archivedLogin = requireData(
+      await anonymous.rpc("student_login", {
+        p_student_id: "40000000-0000-4000-8000-000000000013",
+        p_sequence: "124",
+        p_device_id: `maths-audit-archived-${randomUUID()}`,
+        p_code: "QA7M2K"
+      }),
+      "archived learner Maths login"
+    );
+    assert.equal(archivedLogin?.ok, false);
+    assert.equal(archivedLogin?.error, "not_found");
+
+    const masteryAfter = await runPsqlJson(
+      databaseUrl,
+      `select json_build_object('count', count(*)) from public.mastery `
+        + `where student_id = '${EXPECTED.teacherA.studentId}'::uuid `
+        + `and skill_id = 'F-N-COUNT-10';`
+    );
+    assert.equal(
+      masteryAfter.count,
+      masteryBefore.count,
+      "formative Maths evidence changed mastery automatically"
+    );
+
+    return {
+      childWriteScoped: true,
+      idempotentRetry: true,
+      conflictingRetryRejected: true,
+      staleTokenRejected: true,
+      archivedLearnerRejected: true,
+      crossTenantWriteRejected: true,
+      crossTenantReadRejected: true,
+      directTableReadRejected: true,
+      exportIncluded: true,
+      automaticMasteryBlocked: true
+    };
+  } finally {
+    await runPsqlJson(
+      databaseUrl,
+      `with deleted_events as (`
+        + `delete from public.maths_evidence_events where client_event_id in (`
+        + `'${childClientEventId}', '${teacherClientEventId}') returning id`
+        + `), deleted_sessions as (`
+        + `delete from public.student_sessions where token = '${studentToken}' returning token`
+        + `) select json_build_object(`
+        + `'events', (select count(*) from deleted_events), `
+        + `'sessions', (select count(*) from deleted_sessions));`
+    );
+  }
 }
 
 async function verifyCodeExpiryAndRotation({ anonymous, teacherB, databaseUrl }) {
@@ -794,6 +1022,7 @@ async function verifyDeletesAndTenantScope({ teacherA, teacherB }) {
           "el_reports",
           "guided_reading_assessment",
           "manual_assessment_drafts",
+          "maths_evidence_queue",
           "progress",
           "student_session",
           "teacher_profile"
@@ -1076,6 +1305,12 @@ export async function verifyDatabasePoliciesLive({
       teacherA,
       databaseUrl
     });
+    const mathsEvidence = await verifyMathsEvidenceBoundary({
+      anonymous,
+      teacherA,
+      teacherB,
+      databaseUrl
+    });
     const codeLifecycle = await verifyCodeExpiryAndRotation({
       anonymous,
       teacherB,
@@ -1095,6 +1330,7 @@ export async function verifyDatabasePoliciesLive({
       exactAuthenticatedTableGrants: hostedDriftReport.exactGrantTableCount,
       isolation,
       teacherAccountStatus,
+      mathsEvidence,
       codeLifecycle,
       deletes,
       adminBoundary,

@@ -51,6 +51,8 @@ requires separate pilot calibration.
 
 ### MATH-001 Subject registry and routes
 
+Status: implemented and browser-verified on 2026-08-12.
+
 Files:
 
 - add `src/subjects/subjectRegistry.js`;
@@ -75,6 +77,11 @@ Tests:
 - `tests/release/maths-subject-navigation.spec.js` desktop/mobile.
 
 ### MATH-002 Database evidence boundary
+
+Status: implemented and applied to the linked Supabase project on 2026-08-12.
+The live visibility and anonymous-denial probes pass; the seeded audit-project
+harness now covers valid-token, archived/stale-token, idempotency, export,
+automatic-mastery and cross-tenant cases when audit credentials are supplied.
 
 Files:
 
@@ -101,6 +108,9 @@ Tests:
 ## 5. Phase 1 — Foundation number-sense vertical slice
 
 ### MATH-101 Curriculum registry
+
+Status: implemented on 2026-08-12. The registry contains 48 F–2 skills across
+18 ordered cycles; eight Foundation skills are approved and 40 remain planned.
 
 Implement Foundation skills F-N-SEQ-20 through F-N-PART-10 first. Create the full
 F–2 registry now, but expose only approved slices using `releaseStatus`.

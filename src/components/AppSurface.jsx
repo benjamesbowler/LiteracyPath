@@ -70,6 +70,13 @@ import {
   approvedGuidedReadingBookIds,
   filterPublishedGuidedReadingBooks
 } from "../policy/guidedReadingApprovalPolicy.js";
+import {
+  SUBJECT_IDS,
+  subjectForAppView,
+  subjectHomeHash,
+  subjectHomeView
+} from "../subjects/subjectRegistry.js";
+import { SubjectSwitch } from "./SubjectSwitch.jsx";
 
 function lazyAppPage(exportName) {
   return lazyWithRetry(() => import("./AppPages.jsx").then(module => ({
@@ -118,6 +125,16 @@ const StudentLiveLessonOverlay = lazyWithRetry(() =>
 );
 const StudentSoundTrailPage = lazyWithRetry(() =>
   import("./StudentSoundTrailPage.jsx").then(module => ({ default: module.StudentSoundTrailPage }))
+);
+const MathsTeacherDashboard = lazyWithRetry(() =>
+  import("../maths/teacher/MathsTeacherDashboard.jsx").then(module => ({
+    default: module.MathsTeacherDashboard
+  }))
+);
+const MathsHome = lazyWithRetry(() =>
+  import("../maths/learn/MathsHome.jsx").then(module => ({
+    default: module.MathsHome
+  }))
 );
 
 export function AppSurface({ surface }) {
@@ -911,6 +928,7 @@ export function AppSurface({ surface }) {
   const isFocusedAssessment = isFocusedAssessmentView(appView);
   const effectiveAssessmentFullscreen = isFocusedAssessment && assessmentFullscreen;
   const isStudentMode = sessionMode === "student";
+  const activeSubject = subjectForAppView(appView);
   const hasTeacherSchool = Boolean(teacherAccountRecord?.school_id || teacherSchoolName);
   const isTeacherClassEntry = !isStudentMode
     && !selectedClassId
@@ -934,7 +952,8 @@ export function AppSurface({ surface }) {
     APP_VIEWS.LEARN,
     APP_VIEWS.PHONICS_LEARN,
     APP_VIEWS.SKILLS_BLOCK_QUEST,
-    APP_VIEWS.STUDENT_REWARDS
+    APP_VIEWS.STUDENT_REWARDS,
+    APP_VIEWS.MATHS_STUDENT_HOME
   ].includes(appView);
   const childProgressScopeKey = studentPreview
     ? `teacher-preview:${teacherId}:${studentPreview.studentId}`
@@ -1011,6 +1030,22 @@ export function AppSurface({ surface }) {
     });
     pushRouteHash(nextHash);
     setAppView(nextView);
+  };
+  const goToSubjectHome = subjectId => {
+    const audience = isStudentMode ? "student" : "teacher";
+    const nextView = subjectHomeView(subjectId, audience);
+    if (isStudentMode) {
+      setStudentArcadeOpen(false);
+      pushRouteHash(subjectHomeHash({
+        subjectId,
+        audience,
+        classId: selectedClassId,
+        learnerId: studentId
+      }));
+      setAppView(nextView);
+      return;
+    }
+    goToTeacherIntent(nextView);
   };
   // The Reports funnel keeps the teacher on one page, so the report styles in
   // the report's own navigation must link back into the funnel rather than off
@@ -1224,6 +1259,8 @@ export function AppSurface({ surface }) {
             goToTeacherReports={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
             goToTeacherResources={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             goToTeacherSettings={() => goToTeacherIntent(APP_VIEWS.TEACHER_SETTINGS)}
+            goToLiteracyHome={() => goToSubjectHome(SUBJECT_IDS.LITERACY)}
+            goToMathsHome={() => goToSubjectHome(SUBJECT_IDS.MATHS)}
             teacherEmail={teacherUser.email}
             logOutTeacher={logOutTeacher}
             isAdmin={isAdmin}
@@ -1232,7 +1269,16 @@ export function AppSurface({ surface }) {
         </Suspense>
       )}
       <div className="lg-content-area">
-      {!isFocusedShell && !isStudentMode && (
+      {isTeacherClassEntry && (
+        <div className="teacher-entry-subject-switch">
+          <SubjectSwitch
+            activeSubject={activeSubject}
+            onSelectSubject={goToSubjectHome}
+            variant="teacher"
+          />
+        </div>
+      )}
+      {!isFocusedShell && !isStudentMode && activeSubject === SUBJECT_IDS.LITERACY && (
         <TeacherContextBar
           className={getSelectedClassName(classList, selectedClassId)}
           classCode={
@@ -1276,7 +1322,10 @@ export function AppSurface({ surface }) {
         </aside>
       )}
 
-      {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && (
+      {isStudentMode && ![
+        APP_VIEWS.STUDENT_HOME,
+        APP_VIEWS.MATHS_STUDENT_HOME
+      ].includes(appView) && (
         <button
           className="student-home-float"
           onClick={returnToStudentHome}
@@ -1336,10 +1385,23 @@ export function AppSurface({ surface }) {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.STUDENT_REWARDS);
             }}
+            onOpenMaths={() => goToSubjectHome(SUBJECT_IDS.MATHS)}
             onLogout={trySession ? finishTrySession : isStudentMode ? logOutStudent : returnToTeacherDashboard}
             logoutLabel={trySession ? "Finish" : isStudentMode ? "Sign out" : "Teacher dashboard"}
             logoutAriaLabel={trySession ? "Finish the try-out" : isStudentMode ? "Log out" : "Return to teacher dashboard"}
           />
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.MATHS_STUDENT_HOME && nameSaved && isStudentMode && (
+        <PageBoundary resetKey={`maths-student-home-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading Maths…" />}>
+            <MathsHome
+              studentName={studentName}
+              progressScopeKey={childProgressScopeKey}
+              onOpenLiteracy={() => goToSubjectHome(SUBJECT_IDS.LITERACY)}
+            />
+          </Suspense>
         </PageBoundary>
       )}
 
@@ -1489,6 +1551,17 @@ export function AppSurface({ surface }) {
               teacherId={teacherId}
               message={message}
               onStartReadingSession={() => setReadingSetupOpen(true)}
+            />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.MATHS_TEACHER_DASHBOARD && (
+        <PageBoundary resetKey="maths-teacher-dashboard">
+          <Suspense fallback={<LazyPageFallback label="Loading Maths…" />}>
+            <MathsTeacherDashboard
+              className={getSelectedClassName(classList, selectedClassId)}
+              studentCount={classList.find(row => row.id === selectedClassId)?.studentCount ?? null}
             />
           </Suspense>
         </PageBoundary>

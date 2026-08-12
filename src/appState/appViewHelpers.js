@@ -27,7 +27,8 @@ export const STUDENT_ALLOWED_VIEWS = new Set([
   APP_VIEWS.SKILLS_BLOCK_QUEST,
   APP_VIEWS.PHONICS_QUEST,
   APP_VIEWS.LEARN,
-  APP_VIEWS.GUIDED_READING
+  APP_VIEWS.GUIDED_READING,
+  APP_VIEWS.MATHS_STUDENT_HOME
 ]);
 
 export function isStudentAllowedView(appView) {
@@ -68,6 +69,18 @@ const FOOTER_HIDDEN_VIEWS = new Set([
   APP_VIEWS.LEARN,
   APP_VIEWS.SKILLS_BLOCK_QUEST,
   APP_VIEWS.PHONICS_QUEST,
+  APP_VIEWS.MATHS_STUDENT_HOME,
+  APP_VIEWS.MATHS_LEARN,
+  APP_VIEWS.MATHS_STORIES,
+  APP_VIEWS.MATHS_ARCADE,
+  APP_VIEWS.MATHS_ASSESSMENT,
+  APP_VIEWS.MATHS_TEACHER_DASHBOARD,
+  APP_VIEWS.MATHS_TEACHER_ASSESSMENTS,
+  APP_VIEWS.MATHS_TEACHER_REPORTS,
+  APP_VIEWS.MATHS_TEACHER_RESOURCES,
+  APP_VIEWS.MATHS_PRESENT,
+  APP_VIEWS.MATHS_WORKSHEETS,
+  APP_VIEWS.MATHS_SMALL_GROUPS,
   APP_VIEWS.FINISHED
 ]);
 
@@ -83,7 +96,8 @@ const TEACHER_INTENTION_VIEWS = new Set([
   APP_VIEWS.TEACHER_SETTINGS,
   APP_VIEWS.WORKSHEETS,
   APP_VIEWS.PRESENT,
-  APP_VIEWS.TEACHER_GUIDED_READING
+  APP_VIEWS.TEACHER_GUIDED_READING,
+  APP_VIEWS.MATHS_TEACHER_DASHBOARD
 ]);
 
 export function isFocusedAssessmentView(appView) {
@@ -178,6 +192,7 @@ const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.PRESENT]: "resources/present",
   [APP_VIEWS.TEACHER_GUIDED_READING]: "resources/guided-reading",
   [APP_VIEWS.TEACHER_SETTINGS]: "settings",
+  [APP_VIEWS.MATHS_TEACHER_DASHBOARD]: "maths/teacher",
   [APP_VIEWS.FINISHED]: "reports/report"
 });
 
@@ -188,6 +203,7 @@ const CLASS_ONLY_INTENTS = [
   "resources/worksheets",
   "resources/present",
   "resources/guided-reading",
+  "maths/teacher",
   "settings"
 ];
 
@@ -213,7 +229,8 @@ export function teacherIntentHash({
     context.set("group", groupId || "all");
     if (learnerId) context.set("learner", learnerId);
   }
-  return `#teacher/${intent}${context.size ? `?${context.toString()}` : ""}`;
+  const routePath = intent.startsWith("maths/") ? intent : `teacher/${intent}`;
+  return `#${routePath}${context.size ? `?${context.toString()}` : ""}`;
 }
 
 // ── KEEPING A FUNNEL'S PLACE IN THE URL ─────────────────────────────────────
