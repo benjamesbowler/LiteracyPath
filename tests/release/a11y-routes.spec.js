@@ -25,7 +25,9 @@ async function expectNoBlockingViolations(page, state, selector = "body") {
 
 async function waitForRoute(page, route) {
   await page.goto(route.url, { waitUntil: "domcontentloaded" });
-  if (route.audience === "teacher") {
+  if (route.readySelector) {
+    await expect(page.locator(route.readySelector)).toBeVisible();
+  } else if (route.audience === "teacher") {
     await expect(page.locator('[data-a11y-seed="teacher-a"]')).toBeVisible();
   } else {
     await expect(page.locator(`[data-preview-surface="${route.id}"]`)).toBeVisible();

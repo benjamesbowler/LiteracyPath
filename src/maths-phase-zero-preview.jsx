@@ -15,7 +15,8 @@ import { APP_VIEWS } from "./appState/appViews.js";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { MathsHome } from "./maths/learn/MathsHome.jsx";
-import { MathsTeacherDashboard } from "./maths/teacher/MathsTeacherDashboard.jsx";
+import { MathsArcade, MathsAssessmentPlayer, MathsLessonPlayer, MathsStoryLibrary } from "./maths/learn/MathsStudentArea.jsx";
+import { MathsTeacherWorkspace } from "./maths/teacher/MathsTeacherWorkspace.jsx";
 import {
   SUBJECT_IDS,
   parseSubjectHomeHash,
@@ -29,6 +30,16 @@ const audience = params.get("audience") === "student" ? "student" : "teacher";
 const CLASS_ID = "00000000-0000-4000-8000-0000000000a1";
 const STUDENT_ID = "maths-phase-zero-child";
 const noop = () => {};
+const STUDENTS = Array.from({ length: 12 }, (_, index) => ({ id: `00000000-0000-4000-9000-${String(index + 1).padStart(12, "0")}`, name: ["Aaron", "Bella", "Chen", "Dani", "Eli", "Fatima", "Grace", "Hugo", "Ivy", "Jin", "Kai", "Lina"][index] }));
+const mockClient = {
+  call(name) {
+    if (name === "teacher_read_maths_evidence") return Promise.resolve({ data: { ok: true, events: [] }, error: null });
+    if (name === "student_list_maths_assignments") return Promise.resolve({ data: { ok: true, assignments: [] }, error: null });
+    if (name === "teacher_create_maths_assignment") return Promise.resolve({ data: { ok: true, assignedCount: 12 }, error: null });
+    if (name === "student_complete_maths_assignment") return Promise.resolve({ data: { ok: true }, error: null });
+    return Promise.resolve({ data: { ok: true }, error: null });
+  }
+};
 
 setCompanion(STUDENT_ID, COMPANIONS[0].id);
 
@@ -68,8 +79,22 @@ function Preview() {
           <MathsHome
             studentName="Aaron"
             progressScopeKey={STUDENT_ID}
+            client={mockClient}
+            token="preview-token"
             onOpenLiteracy={() => openSubject(SUBJECT_IDS.LITERACY)}
+            onOpenLearn={() => setAppView(APP_VIEWS.MATHS_LEARN)}
+            onOpenAssessment={() => setAppView(APP_VIEWS.MATHS_ASSESSMENT)}
+            onOpenStories={() => setAppView(APP_VIEWS.MATHS_STORIES)}
+            onOpenArcade={() => setAppView(APP_VIEWS.MATHS_ARCADE)}
           />
+        ) : appView === APP_VIEWS.MATHS_LEARN ? (
+          <MathsLessonPlayer client={mockClient} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
+        ) : appView === APP_VIEWS.MATHS_ASSESSMENT ? (
+          <MathsAssessmentPlayer client={mockClient} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
+        ) : appView === APP_VIEWS.MATHS_STORIES ? (
+          <MathsStoryLibrary onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentName="Aaron" />
+        ) : appView === APP_VIEWS.MATHS_ARCADE ? (
+          <MathsArcade client={mockClient} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={STUDENT_ID} studentId={STUDENT_ID} studentName="Aaron" token="preview-token" />
         ) : (
           <StudentHomePage
             studentName="Aaron"
@@ -106,12 +131,43 @@ function Preview() {
         goToTeacherSettings={noop}
         goToLiteracyHome={() => openSubject(SUBJECT_IDS.LITERACY)}
         goToMathsHome={() => openSubject(SUBJECT_IDS.MATHS)}
+        goToMathsAssessments={() => setAppView(APP_VIEWS.MATHS_TEACHER_ASSESSMENTS)}
+        goToMathsReports={() => setAppView(APP_VIEWS.MATHS_TEACHER_REPORTS)}
+        goToMathsResources={() => setAppView(APP_VIEWS.MATHS_TEACHER_RESOURCES)}
+        goToMathsPresent={() => setAppView(APP_VIEWS.MATHS_PRESENT)}
+        goToMathsWorksheets={() => setAppView(APP_VIEWS.MATHS_WORKSHEETS)}
+        goToMathsGroups={() => setAppView(APP_VIEWS.MATHS_SMALL_GROUPS)}
         logOutTeacher={noop}
       />
       <div className="lg-content-area">
         <div className="app">
-          {appView === APP_VIEWS.MATHS_TEACHER_DASHBOARD ? (
-            <MathsTeacherDashboard className="Audit Class A" studentCount={25} />
+          {[
+            APP_VIEWS.MATHS_TEACHER_DASHBOARD,
+            APP_VIEWS.MATHS_TEACHER_ASSESSMENTS,
+            APP_VIEWS.MATHS_TEACHER_REPORTS,
+            APP_VIEWS.MATHS_TEACHER_RESOURCES,
+            APP_VIEWS.MATHS_PRESENT,
+            APP_VIEWS.MATHS_WORKSHEETS,
+            APP_VIEWS.MATHS_SMALL_GROUPS
+          ].includes(appView) ? (
+            <MathsTeacherWorkspace
+              classId={CLASS_ID}
+              className="Audit Class A"
+              client={mockClient}
+              mode={{
+                [APP_VIEWS.MATHS_TEACHER_DASHBOARD]: "overview",
+                [APP_VIEWS.MATHS_TEACHER_ASSESSMENTS]: "assessments",
+                [APP_VIEWS.MATHS_TEACHER_REPORTS]: "reports",
+                [APP_VIEWS.MATHS_TEACHER_RESOURCES]: "resources",
+                [APP_VIEWS.MATHS_PRESENT]: "present",
+                [APP_VIEWS.MATHS_WORKSHEETS]: "worksheets",
+                [APP_VIEWS.MATHS_SMALL_GROUPS]: "groups"
+              }[appView]}
+              onNavigate={mode => setAppView({ overview: APP_VIEWS.MATHS_TEACHER_DASHBOARD, assessments: APP_VIEWS.MATHS_TEACHER_ASSESSMENTS, reports: APP_VIEWS.MATHS_TEACHER_REPORTS, resources: APP_VIEWS.MATHS_TEACHER_RESOURCES, present: APP_VIEWS.MATHS_PRESENT, worksheets: APP_VIEWS.MATHS_WORKSHEETS, groups: APP_VIEWS.MATHS_SMALL_GROUPS }[mode] || APP_VIEWS.MATHS_TEACHER_DASHBOARD)}
+              studentCount={STUDENTS.length}
+              students={STUDENTS}
+              teacherId="00000000-0000-4000-8000-0000000000f1"
+            />
           ) : (
             <main className="maths-preview-literacy" data-preview-literacy-home="true">
               <p className="maths-kicker">Literacy</p>

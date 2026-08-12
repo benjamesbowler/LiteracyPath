@@ -142,9 +142,45 @@ const TEACHER_INTENT_NAV_ITEMS = [
 const MATHS_TEACHER_NAV_ITEMS = [
   {
     id: "maths-home",
-    label: "Maths overview",
+    label: "Overview",
     icon: "dashboard",
     views: [APP_VIEWS.MATHS_TEACHER_DASHBOARD]
+  },
+  {
+    id: "maths-assessments",
+    label: "Skills checks",
+    icon: "assessment",
+    views: [APP_VIEWS.MATHS_TEACHER_ASSESSMENTS]
+  },
+  {
+    id: "maths-reports",
+    label: "Reports",
+    icon: "reports",
+    views: [APP_VIEWS.MATHS_TEACHER_REPORTS]
+  },
+  {
+    id: "maths-resources",
+    label: "Resources",
+    icon: "reading",
+    views: [APP_VIEWS.MATHS_TEACHER_RESOURCES]
+  },
+  {
+    id: "maths-present",
+    label: "Present",
+    icon: "present",
+    views: [APP_VIEWS.MATHS_PRESENT]
+  },
+  {
+    id: "maths-groups",
+    label: "Small groups",
+    icon: "student",
+    views: [APP_VIEWS.MATHS_SMALL_GROUPS]
+  },
+  {
+    id: "maths-worksheets",
+    label: "Worksheets",
+    icon: "worksheets",
+    views: [APP_VIEWS.MATHS_WORKSHEETS]
   }
 ];
 
@@ -162,6 +198,12 @@ export function Sidebar({
   goToTeacherSettings,
   goToLiteracyHome,
   goToMathsHome,
+  goToMathsAssessments,
+  goToMathsReports,
+  goToMathsResources,
+  goToMathsPresent,
+  goToMathsWorksheets,
+  goToMathsGroups,
   logOutTeacher,
   isAdmin,
   openAdminDashboard,
@@ -228,6 +270,12 @@ export function Sidebar({
       case "resources":   return goToTeacherResources?.();
       case "settings":    return goToTeacherSettings?.();
       case "maths-home":  return goToMathsHome?.();
+      case "maths-assessments": return goToMathsAssessments?.();
+      case "maths-reports": return goToMathsReports?.();
+      case "maths-resources": return goToMathsResources?.();
+      case "maths-present": return goToMathsPresent?.();
+      case "maths-worksheets": return goToMathsWorksheets?.();
+      case "maths-groups": return goToMathsGroups?.();
       case "admin":       return openAdminDashboard?.();
       default:            return null;
     }

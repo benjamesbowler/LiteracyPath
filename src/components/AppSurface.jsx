@@ -126,15 +126,27 @@ const StudentLiveLessonOverlay = lazyWithRetry(() =>
 const StudentSoundTrailPage = lazyWithRetry(() =>
   import("./StudentSoundTrailPage.jsx").then(module => ({ default: module.StudentSoundTrailPage }))
 );
-const MathsTeacherDashboard = lazyWithRetry(() =>
-  import("../maths/teacher/MathsTeacherDashboard.jsx").then(module => ({
-    default: module.MathsTeacherDashboard
+const MathsTeacherWorkspace = lazyWithRetry(() =>
+  import("../maths/teacher/MathsTeacherWorkspace.jsx").then(module => ({
+    default: module.MathsTeacherWorkspace
   }))
 );
 const MathsHome = lazyWithRetry(() =>
   import("../maths/learn/MathsHome.jsx").then(module => ({
     default: module.MathsHome
   }))
+);
+const MathsLessonPlayer = lazyWithRetry(() =>
+  import("../maths/learn/MathsStudentArea.jsx").then(module => ({ default: module.MathsLessonPlayer }))
+);
+const MathsAssessmentPlayer = lazyWithRetry(() =>
+  import("../maths/learn/MathsStudentArea.jsx").then(module => ({ default: module.MathsAssessmentPlayer }))
+);
+const MathsStoryLibrary = lazyWithRetry(() =>
+  import("../maths/learn/MathsStudentArea.jsx").then(module => ({ default: module.MathsStoryLibrary }))
+);
+const MathsArcade = lazyWithRetry(() =>
+  import("../maths/learn/MathsStudentArea.jsx").then(module => ({ default: module.MathsArcade }))
 );
 
 export function AppSurface({ surface }) {
@@ -953,7 +965,11 @@ export function AppSurface({ surface }) {
     APP_VIEWS.PHONICS_LEARN,
     APP_VIEWS.SKILLS_BLOCK_QUEST,
     APP_VIEWS.STUDENT_REWARDS,
-    APP_VIEWS.MATHS_STUDENT_HOME
+    APP_VIEWS.MATHS_STUDENT_HOME,
+    APP_VIEWS.MATHS_LEARN,
+    APP_VIEWS.MATHS_STORIES,
+    APP_VIEWS.MATHS_ARCADE,
+    APP_VIEWS.MATHS_ASSESSMENT
   ].includes(appView);
   const childProgressScopeKey = studentPreview
     ? `teacher-preview:${teacherId}:${studentPreview.studentId}`
@@ -1047,6 +1063,18 @@ export function AppSurface({ surface }) {
     }
     goToTeacherIntent(nextView);
   };
+  const mathsTeacherViewByMode = {
+    overview: APP_VIEWS.MATHS_TEACHER_DASHBOARD,
+    assessments: APP_VIEWS.MATHS_TEACHER_ASSESSMENTS,
+    reports: APP_VIEWS.MATHS_TEACHER_REPORTS,
+    resources: APP_VIEWS.MATHS_TEACHER_RESOURCES,
+    present: APP_VIEWS.MATHS_PRESENT,
+    worksheets: APP_VIEWS.MATHS_WORKSHEETS,
+    groups: APP_VIEWS.MATHS_SMALL_GROUPS
+  };
+  const goToMathsTeacherMode = mode => goToTeacherIntent(
+    mathsTeacherViewByMode[mode] || APP_VIEWS.MATHS_TEACHER_DASHBOARD
+  );
   // The Reports funnel keeps the teacher on one page, so the report styles in
   // the report's own navigation must link back into the funnel rather than off
   // to the standalone report route.
@@ -1261,6 +1289,12 @@ export function AppSurface({ surface }) {
             goToTeacherSettings={() => goToTeacherIntent(APP_VIEWS.TEACHER_SETTINGS)}
             goToLiteracyHome={() => goToSubjectHome(SUBJECT_IDS.LITERACY)}
             goToMathsHome={() => goToSubjectHome(SUBJECT_IDS.MATHS)}
+            goToMathsAssessments={() => goToMathsTeacherMode("assessments")}
+            goToMathsReports={() => goToMathsTeacherMode("reports")}
+            goToMathsResources={() => goToMathsTeacherMode("resources")}
+            goToMathsPresent={() => goToMathsTeacherMode("present")}
+            goToMathsWorksheets={() => goToMathsTeacherMode("worksheets")}
+            goToMathsGroups={() => goToMathsTeacherMode("groups")}
             teacherEmail={teacherUser.email}
             logOutTeacher={logOutTeacher}
             isAdmin={isAdmin}
@@ -1399,8 +1433,46 @@ export function AppSurface({ surface }) {
             <MathsHome
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
+              client={supabase}
+              token={studentSession?.token || ""}
               onOpenLiteracy={() => goToSubjectHome(SUBJECT_IDS.LITERACY)}
+              onOpenLearn={() => setAppView(APP_VIEWS.MATHS_LEARN)}
+              onOpenAssessment={() => setAppView(APP_VIEWS.MATHS_ASSESSMENT)}
+              onOpenStories={() => setAppView(APP_VIEWS.MATHS_STORIES)}
+              onOpenArcade={() => setAppView(APP_VIEWS.MATHS_ARCADE)}
             />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.MATHS_LEARN && nameSaved && isStudentMode && (
+        <PageBoundary resetKey={`maths-learn-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading Maths lesson…" />}>
+            <MathsLessonPlayer client={supabase} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.MATHS_ASSESSMENT && nameSaved && isStudentMode && (
+        <PageBoundary resetKey={`maths-assessment-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading Maths check…" />}>
+            <MathsAssessmentPlayer client={supabase} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.MATHS_STORIES && nameSaved && isStudentMode && (
+        <PageBoundary resetKey={`maths-stories-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading number stories…" />}>
+            <MathsStoryLibrary onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentName={studentName} />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.MATHS_ARCADE && nameSaved && isStudentMode && (
+        <PageBoundary resetKey={`maths-arcade-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading Maths Arcade…" />}>
+            <MathsArcade client={supabase} onHome={() => setAppView(APP_VIEWS.MATHS_STUDENT_HOME)} progressScopeKey={childProgressScopeKey} studentId={studentId} studentName={studentName} token={studentSession?.token || ""} />
           </Suspense>
         </PageBoundary>
       )}
@@ -1556,12 +1628,34 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {sessionMode !== "student" && appView === APP_VIEWS.MATHS_TEACHER_DASHBOARD && (
-        <PageBoundary resetKey="maths-teacher-dashboard">
+      {sessionMode !== "student" && [
+        APP_VIEWS.MATHS_TEACHER_DASHBOARD,
+        APP_VIEWS.MATHS_TEACHER_ASSESSMENTS,
+        APP_VIEWS.MATHS_TEACHER_REPORTS,
+        APP_VIEWS.MATHS_TEACHER_RESOURCES,
+        APP_VIEWS.MATHS_PRESENT,
+        APP_VIEWS.MATHS_WORKSHEETS,
+        APP_VIEWS.MATHS_SMALL_GROUPS
+      ].includes(appView) && (
+        <PageBoundary resetKey={`maths-teacher-${appView}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Maths…" />}>
-            <MathsTeacherDashboard
+            <MathsTeacherWorkspace
+              mode={{
+                [APP_VIEWS.MATHS_TEACHER_DASHBOARD]: "overview",
+                [APP_VIEWS.MATHS_TEACHER_ASSESSMENTS]: "assessments",
+                [APP_VIEWS.MATHS_TEACHER_REPORTS]: "reports",
+                [APP_VIEWS.MATHS_TEACHER_RESOURCES]: "resources",
+                [APP_VIEWS.MATHS_PRESENT]: "present",
+                [APP_VIEWS.MATHS_WORKSHEETS]: "worksheets",
+                [APP_VIEWS.MATHS_SMALL_GROUPS]: "groups"
+              }[appView]}
               className={getSelectedClassName(classList, selectedClassId)}
               studentCount={classList.find(row => row.id === selectedClassId)?.studentCount ?? null}
+              classId={selectedClassId || ""}
+              students={studentList}
+              client={supabase}
+              teacherId={teacherId}
+              onNavigate={goToMathsTeacherMode}
             />
           </Suspense>
         </PageBoundary>

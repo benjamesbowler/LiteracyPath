@@ -87,7 +87,7 @@ const missing = [];
 const unreachable = [];
 const present = [];
 
-for (const [name, params] of Object.entries(REQUIRED_FUNCTIONS)) {
+async function probeFunction([name, params]) {
   const body = Object.fromEntries(params.map(param => [param, null]));
   let response;
   try {
@@ -102,8 +102,7 @@ for (const [name, params] of Object.entries(REQUIRED_FUNCTIONS)) {
       signal: AbortSignal.timeout(20000)
     });
   } catch (error) {
-    unreachable.push(`${name} (${error?.message || "network failure"})`);
-    continue;
+    return { state: "unreachable", detail: `${name} (${error?.message || "network failure"})` };
   }
 
   let payload;
@@ -116,13 +115,24 @@ for (const [name, params] of Object.entries(REQUIRED_FUNCTIONS)) {
   const notFound = payload?.code === "PGRST202";
   const overloadMiss = /without parameters/i.test(String(payload?.message || ""));
   if (notFound && !overloadMiss) {
-    missing.push(`${name} — ${String(payload.message || "").slice(0, 150)}`);
-  } else if (notFound && overloadMiss) {
+    return { state: "missing", detail: `${name} — ${String(payload.message || "").slice(0, 150)}` };
+  }
+  if (notFound && overloadMiss) {
     // The signature in this file disagrees with the database. Not "missing",
     // but not a pass either — say so rather than guessing.
-    unreachable.push(`${name} (probe signature does not match the database)`);
-  } else {
-    present.push(name);
+    return { state: "unreachable", detail: `${name} (probe signature does not match the database)` };
+  }
+  return { state: "present", detail: name };
+}
+
+const entries = Object.entries(REQUIRED_FUNCTIONS);
+const batchSize = 12;
+for (let start = 0; start < entries.length; start += batchSize) {
+  const results = await Promise.all(entries.slice(start, start + batchSize).map(probeFunction));
+  for (const result of results) {
+    if (result.state === "present") present.push(result.detail);
+    else if (result.state === "missing") missing.push(result.detail);
+    else unreachable.push(result.detail);
   }
 }
 
@@ -147,3 +157,6 @@ if (missing.length) {
 console.log(
   `Live database check passed: all ${present.length} functions the app calls are visible to PostgREST.`
 );
+// Node's fetch pool can otherwise keep this one-shot release check alive after
+// every response has already been classified.
+process.exit(0);

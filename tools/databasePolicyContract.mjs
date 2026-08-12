@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260812101000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260812111000_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
@@ -21,6 +21,8 @@ export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "student_login(uuid, text, text, text)",
   "student_report_activity_sync_health(text, text, bigint, bigint, bigint, bigint, bigint, bigint, timestamp with time zone)",
   "student_record_maths_evidence(text, text, text, text, jsonb, timestamp with time zone, text)",
+  "student_list_maths_assignments(text)",
+  "student_complete_maths_assignment(text, uuid)",
   "student_save_progress(text, text, text, jsonb)",
   "student_save_book_revision(text, uuid, uuid, text, jsonb, jsonb)",
   "student_submit_book_revision(text, uuid, uuid)",
@@ -52,6 +54,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date)",
   "teacher_create_intervention_plan(uuid, text, text, uuid[], text, text, date)",
   "teacher_create_lesson_plan(uuid, uuid, uuid[], jsonb, jsonb, timestamp with time zone)",
+  "teacher_create_maths_assignment(uuid, text, text, text, text, uuid[], timestamp with time zone)",
   "teacher_create_press_project(uuid, uuid[], jsonb)",
   "teacher_create_worksheet_instance(uuid, uuid[], jsonb)",
   "teacher_delete_empty_class(uuid)",
@@ -66,6 +69,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_get_reading_session_presence(uuid)",
   "teacher_get_live_lesson_snapshot(uuid)",
   "teacher_list_learner_data_rights(uuid)",
+  "teacher_list_maths_assignments(uuid, boolean)",
   "teacher_list_press_work(uuid)",
   "teacher_mark_intervention_delivered(uuid)",
   "teacher_prepare_learner_deletion(uuid, text, text)",

@@ -1,6 +1,6 @@
 # LiteracyPath Maths implementation dossier
 
-Status: implementation-ready product specification
+Status: Phase 0 and MATH-101 Foundation vertical slice implemented; wider F–2 launch remains planned
 
 Scope: Foundation to Year 2
 
@@ -12,9 +12,26 @@ Voice: `en-US-Chirp3-HD-Leda`
 
 Privacy: no child voice or image recording
 
-This dossier is the build authority for the proposed Maths subject area. It does
-not change the running product until implemented. The current application and its
-tests remain authoritative for shared platform behaviour.
+This dossier is the build authority for the Maths subject area. Phase 0 and the
+MATH-101 Foundation vertical slice now run inside the shared product. The wider
+Foundation–Year 2 launch definition below remains the roadmap; the current
+application, authored manifests and tests are authoritative for implemented
+behaviour.
+
+## Implemented Foundation release candidate
+
+- 8 Foundation number-sense skills with 40 seven-stage lesson recipes;
+- 160 authored assessment items across visual interaction types;
+- countable interactive manipulatives used in lessons and presentations;
+- 4 original Number Stories with generated cover art and exact-text LEDA assets;
+- 4 untimed curriculum games and 3 original chant/song packs;
+- teacher assignment, presentation, small-group, worksheet and reporting tools;
+- immutable Maths evidence plus RPC-only class assignments in Supabase;
+- no child voice, camera, image upload or speed-based mastery claim.
+
+Generated LEDA clips remain excluded from runtime until a human completes the
+listening-review sheet. Formal `Secure` judgements remain disabled until pilot
+calibration supplies sufficient teacher-observation evidence.
 
 ## Decision
 

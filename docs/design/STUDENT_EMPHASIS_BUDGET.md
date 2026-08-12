@@ -1,6 +1,6 @@
 # Student emphasis budget
 
-**Version:** 2026.07.24
+**Version:** 2026.08.12
 
 **Scope:** every child route at desktop and small-phone widths
 
@@ -16,6 +16,11 @@ Each row was reviewed at 1280 × 900 and 390 × 844 with reduced motion enabled.
 |---|---:|---:|---:|---:|---:|---:|---|
 | Student sign in | PASS | PASS | PASS | PASS | PASS | PASS | Filled Go remains dominant; the teacher escape is textual and smaller. |
 | Student home | PASS | PASS | PASS | PASS | PASS | PASS | The recommended learning card owns the largest area and named continuation bar. |
+| Maths home | PASS | PASS | PASS | PASS | PASS | PASS | Continue Maths is strongest; checks, stories, Arcade and exploration remain quieter alternatives. |
+| Maths lesson | PASS | PASS | PASS | PASS | PASS | PASS | One next/finish action leads each stage; model, previous and manipulative controls stay quiet. |
+| Maths skills check | PASS | PASS | PASS | PASS | PASS | PASS | The current visual prompt and untimed answer group lead; progress remains informational. |
+| Maths Number Stories | PASS | PASS | PASS | PASS | PASS | PASS | The recommended story says Start next; quieter covers remain available and one next/finish action leads the open page. |
+| Maths Arcade | PASS | PASS | PASS | PASS | PASS | PASS | The recommended game says Play next; play stays untimed and never creates a speed score. |
 | Phonics | PASS | PASS | PASS | PASS | PASS | PASS | The next letter alone has a warm field, strong ring, and Start here badge. |
 | Arcade | PASS | PASS | PASS | PASS | PASS | PASS | Alternative game art is quietened; the next unplayed game keeps full colour, double highlight, and Play next. |
 | Adventure Map | PASS | PASS | PASS | PASS | PASS | PASS | The current stop alone keeps its sign, double ring, avatar, and Go next badge. |

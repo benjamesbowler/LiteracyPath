@@ -20,8 +20,28 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "maths-home",
-    primaryCue: "Go to Literacy",
-    treatment: "The honest Phase 0 holding card is dominant; the only available action returns the learner to active Literacy learning."
+    primaryCue: "Continue Maths",
+    treatment: "The recommended lesson owns the strongest action; checks, stories, Arcade and tool exploration remain quieter alternatives."
+  }),
+  Object.freeze({
+    id: "maths-lesson",
+    primaryCue: "Next",
+    treatment: "One green next or finish action advances the seven-stage lesson; previous, model and manipulative controls remain quiet."
+  }),
+  Object.freeze({
+    id: "maths-check",
+    primaryCue: "Choose your answer",
+    treatment: "One visual prompt and one equally weighted answer group lead the untimed six-item check; progress stays informational."
+  }),
+  Object.freeze({
+    id: "maths-stories",
+    primaryCue: "Start next",
+    treatment: "The recommended story is named Start next; other released covers remain quieter choices. One green next or finish action leads the open page."
+  }),
+  Object.freeze({
+    id: "maths-arcade",
+    primaryCue: "Play next",
+    treatment: "The recommended game is named Play next; other games remain quieter choices. During play there is no timer or speed score."
   }),
   Object.freeze({
     id: "phonics",

@@ -28,7 +28,11 @@ export const STUDENT_ALLOWED_VIEWS = new Set([
   APP_VIEWS.PHONICS_QUEST,
   APP_VIEWS.LEARN,
   APP_VIEWS.GUIDED_READING,
-  APP_VIEWS.MATHS_STUDENT_HOME
+  APP_VIEWS.MATHS_STUDENT_HOME,
+  APP_VIEWS.MATHS_LEARN,
+  APP_VIEWS.MATHS_STORIES,
+  APP_VIEWS.MATHS_ARCADE,
+  APP_VIEWS.MATHS_ASSESSMENT
 ]);
 
 export function isStudentAllowedView(appView) {
@@ -97,7 +101,13 @@ const TEACHER_INTENTION_VIEWS = new Set([
   APP_VIEWS.WORKSHEETS,
   APP_VIEWS.PRESENT,
   APP_VIEWS.TEACHER_GUIDED_READING,
-  APP_VIEWS.MATHS_TEACHER_DASHBOARD
+  APP_VIEWS.MATHS_TEACHER_DASHBOARD,
+  APP_VIEWS.MATHS_TEACHER_ASSESSMENTS,
+  APP_VIEWS.MATHS_TEACHER_REPORTS,
+  APP_VIEWS.MATHS_TEACHER_RESOURCES,
+  APP_VIEWS.MATHS_PRESENT,
+  APP_VIEWS.MATHS_WORKSHEETS,
+  APP_VIEWS.MATHS_SMALL_GROUPS
 ]);
 
 export function isFocusedAssessmentView(appView) {
@@ -193,6 +203,12 @@ const TEACHER_INTENT_PATHS = Object.freeze({
   [APP_VIEWS.TEACHER_GUIDED_READING]: "resources/guided-reading",
   [APP_VIEWS.TEACHER_SETTINGS]: "settings",
   [APP_VIEWS.MATHS_TEACHER_DASHBOARD]: "maths/teacher",
+  [APP_VIEWS.MATHS_TEACHER_ASSESSMENTS]: "maths/teacher/assessments",
+  [APP_VIEWS.MATHS_TEACHER_REPORTS]: "maths/teacher/reports",
+  [APP_VIEWS.MATHS_TEACHER_RESOURCES]: "maths/teacher/resources",
+  [APP_VIEWS.MATHS_PRESENT]: "maths/teacher/present",
+  [APP_VIEWS.MATHS_WORKSHEETS]: "maths/teacher/worksheets",
+  [APP_VIEWS.MATHS_SMALL_GROUPS]: "maths/teacher/small-groups",
   [APP_VIEWS.FINISHED]: "reports/report"
 });
 
@@ -204,6 +220,12 @@ const CLASS_ONLY_INTENTS = [
   "resources/present",
   "resources/guided-reading",
   "maths/teacher",
+  "maths/teacher/assessments",
+  "maths/teacher/reports",
+  "maths/teacher/resources",
+  "maths/teacher/present",
+  "maths/teacher/worksheets",
+  "maths/teacher/small-groups",
   "settings"
 ];
 

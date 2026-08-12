@@ -15,7 +15,7 @@ test("A3.6 matrix covers small phone, tablet, Chromebook, and projector", () => 
     ["small-phone", "tablet", "chromebook", "projector"]
   );
   assert.equal(STUDENT_MINIMUM_TARGET_PX, 44);
-  assert.equal(CHILD_SURFACE_ROUTES.length, 9);
+  assert.equal(CHILD_SURFACE_ROUTES.length, 14);
 });
 
 test("A3.6 phone and tablet have portrait and landscape coverage", () => {

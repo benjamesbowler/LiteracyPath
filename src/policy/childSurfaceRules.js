@@ -27,6 +27,26 @@ export const CHILD_SURFACE_ROUTES = Object.freeze([
     appView: APP_VIEWS.MATHS_STUDENT_HOME
   },
   {
+    id: "maths-lesson",
+    label: "Maths lesson",
+    appView: APP_VIEWS.MATHS_LEARN
+  },
+  {
+    id: "maths-check",
+    label: "Maths skills check",
+    appView: APP_VIEWS.MATHS_ASSESSMENT
+  },
+  {
+    id: "maths-stories",
+    label: "Maths number stories",
+    appView: APP_VIEWS.MATHS_STORIES
+  },
+  {
+    id: "maths-arcade",
+    label: "Maths Arcade",
+    appView: APP_VIEWS.MATHS_ARCADE
+  },
+  {
     id: "phonics",
     label: "Phonics",
     appView: APP_VIEWS.PHONICS_LEARN

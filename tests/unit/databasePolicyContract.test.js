@@ -40,13 +40,13 @@ function validCatalog() {
 test("security boundary grants only the explicit RPC surface and guards every teacher RPC", () => {
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 18);
-  assert.equal(report.authenticatedRpcCount, 87);
+  assert.equal(report.anonymousRpcCount, 20);
+  assert.equal(report.authenticatedRpcCount, 91);
   // 9, not 8: list_school_names() joined the legacy list on 2026-08-07 when it
   // was replaced by search_school_names(text). The old no-argument form returned
   // every school name to anon in one unbounded call.
   assert.equal(report.legacyRpcCount, 9);
-  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 55);
+  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 57);
 });
 
 test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
@@ -77,8 +77,8 @@ test("security boundary rejects a teacher RPC missing from the account-status in
 test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 18);
-  assert.equal(report.authenticatedRpcCount, 87);
+  assert.equal(report.anonymousRpcCount, 20);
+  assert.equal(report.authenticatedRpcCount, 91);
   assert.equal(report.privateHelperCount, 4);
 });
 

@@ -21,19 +21,19 @@ test("teacher can switch subjects and the Maths route survives reload, Back and 
   await expect(page.getByRole("group", { name: "Choose subject" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Literacy teacher home" })).toBeVisible();
   await page.getByRole("button", { name: "Maths" }).click();
-  await expect(page.getByRole("heading", { name: "Maths now has a proper home." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();
   await expect.poll(() => new URL(page.url()).hash).toBe(`#maths/teacher?class=${CLASS_ID}`);
-  await expect(page.getByText("No Maths activity or assessment evidence is being recorded yet.", { exact: false })).toBeVisible();
+  await expect(page.getByText("The eight approved Foundation number skills now connect", { exact: false })).toBeVisible();
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Maths now has a proper home." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();
 
   await page.getByRole("button", { name: "Literacy" }).click();
   await expect(page.getByRole("heading", { name: "Literacy teacher home" })).toBeVisible();
   await expect.poll(() => new URL(page.url()).hash).toBe(`#teacher/dashboard?class=${CLASS_ID}`);
 
   await page.goBack();
-  await expect(page.getByRole("heading", { name: "Maths now has a proper home." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();
   await page.goForward();
   await expect(page.getByRole("heading", { name: "Literacy teacher home" })).toBeVisible();
   expect(errors).toEqual([]);
@@ -48,7 +48,7 @@ test("learner can enter Maths and return to Literacy with durable subject histor
   await expect(page.locator('[data-child-surface="student-home"]')).toBeVisible();
   await page.getByRole("button", { name: "Maths" }).click();
   await expect(page.locator('[data-child-surface="maths-home"]')).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Numbers are on their way/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Let’s make sense of numbers/ })).toBeVisible();
   await expect.poll(() => new URL(page.url()).hash)
     .toBe(`#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
 

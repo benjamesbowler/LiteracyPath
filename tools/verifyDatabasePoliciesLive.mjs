@@ -119,6 +119,15 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_evidence_source: {},
     p_scheduled_for: null
   },
+  "teacher_create_maths_assignment(uuid, text, text, text, text, uuid[], timestamp with time zone)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_skill_id: "F-N-COUNT-10",
+    p_activity_type: "lesson",
+    p_activity_id: "anonymous-probe",
+    p_title: "Anonymous access probe",
+    p_student_ids: [EXPECTED.teacherA.studentId],
+    p_due_at: null
+  },
   "teacher_create_press_project(uuid, uuid[], jsonb)": { p_class_id: EXPECTED.teacherA.classId, p_learner_ids: [EXPECTED.teacherA.studentId], p_project_rules: {} },
   "teacher_create_worksheet_instance(uuid, uuid[], jsonb)": { p_class_id: EXPECTED.teacherA.classId, p_learner_ids: [EXPECTED.teacherA.studentId], p_recipe: {} },
   "teacher_complete_learner_deletion(uuid, text, jsonb)": {
@@ -164,6 +173,10 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_session_id: "00000000-0000-0000-0000-000000000000"
   },
   "teacher_list_learner_data_rights(uuid)": { p_student_id: EXPECTED.teacherA.studentId },
+  "teacher_list_maths_assignments(uuid, boolean)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_include_archived: false
+  },
   "teacher_list_press_work(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_mark_intervention_delivered(uuid)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000"
