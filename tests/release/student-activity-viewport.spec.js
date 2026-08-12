@@ -33,37 +33,69 @@ const VISIBLE_CONTROL = [
   "canvas"
 ].join(",");
 
-async function boundedGeometry(locator, state) {
-  const result = await locator.evaluate((root, selector) => {
+async function boundedGeometry(locator, state, { allowedVerticalScroll = [] } = {}) {
+  const result = await locator.evaluate((root, { selector, allowedVerticalScroll }) => {
     const rootRect = root.getBoundingClientRect();
     const visible = [...root.querySelectorAll(selector)].filter(element => {
       const style = getComputedStyle(element);
       const rect = element.getBoundingClientRect();
-      return style.display !== "none"
+      return !element.closest("details:not([open])")
+        && style.display !== "none"
         && style.visibility !== "hidden"
         && Number(style.opacity) !== 0
         && rect.width > 0
         && rect.height > 0;
     });
+    const verticalScrollers = [...root.querySelectorAll("*")].filter(element => {
+      const style = getComputedStyle(element);
+      return element.scrollHeight > element.clientHeight + 1
+        && ["auto", "scroll"].includes(style.overflowY);
+    });
+    const allowedScrollAncestor = element => {
+      let ancestor = element.parentElement;
+      while (ancestor && ancestor !== root) {
+        const style = getComputedStyle(ancestor);
+        const scrolls = ancestor.scrollHeight > ancestor.clientHeight + 1
+          && ["auto", "scroll"].includes(style.overflowY);
+        if (scrolls) {
+          return allowedVerticalScroll.some(selector => ancestor.matches(selector));
+        }
+        ancestor = ancestor.parentElement;
+      }
+      return false;
+    };
     return {
       overflowX: root.scrollWidth - root.clientWidth,
       overflowY: root.scrollHeight - root.clientHeight,
       clipped: visible.filter(element => {
         const rect = element.getBoundingClientRect();
-        return rect.left < rootRect.left - 1
+        const outside = rect.left < rootRect.left - 1
           || rect.right > rootRect.right + 1
           || rect.top < rootRect.top - 1
           || rect.bottom > rootRect.bottom + 1;
+        return outside && !allowedScrollAncestor(element);
       }).map(element => ({
         label: element.getAttribute("aria-label") || element.textContent?.trim() || element.tagName,
         rect: element.getBoundingClientRect().toJSON()
-      }))
+      })),
+      unexpectedVerticalScrollers: verticalScrollers
+        .filter(element => !allowedVerticalScroll.some(selector => element.matches(selector)))
+        .map(element => ({
+          className: element.className,
+          clientHeight: element.clientHeight,
+          scrollHeight: element.scrollHeight,
+          tagName: element.tagName
+        }))
     };
-  }, VISIBLE_CONTROL);
+  }, { selector: VISIBLE_CONTROL, allowedVerticalScroll });
 
   expect(result.overflowX, `${state} must not need horizontal scrolling`).toBeLessThanOrEqual(1);
   expect(result.overflowY, `${state} must not need vertical scrolling`).toBeLessThanOrEqual(1);
   expect(result.clipped, `${state} must keep every control inside its visible activity`).toEqual([]);
+  expect(
+    result.unexpectedVerticalScrollers,
+    `${state} must scroll only in its declared content region`
+  ).toEqual([]);
 }
 
 test("every logged-in child destination fits an iPad without hidden controls", async ({ page }) => {
@@ -80,7 +112,8 @@ test("every logged-in child destination fits an iPad without hidden controls", a
     const contentRow = page.locator(".kg-main");
     await boundedGeometry(
       await contentRow.count() ? contentRow.first() : surface,
-      `${route.id} destination`
+      `${route.id} destination`,
+      { allowedVerticalScroll: [".maths-student-area"] }
     );
   }
 });

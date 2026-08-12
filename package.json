@@ -149,6 +149,7 @@
     "check:child-surface-rules": "node --test tests/unit/childSurfaceRules.test.js && playwright test tests/release/child-surface-rules.spec.js --project=desktop",
     "check:student-emphasis-budget": "node --test tests/unit/studentEmphasisBudget.test.js && playwright test tests/release/student-emphasis-budget.spec.js --project=desktop",
     "check:assessment-media-evidence": "node --test tests/unit/assessmentMediaEvidence.test.js && playwright test tests/release/assessment-media-evidence.spec.js --project=desktop",
+    "check:app-viewport-visibility": "playwright test tests/release/app-viewport-visibility.spec.js tests/release/assessment-media-evidence.spec.js tests/release/student-activity-viewport.spec.js --project=desktop",
     "check:learning-policy": "node tools/checkLearningPolicyThresholds.mjs && node --test tests/unit/learningPolicy.test.js tests/unit/teacherProgressOverview.test.js && npm run test:release-teacher -- --grep @teacher-evidence-basis",
     "check:class-summary-accuracy": "node --test tests/unit/learningPolicy.test.js tests/unit/teacherProgressOverview.test.js && npm run test:release-teacher -- --grep @teacher-class-progress",
     "check:recommendation-explanations": "node tools/checkRecommendationExplanationSurfaces.mjs && node --test tests/unit/recommendationExplanationPolicy.test.js && playwright test tests/release/recommendation-explanations.spec.js --project=desktop",

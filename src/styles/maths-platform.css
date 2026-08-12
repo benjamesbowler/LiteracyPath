@@ -96,6 +96,29 @@
 
 /* Shared child learning area */
 .maths-student-area { padding: clamp(18px, 4vw, 46px); }
+/* Maths lessons, checks and stories contain intentionally progressive content,
+   so the central learning area is their single scroll boundary. It must occupy
+   the shell's bounded content slot rather than retaining a page-sized minimum;
+   otherwise .kg-main clips later controls with no route to reach them. */
+.kg-stage .maths-student-area {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(18, 108, 93, .42) transparent;
+}
+.kg-stage .maths-student-area::-webkit-scrollbar { width: 10px; }
+.kg-stage .maths-student-area::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+  background-color: rgba(18, 108, 93, .42);
+}
 .maths-area-heading { max-width: 1050px; margin: 0 auto 18px; }
 .maths-area-heading h1 { margin: 0; font-size: clamp(31px, 4vw, 48px); letter-spacing: -.035em; }
 .maths-skill-picker { max-width: 1050px; display: grid; gap: 6px; margin: 0 auto 16px; }

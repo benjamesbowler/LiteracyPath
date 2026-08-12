@@ -47,3 +47,52 @@ test("A3.10 failed answer evidence is removed, refilled, and never scored", asyn
   expect(blockingViolations(axe)).toEqual([]);
   expect(pageErrors).toEqual([]);
 });
+
+test("compact laptop assessment keeps every picture audio control visible", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 720 });
+  await page.goto("/preview/assessment-media-evidence.html?scenario=compact-visual-grid");
+
+  const preview = page.locator('[data-preview-scenario="compact-visual-grid"]');
+  const question = page.locator('[data-assessment-question-id="lp3.initial_sounds.l1.C.j.v3"]');
+  const cards = question.locator(".visual-assessment-card");
+  const audioButtons = cards.locator(".initial-sound-card-audio");
+
+  await expect(preview).toBeVisible();
+  await expect(question).toBeVisible();
+  await expect(cards).toHaveCount(4);
+  await expect(audioButtons).toHaveCount(4);
+  await expect(page.getByRole("button", { name: "Hear drum", exact: true })).toBeInViewport();
+  await expect(page.getByRole("button", { name: "Hear yarn", exact: true })).toBeInViewport();
+  await expect(page.getByRole("button", { name: "Hear mug", exact: true })).toBeInViewport();
+  await expect(page.getByRole("button", { name: "Hear jet", exact: true })).toBeInViewport();
+
+  const geometry = await question.evaluate(element => {
+    const grid = element.querySelector(".visual-card-grid");
+    const questionRect = element.getBoundingClientRect();
+    const columns = grid
+      ? getComputedStyle(grid).gridTemplateColumns
+        .split(" ")
+        .filter(track => Number.parseFloat(track) > 1)
+      : [];
+    const controls = [...element.querySelectorAll(".initial-sound-card-audio")]
+      .map(control => control.getBoundingClientRect());
+    return {
+      columns: columns.length,
+      documentOverflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      documentOverflowY: document.documentElement.scrollHeight - document.documentElement.clientHeight,
+      questionOverflowY: element.scrollHeight - element.clientHeight,
+      controlsInsideQuestion: controls.every(rect => (
+        rect.top >= questionRect.top - 1
+        && rect.bottom <= questionRect.bottom + 1
+      ))
+    };
+  });
+
+  expect(geometry).toEqual({
+    columns: 4,
+    documentOverflowX: 0,
+    documentOverflowY: 0,
+    questionOverflowY: 0,
+    controlsInsideQuestion: true
+  });
+});

@@ -9,6 +9,61 @@ import { AssessmentPage } from "./components/AppPages.jsx";
 import { refillAssessmentRoundAfterMediaFailure } from "./policy/assessmentMediaEvidence.js";
 
 const BROKEN_SOURCE = "/images/assessment/does-not-exist-a3-10.webp";
+const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
+const IS_COMPACT_VISUAL_GRID = PREVIEW_PARAMS.get("scenario") === "compact-visual-grid";
+
+const COMPACT_VISUAL_GRID_QUESTION = {
+  id: "lp3.initial_sounds.l1.C.j.v3",
+  skillId: "initial_sounds",
+  assessmentSkillId: "initial_sounds",
+  skill: "Initial Sounds",
+  skillName: "Initial Sounds",
+  level: 1,
+  difficulty: 1,
+  questionType: "visual_card_choice",
+  formatType: "INITIAL_SOUND_PAIR_SELECT",
+  question: "Which one starts like jug?",
+  prompt: "Which one starts like jug?",
+  spokenPrompt: "jug. Which one starts with the same sound as jug?",
+  targetWord: "jug",
+  answer: "jet",
+  correctAnswer: "jet",
+  choices: ["drum", "yarn", "mug", "jet"],
+  imageCards: [
+    {
+      id: "lp3.initial_sounds.l1.C.j.v3_card_drum",
+      word: "drum",
+      value: "drum",
+      label: "drum",
+      image: "/images/assessment/blends/drum.webp",
+      imageAlt: "drum"
+    },
+    {
+      id: "lp3.initial_sounds.l1.C.j.v3_card_yarn",
+      word: "yarn",
+      value: "yarn",
+      label: "yarn",
+      image: "/images/child-mode/initial-sounds/yarn.png",
+      imageAlt: "yarn"
+    },
+    {
+      id: "lp3.initial_sounds.l1.C.j.v3_card_mug",
+      word: "mug",
+      value: "mug",
+      label: "mug",
+      image: "/images/assessment/rhyming/variants/mug/mug-02.webp",
+      imageAlt: "mug"
+    },
+    {
+      id: "lp3.initial_sounds.l1.C.j.v3_card_jet",
+      word: "jet",
+      value: "jet",
+      label: "jet",
+      image: "/images/assessment/rhyming/variants/et/jet-02.webp",
+      imageAlt: "jet"
+    }
+  ]
+};
 
 const FAILED_QUESTION = {
   id: "failed-picture-item",
@@ -93,8 +148,12 @@ const CANDIDATES = [
 ];
 
 export function AssessmentMediaEvidencePreview() {
-  const [round, setRound] = useState([FAILED_QUESTION, SAFE_QUESTION]);
-  const [currentQuestion, setCurrentQuestion] = useState(FAILED_QUESTION);
+  const [round, setRound] = useState(() => IS_COMPACT_VISUAL_GRID
+    ? [COMPACT_VISUAL_GRID_QUESTION]
+    : [FAILED_QUESTION, SAFE_QUESTION]);
+  const [currentQuestion, setCurrentQuestion] = useState(() => IS_COMPACT_VISUAL_GRID
+    ? COMPACT_VISUAL_GRID_QUESTION
+    : FAILED_QUESTION);
   const [failureCount, setFailureCount] = useState(0);
   const handledQuestionIds = useRef(new Set());
 
@@ -115,22 +174,25 @@ export function AssessmentMediaEvidencePreview() {
 
   return (
     <div
-      className="app student-mode-app no-sidebar lp-skin-sage"
+      className={IS_COMPACT_VISUAL_GRID
+        ? "app assessment-app no-sidebar lp-skin-sage"
+        : "app student-mode-app no-sidebar lp-skin-sage"}
       data-preview-surface="assessment-media-evidence"
+      data-preview-scenario={IS_COMPACT_VISUAL_GRID ? "compact-visual-grid" : "media-evidence"}
       data-failure-count={failureCount}
       data-round-question-ids={round.map(question => question.id).join(",")}
     >
       <AssessmentPage
         currentQuestion={currentQuestion}
         feedback={null}
-        studentName="Aaron"
+        studentName={IS_COMPACT_VISUAL_GRID ? "Teacher Ben" : "Aaron"}
         currentSkillIndex={0}
         currentStage={{ id: "initial_sounds", label: "Initial Sounds" }}
         setFeedback={() => {}}
         pickQuestion={() => {}}
         roundAnswers={[]}
-        roundLength={2}
-        roundProgress={0}
+        roundLength={IS_COMPACT_VISUAL_GRID ? 10 : 2}
+        roundProgress={IS_COMPACT_VISUAL_GRID ? 10 : 0}
         shouldShowImage={() => false}
         answerQuestion={() => {}}
         speakText={() => {}}
@@ -138,7 +200,12 @@ export function AssessmentMediaEvidencePreview() {
         endAssessment={() => {}}
         returnToStudentOverview={() => {}}
         assessmentMode="mastery"
-        onEvidenceImageError={handleEvidenceImageError}
+        toggleAssessmentFullscreen={IS_COMPACT_VISUAL_GRID ? () => {} : null}
+        skillTree={IS_COMPACT_VISUAL_GRID
+          ? [{ id: "initial_sounds", label: "Initial Sounds" }]
+          : []}
+        onChangeSkillLevel={IS_COMPACT_VISUAL_GRID ? () => {} : null}
+        onEvidenceImageError={IS_COMPACT_VISUAL_GRID ? null : handleEvidenceImageError}
       />
     </div>
   );
