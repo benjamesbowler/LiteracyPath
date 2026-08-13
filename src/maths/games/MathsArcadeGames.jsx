@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Float, Text } from "@react-three/drei";
+import { Float } from "@react-three/drei";
 import {
   ArrowRight,
   Basket,
@@ -21,12 +21,11 @@ function Stone({ value, position, active, disabled, onChoose }) {
         <cylinderGeometry args={[0.82, 0.95, 0.35, 32]} />
         <meshStandardMaterial color={colour} roughness={0.72} />
       </mesh>
-      <Text anchorX="center" anchorY="middle" color="#193b37" fontSize={0.58} fontWeight={700} position={[0, 0.2, 0.02]} rotation={[-Math.PI / 2, 0, 0]}>{String(value)}</Text>
     </Float>
   </group>;
 }
 
-function MountainScene({ round, disabled, onAnswer }) {
+function MountainScene({ round, disabled, onAnswer, selectedSlot }) {
   const stonePositions = [[-1.9, 0.25, 0.3], [0, 0.38, -0.35], [1.9, 0.55, -0.95]];
   return <div className="maths-number-trail-3d" aria-hidden="true">
     <Canvas camera={{ fov: 48, position: [0, 5.2, 7.2] }} dpr={[1, 1.5]}>
@@ -50,18 +49,23 @@ function MountainScene({ round, disabled, onAnswer }) {
         <sphereGeometry args={[0.42, 24, 24]} />
         <meshStandardMaterial color="#f7a15b" roughness={0.6} />
       </mesh>
-      <Text anchorX="center" color="#163b36" fontSize={0.36} fontWeight={700} position={[-2.7, 1.08, 1.25]}>START {round.model.start}</Text>
-      {round.options.map((value, index) => <Stone active={index === 1} disabled={disabled} key={value} onChoose={chosen => onAnswer(chosen, { component: "number_trail_3d", optionSlot: index, pathOptions: round.options })} position={stonePositions[index]} value={value} />)}
+      {round.options.map((value, index) => <Stone active={selectedSlot === index} disabled={disabled} key={value} onChoose={chosen => onAnswer(chosen, { component: "number_trail_3d", optionSlot: index, pathOptions: round.options })} position={stonePositions[index]} value={value} />)}
     </Canvas>
+    <div className="maths-trail-overlay"><span>Start {round.model.start}</span>{round.options.map((value, index) => <strong className={selectedSlot === index ? "is-selected" : ""} key={value}>{value}</strong>)}</div>
   </div>;
 }
 
 export function NumberTrailGame({ round, disabled, onAnswer }) {
+  const [selectedSlot, setSelectedSlot] = useState(null);
+  const choose = (value, index, component) => {
+    setSelectedSlot(index);
+    onAnswer(value, { component, optionSlot: index, pathOptions: round.options });
+  };
   return <div className="maths-arcade-mechanic maths-number-trail-v2">
-    <MountainScene disabled={disabled} onAnswer={onAnswer} round={round} />
+    <MountainScene disabled={disabled} onAnswer={(value, detail) => choose(value, detail.optionSlot, detail.component)} round={round} selectedSlot={selectedSlot} />
     <div className="maths-arcade-direct-controls" data-child-choices role="group" aria-label="Choose the next stepping stone">
-      <span><HandPointing aria-hidden="true" size={20} weight="duotone" /> Choose the stone after {round.model.start}</span>
-      <div>{round.options.map((value, index) => <button data-answer-slot={index} disabled={disabled} key={value} onClick={() => onAnswer(value, { component: "number_trail_controls", optionSlot: index, pathOptions: round.options })} type="button">{value}</button>)}</div>
+      <span><HandPointing aria-hidden="true" size={20} weight="duotone" /> {round.model.sequence.map(value => value ?? "?").join(" · ")}</span>
+      <div>{round.options.map((value, index) => <button aria-pressed={selectedSlot === index} data-answer-slot={index} disabled={disabled} key={value} onClick={() => choose(value, index, "number_trail_controls")} type="button">{value}</button>)}</div>
     </div>
   </div>;
 }
@@ -90,15 +94,15 @@ export function CountCarryGame({ round, disabled, onAnswer }) {
   const move = index => setCarried(current => current.includes(index) ? current : [...current, index]);
   return <div className="maths-arcade-mechanic maths-carry-world">
     <div className="maths-carry-landscape">
-      <section aria-label={`${total - carried.length} parcels still in the meadow`} className="maths-parcel-meadow">
+      <section aria-label="Parcels waiting to be counted" className="maths-parcel-meadow">
         <span className="maths-world-label">Waiting in the meadow</span>
-        <div>{Array.from({ length: total }, (_, index) => <button aria-label={`Carry parcel ${index + 1}`} className={carried.includes(index) ? "is-carried" : ""} disabled={disabled || carried.includes(index)} key={index} onClick={() => move(index)} type="button"><Package aria-hidden="true" size={total > 12 ? 27 : 33} weight="duotone" /></button>)}</div>
+        <div>{Array.from({ length: total }, (_, index) => <button aria-label={`Move uncounted parcel ${index + 1}`} className={carried.includes(index) ? "is-carried" : ""} disabled={disabled || carried.includes(index)} key={index} onClick={() => move(index)} type="button"><Package aria-hidden="true" size={total > 12 ? 27 : 33} weight="duotone" /></button>)}</div>
       </section>
       <ArrowRight aria-hidden="true" className="maths-carry-arrow" size={36} weight="bold" />
-      <section aria-live="polite" className="maths-carry-cart"><Basket aria-hidden="true" size={52} weight="duotone" /><strong>{carried.length}</strong><span>in the cart</span><div>{carried.map(index => <i key={index} />)}</div></section>
+      <section aria-live="polite" className="maths-carry-cart"><Basket aria-hidden="true" size={52} weight="duotone" /><strong>{carried.length === total ? "Ready" : "Keep moving"}</strong><span>{carried.length === total ? "Every parcel moved once" : "Move one parcel for each number word"}</span></section>
     </div>
-    <div className="maths-carry-meter"><span style={{ width: `${(carried.length / total) * 100}%` }} /><small>{carried.length} of {total} carried once</small></div>
-    <button className="maths-arcade-submit" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary disabled={disabled || carried.length !== total} onClick={() => onAnswer(carried.length, { component: "one_to_one_carry", movedItemIndexes: carried })} type="button">Deliver {total} parcels <ArrowRight aria-hidden="true" size={20} weight="bold" /></button>
+    <div className="maths-carry-meter"><span style={{ width: `${(carried.length / total) * 100}%` }} /><small>{carried.length === total ? "Every parcel has moved" : "Keep counted and uncounted parcels separate"}</small></div>
+    {carried.length === total && <div className="maths-carry-answer" data-child-choices role="group" aria-label="Choose how many parcels are in the collection">{round.options.map((value, slot) => <button data-answer-slot={slot} disabled={disabled} key={value} onClick={() => onAnswer(value, { component: "one_to_one_carry", movedItemIndexes: carried, optionSlot: slot, options: round.options })} type="button">{value}</button>)}</div>}
   </div>;
 }
 

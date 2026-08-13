@@ -26,21 +26,23 @@ function Frame({ state, dispatch }) {
     cellRefs.current[next]?.focus();
   };
   const frameLabel = state.cells.length === 20 ? "Double ten-frame" : LABELS[state.id];
-  return <div className={`maths-frame maths-frame--${state.cells.length}`} role="grid" aria-label={frameLabel}>
-    {state.cells.map((cell, index) => (
-      <button
-        aria-label={`Space ${index + 1}, ${cell === "empty" ? "empty" : cell === "part_a" ? "purple counter" : "orange counter"}`}
-        aria-pressed={cell !== "empty"}
-        className={`maths-frame-cell is-${cell}`}
-        key={index}
-        onClick={() => dispatch({ type: "toggle_cell", index, part })}
-        onKeyDown={event => moveFocus(event, index)}
-        ref={element => { cellRefs.current[index] = element; }}
-        role="gridcell"
-        tabIndex={index === 0 ? 0 : -1}
-        type="button"
-      ><span /></button>
-    ))}
+  return <div className={`maths-frame maths-frame--${state.cells.length}`}>
+    <div className="maths-frame-grid" role="grid" aria-label={frameLabel}>
+      {state.cells.map((cell, index) => (
+        <button
+          aria-label={`Space ${index + 1}, ${cell === "empty" ? "empty" : cell === "part_a" ? "purple counter" : "orange counter"}`}
+          aria-pressed={cell !== "empty"}
+          className={`maths-frame-cell is-${cell}`}
+          key={index}
+          onClick={() => dispatch({ type: "toggle_cell", index, part })}
+          onKeyDown={event => moveFocus(event, index)}
+          ref={element => { cellRefs.current[index] = element; }}
+          role="gridcell"
+          tabIndex={index === 0 ? 0 : -1}
+          type="button"
+        ><span /></button>
+      ))}
+    </div>
     <div className="maths-part-switch" role="group" aria-label="Counter colour">
       <button className={part === "part_a" ? "is-selected" : ""} onClick={() => setPart("part_a")} type="button">Part A, striped</button>
       <button className={part === "part_b" ? "is-selected" : ""} onClick={() => setPart("part_b")} type="button">Part B, dotted</button>

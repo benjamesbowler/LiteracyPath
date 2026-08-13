@@ -1,12 +1,14 @@
 const hashSeed = seed => [...String(seed)].reduce((value, character) => ((value * 31) + character.charCodeAt(0)) >>> 0, 17);
 
-function balancedOptions({ seed, roundId, target, distractors }) {
-  const options = [...new Set([target, ...distractors])].slice(0, 3);
-  let candidate = 0;
-  while (options.length < 3) {
-    candidate += 1;
-    const value = Math.max(0, Number(target) + candidate + 1);
-    if (!options.includes(value)) options.push(value);
+function balancedOptions({ seed, roundId, target, distractors, minimum = 0, maximum = 20 }) {
+  const options = [...new Set([target, ...distractors])]
+    .filter(option => Number.isFinite(option) && option >= minimum && option <= maximum)
+    .slice(0, 3);
+  for (let distance = 1; options.length < 3 && distance <= maximum - minimum; distance += 1) {
+    for (const candidate of [Number(target) - distance, Number(target) + distance]) {
+      if (candidate >= minimum && candidate <= maximum && !options.includes(candidate)) options.push(candidate);
+      if (options.length === 3) break;
+    }
   }
   const expectedSlot = hashSeed(`${seed}:${roundId}:slot`) % options.length;
   const rest = options.filter(option => option !== target)
@@ -19,14 +21,17 @@ function sequenceRound(seed, index) {
   const base = (hashSeed(`${seed}:${index}`) % 16) + 1;
   const id = `sequence-${base}-${index}`;
   const target = base + 1;
-  return { id, mechanic: "trail_step", skillId: "F-N-SEQ-20", prompt: `Build the next stepping stone after ${base}.`, target, options: balancedOptions({ seed, roundId: id, target, distractors: [base - 1, base + 2] }), model: { start: base, end: target } };
+  const sequence = index % 2
+    ? [Math.max(0, base - 1), base, null, base + 2]
+    : [base, null, base + 2, base + 3];
+  return { id, mechanic: "trail_step", skillId: "F-N-SEQ-20", prompt: `Repair the path. Which number belongs in the gap?`, target, options: balancedOptions({ seed, roundId: id, target, distractors: [base - 1, base + 2], maximum: 20 }), model: { start: base, end: target, sequence } };
 }
 function frameRound(seed, index) {
   const target = 5 + (hashSeed(`${seed}:frame:${index}`) % 6);
   const shown = Math.max(0, target - (1 + index % 4));
   const id = `frame-${target}-${shown}-${index}`;
   const missing = target - shown;
-  return { id, mechanic: "forge_frame", skillId: target <= 5 ? "F-N-PART-5" : "F-N-PART-10", prompt: `Forge a frame for ${target}. Add the missing counters.`, target: missing, options: balancedOptions({ seed, roundId: id, target: missing, distractors: [Math.max(0, missing - 1), Math.min(10, missing + 1)] }), model: { shown, target, capacity: 10 } };
+  return { id, mechanic: "forge_frame", skillId: target <= 5 ? "F-N-PART-5" : "F-N-PART-10", prompt: `Forge a frame for ${target}. Add the missing counters.`, target: missing, options: balancedOptions({ seed, roundId: id, target: missing, distractors: [Math.max(0, missing - 1), Math.min(10, missing + 1)], maximum: 10 }), model: { shown, target, capacity: 10 } };
 }
 
 function countRound(seed, index) {
@@ -34,14 +39,14 @@ function countRound(seed, index) {
     ? 11 + (hashSeed(`${seed}:count:${index}`) % 10)
     : 1 + (hashSeed(`${seed}:count:${index}`) % 10);
   const id = `count-${target}-${index}`;
-  const rows = target > 5 ? [5, target - 5] : [target];
-  return { id, mechanic: "carry_once", skillId: target > 10 ? "F-N-COUNT-20" : "F-N-COUNT-10", prompt: "Move each parcel into the cart once, then deliver the total.", target, options: balancedOptions({ seed, roundId: id, target, distractors: [Math.max(0, target - 1), Math.min(20, target + 1)] }), model: { total: target, rows } };
+  const rows = target > 10 ? [10, target - 10] : target > 5 ? [5, target - 5] : [target];
+  return { id, mechanic: "carry_once", skillId: target > 10 ? "F-N-COUNT-20" : "F-N-COUNT-10", prompt: "Move every parcel once. Then choose how many are in the whole collection.", target, options: balancedOptions({ seed, roundId: id, target, distractors: [target - 1, target + 1], minimum: 1, maximum: target > 10 ? 20 : 10 }), model: { total: target, rows } };
 }
 
 function matchRound(seed, index) {
   if (index % 2) {
     const left = 2 + (hashSeed(`${seed}:compare-left:${index}`) % 9);
-    const difference = [-2, 0, 2][hashSeed(`${seed}:compare-difference:${index}`) % 3];
+    const difference = [-2, 2, 0, 2, -2, 0, -2, 2][Math.floor(index / 2) % 8];
     const right = Math.max(0, Math.min(10, left + difference));
     const target = left > right ? "a" : left < right ? "b" : "same";
     const id = `compare-${left}-${right}-${index}`;
@@ -52,7 +57,7 @@ function matchRound(seed, index) {
   }
   const target = 1 + (hashSeed(`${seed}:match:${index}`) % 10);
   const id = `match-${target}-${index}`;
-  return { id, mechanic: "match_frame", skillId: "F-N-MATCH", prompt: `Build ${target} bridge planks to match the numeral.`, target, options: balancedOptions({ seed, roundId: id, target, distractors: [Math.max(0, target - 2), Math.min(10, target + 2)] }), model: { target, capacity: 10 } };
+  return { id, mechanic: "match_frame", skillId: "F-N-MATCH", prompt: `Build ${target} bridge planks to match the numeral.`, target, options: balancedOptions({ seed, roundId: id, target, distractors: [Math.max(0, target - 2), Math.min(10, target + 2)], minimum: 1, maximum: 10 }), model: { target, capacity: 10 } };
 }
 
 export const mathsGames = Object.freeze([

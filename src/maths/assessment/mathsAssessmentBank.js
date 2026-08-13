@@ -380,6 +380,9 @@ export function materializeAssessmentItem(model, variantIndex = 0) {
 }
 
 export function classifyMathsResponse(item, response) {
+  if (response === "" || response === null || response === undefined) {
+    return Object.freeze({ correct: false, classification: "not_checked", observedSignals: [], misconceptionCodes: [] });
+  }
   const normalized = typeof item.expected === "number" ? Number(response) : String(response);
   const correct = normalized === item.expected;
   if (correct) return Object.freeze({ correct: true, classification: "correct", observedSignals: [], misconceptionCodes: [] });
@@ -387,8 +390,7 @@ export function classifyMathsResponse(item, response) {
     ? normalized - item.expected
     : null;
   let classification = "other_incorrect_response";
-  if (response === "" || response === null || response === undefined) classification = "not_checked";
-  else if (difference === 1 || difference === -1) classification = "off_by_one_response";
+  if (difference === 1 || difference === -1) classification = "off_by_one_response";
   else if (item.blueprintId === "number_sequence") classification = "sequence_choice_mismatch";
   else if (item.blueprintId === "compare_quantities") classification = "comparison_choice_mismatch";
   else if (item.blueprintId === "part_whole") classification = "missing_part_mismatch";

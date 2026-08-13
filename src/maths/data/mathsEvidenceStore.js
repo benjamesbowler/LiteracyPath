@@ -470,18 +470,24 @@ export async function readTeacherMathsEvidence({
   client,
   classId,
   studentId = null,
-  limit = 5000
+  since = null,
+  source = null,
+  limit = 5000,
+  returnMetadata = false
 } = {}) {
   if (!client?.call) throw new Error("The Maths evidence service is unavailable.");
   const requestedLimit = Math.max(1, Math.min(20_000, Number(limit) || 5000));
   const events = [];
   let beforeOccurredAt = null;
   let beforeId = null;
+  let hasMore = false;
   while (events.length < requestedLimit) {
     const pageSize = Math.min(500, requestedLimit - events.length);
-    const { data, error } = await client.call("teacher_read_maths_evidence_page", {
+    const { data, error } = await client.call("teacher_read_maths_evidence_filtered_page", {
       p_class_id: classId,
       p_student_id: studentId,
+      p_since: since,
+      p_source: source,
       p_limit: pageSize,
       p_before_occurred_at: beforeOccurredAt,
       p_before_id: beforeId
@@ -490,10 +496,12 @@ export async function readTeacherMathsEvidence({
     if (!data?.ok) throw new Error(data?.error || "Maths evidence could not be read.");
     const rows = Array.isArray(data.events) ? data.events : [];
     events.push(...rows);
+    hasMore = Boolean(data.hasMore);
     if (!data.hasMore || !rows.length) break;
     beforeOccurredAt = data.nextBeforeOccurredAt || rows.at(-1)?.occurredAt || null;
     beforeId = data.nextBeforeId || rows.at(-1)?.id || null;
     if (!beforeOccurredAt || !beforeId) break;
   }
-  return events;
+  const result = { events, complete: !hasMore, hasMore, loadedCount: events.length };
+  return returnMetadata ? Object.freeze(result) : events;
 }

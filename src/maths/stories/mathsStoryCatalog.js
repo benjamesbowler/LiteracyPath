@@ -5,6 +5,8 @@ const story = definition => Object.freeze({
   pages: Object.freeze(definition.pages.map((exactText, index) => Object.freeze({
     pageNumber: index + 1,
     exactText,
+    visualDescription: definition.visualDescriptions?.[index] || "",
+    talkPrompt: definition.pagePrompts?.[index] || definition.teacherPrompts?.[index % definition.teacherPrompts.length] || "What maths do you notice?",
     ...(definition.pageImageDirectory ? { image: `${definition.pageImageDirectory}/page-${String(index + 1).padStart(2, "0")}.webp` } : {}),
     ...(definition.pageModels?.[index] || {})
   })))
@@ -39,6 +41,26 @@ export const mathsStories = Object.freeze([
       { model: { kind: "part_whole", total: 5, parts: [3, 2] } },
       { model: { kind: "equation", total: 5, parts: [3, 2] } }
     ],
+    visualDescriptions: [
+      "Cuddly packs five buns together beside a picnic cloth.",
+      "A breeze lifts the cloth while all five buns remain together.",
+      "Two buns rest on the red cloth and three remain in the basket.",
+      "Splashy and Cuddly check the two groups of buns.",
+      "A part-whole model shows two and three making five.",
+      "Three buns rest on the cloth and two remain in the basket.",
+      "A part-whole model shows three and two making five.",
+      "All five friends share the five saved picnic buns."
+    ],
+    pagePrompts: [
+      "How can you check that there are five buns?",
+      "What is the whole before the buns move?",
+      "Where can you see each part?",
+      "How can Cuddly prove that none are missing?",
+      "What do two and three make altogether?",
+      "What changed when one bun moved?",
+      "What stayed the same?",
+      "Show another way to split five into two parts."
+    ],
     teacherPrompts: ["How did you see five?", "What changed?", "What stayed the same?"],
     familyPrompt: "Arrange five safe household objects in two groups. Move one and say the two parts and the whole."
   }),
@@ -69,6 +91,26 @@ export const mathsStories = Object.freeze([
       { model: { kind: "frame", total: 10, filled: 10, capacity: 10, parts: [7, 3] } },
       { model: { kind: "equation", total: 10, parts: [7, 3] } },
       { model: { kind: "frame", total: 10, filled: 10, capacity: 10, parts: [5, 5] } }
+    ],
+    visualDescriptions: [
+      "An empty ten-frame of light hooks hangs beside the dark barn.",
+      "Five lights fill the top row of the ten-frame.",
+      "Five lights are lit and five hooks remain empty.",
+      "Seven lights are lit, arranged as five and two.",
+      "A part-whole model shows five and two making seven.",
+      "All ten lights are lit, with the last three a different colour.",
+      "An equation model shows seven and three making ten.",
+      "The full ten-frame shines with five lights in each row."
+    ],
+    pagePrompts: [
+      "How many hooks will make the frame full?",
+      "How did you see five without counting every hook?",
+      "How many more lights are needed to make ten?",
+      "How is seven shown as smaller parts?",
+      "Which part is missing from ten?",
+      "What changed when the final three were added?",
+      "How does the model prove seven and three make ten?",
+      "Can you show ten as two different parts?"
     ],
     teacherPrompts: ["How many empty spaces?", "How many more to make ten?", "Show a different way to split ten."],
     familyPrompt: "Draw ten boxes and place small objects in some boxes. Ask how many more are needed to fill all ten."

@@ -22,7 +22,7 @@ test("Maths teacher tools expose seeded presentation, real worksheet visuals, re
   await expect(page.getByRole("heading", { name: "Maths presentation" })).toBeVisible();
   await expect(page.locator('.maths-frame-cell[aria-pressed="true"]')).toHaveCount(5);
   await expect(page.getByText("How many did you see?")).toBeVisible();
-  await page.getByRole("button", { name: "Flash for 1.5 seconds" }).click();
+  await page.getByRole("button", { name: "Flash picture" }).click();
   await expect(page.getByText("Look now")).toBeVisible();
   await expect(page.locator(".maths-flash-cover")).toHaveCount(0);
   await page.waitForTimeout(1700);
@@ -47,6 +47,7 @@ test("Maths teacher tools expose seeded presentation, real worksheet visuals, re
   await expect(page.getByRole("heading", { name: "Maths resources" })).toBeVisible();
   await expect(page.getByText("Active assignments")).toBeVisible();
   await expect(page.getByText("5 of 12 complete")).toBeVisible();
+  await page.getByRole("button", { name: "Chants and games" }).click();
   const instrumental = page.locator('.maths-song-player audio[src*="instrumental.mp3"]').first();
   await page.getByRole("button", { name: "Play instrumental" }).first().click();
   await expect.poll(() => instrumental.evaluate(element => element.currentTime)).toBeGreaterThan(0);
@@ -58,9 +59,14 @@ test("Maths student lesson gates progress on an action and real Leda audio can s
   const errors = browserErrors(page);
   await page.goto(studentUrl);
   await page.getByRole("button", { name: /Continue lesson/ }).click();
-  const next = page.getByRole("button", { name: "Complete this step" });
+  const next = page.getByRole("button", { name: "Use the model and choose a note" });
   await expect(next).toBeDisabled();
   await page.getByRole("button", { name: "I touched each one once" }).click();
+  await expect(page.getByRole("button", { name: "Use the model and choose a note" })).toBeDisabled();
+  const cells = page.getByRole("gridcell");
+  for (let index = 0; index < 5; index += 1) await cells.nth(index).click();
+  await page.getByRole("button", { name: "Part B, dotted" }).click();
+  for (let index = 5; index < 10; index += 1) await cells.nth(index).click();
   await expect(page.getByRole("button", { name: "Next: notice" })).toBeEnabled();
 
   const audio = page.locator(".maths-audio-control audio").first();
@@ -130,6 +136,17 @@ test("Maths Arcade exposes four distinct mechanics with no timer or speed score"
     await page.locator(`[data-game="${gameId}"]`).click();
     await expect(page.locator(selector)).toBeVisible();
   }
+  await page.goto(`/preview/maths-phase-zero.html?audience=student&game=count-and-carry#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
+  await page.getByRole("button", { name: /Maths Arcade/ }).click();
+  await page.locator('[data-game="count-and-carry"]').click();
+  await expect(page.locator(".maths-carry-landscape")).toBeVisible();
+  await expect(page.getByRole("group", { name: "Choose how many parcels are in the collection" })).toHaveCount(0);
+  const parcelButtons = page.locator('.maths-parcel-meadow button');
+  const parcelsToMove = await parcelButtons.count();
+  for (let index = 0; index < parcelsToMove; index += 1) await parcelButtons.nth(index).click();
+  const parcelAnswers = page.getByRole("group", { name: "Choose how many parcels are in the collection" });
+  await expect(parcelAnswers).toBeVisible();
+  await expect(parcelAnswers.getByRole("button")).toHaveCount(3);
   await expect(page.locator("[data-timer], .timer, .speed-score")).toHaveCount(0);
   expect(errors).toEqual([]);
 });

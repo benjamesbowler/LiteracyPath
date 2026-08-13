@@ -248,7 +248,7 @@ test("a permanent backend rejection is removed instead of poisoning the retry qu
   assert.equal(readMathsEvidenceQueue({ storage }).length, 0);
 });
 
-test("teacher reads use the class-scoped cursor-paginated evidence RPC", async () => {
+test("teacher reads use the class-scoped filtered cursor-paginated evidence RPC", async () => {
   const calls = [];
   const events = [{ id: "event-1", skillId: "F-N-COUNT-10" }];
   const client = {
@@ -264,8 +264,8 @@ test("teacher reads use the class-scoped cursor-paginated evidence RPC", async (
     limit: 25
   }), events);
   assert.deepEqual(calls, [{
-    name: "teacher_read_maths_evidence_page",
-    args: { p_class_id: "class-a", p_student_id: "student-a", p_limit: 25, p_before_occurred_at: null, p_before_id: null }
+    name: "teacher_read_maths_evidence_filtered_page",
+    args: { p_class_id: "class-a", p_student_id: "student-a", p_since: null, p_source: null, p_limit: 25, p_before_occurred_at: null, p_before_id: null }
   }]);
 });
 
@@ -280,6 +280,20 @@ test("teacher evidence reads follow cursor pages without duplicating the boundar
   assert.deepEqual(rows.map(row => row.id), ["event-2", "event-1"]);
   assert.equal(calls[1].args.p_before_id, "event-2");
   assert.equal(calls[1].args.p_before_occurred_at, "2026-08-12T02:00:00Z");
+});
+
+test("teacher evidence reads disclose truncation and pass filters to the server", async () => {
+  const calls = [];
+  const client = { call: async (name, args) => {
+    calls.push({ name, args });
+    return { data: { ok: true, events: [{ id: "event-2", occurredAt: "2026-08-12T02:00:00Z" }], hasMore: true, nextBeforeOccurredAt: "2026-08-12T02:00:00Z", nextBeforeId: "event-2" }, error: null };
+  } };
+  const result = await readTeacherMathsEvidence({ client, classId: "class-a", since: "2026-08-01T00:00:00Z", source: "maths_skills_check", limit: 1, returnMetadata: true });
+  assert.equal(result.complete, false);
+  assert.equal(result.loadedCount, 1);
+  assert.equal(calls[0].name, "teacher_read_maths_evidence_filtered_page");
+  assert.equal(calls[0].args.p_since, "2026-08-01T00:00:00Z");
+  assert.equal(calls[0].args.p_source, "maths_skills_check");
 });
 
 test("teacher sync health is class scoped and normalised", async () => {

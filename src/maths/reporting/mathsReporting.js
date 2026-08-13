@@ -7,7 +7,7 @@ export const MATHS_EVIDENCE_STATUSES = Object.freeze([
   "Practice observed",
   "Needs follow-up",
   "Mixed evidence",
-  "Demonstrated"
+  "Correct on checked items"
 ]);
 
 const SIGNAL_GUIDANCE = Object.freeze({
@@ -24,7 +24,7 @@ const SIGNAL_GUIDANCE = Object.freeze({
 
 function evidenceOutcome(event) {
   const evidence = event?.evidence || {};
-  if (event?.eventType === "practice_attempt" || evidence.constructChanged) return null;
+  if (event?.eventType === "practice_attempt" || evidence.constructChanged || evidence.classification === "not_checked" || evidence.response === null) return null;
   if (typeof evidence.correct === "boolean") return evidence.correct;
   if (["demonstrated", "independent", "correct"].includes(evidence.outcome)) return true;
   if (["not_yet", "incorrect"].includes(evidence.outcome)) return false;
@@ -33,7 +33,23 @@ function evidenceOutcome(event) {
 
 function eventOccurrenceKey(event, index) {
   const evidence = event.evidence || {};
-  return evidence.itemKey || evidence.roundId || `${evidence.sessionId || evidence.assignmentId || event.eventType}:${event.id || event.occurredAt || index}`;
+  const occasion = evidence.sessionId || evidence.assignmentId || event.occurredAt || event.id || index;
+  const item = evidence.itemKey || evidence.roundId || event.eventType;
+  return `${occasion}:${item}`;
+}
+
+function evidenceDirection(scoredEvents) {
+  if (scoredEvents.length < 2) return scoredEvents.length ? "Single check" : "No direct check";
+  const recent = scoredEvents.slice(-3).map(evidenceOutcome);
+  const earlier = scoredEvents.slice(0, Math.max(0, scoredEvents.length - recent.length)).map(evidenceOutcome);
+  const recentCorrect = recent.filter(Boolean).length;
+  const earlierCorrect = earlier.filter(Boolean).length;
+  if (recent.every(Boolean) && earlier.includes(false)) return "Improving — recent checks were correct";
+  if (recent.every(value => !value) && earlier.includes(true)) return "Needs renewed attention";
+  if (new Set(recent).size > 1) return "Inconsistent in recent checks";
+  if (recentCorrect === recent.length) return "Consistently correct in recent checks";
+  if (earlier.length && recentCorrect / recent.length > earlierCorrect / earlier.length) return "Improving";
+  return "Evidence is consistent across recent checks";
 }
 
 function patternGuidance(possiblePatterns, skillId) {
@@ -62,6 +78,7 @@ export function mathsSkillReport(events = [], skillId, { now = new Date() } = {}
   const ageDays = newest ? Math.floor((now.getTime() - newest) / DAY) : null;
   const signalOccurrences = new Map();
   scoredEvents.forEach((event, index) => {
+    if (event.evidence?.response === null) return;
     const signals = event.evidence?.observedSignals
       || (event.evidence?.classification && !["correct", "not_checked"].includes(event.evidence.classification)
         ? [event.evidence.classification]
@@ -79,7 +96,7 @@ export function mathsSkillReport(events = [], skillId, { now = new Date() } = {}
   else if (scoredEvents.length) {
     const outcomeKinds = new Set(scored);
     if (outcomeKinds.size > 1) status = "Mixed evidence";
-    else status = scored.at(-1) ? "Demonstrated" : "Needs follow-up";
+    else status = scored.at(-1) ? "Correct on checked items" : "Needs follow-up";
   }
   const guidance = patternGuidance(possiblePatterns, skillId);
   return Object.freeze({
@@ -96,12 +113,13 @@ export function mathsSkillReport(events = [], skillId, { now = new Date() } = {}
     newestAt: newest ? new Date(newest).toISOString() : null,
     freshness: ageDays === null ? "No evidence" : ageDays === 0 ? "Today" : ageDays === 1 ? "Yesterday" : `${ageDays} days ago`,
     possiblePatterns,
+    direction: evidenceDirection(scoredEvents),
     observedSignals: Object.freeze(Object.fromEntries([...signalOccurrences].map(([signal, occurrences]) => [signal, occurrences.size]))),
     checkQuestion: guidance.check,
     nextAction: guidance.action,
     secureEnabled: false,
     evidenceNote: scoredEvents.length
-      ? `${scoredEvents.length} direct formative event${scoredEvents.length === 1 ? "" : "s"} across ${representations.size} representation${representations.size === 1 ? "" : "s"}${practiceEvents.length ? `, plus ${practiceEvents.length} practice event${practiceEvents.length === 1 ? "" : "s"}` : ""}.`
+      ? `${scoredEvents.length} direct formative event${scoredEvents.length === 1 ? "" : "s"} across ${representations.size} representation${representations.size === 1 ? "" : "s"}${practiceEvents.length ? `, plus ${practiceEvents.length} practice event${practiceEvents.length === 1 ? "" : "s"}` : ""}. This describes checked items only, not mastery.`
       : practiceEvents.length
         ? `${practiceEvents.length} practice event${practiceEvents.length === 1 ? "" : "s"}; gather a direct check or teacher observation before making an attainment claim.`
         : "No Maths evidence has been collected for this skill."
@@ -151,6 +169,6 @@ export function buildMathsClassGroups(events = [], students = [], skillId = APPR
     practiceOnly: rows.filter(row => row.priority.status === "Practice observed"),
     reconnect: rows.filter(row => row.priority.status === "Needs follow-up"),
     build: rows.filter(row => row.priority.status === "Mixed evidence"),
-    extend: rows.filter(row => row.priority.status === "Demonstrated")
+    extend: rows.filter(row => row.priority.status === "Correct on checked items" && row.priority.scoredCount >= 2 && row.priority.sources.includes("small_group_exit"))
   });
 }

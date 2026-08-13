@@ -1,6 +1,6 @@
 import { CHILD_SURFACE_ROUTES } from "./childSurfaceRules.js";
 
-export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.08.12";
+export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.08.13";
 
 export const STUDENT_EMPHASIS_VIEWPORTS = Object.freeze([
   Object.freeze({ id: "desktop", width: 1280, height: 900 }),
@@ -20,23 +20,23 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "maths-home",
-    primaryCue: "Continue Maths",
+    primaryCue: "Continue lesson",
     treatment: "The recommended lesson owns the strongest action; checks, stories, Arcade and tool exploration remain quieter alternatives."
   }),
   Object.freeze({
     id: "maths-lesson",
-    primaryCue: "Complete this step",
-    treatment: "The one strongest action names the required learning action until the learner has interacted, then becomes Next or Finish; previous and manipulative controls remain quiet."
+    primaryCue: "Use the model and choose a note",
+    treatment: "The one strongest action names both required learning actions until the model is valid, then becomes Next or Finish; previous and manipulative controls remain quiet."
   }),
   Object.freeze({
     id: "maths-check",
-    primaryCue: "Choose your answer",
-    treatment: "One visual prompt and one equally weighted answer group lead the untimed six-item check; progress stays informational."
+    primaryCue: "Start the check",
+    treatment: "One calm start action explains the untimed check before six equally weighted answer groups; progress stays informational."
   }),
   Object.freeze({
     id: "maths-stories",
-    primaryCue: "Start next",
-    treatment: "The recommended story is named Start next; other released covers remain quieter choices. One green next or finish action leads the open page."
+    primaryCue: "Read next",
+    treatment: "The recommended story is named Read next; other released covers remain quieter choices. One green next or finish action leads the open page."
   }),
   Object.freeze({
     id: "maths-arcade",

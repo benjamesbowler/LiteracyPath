@@ -19,6 +19,7 @@ check(mathsAssessmentBank.every(item => item.representationFamilies.length >= 2)
 check(mathsStories.length === 4 && releasedMathsStories.length === 2, "story catalog or curriculum gate drifted");
 check(mathsStories.every(item => item.pages.length === 8), "every launch story needs eight pages");
 check(releasedMathsStories.every(item => item.pages.every(page => page.image)), "every released story page needs its own image mapping");
+check(releasedMathsStories.every(item => item.pages.every(page => page.visualDescription && page.talkPrompt)), "every released story page needs distinct visual alternative text and a page-specific talk prompt");
 check(releasedMathsStories.every(item => item.pages.every(page => fs.existsSync(path.join(process.cwd(), "public", page.image)))), "every released story page image must exist");
 check(mathsGames.length === 4, "expected four Foundation practice games");
 check(mathsGames.every(game => createMathsGameSession(game.id, "release").items.length === 8), "every game needs eight decisions");

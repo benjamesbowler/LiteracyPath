@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createManipulativeState, mathsManipulativeReducer, manipulativeTotal, snapshotManipulativeState } from "../../src/maths/manipulatives/mathsManipulatives.js";
-import { mathsActivityRecipes, mathsActivityRecipesBySkill } from "../../src/maths/learn/mathsActivityRecipes.js";
+import { mathsActivityRecipes, mathsActivityRecipesBySkill, mathsLessonStageIsReady } from "../../src/maths/learn/mathsActivityRecipes.js";
 import { MATHS_ASSESSMENT_BLUEPRINTS, assessmentOptionsForItem, buildMathsAssessmentRound, classifyMathsResponse, mathsAssessmentBank } from "../../src/maths/assessment/mathsAssessmentBank.js";
 import { mathsStories, releasedMathsStories } from "../../src/maths/stories/mathsStoryCatalog.js";
 import { createMathsGameSession, evaluateMathsGameRound, mathsGames } from "../../src/maths/games/mathsGames.js";
@@ -32,6 +32,22 @@ test("all eight approved skills ship five structured activity recipes", () => {
     assert.equal(mathsActivityRecipesBySkill[skillId].length, 5);
     assert.deepEqual(mathsActivityRecipesBySkill[skillId].map(recipe => recipe.phase), ["retrieve", "model", "guided", "independent", "transfer"]);
   }
+});
+
+test("guided lesson reflection cannot replace the required mathematical model", () => {
+  const emptyTen = createManipulativeState("ten_frame", { maximum: 10 });
+  assert.equal(mathsLessonStageIsReady("F-N-PART-10", "retrieve", emptyTen, "I noticed a whole", 1), false);
+  const fiveAndFive = {
+    ...emptyTen,
+    cells: ["part_a", "part_a", "part_a", "part_a", "part_a", "part_b", "part_b", "part_b", "part_b", "part_b"]
+  };
+  assert.equal(mathsLessonStageIsReady("F-N-PART-10", "retrieve", fiveAndFive, "I noticed a whole", 10), true);
+  const tenAndZero = { ...emptyTen, cells: Array(10).fill("part_a") };
+  assert.equal(mathsLessonStageIsReady("F-N-PART-10", "retrieve", tenAndZero, "I noticed a whole", 10), false);
+
+  const sixAndFour = { ...emptyTen, cells: [...Array(6).fill("part_a"), ...Array(4).fill("part_b")] };
+  assert.equal(mathsLessonStageIsReady("F-N-PART-10", "make", sixAndFour), true);
+  assert.equal(mathsLessonStageIsReady("F-N-PART-10", "explain", sixAndFour, "I can point to the parts"), true);
 });
 
 test("assessment bank has 20 fixed models and variation breadth per released skill", () => {
@@ -65,6 +81,16 @@ test("assessment rounds balance correct-answer position and bind exact render ev
   }
 });
 
+test("not sure stays neutral even when the expected numeric answer is zero", () => {
+  const item = { expected: 0, blueprintId: "part_whole" };
+  assert.deepEqual(classifyMathsResponse(item, null), {
+    correct: false,
+    classification: "not_checked",
+    observedSignals: [],
+    misconceptionCodes: []
+  });
+});
+
 test("number story countable models match their declared totals and curriculum gate", () => {
   assert.equal(mathsStories.length, 4);
   assert.equal(releasedMathsStories.length, 2);
@@ -89,8 +115,21 @@ test("four Maths games create eight deterministic, answerable, untimed decisions
     for (const item of one.items) {
       assert.ok(item.options.includes(item.target));
       assert.equal(evaluateMathsGameRound(item, item.target).correct, true);
+      assert.ok(item.options.some(option => !evaluateMathsGameRound(item, option).correct));
     }
   }
+});
+
+test("Arcade rounds never reveal or visually preselect an answer", () => {
+  const carry = createMathsGameSession("count-and-carry", "semantic-audit");
+  for (const item of carry.items) {
+    assert.doesNotMatch(item.prompt, new RegExp(`\\b${item.target}\\b`));
+    assert.equal(item.options.length, 3);
+    assert.ok(item.options.every(option => option >= 1 && option <= (item.skillId === "F-N-COUNT-20" ? 20 : 10)));
+  }
+  const trail = createMathsGameSession("number-trail", "semantic-audit");
+  assert.ok(trail.items.every(item => item.model.sequence.filter(value => value === null).length === 1));
+  assert.ok(trail.items.every(item => item.model.sequence.includes(item.target) === false));
 });
 
 test("every game assignment generates eight rounds for its exact released skill", () => {
@@ -114,6 +153,8 @@ test("reporting discloses basis and never enables Secure before calibration", ()
   const report = buildMathsLearnerReport(events, "s1");
   assert.equal(report.length, 8);
   assert.equal(report.find(row => row.skillId === "F-N-PART-10").eventCount, 1);
+  assert.equal(report.find(row => row.skillId === "F-N-PART-10").status, "Correct on checked items");
+  assert.equal(report.find(row => row.skillId === "F-N-PART-10").direction, "Single check");
   assert.ok(report.every(row => row.secureEnabled === false));
 });
 
@@ -131,6 +172,20 @@ test("class reporting keeps Not checked neutral and requires repeated signals fo
   assert.deepEqual(groups.notChecked.map(row => row.student.id), ["s2"]);
   assert.equal(groups.reconnect.length, 1);
   assert.deepEqual(buildMathsLearnerReport(events.slice(0, 1), "s1").find(row => row.skillId === "F-N-PART-10").possiblePatterns, []);
+});
+
+test("reporting separates repeated item occurrences by session and never extends from one auto-check", () => {
+  const students = [{ id: "s1", name: "One" }];
+  const events = ["session-a", "session-b"].map((sessionId, index) => ({
+    id: `event-${index}`,
+    studentId: "s1", skillId: "F-N-PART-10", eventType: "skills_check_response",
+    occurredAt: new Date(Date.now() + index * 1000).toISOString(),
+    evidence: { sessionId, itemKey: "same-item:v1", correct: false, source: "maths_skills_check", representation: "ten_frame", observedSignals: ["missing_part_mismatch"] }
+  }));
+  const report = buildMathsLearnerReport(events, "s1").find(row => row.skillId === "F-N-PART-10");
+  assert.deepEqual(report.possiblePatterns, ["missing_part_mismatch"]);
+  const groups = buildMathsClassGroups([{ ...events[0], evidence: { ...events[0].evidence, correct: true, observedSignals: [] } }], students, "F-N-PART-10");
+  assert.equal(groups.extend.length, 0);
 });
 
 test("worksheet versions contain real task models with matching answer data", () => {

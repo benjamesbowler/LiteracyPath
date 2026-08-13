@@ -32,8 +32,43 @@ const counterParts = state => [
   state?.counters?.filter(counter => counter.groupId === "b").length || 0
 ];
 
-export function mathsLessonStageIsReady(skillId, stage, state, selectedThought = "") {
-  if (["retrieve", "notice", "model", "explain"].includes(stage)) return Boolean(selectedThought);
+function lessonModelMatches(skillId, stage, state) {
+  if (!state) return false;
+  const total = state.id === "counter_tray"
+    ? state.counters.length
+    : ["five_frame", "ten_frame"].includes(state.id)
+      ? state.cells.filter(cell => cell !== "empty").length
+      : state.id === "number_line"
+        ? state.current
+        : state.parts.reduce((sum, value) => sum + value, 0);
+  const frame = frameParts(state);
+  const counters = counterParts(state);
+  if (stage === "retrieve") {
+    if (skillId === "F-N-SEQ-20") return state.current === 10 && state.jumps?.length >= 10 && state.jumps.every(jump => jump.magnitude === 1);
+    if (skillId === "F-N-COUNT-10") return total === 5;
+    if (skillId === "F-N-COUNT-20") return total === 10;
+    if (skillId === "F-N-SUBITISE-5") return total === 3;
+    if (skillId === "F-N-MATCH") return total > 0 && total <= 10;
+    if (skillId === "F-N-COMPARE") return counters.every(value => value > 0);
+    if (skillId === "F-N-PART-5") return state.parts?.every(value => value > 0);
+    if (skillId === "F-N-PART-10") return total === 10 && frame[0] === 5 && frame[1] === 5;
+  }
+  if (["notice", "model"].includes(stage)) {
+    if (skillId === "F-N-SEQ-20") return state.jumps?.length >= 2 && state.jumps.every(jump => jump.magnitude === 1);
+    if (skillId === "F-N-COUNT-10") return total === 5;
+    if (skillId === "F-N-COUNT-20") return total >= 11 && total <= 20 && state.cells?.slice(0, 10).every(cell => cell !== "empty");
+    if (skillId === "F-N-SUBITISE-5") return total === 3 && frame.includes(2) && frame.includes(1);
+    if (skillId === "F-N-MATCH") return total === 6;
+    if (skillId === "F-N-COMPARE") return counters[0] === 6 && counters[1] === 4;
+    if (skillId === "F-N-PART-5") return state.parts?.includes(2) && state.parts?.includes(3);
+    if (skillId === "F-N-PART-10") return frame.includes(7) && frame.includes(3);
+  }
+  return false;
+}
+
+export function mathsLessonStageIsReady(skillId, stage, state, selectedThought = "", actionCount = 0) {
+  if (["retrieve", "notice", "model"].includes(stage)) return actionCount > 0 && Boolean(selectedThought) && lessonModelMatches(skillId, stage, state);
+  if (stage === "explain") return Boolean(selectedThought) && mathsLessonStageIsReady(skillId, "make", state);
   if (!state || !["make", "apply", "check"].includes(stage)) return false;
   const total = state.id === "counter_tray"
     ? state.counters.length
