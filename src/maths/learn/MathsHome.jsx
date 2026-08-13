@@ -1,14 +1,50 @@
 import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  BookOpenText,
+  CheckCircle,
+  GameController,
+  GridNine,
+  LockSimple,
+  SpeakerHigh,
+  SquaresFour
+} from "@phosphor-icons/react";
 import StudentGlassShell from "../../components/StudentGlassShell.jsx";
 import { SubjectSwitch } from "../../components/SubjectSwitch.jsx";
 import { SUBJECT_IDS } from "../../subjects/subjectRegistry.js";
 import "../../styles/maths-platform.css";
+import "../../styles/maths-platform-v2.css";
 
-const ICONS = { lesson: "◫", skills_check: "✓", game: "◆", number_story: "◇" };
+const ACTIVITY_META = Object.freeze({
+  lesson: Object.freeze({ label: "Guided lesson", action: "Continue lesson", Icon: SquaresFour }),
+  skills_check: Object.freeze({ label: "Skills check", action: "Start check", Icon: CheckCircle }),
+  game: Object.freeze({ label: "Arcade mission", action: "Play mission", Icon: GameController }),
+  number_story: Object.freeze({ label: "Number story", action: "Read story", Icon: BookOpenText })
+});
+
+function dueLabel(assignment, renderedAt) {
+  if (!assignment?.dueAt) return "Ready when you are";
+  const due = new Date(assignment.dueAt);
+  if (Number.isNaN(due.getTime())) return "Ready when you are";
+  const overdue = due.getTime() < renderedAt;
+  return `${overdue ? "Ready to finish · due " : "Due "}${due.toLocaleDateString()}`;
+}
+
+function HomeDestination({ className, title, description, action, Icon, onOpen }) {
+  return (
+    <button className={`maths-destination ${className}`} onClick={onOpen} type="button">
+      <span className="maths-destination-icon" aria-hidden="true"><Icon size={28} weight="duotone" /></span>
+      <span className="maths-destination-copy"><strong>{title}</strong><small>{description}</small></span>
+      <span className="maths-destination-action">{action}<ArrowRight aria-hidden="true" size={18} weight="bold" /></span>
+    </button>
+  );
+}
 
 export function MathsHome({ studentName = "Mathematician", progressScopeKey = "default", client, token = "", onOpenLiteracy, onOpenLearn, onOpenAssessment, onOpenStories, onOpenArcade }) {
   const [assignments, setAssignments] = useState([]);
   const [assignmentState, setAssignmentState] = useState(token ? "loading" : "unavailable");
+  const [loadVersion, setLoadVersion] = useState(0);
+  const [renderedAt] = useState(() => Date.now());
   useEffect(() => {
     let current = true;
     if (!client?.call || !token) return undefined;
@@ -22,22 +58,92 @@ export function MathsHome({ studentName = "Mathematician", progressScopeKey = "d
       })
       .catch(() => { if (current) setAssignmentState("error"); });
     return () => { current = false; };
-  }, [client, token]);
-  const openAssignment = assignment => ({ lesson: onOpenLearn, skills_check: onOpenAssessment, game: onOpenArcade, number_story: onOpenStories }[assignment.activityType]?.(assignment));
+  }, [client, loadVersion, token]);
+
+  const openAssignment = assignment => ({
+    lesson: onOpenLearn,
+    skills_check: onOpenAssessment,
+    game: onOpenArcade,
+    number_story: onOpenStories
+  }[assignment.activityType]?.(assignment));
   const pending = assignments.filter(assignment => !assignment.completedAt);
-  return <StudentGlassShell studentName={studentName} scopeKey={progressScopeKey} active="maths" tabs={[]} showWallet={false} showGrownUps={false} onHome={onOpenLiteracy} headerActions={<SubjectSwitch activeSubject={SUBJECT_IDS.MATHS} onSelectSubject={subjectId => { if (subjectId === SUBJECT_IDS.LITERACY) onOpenLiteracy?.(); }} variant="child" />}>
-    <main className="maths-home-v1" data-child-surface="maths-home">
-      <header><div><p>Your Maths place</p><h1 data-child-title>Let’s make sense of numbers, {studentName}.</h1><span data-child-instruction>Move, notice, explain and play. Nothing here records your voice or picture.</span><small className="maths-home-stage" data-child-progress>Foundation number sense</small></div><div className="maths-home-number-mark" aria-hidden="true"><span>5</span>{Array.from({ length: 5 }, (_, index) => <i key={index} />)}</div></header>
-      {assignmentState === "loading" && <p className="maths-home-status" role="status">Checking today’s Maths…</p>}
-      {assignmentState === "error" && <p className="maths-home-status is-error" role="status">Today’s assignments could not be loaded. You can still use every practice area below.</p>}
-      {assignmentState === "ready" && pending.length > 0 && <section className="maths-assignment-shelf"><div><p>From your teacher</p><h2>Today’s Maths</h2></div>{pending.map(assignment => <article key={assignment.id}><span aria-hidden="true">{ICONS[assignment.activityType]}</span><div><small>{assignment.activityType.replaceAll("_", " ")}</small><strong>{assignment.title}</strong>{assignment.dueAt && <em>Due {new Date(assignment.dueAt).toLocaleDateString()}</em>}<small>Completes automatically at the activity’s stopping point.</small></div><button onClick={() => openAssignment(assignment)} type="button">Open</button></article>)}</section>}
-      <section className="maths-home-grid" aria-label="Maths learning areas" data-child-choices>
-        <button className="is-lesson" data-child-emphasis="primary" data-child-primary onClick={() => onOpenLearn?.(null)} type="button"><span aria-hidden="true">◫</span><div><small>Build and explain</small><h2>Maths lessons</h2><p>Use frames, counters, number lines and part–whole models.</p></div><strong data-child-emphasis-cue>Continue Maths</strong></button>
-        <button className="is-check" data-child-emphasis="choice" onClick={() => onOpenAssessment?.(null)} type="button"><span aria-hidden="true">✓</span><div><small>Short and calm</small><h2>Skills check</h2><p>Show what you notice in six maths decisions.</p></div><strong>Start</strong></button>
-        <button className="is-story" data-child-emphasis="choice" onClick={() => onOpenStories?.(null)} type="button"><span aria-hidden="true">◇</span><div><small>Read and notice</small><h2>Number stories</h2><p>See quantities change while the story unfolds.</p></div><strong>Open shelf</strong></button>
-        <button className="is-arcade" data-child-emphasis="choice" onClick={() => onOpenArcade?.(null)} type="button"><span aria-hidden="true">◆</span><div><small>Practice through play</small><h2>Maths Arcade</h2><p>Untimed number trails, frames and matching games.</p></div><strong>Play</strong></button>
-      </section>
-      <footer><span>No child voice or image recording</span><span>Games never mark a skill Secure</span><button onClick={onOpenLiteracy} type="button">Go to Literacy</button></footer>
-    </main>
-  </StudentGlassShell>;
+  const completedToday = assignments.filter(assignment => assignment.completedAt && new Date(assignment.completedAt).toDateString() === new Date(renderedAt).toDateString());
+  const recommended = pending[0] || null;
+  const recommendedMeta = recommended ? ACTIVITY_META[recommended.activityType] || ACTIVITY_META.lesson : ACTIVITY_META.lesson;
+  const RecommendedIcon = recommendedMeta.Icon;
+
+  return (
+    <StudentGlassShell
+      studentName={studentName}
+      scopeKey={progressScopeKey}
+      active="maths"
+      tabs={[]}
+      showWallet={false}
+      showGrownUps={false}
+      onHome={onOpenLiteracy}
+      headerActions={<SubjectSwitch activeSubject={SUBJECT_IDS.MATHS} onSelectSubject={subjectId => { if (subjectId === SUBJECT_IDS.LITERACY) onOpenLiteracy?.(); }} variant="child" />}
+    >
+      <main className="maths-home-v2" data-child-surface="maths-home">
+        <section className="maths-home-hero">
+          <div className="maths-home-hero-copy">
+            <p className="maths-eyebrow">Your Maths place</p>
+            <h1 data-child-title>Ready to make sense of numbers, {studentName}?</h1>
+            <p data-child-instruction>Move it. See it. Explain it.</p>
+            <div className="maths-recommended-card" data-child-choices data-child-progress>
+              <span className="maths-recommended-icon" aria-hidden="true"><RecommendedIcon size={30} weight="duotone" /></span>
+              <span>
+                <small>{recommended ? `From your teacher · ${recommendedMeta.label}` : "Recommended next · Guided lesson"}</small>
+                <strong>{recommended?.title || "Build a number on the trail"}</strong>
+                <em>{recommended ? dueLabel(recommended, renderedAt) : "Seven calm steps · stop after the check"}</em>
+              </span>
+              <button
+                className="maths-primary"
+                data-child-emphasis="primary"
+                data-child-emphasis-cue
+                data-child-primary
+                onClick={() => recommended ? openAssignment(recommended) : onOpenLearn?.(null)}
+                type="button"
+              >
+                {recommendedMeta.action}<ArrowRight aria-hidden="true" size={20} weight="bold" />
+              </button>
+            </div>
+            {assignmentState === "loading" && <p className="maths-home-inline-state" role="status">Checking today’s teacher activities…</p>}
+            {assignmentState === "error" && (
+              <div className="maths-home-inline-state is-error" role="alert">
+                <span>Teacher activities could not load. Every practice area still works.</span>
+                <button onClick={() => { setAssignmentState("loading"); setLoadVersion(value => value + 1); }} type="button">Try again</button>
+              </div>
+            )}
+            {recommended && pending.length > 1 && <p className="maths-home-inline-state">{pending.length - 1} more teacher {pending.length === 2 ? "activity" : "activities"} waiting after this one.</p>}
+            {completedToday.length > 0 && <p className="maths-home-inline-state is-finished"><CheckCircle aria-hidden="true" size={18} weight="fill" /> {completedToday.length} finished today</p>}
+          </div>
+          <div className="maths-home-world" aria-hidden="true">
+            <div className="maths-home-sun" />
+            <div className="maths-home-cloud is-one" />
+            <div className="maths-home-cloud is-two" />
+            <div className="maths-home-frame">
+              {Array.from({ length: 10 }, (_, index) => <span className={index < 7 ? "is-filled" : ""} key={index} />)}
+            </div>
+            <img alt="" src="/images/companions/fluff.webp" />
+            <strong>7</strong>
+          </div>
+        </section>
+
+        <section className="maths-home-journey" aria-labelledby="maths-choose-title">
+          <header><p className="maths-eyebrow">Choose your way to practise</p><h2 id="maths-choose-title">Where shall we go?</h2></header>
+          <div className="maths-destination-grid" data-child-choices>
+            <HomeDestination action="Learn" className="is-learn" description="Build and explain with counters and frames" Icon={GridNine} onOpen={() => onOpenLearn?.(null)} title="Guided lesson" />
+            <HomeDestination action="Show" className="is-check" description="Six calm decisions for your teacher" Icon={CheckCircle} onOpen={() => onOpenAssessment?.(null)} title="Skills check" />
+            <HomeDestination action="Read" className="is-story" description="Follow a quantity through a real story" Icon={BookOpenText} onOpen={() => onOpenStories?.(null)} title="Number stories" />
+            <HomeDestination action="Play" className="is-arcade" description="Move, build and compare in full game worlds" Icon={GameController} onOpen={() => onOpenArcade?.(null)} title="Maths Arcade" />
+          </div>
+        </section>
+
+        <footer className="maths-home-trust">
+          <span><LockSimple aria-hidden="true" size={17} weight="fill" /> No child voice or image recording</span>
+          <span><SpeakerHigh aria-hidden="true" size={17} weight="fill" /> Tap audio when you want the words read</span>
+        </footer>
+      </main>
+    </StudentGlassShell>
+  );
 }

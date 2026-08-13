@@ -118,7 +118,8 @@ export default defineConfig({
         input: {
           main: fileURLToPath(new URL('./index.html', import.meta.url)),
           quest: fileURLToPath(new URL('./preview/quest.html', import.meta.url)),
-          questEvidence: fileURLToPath(new URL('./preview/quest-evidence.html', import.meta.url))
+          questEvidence: fileURLToPath(new URL('./preview/quest-evidence.html', import.meta.url)),
+          maths: fileURLToPath(new URL('./preview/maths.html', import.meta.url))
         }
       } : {}),
       output: {

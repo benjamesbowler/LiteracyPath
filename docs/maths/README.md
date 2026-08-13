@@ -21,7 +21,7 @@ behaviour.
 ## Implemented Foundation release candidate
 
 - 8 Foundation number-sense skills with 40 seven-stage lesson recipes;
-- 160 stable formula-generated assessment models across visual interaction types;
+- 160 stable explicitly authored assessment models across six interaction blueprints;
 - countable interactive manipulatives used in lessons and presentations;
 - 2 released original Number Stories, with 2 additional catalogued drafts, generated
   cover art and exact-text LEDA assets;

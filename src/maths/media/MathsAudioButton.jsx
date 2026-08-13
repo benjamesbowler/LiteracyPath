@@ -14,6 +14,7 @@ export function MathsAudioButton({
   const [state, setState] = useState("idle");
   const [showFlag, setShowFlag] = useState(false);
   const [flagState, setFlagState] = useState("");
+  const [flagged, setFlagged] = useState(false);
   const path = mathsAudioPath(requestId);
 
   useEffect(() => () => {
@@ -23,6 +24,7 @@ export function MathsAudioButton({
   if (!path) return <span className="maths-audio-unavailable">Audio unavailable</span>;
 
   const toggle = async () => {
+    if (flagged) return;
     const audio = audioRef.current;
     if (!audio) return;
     if (!audio.paused) {
@@ -48,7 +50,10 @@ export function MathsAudioButton({
         : { p_audio_id: requestId, p_reason: "playback_or_content_issue" };
       const { data, error } = await client.call(rpc, args);
       if (error || !data?.ok) throw error || new Error(data?.error || "flag_failed");
-      setFlagState("Flagged for review. You can keep learning.");
+      audioRef.current?.pause();
+      setState("idle");
+      setFlagged(true);
+      setFlagState("Flagged for review. Ask your teacher to read this instruction instead.");
       setShowFlag(false);
     } catch {
       setFlagState("The flag could not be sent. Please tell a teacher.");
@@ -63,9 +68,9 @@ export function MathsAudioButton({
       ref={audioRef}
       src={path}
     />
-    <button aria-pressed={state === "playing"} onClick={toggle} type="button">
+    <button aria-pressed={state === "playing"} disabled={flagged} onClick={toggle} type="button">
       <span aria-hidden="true">{state === "playing" ? "Ⅱ" : "▶"}</span>
-      {state === "playing" ? "Pause" : state === "blocked" ? "Tap to play" : state === "error" ? "Audio unavailable" : label}
+      {flagged ? "Audio flagged" : state === "playing" ? "Pause" : state === "blocked" ? "Tap to play" : state === "error" ? "Audio unavailable" : label}
     </button>
     <button
       aria-expanded={showFlag}
@@ -73,7 +78,7 @@ export function MathsAudioButton({
       onClick={() => setShowFlag(value => !value)}
       title="Flag this exact audio clip for review"
       type="button"
-    >Flag audio</button>
+    >{flagged ? "Flag sent" : "Flag audio"}</button>
     {showFlag && <div className="maths-audio-flag-panel"><p>Did this exact clip sound wrong or fail to play?</p><button onClick={flag} type="button">Send audio flag</button></div>}
     {flagState && <small aria-live="polite">{flagState}</small>}
   </div>;
@@ -100,6 +105,7 @@ export function MathsSongPlayer({ song, compact = false, client = null, token = 
   };
   const [showFlag, setShowFlag] = useState(false);
   const [flagState, setFlagState] = useState("");
+  const [flagged, setFlagged] = useState(false);
   const flagInstrumental = async () => {
     setFlagState("Sending…");
     try {
@@ -111,6 +117,9 @@ export function MathsSongPlayer({ song, compact = false, client = null, token = 
         : { p_audio_id: requestId, p_reason: "playback_or_content_issue" };
       const { data, error } = await client.call(rpc, args);
       if (error || !data?.ok) throw error || new Error(data?.error || "flag_failed");
+      audioRef.current?.pause();
+      setPlaying(false);
+      setFlagged(true);
       setFlagState("Instrumental flagged for review.");
       setShowFlag(false);
     } catch {
@@ -119,8 +128,8 @@ export function MathsSongPlayer({ song, compact = false, client = null, token = 
   };
   return <div className={`maths-song-player${compact ? " is-compact" : ""}`}>
     <audio onEnded={() => setPlaying(false)} preload="none" ref={audioRef} src={path} />
-    <button aria-pressed={playing} onClick={toggle} type="button">{playing ? "Pause instrumental" : "Play instrumental"}</button>
-    <button aria-expanded={showFlag} className="maths-audio-flag" onClick={() => setShowFlag(value => !value)} type="button">Flag instrumental</button>
+    <button aria-pressed={playing} disabled={flagged} onClick={toggle} type="button">{flagged ? "Instrumental flagged" : playing ? "Pause instrumental" : "Play instrumental"}</button>
+    <button aria-expanded={showFlag} className="maths-audio-flag" onClick={() => setShowFlag(value => !value)} type="button">{flagged ? "Flag sent" : "Flag instrumental"}</button>
     {showFlag && <div className="maths-audio-flag-panel"><p>Did this backing track sound wrong or fail to play?</p><button onClick={flagInstrumental} type="button">Send instrumental flag</button></div>}
     {flagState && <small aria-live="polite">{flagState}</small>}
     <MathsAudioButton client={client} compact label="Hear lyric guide" requestId={`song:${song.id}:guide`} token={token} />

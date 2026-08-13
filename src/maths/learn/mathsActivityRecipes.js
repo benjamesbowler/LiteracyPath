@@ -1,9 +1,77 @@
 import { APPROVED_FOUNDATION_SKILL_IDS, mathsSkillById } from "../curriculum/mathsSkillTree.js";
 
-export const MATHS_CONTENT_VERSION = "maths-foundation-number-v1";
+export const MATHS_CONTENT_VERSION = "maths-foundation-number-v2";
 export const MATHS_LESSON_STAGES = Object.freeze([
   "retrieve", "notice", "model", "make", "explain", "apply", "check"
 ]);
+
+export const MATHS_LESSON_STAGE_COPY = Object.freeze({
+  notice: "Look at the model. Choose one thing you notice before changing it.",
+  explain: "Point to the model, then choose what your explanation included. Nothing is recorded.",
+  check: "Change the model to show the final challenge independently, then finish the practice."
+});
+
+export const MATHS_LESSON_STAGE_GOALS = Object.freeze({
+  "F-N-SEQ-20": Object.freeze({ make: "Land on 8.", apply: "Land on a number after 10.", check: "Land on 12." }),
+  "F-N-COUNT-10": Object.freeze({ make: "Make 7 counters.", apply: "Make 9 counters.", check: "Make 6 counters." }),
+  "F-N-COUNT-20": Object.freeze({ make: "Show 14 as ten and four more.", apply: "Show a different teen number.", check: "Show 16 as ten and six more." }),
+  "F-N-SUBITISE-5": Object.freeze({ make: "Show 4 in the five-frame.", apply: "Show 4 with both parts.", check: "Show 3 in the five-frame." }),
+  "F-N-MATCH": Object.freeze({ make: "Build a frame to match 7.", apply: "Build a frame to match 4.", check: "Build a frame to match 6." }),
+  "F-N-COMPARE": Object.freeze({ make: "Make 6 in group A and 4 in group B.", apply: "Make two equal non-empty groups.", check: "Make two different non-empty groups." }),
+  "F-N-PART-5": Object.freeze({ make: "Split 5 into 2 and 3.", apply: "Find a different split of 5.", check: "Split 5 into 1 and 4." }),
+  "F-N-PART-10": Object.freeze({ make: "Show 10 as 6 and 4.", apply: "Show a different two-part way to make 10.", check: "Show 10 as 7 and 3." })
+});
+
+const frameParts = state => [
+  state?.cells?.filter(cell => cell === "part_a").length || 0,
+  state?.cells?.filter(cell => cell === "part_b").length || 0
+];
+
+const counterParts = state => [
+  state?.counters?.filter(counter => counter.groupId === "a").length || 0,
+  state?.counters?.filter(counter => counter.groupId === "b").length || 0
+];
+
+export function mathsLessonStageIsReady(skillId, stage, state, selectedThought = "") {
+  if (["retrieve", "notice", "model", "explain"].includes(stage)) return Boolean(selectedThought);
+  if (!state || !["make", "apply", "check"].includes(stage)) return false;
+  const total = state.id === "counter_tray"
+    ? state.counters.length
+    : ["five_frame", "ten_frame"].includes(state.id)
+      ? state.cells.filter(cell => cell !== "empty").length
+      : state.id === "number_line"
+        ? state.current
+        : state.parts.reduce((sum, value) => sum + value, 0);
+  if (skillId === "F-N-SEQ-20") return stage === "make" ? total === 8 : stage === "apply" ? total > 10 : total === 12;
+  if (skillId === "F-N-COUNT-10") return total === ({ make: 7, apply: 9, check: 6 }[stage]);
+  if (skillId === "F-N-COUNT-20") return stage === "make" ? total === 14 : stage === "apply" ? total >= 11 && total <= 20 && total !== 14 : total === 16;
+  if (skillId === "F-N-SUBITISE-5") {
+    const parts = frameParts(state);
+    return stage === "make" ? total === 4 : stage === "apply" ? total === 4 && parts.every(value => value > 0) : total === 3;
+  }
+  if (skillId === "F-N-MATCH") return total === ({ make: 7, apply: 4, check: 6 }[stage]);
+  if (skillId === "F-N-COMPARE") {
+    const [a, b] = counterParts(state);
+    return stage === "make" ? a === 6 && b === 4 : stage === "apply" ? a > 0 && a === b : a > 0 && b > 0 && a !== b;
+  }
+  if (skillId === "F-N-PART-5") {
+    const [a, b] = state.parts || [];
+    return stage === "make" ? a === 2 && b === 3 : stage === "apply" ? a > 0 && b > 0 && !([2, 3].includes(a) && [2, 3].includes(b)) : a === 1 && b === 4;
+  }
+  if (skillId === "F-N-PART-10") {
+    const [a, b] = frameParts(state);
+    return stage === "make" ? a === 6 && b === 4 : stage === "apply" ? total === 10 && a > 0 && b > 0 && !([6, 4].includes(a) && [6, 4].includes(b)) : a === 7 && b === 3;
+  }
+  return false;
+}
+
+export function mathsLessonInstruction(recipe, stage) {
+  return MATHS_LESSON_STAGE_COPY[stage] || recipe.instructionText;
+}
+
+export function mathsLessonInstructionAudioId(recipe, stage) {
+  return MATHS_LESSON_STAGE_COPY[stage] ? `lesson-stage:${recipe.skillId}:${stage}` : recipe.instructionAudioId;
+}
 
 const PROFILES = Object.freeze({
   "F-N-SEQ-20": {

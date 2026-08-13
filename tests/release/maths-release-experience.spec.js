@@ -31,16 +31,17 @@ test("Maths teacher tools expose seeded presentation, real worksheet visuals, re
   await teacherNav.getByRole("button", { name: "Worksheets", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Maths worksheet studio" })).toBeVisible();
   await expect(page.locator(".maths-print-frame")).toHaveCount(8);
+  await page.getByLabel("Learning goal").selectOption("F-N-MATCH");
   await page.getByLabel("Template").selectOption("match");
   await expect(page.locator(".maths-print-dot-match")).toHaveCount(8);
-  await expect(page.getByText("Teacher answer guide · Version A")).toBeVisible();
+  await expect(page.getByText("Teacher answer guide · Core · Version A")).toBeVisible();
 
   await teacherNav.getByRole("button", { name: "Reports", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Maths reports" })).toBeVisible();
   await expect(teacherNav.getByRole("button", { name: "Reports", exact: true })).toHaveAttribute("aria-current", "page");
   await expect(teacherNav.getByRole("button", { name: "Present", exact: true })).not.toHaveAttribute("aria-current", "page");
   await expect(page.getByText("Evidence sync:")).toBeVisible();
-  await expect(page.getByText("7 of 12 learners checked")).toBeVisible();
+  await expect(page.getByText("7 of 12 learners with evidence")).toBeVisible();
 
   await teacherNav.getByRole("button", { name: "Resources", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Maths resources" })).toBeVisible();
@@ -56,7 +57,7 @@ test("Maths teacher tools expose seeded presentation, real worksheet visuals, re
 test("Maths student lesson gates progress on an action and real Leda audio can start", async ({ page }) => {
   const errors = browserErrors(page);
   await page.goto(studentUrl);
-  await page.getByRole("button", { name: /Maths lessons/ }).click();
+  await page.getByRole("button", { name: /Continue lesson/ }).click();
   const next = page.getByRole("button", { name: "Complete this step" });
   await expect(next).toBeDisabled();
   await page.getByRole("button", { name: "I touched each one once" }).click();
@@ -76,14 +77,18 @@ test("Maths skills checks render, mask quick quantities and use a genuine model 
   await page.getByRole("button", { name: /Skills check/ }).click();
 
   await page.getByLabel("Learning goal").selectOption("F-N-SUBITISE-5");
+  await page.getByRole("button", { name: "Start the check" }).click();
   await expect(page.locator(".maths-quick-quantity")).toBeVisible();
   await page.waitForTimeout(1700);
   await expect(page.getByText("Picture hidden")).toBeVisible();
 
+  await page.goto(`/preview/maths-phase-zero.html?audience=student&check=match#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
+  await page.getByRole("button", { name: /Skills check/ }).click();
   await page.getByLabel("Learning goal").selectOption("F-N-MATCH");
+  await page.getByRole("button", { name: "Start the check" }).click();
   await expect(page.getByRole("button", { name: "Add one" })).toBeVisible();
   await page.getByRole("button", { name: "Add one" }).click();
-  await expect(page.getByRole("button", { name: "Check my model" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Use this model" })).toBeVisible();
   await page.getByRole("button", { name: "Use a non-visual description" }).count().then(count => expect(count).toBe(0));
   expect(errors).toEqual([]);
 });
@@ -93,8 +98,9 @@ test("Maths number stories combine exact page audio, a countable model, talk pro
   await page.goto(studentUrl);
   await page.getByRole("button", { name: /Number stories/ }).click();
   await page.getByRole("button", { name: /Five Buns for the Picnic/ }).click();
-  await expect(page.getByText("Cuddly carries five buns to the picnic.")).toBeVisible();
+  await expect(page.getByText("Cuddly packs exactly five buns for the meadow picnic.")).toBeVisible();
   await expect(page.locator('.maths-story-text audio[src*="maths_story_page"]')).toHaveCount(1);
+  await expect(page.locator('.maths-story-page-visual img[src$="page-01.webp"]')).toHaveJSProperty("naturalWidth", 1200);
   await expect(page.locator('.maths-story-scene [role="img"]')).toBeVisible();
   await expect(page.getByText("Talk together")).toBeVisible();
   for (let pageNumber = 1; pageNumber < 8; pageNumber += 1) {
@@ -110,13 +116,13 @@ test("Maths Arcade exposes four distinct mechanics with no timer or speed score"
   const errors = browserErrors(page);
   await page.goto(studentUrl);
   await page.getByRole("button", { name: /Maths Arcade/ }).click();
-  await expect(page.getByText("4 untimed games")).toBeVisible();
+  await expect(page.getByText("Four different game worlds")).toBeVisible();
 
   const expectations = [
-    ["number-trail", ".maths-number-trail-game"],
-    ["frame-foundry", ".maths-quantity-builder"],
-    ["count-and-carry", ".maths-carry-game"],
-    ["quantity-match", ".maths-frame-match, .maths-compare-game"]
+    ["number-trail", ".maths-number-trail-3d canvas"],
+    ["frame-foundry", ".maths-foundry-machine"],
+    ["count-and-carry", ".maths-carry-landscape"],
+    ["quantity-match", ".maths-bridge-world"]
   ];
   for (const [gameId, selector] of expectations) {
     await page.goto(`/preview/maths-phase-zero.html?audience=student&game=${gameId}#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
@@ -124,6 +130,6 @@ test("Maths Arcade exposes four distinct mechanics with no timer or speed score"
     await page.locator(`[data-game="${gameId}"]`).click();
     await expect(page.locator(selector)).toBeVisible();
   }
-  await expect(page.getByText(/timer|speed score/i)).toHaveCount(0);
+  await expect(page.locator("[data-timer], .timer, .speed-score")).toHaveCount(0);
   expect(errors).toEqual([]);
 });

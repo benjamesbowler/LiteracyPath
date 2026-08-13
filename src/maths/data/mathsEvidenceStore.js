@@ -373,6 +373,7 @@ export function flushMathsEvidenceQueue({
   const task = (async () => {
     let flushed = 0;
     let rejected = 0;
+    const assignmentIds = new Set();
     for (const record of readMathsEvidenceQueue({
       audience: scopedAudience,
       scopeId: scopedId,
@@ -380,7 +381,11 @@ export function flushMathsEvidenceQueue({
     })) {
       try {
         await deliverEntry(client, record.entry, token);
-        if (removeEntry(target, record.key)) flushed += 1;
+        if (removeEntry(target, record.key)) {
+          flushed += 1;
+          const assignmentId = normalizeId(record.entry.args?.p_evidence?.assignmentId);
+          if (scopedAudience === "student" && assignmentId) assignmentIds.add(assignmentId);
+        }
       } catch (error) {
         if (isPermanentEvidenceRejection(error)) {
           if (removeEntry(target, record.key)) rejected += 1;
@@ -396,9 +401,26 @@ export function flushMathsEvidenceQueue({
         });
       }
     }
+    let assignmentsCompleted = 0;
+    let assignmentsPending = 0;
+    if (scopedAudience === "student" && normalizeId(token) && client?.call) {
+      for (const assignmentId of assignmentIds) {
+        try {
+          const { data, error } = await client.call("student_complete_maths_assignment", {
+            p_token: token,
+            p_assignment_id: assignmentId
+          });
+          if (!error && data?.ok) assignmentsCompleted += 1;
+          else assignmentsPending += 1;
+        } catch {
+          assignmentsPending += 1;
+        }
+      }
+    }
     return {
       flushed,
       rejected,
+      ...(assignmentIds.size ? { assignmentsCompleted, assignmentsPending } : {}),
       remaining: readMathsEvidenceQueue({
         audience: scopedAudience,
         scopeId: scopedId,

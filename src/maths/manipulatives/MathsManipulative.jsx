@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useReducer, useRef, useState } from "react";
 import {
   createManipulativeState,
   describeManipulativeState,
@@ -16,7 +16,17 @@ const LABELS = {
 
 function Frame({ state, dispatch }) {
   const [part, setPart] = useState("part_a");
-  return <div className={`maths-frame maths-frame--${state.cells.length}`} role="grid" aria-label={LABELS[state.id]}>
+  const cellRefs = useRef([]);
+  const columns = 5;
+  const moveFocus = (event, index) => {
+    const movement = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: columns, ArrowUp: -columns }[event.key];
+    if (!movement) return;
+    event.preventDefault();
+    const next = Math.max(0, Math.min(state.cells.length - 1, index + movement));
+    cellRefs.current[next]?.focus();
+  };
+  const frameLabel = state.cells.length === 20 ? "Double ten-frame" : LABELS[state.id];
+  return <div className={`maths-frame maths-frame--${state.cells.length}`} role="grid" aria-label={frameLabel}>
     {state.cells.map((cell, index) => (
       <button
         aria-label={`Space ${index + 1}, ${cell === "empty" ? "empty" : cell === "part_a" ? "purple counter" : "orange counter"}`}
@@ -24,14 +34,16 @@ function Frame({ state, dispatch }) {
         className={`maths-frame-cell is-${cell}`}
         key={index}
         onClick={() => dispatch({ type: "toggle_cell", index, part })}
-        onContextMenu={event => { event.preventDefault(); setPart(current => current === "part_a" ? "part_b" : "part_a"); dispatch({ type: "toggle_cell", index, part: part === "part_a" ? "part_b" : "part_a" }); }}
+        onKeyDown={event => moveFocus(event, index)}
+        ref={element => { cellRefs.current[index] = element; }}
         role="gridcell"
+        tabIndex={index === 0 ? 0 : -1}
         type="button"
       ><span /></button>
     ))}
     <div className="maths-part-switch" role="group" aria-label="Counter colour">
-      <button className={part === "part_a" ? "is-selected" : ""} onClick={() => setPart("part_a")} type="button">Purple part</button>
-      <button className={part === "part_b" ? "is-selected" : ""} onClick={() => setPart("part_b")} type="button">Orange part</button>
+      <button className={part === "part_a" ? "is-selected" : ""} onClick={() => setPart("part_a")} type="button">Part A, striped</button>
+      <button className={part === "part_b" ? "is-selected" : ""} onClick={() => setPart("part_b")} type="button">Part B, dotted</button>
     </div>
   </div>;
 }
@@ -67,13 +79,14 @@ function NumberLine({ state, dispatch }) {
 }
 
 function PartWhole({ state, dispatch }) {
+  const idPrefix = useId();
   return <div className="maths-part-whole">
     <div className="maths-whole"><span>Whole</span><strong>{state.whole}</strong></div>
     <div className="maths-part-branches" aria-hidden="true" />
     <div className="maths-parts">
       {state.parts.map((value, index) => <div key={index}>
-        <label htmlFor={`maths-part-${index}`}>Part {index + 1}</label>
-        <input id={`maths-part-${index}`} max={state.whole} min="0" onChange={event => dispatch({ type: "set_part", index, value: event.target.value })} type="range" value={value} />
+        <label htmlFor={`${idPrefix}-part-${index}`}>Part {index + 1}</label>
+        <input id={`${idPrefix}-part-${index}`} max={state.whole} min="0" onChange={event => dispatch({ type: "set_part", index, value: event.target.value })} type="range" value={value} />
         <strong>{value}</strong>
       </div>)}
     </div>
@@ -111,7 +124,7 @@ export function MathsManipulative({
   };
   const total = manipulativeTotal(state);
   return <section className="maths-manipulative" data-manipulative={id} data-mode={mode}>
-    <header><div><p>Hands-on model</p><h2>{LABELS[id]}</h2></div><output aria-live="polite">{description}</output></header>
+    <header><div><p>Hands-on model</p><h2>{id === "ten_frame" && maximum > 10 ? "Double ten-frame" : LABELS[id]}</h2></div><output aria-atomic="true" aria-live="polite">{description}</output></header>
     <div className="maths-manipulative-canvas">
       {id === "counter_tray" && <CounterTray dispatch={dispatch} state={state} />}
       {["five_frame", "ten_frame"].includes(id) && <Frame dispatch={dispatch} state={state} />}

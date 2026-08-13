@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import fs from "node:fs";
+import path from "node:path";
 import { APPROVED_FOUNDATION_SKILL_IDS } from "../src/maths/curriculum/mathsSkillTree.js";
 import { mathsActivityRecipes } from "../src/maths/learn/mathsActivityRecipes.js";
 import { mathsAssessmentBank, MATHS_ASSESSMENT_BLUEPRINTS } from "../src/maths/assessment/mathsAssessmentBank.js";
@@ -16,6 +18,8 @@ check(mathsAssessmentBank.every(item => item.surfaceVariants.length === 4), "eve
 check(mathsAssessmentBank.every(item => item.representationFamilies.length >= 2), "every assessment model needs two representation families");
 check(mathsStories.length === 4 && releasedMathsStories.length === 2, "story catalog or curriculum gate drifted");
 check(mathsStories.every(item => item.pages.length === 8), "every launch story needs eight pages");
+check(releasedMathsStories.every(item => item.pages.every(page => page.image)), "every released story page needs its own image mapping");
+check(releasedMathsStories.every(item => item.pages.every(page => fs.existsSync(path.join(process.cwd(), "public", page.image)))), "every released story page image must exist");
 check(mathsGames.length === 4, "expected four Foundation practice games");
 check(mathsGames.every(game => createMathsGameSession(game.id, "release").items.length === 8), "every game needs eight decisions");
 check(mathsSongs.length === 3, "expected three original classroom chants");
@@ -23,4 +27,4 @@ if (failures.length) {
   console.error("Maths release gate failed:\n" + failures.map(message => `- ${message}`).join("\n"));
   process.exit(1);
 }
-console.log("Maths release content gate passed: 8 skills, 40 lessons, 160 checks, 2 released stories (4 catalogued), 4 games and 3 chants.");
+console.log("Maths release content gate passed: 8 skills, 40 lessons, 160 authored checks, 16 illustrated released-story pages, 4 games and 3 chants.");

@@ -55,6 +55,7 @@ export const EVIDENCE_RPCS = new Set([
   "teacher_create_intervention_plan",
   "teacher_create_lesson_plan",
   "teacher_create_maths_assignment",
+  "teacher_duplicate_maths_assignment",
   "teacher_create_press_project",
   "teacher_create_worksheet_instance",
   "teacher_delete_planned_intervention",
@@ -62,7 +63,9 @@ export const EVIDENCE_RPCS = new Set([
   "teacher_record_insight_observation",
   "teacher_read_lesson_plan",
   "teacher_list_maths_assignments",
+  "teacher_list_maths_media_issues",
   "teacher_read_maths_evidence",
+  "teacher_read_maths_evidence_filtered_page",
   "teacher_read_maths_evidence_page",
   "teacher_read_maths_sync_health",
   "teacher_list_press_work",
@@ -75,6 +78,7 @@ export const EVIDENCE_RPCS = new Set([
   "teacher_resolve_worksheet_code",
   "teacher_close_worksheet_instance",
   "teacher_reset_student_progress",
+  "teacher_resolve_maths_media_issue",
   "teacher_review_instructional_group",
   "teacher_review_book_revision",
   "teacher_review_intervention",
@@ -85,6 +89,7 @@ export const EVIDENCE_RPCS = new Set([
   "teacher_get_active_live_lesson",
   "teacher_end_live_lesson",
   "teacher_update_planned_intervention",
+  "teacher_update_maths_assignment_due_at",
   "teacher_update_draft_lesson_plan"
 ]);
 

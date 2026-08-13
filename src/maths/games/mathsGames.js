@@ -35,7 +35,7 @@ function countRound(seed, index) {
     : 1 + (hashSeed(`${seed}:count:${index}`) % 10);
   const id = `count-${target}-${index}`;
   const rows = target > 5 ? [5, target - 5] : [target];
-  return { id, mechanic: "carry_once", skillId: target > 10 ? "F-N-COUNT-20" : "F-N-COUNT-10", prompt: "Move each parcel into the cart once, then choose the total.", target, options: balancedOptions({ seed, roundId: id, target, distractors: [Math.max(0, target - 1), Math.min(20, target + 1)] }), model: { total: target, rows } };
+  return { id, mechanic: "carry_once", skillId: target > 10 ? "F-N-COUNT-20" : "F-N-COUNT-10", prompt: "Move each parcel into the cart once, then deliver the total.", target, options: balancedOptions({ seed, roundId: id, target, distractors: [Math.max(0, target - 1), Math.min(20, target + 1)] }), model: { total: target, rows } };
 }
 
 function matchRound(seed, index) {
@@ -48,18 +48,18 @@ function matchRound(seed, index) {
     const answerSlot = hashSeed(`${seed}:${id}:slot`) % 3;
     const options = ["a", "same", "b"].filter(option => option !== target);
     options.splice(answerSlot, 0, target);
-    return { id, mechanic: "compare_frames", skillId: "F-N-COMPARE", prompt: "Which frame has more, or are they the same?", target, options, model: { left, right, capacity: 10 } };
+    return { id, mechanic: "compare_frames", skillId: "F-N-COMPARE", prompt: "Which bank has more planks, or are they the same?", target, options, model: { left, right, capacity: 10 } };
   }
   const target = 1 + (hashSeed(`${seed}:match:${index}`) % 10);
   const id = `match-${target}-${index}`;
-  return { id, mechanic: "match_frame", skillId: "F-N-MATCH", prompt: `Match the numeral ${target} to its frame.`, target, options: balancedOptions({ seed, roundId: id, target, distractors: [Math.max(0, target - 2), Math.min(10, target + 2)] }), model: { target, capacity: 10 } };
+  return { id, mechanic: "match_frame", skillId: "F-N-MATCH", prompt: `Build ${target} bridge planks to match the numeral.`, target, options: balancedOptions({ seed, roundId: id, target, distractors: [Math.max(0, target - 2), Math.min(10, target + 2)] }), model: { target, capacity: 10 } };
 }
 
 export const mathsGames = Object.freeze([
   Object.freeze({ id: "number-trail", title: "Number Trail", strapline: "Find the next stepping stone", skillIds: ["F-N-SEQ-20"], rounds: 8, createRound: sequenceRound }),
   Object.freeze({ id: "frame-foundry", title: "Frame Foundry", strapline: "Complete the frame", skillIds: ["F-N-PART-5", "F-N-PART-10"], rounds: 8, createRound: frameRound }),
   Object.freeze({ id: "count-and-carry", title: "Count & Carry", strapline: "Count each parcel once", skillIds: ["F-N-COUNT-10", "F-N-COUNT-20"], rounds: 8, createRound: countRound }),
-  Object.freeze({ id: "quantity-match", title: "Quantity Match", strapline: "Match number and amount", skillIds: ["F-N-MATCH", "F-N-COMPARE"], rounds: 8, createRound: matchRound })
+  Object.freeze({ id: "quantity-match", title: "Bridge Builder", strapline: "Pair and compare across the stream", skillIds: ["F-N-MATCH", "F-N-COMPARE"], rounds: 8, createRound: matchRound })
 ]);
 
 export function createMathsGameSession(gameId, seed = "foundation", skillId = "") {

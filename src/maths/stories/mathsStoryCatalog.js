@@ -5,6 +5,7 @@ const story = definition => Object.freeze({
   pages: Object.freeze(definition.pages.map((exactText, index) => Object.freeze({
     pageNumber: index + 1,
     exactText,
+    ...(definition.pageImageDirectory ? { image: `${definition.pageImageDirectory}/page-${String(index + 1).padStart(2, "0")}.webp` } : {}),
     ...(definition.pageModels?.[index] || {})
   })))
 });
@@ -17,25 +18,26 @@ export const mathsStories = Object.freeze([
     mathsPromise: "Five remains the whole when it is separated into different parts.",
     vocabulary: ["five", "altogether", "part", "whole", "same"],
     coverImage: "/images/maths/stories/maths-story-f-five-buns/cover.webp",
+    pageImageDirectory: "/images/maths/stories/maths-story-f-five-buns/pages",
     pages: [
-      "Cuddly carries five buns to the picnic.",
-      "“Five altogether,” says Cuddly.",
-      "Two buns sit on the red cloth.",
-      "Three buns stay in the basket.",
-      "Two and three make five.",
-      "Splashy moves one bun. Now three are on the cloth.",
-      "Three and two still make five.",
-      "The parts changed. The whole stayed five."
+      "Cuddly packs exactly five buns for the meadow picnic.",
+      "A breeze flips the cloth. “Keep all five safe!” calls Splashy.",
+      "Two buns land on the red cloth. Three stay in the basket.",
+      "“Did one blow away?” Splashy asks. Cuddly checks both places.",
+      "Two and three make five. Every bun is still there.",
+      "Splashy moves one bun to steady the cloth. Now the parts are three and two.",
+      "Three and two still make five. Changing the parts did not change the whole.",
+      "The breeze settles. All five friends share the picnic they saved together."
     ],
     pageModels: [
       { model: { kind: "objects", total: 5, parts: [5, 0], object: "bun" } },
       { model: { kind: "frame", total: 5, filled: 5, capacity: 5 } },
-      { model: { kind: "objects", total: 5, parts: [2, 3], object: "bun" } },
-      { model: { kind: "objects", total: 5, parts: [3, 2], object: "bun" } },
+      { model: { kind: "groups", total: 5, parts: [2, 3], object: "bun", groupLabels: ["red cloth", "basket"] } },
+      { model: { kind: "groups", total: 5, parts: [2, 3], object: "bun", groupLabels: ["red cloth", "basket"] } },
       { model: { kind: "part_whole", total: 5, parts: [2, 3] } },
-      { model: { kind: "objects", total: 5, parts: [3, 2], object: "bun" } },
+      { model: { kind: "groups", total: 5, parts: [3, 2], object: "bun", groupLabels: ["red cloth", "basket"] } },
       { model: { kind: "part_whole", total: 5, parts: [3, 2] } },
-      { model: { kind: "equation", total: 5, parts: [2, 3] } }
+      { model: { kind: "equation", total: 5, parts: [3, 2] } }
     ],
     teacherPrompts: ["How did you see five?", "What changed?", "What stayed the same?"],
     familyPrompt: "Arrange five safe household objects in two groups. Move one and say the two parts and the whole."
@@ -46,21 +48,22 @@ export const mathsStories = Object.freeze([
     skillIds: ["F-N-PART-10"],
     mathsPromise: "Ten can be composed in many ways using a ten frame.",
     vocabulary: ["ten", "empty", "full", "more", "altogether"],
-    coverImage: "/images/maths/stories/maths-story-f-ten-lights/cover.webp",
+    coverImage: "/images/maths/stories/maths-story-f-ten-lights/cover-v2.webp",
+    pageImageDirectory: "/images/maths/stories/maths-story-f-ten-lights/pages",
     pages: [
-      "The barn has ten hooks for ten little lights.",
-      "Muddy hangs five lights on the top row.",
-      "“Five more will fill the frame,” says Splashy.",
-      "Splashy adds two lights below.",
-      "Five and two make seven. Three spaces are empty.",
-      "Muddy adds three more lights.",
-      "Seven and three make ten. The frame is full.",
-      "Ten lights glow. Five above and five below."
+      "The barn concert starts at sunset, but all ten light hooks are dark.",
+      "Muddy hangs five lights across the top row before the clouds arrive.",
+      "“Five more will fill the frame,” says Splashy. The guests need a bright path.",
+      "Splashy adds two lights below. Seven lights are ready, but the doorway is still dim.",
+      "Five and two make seven. Three safe hooks are still empty.",
+      "Muddy uses the long lantern pole to add the last three without climbing in the wind.",
+      "Seven and three make ten. The whole frame shines just as the first guests arrive.",
+      "Ten lights guide everyone inside: five above and five below. The concert can begin."
     ],
     pageModels: [
       { model: { kind: "frame", total: 0, filled: 0, capacity: 10 } },
       { model: { kind: "frame", total: 5, filled: 5, capacity: 10 } },
-      { model: { kind: "missing", total: 10, parts: [5, 5] } },
+      { model: { kind: "missing", total: 10, filled: 5, capacity: 10, parts: [5, 5] } },
       { model: { kind: "frame", total: 7, filled: 7, capacity: 10, parts: [5, 2] } },
       { model: { kind: "part_whole", total: 7, parts: [5, 2] } },
       { model: { kind: "frame", total: 10, filled: 10, capacity: 10, parts: [7, 3] } },

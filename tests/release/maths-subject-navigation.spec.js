@@ -23,7 +23,7 @@ test("teacher can switch subjects and the Maths route survives reload, Back and 
   await page.getByRole("button", { name: "Maths" }).click();
   await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();
   await expect.poll(() => new URL(page.url()).hash).toBe(`#maths/teacher?class=${CLASS_ID}`);
-  await expect(page.getByText("Eight approved number-sense skills connect", { exact: false })).toBeVisible();
+  await expect(page.getByText("Every tool uses the same eight learning goals.")).toBeVisible();
 
   await page.reload();
   await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();
@@ -48,14 +48,14 @@ test("learner can enter Maths and return to Literacy with durable subject histor
   await expect(page.locator('[data-child-surface="student-home"]')).toBeVisible();
   await page.getByRole("button", { name: "Maths" }).click();
   await expect(page.locator('[data-child-surface="maths-home"]')).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Let’s make sense of numbers/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Ready to make sense of numbers/ })).toBeVisible();
   await expect.poll(() => new URL(page.url()).hash)
     .toBe(`#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
 
   await page.reload();
   await expect(page.locator('[data-child-surface="maths-home"]')).toBeVisible();
   await expect(page.getByRole("button", { name: "Literacy", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Go to Literacy" }).click();
+  await page.getByRole("button", { name: "Literacy", exact: true }).click();
   await expect(page.locator('[data-child-surface="student-home"]')).toBeVisible();
 
   await page.goBack();
