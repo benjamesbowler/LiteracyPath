@@ -29,6 +29,7 @@ A dated document must never override current code.
 
 - [Skills assessment authoring standard](skills-assessment-rebuild/AUTHORING_STANDARDS.md)
 - [Skills assessment mastery standard](skills-assessment-rebuild/MASTERY_SYSTEM.md)
+- [Current skills assessment validity audit and remediation plan](skills-assessment-rebuild/CURRENT_VALIDITY_AUDIT_AND_REMEDIATION.md)
 - [Question blueprints](skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md)
 - [Question design bible](content/QUESTION_DESIGN_BIBLE.md)
 - [Worksheet design bible](content/WORKSHEET_DESIGN_BIBLE.md)
