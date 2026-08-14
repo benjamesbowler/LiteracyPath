@@ -21,6 +21,7 @@ import {
 } from "./mediaQaReviewStatus.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 import { getAssessmentQuestionContentKey } from "./assessmentRoundSelector.js";
+import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../content/assessments/v3/assessmentItemMediaDecisions.generated.js";
 
 function answerValue(value) {
   if (Array.isArray(value)) return value[0] || "";
@@ -167,6 +168,20 @@ function currentImagePath(question = {}) {
 
 function currentAudioPath(question = {}) {
   return normalizePath(question.audioPath || question.audioUrl || question.audio || "");
+}
+
+function v3MediaDecision(question = {}) {
+  const id = String(question.id || question.questionId || "");
+  if (Number(question.bankStandardVersion) !== 3 || !id.startsWith("lp3.")) return null;
+  return ASSESSMENT_ITEM_MEDIA_DECISIONS[id] || null;
+}
+
+function currentQuestionImagePaths(question = {}) {
+  return [...new Set([
+    currentImagePath(question),
+    ...(question.imageCards || []).map(option => mediaOptionPath(option, "image")),
+    ...(question.sequenceCards || []).map(option => mediaOptionPath(option, "image"))
+  ].filter(Boolean))];
 }
 
 function isPairSelectionMediaQuestion(question = {}) {
@@ -349,6 +364,56 @@ function resolveVisualCardOptionImages(question = {}, {
 
 export function resolveQuestionMediaDynamically(question = {}, context = {}) {
   const skillId = normalizeAssessmentSkillId(context.skillId || question.skillId || question.skill || question.skillName || "");
+  const controlledDecision = v3MediaDecision(question);
+  if (controlledDecision) {
+    const targetWord = inferAssessmentQuestionTargetWord(question);
+    const sessionUsage = context.sessionUsage || null;
+    const level = context.level ?? question.level ?? question.difficulty ?? null;
+    const phase = context.phase ?? question.phase ?? question.assessmentPhase ?? null;
+    const audioType = requiresWholeWordAudio(question, skillId) ? "whole_word" : "";
+    const existingAudio = currentAudioPath(question);
+    const existingAudioRecord = existingAudio ? getAssessmentMediaByPath(existingAudio, "audio") : null;
+    const existingAudioUsable = Boolean(
+      existingAudioRecord?.available
+      && existingAudioRecord.normalizedWord === targetWord
+      && (!audioType || existingAudioRecord.audioType === audioType)
+    );
+    const audioCandidates = audioType
+      ? getApprovedMediaForTarget({ word: targetWord, skillId, mediaType: "audio", audioType, level, phase })
+      : [];
+    const chosenAudio = audioCandidates.length
+      ? pickLeastRecentlyUsedMedia({ candidates: audioCandidates, sessionUsage, studentUsage: context.studentUsage || null, mediaType: "audio" })
+      : null;
+    const out = { ...question };
+    const resolvedAudio = chosenAudio || (existingAudioUsable ? existingAudioRecord : null);
+    if (resolvedAudio?.path) {
+      out.audio = resolvedAudio.path;
+      out.audioUrl = resolvedAudio.path;
+      out.audioPath = resolvedAudio.path;
+    }
+    const actualImagePaths = currentQuestionImagePaths(out);
+    const expectedImagePaths = controlledDecision.paths || [];
+    const imageMismatch = actualImagePaths.length !== expectedImagePaths.length
+      || actualImagePaths.some(imagePath => !expectedImagePaths.includes(imagePath));
+    const resolvedMedia = { image: null, audio: resolvedAudio, warnings: imageMismatch ? ["v3_authored_image_mismatch"] : [] };
+    markUsed(sessionUsage, out, resolvedMedia);
+    return {
+      ...out,
+      assessmentMediaResolved: true,
+      assessmentMediaResolution: {
+        targetWord,
+        skillId,
+        imageRole: controlledDecision.role,
+        requiredAudioType: audioType,
+        imagePath: currentImagePath(out),
+        imagePaths: actualImagePaths,
+        audioPath: resolvedAudio?.path || existingAudio,
+        imageAssetId: "v3-reviewed-media",
+        audioAssetId: resolvedAudio?.id || "",
+        warnings: resolvedMedia.warnings
+      }
+    };
+  }
   if (!isAssessmentMediaVariationSkill(skillId)) return question;
 
   const targetWord = inferAssessmentQuestionTargetWord(question);
@@ -547,6 +612,18 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
 export function validateResolvedQuestionMedia(question = {}, resolvedMedia = question.assessmentMediaResolution || {}) {
   const issues = [];
   const skillId = normalizeAssessmentSkillId(resolvedMedia.skillId || question.skillId || question.skill || question.skillName || "");
+  const controlledDecision = v3MediaDecision(question);
+  if (controlledDecision) {
+    const actualImagePaths = currentQuestionImagePaths(question);
+    const expectedImagePaths = controlledDecision.paths || [];
+    if (actualImagePaths.length !== expectedImagePaths.length || actualImagePaths.some(imagePath => !expectedImagePaths.includes(imagePath))) {
+      issues.push(`v3 authored images do not match the approved item decision for ${question.id}`);
+    }
+    if ((resolvedMedia.warnings || []).includes("v3_authored_image_mismatch")) {
+      issues.push(`v3 runtime media resolution reported an image mismatch for ${question.id}`);
+    }
+    return issues;
+  }
   if (!isEarlyAssessmentMediaSkill(skillId)) return issues;
   const targetWord = inferAssessmentQuestionTargetWord(question);
   const imagePath = resolvedMedia.imagePath || currentImagePath(question);

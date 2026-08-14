@@ -3,10 +3,9 @@
 // breadth comes from dimensions, not from recycling five words (the audit's
 // brave/bumpy/calm/crisp/cute rotation dies here), and every "a adjective"
 // broken frame is gone.
-// L1 GRAMMAR_IMAGE_CHOICE: the describing word sits in the PROMPT and the
-//   child picks the picture it fits — canonical world knowledge (a leaf is
-//   green, wool is soft), safe in line art. Colour leans on print items where
-//   canon is weak. GRAMMAR_WORD_CHOICE: class recognition in print.
+// L1 GRAMMAR_SENTENCE_FIT uses a controlled sentence so the evidence is word
+// meaning and adjective function, not background knowledge about an object.
+// GRAMMAR_WORD_CHOICE checks adjective-class recognition in print.
 // L2: GRAMMAR_SENTENCE_FIT (all four options are describing words or family
 //   rivals — a sense pin in the frame picks the key) + GRAMMAR_CONTRAST.
 // Child wording: "describing word".
@@ -16,12 +15,36 @@ const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "GRAMMAR_IMAGE_CHOICE",
-  prompt,
-  spoken: prompt,
-  cards,
-  choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w] || "D-FUNCTION-SWAP"))),
-  media: "image-required",
+  u, lvl, ph, v, fmt: "GRAMMAR_SENTENCE_FIT",
+  prompt: ({
+    "Which one is very big?": "The ___ animal filled the whole page.",
+    "Which one is tiny?": "The ___ button was smaller than my fingernail.",
+    "Which one is very tall?": "The ___ tree rose above every roof.",
+    "Which one is green?": "The leaf stayed ___ all summer.",
+    "Which one is yellow?": "The ripe banana was bright ___.",
+    "Which one feels soft?": "The ___ blanket felt gentle on my cheek.",
+    "Which one feels wet?": "The ___ towel dripped onto the floor.",
+    "Which one feels hard?": "The ___ stone would not bend or squash.",
+    "Which one shows a happy face?": "Mina felt ___ when her friend arrived.",
+    "Which one is very small?": "The ___ mark was almost too small to see.",
+    "Which one feels bumpy?": "The ___ path made the buggy shake."
+  })[prompt] || prompt,
+  spoken: "Which describing word finishes the sentence?",
+  sentence: ({
+    "Which one is very big?": "The ___ animal filled the whole page.",
+    "Which one is tiny?": "The ___ button was smaller than my fingernail.",
+    "Which one is very tall?": "The ___ tree rose above every roof.",
+    "Which one is green?": "The leaf stayed ___ all summer.",
+    "Which one is yellow?": "The ripe banana was bright ___.",
+    "Which one feels soft?": "The ___ blanket felt gentle on my cheek.",
+    "Which one feels wet?": "The ___ towel dripped onto the floor.",
+    "Which one feels hard?": "The ___ stone would not bend or squash.",
+    "Which one shows a happy face?": "Mina felt ___ when her friend arrived.",
+    "Which one is very small?": "The ___ mark was almost too small to see.",
+    "Which one feels bumpy?": "The ___ path made the buggy shake."
+  })[prompt] || prompt,
+  choices: cards.map(word => (word === keyWord ? K(word) : P(word, rationales[word] || "D-PLAUSIBLE-UNSUPPORTED"))),
+  media: "text",
   note
 });
 
@@ -62,12 +85,11 @@ export default {
   items: [
     // ================= L1 · adj_size (phase 1) =================
     gic("adj_size", 1, 1, 1, "Which one is very big?",
-      ["whale", "ant", "wheel", "cup"], "whale", {},
-      "wheel ties the wh/which overlap"),
+      ["huge", "tiny", "thin", "soft"], "huge", {}),
     gic("adj_size", 1, 1, 2, "Which one is tiny?",
-      ["ant", "whale", "house", "tent"], "ant", {}),
+      ["tiny", "huge", "wide", "rough"], "tiny", {}),
     gic("adj_size", 1, 1, 3, "Which one is very tall?",
-      ["tree", "mat", "sock", "dish"], "tree", {}),
+      ["tall", "short", "round", "quiet"], "tall", {}),
     gwc("adj_size", 1, 1, 4, "Which word is a describing word for size?",
       ["big", "bag", "dig", "bin"], [FS, FS, FS]),
     gwc("adj_size", 1, 1, 5, "Which word is a describing word for size?",
@@ -76,10 +98,9 @@ export default {
       ["long", "log", "song", "lung"], [FS, FS, FS]),
     // ================= L1 · adj_color (phase 1) =================
     gic("adj_color", 1, 1, 1, "Which one is green?",
-      ["frog", "crab", "moth", "wasp"], "frog", {},
-      "canonical colours the child knows even in line art"),
+      ["green", "red", "blue", "brown"], "green", {}),
     gic("adj_color", 1, 1, 2, "Which one is yellow?",
-      ["sun", "moon", "cloud", "log"], "sun", {}),
+      ["yellow", "purple", "blue", "black"], "yellow", {}),
     gwc("adj_color", 1, 1, 3, "Which word is a colour word?",
       ["red", "bed", "ten", "run"], [FS, FS, FS]),
     gwc("adj_color", 1, 1, 4, "Which word is a colour word?",
@@ -90,12 +111,11 @@ export default {
       ["brown", "crown", "brow", "barn"], [FS, FS, FS]),
     // ================= L1 · adj_texture_state (phase 2) =================
     gic("adj_texture_state", 1, 2, 1, "Which one feels soft?",
-      ["sheep", "brick", "fork", "shell"], "sheep", {},
-      "wool is the canon of soft"),
+      ["soft", "hard", "rough", "wet"], "soft", {}),
     gic("adj_texture_state", 1, 2, 2, "Which one feels wet?",
-      ["fish", "brick", "quilt", "drum"], "fish", {}),
+      ["wet", "dry", "soft", "cold"], "wet", {}),
     gic("adj_texture_state", 1, 2, 3, "Which one feels hard?",
-      ["rock", "sheep", "jam", "cloud"], "rock", {}),
+      ["hard", "soft", "wet", "warm"], "hard", {}),
     gwc("adj_texture_state", 1, 2, 4, "Which word is a describing word for how things feel?",
       ["soft", "sofa", "sat", "sock"], [FS, FS, FS]),
     gwc("adj_texture_state", 1, 2, 5, "Which word is a describing word for how things feel?",
@@ -104,7 +124,7 @@ export default {
       ["cold", "coat", "gold", "colt"], [FS, FS, FS]),
     // ================= L1 · adj_feeling (phase 2) =================
     gic("adj_feeling", 1, 2, 1, "Which one shows a happy face?",
-      ["smile", "moth", "brick", "rope"], "smile", {}),
+      ["happy", "sad", "cross", "tired"], "happy", {}),
     gwc("adj_feeling", 1, 2, 2, "Which word is a feeling word?",
       ["sad", "sat", "sand", "said"], [FS, FS, FS]),
     gwc("adj_feeling", 1, 2, 3, "Which word is a feeling word?",
@@ -179,8 +199,7 @@ export default {
 
     // ================= Retention reserve (form R) =================
     gic("adj_size", 1, 1, 7, "Which one is very small?",
-      ["ink", "house", "tent", "tree"], "ink", {},
-      "an ink drop against three big things"),
+      ["tiny", "huge", "wide", "long"], "tiny", {}),
     gwc("adj_color", 1, 1, 7, "Which word is a colour word?",
       ["pink", "pin", "wink", "sink"], [FS, FS, FS]),
     gwc("adj_texture_state", 1, 2, 7, "Which word is a describing word for how things feel?",
@@ -197,8 +216,7 @@ export default {
     gwc("adj_size", 1, 1, 8, "Which word is a describing word for size?",
       ["wide", "wade", "wind", "web"], [FS, FS, FS]),
     gic("adj_texture_state", 1, 2, 8, "Which one feels bumpy?",
-      ["crab", "quilt", "leaf", "moon"], "crab", {},
-      "a crab's shell is the canon of bumpy"),
+      ["bumpy", "smooth", "soft", "flat"], "bumpy", {}),
     gsf("adj_in_sentence", 2, 1, 10, "The ___ moth circled the lamp.",
       ["dusty", "dust", "dusts", "dusted"], [FS, FS, FS]),
     gct("adj_precision", 2, 1, 10, "Which describing word fits best for socks left out in the snow?",

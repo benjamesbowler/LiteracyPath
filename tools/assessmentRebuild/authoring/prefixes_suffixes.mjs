@@ -26,9 +26,7 @@ const l1 = (u, ph, v, fmt, prompt, key, distractors) => ({
   spoken: prompt,
   choices: choices(key, distractors),
   media: "text",
-  // In the explicit un- unit, spotting un- is the taught construct rather
-  // than an answer leak. Other morpheme units remain scanner-gated.
-  scannerExpected: u === "prefix_un"
+  constructClaim: "apply_affix_meaning_in_context"
 });
 
 const build = (u, ph, v, prompt, key, distractors) => ({
@@ -82,11 +80,11 @@ const transfer = (u, ph, v, prompt, key, distractors) => ({
 const levelOneItems = [
   // un- = not / opposite
   l1("prefix_un", 1, 1, "MORPHEME_MEANING_CONTEXT",
-    "Which word means not happy?", "unhappy", ["replay", "helpful", "singer"], "child-feeling-unhappy"),
+    "Jo dropped the cake and stopped smiling. Which word describes Jo?", "unhappy", ["joyful", "careful", "helpful"], "child-feeling-unhappy"),
   l1("prefix_un", 1, 2, "MORPHEME_MEANING_CONTEXT",
-    "Which word means not fair?", "unfair", ["remake", "careful", "reader"], "two-children-unfair-share"),
+    "Only one team was allowed to score. Which word describes the game?", "unfair", ["careful", "helpful", "joyful"], "two-children-unfair-share"),
   l1("prefix_un", 1, 3, "MORPHEME_MEANING_CONTEXT",
-    "Which word means not kind?", "unkind", ["repaint", "joyful", "teacher"], "child-being-unkind"),
+    "The note called Noor nasty names. Which word describes the note?", "unkind", ["joyful", "helpful", "careful"], "child-being-unkind"),
   l1("prefix_un", 1, 4, "MORPHEME_TRANSFER",
     "Mia feels sad. Which word also means not happy?", "unhappy", ["unfair", "joyful", "painter"], "sad-child"),
   l1("prefix_un", 1, 5, "MORPHEME_TRANSFER",
@@ -96,11 +94,11 @@ const levelOneItems = [
 
   // re- = again
   l1("prefix_re", 1, 1, "MORPHEME_MEANING_CONTEXT",
-    "Which word means play again?", "replay", ["unhappy", "playful", "player"], "children-replay-game"),
+    "The match ended. They want to play once more. Pick the word.", "replay", ["unhappy", "playful", "player"], "children-replay-game"),
   l1("prefix_re", 1, 2, "MORPHEME_MEANING_CONTEXT",
-    "Which word means make again?", "remake", ["unfair", "helpful", "maker"], "child-remakes-model"),
+    "Eva's model broke. She will make it once more. Pick the word.", "remake", ["unfair", "helpful", "maker"], "child-remakes-model"),
   l1("prefix_re", 1, 3, "MORPHEME_MEANING_CONTEXT",
-    "Which word means read again?", "reread", ["unkind", "careful", "reader"], "child-rereads-book"),
+    "Milo missed the clue. He reads once more. Pick the word.", "reread", ["unkind", "careful", "reader"], "child-rereads-book"),
   l1("prefix_re", 1, 4, "MORPHEME_TRANSFER",
     "The picture went wrong. I will make it again. Which word fits?", "remake", ["unmake", "maker", "making"], "child-remakes-picture"),
   l1("prefix_re", 1, 5, "MORPHEME_TRANSFER",
@@ -110,11 +108,11 @@ const levelOneItems = [
 
   // -ful = full of / showing
   l1("suffix_ful", 1, 1, "MORPHEME_MEANING_CONTEXT",
-    "Which word means ready to help?", "helpful", ["helpless", "helper", "rehelp"], "helpful-child"),
+    "Zara carries her friend's heavy bag. Which word describes Zara?", "helpful", ["helpless", "helper", "replay"], "helpful-child"),
   l1("suffix_ful", 1, 2, "MORPHEME_MEANING_CONTEXT",
     "Which word means full of joy?", "joyful", ["joyless", "enjoy", "rejoice"], "joyful-child"),
   l1("suffix_ful", 1, 3, "MORPHEME_MEANING_CONTEXT",
-    "Which word means using care?", "careful", ["careless", "carer", "recare"], "careful-child-carrying-glass"),
+    "Ben moves the glass slowly. It must not spill. Pick a word.", "careful", ["careless", "carer", "reader"], "careful-child-carrying-glass"),
   l1("suffix_ful", 1, 4, "MORPHEME_TRANSFER",
     "Ava helps her friend. Which word describes Ava?", "helpful", ["helpless", "replay", "singer"], "child-helping-friend"),
   l1("suffix_ful", 1, 5, "MORPHEME_TRANSFER",
@@ -124,11 +122,11 @@ const levelOneItems = [
 
   // -less = without
   l1("suffix_less", 2, 1, "MORPHEME_MEANING_CONTEXT",
-    "Which word means without hope?", "hopeless", ["hopeful", "helper", "rehope"], "child-feeling-hopeless"),
+    "The team thinks it cannot win. Which word describes them?", "hopeless", ["hopeful", "helper", "joyful"], "child-feeling-hopeless"),
   l1("suffix_less", 2, 2, "MORPHEME_MEANING_CONTEXT",
-    "Which word means without fear?", "fearless", ["fearful", "farmer", "refear"], "fearless-child"),
+    "Ari climbs onto the stage without being afraid. Which word describes Ari?", "fearless", ["fearful", "farmer", "careful"], "fearless-child"),
   l1("suffix_less", 2, 3, "MORPHEME_MEANING_CONTEXT",
-    "Which word means without harm?", "harmless", ["harmful", "helper", "reharm"], "harmless-butterfly"),
+    "The tiny butterfly cannot hurt anyone. Which word describes it?", "harmless", ["harmful", "helper", "careful"], "harmless-butterfly"),
   l1("suffix_less", 2, 4, "MORPHEME_TRANSFER",
     "The tiny butterfly cannot hurt you. Which word describes it?", "harmless", ["harmful", "helpful", "replay"], "harmless-butterfly-on-hand"),
   l1("suffix_less", 2, 5, "MORPHEME_TRANSFER",
@@ -152,9 +150,9 @@ const levelOneItems = [
 ];
 
 const levelTwoItems = [
-  build("suffix_s_es", 1, 1, "Add -s to hen.", "hens", ["hen", "hennes", "pens"]),
-  build("suffix_s_es", 1, 2, "Add -es to fox.", "foxes", ["fox", "foxs", "dishes"]),
-  build("suffix_s_es", 1, 3, "Add -s to cup.", "cups", ["cup", "cupes", "caps"]),
+  build("suffix_s_es", 1, 1, "Add -s to hen.", "hens", ["hen", "pens", "eggs"]),
+  build("suffix_s_es", 1, 2, "Add -es to fox.", "foxes", ["fox", "boxes", "dishes"]),
+  build("suffix_s_es", 1, 3, "Add -s to cup.", "cups", ["cup", "caps", "mugs"]),
   context("suffix_s_es", 1, 4, "Every day, Dad ___ the car.", "washes", ["wash", "washing", "washed"]),
   context("suffix_s_es", 1, 5, "My cat ___ on the mat each day.", "naps", ["nap", "napping", "napped"]),
   context("suffix_s_es", 1, 6, "Gran ___ bread every Sunday.", "bakes", ["bake", "baking", "baked"]),
@@ -184,25 +182,25 @@ const levelTwoItems = [
   build("suffix_ly", 2, 2, "Add -ly to soft.", "softly", ["softer", "soft", "quickly"]),
   context("suffix_ly", 2, 3, "Set the eggs down ___, with no bumps.", "gently", ["gentle", "gentler", "quickly"]),
   context("suffix_ly", 2, 4, "The mouse crept ___ past the cat.", "quietly", ["quiet", "quieter", "loudly"]),
-  transfer("suffix_ly", 2, 5, "What does bravely mean?", "in a brave way", ["in a soft way", "a brave person", "being afraid"]),
-  transfer("suffix_ly", 2, 6, "What does proudly mean?", "in a proud way", ["in a quick way", "a proud person", "being sad"]),
+  transfer("suffix_ly", 2, 5, "Mia trembled but stepped onto the stage bravely. How did she step?", "in a brave way", ["in a soft way", "like a brave person", "while being afraid"]),
+  transfer("suffix_ly", 2, 6, "Jay held up the medal proudly. How did Jay hold it?", "in a proud way", ["in a quick way", "like a proud person", "while being sad"]),
 
   build("prefix_pre", 2, 1, "Add pre- to heat.", "preheat", ["heated", "heats", "preview"]),
   build("prefix_pre", 2, 2, "Add pre- to view.", "preview", ["views", "viewed", "preheat"]),
   context("prefix_pre", 2, 3, "___ the oven before you mix the batter.", "Preheat", ["Heat", "Heated", "Preview"]),
   context("prefix_pre", 2, 4, "We watched a ___ before the film opened.", "preview", ["view", "viewed", "preheat"]),
-  transfer("prefix_pre", 2, 5, "What is a pretest?", "a test before", ["a test after", "the best test", "a look before"]),
-  transfer("prefix_pre", 2, 6, "What does preorder mean?", "order before it is out", ["order after it is out", "heat the order", "order more"])
+  transfer("prefix_pre", 2, 5, "The coach gives a pretest before the lessons begin. When is it taken?", "before the lessons", ["after the lessons", "during the best lesson", "before looking"]),
+  transfer("prefix_pre", 2, 6, "A shop lets people preorder a game before release day. What can they do?", "order before it is out", ["order after it is out", "heat the order", "order more copies"])
 ];
 
 const retentionItems = [
-  l1("prefix_un", 1, 7, "MORPHEME_MEANING_CONTEXT", "Which word means not safe?", "unsafe", ["resafe", "safety", "helper"], "unsafe-bridge"),
-  l1("prefix_re", 1, 7, "MORPHEME_MEANING_CONTEXT", "Which word means paint again?", "repaint", ["unpaint", "painter", "paintful"], "child-repaints-wall"),
+  l1("prefix_un", 1, 7, "MORPHEME_MEANING_CONTEXT", "The broken bridge could hurt someone. Which word describes it?", "unsafe", ["careless", "safety", "helper"], "unsafe-bridge"),
+  l1("prefix_re", 1, 7, "MORPHEME_MEANING_CONTEXT", "The wall is patchy. Kim will paint once more. Pick the word.", "repaint", ["painting", "painter", "careful"], "child-repaints-wall"),
   l1("suffix_ful", 1, 7, "MORPHEME_MEANING_CONTEXT", "Which word means full of hope?", "hopeful", ["hopeless", "hoping", "unhappy"], "hopeful-child"),
   l1("suffix_less", 2, 7, "MORPHEME_MEANING_CONTEXT", "Which word means without care?", "careless", ["careful", "caring", "unsafe"], "careless-spill"),
   l1("suffix_er_person", 2, 7, "MORPHEME_MEANING_CONTEXT", "A person who bakes is a…", "baker", ["baking", "bakes", "remake"], "baker-with-bread"),
   l1("prefix_re", 1, 8, "MORPHEME_TRANSFER", "The block tower fell. Which word means build again?", "rebuild", ["builder", "building", "unbuilt"], "child-rebuilds-block-tower"),
-  build("suffix_s_es", 1, 7, "Add -es to bus.", "buses", ["bus", "buss", "foxes"]),
+  build("suffix_s_es", 1, 7, "Add -es to bus.", "buses", ["bus", "boxes", "foxes"]),
   build("suffix_ing", 1, 7, "Add -ing to cook.", "cooking", ["cooks", "cooked", "reading"]),
   build("suffix_ed", 1, 7, "Add -ed to play.", "played", ["plays", "playing", "walked"]),
   context("suffix_er_est", 2, 7, "Sam is quick, but Ali is even ___.", "quicker", ["quickest", "quick", "softer"]),

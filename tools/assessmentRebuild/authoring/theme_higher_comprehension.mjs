@@ -232,7 +232,7 @@ export default {
     it("theme_among_rivals", 2, 2, 5,
       "When the storm knocked the nest from the hedge, Etta wanted to carry the eggs indoors at once, to save them with blankets and a lamp. Her grandmother stopped her: 'The mother is watching from the fence. Help small, not big.' They wedged the nest back, moved away, and watched the mother return. All three chicks hatched in the hedge, wild and loud, needing nobody's lamp.",
       "Which lesson fits best?",
-      [K("small help can be the kindest help"),
+      [K("the gentlest useful action can be best"),
        P("never touch anything outdoors", "D-OPPOSITE"),
        P("storms knock down nests", "D-DETAIL-AS-MAIN"),
        P("lamps can keep eggs warm", "D-TOPIC-ADJACENT")],

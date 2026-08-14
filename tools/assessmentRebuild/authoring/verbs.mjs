@@ -4,21 +4,38 @@
 // item names a real depicted action, and L2 verb_precision distractors are
 // grammatical-but-wrong (the sense of the frame, not the syntax, picks the
 // key — that is what makes L2 harder thinking).
-// L1 GRAMMAR_IMAGE_CHOICE: one ACTION card among three thing-cards (the
-// mirror of nouns' layout). Child wording: "doing word".
+// L1 uses controlled sentence contexts so the child must identify a doing
+// word from language. Static action/object pictures no longer reveal the key.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_LANGUAGE.md §16.
 
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 
+const L1_SENTENCES = {
+  swim: "We ___ across the pool.",
+  hop: "The rabbit can ___ over a log.",
+  clap: "We ___ when the song ends.",
+  dig: "The dog can ___ in the soil.",
+  draw: "Please ___ a boat on the paper.",
+  press: "Please ___ the switch once.",
+  chew: "We ___ our food before swallowing.",
+  stir: "Please ___ the soup with care.",
+  eat: "We ___ lunch at noon.",
+  sleep: "Babies ___ in their cots.",
+  read: "We ___ a book after lunch.",
+  drink: "We ___ water when we are thirsty."
+  , chop: "Please ___ the carrots into pieces."
+  , walk: "We ___ to school each morning."
+};
+
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "GRAMMAR_IMAGE_CHOICE",
-  prompt,
-  spoken: prompt,
-  cards,
+  u, lvl, ph, v, fmt: "GRAMMAR_SENTENCE_FIT",
+  prompt: L1_SENTENCES[keyWord],
+  spoken: `Which doing word finishes the sentence? ${L1_SENTENCES[keyWord].replace("___", "hmm")}`,
+  sentence: L1_SENTENCES[keyWord],
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w] || "D-FUNCTION-SWAP"))),
-  media: "image-required",
-  note
+  media: "text",
+  note: note || "language context, not a category-revealing picture, provides the evidence"
 });
 
 const gwc = (u, lvl, ph, v, prompt, words, rationales, note = "") => ({

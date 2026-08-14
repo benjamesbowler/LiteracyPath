@@ -575,7 +575,7 @@ function PictureSequenceOrderQuestion({
           return (
             <li key={`sequence-slot-${index}`}>
               <span>{index + 1}</span>
-              <strong>{card?.label || "Choose a picture"}</strong>
+              <strong>{card ? (currentQuestion.hideWrittenLabels ? "Picture selected" : card.label) : "Choose a picture"}</strong>
             </li>
           );
         })}
@@ -601,7 +601,9 @@ function PictureSequenceOrderQuestion({
                   currentQuestion={currentQuestion}
                   onEvidenceImageError={onEvidenceImageError}
                 />
-                <strong>{selectedIndex >= 0 ? `${selectedIndex + 1}. ${card.label}` : card.label}</strong>
+                {!currentQuestion.hideWrittenLabels && (
+                  <strong>{selectedIndex >= 0 ? `${selectedIndex + 1}. ${card.label}` : card.label}</strong>
+                )}
               </button>
               <AssessmentAudioButton
                 text={card.label}
@@ -1056,7 +1058,7 @@ function ListeningVisual() {
 }
 
 const FINAL_SOUNDS_STUDENT_PROMPT = "Listen to the word. Which sound does it end with?";
-const HFW_AUDIO_FIND_WORD_PROMPT = "Listen to the word. Which word did you hear?";
+const HFW_AUDIO_FIND_WORD_PROMPT = "Tap sound. Pick its match.";
 
 function isFinalSoundsEndingQuestion(question = {}) {
   return String(question?.skillId || "").toLowerCase() === "final_sounds" &&
@@ -1065,7 +1067,9 @@ function isFinalSoundsEndingQuestion(question = {}) {
 
 function isRhymingPictureQuestion(question = {}) {
   return String(question?.skillId || "").toLowerCase() === "rhyming" &&
-    String(question?.formatType || question?.templateType || "").toUpperCase() === "RHYMING_PICTURE";
+    ["RHYMING_PICTURE", "RHYME_MATCH_PICTURE"].includes(
+      String(question?.formatType || question?.templateType || "").toUpperCase()
+    );
 }
 
 function isShortVowelWordChoiceQuestion(question = {}) {
@@ -1169,7 +1173,8 @@ function AssessmentStimulus({
       ""
     );
   const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
-  const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
+  const displayPassageDuringResponse = currentQuestion.displayPassageDuringResponse !== false;
+  const hasPassage = displayPassageDuringResponse && Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
   const visiblePassageTexts = [];
   const visiblePassageKeys = new Set();
   function addVisiblePassageText(value) {
@@ -1179,8 +1184,8 @@ function AssessmentStimulus({
     visiblePassageKeys.add(key);
     visiblePassageTexts.push(text);
   }
-  if (!isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.passage);
-  if (!isGrammarSentenceFit && !isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.sentence || currentQuestion.context);
+  if (displayPassageDuringResponse && !isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.passage);
+  if (displayPassageDuringResponse && !isGrammarSentenceFit && !isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.sentence || currentQuestion.context);
   const hasMainImage = isRhymingPictureItem
     ? Boolean(stimulusImage)
     : isFinalSoundsEndingItem
@@ -1239,7 +1244,7 @@ function AssessmentStimulus({
           {isRhymingPictureItem && currentQuestion.targetWord && (
             <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
           )}
-          {!isRhymingPictureItem && (
+          {!isRhymingPictureItem && !currentQuestion.suppressStimulusAudio && (
             <AssessmentAudioButton
               text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}

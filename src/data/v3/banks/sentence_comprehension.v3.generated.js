@@ -21,55 +21,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Who planted the tulips?",
-  "question": "Who planted the tulips?",
-  "spokenPrompt": "Who planted the tulips?",
+  "prompt": "What change will Granny Bola see later?",
+  "question": "What change will Granny Bola see later?",
+  "spokenPrompt": "What change will Granny Bola see later?",
   "passage": "Granny Bola planted red tulips along the garden path.",
   "cell": "literal_who_what",
   "choices": [
-   "the gardener",
-   "the twins",
-   "nobody did",
-   "Granny Bola"
+   "vegetables growing behind the shed",
+   "the path painted bright red",
+   "the garden becoming empty",
+   "red flowers growing beside the path"
   ],
   "answerOptions": [
    {
-    "value": "the gardener",
-    "label": "the gardener",
-    "text": "the gardener"
+    "value": "vegetables growing behind the shed",
+    "label": "vegetables growing behind the shed",
+    "text": "vegetables growing behind the shed"
    },
    {
-    "value": "the twins",
-    "label": "the twins",
-    "text": "the twins"
+    "value": "the path painted bright red",
+    "label": "the path painted bright red",
+    "text": "the path painted bright red"
    },
    {
-    "value": "nobody did",
-    "label": "nobody did",
-    "text": "nobody did"
+    "value": "the garden becoming empty",
+    "label": "the garden becoming empty",
+    "text": "the garden becoming empty"
    },
    {
-    "value": "Granny Bola",
-    "label": "Granny Bola",
-    "text": "Granny Bola"
+    "value": "red flowers growing beside the path",
+    "label": "red flowers growing beside the path",
+    "text": "red flowers growing beside the path"
    }
   ],
-  "answer": "Granny Bola",
-  "correctAnswer": "Granny Bola",
+  "answer": "red flowers growing beside the path",
+  "correctAnswer": "red flowers growing beside the path",
   "distractorRationales": {
-   "the twins": "D-PLAUSIBLE-UNSUPPORTED",
-   "nobody did": "D-OPPOSITE",
-   "the gardener": "D-PLAUSIBLE-UNSUPPORTED"
+   "the path painted bright red": "D-VISUAL-NEIGHBOR",
+   "the garden becoming empty": "D-OPPOSITE",
+   "vegetables growing behind the shed": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_who_what.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -79,7 +94,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v2",
@@ -101,55 +122,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Milo get?",
-  "question": "What did Milo get?",
-  "spokenPrompt": "What did Milo get?",
+  "prompt": "Why did the dentist reward Milo?",
+  "question": "Why did the dentist reward Milo?",
+  "spokenPrompt": "Why did the dentist reward Milo?",
   "passage": "The dentist gave Milo a green sticker for brave sitting.",
   "cell": "literal_who_what",
   "choices": [
-   "a balloon",
-   "nothing at all",
-   "a green sticker",
-   "a new toothbrush"
+   "he chose the colour green",
+   "he refused to sit in the chair",
+   "he sat calmly even though it felt scary",
+   "he cleaned every tooth at home"
   ],
   "answerOptions": [
    {
-    "value": "a balloon",
-    "label": "a balloon",
-    "text": "a balloon"
+    "value": "he chose the colour green",
+    "label": "he chose the colour green",
+    "text": "he chose the colour green"
    },
    {
-    "value": "nothing at all",
-    "label": "nothing at all",
-    "text": "nothing at all"
+    "value": "he refused to sit in the chair",
+    "label": "he refused to sit in the chair",
+    "text": "he refused to sit in the chair"
    },
    {
-    "value": "a green sticker",
-    "label": "a green sticker",
-    "text": "a green sticker"
+    "value": "he sat calmly even though it felt scary",
+    "label": "he sat calmly even though it felt scary",
+    "text": "he sat calmly even though it felt scary"
    },
    {
-    "value": "a new toothbrush",
-    "label": "a new toothbrush",
-    "text": "a new toothbrush"
+    "value": "he cleaned every tooth at home",
+    "label": "he cleaned every tooth at home",
+    "text": "he cleaned every tooth at home"
    }
   ],
-  "answer": "a green sticker",
-  "correctAnswer": "a green sticker",
+  "answer": "he sat calmly even though it felt scary",
+  "correctAnswer": "he sat calmly even though it felt scary",
   "distractorRationales": {
-   "a balloon": "D-PLAUSIBLE-UNSUPPORTED",
-   "nothing at all": "D-OPPOSITE",
-   "a new toothbrush": "D-PLAUSIBLE-UNSUPPORTED"
+   "he chose the colour green": "D-VISUAL-NEIGHBOR",
+   "he refused to sit in the chair": "D-OPPOSITE",
+   "he cleaned every tooth at home": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_who_what.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -159,7 +195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_who_what.v3",
@@ -181,55 +223,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Who whistles the tunes?",
-  "question": "Who whistles the tunes?",
-  "spokenPrompt": "Who whistles the tunes?",
+  "prompt": "What might neighbours hear as letters arrive?",
+  "question": "What might neighbours hear as letters arrive?",
+  "spokenPrompt": "What might neighbours hear as letters arrive?",
   "passage": "Our postlady whistles show tunes on her whole round.",
   "cell": "literal_who_what",
   "choices": [
-   "the radio",
-   "the postlady",
-   "the milkman",
-   "a blackbird"
+   "complete silence on the street",
+   "a person whistling music",
+   "a bird tapping a window",
+   "a van playing an ice-cream tune"
   ],
   "answerOptions": [
    {
-    "value": "the radio",
-    "label": "the radio",
-    "text": "the radio"
+    "value": "complete silence on the street",
+    "label": "complete silence on the street",
+    "text": "complete silence on the street"
    },
    {
-    "value": "the postlady",
-    "label": "the postlady",
-    "text": "the postlady"
+    "value": "a person whistling music",
+    "label": "a person whistling music",
+    "text": "a person whistling music"
    },
    {
-    "value": "the milkman",
-    "label": "the milkman",
-    "text": "the milkman"
+    "value": "a bird tapping a window",
+    "label": "a bird tapping a window",
+    "text": "a bird tapping a window"
    },
    {
-    "value": "a blackbird",
-    "label": "a blackbird",
-    "text": "a blackbird"
+    "value": "a van playing an ice-cream tune",
+    "label": "a van playing an ice-cream tune",
+    "text": "a van playing an ice-cream tune"
    }
   ],
-  "answer": "the postlady",
-  "correctAnswer": "the postlady",
+  "answer": "a person whistling music",
+  "correctAnswer": "a person whistling music",
   "distractorRationales": {
-   "a blackbird": "D-PLAUSIBLE-UNSUPPORTED",
-   "the radio": "D-PLAUSIBLE-UNSUPPORTED",
-   "the milkman": "D-PLAUSIBLE-UNSUPPORTED"
+   "a van playing an ice-cream tune": "D-TOPIC-ADJACENT",
+   "complete silence on the street": "D-OPPOSITE",
+   "a bird tapping a window": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_who_what.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -239,7 +296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_who_what.v4",
@@ -261,55 +324,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Baby Ren stack?",
-  "question": "What did Baby Ren stack?",
-  "spokenPrompt": "What did Baby Ren stack?",
+  "prompt": "Which result best fits what Ren did?",
+  "question": "Which result best fits what Ren did?",
+  "spokenPrompt": "Which result best fits what Ren did?",
   "passage": "Baby Ren stacked four wooden blocks all by himself.",
   "cell": "literal_who_what",
   "choices": [
-   "wooden blocks",
-   "dinner plates",
-   "story books",
-   "shoe boxes"
+   "a small tower made from four pieces",
+   "a shelf filled with four stories",
+   "a table set for four people",
+   "a tower somebody else built"
   ],
   "answerOptions": [
    {
-    "value": "wooden blocks",
-    "label": "wooden blocks",
-    "text": "wooden blocks"
+    "value": "a small tower made from four pieces",
+    "label": "a small tower made from four pieces",
+    "text": "a small tower made from four pieces"
    },
    {
-    "value": "dinner plates",
-    "label": "dinner plates",
-    "text": "dinner plates"
+    "value": "a shelf filled with four stories",
+    "label": "a shelf filled with four stories",
+    "text": "a shelf filled with four stories"
    },
    {
-    "value": "story books",
-    "label": "story books",
-    "text": "story books"
+    "value": "a table set for four people",
+    "label": "a table set for four people",
+    "text": "a table set for four people"
    },
    {
-    "value": "shoe boxes",
-    "label": "shoe boxes",
-    "text": "shoe boxes"
+    "value": "a tower somebody else built",
+    "label": "a tower somebody else built",
+    "text": "a tower somebody else built"
    }
   ],
-  "answer": "wooden blocks",
-  "correctAnswer": "wooden blocks",
+  "answer": "a small tower made from four pieces",
+  "correctAnswer": "a small tower made from four pieces",
   "distractorRationales": {
-   "dinner plates": "D-PLAUSIBLE-UNSUPPORTED",
-   "story books": "D-PLAUSIBLE-UNSUPPORTED",
-   "shoe boxes": "D-PLAUSIBLE-UNSUPPORTED"
+   "a shelf filled with four stories": "D-TOPIC-ADJACENT",
+   "a table set for four people": "D-PLAUSIBLE-UNSUPPORTED",
+   "a tower somebody else built": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_who_what.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -319,7 +397,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v5",
@@ -341,55 +425,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Uncle Dip burn?",
-  "question": "What did Uncle Dip burn?",
-  "spokenPrompt": "What did Uncle Dip burn?",
+  "prompt": "What problem happened before the meal?",
+  "question": "What problem happened before the meal?",
+  "spokenPrompt": "What problem happened before the meal?",
   "passage": "Uncle Dip burned the toast twice before breakfast.",
   "cell": "literal_who_what",
   "choices": [
-   "the soup",
-   "his hand",
-   "the kettle",
-   "the toast"
+   "the soup spilled over two times",
+   "the kettle stopped working",
+   "breakfast was ready perfectly",
+   "the bread was cooked too long two times"
   ],
   "answerOptions": [
    {
-    "value": "the soup",
-    "label": "the soup",
-    "text": "the soup"
+    "value": "the soup spilled over two times",
+    "label": "the soup spilled over two times",
+    "text": "the soup spilled over two times"
    },
    {
-    "value": "his hand",
-    "label": "his hand",
-    "text": "his hand"
+    "value": "the kettle stopped working",
+    "label": "the kettle stopped working",
+    "text": "the kettle stopped working"
    },
    {
-    "value": "the kettle",
-    "label": "the kettle",
-    "text": "the kettle"
+    "value": "breakfast was ready perfectly",
+    "label": "breakfast was ready perfectly",
+    "text": "breakfast was ready perfectly"
    },
    {
-    "value": "the toast",
-    "label": "the toast",
-    "text": "the toast"
+    "value": "the bread was cooked too long two times",
+    "label": "the bread was cooked too long two times",
+    "text": "the bread was cooked too long two times"
    }
   ],
-  "answer": "the toast",
-  "correctAnswer": "the toast",
+  "answer": "the bread was cooked too long two times",
+  "correctAnswer": "the bread was cooked too long two times",
   "distractorRationales": {
-   "the kettle": "D-PLAUSIBLE-UNSUPPORTED",
-   "the soup": "D-PLAUSIBLE-UNSUPPORTED",
-   "his hand": "D-PLAUSIBLE-UNSUPPORTED"
+   "breakfast was ready perfectly": "D-OPPOSITE",
+   "the soup spilled over two times": "D-PLAUSIBLE-UNSUPPORTED",
+   "the kettle stopped working": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_who_what.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -399,7 +498,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_who_what.v6",
@@ -421,55 +526,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Who painted the door?",
-  "question": "Who painted the door?",
-  "spokenPrompt": "Who painted the door?",
+  "prompt": "Which statement must be true?",
+  "question": "Which statement must be true?",
+  "spokenPrompt": "Which statement must be true?",
   "passage": "The twins painted their bedroom door bright orange.",
   "cell": "literal_who_what",
   "choices": [
-   "a decorator",
-   "the neighbours",
-   "the twins",
-   "their dad"
+   "two neighbours cleaned the room",
+   "the door stayed its old colour",
+   "two children changed the door's colour",
+   "one adult changed the wall's colour"
   ],
   "answerOptions": [
    {
-    "value": "a decorator",
-    "label": "a decorator",
-    "text": "a decorator"
+    "value": "two neighbours cleaned the room",
+    "label": "two neighbours cleaned the room",
+    "text": "two neighbours cleaned the room"
    },
    {
-    "value": "the neighbours",
-    "label": "the neighbours",
-    "text": "the neighbours"
+    "value": "the door stayed its old colour",
+    "label": "the door stayed its old colour",
+    "text": "the door stayed its old colour"
    },
    {
-    "value": "the twins",
-    "label": "the twins",
-    "text": "the twins"
+    "value": "two children changed the door's colour",
+    "label": "two children changed the door's colour",
+    "text": "two children changed the door's colour"
    },
    {
-    "value": "their dad",
-    "label": "their dad",
-    "text": "their dad"
+    "value": "one adult changed the wall's colour",
+    "label": "one adult changed the wall's colour",
+    "text": "one adult changed the wall's colour"
    }
   ],
-  "answer": "the twins",
-  "correctAnswer": "the twins",
+  "answer": "two children changed the door's colour",
+  "correctAnswer": "two children changed the door's colour",
   "distractorRationales": {
-   "their dad": "D-PLAUSIBLE-UNSUPPORTED",
-   "a decorator": "D-PLAUSIBLE-UNSUPPORTED",
-   "the neighbours": "D-PLAUSIBLE-UNSUPPORTED"
+   "one adult changed the wall's colour": "D-VISUAL-NEIGHBOR",
+   "two neighbours cleaned the room": "D-PLAUSIBLE-UNSUPPORTED",
+   "the door stayed its old colour": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_who_what.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -479,7 +599,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-who-what-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_who_what.v7",
@@ -501,55 +627,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did the magpie steal?",
-  "question": "What did the magpie steal?",
-  "spokenPrompt": "What did the magpie steal?",
+  "prompt": "Why might the bird have noticed the object?",
+  "question": "Why might the bird have noticed the object?",
+  "spokenPrompt": "Why might the bird have noticed the object?",
   "passage": "A magpie stole the shiny bottle top from our step.",
   "cell": "literal_who_what",
   "choices": [
-   "a garden glove",
-   "a shiny bottle top",
-   "a slice of bread",
-   "a silver ring"
+   "it was hidden in a dark box",
+   "it caught the light on the step",
+   "it smelled like fresh bread",
+   "it was warm enough to wear"
   ],
   "answerOptions": [
    {
-    "value": "a garden glove",
-    "label": "a garden glove",
-    "text": "a garden glove"
+    "value": "it was hidden in a dark box",
+    "label": "it was hidden in a dark box",
+    "text": "it was hidden in a dark box"
    },
    {
-    "value": "a shiny bottle top",
-    "label": "a shiny bottle top",
-    "text": "a shiny bottle top"
+    "value": "it caught the light on the step",
+    "label": "it caught the light on the step",
+    "text": "it caught the light on the step"
    },
    {
-    "value": "a slice of bread",
-    "label": "a slice of bread",
-    "text": "a slice of bread"
+    "value": "it smelled like fresh bread",
+    "label": "it smelled like fresh bread",
+    "text": "it smelled like fresh bread"
    },
    {
-    "value": "a silver ring",
-    "label": "a silver ring",
-    "text": "a silver ring"
+    "value": "it was warm enough to wear",
+    "label": "it was warm enough to wear",
+    "text": "it was warm enough to wear"
    }
   ],
-  "answer": "a shiny bottle top",
-  "correctAnswer": "a shiny bottle top",
+  "answer": "it caught the light on the step",
+  "correctAnswer": "it caught the light on the step",
   "distractorRationales": {
-   "a slice of bread": "D-PLAUSIBLE-UNSUPPORTED",
-   "a silver ring": "D-PLAUSIBLE-UNSUPPORTED",
-   "a garden glove": "D-PLAUSIBLE-UNSUPPORTED"
+   "it smelled like fresh bread": "D-PLAUSIBLE-UNSUPPORTED",
+   "it was warm enough to wear": "D-PLAUSIBLE-UNSUPPORTED",
+   "it was hidden in a dark box": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_who_what.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -559,7 +700,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-who-what-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_who_what.v8",
@@ -581,55 +728,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Miss Faro use?",
-  "question": "What did Miss Faro use?",
-  "spokenPrompt": "What did Miss Faro use?",
+  "prompt": "How did Miss Faro stop the wobble?",
+  "question": "How did Miss Faro stop the wobble?",
+  "spokenPrompt": "How did Miss Faro stop the wobble?",
   "passage": "Miss Faro fixed the wobbly table with folded card.",
   "cell": "literal_who_what",
   "choices": [
-   "folded card",
-   "sticky tape",
-   "a hammer",
-   "string"
+   "she pushed layers of paper underneath",
+   "she tied the legs with string",
+   "she struck the top with a hammer",
+   "she removed the table completely"
   ],
   "answerOptions": [
    {
-    "value": "folded card",
-    "label": "folded card",
-    "text": "folded card"
+    "value": "she pushed layers of paper underneath",
+    "label": "she pushed layers of paper underneath",
+    "text": "she pushed layers of paper underneath"
    },
    {
-    "value": "sticky tape",
-    "label": "sticky tape",
-    "text": "sticky tape"
+    "value": "she tied the legs with string",
+    "label": "she tied the legs with string",
+    "text": "she tied the legs with string"
    },
    {
-    "value": "a hammer",
-    "label": "a hammer",
-    "text": "a hammer"
+    "value": "she struck the top with a hammer",
+    "label": "she struck the top with a hammer",
+    "text": "she struck the top with a hammer"
    },
    {
-    "value": "string",
-    "label": "string",
-    "text": "string"
+    "value": "she removed the table completely",
+    "label": "she removed the table completely",
+    "text": "she removed the table completely"
    }
   ],
-  "answer": "folded card",
-  "correctAnswer": "folded card",
+  "answer": "she pushed layers of paper underneath",
+  "correctAnswer": "she pushed layers of paper underneath",
   "distractorRationales": {
-   "sticky tape": "D-PLAUSIBLE-UNSUPPORTED",
-   "a hammer": "D-PLAUSIBLE-UNSUPPORTED",
-   "string": "D-PLAUSIBLE-UNSUPPORTED"
+   "she tied the legs with string": "D-PLAUSIBLE-UNSUPPORTED",
+   "she struck the top with a hammer": "D-PLAUSIBLE-UNSUPPORTED",
+   "she removed the table completely": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_who_what.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -639,7 +801,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-who-what-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v1",
@@ -661,55 +829,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "When does the choir practise?",
-  "question": "When does the choir practise?",
-  "spokenPrompt": "When does the choir practise?",
+  "prompt": "Which plan matches the sentence?",
+  "question": "Which plan matches the sentence?",
+  "spokenPrompt": "Which plan matches the sentence?",
   "passage": "The choir practises in the hall every Tuesday.",
   "cell": "literal_where_when",
   "choices": [
-   "on Saturdays",
-   "never",
-   "every Tuesday",
-   "every morning"
+   "meet in a classroom every afternoon",
+   "stop meeting for practice",
+   "sing together in the hall once each Tuesday",
+   "sing outside every Saturday morning"
   ],
   "answerOptions": [
    {
-    "value": "on Saturdays",
-    "label": "on Saturdays",
-    "text": "on Saturdays"
+    "value": "meet in a classroom every afternoon",
+    "label": "meet in a classroom every afternoon",
+    "text": "meet in a classroom every afternoon"
    },
    {
-    "value": "never",
-    "label": "never",
-    "text": "never"
+    "value": "stop meeting for practice",
+    "label": "stop meeting for practice",
+    "text": "stop meeting for practice"
    },
    {
-    "value": "every Tuesday",
-    "label": "every Tuesday",
-    "text": "every Tuesday"
+    "value": "sing together in the hall once each Tuesday",
+    "label": "sing together in the hall once each Tuesday",
+    "text": "sing together in the hall once each Tuesday"
    },
    {
-    "value": "every morning",
-    "label": "every morning",
-    "text": "every morning"
+    "value": "sing outside every Saturday morning",
+    "label": "sing outside every Saturday morning",
+    "text": "sing outside every Saturday morning"
    }
   ],
-  "answer": "every Tuesday",
-  "correctAnswer": "every Tuesday",
+  "answer": "sing together in the hall once each Tuesday",
+  "correctAnswer": "sing together in the hall once each Tuesday",
   "distractorRationales": {
-   "never": "D-OPPOSITE",
-   "every morning": "D-PLAUSIBLE-UNSUPPORTED",
-   "on Saturdays": "D-PLAUSIBLE-UNSUPPORTED"
+   "stop meeting for practice": "D-OPPOSITE",
+   "sing outside every Saturday morning": "D-PLAUSIBLE-UNSUPPORTED",
+   "meet in a classroom every afternoon": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_where_when.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -719,7 +902,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v2",
@@ -741,55 +930,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where does Dad keep his glasses?",
-  "question": "Where does Dad keep his glasses?",
-  "spokenPrompt": "Where does Dad keep his glasses?",
+  "prompt": "Why is Dad's choice of place surprising?",
+  "question": "Why is Dad's choice of place surprising?",
+  "spokenPrompt": "Why is Dad's choice of place surprising?",
   "passage": "Dad keeps his glasses in the fruit bowl, for some reason.",
   "cell": "literal_where_when",
   "choices": [
-   "on his head",
-   "in the fruit bowl",
-   "on his desk",
-   "in the car"
+   "he wears the glasses on his face",
+   "eyewear is stored with apples and bananas",
+   "eyewear is stored beside his work",
+   "fruit is stored in the kitchen"
   ],
   "answerOptions": [
    {
-    "value": "on his head",
-    "label": "on his head",
-    "text": "on his head"
+    "value": "he wears the glasses on his face",
+    "label": "he wears the glasses on his face",
+    "text": "he wears the glasses on his face"
    },
    {
-    "value": "in the fruit bowl",
-    "label": "in the fruit bowl",
-    "text": "in the fruit bowl"
+    "value": "eyewear is stored with apples and bananas",
+    "label": "eyewear is stored with apples and bananas",
+    "text": "eyewear is stored with apples and bananas"
    },
    {
-    "value": "on his desk",
-    "label": "on his desk",
-    "text": "on his desk"
+    "value": "eyewear is stored beside his work",
+    "label": "eyewear is stored beside his work",
+    "text": "eyewear is stored beside his work"
    },
    {
-    "value": "in the car",
-    "label": "in the car",
-    "text": "in the car"
+    "value": "fruit is stored in the kitchen",
+    "label": "fruit is stored in the kitchen",
+    "text": "fruit is stored in the kitchen"
    }
   ],
-  "answer": "in the fruit bowl",
-  "correctAnswer": "in the fruit bowl",
+  "answer": "eyewear is stored with apples and bananas",
+  "correctAnswer": "eyewear is stored with apples and bananas",
   "distractorRationales": {
-   "on his head": "D-PLAUSIBLE-UNSUPPORTED",
-   "on his desk": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the car": "D-PLAUSIBLE-UNSUPPORTED"
+   "he wears the glasses on his face": "D-OPPOSITE",
+   "eyewear is stored beside his work": "D-PLAUSIBLE-UNSUPPORTED",
+   "fruit is stored in the kitchen": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_where_when.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -799,7 +1003,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v3",
@@ -821,55 +1031,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where did the frog hide?",
-  "question": "Where did the frog hide?",
-  "spokenPrompt": "Where did the frog hide?",
+  "prompt": "What would cover the frog from above?",
+  "question": "What would cover the frog from above?",
+  "spokenPrompt": "What would cover the frog from above?",
   "passage": "The frog hid under the biggest lily pad.",
   "cell": "literal_where_when",
   "choices": [
-   "behind a rock",
-   "in the reeds",
-   "on the bank",
-   "under the biggest lily pad"
+   "a rock beside the water",
+   "the reeds at the edge",
+   "the open sky over the bank",
+   "the largest leaf on the pond"
   ],
   "answerOptions": [
    {
-    "value": "behind a rock",
-    "label": "behind a rock",
-    "text": "behind a rock"
+    "value": "a rock beside the water",
+    "label": "a rock beside the water",
+    "text": "a rock beside the water"
    },
    {
-    "value": "in the reeds",
-    "label": "in the reeds",
-    "text": "in the reeds"
+    "value": "the reeds at the edge",
+    "label": "the reeds at the edge",
+    "text": "the reeds at the edge"
    },
    {
-    "value": "on the bank",
-    "label": "on the bank",
-    "text": "on the bank"
+    "value": "the open sky over the bank",
+    "label": "the open sky over the bank",
+    "text": "the open sky over the bank"
    },
    {
-    "value": "under the biggest lily pad",
-    "label": "under the biggest lily pad",
-    "text": "under the biggest lily pad"
+    "value": "the largest leaf on the pond",
+    "label": "the largest leaf on the pond",
+    "text": "the largest leaf on the pond"
    }
   ],
-  "answer": "under the biggest lily pad",
-  "correctAnswer": "under the biggest lily pad",
+  "answer": "the largest leaf on the pond",
+  "correctAnswer": "the largest leaf on the pond",
   "distractorRationales": {
-   "on the bank": "D-PLAUSIBLE-UNSUPPORTED",
-   "behind a rock": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the reeds": "D-PLAUSIBLE-UNSUPPORTED"
+   "the open sky over the bank": "D-OPPOSITE",
+   "a rock beside the water": "D-PLAUSIBLE-UNSUPPORTED",
+   "the reeds at the edge": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_where_when.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -879,7 +1104,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v4",
@@ -901,55 +1132,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "When do the lessons start?",
-  "question": "When do the lessons start?",
-  "spokenPrompt": "When do the lessons start?",
+  "prompt": "What should a pupil do on Friday?",
+  "question": "What should a pupil do on Friday?",
+  "spokenPrompt": "What should a pupil do on Friday?",
   "passage": "Swimming lessons start straight after lunch on Fridays.",
   "cell": "literal_where_when",
   "choices": [
-   "before breakfast",
-   "at bedtime",
-   "in the morning",
-   "straight after lunch"
+   "swim before eating breakfast",
+   "wait until bedtime to swim",
+   "arrive for swimming on Saturday",
+   "finish eating, then get ready to swim"
   ],
   "answerOptions": [
    {
-    "value": "before breakfast",
-    "label": "before breakfast",
-    "text": "before breakfast"
+    "value": "swim before eating breakfast",
+    "label": "swim before eating breakfast",
+    "text": "swim before eating breakfast"
    },
    {
-    "value": "at bedtime",
-    "label": "at bedtime",
-    "text": "at bedtime"
+    "value": "wait until bedtime to swim",
+    "label": "wait until bedtime to swim",
+    "text": "wait until bedtime to swim"
    },
    {
-    "value": "in the morning",
-    "label": "in the morning",
-    "text": "in the morning"
+    "value": "arrive for swimming on Saturday",
+    "label": "arrive for swimming on Saturday",
+    "text": "arrive for swimming on Saturday"
    },
    {
-    "value": "straight after lunch",
-    "label": "straight after lunch",
-    "text": "straight after lunch"
+    "value": "finish eating, then get ready to swim",
+    "label": "finish eating, then get ready to swim",
+    "text": "finish eating, then get ready to swim"
    }
   ],
-  "answer": "straight after lunch",
-  "correctAnswer": "straight after lunch",
+  "answer": "finish eating, then get ready to swim",
+  "correctAnswer": "finish eating, then get ready to swim",
   "distractorRationales": {
-   "before breakfast": "D-PLAUSIBLE-UNSUPPORTED",
-   "at bedtime": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the morning": "D-PLAUSIBLE-UNSUPPORTED"
+   "swim before eating breakfast": "D-SEQUENCE-SWAP",
+   "wait until bedtime to swim": "D-PLAUSIBLE-UNSUPPORTED",
+   "arrive for swimming on Saturday": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_where_when.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -959,7 +1205,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v5",
@@ -981,55 +1233,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where does the bike go?",
-  "question": "Where does the bike go?",
-  "spokenPrompt": "Where does the bike go?",
+  "prompt": "Where should someone look first for the bike?",
+  "question": "Where should someone look first for the bike?",
+  "spokenPrompt": "Where should someone look first for the bike?",
   "passage": "Mum parks the bike behind the recycling bins.",
   "cell": "literal_where_when",
   "choices": [
-   "by the front door",
-   "under a cover",
-   "behind the recycling bins",
-   "inside the shed"
+   "beside the entrance to the house",
+   "beneath a waterproof sheet",
+   "on the far side of the containers",
+   "inside the garden building"
   ],
   "answerOptions": [
    {
-    "value": "by the front door",
-    "label": "by the front door",
-    "text": "by the front door"
+    "value": "beside the entrance to the house",
+    "label": "beside the entrance to the house",
+    "text": "beside the entrance to the house"
    },
    {
-    "value": "under a cover",
-    "label": "under a cover",
-    "text": "under a cover"
+    "value": "beneath a waterproof sheet",
+    "label": "beneath a waterproof sheet",
+    "text": "beneath a waterproof sheet"
    },
    {
-    "value": "behind the recycling bins",
-    "label": "behind the recycling bins",
-    "text": "behind the recycling bins"
+    "value": "on the far side of the containers",
+    "label": "on the far side of the containers",
+    "text": "on the far side of the containers"
    },
    {
-    "value": "inside the shed",
-    "label": "inside the shed",
-    "text": "inside the shed"
+    "value": "inside the garden building",
+    "label": "inside the garden building",
+    "text": "inside the garden building"
    }
   ],
-  "answer": "behind the recycling bins",
-  "correctAnswer": "behind the recycling bins",
+  "answer": "on the far side of the containers",
+  "correctAnswer": "on the far side of the containers",
   "distractorRationales": {
-   "by the front door": "D-PLAUSIBLE-UNSUPPORTED",
-   "under a cover": "D-PLAUSIBLE-UNSUPPORTED",
-   "inside the shed": "D-PLAUSIBLE-UNSUPPORTED"
+   "beside the entrance to the house": "D-PLAUSIBLE-UNSUPPORTED",
+   "beneath a waterproof sheet": "D-PLAUSIBLE-UNSUPPORTED",
+   "inside the garden building": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_where_when.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1039,7 +1306,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_where_when.v6",
@@ -1061,55 +1334,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "When does the market open?",
-  "question": "When does the market open?",
-  "spokenPrompt": "When does the market open?",
+  "prompt": "What is true about the opening time?",
+  "question": "What is true about the opening time?",
+  "spokenPrompt": "What is true about the opening time?",
   "passage": "The market opens at seven, long before school.",
   "cell": "literal_where_when",
   "choices": [
-   "at seven",
-   "at lunchtime",
-   "after school",
-   "at nine"
+   "people can shop long before lessons begin",
+   "people can shop long before the lunchtime break",
+   "people can shop long before pupils go home",
+   "people can shop long before nine in the evening"
   ],
   "answerOptions": [
    {
-    "value": "at seven",
-    "label": "at seven",
-    "text": "at seven"
+    "value": "people can shop long before lessons begin",
+    "label": "people can shop long before lessons begin",
+    "text": "people can shop long before lessons begin"
    },
    {
-    "value": "at lunchtime",
-    "label": "at lunchtime",
-    "text": "at lunchtime"
+    "value": "people can shop long before the lunchtime break",
+    "label": "people can shop long before the lunchtime break",
+    "text": "people can shop long before the lunchtime break"
    },
    {
-    "value": "after school",
-    "label": "after school",
-    "text": "after school"
+    "value": "people can shop long before pupils go home",
+    "label": "people can shop long before pupils go home",
+    "text": "people can shop long before pupils go home"
    },
    {
-    "value": "at nine",
-    "label": "at nine",
-    "text": "at nine"
+    "value": "people can shop long before nine in the evening",
+    "label": "people can shop long before nine in the evening",
+    "text": "people can shop long before nine in the evening"
    }
   ],
-  "answer": "at seven",
-  "correctAnswer": "at seven",
+  "answer": "people can shop long before lessons begin",
+  "correctAnswer": "people can shop long before lessons begin",
   "distractorRationales": {
-   "at lunchtime": "D-PLAUSIBLE-UNSUPPORTED",
-   "after school": "D-OPPOSITE",
-   "at nine": "D-PLAUSIBLE-UNSUPPORTED"
+   "people can shop long before the lunchtime break": "D-PLAUSIBLE-UNSUPPORTED",
+   "people can shop long before pupils go home": "D-OPPOSITE",
+   "people can shop long before nine in the evening": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_where_when.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1119,7 +1407,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-where-when-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_where_when.v7",
@@ -1141,55 +1435,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where does Grandpa nap?",
-  "question": "Where does Grandpa nap?",
-  "spokenPrompt": "Where does Grandpa nap?",
+  "prompt": "What is nearest Grandpa while he sleeps?",
+  "question": "What is nearest Grandpa while he sleeps?",
+  "spokenPrompt": "What is nearest Grandpa while he sleeps?",
   "passage": "Grandpa naps in the striped deckchair by the roses.",
   "cell": "literal_where_when",
   "choices": [
-   "in the deckchair by the roses",
-   "on the sofa",
-   "in the hammock",
-   "at the kitchen table"
+   "flowers growing beside his striped seat",
+   "cushions on the living-room sofa",
+   "ropes holding up a hammock",
+   "plates on the kitchen table"
   ],
   "answerOptions": [
    {
-    "value": "in the deckchair by the roses",
-    "label": "in the deckchair by the roses",
-    "text": "in the deckchair by the roses"
+    "value": "flowers growing beside his striped seat",
+    "label": "flowers growing beside his striped seat",
+    "text": "flowers growing beside his striped seat"
    },
    {
-    "value": "on the sofa",
-    "label": "on the sofa",
-    "text": "on the sofa"
+    "value": "cushions on the living-room sofa",
+    "label": "cushions on the living-room sofa",
+    "text": "cushions on the living-room sofa"
    },
    {
-    "value": "in the hammock",
-    "label": "in the hammock",
-    "text": "in the hammock"
+    "value": "ropes holding up a hammock",
+    "label": "ropes holding up a hammock",
+    "text": "ropes holding up a hammock"
    },
    {
-    "value": "at the kitchen table",
-    "label": "at the kitchen table",
-    "text": "at the kitchen table"
+    "value": "plates on the kitchen table",
+    "label": "plates on the kitchen table",
+    "text": "plates on the kitchen table"
    }
   ],
-  "answer": "in the deckchair by the roses",
-  "correctAnswer": "in the deckchair by the roses",
+  "answer": "flowers growing beside his striped seat",
+  "correctAnswer": "flowers growing beside his striped seat",
   "distractorRationales": {
-   "on the sofa": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the hammock": "D-PLAUSIBLE-UNSUPPORTED",
-   "at the kitchen table": "D-PLAUSIBLE-UNSUPPORTED"
+   "cushions on the living-room sofa": "D-PLAUSIBLE-UNSUPPORTED",
+   "ropes holding up a hammock": "D-PLAUSIBLE-UNSUPPORTED",
+   "plates on the kitchen table": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_where_when.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1199,7 +1508,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-where-when-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_where_when.v8",
@@ -1221,55 +1536,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where was the kitten found?",
-  "question": "Where was the kitten found?",
-  "spokenPrompt": "Where was the kitten found?",
+  "prompt": "Which search place finally worked?",
+  "question": "Which search place finally worked?",
+  "spokenPrompt": "Which search place finally worked?",
   "passage": "The lost kitten was found at the bottom of the airing cupboard.",
   "cell": "literal_where_when",
   "choices": [
-   "under the car",
-   "up a tree",
-   "next door",
-   "in the airing cupboard"
+   "the dark space beneath a vehicle",
+   "the high branches of a tree",
+   "the neighbour's garden",
+   "the lowest part of the warm linen cupboard"
   ],
   "answerOptions": [
    {
-    "value": "under the car",
-    "label": "under the car",
-    "text": "under the car"
+    "value": "the dark space beneath a vehicle",
+    "label": "the dark space beneath a vehicle",
+    "text": "the dark space beneath a vehicle"
    },
    {
-    "value": "up a tree",
-    "label": "up a tree",
-    "text": "up a tree"
+    "value": "the high branches of a tree",
+    "label": "the high branches of a tree",
+    "text": "the high branches of a tree"
    },
    {
-    "value": "next door",
-    "label": "next door",
-    "text": "next door"
+    "value": "the neighbour's garden",
+    "label": "the neighbour's garden",
+    "text": "the neighbour's garden"
    },
    {
-    "value": "in the airing cupboard",
-    "label": "in the airing cupboard",
-    "text": "in the airing cupboard"
+    "value": "the lowest part of the warm linen cupboard",
+    "label": "the lowest part of the warm linen cupboard",
+    "text": "the lowest part of the warm linen cupboard"
    }
   ],
-  "answer": "in the airing cupboard",
-  "correctAnswer": "in the airing cupboard",
+  "answer": "the lowest part of the warm linen cupboard",
+  "correctAnswer": "the lowest part of the warm linen cupboard",
   "distractorRationales": {
-   "under the car": "D-PLAUSIBLE-UNSUPPORTED",
-   "up a tree": "D-PLAUSIBLE-UNSUPPORTED",
-   "next door": "D-PLAUSIBLE-UNSUPPORTED"
+   "the dark space beneath a vehicle": "D-PLAUSIBLE-UNSUPPORTED",
+   "the high branches of a tree": "D-PLAUSIBLE-UNSUPPORTED",
+   "the neighbour's garden": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_where_when.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1279,7 +1609,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-where-when-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.picture_match.v1",
@@ -1301,10 +1637,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a girl in wellies jumping over a puddle.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "A girl paints a picture of rain.",
@@ -1341,15 +1676,33 @@ export const questions = [
    "A girl sleeps in her warm bed.": "D-PLAUSIBLE-UNSUPPORTED",
    "A boy in wellies fills a puddle.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.picture_match.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-girl-jumps-puddle.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-girl-jumps-puddle",
+  "stimulusMediaId": "scene-girl-jumps-puddle",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1359,7 +1712,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-girl-jumps-puddle.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-girl-jumps-puddle.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-girl-jumps-puddle.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-girl-jumps-puddle.webp",
+  "resolvedImageAssetKey": "scene-girl-jumps-puddle",
+  "imageAlt": "A girl in yellow wellies jumping over a puddle."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.picture_match.v2",
@@ -1381,10 +1740,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: two boys carrying a long ladder past a bakery.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "Two boys carry a ladder past the bakery.",
@@ -1421,15 +1779,33 @@ export const questions = [
    "One boy climbs a ladder at home.": "D-VISUAL-NEIGHBOR",
    "Two bakers carry a table.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.picture_match.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-boys-ladder-bakery.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-boys-ladder-bakery",
+  "stimulusMediaId": "scene-boys-ladder-bakery",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1439,7 +1815,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-boys-ladder-bakery.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-boys-ladder-bakery.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-boys-ladder-bakery.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-boys-ladder-bakery.webp",
+  "resolvedImageAssetKey": "scene-boys-ladder-bakery",
+  "imageAlt": "Two boys carrying a long ladder past a bakery."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.picture_match.v3",
@@ -1461,10 +1843,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a cat asleep inside an open umbrella.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "A cat plays with a ball of wool.",
@@ -1501,15 +1882,33 @@ export const questions = [
    "A cat hides from the rain indoors.": "D-TOPIC-ADJACENT",
    "A dog sleeps under an umbrella.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.picture_match.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-cat-umbrella.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-cat-umbrella",
+  "stimulusMediaId": "scene-cat-umbrella",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1519,7 +1918,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-cat-umbrella.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-cat-umbrella.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-cat-umbrella.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-cat-umbrella.webp",
+  "resolvedImageAssetKey": "scene-cat-umbrella",
+  "imageAlt": "A cat asleep inside an open umbrella."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.picture_match.v4",
@@ -1541,10 +1946,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a grandad and a child flying one red kite together.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "Two children fly two kites.",
@@ -1581,15 +1985,33 @@ export const questions = [
    "Two children fly two kites.": "D-VISUAL-NEIGHBOR",
    "Grandad reads about kites.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.picture_match.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-grandad-child-red-kite.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-grandad-child-red-kite",
+  "stimulusMediaId": "scene-grandad-child-red-kite",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1599,7 +2021,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-grandad-child-red-kite.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-grandad-child-red-kite.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-grandad-child-red-kite.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-grandad-child-red-kite.webp",
+  "resolvedImageAssetKey": "scene-grandad-child-red-kite",
+  "imageAlt": "A grandad and one child flying one red kite together."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.picture_match.v5",
@@ -1621,10 +2049,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a full washing line with one red sock dropping to the grass.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "Someone irons a red shirt.",
@@ -1661,15 +2088,33 @@ export const questions = [
    "The empty line swings in the wind.": "D-VISUAL-NEIGHBOR",
    "Someone irons a red shirt.": "D-TOPIC-ADJACENT"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.picture_match.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-red-sock-falling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-red-sock-falling",
+  "stimulusMediaId": "scene-red-sock-falling",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1679,7 +2124,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-red-sock-falling.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-red-sock-falling.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-red-sock-falling.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-red-sock-falling.webp",
+  "resolvedImageAssetKey": "scene-red-sock-falling",
+  "imageAlt": "One red sock dropping from a full washing line toward the grass."
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.picture_match.v6",
@@ -1701,10 +2152,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: three ducks queuing at an ice-cream van.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "An ice-cream van drives past a farm.",
@@ -1741,15 +2191,33 @@ export const questions = [
    "An ice-cream van drives past a farm.": "D-TOPIC-ADJACENT",
    "One duck swims away from a boat.": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.picture_match.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-ducks-ice-cream-van.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-ducks-ice-cream-van",
+  "stimulusMediaId": "scene-ducks-ice-cream-van",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1759,7 +2227,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-ducks-ice-cream-van.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-ducks-ice-cream-van.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-ducks-ice-cream-van.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-ducks-ice-cream-van.webp",
+  "resolvedImageAssetKey": "scene-ducks-ice-cream-van",
+  "imageAlt": "Exactly three ducks queuing at an ice-cream van."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.picture_match.v7",
@@ -1781,10 +2255,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a boy proudly holding up a wobbly jelly taller than his head.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "A boy eats a small spoon of jelly.",
@@ -1821,15 +2294,33 @@ export const questions = [
    "A chef drops a tall cake.": "D-VISUAL-NEIGHBOR",
    "A boy washes a tall glass.": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.picture_match.v7",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-boy-giant-jelly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-boy-giant-jelly",
+  "stimulusMediaId": "scene-boy-giant-jelly",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1839,7 +2330,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-boy-giant-jelly.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-boy-giant-jelly.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-boy-giant-jelly.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-boy-giant-jelly.webp",
+  "resolvedImageAssetKey": "scene-boy-giant-jelly",
+  "imageAlt": "A proud boy holding up a wobbly jelly taller than his head."
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.picture_match.v8",
@@ -1861,10 +2358,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a snowman wearing sunglasses on a sunny winter day.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "A child wears sunglasses at the beach.",
@@ -1901,15 +2397,33 @@ export const questions = [
    "A snowman melts away in the rain.": "D-VISUAL-NEIGHBOR",
    "A child wears sunglasses at the beach.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "mastery",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.picture_match.v8",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-snowman-sunglasses.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-snowman-sunglasses",
+  "stimulusMediaId": "scene-snowman-sunglasses",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1919,7 +2433,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-snowman-sunglasses.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-snowman-sunglasses.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-snowman-sunglasses.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-snowman-sunglasses.webp",
+  "resolvedImageAssetKey": "scene-snowman-sunglasses",
+  "imageAlt": "A snowman wearing sunglasses on a sunny winter day."
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v1",
@@ -1941,55 +2461,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Pia do?",
-  "question": "What did Pia do?",
-  "spokenPrompt": "What did Pia do?",
+  "prompt": "How did Pia try not to wake the animal?",
+  "question": "How did Pia try not to wake the animal?",
+  "spokenPrompt": "How did Pia try not to wake the animal?",
   "passage": "Pia tiptoed past the sleeping dog.",
   "cell": "literal_action",
   "choices": [
-   "tiptoed past the dog",
-   "woke the dog up",
-   "fed the dog",
-   "ran to the park"
+   "she moved quietly on her toes",
+   "she called loudly beside it",
+   "she gave it a bowl of food",
+   "she ran quickly through the park"
   ],
   "answerOptions": [
    {
-    "value": "tiptoed past the dog",
-    "label": "tiptoed past the dog",
-    "text": "tiptoed past the dog"
+    "value": "she moved quietly on her toes",
+    "label": "she moved quietly on her toes",
+    "text": "she moved quietly on her toes"
    },
    {
-    "value": "woke the dog up",
-    "label": "woke the dog up",
-    "text": "woke the dog up"
+    "value": "she called loudly beside it",
+    "label": "she called loudly beside it",
+    "text": "she called loudly beside it"
    },
    {
-    "value": "fed the dog",
-    "label": "fed the dog",
-    "text": "fed the dog"
+    "value": "she gave it a bowl of food",
+    "label": "she gave it a bowl of food",
+    "text": "she gave it a bowl of food"
    },
    {
-    "value": "ran to the park",
-    "label": "ran to the park",
-    "text": "ran to the park"
+    "value": "she ran quickly through the park",
+    "label": "she ran quickly through the park",
+    "text": "she ran quickly through the park"
    }
   ],
-  "answer": "tiptoed past the dog",
-  "correctAnswer": "tiptoed past the dog",
+  "answer": "she moved quietly on her toes",
+  "correctAnswer": "she moved quietly on her toes",
   "distractorRationales": {
-   "woke the dog up": "D-OPPOSITE",
-   "fed the dog": "D-PLAUSIBLE-UNSUPPORTED",
-   "ran to the park": "D-PLAUSIBLE-UNSUPPORTED"
+   "she called loudly beside it": "D-OPPOSITE",
+   "she gave it a bowl of food": "D-PLAUSIBLE-UNSUPPORTED",
+   "she ran quickly through the park": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_action.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1999,7 +2534,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v2",
@@ -2021,55 +2562,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did the waiter do?",
-  "question": "What did the waiter do?",
-  "spokenPrompt": "What did the waiter do?",
+  "prompt": "What made the waiter's action difficult?",
+  "question": "What made the waiter's action difficult?",
+  "spokenPrompt": "What made the waiter's action difficult?",
   "passage": "The waiter balanced six plates on one arm.",
   "cell": "literal_action",
   "choices": [
-   "dropped six plates",
-   "washed the dishes",
-   "wrote down an order",
-   "balanced six plates on one arm"
+   "many dishes had already fallen to the floor",
+   "many dishes were waiting in a full sink",
+   "many orders were difficult to write down",
+   "many dishes had to stay steady on one limb"
   ],
   "answerOptions": [
    {
-    "value": "dropped six plates",
-    "label": "dropped six plates",
-    "text": "dropped six plates"
+    "value": "many dishes had already fallen to the floor",
+    "label": "many dishes had already fallen to the floor",
+    "text": "many dishes had already fallen to the floor"
    },
    {
-    "value": "washed the dishes",
-    "label": "washed the dishes",
-    "text": "washed the dishes"
+    "value": "many dishes were waiting in a full sink",
+    "label": "many dishes were waiting in a full sink",
+    "text": "many dishes were waiting in a full sink"
    },
    {
-    "value": "wrote down an order",
-    "label": "wrote down an order",
-    "text": "wrote down an order"
+    "value": "many orders were difficult to write down",
+    "label": "many orders were difficult to write down",
+    "text": "many orders were difficult to write down"
    },
    {
-    "value": "balanced six plates on one arm",
-    "label": "balanced six plates on one arm",
-    "text": "balanced six plates on one arm"
+    "value": "many dishes had to stay steady on one limb",
+    "label": "many dishes had to stay steady on one limb",
+    "text": "many dishes had to stay steady on one limb"
    }
   ],
-  "answer": "balanced six plates on one arm",
-  "correctAnswer": "balanced six plates on one arm",
+  "answer": "many dishes had to stay steady on one limb",
+  "correctAnswer": "many dishes had to stay steady on one limb",
   "distractorRationales": {
-   "dropped six plates": "D-OPPOSITE",
-   "washed the dishes": "D-PLAUSIBLE-UNSUPPORTED",
-   "wrote down an order": "D-TOPIC-ADJACENT"
+   "many dishes had already fallen to the floor": "D-OPPOSITE",
+   "many dishes were waiting in a full sink": "D-PLAUSIBLE-UNSUPPORTED",
+   "many orders were difficult to write down": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_action.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2079,7 +2635,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v3",
@@ -2101,55 +2663,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Nan do?",
-  "question": "What did Nan do?",
-  "spokenPrompt": "What did Nan do?",
+  "prompt": "How did Nan get juice for the drink?",
+  "question": "How did Nan get juice for the drink?",
+  "spokenPrompt": "How did Nan get juice for the drink?",
   "passage": "Nan squeezed three fat lemons for the lemonade.",
   "cell": "literal_action",
   "choices": [
-   "planted a lemon tree",
-   "drank the lemonade",
-   "bought some oranges",
-   "squeezed lemons"
+   "she planted a tree for later",
+   "she drank the finished mixture",
+   "she bought several oranges",
+   "she pressed three large yellow fruits"
   ],
   "answerOptions": [
    {
-    "value": "planted a lemon tree",
-    "label": "planted a lemon tree",
-    "text": "planted a lemon tree"
+    "value": "she planted a tree for later",
+    "label": "she planted a tree for later",
+    "text": "she planted a tree for later"
    },
    {
-    "value": "drank the lemonade",
-    "label": "drank the lemonade",
-    "text": "drank the lemonade"
+    "value": "she drank the finished mixture",
+    "label": "she drank the finished mixture",
+    "text": "she drank the finished mixture"
    },
    {
-    "value": "bought some oranges",
-    "label": "bought some oranges",
-    "text": "bought some oranges"
+    "value": "she bought several oranges",
+    "label": "she bought several oranges",
+    "text": "she bought several oranges"
    },
    {
-    "value": "squeezed lemons",
-    "label": "squeezed lemons",
-    "text": "squeezed lemons"
+    "value": "she pressed three large yellow fruits",
+    "label": "she pressed three large yellow fruits",
+    "text": "she pressed three large yellow fruits"
    }
   ],
-  "answer": "squeezed lemons",
-  "correctAnswer": "squeezed lemons",
+  "answer": "she pressed three large yellow fruits",
+  "correctAnswer": "she pressed three large yellow fruits",
   "distractorRationales": {
-   "planted a lemon tree": "D-TOPIC-ADJACENT",
-   "drank the lemonade": "D-SEQUENCE-SWAP",
-   "bought some oranges": "D-PLAUSIBLE-UNSUPPORTED"
+   "she planted a tree for later": "D-TOPIC-ADJACENT",
+   "she drank the finished mixture": "D-SEQUENCE-SWAP",
+   "she bought several oranges": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_action.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2159,7 +2736,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v4",
@@ -2181,55 +2764,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did the goalkeeper do?",
-  "question": "What did the goalkeeper do?",
-  "spokenPrompt": "What did the goalkeeper do?",
+  "prompt": "What was the result of the goalkeeper's touch?",
+  "question": "What was the result of the goalkeeper's touch?",
+  "spokenPrompt": "What was the result of the goalkeeper's touch?",
   "passage": "The goalkeeper tipped the ball over the bar.",
   "cell": "literal_action",
   "choices": [
-   "blew the whistle",
-   "tipped the ball over the bar",
-   "let the ball in",
-   "scored a goal"
+   "the referee stopped play",
+   "the shot went above the goal",
+   "the shot went into the net",
+   "the keeper scored at the other end"
   ],
   "answerOptions": [
    {
-    "value": "blew the whistle",
-    "label": "blew the whistle",
-    "text": "blew the whistle"
+    "value": "the referee stopped play",
+    "label": "the referee stopped play",
+    "text": "the referee stopped play"
    },
    {
-    "value": "tipped the ball over the bar",
-    "label": "tipped the ball over the bar",
-    "text": "tipped the ball over the bar"
+    "value": "the shot went above the goal",
+    "label": "the shot went above the goal",
+    "text": "the shot went above the goal"
    },
    {
-    "value": "let the ball in",
-    "label": "let the ball in",
-    "text": "let the ball in"
+    "value": "the shot went into the net",
+    "label": "the shot went into the net",
+    "text": "the shot went into the net"
    },
    {
-    "value": "scored a goal",
-    "label": "scored a goal",
-    "text": "scored a goal"
+    "value": "the keeper scored at the other end",
+    "label": "the keeper scored at the other end",
+    "text": "the keeper scored at the other end"
    }
   ],
-  "answer": "tipped the ball over the bar",
-  "correctAnswer": "tipped the ball over the bar",
+  "answer": "the shot went above the goal",
+  "correctAnswer": "the shot went above the goal",
   "distractorRationales": {
-   "scored a goal": "D-PLAUSIBLE-UNSUPPORTED",
-   "blew the whistle": "D-PLAUSIBLE-UNSUPPORTED",
-   "let the ball in": "D-OPPOSITE"
+   "the keeper scored at the other end": "D-PLAUSIBLE-UNSUPPORTED",
+   "the referee stopped play": "D-PLAUSIBLE-UNSUPPORTED",
+   "the shot went into the net": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_action.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2239,7 +2837,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v5",
@@ -2305,11 +2909,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_action.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2319,7 +2938,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.C.literal_action.v6",
@@ -2341,55 +2966,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did the parrot do?",
-  "question": "What did the parrot do?",
-  "spokenPrompt": "What did the parrot do?",
+  "prompt": "What sound kept happening that afternoon?",
+  "question": "What sound kept happening that afternoon?",
+  "spokenPrompt": "What sound kept happening that afternoon?",
   "passage": "The parrot copied Grandpa's cough all afternoon.",
   "cell": "literal_action",
   "choices": [
-   "copied Grandpa's cough",
-   "sang a sailor song",
-   "flew out the window",
-   "slept on its perch"
+   "the bird imitated Grandpa clearing his throat",
+   "the bird sang a sailor song",
+   "wings flapped through the window",
+   "the bird stayed silent while asleep"
   ],
   "answerOptions": [
    {
-    "value": "copied Grandpa's cough",
-    "label": "copied Grandpa's cough",
-    "text": "copied Grandpa's cough"
+    "value": "the bird imitated Grandpa clearing his throat",
+    "label": "the bird imitated Grandpa clearing his throat",
+    "text": "the bird imitated Grandpa clearing his throat"
    },
    {
-    "value": "sang a sailor song",
-    "label": "sang a sailor song",
-    "text": "sang a sailor song"
+    "value": "the bird sang a sailor song",
+    "label": "the bird sang a sailor song",
+    "text": "the bird sang a sailor song"
    },
    {
-    "value": "flew out the window",
-    "label": "flew out the window",
-    "text": "flew out the window"
+    "value": "wings flapped through the window",
+    "label": "wings flapped through the window",
+    "text": "wings flapped through the window"
    },
    {
-    "value": "slept on its perch",
-    "label": "slept on its perch",
-    "text": "slept on its perch"
+    "value": "the bird stayed silent while asleep",
+    "label": "the bird stayed silent while asleep",
+    "text": "the bird stayed silent while asleep"
    }
   ],
-  "answer": "copied Grandpa's cough",
-  "correctAnswer": "copied Grandpa's cough",
+  "answer": "the bird imitated Grandpa clearing his throat",
+  "correctAnswer": "the bird imitated Grandpa clearing his throat",
   "distractorRationales": {
-   "flew out the window": "D-PLAUSIBLE-UNSUPPORTED",
-   "slept on its perch": "D-OPPOSITE",
-   "sang a sailor song": "D-PLAUSIBLE-UNSUPPORTED"
+   "wings flapped through the window": "D-PLAUSIBLE-UNSUPPORTED",
+   "the bird stayed silent while asleep": "D-OPPOSITE",
+   "the bird sang a sailor song": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.C.literal_action.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2399,7 +3039,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-c-literal-action-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.A.literal_action.v7",
@@ -2421,55 +3067,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "What did Ada do?",
-  "question": "What did Ada do?",
-  "spokenPrompt": "What did Ada do?",
+  "prompt": "How did Ada's snowball compare with the others?",
+  "question": "How did Ada's snowball compare with the others?",
+  "spokenPrompt": "How did Ada's snowball compare with the others?",
   "passage": "Ada rolled the biggest snowball in the whole street.",
   "cell": "literal_action",
   "choices": [
-   "shovelled the path",
-   "stayed indoors",
-   "rolled a huge snowball",
-   "threw a small snowball"
+   "hers was the first one thrown",
+   "hers stayed indoors away from the street",
+   "hers was larger than every other one nearby",
+   "hers was the smallest one nearby"
   ],
   "answerOptions": [
    {
-    "value": "shovelled the path",
-    "label": "shovelled the path",
-    "text": "shovelled the path"
+    "value": "hers was the first one thrown",
+    "label": "hers was the first one thrown",
+    "text": "hers was the first one thrown"
    },
    {
-    "value": "stayed indoors",
-    "label": "stayed indoors",
-    "text": "stayed indoors"
+    "value": "hers stayed indoors away from the street",
+    "label": "hers stayed indoors away from the street",
+    "text": "hers stayed indoors away from the street"
    },
    {
-    "value": "rolled a huge snowball",
-    "label": "rolled a huge snowball",
-    "text": "rolled a huge snowball"
+    "value": "hers was larger than every other one nearby",
+    "label": "hers was larger than every other one nearby",
+    "text": "hers was larger than every other one nearby"
    },
    {
-    "value": "threw a small snowball",
-    "label": "threw a small snowball",
-    "text": "threw a small snowball"
+    "value": "hers was the smallest one nearby",
+    "label": "hers was the smallest one nearby",
+    "text": "hers was the smallest one nearby"
    }
   ],
-  "answer": "rolled a huge snowball",
-  "correctAnswer": "rolled a huge snowball",
+  "answer": "hers was larger than every other one nearby",
+  "correctAnswer": "hers was larger than every other one nearby",
   "distractorRationales": {
-   "stayed indoors": "D-OPPOSITE",
-   "threw a small snowball": "D-VISUAL-NEIGHBOR",
-   "shovelled the path": "D-TOPIC-ADJACENT"
+   "hers stayed indoors away from the street": "D-OPPOSITE",
+   "hers was the smallest one nearby": "D-OPPOSITE",
+   "hers was the first one thrown": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.A.literal_action.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2479,7 +3140,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-a-literal-action-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.B.literal_action.v8",
@@ -2545,11 +3212,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.B.literal_action.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2559,7 +3241,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-b-literal-action-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v1",
@@ -2625,11 +3313,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2639,7 +3342,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v2",
@@ -2705,11 +3414,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.two_clause.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2719,7 +3443,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.two_clause.v3",
@@ -2785,11 +3515,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.two_clause.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2799,7 +3544,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v4",
@@ -2865,11 +3616,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2879,7 +3645,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v5",
@@ -2945,11 +3717,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.two_clause.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2959,7 +3746,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.two_clause.v6",
@@ -3025,11 +3818,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.two_clause.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3039,7 +3847,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-two-clause-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.two_clause.v7",
@@ -3105,11 +3919,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.two_clause.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3119,7 +3948,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-two-clause-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.two_clause.v8",
@@ -3185,11 +4020,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.two_clause.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3199,7 +4049,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-two-clause-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v1",
@@ -3265,11 +4121,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3279,7 +4151,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "resolve 'she' against the handing direction"
+  "notes": "resolve 'she' against the handing direction",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v2",
@@ -3345,11 +4223,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.pronoun_reference.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3359,7 +4253,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "resolve 'it' — seagulls fly, boats sail"
+  "notes": "resolve 'it' — seagulls fly, boats sail",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.pronoun_reference.v3",
@@ -3425,11 +4325,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.pronoun_reference.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3439,7 +4355,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v4",
@@ -3505,11 +4427,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3519,7 +4457,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v5",
@@ -3585,11 +4529,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.pronoun_reference.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3599,7 +4559,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cactuses stay small; the planted-and-growing one is the seedling"
+  "notes": "cactuses stay small; the planted-and-growing one is the seedling",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.pronoun_reference.v6",
@@ -3665,11 +4631,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.pronoun_reference.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3679,7 +4661,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "resolve 'she' — Grandpa cannot be 'she'"
+  "notes": "resolve 'she' — Grandpa cannot be 'she'",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-pronoun-reference-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.pronoun_reference.v7",
@@ -3745,11 +4733,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.pronoun_reference.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3759,7 +4763,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-pronoun-reference-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.pronoun_reference.v8",
@@ -3825,11 +4835,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.pronoun_reference.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3839,7 +4865,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-pronoun-reference-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v1",
@@ -3905,11 +4937,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3919,7 +4966,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v2",
@@ -3985,11 +5038,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.best_restatement.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3999,7 +5067,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.best_restatement.v3",
@@ -4065,11 +5139,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.best_restatement.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4079,7 +5168,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v4",
@@ -4145,11 +5240,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4159,7 +5269,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v5",
@@ -4225,11 +5341,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.best_restatement.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4239,7 +5370,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.C.best_restatement.v6",
@@ -4305,11 +5442,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.C.best_restatement.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4319,7 +5471,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-c-best-restatement-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.A.best_restatement.v7",
@@ -4385,11 +5543,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.A.best_restatement.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4399,7 +5572,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-a-best-restatement-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.B.best_restatement.v8",
@@ -4465,11 +5644,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.B.best_restatement.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4479,7 +5673,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-b-best-restatement-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_who_what.v9r",
@@ -4501,55 +5701,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Who won the prize?",
-  "question": "Who won the prize?",
-  "spokenPrompt": "Who won the prize?",
+  "prompt": "Why would Auntie Meg receive the award?",
+  "question": "Why would Auntie Meg receive the award?",
+  "spokenPrompt": "Why would Auntie Meg receive the award?",
   "passage": "Auntie Meg won the biggest marrow prize at the village show.",
   "cell": "literal_who_what",
   "choices": [
-   "next door's gardener",
-   "nobody this year",
-   "Auntie Meg",
-   "the judge"
+   "her neighbour grew the winner",
+   "the show gave no award",
+   "her giant vegetable was judged best",
+   "she served as the judge"
   ],
   "answerOptions": [
    {
-    "value": "next door's gardener",
-    "label": "next door's gardener",
-    "text": "next door's gardener"
+    "value": "her neighbour grew the winner",
+    "label": "her neighbour grew the winner",
+    "text": "her neighbour grew the winner"
    },
    {
-    "value": "nobody this year",
-    "label": "nobody this year",
-    "text": "nobody this year"
+    "value": "the show gave no award",
+    "label": "the show gave no award",
+    "text": "the show gave no award"
    },
    {
-    "value": "Auntie Meg",
-    "label": "Auntie Meg",
-    "text": "Auntie Meg"
+    "value": "her giant vegetable was judged best",
+    "label": "her giant vegetable was judged best",
+    "text": "her giant vegetable was judged best"
    },
    {
-    "value": "the judge",
-    "label": "the judge",
-    "text": "the judge"
+    "value": "she served as the judge",
+    "label": "she served as the judge",
+    "text": "she served as the judge"
    }
   ],
-  "answer": "Auntie Meg",
-  "correctAnswer": "Auntie Meg",
+  "answer": "her giant vegetable was judged best",
+  "correctAnswer": "her giant vegetable was judged best",
   "distractorRationales": {
-   "nobody this year": "D-OPPOSITE",
-   "the judge": "D-PLAUSIBLE-UNSUPPORTED",
-   "next door's gardener": "D-PLAUSIBLE-UNSUPPORTED"
+   "the show gave no award": "D-OPPOSITE",
+   "she served as the judge": "D-PLAUSIBLE-UNSUPPORTED",
+   "her neighbour grew the winner": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.literal_who_what.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4559,7 +5774,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_where_when.v10r",
@@ -4581,55 +5802,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "When does the hamster run?",
-  "question": "When does the hamster run?",
-  "spokenPrompt": "When does the hamster run?",
+  "prompt": "When would its wheel be moving?",
+  "question": "When would its wheel be moving?",
+  "spokenPrompt": "When would its wheel be moving?",
   "passage": "The school hamster sleeps all day and runs all night.",
   "cell": "literal_where_when",
   "choices": [
-   "all day",
-   "at lunchtime",
-   "on Mondays",
-   "at night"
+   "through every daytime lesson",
+   "only while pupils eat lunch",
+   "only on the first day of the week",
+   "while the school is dark"
   ],
   "answerOptions": [
    {
-    "value": "all day",
-    "label": "all day",
-    "text": "all day"
+    "value": "through every daytime lesson",
+    "label": "through every daytime lesson",
+    "text": "through every daytime lesson"
    },
    {
-    "value": "at lunchtime",
-    "label": "at lunchtime",
-    "text": "at lunchtime"
+    "value": "only while pupils eat lunch",
+    "label": "only while pupils eat lunch",
+    "text": "only while pupils eat lunch"
    },
    {
-    "value": "on Mondays",
-    "label": "on Mondays",
-    "text": "on Mondays"
+    "value": "only on the first day of the week",
+    "label": "only on the first day of the week",
+    "text": "only on the first day of the week"
    },
    {
-    "value": "at night",
-    "label": "at night",
-    "text": "at night"
+    "value": "while the school is dark",
+    "label": "while the school is dark",
+    "text": "while the school is dark"
    }
   ],
-  "answer": "at night",
-  "correctAnswer": "at night",
+  "answer": "while the school is dark",
+  "correctAnswer": "while the school is dark",
   "distractorRationales": {
-   "all day": "D-OPPOSITE",
-   "at lunchtime": "D-PLAUSIBLE-UNSUPPORTED",
-   "on Mondays": "D-PLAUSIBLE-UNSUPPORTED"
+   "through every daytime lesson": "D-OPPOSITE",
+   "only while pupils eat lunch": "D-PLAUSIBLE-UNSUPPORTED",
+   "only on the first day of the week": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.literal_where_when.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,7 +5875,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.picture_match.v9r",
@@ -4661,10 +5903,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a very small dog walking a very tall man on a lead.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "A small dog leads a tall man down the street.",
@@ -4701,15 +5942,33 @@ export const questions = [
    "A man buys a dog lead.": "D-TOPIC-ADJACENT",
    "A tall man carries a small dog.": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "retention",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.picture_match.v9r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-small-dog-leads-tall-man.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-small-dog-leads-tall-man",
+  "stimulusMediaId": "scene-small-dog-leads-tall-man",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4719,7 +5978,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-small-dog-leads-tall-man.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-small-dog-leads-tall-man.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-small-dog-leads-tall-man.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-small-dog-leads-tall-man.webp",
+  "resolvedImageAssetKey": "scene-small-dog-leads-tall-man",
+  "imageAlt": "A very small dog leading a very tall man down a street."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_action.v10r",
@@ -4785,11 +6050,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.literal_action.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4799,7 +6079,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_who_what.v10r",
@@ -4821,55 +6107,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Who taught the parrot?",
-  "question": "Who taught the parrot?",
-  "spokenPrompt": "Who taught the parrot?",
+  "prompt": "How did the bird learn the greeting?",
+  "question": "How did the bird learn the greeting?",
+  "spokenPrompt": "How did the bird learn the greeting?",
   "passage": "Little Ivo taught the parrot to say 'good morning' in a week.",
   "cell": "literal_who_what",
   "choices": [
-   "the vet",
-   "the parrot learned alone",
-   "Ivo",
-   "Grandpa"
+   "an animal doctor trained it for seven days",
+   "it trained itself for seven days",
+   "a young child trained it for seven days",
+   "an older man trained it for seven days"
   ],
   "answerOptions": [
    {
-    "value": "the vet",
-    "label": "the vet",
-    "text": "the vet"
+    "value": "an animal doctor trained it for seven days",
+    "label": "an animal doctor trained it for seven days",
+    "text": "an animal doctor trained it for seven days"
    },
    {
-    "value": "the parrot learned alone",
-    "label": "the parrot learned alone",
-    "text": "the parrot learned alone"
+    "value": "it trained itself for seven days",
+    "label": "it trained itself for seven days",
+    "text": "it trained itself for seven days"
    },
    {
-    "value": "Ivo",
-    "label": "Ivo",
-    "text": "Ivo"
+    "value": "a young child trained it for seven days",
+    "label": "a young child trained it for seven days",
+    "text": "a young child trained it for seven days"
    },
    {
-    "value": "Grandpa",
-    "label": "Grandpa",
-    "text": "Grandpa"
+    "value": "an older man trained it for seven days",
+    "label": "an older man trained it for seven days",
+    "text": "an older man trained it for seven days"
    }
   ],
-  "answer": "Ivo",
-  "correctAnswer": "Ivo",
+  "answer": "a young child trained it for seven days",
+  "correctAnswer": "a young child trained it for seven days",
   "distractorRationales": {
-   "Grandpa": "D-PLAUSIBLE-UNSUPPORTED",
-   "the vet": "D-PLAUSIBLE-UNSUPPORTED",
-   "the parrot learned alone": "D-OPPOSITE"
+   "an older man trained it for seven days": "D-PLAUSIBLE-UNSUPPORTED",
+   "an animal doctor trained it for seven days": "D-PLAUSIBLE-UNSUPPORTED",
+   "it trained itself for seven days": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.literal_who_what.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4879,7 +6180,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-who-what-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_where_when.v9r",
@@ -4901,55 +6208,70 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Where is the sports kit?",
-  "question": "Where is the sports kit?",
-  "spokenPrompt": "Where is the sports kit?",
+  "prompt": "Where should Robi reach for the clothes?",
+  "question": "Where should Robi reach for the clothes?",
+  "spokenPrompt": "Where should Robi reach for the clothes?",
   "passage": "Sports kit lives in the blue drawer under Robi's bed.",
   "cell": "literal_where_when",
   "choices": [
-   "in the wardrobe",
-   "at school",
-   "in the wash",
-   "in the drawer under the bed"
+   "into the blue wardrobe beside where he sleeps",
+   "into the blue locker he uses at school",
+   "into the blue basket beside the washing machine",
+   "into the blue storage space below where he sleeps"
   ],
   "answerOptions": [
    {
-    "value": "in the wardrobe",
-    "label": "in the wardrobe",
-    "text": "in the wardrobe"
+    "value": "into the blue wardrobe beside where he sleeps",
+    "label": "into the blue wardrobe beside where he sleeps",
+    "text": "into the blue wardrobe beside where he sleeps"
    },
    {
-    "value": "at school",
-    "label": "at school",
-    "text": "at school"
+    "value": "into the blue locker he uses at school",
+    "label": "into the blue locker he uses at school",
+    "text": "into the blue locker he uses at school"
    },
    {
-    "value": "in the wash",
-    "label": "in the wash",
-    "text": "in the wash"
+    "value": "into the blue basket beside the washing machine",
+    "label": "into the blue basket beside the washing machine",
+    "text": "into the blue basket beside the washing machine"
    },
    {
-    "value": "in the drawer under the bed",
-    "label": "in the drawer under the bed",
-    "text": "in the drawer under the bed"
+    "value": "into the blue storage space below where he sleeps",
+    "label": "into the blue storage space below where he sleeps",
+    "text": "into the blue storage space below where he sleeps"
    }
   ],
-  "answer": "in the drawer under the bed",
-  "correctAnswer": "in the drawer under the bed",
+  "answer": "into the blue storage space below where he sleeps",
+  "correctAnswer": "into the blue storage space below where he sleeps",
   "distractorRationales": {
-   "in the wardrobe": "D-PLAUSIBLE-UNSUPPORTED",
-   "at school": "D-PLAUSIBLE-UNSUPPORTED",
-   "in the wash": "D-PLAUSIBLE-UNSUPPORTED"
+   "into the blue wardrobe beside where he sleeps": "D-PLAUSIBLE-UNSUPPORTED",
+   "into the blue locker he uses at school": "D-PLAUSIBLE-UNSUPPORTED",
+   "into the blue basket beside the washing machine": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.literal_where_when.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4959,7 +6281,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-where-when-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.picture_match.v10r",
@@ -4981,10 +6309,9 @@ export const questions = [
   "formatType": "COMPREHENSION",
   "templateType": "COMPREHENSION",
   "questionType": "multiple_choice",
-  "prompt": "Which sentence tells about this scene?",
-  "question": "Which sentence tells about this scene?",
-  "spokenPrompt": "Which sentence tells about this scene?",
-  "passage": "Scene: a whole family asleep on the sofa while the film credits roll.",
+  "prompt": "Which sentence tells about this picture?",
+  "question": "Which sentence tells about this picture?",
+  "spokenPrompt": "Look carefully at the picture. Which sentence tells about it?",
   "cell": "picture_match",
   "choices": [
    "The family fell asleep before the film ended.",
@@ -5021,15 +6348,33 @@ export const questions = [
    "One child watches cartoons at breakfast.": "D-PLAUSIBLE-UNSUPPORTED",
    "The family cheers at the film's ending.": "D-OPPOSITE"
   },
-  "mediaTier": "text",
+  "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceModality": "image+sentence",
+  "evidenceRole": "retention",
+  "mediaRole": "scoring-evidence",
+  "constructClaim": "picture_to_sentence_meaning",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": true,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.picture_match.v10r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/scenes/sentence-comprehension/scene-family-asleep-film.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "scene-family-asleep-film",
+  "stimulusMediaId": "scene-family-asleep-film",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5039,7 +6384,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/scenes/sentence-comprehension/scene-family-asleep-film.webp",
+  "imageUrl": "/images/assessment/scenes/sentence-comprehension/scene-family-asleep-film.webp",
+  "targetImage": "/images/assessment/scenes/sentence-comprehension/scene-family-asleep-film.webp",
+  "targetImagePath": "/images/assessment/scenes/sentence-comprehension/scene-family-asleep-film.webp",
+  "resolvedImageAssetKey": "scene-family-asleep-film",
+  "imageAlt": "A whole family asleep on a sofa while film credits roll on the television."
  },
  {
   "id": "lp3.sentence_comprehension.l1.R.literal_action.v9r",
@@ -5105,11 +6456,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l1.R.literal_action.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5119,7 +6485,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l1-r-literal-action-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v9r",
@@ -5185,11 +6557,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.two_clause.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5199,7 +6586,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.two_clause.v10r",
@@ -5265,11 +6658,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.two_clause.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5279,7 +6687,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-two-clause-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v9r",
@@ -5345,11 +6759,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.pronoun_reference.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5359,7 +6789,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v10r",
@@ -5425,11 +6861,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.pronoun_reference.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5439,7 +6891,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.best_restatement.v10r",
@@ -5505,11 +6963,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.best_restatement.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5519,7 +6992,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.best_restatement.v9r",
@@ -5585,11 +7064,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.best_restatement.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5599,7 +7093,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-best-restatement-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.literal_action.v11r",
@@ -5665,11 +7165,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.literal_action.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5679,7 +7194,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-literal-action-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sentence_comprehension.l2.R.pronoun_reference.v11r",
@@ -5745,11 +7266,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "pronoun-reference-label",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sentence_comprehension.l2.R.pronoun_reference.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5759,6 +7296,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sentence-comprehension-l2-r-pronoun-reference-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  }
 ];

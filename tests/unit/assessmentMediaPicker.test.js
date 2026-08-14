@@ -8,8 +8,9 @@ import {
 } from "../../src/data/assessmentMediaPicker.js";
 import { getAssessmentMediaByPath } from "../../src/data/assessmentMediaRegistry.js";
 import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
-import { rhymingAssessmentImageVariants } from "../../src/data/generated/assessmentImageVariants.generated.js";
 import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
+import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
+import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
 
 const instructionAudio = "/audio/child-mode/clean-human/phrases/listen-and-find.mp3";
 
@@ -164,13 +165,7 @@ test("rhyming option images are recorded in assessment session usage", () => {
   );
 });
 
-test("every published picture-choice rhyming option resolves to exact-word image media", async () => {
-  const assessmentVariantPathsByWord = new Map();
-  Object.values(rhymingAssessmentImageVariants).forEach(words => {
-    Object.entries(words).forEach(([word, paths]) => {
-      assessmentVariantPathsByWord.set(word, new Set(paths));
-    });
-  });
+test("every published picture-choice rhyming option stays inside its item-level reviewed media decision", async () => {
   const questions = await loadAssessmentSkillBank("rhyming");
 
   assert.ok(questions.length > 0);
@@ -196,17 +191,9 @@ test("every published picture-choice rhyming option resolves to exact-word image
     }
     resolvedCards.forEach(card => {
       const path = card.image || card.imagePath || card.imageUrl || "";
-      const record = getAssessmentMediaByPath(path, "image");
-      assert.equal(record?.available, true, `${question.id}:${card.word} should use approved image media`);
-      assert.equal(record?.normalizedWord, card.word, `${question.id}:${card.word} image should match the option word`);
-      const variants = assessmentVariantPathsByWord.get(card.word);
-      if (variants?.size) {
-        assert.equal(
-          variants.has(path),
-          true,
-          `${question.id}:${card.word} should use its purpose-built assessment variant`
-        );
-      }
+      const decision = ASSESSMENT_ITEM_MEDIA_DECISIONS[question.id];
+      assert.equal(decision.paths.includes(path), true, `${question.id}:${card.word} should use its reviewed item media`);
+      assert.equal(ASSESSMENT_IMAGE_STYLE_DECISIONS[path]?.visualReview, "approved", `${question.id}:${card.word} should use visually approved art`);
     });
   });
 });
@@ -241,4 +228,43 @@ test("current production audio assets are indexed for assessment use", () => {
   assert.equal(shortVowelAudio?.normalizedWord, "melt");
   assert.equal(hfwAudio?.available, true);
   assert.equal(hfwAudio?.normalizedWord, "oil");
+});
+
+test("published v3 HFW scenes are preserved instead of stripped by the legacy HFW policy", async () => {
+  const questions = await loadAssessmentSkillBank("hfw_1_25");
+  const question = questions.find(row => row.imagePath);
+  assert.ok(question);
+  const expectedPath = ASSESSMENT_ITEM_MEDIA_DECISIONS[question.id].paths[0];
+
+  const resolved = resolveQuestionMediaDynamically(question, { skillId: "hfw_1_25" });
+
+  assert.equal(resolved.imagePath, expectedPath);
+  assert.equal(resolved.targetImage, expectedPath);
+  assert.equal(resolved.assessmentMediaResolution.imageRole, "construct-support");
+  assert.deepEqual(validateResolvedQuestionMedia(resolved), []);
+});
+
+test("published v3 authored image-card paths never rotate to a different asset", async () => {
+  const questions = await loadAssessmentSkillBank("rhyming");
+  const question = questions.find(row => row.imageCards?.length);
+  assert.ok(question);
+  const before = question.imageCards.map(card => card.image || card.imagePath);
+
+  const resolved = resolveQuestionMediaDynamically(question, {
+    skillId: "rhyming",
+    level: question.level,
+    phase: question.phase,
+    sessionUsage: {
+      imagePaths: new Set(before),
+      audioPaths: new Set(),
+      targetWords: new Set(),
+      contentKeys: new Set(),
+      templateKeys: new Set(),
+      promptKeys: new Set(),
+      correctQuestionIds: new Set()
+    }
+  });
+
+  assert.deepEqual(resolved.imageCards.map(card => card.image || card.imagePath), before);
+  assert.deepEqual(validateResolvedQuestionMedia(resolved), []);
 });

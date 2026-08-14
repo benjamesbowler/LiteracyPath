@@ -3,17 +3,33 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, "..", "..");
 
 import { V3_QUESTION_SOURCE } from "../../src/content/blueprints/skillBlueprints.js";
+import { ASSESSMENT_IMAGE_ALIAS_BY_SOURCE } from "../../src/content/assessments/v3/assessmentImageAliases.generated.js";
+import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
 export const V3_SOURCE = V3_QUESTION_SOURCE;
 export const AUTHORING_DIR = path.join(ROOT, "tools", "assessmentRebuild", "authoring");
 export const BANKS_DIR = path.join(ROOT, "src", "data", "v3", "banks");
 export const STATUS_FILE = path.join(ROOT, "src", "content", "assessments", "v3", "assessmentRebuildStatus.generated.js");
 export const REPORT_DIR = path.join(ROOT, ".artifacts", "assessment-rebuild");
+
+const assetHashCache = new Map();
+function publicAssetPath(assetPath) {
+  return assetPath ? path.join(ROOT, "public", String(assetPath).replace(/^\//, "")) : "";
+}
+function assetHash(assetPath) {
+  const absolute = publicAssetPath(assetPath);
+  if (!absolute || !fs.existsSync(absolute)) return "";
+  if (!assetHashCache.has(absolute)) {
+    assetHashCache.set(absolute, createHash("sha256").update(fs.readFileSync(absolute)).digest("hex"));
+  }
+  return assetHashCache.get(absolute);
+}
 
 export const RATIONALE_CODES = new Set([
   "KEY",
@@ -68,7 +84,7 @@ export function promptAnswerSignature(item) {
   // deliberately generic (LISTEN_CHOOSE_VOWEL never prints the word): two
   // items with the same prompt and answer but different pictured targets are
   // different questions, not duplicates.
-  return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.sentence || "")}||${norm(item.answer)}||${norm(item.targetWord || item.target || "")}`;
+  return `${norm(item.prompt)}||${norm(item.passage || "")}||${norm(item.sentence || "")}||${norm(item.answer)}||${norm(item.targetWord || item.target || "")}||${optionSetSignature(item)}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -110,16 +126,20 @@ export function expandItem(raw, blueprint, imageResolver) {
   const key = raw.choices.find(c => c.k);
   const form = raw.retention ? "R" : (raw.form || FORM_BY_VARIANT[raw.v] || "A");
   const id = `lp3.${skillId}.l${level}.${form}.${raw.u}.v${raw.v}${raw.retention ? "r" : ""}`;
+  const mediaDecision = ASSESSMENT_ITEM_MEDIA_DECISIONS[id];
   const choiceRows = rotate(raw.choices, stableChoiceOffset(id, raw.choices.length));
   const choices = choiceRows.map(c => c.t);
   const answer = key ? key.t : "";
   const phase = raw.ph || 1;
-  const targetWord = raw.target || (raw.img ? raw.img : undefined);
+  // A scoring-scene asset key is not a word and must never be spoken as one.
+  // Word/object image keys remain valid fallbacks for picture-led phonics.
+  const targetWord = raw.target || (raw.img && !String(raw.img).startsWith("scene-") ? raw.img : undefined);
   const hasChoiceImages =
     (Array.isArray(raw.cards) && raw.cards.length > 0)
     || (Array.isArray(raw.sequenceCards) && raw.sequenceCards.length > 0);
   const supportImageKey = raw.img || raw.supportImg || "";
-  const mediaTier = raw.media || (hasChoiceImages || supportImageKey ? "image-required" : "text");
+  const decisionSuppliesTarget = ["neutral-support", "construct-support"].includes(mediaDecision?.role);
+  const mediaTier = raw.media || (hasChoiceImages || supportImageKey || mediaDecision ? "image-required" : "text");
 
   const item = {
     id,
@@ -162,7 +182,15 @@ export function expandItem(raw, blueprint, imageResolver) {
     crossPatternGroup: raw.cross || undefined,
     nonGating: Boolean(raw.nonGating),
     retentionOnly: Boolean(raw.retention),
-    scannerExpected: Boolean(raw.scannerExpected),
+    evidenceModality: raw.evidenceModality,
+    evidenceRole: raw.evidenceRole || (raw.retention ? "retention" : "mastery"),
+    mediaRole: raw.mediaRole,
+    constructClaim: raw.constructClaim,
+    hideWrittenLabels: Boolean(raw.hideWrittenLabels),
+    displayPassageDuringResponse: raw.displayPassageDuringResponse !== false,
+    suppressStimulusAudio: Boolean(raw.suppressStimulusAudio),
+    audioRole: raw.audioRole,
+    copyExempt: raw.copyExempt,
     soundTiles: raw.soundTiles,
     letterTiles: raw.letterTiles,
     letterBank: raw.letterTiles,
@@ -171,8 +199,10 @@ export function expandItem(raw, blueprint, imageResolver) {
     // Which media the AUTHOR declared. The runtime loader strips any
     // enrichment-added target media beyond this, so unapproved manifest paths
     // can never ride in on a v3 item (media QA stays fail-closed).
-    v3AuthoredMedia: { target: Boolean(supportImageKey), cards: hasChoiceImages },
-    requiredImageAssetKey: supportImageKey || undefined,
+    v3AuthoredMedia: { target: Boolean(supportImageKey || decisionSuppliesTarget), cards: hasChoiceImages },
+    assessmentMediaDecision: mediaDecision,
+    requiredImageAssetKey: supportImageKey || (decisionSuppliesTarget ? mediaDecision?.paths?.[0] : undefined),
+    stimulusMediaId: raw.stimulusMediaId || supportImageKey || (decisionSuppliesTarget ? mediaDecision?.paths?.[0] : undefined),
     active: true,
     qaStatus: "verified",
     source: V3_SOURCE,
@@ -231,6 +261,15 @@ export function expandItem(raw, blueprint, imageResolver) {
     }
     item.imageAlt = raw.imgAlt || raw.supportImageAlt || String(raw.target || supportImageKey);
   }
+  if (decisionSuppliesTarget && mediaDecision?.paths?.[0]) {
+    const image = mediaDecision.paths[0];
+    item.imagePath = image;
+    item.imageUrl = image;
+    item.targetImage = image;
+    item.targetImagePath = image;
+    item.resolvedImageAssetKey = image;
+    item.imageAlt = mediaDecision.alt || "Picture support for this literacy question";
+  }
   return item;
 }
 
@@ -282,7 +321,7 @@ export function lintBank(items, blueprint, {
   const wordChoiceFormats = new Set([
     "DIGRAPH_IMAGE_CHOICE", "BLEND_IMAGE_CHOICE", "RHYME_MATCH_PICTURE", "READ_FIND_RHYME",
     "RHYME_ODD_ONE_OUT", "PICTURE_TO_PRINT_MATCH", "GRAMMAR_IMAGE_CHOICE", "GRAMMAR_WORD_CHOICE",
-    "HFW_READ_FIND_WORD", "SHORT_VOWEL_WORD", "MPD", "CPS"
+    "HFW_READ_FIND_WORD", "HFW_AUDIO_FIND_WORD", "SHORT_VOWEL_WORD", "MPD", "CPS"
   ]);
 
   for (const item of items) {
@@ -411,6 +450,19 @@ export function lintBank(items, blueprint, {
       push("L-AMBIG", item.id, "author note admits that a distractor is also defensible");
     }
 
+    // Concrete semantic opposites must have one defensible key for a young
+    // learner. "Cold" and "cool" are both ordinary opposites of "hot" in
+    // child language, so they cannot appear together in a single-key item.
+    const normalizedChoices = new Set(item.choices.map(norm));
+    if (
+      item.skillId === "antonyms_synonyms"
+      && normalizedChoices.has("cold")
+      && normalizedChoices.has("cool")
+      && /\bopposite\b/i.test(item.prompt || "")
+    ) {
+      push("L-AMBIG", item.id, "cold and cool are both defensible opposites of hot");
+    }
+
     // Number words should leave exactly one number-compatible answer in a
     // plurals item. Semantic hints such as "on the wall" are not strong enough
     // to make cats uniquely better than hens for a five-year-old.
@@ -472,6 +524,78 @@ export function lintBank(items, blueprint, {
       && !(item.sequenceCards || []).length
     ) {
       push("L-MEDIA", item.id, "image-required item has no resolved imagePath or imageCards");
+    }
+
+    const stimulusPath = norm(item.imagePath || item.targetImagePath || "");
+    if (stimulusPath && (item.imageCards || []).some(card => norm(card.image || card.imagePath || "") === stimulusPath)) {
+      push("L-MEDIA-INDEPENDENCE", item.id, "stimulus and answer card reuse the same image asset");
+    }
+    if (stimulusPath) {
+      const stimulusHash = assetHash(stimulusPath);
+      const duplicateCard = (item.imageCards || []).find(card => {
+        const cardPath = card.image || card.imagePath || "";
+        return norm(cardPath) !== stimulusPath && stimulusHash && assetHash(cardPath) === stimulusHash;
+      });
+      if (duplicateCard) {
+        push("L-MEDIA-INDEPENDENCE", item.id, "stimulus and answer card contain byte-identical image content under different paths");
+      }
+    }
+
+    // Validity contracts for formats where visible print can answer an audio,
+    // picture, or sequencing construct without the child doing the skill.
+    if (
+      item.level === 1
+      && ["RHYME_MATCH_PICTURE", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT"].includes(item.formatType)
+      && !item.hideWrittenLabels
+    ) {
+      push("L-MODALITY", item.id, `${item.formatType} must hide written word labels`);
+    }
+    if (item.formatType === "RHYME_MATCH_PICTURE" && item.evidenceModality !== "audio+image") {
+      push("L-MODALITY", item.id, "rhyming picture evidence must be declared audio+image");
+    }
+    if (item.formatType === "HFW_READ_FIND_WORD") {
+      push("L-HFW-COPY", item.id, "read-find repeats the target in print; use audio-find evidence");
+    }
+    if (item.formatType === "HFW_AUDIO_FIND_WORD") {
+      const target = norm(item.targetWord || item.answer);
+      if (!target || item.audioRole !== "target_word") {
+        push("L-MODALITY", item.id, "HFW audio-find needs a target word and target_word audio role");
+      }
+      if (target && norm(item.prompt).split(/[^a-z']+/).includes(target)) {
+        push("L-HFW-COPY", item.id, "HFW prompt visibly contains the target word");
+      }
+    }
+    if (item.formatType === "PICTURE_SEQUENCE_ORDER") {
+      if (!item.hideWrittenLabels || item.displayPassageDuringResponse !== false) {
+        push("L-SEQUENCE-COPY", item.id, "picture sequencing must hide ordered passage and event labels during the response");
+      }
+      if (item.evidenceModality !== "audio+image") {
+        push("L-MODALITY", item.id, "picture sequencing must be declared audio+image");
+      }
+    }
+    if (item.formatType === "COMPREHENSION" && item.passage && !item.copyExempt) {
+      const normalizedPassage = norm(item.passage).replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ");
+      const normalizedAnswer = norm(item.answer).replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ");
+      if (item.skillId === "sentence_comprehension" && normalizedAnswer && normalizedPassage.includes(normalizedAnswer)) {
+        push("L-COMPREHENSION-VERBATIM", item.id, "correct answer is copied verbatim from the passage");
+      }
+      const scan = scannerAnswer(item);
+      if (scan && norm(scan) === norm(item.answer)) {
+        push("L-COMPREHENSION-COPY", item.id, "surface overlap points directly to the correct answer");
+      }
+    }
+    if (
+      item.skillId === "sentence_comprehension"
+      && /\b(?:scene|picture)\b/i.test(item.prompt || "")
+      && !item.imagePath
+    ) {
+      push("L-MEDIA-CONSTRUCT", item.id, "scene/picture question has no authored scoring image");
+    }
+    if (
+      ["nouns", "verbs", "adjectives"].includes(item.skillId)
+      && item.formatType === "GRAMMAR_IMAGE_CHOICE"
+    ) {
+      push("L-CONSTRUCT-WEAK", item.id, "grammar mastery must be decided in language context, not by object/action picture sorting");
     }
 
     // Option-set + prompt/answer duplicates (open-set formats only)
@@ -558,6 +682,48 @@ export function lintBank(items, blueprint, {
     }
   }
 
+  return issues;
+}
+
+// A renamed or recompressed copy evades path and byte-hash checks. Compare a
+// normalized, tightly-cropped thumbnail of the scoring stimulus with the
+// keyed answer card so near-duplicate artwork also fails closed.
+export async function lintPerceptualMediaIndependence(items) {
+  const issues = [];
+  const { default: sharp } = await import("sharp");
+  const thumbnail = async assetPath => sharp(publicAssetPath(assetPath))
+    .flatten({ background: "white" })
+    .trim({ background: "white", threshold: 8 })
+    .resize(32, 32, { fit: "fill" })
+    .removeAlpha()
+    .raw()
+    .toBuffer();
+
+  for (const item of items) {
+    const stimulusPath = item.imagePath || item.targetImagePath || "";
+    if (!stimulusPath || !fs.existsSync(publicAssetPath(stimulusPath))) continue;
+    const answerCard = (item.imageCards || []).find(card => norm(card.value || card.word) === norm(item.answer));
+    const answerPath = answerCard?.image || answerCard?.imagePath || "";
+    if (!answerPath || !fs.existsSync(publicAssetPath(answerPath)) || norm(answerPath) === norm(stimulusPath)) continue;
+    try {
+      const [stimulus, answer] = await Promise.all([thumbnail(stimulusPath), thumbnail(answerPath)]);
+      if (stimulus.length !== answer.length || !stimulus.length) continue;
+      let absoluteDifference = 0;
+      for (let index = 0; index < stimulus.length; index += 1) {
+        absoluteDifference += Math.abs(stimulus[index] - answer[index]);
+      }
+      const meanDifference = absoluteDifference / stimulus.length;
+      if (meanDifference <= 1.5) {
+        issues.push({
+          code: "L-MEDIA-INDEPENDENCE",
+          itemId: item.id,
+          message: `stimulus and keyed answer artwork are perceptually near-identical (mean pixel delta ${meanDifference.toFixed(2)})`
+        });
+      }
+    } catch (error) {
+      issues.push({ code: "L-MEDIA", itemId: item.id, message: `could not compare scoring media: ${error.message}` });
+    }
+  }
   return issues;
 }
 
@@ -776,6 +942,9 @@ export async function simulateRegression(bank, blueprint, { policy }) {
 export function scannerAnswer(item) {
   const choices = item.choices || [];
   if (!choices.length) return null;
+  // Picture-to-sentence evidence is intentionally decided from the authored
+  // scoring image, not from printed overlap with a generic instruction.
+  if (item.constructClaim === "picture_to_sentence_meaning") return null;
   // Tile-arrange items display the answer's own phonemes/letters scrambled —
   // there is no printed option set to surface-match, so nothing to scan.
   if (Array.isArray(item.soundTiles) && item.soundTiles.length) return null;
@@ -908,14 +1077,16 @@ export function buildImageIndex() {
 
 export function makeImageResolver(preferredDirs = []) {
   const index = buildImageIndex();
+  const approvedPath = value => ASSESSMENT_IMAGE_ALIAS_BY_SOURCE[`/${String(value || "").replace(/^\//, "")}`]
+    || `/${String(value || "").replace(/^\//, "")}`;
   return word => {
     const stem = norm(word).replace(/ /g, "-");
     for (const dir of preferredDirs) {
       const candidate = `images/assessment/${dir}/${stem}.webp`;
-      if (fs.existsSync(path.join(ROOT, "public", candidate))) return `/${candidate}`;
+      if (fs.existsSync(path.join(ROOT, "public", candidate))) return approvedPath(candidate);
     }
     const found = index.get(stem) || index.get(norm(word).replace(/ /g, "_"));
-    return found ? `/${found}` : null;
+    return found ? approvedPath(found) : null;
   };
 }
 

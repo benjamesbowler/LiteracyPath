@@ -15,6 +15,22 @@
   overflow: hidden;
 }
 
+/* Focused assessments own the viewport. The generic .app padding otherwise
+   adds 32px outside a 100dvh shell, creating hidden document overflow and
+   making the effective browser height differ from the measured shell. */
+.app.assessment-app {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  padding: 8px 16px;
+  overflow: hidden;
+}
+
+.app.assessment-app > .assessment-shell {
+  height: 100%;
+  min-height: 0;
+}
+
 .assessment-shell.fullscreen {
   width: 100%;
   max-width: none;
@@ -254,6 +270,9 @@
    scroll here, while ordinary questions must reflow to fit without scrolling. */
 .assessment-question-layout {
   min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
   scroll-padding-block: 12px;
 }
 

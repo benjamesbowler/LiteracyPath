@@ -64,13 +64,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I see ___ red hen.",
   "targetWord": "a",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.a.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/a.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,7 +95,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/a.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/a.webp",
+  "targetImage": "/images/assessment/release-support/hfw/a.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/a.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.a.v2",
@@ -145,13 +166,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We had ___ nap at two.",
   "targetWord": "a",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.a.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/a.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -161,7 +197,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/a.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/a.webp",
+  "targetImage": "/images/assessment/release-support/hfw/a.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/a.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.a.v3",
@@ -180,12 +222,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "a",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: a",
-  "question": "Find the word: a",
-  "spokenPrompt": "a. Find the word a.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "as",
    "an",
@@ -221,16 +263,34 @@ export const questions = [
    "as": "D-VISUAL-NEIGHBOR",
    "an": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "a",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.a.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/a.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -240,7 +300,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/a.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/a.webp",
+  "targetImage": "/images/assessment/release-support/hfw/a.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/a.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.and.v1",
@@ -305,13 +371,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We have both jam ___ bread.",
   "targetWord": "and",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.and.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/and.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/and.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -321,7 +402,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "both ... and pins the joining word; no distractor produces a defensible sentence"
+  "notes": "both ... and pins the joining word; no distractor produces a defensible sentence",
+  "imagePath": "/images/assessment/release-support/hfw/and.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/and.webp",
+  "targetImage": "/images/assessment/release-support/hfw/and.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/and.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.and.v2",
@@ -386,13 +473,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "She has both a cat ___ a dog.",
   "targetWord": "and",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.and.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/and.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/and.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -402,7 +504,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/and.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/and.webp",
+  "targetImage": "/images/assessment/release-support/hfw/and.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/and.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.and.v3",
@@ -421,12 +529,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "and",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: and",
-  "question": "Find the word: and",
-  "spokenPrompt": "and. Find the word and.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "an",
    "ant",
@@ -462,16 +570,34 @@ export const questions = [
    "an": "D-VISUAL-NEIGHBOR",
    "ant": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "and",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.and.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/and.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/and.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -481,7 +607,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/and.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/and.webp",
+  "targetImage": "/images/assessment/release-support/hfw/and.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/and.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.are.v1",
@@ -546,13 +678,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The pigs ___ in the mud.",
   "targetWord": "are",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.are.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/are.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/are.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -562,7 +709,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "agreement errors are what K-2 children really weigh — never eliminable by grammar alone at this age"
+  "notes": "agreement errors are what K-2 children really weigh — never eliminable by grammar alone at this age",
+  "imagePath": "/images/assessment/release-support/hfw/are.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/are.webp",
+  "targetImage": "/images/assessment/release-support/hfw/are.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/are.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.are.v2",
@@ -627,13 +780,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "You ___ my best pal.",
   "targetWord": "are",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.are.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/are.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/are.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -643,7 +811,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/are.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/are.webp",
+  "targetImage": "/images/assessment/release-support/hfw/are.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/are.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.are.v3",
@@ -662,12 +836,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "are",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: are",
-  "question": "Find the word: are",
-  "spokenPrompt": "are. Find the word are.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "are",
    "ear",
@@ -703,16 +877,34 @@ export const questions = [
    "art": "D-VISUAL-NEIGHBOR",
    "ear": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "are",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.are.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/are.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/are.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -722,7 +914,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/are.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/are.webp",
+  "targetImage": "/images/assessment/release-support/hfw/are.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/are.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.as.v1",
@@ -787,13 +985,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "It is big ___ a bus.",
   "targetWord": "as",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.as.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/as.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/as.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -803,7 +1016,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/as.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/as.webp",
+  "targetImage": "/images/assessment/release-support/hfw/as.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/as.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.as.v2",
@@ -868,13 +1087,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Sam is fast ___ a fox.",
   "targetWord": "as",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.as.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/as.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/as.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -884,7 +1118,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/as.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/as.webp",
+  "targetImage": "/images/assessment/release-support/hfw/as.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/as.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.as.v3",
@@ -903,12 +1143,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "as",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: as",
-  "question": "Find the word: as",
-  "spokenPrompt": "as. Find the word as.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "is",
    "as",
@@ -944,16 +1184,34 @@ export const questions = [
    "is": "D-VISUAL-NEIGHBOR",
    "at": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "as",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.as.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/as.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/as.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -963,7 +1221,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/as.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/as.webp",
+  "targetImage": "/images/assessment/release-support/hfw/as.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/as.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.at.v1",
@@ -1028,13 +1292,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We nap ___ two.",
   "targetWord": "at",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.at.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/at.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/at.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1044,7 +1323,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/at.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/at.webp",
+  "targetImage": "/images/assessment/release-support/hfw/at.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/at.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.at.v2",
@@ -1109,13 +1394,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The bus stops ___ my home.",
   "targetWord": "at",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.at.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/at.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/at.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1125,7 +1425,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/at.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/at.webp",
+  "targetImage": "/images/assessment/release-support/hfw/at.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/at.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.at.v3",
@@ -1144,12 +1450,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "at",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: at",
-  "question": "Find the word: at",
-  "spokenPrompt": "at. Find the word at.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "an",
    "it",
@@ -1185,16 +1491,34 @@ export const questions = [
    "an": "D-VISUAL-NEIGHBOR",
    "it": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "at",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.at.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/at.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/at.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1204,7 +1528,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/at.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/at.webp",
+  "targetImage": "/images/assessment/release-support/hfw/at.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/at.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.be.v1",
@@ -1269,13 +1599,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "You can ___ my helper.",
   "targetWord": "be",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.be.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/be.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/be.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1285,7 +1630,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/be.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/be.webp",
+  "targetImage": "/images/assessment/release-support/hfw/be.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/be.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.be.v2",
@@ -1350,13 +1701,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "It will ___ hot at two.",
   "targetWord": "be",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.be.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/be.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/be.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1366,7 +1732,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/be.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/be.webp",
+  "targetImage": "/images/assessment/release-support/hfw/be.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/be.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.be.v3",
@@ -1385,12 +1757,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "be",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: be",
-  "question": "Find the word: be",
-  "spokenPrompt": "be. Find the word be.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "by",
    "bee",
@@ -1426,16 +1798,34 @@ export const questions = [
    "bee": "D-VISUAL-NEIGHBOR",
    "he": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "be",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.be.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/be.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/be.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1445,7 +1835,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/be.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/be.webp",
+  "targetImage": "/images/assessment/release-support/hfw/be.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/be.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.for.v1",
@@ -1510,13 +1906,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I made this gift ___ you.",
   "targetWord": "for",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.for.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/for.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/for.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1526,7 +1937,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the frame now has one defensible completion"
+  "notes": "the frame now has one defensible completion",
+  "imagePath": "/images/assessment/release-support/hfw/for.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/for.webp",
+  "targetImage": "/images/assessment/release-support/hfw/for.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/for.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.for.v2",
@@ -1591,13 +2008,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We cheered ___ our team.",
   "targetWord": "for",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.for.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/for.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/for.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1607,7 +2039,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/for.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/for.webp",
+  "targetImage": "/images/assessment/release-support/hfw/for.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/for.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.for.v3",
@@ -1626,12 +2064,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "for",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: for",
-  "question": "Find the word: for",
-  "spokenPrompt": "for. Find the word for.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "for",
    "of",
@@ -1667,16 +2105,34 @@ export const questions = [
    "from": "D-VISUAL-NEIGHBOR",
    "fog": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "for",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.for.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/for.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/for.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1686,7 +2142,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/for.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/for.webp",
+  "targetImage": "/images/assessment/release-support/hfw/for.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/for.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.from.v1",
@@ -1751,13 +2213,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Gran sent the card ___ her house.",
   "targetWord": "from",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.from.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/from.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/from.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1767,7 +2244,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/from.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/from.webp",
+  "targetImage": "/images/assessment/release-support/hfw/from.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/from.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.from.v2",
@@ -1832,13 +2315,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "He came home ___ the park.",
   "targetWord": "from",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.from.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/from.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/from.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1848,7 +2346,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "back not home in the frame — home contains om and would gift the key a chunk"
+  "notes": "back not home in the frame — home contains om and would gift the key a chunk",
+  "imagePath": "/images/assessment/release-support/hfw/from.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/from.webp",
+  "targetImage": "/images/assessment/release-support/hfw/from.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/from.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.from.v3",
@@ -1867,12 +2371,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "from",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: from",
-  "question": "Find the word: from",
-  "spokenPrompt": "from. Find the word from.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "fort",
    "from",
@@ -1908,16 +2412,34 @@ export const questions = [
    "fort": "D-VISUAL-NEIGHBOR",
    "for": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "from",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.from.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/from.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/from.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1927,7 +2449,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/from.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/from.webp",
+  "targetImage": "/images/assessment/release-support/hfw/from.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/from.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.have.v1",
@@ -1992,13 +2520,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We ___ ten hens.",
   "targetWord": "have",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.have.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/have.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/have.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2008,7 +2551,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/have.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/have.webp",
+  "targetImage": "/images/assessment/release-support/hfw/have.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/have.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.have.v2",
@@ -2073,13 +2622,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "They ___ a big red van.",
   "targetWord": "have",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.have.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/have.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/have.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2089,7 +2653,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/have.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/have.webp",
+  "targetImage": "/images/assessment/release-support/hfw/have.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/have.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.have.v3",
@@ -2108,12 +2678,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "have",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: have",
-  "question": "Find the word: have",
-  "spokenPrompt": "have. Find the word have.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "had",
    "gave",
@@ -2149,16 +2719,34 @@ export const questions = [
    "had": "D-VISUAL-NEIGHBOR",
    "gave": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "have",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.have.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/have.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/have.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2168,7 +2756,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/have.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/have.webp",
+  "targetImage": "/images/assessment/release-support/hfw/have.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/have.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.he.v1",
@@ -2233,13 +2827,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Dad is tall. ___ has big boots.",
   "targetWord": "he",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.he.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/he.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/he.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2249,7 +2858,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the lead sentence pins the reference — bare pronoun frames have no single key"
+  "notes": "the lead sentence pins the reference — bare pronoun frames have no single key",
+  "imagePath": "/images/assessment/release-support/hfw/he.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/he.webp",
+  "targetImage": "/images/assessment/release-support/hfw/he.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/he.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.he.v2",
@@ -2314,13 +2929,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Ben naps. ___ is in bed.",
   "targetWord": "he",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.he.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/he.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/he.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2330,7 +2960,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/he.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/he.webp",
+  "targetImage": "/images/assessment/release-support/hfw/he.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/he.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.he.v3",
@@ -2349,12 +2985,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "he",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: he",
-  "question": "Find the word: he",
-  "spokenPrompt": "he. Find the word he.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "be",
    "the",
@@ -2390,16 +3026,34 @@ export const questions = [
    "be": "D-VISUAL-NEIGHBOR",
    "the": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "he",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.he.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/he.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/he.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2409,7 +3063,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/he.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/he.webp",
+  "targetImage": "/images/assessment/release-support/hfw/he.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/he.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.his.v1",
@@ -2474,13 +3134,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Sam hurt ___ leg.",
   "targetWord": "his",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.his.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/his.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/his.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2490,7 +3165,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "Sam hurt is leg — the his/is slip children really write"
+  "notes": "Sam hurt is leg — the his/is slip children really write",
+  "imagePath": "/images/assessment/release-support/hfw/his.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/his.webp",
+  "targetImage": "/images/assessment/release-support/hfw/his.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/his.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.his.v2",
@@ -2555,13 +3236,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The dog wags ___ tail.",
   "targetWord": "his",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.his.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/his.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/his.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2571,7 +3267,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/his.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/his.webp",
+  "targetImage": "/images/assessment/release-support/hfw/his.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/his.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.his.v3",
@@ -2590,12 +3292,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "his",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: his",
-  "question": "Find the word: his",
-  "spokenPrompt": "his. Find the word his.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "his",
    "is",
@@ -2631,16 +3333,34 @@ export const questions = [
    "has": "D-VISUAL-NEIGHBOR",
    "him": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "his",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.his.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/his.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/his.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2650,7 +3370,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/his.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/his.webp",
+  "targetImage": "/images/assessment/release-support/hfw/his.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/his.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.i.v1",
@@ -2715,13 +3441,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Mom and ___ bake buns.",
   "targetWord": "i",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.i.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/i.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/i.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2731,7 +3472,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "only I forms the standard compound subject"
+  "notes": "only I forms the standard compound subject",
+  "imagePath": "/images/assessment/release-support/hfw/i.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/i.webp",
+  "targetImage": "/images/assessment/release-support/hfw/i.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/i.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.i.v2",
@@ -2796,13 +3543,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "___ am ready for my turn.",
   "targetWord": "i",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.i.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/i.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/i.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2812,7 +3574,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/i.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/i.webp",
+  "targetImage": "/images/assessment/release-support/hfw/i.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/i.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.i.v3",
@@ -2831,12 +3599,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "i",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: i",
-  "question": "Find the word: i",
-  "spokenPrompt": "i. Find the word i.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "is",
    "I",
@@ -2872,16 +3640,34 @@ export const questions = [
    "it": "D-VISUAL-NEIGHBOR",
    "is": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "i",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.i.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/i.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/i.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2891,7 +3677,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/i.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/i.webp",
+  "targetImage": "/images/assessment/release-support/hfw/i.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/i.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.in.v1",
@@ -2956,13 +3748,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The jam is ___ the jar.",
   "targetWord": "in",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.in.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/in.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/in.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2972,7 +3779,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/in.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/in.webp",
+  "targetImage": "/images/assessment/release-support/hfw/in.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/in.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.in.v2",
@@ -3037,13 +3850,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The fish swim ___ the sea.",
   "targetWord": "in",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.in.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/in.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/in.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3053,7 +3881,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/in.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/in.webp",
+  "targetImage": "/images/assessment/release-support/hfw/in.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/in.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.in.v3",
@@ -3072,12 +3906,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "in",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: in",
-  "question": "Find the word: in",
-  "spokenPrompt": "in. Find the word in.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "an",
    "win",
@@ -3113,16 +3947,34 @@ export const questions = [
    "on": "D-VISUAL-NEIGHBOR",
    "an": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "in",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.in.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/in.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/in.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3132,7 +3984,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/in.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/in.webp",
+  "targetImage": "/images/assessment/release-support/hfw/in.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/in.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.is.v1",
@@ -3197,13 +4055,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The sun ___ hot.",
   "targetWord": "is",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.is.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/is.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/is.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3213,7 +4086,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/is.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/is.webp",
+  "targetImage": "/images/assessment/release-support/hfw/is.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/is.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.is.v2",
@@ -3278,13 +4157,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "My cup ___ full.",
   "targetWord": "is",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.is.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/is.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/is.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3294,7 +4188,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/is.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/is.webp",
+  "targetImage": "/images/assessment/release-support/hfw/is.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/is.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.is.v3",
@@ -3313,12 +4213,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "is",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: is",
-  "question": "Find the word: is",
-  "spokenPrompt": "is. Find the word is.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "his",
    "it",
@@ -3354,16 +4254,34 @@ export const questions = [
    "as": "D-VISUAL-NEIGHBOR",
    "his": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "is",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.is.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/is.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/is.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3373,7 +4291,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/is.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/is.webp",
+  "targetImage": "/images/assessment/release-support/hfw/is.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/is.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.it.v1",
@@ -3438,13 +4362,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The egg fell. ___ has a crack.",
   "targetWord": "it",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.it.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/it.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/it.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3454,7 +4393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/it.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/it.webp",
+  "targetImage": "/images/assessment/release-support/hfw/it.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/it.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.it.v2",
@@ -3519,13 +4464,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I like the hat. ___ is red.",
   "targetWord": "it",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.it.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/it.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/it.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3535,7 +4495,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/it.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/it.webp",
+  "targetImage": "/images/assessment/release-support/hfw/it.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/it.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.it.v3",
@@ -3554,12 +4520,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "it",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: it",
-  "question": "Find the word: it",
-  "spokenPrompt": "it. Find the word it.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "it",
    "is",
@@ -3595,16 +4561,34 @@ export const questions = [
    "at": "D-VISUAL-NEIGHBOR",
    "sit": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "it",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.it.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/it.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/it.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3614,7 +4598,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/it.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/it.webp",
+  "targetImage": "/images/assessment/release-support/hfw/it.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/it.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.of.v1",
@@ -3679,13 +4669,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I want a cup ___ milk.",
   "targetWord": "of",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.of.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/of.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/of.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3695,7 +4700,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/of.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/of.webp",
+  "targetImage": "/images/assessment/release-support/hfw/of.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/of.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.of.v2",
@@ -3760,13 +4771,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "That is a map ___ the zoo.",
   "targetWord": "of",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.of.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/of.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/of.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3776,7 +4802,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/of.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/of.webp",
+  "targetImage": "/images/assessment/release-support/hfw/of.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/of.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.of.v3",
@@ -3795,12 +4827,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "of",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: of",
-  "question": "Find the word: of",
-  "spokenPrompt": "of. Find the word of.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "on",
    "of",
@@ -3836,16 +4868,34 @@ export const questions = [
    "for": "D-VISUAL-NEIGHBOR",
    "on": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "of",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.of.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/of.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/of.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3855,7 +4905,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/of.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/of.webp",
+  "targetImage": "/images/assessment/release-support/hfw/of.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/of.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.on.v1",
@@ -3920,13 +4976,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The cat naps ___ the rug.",
   "targetWord": "on",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.on.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/on.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/on.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3936,7 +5007,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/on.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/on.webp",
+  "targetImage": "/images/assessment/release-support/hfw/on.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/on.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.on.v2",
@@ -4001,13 +5078,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Put the lid ___ the pot.",
   "targetWord": "on",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.on.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/on.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/on.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4017,7 +5109,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/on.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/on.webp",
+  "targetImage": "/images/assessment/release-support/hfw/on.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/on.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.on.v3",
@@ -4036,12 +5134,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "on",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: on",
-  "question": "Find the word: on",
-  "spokenPrompt": "on. Find the word on.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "an",
    "no",
@@ -4077,16 +5175,34 @@ export const questions = [
    "an": "D-VISUAL-NEIGHBOR",
    "no": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "on",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.on.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/on.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/on.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4096,7 +5212,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/on.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/on.webp",
+  "targetImage": "/images/assessment/release-support/hfw/on.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/on.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.that.v1",
@@ -4161,13 +5283,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "See ___ ship far, far out?",
   "targetWord": "that",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.that.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/that.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/that.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4177,7 +5314,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "far pins that over this; the parses but loses the pointing"
+  "notes": "far pins that over this; the parses but loses the pointing",
+  "imagePath": "/images/assessment/release-support/hfw/that.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/that.webp",
+  "targetImage": "/images/assessment/release-support/hfw/that.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/that.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.that.v2",
@@ -4242,13 +5385,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I sang ___ song long ago.",
   "targetWord": "that",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.that.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/that.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/that.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4258,7 +5416,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/that.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/that.webp",
+  "targetImage": "/images/assessment/release-support/hfw/that.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/that.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.that.v3",
@@ -4277,12 +5441,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "that",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: that",
-  "question": "Find the word: that",
-  "spokenPrompt": "that. Find the word that.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "than",
    "hat",
@@ -4318,16 +5482,34 @@ export const questions = [
    "hat": "D-VISUAL-NEIGHBOR",
    "this": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "that",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.that.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/that.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/that.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4337,7 +5519,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/that.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/that.webp",
+  "targetImage": "/images/assessment/release-support/hfw/that.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/that.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.the.v1",
@@ -4402,13 +5590,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Look at ___ big red sun!",
   "targetWord": "the",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.the.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/the.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/the.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4418,7 +5621,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "they in a determiner slot is the the/they slip children write"
+  "notes": "they in a determiner slot is the the/they slip children write",
+  "imagePath": "/images/assessment/release-support/hfw/the.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/the.webp",
+  "targetImage": "/images/assessment/release-support/hfw/the.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/the.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.the.v2",
@@ -4483,13 +5692,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We fed ___ hens at six.",
   "targetWord": "the",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.the.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/the.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/the.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4499,7 +5723,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/the.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/the.webp",
+  "targetImage": "/images/assessment/release-support/hfw/the.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/the.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.the.v3",
@@ -4518,12 +5748,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "the",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: the",
-  "question": "Find the word: the",
-  "spokenPrompt": "the. Find the word the.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "the",
    "they",
@@ -4559,16 +5789,34 @@ export const questions = [
    "then": "D-VISUAL-NEIGHBOR",
    "she": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "the",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.the.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/the.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/the.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4578,7 +5826,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/the.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/the.webp",
+  "targetImage": "/images/assessment/release-support/hfw/the.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/the.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.they.v1",
@@ -4643,13 +5897,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The pigs sat. ___ are muddy!",
   "targetWord": "they",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.they.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/they.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/they.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4659,7 +5928,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/they.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/they.webp",
+  "targetImage": "/images/assessment/release-support/hfw/they.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/they.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.they.v2",
@@ -4724,13 +5999,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "My socks? ___ are wet.",
   "targetWord": "they",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.they.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/they.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/they.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4740,7 +6030,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/they.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/they.webp",
+  "targetImage": "/images/assessment/release-support/hfw/they.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/they.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.they.v3",
@@ -4759,12 +6055,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "they",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: they",
-  "question": "Find the word: they",
-  "spokenPrompt": "they. Find the word they.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "the",
    "they",
@@ -4800,16 +6096,34 @@ export const questions = [
    "then": "D-VISUAL-NEIGHBOR",
    "the": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "they",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.they.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/they.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/they.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4819,7 +6133,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/they.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/they.webp",
+  "targetImage": "/images/assessment/release-support/hfw/they.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/they.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.this.v1",
@@ -4884,13 +6204,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Look at ___ bug on my hand!",
   "targetWord": "this",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.this.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/this.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/this.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4900,7 +6235,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "on my hand pins this over that"
+  "notes": "on my hand pins this over that",
+  "imagePath": "/images/assessment/release-support/hfw/this.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/this.webp",
+  "targetImage": "/images/assessment/release-support/hfw/this.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/this.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.this.v2",
@@ -4965,13 +6306,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "___ hat here is mine.",
   "targetWord": "this",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.this.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/this.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/this.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4981,7 +6337,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "here pins this"
+  "notes": "here pins this",
+  "imagePath": "/images/assessment/release-support/hfw/this.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/this.webp",
+  "targetImage": "/images/assessment/release-support/hfw/this.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/this.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.this.v3",
@@ -5000,12 +6362,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "this",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: this",
-  "question": "Find the word: this",
-  "spokenPrompt": "this. Find the word this.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "his",
    "is",
@@ -5041,16 +6403,34 @@ export const questions = [
    "is": "D-VISUAL-NEIGHBOR",
    "that": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "this",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.this.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/this.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/this.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5060,7 +6440,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/this.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/this.webp",
+  "targetImage": "/images/assessment/release-support/hfw/this.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/this.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.to.v1",
@@ -5125,13 +6511,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We go ___ the park.",
   "targetWord": "to",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.to.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/to.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/to.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5141,7 +6542,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/to.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/to.webp",
+  "targetImage": "/images/assessment/release-support/hfw/to.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/to.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.to.v2",
@@ -5206,13 +6613,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I gave the pen ___ Ben.",
   "targetWord": "to",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.to.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/to.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/to.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5222,7 +6644,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/to.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/to.webp",
+  "targetImage": "/images/assessment/release-support/hfw/to.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/to.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.to.v3",
@@ -5241,12 +6669,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "to",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: to",
-  "question": "Find the word: to",
-  "spokenPrompt": "to. Find the word to.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "too",
    "top",
@@ -5282,16 +6710,34 @@ export const questions = [
    "top": "D-VISUAL-NEIGHBOR",
    "ten": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "to",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.to.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/to.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/to.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5301,7 +6747,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/to.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/to.webp",
+  "targetImage": "/images/assessment/release-support/hfw/to.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/to.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.was.v1",
@@ -5366,13 +6818,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Yesterday the cat ___ on the bed.",
   "targetWord": "was",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.was.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/was.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/was.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5382,7 +6849,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "yesterday pins the past-tense form"
+  "notes": "yesterday pins the past-tense form",
+  "imagePath": "/images/assessment/release-support/hfw/was.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/was.webp",
+  "targetImage": "/images/assessment/release-support/hfw/was.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/was.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.was.v2",
@@ -5447,13 +6920,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Yesterday the milk ___ cold.",
   "targetWord": "was",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.was.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/was.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/was.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5463,7 +6951,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/was.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/was.webp",
+  "targetImage": "/images/assessment/release-support/hfw/was.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/was.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.was.v3",
@@ -5482,12 +6976,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "was",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: was",
-  "question": "Find the word: was",
-  "spokenPrompt": "was. Find the word was.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "was",
    "saw",
@@ -5523,16 +7017,34 @@ export const questions = [
    "saw": "D-VISUAL-NEIGHBOR",
    "has": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "was",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.was.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/was.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/was.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5542,7 +7054,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/was.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/was.webp",
+  "targetImage": "/images/assessment/release-support/hfw/was.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/was.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.with.v1",
@@ -5607,13 +7125,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I hop ___ my dog.",
   "targetWord": "with",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.with.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/with.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/with.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5623,7 +7156,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/with.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/with.webp",
+  "targetImage": "/images/assessment/release-support/hfw/with.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/with.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.with.v2",
@@ -5688,13 +7227,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "She sang ___ me at camp.",
   "targetWord": "with",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.with.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/with.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/with.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5704,7 +7258,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/with.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/with.webp",
+  "targetImage": "/images/assessment/release-support/hfw/with.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/with.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.with.v3",
@@ -5723,12 +7283,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "with",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: with",
-  "question": "Find the word: with",
-  "spokenPrompt": "with. Find the word with.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "win",
    "with",
@@ -5764,16 +7324,34 @@ export const questions = [
    "win": "D-VISUAL-NEIGHBOR",
    "wish": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "with",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.with.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/with.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/with.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5783,7 +7361,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/with.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/with.webp",
+  "targetImage": "/images/assessment/release-support/hfw/with.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/with.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.A.you.v1",
@@ -5848,13 +7432,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "___ are my best pal.",
   "targetWord": "you",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.A.you.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/you.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/you.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5864,7 +7463,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/you.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/you.webp",
+  "targetImage": "/images/assessment/release-support/hfw/you.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/you.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.B.you.v2",
@@ -5929,13 +7534,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Can ___ see the big top?",
   "targetWord": "you",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.B.you.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/you.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/you.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5945,7 +7565,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/you.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/you.webp",
+  "targetImage": "/images/assessment/release-support/hfw/you.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/you.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.C.you.v3",
@@ -5964,12 +7590,12 @@ export const questions = [
   "form": "C",
   "itemType": "sight_word",
   "itemKey": "you",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Find the word: you",
-  "question": "Find the word: you",
-  "spokenPrompt": "you. Find the word you.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "your",
    "yak",
@@ -6005,16 +7631,34 @@ export const questions = [
    "your": "D-VISUAL-NEIGHBOR",
    "yak": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "mastery",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "you",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.C.you.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/you.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/you.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6024,7 +7668,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/you.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/you.webp",
+  "targetImage": "/images/assessment/release-support/hfw/you.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/you.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.a.v1",
@@ -6067,7 +7717,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "e",
@@ -6081,9 +7734,21 @@ export const questions = [
   "sentenceText": "He has a pet rat.",
   "targetWord": "a",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.a.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/a.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6093,7 +7758,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/a.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/a.webp",
+  "targetImage": "/images/assessment/release-support/hfw/a.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/a.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.a.v2",
@@ -6136,7 +7807,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "o",
@@ -6150,9 +7824,21 @@ export const questions = [
   "sentenceText": "I met a vet today.",
   "targetWord": "a",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.a.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/a.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6162,7 +7848,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/a.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/a.webp",
+  "targetImage": "/images/assessment/release-support/hfw/a.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/a.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.and.v1",
@@ -6205,7 +7897,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "n",
@@ -6223,9 +7918,21 @@ export const questions = [
   "sentenceText": "Six and ten make sixteen.",
   "targetWord": "and",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.and.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/and.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/and.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6235,7 +7942,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/and.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/and.webp",
+  "targetImage": "/images/assessment/release-support/hfw/and.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/and.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.and.v2",
@@ -6278,7 +7991,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "n",
@@ -6296,9 +8012,21 @@ export const questions = [
   "sentenceText": "Mum and Gran sat down.",
   "targetWord": "and",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.and.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/and.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/and.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6308,7 +8036,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/and.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/and.webp",
+  "targetImage": "/images/assessment/release-support/hfw/and.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/and.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/and.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.are.v1",
@@ -6351,7 +8085,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "r",
@@ -6369,9 +8106,21 @@ export const questions = [
   "sentenceText": "The cubs are so soft.",
   "targetWord": "are",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.are.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/are.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/are.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6381,7 +8130,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/are.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/are.webp",
+  "targetImage": "/images/assessment/release-support/hfw/are.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/are.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.are.v2",
@@ -6424,7 +8179,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "r",
@@ -6442,9 +8200,21 @@ export const questions = [
   "sentenceText": "My hands are cold.",
   "targetWord": "are",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.are.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/are.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/are.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6454,7 +8224,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/are.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/are.webp",
+  "targetImage": "/images/assessment/release-support/hfw/are.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/are.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/are.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.as.v1",
@@ -6497,7 +8273,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "s",
@@ -6513,9 +8292,21 @@ export const questions = [
   "sentenceText": "He is fast as a jet.",
   "targetWord": "as",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.as.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/as.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/as.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6525,7 +8316,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/as.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/as.webp",
+  "targetImage": "/images/assessment/release-support/hfw/as.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/as.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.as.v2",
@@ -6568,7 +8365,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "s",
@@ -6584,9 +8384,21 @@ export const questions = [
   "sentenceText": "It is cold as ice.",
   "targetWord": "as",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.as.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/as.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/as.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6596,7 +8408,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/as.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/as.webp",
+  "targetImage": "/images/assessment/release-support/hfw/as.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/as.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/as.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.at.v1",
@@ -6639,7 +8457,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "t",
@@ -6655,9 +8476,21 @@ export const questions = [
   "sentenceText": "We met at the pond.",
   "targetWord": "at",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.at.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/at.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/at.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6667,7 +8500,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/at.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/at.webp",
+  "targetImage": "/images/assessment/release-support/hfw/at.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/at.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.at.v2",
@@ -6710,7 +8549,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "a",
    "t",
@@ -6726,9 +8568,21 @@ export const questions = [
   "sentenceText": "Look at my sandcastle!",
   "targetWord": "at",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.at.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/at.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/at.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6738,7 +8592,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/at.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/at.webp",
+  "targetImage": "/images/assessment/release-support/hfw/at.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/at.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/at.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.be.v1",
@@ -6781,7 +8641,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "b",
    "e",
@@ -6797,9 +8660,21 @@ export const questions = [
   "sentenceText": "Dad will be back soon.",
   "targetWord": "be",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.be.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/be.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/be.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6809,7 +8684,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/be.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/be.webp",
+  "targetImage": "/images/assessment/release-support/hfw/be.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/be.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.be.v2",
@@ -6852,7 +8733,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "b",
    "e",
@@ -6868,9 +8752,21 @@ export const questions = [
   "sentenceText": "It can be windy up here.",
   "targetWord": "be",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.be.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/be.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/be.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6880,7 +8776,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/be.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/be.webp",
+  "targetImage": "/images/assessment/release-support/hfw/be.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/be.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/be.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.for.v1",
@@ -6923,7 +8825,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "f",
    "o",
@@ -6941,9 +8846,21 @@ export const questions = [
   "sentenceText": "This bun is for Gran.",
   "targetWord": "for",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.for.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/for.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/for.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6953,7 +8870,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/for.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/for.webp",
+  "targetImage": "/images/assessment/release-support/hfw/for.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/for.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.for.v2",
@@ -6996,7 +8919,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "f",
    "o",
@@ -7014,9 +8940,21 @@ export const questions = [
   "sentenceText": "We sang for the class.",
   "targetWord": "for",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.for.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/for.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/for.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7026,7 +8964,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/for.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/for.webp",
+  "targetImage": "/images/assessment/release-support/hfw/for.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/for.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.from.v1",
@@ -7069,7 +9013,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "f",
    "r",
@@ -7087,9 +9034,21 @@ export const questions = [
   "sentenceText": "The gift came from Gramps.",
   "targetWord": "from",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.from.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/from.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/from.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7099,7 +9058,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/from.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/from.webp",
+  "targetImage": "/images/assessment/release-support/hfw/from.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/from.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.from.v2",
@@ -7142,7 +9107,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "f",
    "r",
@@ -7160,9 +9128,21 @@ export const questions = [
   "sentenceText": "Milk comes from cows.",
   "targetWord": "from",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.from.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/from.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/from.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7172,7 +9152,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/from.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/from.webp",
+  "targetImage": "/images/assessment/release-support/hfw/from.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/from.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.have.v1",
@@ -7215,7 +9201,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "h",
    "a",
@@ -7233,9 +9222,21 @@ export const questions = [
   "sentenceText": "The twins have red hats.",
   "targetWord": "have",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.have.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/have.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/have.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7245,7 +9246,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/have.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/have.webp",
+  "targetImage": "/images/assessment/release-support/hfw/have.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/have.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.have.v2",
@@ -7288,7 +9295,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "h",
    "a",
@@ -7306,9 +9316,21 @@ export const questions = [
   "sentenceText": "We have six eggs left.",
   "targetWord": "have",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.have.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/have.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/have.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7318,7 +9340,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/have.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/have.webp",
+  "targetImage": "/images/assessment/release-support/hfw/have.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/have.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/have.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.he.v1",
@@ -7361,7 +9389,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "h",
    "e",
@@ -7377,9 +9408,21 @@ export const questions = [
   "sentenceText": "Gramps naps when he can.",
   "targetWord": "he",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.he.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/he.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/he.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7389,7 +9432,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/he.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/he.webp",
+  "targetImage": "/images/assessment/release-support/hfw/he.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/he.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.he.v2",
@@ -7432,7 +9481,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "h",
    "e",
@@ -7448,9 +9500,21 @@ export const questions = [
   "sentenceText": "Tom grins when he wins.",
   "targetWord": "he",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.he.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/he.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/he.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7460,7 +9524,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/he.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/he.webp",
+  "targetImage": "/images/assessment/release-support/hfw/he.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/he.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/he.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.his.v1",
@@ -7503,7 +9573,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "h",
    "i",
@@ -7521,9 +9594,21 @@ export const questions = [
   "sentenceText": "Dan lost his left sock.",
   "targetWord": "his",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.his.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/his.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/his.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7533,7 +9618,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/his.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/his.webp",
+  "targetImage": "/images/assessment/release-support/hfw/his.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/his.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.his.v2",
@@ -7576,7 +9667,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "h",
    "i",
@@ -7594,9 +9688,21 @@ export const questions = [
   "sentenceText": "The king sat on his throne.",
   "targetWord": "his",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.his.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/his.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/his.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7606,7 +9712,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/his.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/his.webp",
+  "targetImage": "/images/assessment/release-support/hfw/his.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/his.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.i.v1",
@@ -7649,7 +9761,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "e",
@@ -7663,9 +9778,21 @@ export const questions = [
   "sentenceText": "Mum and i swim on Sundays.",
   "targetWord": "i",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.i.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/i.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/i.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7675,7 +9802,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/i.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/i.webp",
+  "targetImage": "/images/assessment/release-support/hfw/i.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/i.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.i.v2",
@@ -7718,7 +9851,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "y",
@@ -7732,9 +9868,21 @@ export const questions = [
   "sentenceText": "May i pet the pup?",
   "targetWord": "i",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.i.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/i.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/i.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7744,7 +9892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/i.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/i.webp",
+  "targetImage": "/images/assessment/release-support/hfw/i.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/i.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/i.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.in.v1",
@@ -7787,7 +9941,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "n",
@@ -7803,9 +9960,21 @@ export const questions = [
   "sentenceText": "The frogs hop in the pond.",
   "targetWord": "in",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.in.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/in.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/in.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7815,7 +9984,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/in.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/in.webp",
+  "targetImage": "/images/assessment/release-support/hfw/in.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/in.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.in.v2",
@@ -7858,7 +10033,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "n",
@@ -7874,9 +10052,21 @@ export const questions = [
   "sentenceText": "Pop the coins in the tin.",
   "targetWord": "in",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.in.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/in.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/in.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7886,7 +10076,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/in.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/in.webp",
+  "targetImage": "/images/assessment/release-support/hfw/in.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/in.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/in.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.is.v1",
@@ -7929,7 +10125,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "s",
@@ -7945,9 +10144,21 @@ export const questions = [
   "sentenceText": "The soup is hot.",
   "targetWord": "is",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.is.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/is.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/is.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7957,7 +10168,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/is.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/is.webp",
+  "targetImage": "/images/assessment/release-support/hfw/is.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/is.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.is.v2",
@@ -8000,7 +10217,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "s",
@@ -8016,9 +10236,21 @@ export const questions = [
   "sentenceText": "My bike is new.",
   "targetWord": "is",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.is.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/is.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/is.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8028,7 +10260,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/is.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/is.webp",
+  "targetImage": "/images/assessment/release-support/hfw/is.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/is.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/is.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.it.v1",
@@ -8071,7 +10309,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "t",
@@ -8087,9 +10328,21 @@ export const questions = [
   "sentenceText": "The nest? it sits up high.",
   "targetWord": "it",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.it.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/it.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/it.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8099,7 +10352,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/it.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/it.webp",
+  "targetImage": "/images/assessment/release-support/hfw/it.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/it.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.it.v2",
@@ -8142,7 +10401,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "i",
    "t",
@@ -8158,9 +10420,21 @@ export const questions = [
   "sentenceText": "Grab the rope and pull it!",
   "targetWord": "it",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.it.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/it.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/it.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8170,7 +10444,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/it.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/it.webp",
+  "targetImage": "/images/assessment/release-support/hfw/it.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/it.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/it.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.of.v1",
@@ -8213,7 +10493,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "o",
    "f",
@@ -8229,9 +10512,21 @@ export const questions = [
   "sentenceText": "I had a mug of milk.",
   "targetWord": "of",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.of.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/of.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/of.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8241,7 +10536,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/of.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/of.webp",
+  "targetImage": "/images/assessment/release-support/hfw/of.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/of.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.of.v2",
@@ -8284,7 +10585,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "o",
    "f",
@@ -8300,9 +10604,21 @@ export const questions = [
   "sentenceText": "Here is a box of pins.",
   "targetWord": "of",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.of.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/of.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/of.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8312,7 +10628,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/of.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/of.webp",
+  "targetImage": "/images/assessment/release-support/hfw/of.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/of.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.on.v1",
@@ -8355,7 +10677,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "o",
    "n",
@@ -8371,9 +10696,21 @@ export const questions = [
   "sentenceText": "The clock hangs on the wall.",
   "targetWord": "on",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.on.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/on.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/on.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8383,7 +10720,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/on.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/on.webp",
+  "targetImage": "/images/assessment/release-support/hfw/on.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/on.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.on.v2",
@@ -8426,7 +10769,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "o",
    "n",
@@ -8442,9 +10788,21 @@ export const questions = [
   "sentenceText": "Hop on the bus, quick!",
   "targetWord": "on",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.on.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/on.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/on.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8454,7 +10812,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/on.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/on.webp",
+  "targetImage": "/images/assessment/release-support/hfw/on.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/on.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/on.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.that.v1",
@@ -8497,7 +10861,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -8515,9 +10882,21 @@ export const questions = [
   "sentenceText": "Who left that mess there?",
   "targetWord": "that",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.that.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/that.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/that.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8527,7 +10906,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/that.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/that.webp",
+  "targetImage": "/images/assessment/release-support/hfw/that.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/that.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.that.v2",
@@ -8570,7 +10955,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -8588,9 +10976,21 @@ export const questions = [
   "sentenceText": "I drew that map myself.",
   "targetWord": "that",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.that.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/that.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/that.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8600,7 +11000,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/that.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/that.webp",
+  "targetImage": "/images/assessment/release-support/hfw/that.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/that.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/that.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.the.v1",
@@ -8643,7 +11049,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -8661,9 +11070,21 @@ export const questions = [
   "sentenceText": "Shut the gate, please.",
   "targetWord": "the",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.the.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/the.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/the.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8673,7 +11094,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/the.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/the.webp",
+  "targetImage": "/images/assessment/release-support/hfw/the.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/the.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.the.v2",
@@ -8716,7 +11143,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -8734,9 +11164,21 @@ export const questions = [
   "sentenceText": "Feed the fish at nine.",
   "targetWord": "the",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.the.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/the.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/the.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8746,7 +11188,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/the.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/the.webp",
+  "targetImage": "/images/assessment/release-support/hfw/the.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/the.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.they.v1",
@@ -8789,7 +11237,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -8807,9 +11258,21 @@ export const questions = [
   "sentenceText": "The elves? they hid well.",
   "targetWord": "they",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.they.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/they.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/they.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8819,7 +11282,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/they.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/they.webp",
+  "targetImage": "/images/assessment/release-support/hfw/they.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/they.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.they.v2",
@@ -8862,7 +11331,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -8880,9 +11352,21 @@ export const questions = [
   "sentenceText": "My boots? they got wet.",
   "targetWord": "they",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.they.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/they.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/they.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8892,7 +11376,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/they.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/they.webp",
+  "targetImage": "/images/assessment/release-support/hfw/they.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/they.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.this.v1",
@@ -8935,7 +11425,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -8953,9 +11446,21 @@ export const questions = [
   "sentenceText": "Smell this rose right here.",
   "targetWord": "this",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.this.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/this.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/this.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8965,7 +11470,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/this.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/this.webp",
+  "targetImage": "/images/assessment/release-support/hfw/this.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/this.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.this.v2",
@@ -9008,7 +11519,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -9026,9 +11540,21 @@ export const questions = [
   "sentenceText": "Hold this end of the rope.",
   "targetWord": "this",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.this.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/this.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/this.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9038,7 +11564,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/this.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/this.webp",
+  "targetImage": "/images/assessment/release-support/hfw/this.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/this.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/this.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.to.v1",
@@ -9081,7 +11613,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "o",
@@ -9097,9 +11632,21 @@ export const questions = [
   "sentenceText": "We row to the dock.",
   "targetWord": "to",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.to.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/to.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/to.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9109,7 +11656,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/to.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/to.webp",
+  "targetImage": "/images/assessment/release-support/hfw/to.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/to.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.to.v2",
@@ -9152,7 +11705,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "o",
@@ -9168,9 +11724,21 @@ export const questions = [
   "sentenceText": "Pass the jam to Gran.",
   "targetWord": "to",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.to.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/to.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/to.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9180,7 +11748,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/to.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/to.webp",
+  "targetImage": "/images/assessment/release-support/hfw/to.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/to.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/to.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.was.v1",
@@ -9223,7 +11797,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "w",
    "a",
@@ -9241,9 +11818,21 @@ export const questions = [
   "sentenceText": "The soup was too hot.",
   "targetWord": "was",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.was.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/was.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/was.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9253,7 +11842,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the blueprint exemplar bank — z and o are the tempting wrong letters"
+  "notes": "the blueprint exemplar bank — z and o are the tempting wrong letters",
+  "imagePath": "/images/assessment/release-support/hfw/was.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/was.webp",
+  "targetImage": "/images/assessment/release-support/hfw/was.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/was.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.was.v2",
@@ -9296,7 +11891,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "w",
    "a",
@@ -9314,9 +11912,21 @@ export const questions = [
   "sentenceText": "The trip was so much fun.",
   "targetWord": "was",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.was.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/was.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/was.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9326,7 +11936,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/was.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/was.webp",
+  "targetImage": "/images/assessment/release-support/hfw/was.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/was.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.with.v1",
@@ -9369,7 +11985,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "w",
    "i",
@@ -9387,9 +12006,21 @@ export const questions = [
   "sentenceText": "Come camp with us!",
   "targetWord": "with",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.with.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/with.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/with.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9399,7 +12030,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/with.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/with.webp",
+  "targetImage": "/images/assessment/release-support/hfw/with.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/with.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.with.v2",
@@ -9442,7 +12079,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "w",
    "i",
@@ -9460,9 +12100,21 @@ export const questions = [
   "sentenceText": "Mix the eggs with a fork.",
   "targetWord": "with",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.with.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/with.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/with.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9472,7 +12124,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/with.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/with.webp",
+  "targetImage": "/images/assessment/release-support/hfw/with.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/with.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.A.you.v1",
@@ -9515,7 +12173,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "y",
    "o",
@@ -9533,9 +12194,21 @@ export const questions = [
   "sentenceText": "Did you see the comet?",
   "targetWord": "you",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.A.you.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/you.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/you.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9545,7 +12218,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/you.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/you.webp",
+  "targetImage": "/images/assessment/release-support/hfw/you.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/you.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.B.you.v2",
@@ -9588,7 +12267,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "y",
    "o",
@@ -9606,9 +12288,21 @@ export const questions = [
   "sentenceText": "I made this card for you.",
   "targetWord": "you",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.B.you.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/you.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/you.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9618,7 +12312,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/you.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/you.webp",
+  "targetImage": "/images/assessment/release-support/hfw/you.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/you.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.R.a.v7r",
@@ -9683,13 +12383,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "She fed ___ small lamb.",
   "targetWord": "a",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.a.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/a.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9699,7 +12414,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/a.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/a.webp",
+  "targetImage": "/images/assessment/release-support/hfw/a.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/a.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/a.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.R.for.v7r",
@@ -9764,13 +12485,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I baked this ___ Dad.",
   "targetWord": "for",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.for.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/for.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/for.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9780,7 +12516,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/for.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/for.webp",
+  "targetImage": "/images/assessment/release-support/hfw/for.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/for.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/for.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.R.was.v7r",
@@ -9845,13 +12587,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The pond ___ full of frogs.",
   "targetWord": "was",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.was.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/was.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/was.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9861,7 +12618,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/was.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/was.webp",
+  "targetImage": "/images/assessment/release-support/hfw/was.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/was.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/was.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.R.they.v7r",
@@ -9926,13 +12689,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ducks? ___ swam off.",
   "targetWord": "they",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.they.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/they.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/they.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -9942,7 +12720,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/they.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/they.webp",
+  "targetImage": "/images/assessment/release-support/hfw/they.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/they.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/they.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.R.of.v7r",
@@ -9961,12 +12745,12 @@ export const questions = [
   "form": "R",
   "itemType": "sight_word",
   "itemKey": "of",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Point to the word: of",
-  "question": "Point to the word: of",
-  "spokenPrompt": "of. Find the word of.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "an",
    "of",
@@ -10002,16 +12786,34 @@ export const questions = [
    "on": "D-VISUAL-NEIGHBOR",
    "an": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "of",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.of.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/of.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/of.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10021,7 +12823,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/of.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/of.webp",
+  "targetImage": "/images/assessment/release-support/hfw/of.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/of.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/of.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l1.R.with.v7r",
@@ -10040,12 +12848,12 @@ export const questions = [
   "form": "R",
   "itemType": "sight_word",
   "itemKey": "with",
-  "formatType": "HFW_READ_FIND_WORD",
-  "templateType": "HFW_READ_FIND_WORD",
-  "questionType": "multiple_choice",
-  "prompt": "Point to the word: with",
-  "question": "Point to the word: with",
-  "spokenPrompt": "with. Find the word with.",
+  "formatType": "HFW_AUDIO_FIND_WORD",
+  "templateType": "HFW_AUDIO_FIND_WORD",
+  "questionType": "listen_and_find_word",
+  "prompt": "Tap sound. Pick its match.",
+  "question": "Tap sound. Pick its match.",
+  "spokenPrompt": "Tap sound. Pick its match.",
   "choices": [
    "wish",
    "wig",
@@ -10081,16 +12889,34 @@ export const questions = [
    "wish": "D-VISUAL-NEIGHBOR",
    "wig": "D-VISUAL-NEIGHBOR"
   },
-  "mediaTier": "text",
+  "mediaTier": "audio-required",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceModality": "audio+print",
+  "evidenceRole": "retention",
+  "constructClaim": "spoken_to_print_high_frequency_word_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "audioRole": "target_word",
   "targetWord": "with",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l1.R.with.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/with.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/with.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10100,7 +12926,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "print recognition IS the construct — surface match is the task"
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/with.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/with.webp",
+  "targetImage": "/images/assessment/release-support/hfw/with.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/with.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/with.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.R.the.v7r",
@@ -10143,7 +12975,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "t",
    "h",
@@ -10161,9 +12996,21 @@ export const questions = [
   "sentenceText": "Sweep the steps, please.",
   "targetWord": "the",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.the.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/the.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/the.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10173,7 +13020,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/the.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/the.webp",
+  "targetImage": "/images/assessment/release-support/hfw/the.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/the.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/the.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.R.you.v7r",
@@ -10216,7 +13069,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "y",
    "o",
@@ -10234,9 +13090,21 @@ export const questions = [
   "sentenceText": "Can you lift this log?",
   "targetWord": "you",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.you.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/you.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/you.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10246,7 +13114,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/you.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/you.webp",
+  "targetImage": "/images/assessment/release-support/hfw/you.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/you.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/you.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.R.from.v7r",
@@ -10289,7 +13163,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "f",
    "r",
@@ -10307,9 +13184,21 @@ export const questions = [
   "sentenceText": "We hid from the rain.",
   "targetWord": "from",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.from.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/from.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/from.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10319,7 +13208,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/from.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/from.webp",
+  "targetImage": "/images/assessment/release-support/hfw/from.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/from.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/from.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.hfw_1_25.l2.R.his.v7r",
@@ -10362,7 +13257,10 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "letterTiles": [
    "h",
    "i",
@@ -10380,9 +13278,21 @@ export const questions = [
   "sentenceText": "Bob packs his own lunch.",
   "targetWord": "his",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.hfw_1_25.l2.R.his.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/hfw/his.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "stimulusMediaId": "/images/assessment/release-support/hfw/his.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -10392,6 +13302,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/hfw/his.webp",
+  "imageUrl": "/images/assessment/release-support/hfw/his.webp",
+  "targetImage": "/images/assessment/release-support/hfw/his.webp",
+  "targetImagePath": "/images/assessment/release-support/hfw/his.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/hfw/his.webp",
+  "imageAlt": "Picture support for this literacy question"
  }
 ];

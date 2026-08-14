@@ -20,7 +20,7 @@ import {
 import { hfwApprovedWordsBySkill } from "../../data/hfwApprovedCoverageWords.js";
 
 export const ASSESSMENT_REBUILD_BANK_VERSION = 3;
-export const ASSESSMENT_REBUILD_STANDARD_VERSION = "v3-2026.08";
+export const ASSESSMENT_REBUILD_STANDARD_VERSION = "v3-2026.08-validity-3";
 // Every v3 item carries this source tag; runtime eligibility and the
 // source-of-truth registry key on it.
 export const V3_QUESTION_SOURCE = "skills_rebuild_v3_2026_08";
@@ -139,7 +139,7 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
     },
     variantsPerUnit: { 1: 3, 2: 3 },
     passBudgetSittings: 7,
-    mediaTierNote: "print-pattern evidence until recorded audio ships"
+    mediaTierNote: "audio-first rhyme evidence with pictures; written labels stay hidden"
   }),
   bp("cvc_short_vowels", {
     itemType: "short_vowel",
@@ -188,7 +188,7 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: phases(hfwApprovedWordsBySkill[skillId])
     },
     formatsByLevel: {
-      1: ["HFW_SENTENCE_CLOZE", "HFW_READ_FIND_WORD"],
+      1: ["HFW_SENTENCE_CLOZE", "HFW_AUDIO_FIND_WORD"],
       2: ["HFW_SENTENCE_SPELL_CONTEXT", "HFW_LETTER_BUILD"]
     },
     variantsPerUnit: { 1: 3, 2: 2 },
@@ -272,8 +272,8 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: ["oo", "ow", "ou"], 2: ["oi", "oy", "ew", "aw"] }
     },
     formatsByLevel: {
-      1: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD"],
-      2: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD"]
+      1: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD", "PICTURE_TO_PRINT_MATCH"],
+      2: ["LONG_VOWEL_TEAM_COMPLETE", "CPS", "PTD", "PICTURE_TO_PRINT_MATCH"]
     },
     variantsPerUnit: { 1: 6, 2: 6 },
     passBudgetSittings: 4
@@ -312,7 +312,7 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: ["noun_in_sentence", "noun_vs_verb"], 2: ["noun_two_step"] }
     },
     formatsByLevel: {
-      1: ["GRAMMAR_IMAGE_CHOICE", "GRAMMAR_WORD_CHOICE"],
+      1: ["GRAMMAR_SENTENCE_FIT", "GRAMMAR_WORD_CHOICE"],
       2: ["GRAMMAR_SENTENCE_FIT", "GRAMMAR_CONTRAST"]
     },
     variantsPerUnit: { 1: 6, 2: 8 },
@@ -331,7 +331,7 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: ["verb_in_sentence", "verb_vs_noun"], 2: ["verb_precision"] }
     },
     formatsByLevel: {
-      1: ["GRAMMAR_IMAGE_CHOICE", "GRAMMAR_WORD_CHOICE"],
+      1: ["GRAMMAR_SENTENCE_FIT", "GRAMMAR_WORD_CHOICE"],
       2: ["GRAMMAR_SENTENCE_FIT", "GRAMMAR_CONTRAST"]
     },
     variantsPerUnit: { 1: 8, 2: 8 },
@@ -350,7 +350,7 @@ export const skillBlueprints = Object.freeze(Object.fromEntries([
       2: { 1: ["adj_in_sentence", "adj_precision"], 2: ["adj_vs_noun_verb"] }
     },
     formatsByLevel: {
-      1: ["GRAMMAR_IMAGE_CHOICE", "GRAMMAR_WORD_CHOICE"],
+      1: ["GRAMMAR_SENTENCE_FIT", "GRAMMAR_WORD_CHOICE"],
       2: ["GRAMMAR_SENTENCE_FIT", "GRAMMAR_CONTRAST"]
     },
     variantsPerUnit: { 1: 6, 2: 8 },

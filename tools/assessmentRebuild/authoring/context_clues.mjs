@@ -21,10 +21,9 @@ const it = (u, lvl, ph, v, passage, word, choices, extra = {}) => ({
   u, lvl, ph, v, fmt: "COMPREHENSION", cell: u, passage,
   prompt: `In this passage, what does "${word}" mean?`,
   choices, media: "text", target: word,
-  // Reusing a definition, synonym, example, or action from the passage is the
-  // construct being assessed here. The generic passage-overlap oracle cannot
-  // distinguish that legitimate clue use from a shortcut.
-  scannerExpected: true,
+  // Direct definition cells intentionally teach the clue form. Other cells
+  // must remain solvable by meaning without one answer dominating by copying.
+  ...(u === "definition_clue" ? { copyExempt: "direct-definition-clue" } : {}),
   ...extra
 });
 
@@ -166,7 +165,7 @@ export default {
     it("action_clue", 1, 1, 3,
       "The squirrel scampered along the fence — quick light steps, a leap, more quick steps — and was up the oak tree before Milo could point.",
       "scampered",
-      [K("ran with quick little steps"),
+      [K("darted along"),
        P("slept in the sun", "D-OPPOSITE"),
        P("crawled very slowly", "D-OPPOSITE"),
        P("dug a deep hole", "D-PLAUSIBLE-UNSUPPORTED")]),
@@ -245,7 +244,7 @@ export default {
     it("synonym_clue", 2, 2, 6,
       "The baker kept his kitchen spotless. Not a crumb on the counters, not a smudge on the steel — so perfectly clean that the health inspector once asked for his secret.",
       "spotless",
-      [K("perfectly clean"),
+      [K("completely free of dirt"),
        P("covered in flour", "D-OPPOSITE"),
        P("very small", "D-PLAUSIBLE-UNSUPPORTED"),
        P("closed on Sundays", "D-PLAUSIBLE-UNSUPPORTED")]),
@@ -259,7 +258,7 @@ export default {
     it("synonym_clue", 2, 2, 8,
       "The soup was bitter — sharp and sour on the tongue, nothing like the sweet tomato soup from the tin — and Jonah's whole face folded up at the first spoonful.",
       "bitter",
-      [K("sharp and unpleasant to taste"),
+      [K("an unpleasant flavour"),
        P("sweet as honey", "D-OPPOSITE"),
        P("too hot to eat", "D-PLAUSIBLE-UNSUPPORTED"),
        P("thick and lumpy", "D-PLAUSIBLE-UNSUPPORTED")]),
@@ -433,7 +432,7 @@ export default {
     it("example_clue", 1, 1, 11,
       "The junk drawer was a jumble: rubber bands round old keys, a torch tangled in string, batteries mixed with buttons, and somewhere underneath, the missing bicycle bell.",
       "jumble",
-      [K("a muddle of mixed-up things"),
+      [K("a disordered collection"),
        P("a tidy line", "D-OPPOSITE"),
        P("a locked box", "D-PLAUSIBLE-UNSUPPORTED"),
        P("a shopping list", "D-PLAUSIBLE-UNSUPPORTED")], { retention: true }),

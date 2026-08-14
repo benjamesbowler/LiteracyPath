@@ -65,10 +65,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.first_event.v1",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/cat-jumps-on-box.webp",
+    "/images/assessment/generated/sequencing/cat-curls-on-box.webp",
+    "/images/assessment/generated/sequencing/cat-sleeps-on-box.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -176,10 +193,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.first_event.v2",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-plants-seed.webp",
+    "/images/assessment/generated/sequencing/child-waters-seed.webp",
+    "/images/assessment/generated/sequencing/seed-grows-shoot.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -287,10 +321,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.first_event.v3",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-wets-hands.webp",
+    "/images/assessment/generated/sequencing/child-soaps-hands.webp",
+    "/images/assessment/generated/sequencing/child-rinses-hands.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -398,10 +449,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.first_event.v4",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-puts-on-shirt.webp",
+    "/images/assessment/generated/sequencing/child-puts-on-trousers.webp",
+    "/images/assessment/generated/sequencing/child-ties-shoes.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -509,10 +577,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.first_event.v5",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/bread-enters-toaster.webp",
+    "/images/assessment/generated/sequencing/toast-pops-up.webp",
+    "/images/assessment/generated/sequencing/butter-spread-on-toast.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -620,10 +705,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.first_event.v6",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-throws-ball.webp",
+    "/images/assessment/generated/sequencing/dog-chases-ball.webp",
+    "/images/assessment/generated/sequencing/dog-returns-ball.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -731,10 +833,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.first_event.v7",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-draws-circle.webp",
+    "/images/assessment/generated/sequencing/child-adds-sun-rays.webp",
+    "/images/assessment/generated/sequencing/child-colours-sun.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -842,10 +961,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.first_event.v8",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-sets-blocks.webp",
+    "/images/assessment/generated/sequencing/child-stacks-tower.webp",
+    "/images/assessment/generated/sequencing/child-smiles-at-tower.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -953,10 +1089,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.middle_event.v1",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/bread-on-plate.webp",
+    "/images/assessment/generated/sequencing/cheese-on-bread.webp",
+    "/images/assessment/generated/sequencing/closed-sandwich.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1064,10 +1217,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.middle_event.v2",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-puts-on-rain-boots.webp",
+    "/images/assessment/generated/sequencing/child-opens-umbrella.webp",
+    "/images/assessment/generated/sequencing/child-walks-in-rain.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1175,10 +1345,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.middle_event.v3",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-opens-book.webp",
+    "/images/assessment/generated/sequencing/child-reads-page.webp",
+    "/images/assessment/generated/sequencing/child-adds-bookmark.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1286,10 +1473,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.middle_event.v4",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-fills-cup.webp",
+    "/images/assessment/generated/sequencing/child-drinks-water.webp",
+    "/images/assessment/generated/sequencing/child-puts-cup-in-sink.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1397,10 +1601,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.middle_event.v5",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/adult-cracks-egg.webp",
+    "/images/assessment/generated/sequencing/adult-whisks-egg.webp",
+    "/images/assessment/generated/sequencing/egg-cooks-in-pan.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1508,10 +1729,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.middle_event.v6",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-kicks-football.webp",
+    "/images/assessment/generated/sequencing/football-enters-goal.webp",
+    "/images/assessment/generated/sequencing/children-cheer-goal.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1619,10 +1857,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.middle_event.v7",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-brushes-dog.webp",
+    "/images/assessment/generated/sequencing/child-clips-dog-lead.webp",
+    "/images/assessment/generated/sequencing/child-walks-dog.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1730,10 +1985,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.middle_event.v8",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/baker-mixes-dough.webp",
+    "/images/assessment/generated/sequencing/baker-shapes-loaf.webp",
+    "/images/assessment/generated/sequencing/baker-puts-loaf-in-oven.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1841,10 +2113,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.last_event.v1",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-brushes-teeth.webp",
+    "/images/assessment/generated/sequencing/child-puts-on-pyjamas.webp",
+    "/images/assessment/generated/sequencing/child-climbs-into-bed.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1952,10 +2241,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.last_event.v2",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-finds-paper.webp",
+    "/images/assessment/generated/sequencing/child-folds-paper-plane.webp",
+    "/images/assessment/generated/sequencing/child-flies-paper-plane.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2063,10 +2369,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.last_event.v3",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-picks-apple.webp",
+    "/images/assessment/generated/sequencing/child-washes-apple.webp",
+    "/images/assessment/generated/sequencing/child-bites-apple.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2174,10 +2497,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.last_event.v4",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-rolls-snowball.webp",
+    "/images/assessment/generated/sequencing/child-builds-snowman-head.webp",
+    "/images/assessment/generated/sequencing/child-adds-snowman-hat.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2285,10 +2625,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.last_event.v5",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-wraps-gift.webp",
+    "/images/assessment/generated/sequencing/child-ties-gift-bow.webp",
+    "/images/assessment/generated/sequencing/child-gives-gift.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2396,10 +2753,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.C.last_event.v6",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/children-dig-hole.webp",
+    "/images/assessment/generated/sequencing/children-plant-tree.webp",
+    "/images/assessment/generated/sequencing/children-water-tree.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2507,10 +2881,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.A.last_event.v7",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-fills-rubbish-bag.webp",
+    "/images/assessment/generated/sequencing/child-ties-rubbish-bag.webp",
+    "/images/assessment/generated/sequencing/child-puts-bag-in-bin.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2618,10 +3009,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.B.last_event.v8",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/school-bus-stops.webp",
+    "/images/assessment/generated/sequencing/school-bus-doors-open.webp",
+    "/images/assessment/generated/sequencing/children-leave-school-bus.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2729,10 +3137,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "retention",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.first_event.v9r",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-picks-up-pencil.webp",
+    "/images/assessment/generated/sequencing/child-draws-star.webp",
+    "/images/assessment/generated/sequencing/child-colours-red-star.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2840,10 +3265,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "retention",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.middle_event.v9r",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-opens-gate.webp",
+    "/images/assessment/generated/sequencing/child-leads-pony.webp",
+    "/images/assessment/generated/sequencing/child-shuts-gate.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2951,10 +3393,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "retention",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.last_event.v9r",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/frog-sits-by-pond.webp",
+    "/images/assessment/generated/sequencing/frog-jumps-into-pond.webp",
+    "/images/assessment/generated/sequencing/frog-swims-away.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -3062,10 +3521,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "retention",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.first_event.v10r",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-pours-cereal.webp",
+    "/images/assessment/generated/sequencing/child-adds-milk.webp",
+    "/images/assessment/generated/sequencing/child-eats-cereal.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -3173,10 +3649,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "retention",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.middle_event.v10r",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-zips-coat.webp",
+    "/images/assessment/generated/sequencing/child-puts-on-winter-hat.webp",
+    "/images/assessment/generated/sequencing/child-walks-into-snow.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -3284,10 +3777,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "retention",
+  "constructClaim": "heard_story_event_order",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": false,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l1.R.last_event.v10r",
+   "role": "sequence",
+   "paths": [
+    "/images/assessment/generated/sequencing/child-washes-plate.webp",
+    "/images/assessment/generated/sequencing/child-dries-plate.webp",
+    "/images/assessment/generated/sequencing/child-puts-plate-on-shelf.webp"
+   ],
+   "alt": "Picture cards to put in story order",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
   },
   "active": true,
   "qaStatus": "verified",
@@ -3395,11 +3905,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.before_after_relation.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3409,7 +3934,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v2",
@@ -3475,11 +4006,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.before_after_relation.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3489,7 +4035,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v3",
@@ -3555,11 +4107,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.before_after_relation.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3569,7 +4136,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v4",
@@ -3635,11 +4208,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.before_after_relation.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3649,7 +4237,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v5",
@@ -3715,11 +4309,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.before_after_relation.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3729,7 +4338,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.C.before_after_relation.v6",
@@ -3795,11 +4410,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.before_after_relation.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3809,7 +4439,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-before-after-relation-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.before_after_relation.v7",
@@ -3875,11 +4511,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.before_after_relation.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3889,7 +4540,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-before-after-relation-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.before_after_relation.v8",
@@ -3955,11 +4612,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.before_after_relation.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3969,7 +4641,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-before-after-relation-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v1",
@@ -4035,11 +4713,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.implied_order.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4049,7 +4742,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick"
+  "notes": "events told out of order; reader reconstructs bake → ice → cherry → wash → lick",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v2",
@@ -4115,11 +4814,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.implied_order.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4129,7 +4843,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v3",
@@ -4195,11 +4915,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.implied_order.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4209,7 +4944,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v4",
@@ -4275,11 +5016,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.implied_order.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4289,7 +5045,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v5",
@@ -4355,11 +5117,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.implied_order.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4369,7 +5146,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.C.implied_order.v6",
@@ -4435,11 +5218,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.implied_order.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4449,7 +5247,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-implied-order-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.implied_order.v7",
@@ -4515,11 +5319,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.implied_order.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4529,7 +5348,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-implied-order-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.implied_order.v8",
@@ -4595,11 +5420,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.implied_order.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4609,7 +5449,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-implied-order-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v1",
@@ -4675,11 +5521,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.process_order.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4689,7 +5550,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v2",
@@ -4755,11 +5622,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.process_order.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4769,7 +5651,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v3",
@@ -4835,11 +5723,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.process_order.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4849,7 +5752,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v4",
@@ -4915,11 +5824,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.process_order.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4929,7 +5853,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v5",
@@ -4995,11 +5925,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.process_order.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5009,7 +5954,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.C.process_order.v6",
@@ -5075,11 +6026,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.C.process_order.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5089,7 +6055,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-c-process-order-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.A.process_order.v7",
@@ -5155,11 +6127,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.A.process_order.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5169,7 +6156,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-a-process-order-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.B.process_order.v8",
@@ -5235,11 +6228,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.B.process_order.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5249,7 +6257,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-b-process-order-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v9r",
@@ -5315,11 +6329,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.before_after_relation.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5329,7 +6358,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v10r",
@@ -5395,11 +6430,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.before_after_relation.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5409,7 +6459,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v10r",
@@ -5475,11 +6531,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.implied_order.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5489,7 +6560,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.implied_order.v11r",
@@ -5555,11 +6632,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.implied_order.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5569,7 +6661,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-implied-order-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v9r",
@@ -5635,11 +6733,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.process_order.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5649,7 +6762,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v10r",
@@ -5715,11 +6834,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.process_order.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5729,7 +6863,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.before_after_relation.v11r",
@@ -5795,11 +6935,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.before_after_relation.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5809,7 +6964,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-before-after-relation-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.sequencing.l2.R.process_order.v11r",
@@ -5875,11 +7036,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.sequencing.l2.R.process_order.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5889,6 +7065,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-sequencing-l2-r-process-order-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  }
 ];

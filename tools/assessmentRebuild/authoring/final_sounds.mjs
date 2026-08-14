@@ -58,6 +58,9 @@ const pc = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
   cards,
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "image-required",
+  evidenceModality: "audio+image",
+  constructClaim: "final_sound_discrimination",
+  hideWrittenLabels: true,
   pos: "final",
   target: anchor,
   note

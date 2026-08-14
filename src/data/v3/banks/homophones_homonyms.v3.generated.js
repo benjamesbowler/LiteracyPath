@@ -63,11 +63,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.sea_see.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -77,7 +92,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salty gifts sa to sand and say — tied distractors, key clean"
+  "notes": "salty gifts sa to sand and say — tied distractors, key clean",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.sea_see.v2",
@@ -141,11 +162,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.sea_see.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -155,7 +191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "means gifts ea to sea — a distractor tops, never the key"
+  "notes": "means gifts ea to sea — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sea-see-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.sea_see.v3",
@@ -220,12 +262,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We sailed far out on the deep blue ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.sea_see.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -235,7 +292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "deep gifts ee to the pair mate see — a distractor tops"
+  "notes": "deep gifts ee to the pair mate see — a distractor tops",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sea-see-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.sea_see.v4",
@@ -300,12 +363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Close your eyes — now open and ___!",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.sea_see.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -315,7 +393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sea-see-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.sun_son.v1",
@@ -379,11 +463,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.sun_son.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -393,7 +492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.sun_son.v2",
@@ -457,11 +562,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.sun_son.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -471,7 +591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-sun-son-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.sun_son.v3",
@@ -536,12 +662,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ rose over the hill at dawn.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.sun_son.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -551,7 +692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "spoon and sofa parse and are absurd — no rising rival like moon or star"
+  "notes": "spoon and sofa parse and are absurd — no rising rival like moon or star",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-sun-son-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.sun_son.v4",
@@ -616,12 +763,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Grandpa hugged his ___ at the gate.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.sun_son.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -631,7 +793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-sun-son-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.be_bee.v1",
@@ -695,11 +863,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.be_bee.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -709,7 +892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.be_bee.v2",
@@ -773,11 +962,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.be_bee.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -787,7 +991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-be-bee-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.be_bee.v3",
@@ -852,12 +1062,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "A ___ landed on the flower.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.be_bee.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -867,7 +1092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "on gifts its chunk to spoon — a distractor tops; no landing rival like bug or leaf"
+  "notes": "on gifts its chunk to spoon — a distractor tops; no landing rival like bug or leaf",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-be-bee-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.be_bee.v4",
@@ -932,12 +1163,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I will ___ seven on my next birthday.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.be_bee.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -947,7 +1193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "draw seven parses (the numeral) and is defensibly wrong for an age"
+  "notes": "draw seven parses (the numeral) and is defensibly wrong for an age",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-be-bee-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.no_know.v1",
@@ -1011,11 +1263,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.no_know.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1025,7 +1292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "not gifts no to key, know and now together — three-way tie"
+  "notes": "not gifts no to key, know and now together — three-way tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.no_know.v2",
@@ -1089,11 +1362,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.no_know.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1103,7 +1391,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-no-know-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.no_know.v3",
@@ -1168,12 +1462,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Dad said ___ when I asked for sweets.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.no_know.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1183,7 +1492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-no-know-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.no_know.v4",
@@ -1248,12 +1563,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Do you ___ the way to school?",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.no_know.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1263,7 +1593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "draw the way parses (a map) and is defensibly not the asked meaning"
+  "notes": "draw the way parses (a map) and is defensibly not the asked meaning",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-no-know-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.one_won.v1",
@@ -1327,11 +1663,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.one_won.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1341,7 +1692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.one_won.v2",
@@ -1405,11 +1762,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.one_won.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1419,7 +1791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "which gifts wh to when — a distractor tops, never the key"
+  "notes": "which gifts wh to when — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-one-won-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.one_won.v3",
@@ -1484,12 +1862,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Pick just ___ card from the pack.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.one_won.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1499,7 +1892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "two card and ten card break number agreement — the classic count trap"
+  "notes": "two card and ten card break number agreement — the classic count trap",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-one-won-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.one_won.v4",
@@ -1564,12 +1963,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Our team ___ the cup last year!",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.one_won.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1579,7 +1993,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-one-won-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.ate_eight.v1",
@@ -1643,11 +2063,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.ate_eight.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1657,7 +2092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "after gifts te to ate and ten — tied distractors, key clean"
+  "notes": "after gifts te to ate and ten — tied distractors, key clean",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.ate_eight.v2",
@@ -1721,11 +2162,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.ate_eight.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1735,7 +2191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "that gifts at to key and eat together — tie"
+  "notes": "that gifts at to key and eat together — tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-ate-eight-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.ate_eight.v3",
@@ -1800,12 +2262,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Ben ___ all his peas at dinner.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.ate_eight.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1815,7 +2292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "at gifts itself to key, eat and eats — three-way tie"
+  "notes": "at gifts itself to key, eat and eats — three-way tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-ate-eight-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.ate_eight.v4",
@@ -1880,12 +2363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "There are ___ legs on a spider.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.ate_eight.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1895,7 +2393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "six parses but a spider has eight — the fact pins it"
+  "notes": "six parses but a spider has eight — the fact pins it",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-ate-eight-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.hear_here.v1",
@@ -1959,11 +2463,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.hear_here.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1973,7 +2492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ears gifts ear to key and heart together — tie"
+  "notes": "ears gifts ear to key and heart together — tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.hear_here.v2",
@@ -2037,11 +2562,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.hear_here.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2051,7 +2591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "this gifts th to there — a distractor tops, never the key"
+  "notes": "this gifts th to there — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-hear-here-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.hear_here.v3",
@@ -2116,12 +2662,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Shh! I can ___ the owl outside.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.hear_here.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2131,7 +2692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "shh pins listening — feeding an owl mid-shh is defensibly wrong"
+  "notes": "shh pins listening — feeding an owl mid-shh is defensibly wrong",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-hear-here-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.hear_here.v4",
@@ -2196,12 +2763,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The bus stops right ___, at this very corner.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.hear_here.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2211,7 +2793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "at this very corner names the speaker's exact spot — there points away and nearby is vague; very and corner gift er to key, there and nearby alike"
+  "notes": "at this very corner names the speaker's exact spot — there points away and nearby is vague; very and corner gift er to key, there and nearby alike",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-hear-here-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.blue_blew.v1",
@@ -2275,11 +2863,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.blue_blew.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2289,7 +2892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.B.blue_blew.v2",
@@ -2353,11 +2962,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.B.blue_blew.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2367,7 +2991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-b-blue-blew-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.C.blue_blew.v3",
@@ -2432,12 +3062,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The wind ___ my hat into the pond!",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.C.blue_blew.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2447,7 +3092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "blows misses the story's past tense; grew is absurd"
+  "notes": "blows misses the story's past tense; grew is absurd",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-c-blue-blew-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.A.blue_blew.v4",
@@ -2512,12 +3163,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Milo wore his ___ scarf, blue like the sea.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.A.blue_blew.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2527,7 +3193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the color of the sea pins blue — loud and tall parse and contradict it"
+  "notes": "the color of the sea pins blue — loud and tall parse and contradict it",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-a-blue-blew-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.to_two_too.v1",
@@ -2592,12 +3264,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "May I come ___ the park with you?",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.to_two_too.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2607,7 +3294,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.to_two_too.v2",
@@ -2672,12 +3365,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Nan baked ___ pies, one for each hand.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.to_two_too.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2687,7 +3395,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "one for each hand counts to exactly two — ten parses and is pinned wrong"
+  "notes": "one for each hand counts to exactly two — ten parses and is pinned wrong",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-to-two-too-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.to_two_too.v3",
@@ -2752,12 +3466,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "That soup is ___ hot to eat!",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.to_two_too.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2767,7 +3496,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the too-hot-to-eat frame needs too — very hot to eat drops the result meaning"
+  "notes": "the too-hot-to-eat frame needs too — very hot to eat drops the result meaning",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-to-two-too-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.to_two_too.v4",
@@ -2831,11 +3566,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.to_two_too.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2845,7 +3595,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-to-two-too-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.there_their.v1",
@@ -2910,12 +3666,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The twins packed ___ bags for camp.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.there_their.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2925,7 +3696,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the gifts th to all four options — full tie by construction"
+  "notes": "the gifts th to all four options — full tie by construction",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.there_their.v2",
@@ -2990,12 +3767,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Look over ___ — the parade is coming!",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.there_their.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3005,7 +3797,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-there-their-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.there_their.v3",
@@ -3069,11 +3867,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.there_their.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3083,7 +3896,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "them gifts the to key, there and then — three-way tie"
+  "notes": "them gifts the to key, there and then — three-way tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-there-their-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.there_their.v4",
@@ -3147,11 +3966,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.there_their.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3161,7 +3995,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-there-their-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.right_write.v1",
@@ -3226,12 +4066,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The teacher ticked it — my sum was ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.right_write.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3241,7 +4096,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ticked pins correct — wrong parses and contradicts the tick; it gifts its chunk to write, a distractor tops"
+  "notes": "ticked pins correct — wrong parses and contradicts the tick; it gifts its chunk to write, a distractor tops",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.right_write.v2",
@@ -3306,12 +4167,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I will ___ a letter to Gran tonight.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.right_write.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3321,7 +4197,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "letter gifts te to key and wrote together — tie"
+  "notes": "letter gifts te to key and wrote together — tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-right-write-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.right_write.v3",
@@ -3385,11 +4267,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.right_write.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3399,7 +4296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "opposite gifts it to write — a distractor tops, never the key"
+  "notes": "opposite gifts it to write — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-right-write-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.right_write.v4",
@@ -3463,11 +4366,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.right_write.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3477,7 +4395,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "with gifts it to key and white together — tie"
+  "notes": "with gifts it to key and white together — tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-right-write-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.new_knew.v1",
@@ -3542,12 +4466,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "My shoes are ___ — I got them today.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.new_knew.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3557,7 +4496,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "I got them today explains newness, not color or wetness"
+  "notes": "I got them today explains newness, not color or wetness",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.new_knew.v2",
@@ -3622,12 +4567,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I ___ the answer before anyone else.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.new_knew.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3637,7 +4597,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "know and knows clash with the before-past frame"
+  "notes": "know and knows clash with the before-past frame",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-new-knew-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.new_knew.v3",
@@ -3701,11 +4667,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.new_knew.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3715,7 +4696,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "understood gifts od to nod — a distractor tops, never the key"
+  "notes": "understood gifts od to nod — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-new-knew-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.new_knew.v4",
@@ -3779,11 +4766,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.new_knew.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3793,7 +4795,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-new-knew-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.hour_our.v1",
@@ -3858,12 +4866,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The cake bakes for one ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.hour_our.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3873,7 +4896,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "one hours breaks agreement; a one-week cake bake is defensibly absurd"
+  "notes": "one hours breaks agreement; a one-week cake bake is defensibly absurd",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.hour_our.v2",
@@ -3938,12 +4967,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "That swing is ___ special spot.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.hour_our.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3953,7 +4997,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-hour-our-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.hour_our.v3",
@@ -4017,11 +5067,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.hour_our.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4031,7 +5096,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-hour-our-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.hour_our.v4",
@@ -4095,11 +5166,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.hour_our.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4109,7 +5195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-hour-our-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.flower_flour.v1",
@@ -4174,12 +5266,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Sift the ___ into the bowl for the cake.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.flower_flour.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4189,7 +5296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.flower_flour.v2",
@@ -4254,12 +5367,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "A bee landed on the pink ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.flower_flour.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4269,7 +5397,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "landed gifts la to flag — a distractor tops, never the key"
+  "notes": "landed gifts la to flag — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-flower-flour-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.flower_flour.v3",
@@ -4333,11 +5467,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.flower_flour.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4347,7 +5496,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "grows gifts ow to key and crow together — tie; no growing rival like tree"
+  "notes": "grows gifts ow to key and crow together — tie; no growing rival like tree",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-flower-flour-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.flower_flour.v4",
@@ -4411,11 +5566,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.flower_flour.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4425,7 +5595,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "powder gifts ow to flower and for gifts or to fork — tied distractors"
+  "notes": "powder gifts ow to flower and for gifts or to fork — tied distractors",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-flower-flour-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.would_wood.v1",
@@ -4490,12 +5666,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "___ you like some juice?",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.would_wood.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4505,7 +5696,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "could and will parse — would is the polite offer the frame asks for"
+  "notes": "could and will parse — would is the polite offer the frame asks for",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.would_wood.v2",
@@ -4570,12 +5767,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The bench is made of ___ from the old oak.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.would_wood.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4585,7 +5797,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "from the old oak pins wood; old gifts ol to wool, a distractor tops"
+  "notes": "from the old oak pins wood; old gifts ol to wool, a distractor tops",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-would-wood-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.would_wood.v3",
@@ -4649,11 +5867,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.would_wood.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4663,7 +5896,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no tree-borne rival like leaf — rock and wool are clean foils"
+  "notes": "no tree-borne rival like leaf — rock and wool are clean foils",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-would-wood-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.would_wood.v4",
@@ -4727,11 +5966,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.would_wood.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4741,7 +5995,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "you gifts ou to the key — wound carries ou too and ties"
+  "notes": "you gifts ou to the key — wound carries ou too and ties",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-would-wood-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.made_maid.v1",
@@ -4806,12 +6066,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Gran ___ pancakes for breakfast.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.made_maid.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4821,7 +6096,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "pancakes gifts ke to make and makes — tied distractors, key clean"
+  "notes": "pancakes gifts ke to make and makes — tied distractors, key clean",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.made_maid.v2",
@@ -4886,12 +6167,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ swept the castle floor.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.made_maid.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4901,7 +6197,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "floor gifts oo to moon — a distractor tops; no sweeping rival like cook"
+  "notes": "floor gifts oo to moon — a distractor tops; no sweeping rival like cook",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-made-maid-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.C.made_maid.v3",
@@ -4965,11 +6267,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.C.made_maid.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4979,7 +6296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "something gifts me to mend — a distractor tops, never the key"
+  "notes": "something gifts me to mend — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-c-made-maid-v3.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.made_maid.v4",
@@ -5043,11 +6366,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.made_maid.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5057,7 +6395,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-made-maid-v4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.homonym_bat.v1",
@@ -5121,11 +6465,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.homonym_bat.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5135,7 +6494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "every sentence carries bat — the shared word ties all four"
+  "notes": "every sentence carries bat — the shared word ties all four",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-bat-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.homonym_bat.v2",
@@ -5199,11 +6564,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.homonym_bat.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5213,7 +6593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-bat-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.A.homonym_ring.v1",
@@ -5277,11 +6663,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.A.homonym_ring.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5291,7 +6692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-a-homonym-ring-v1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.B.homonym_ring.v2",
@@ -5355,11 +6762,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.B.homonym_ring.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5369,7 +6791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-b-homonym-ring-v2.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.sea_see.v5r",
@@ -5434,12 +6862,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Shells wash up from the ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.sea_see.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5449,7 +6892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sea-see-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.sun_son.v5r",
@@ -5513,11 +6962,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.sun_son.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5527,7 +6991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no warming rival — star would be defensibly true"
+  "notes": "no warming rival — star would be defensibly true",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-sun-son-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.be_bee.v5r",
@@ -5592,12 +7062,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ buzzed from rose to rose.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.be_bee.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5607,7 +7092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no buzzing rival like fly — dog and key are clean foils"
+  "notes": "no buzzing rival like fly — dog and key are clean foils",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-be-bee-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.no_know.v5r",
@@ -5671,11 +7162,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.no_know.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5685,7 +7191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-no-know-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.one_won.v5r",
@@ -5750,12 +7262,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We ___ the quiz by a single point!",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.one_won.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5765,7 +7292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "single and point gift in to wins — a distractor tops; lost would be defensibly true"
+  "notes": "single and point gift in to wins — a distractor tops; lost would be defensibly true",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-one-won-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.ate_eight.v5r",
@@ -5829,11 +7362,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.ate_eight.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5843,7 +7391,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-ate-eight-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.hear_here.v5r",
@@ -5908,12 +7462,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Stand still and you can ___ the waves.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.hear_here.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5923,7 +7492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "stand and can gift an to name — a distractor tops, never the key"
+  "notes": "stand and can gift an to name — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-hear-here-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l1.R.blue_blew.v5r",
@@ -5987,11 +7562,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l1.R.blue_blew.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6001,7 +7591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "color gifts lo to blow — a distractor tops, never the key"
+  "notes": "color gifts lo to blow — a distractor tops, never the key",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l1-r-blue-blew-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.to_two_too.v5r",
@@ -6066,12 +7662,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "It is ___ dark to read outside now.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.to_two_too.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6081,7 +7692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the too-dark-to-read frame needs too — so drops the result meaning"
+  "notes": "the too-dark-to-read frame needs too — so drops the result meaning",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-to-two-too-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.there_their.v5r",
@@ -6146,12 +7763,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The birds built ___ nest in the oak.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.there_their.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6161,7 +7793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the gifts the to key, there and they — three-way tie"
+  "notes": "the gifts the to key, there and they — three-way tie",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-there-their-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.right_write.v5r",
@@ -6226,12 +7864,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Use the pencil to ___ your name.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.right_write.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6241,7 +7894,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-right-write-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.homophones_homonyms.l2.R.made_maid.v5r",
@@ -6306,12 +7965,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We ___ a fort out of pillows.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.homophones_homonyms.l2.R.made_maid.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6321,6 +7995,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp",
+  "imageUrl": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp",
+  "targetImage": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp",
+  "targetImagePath": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/lp3-homophones-homonyms-l2-r-made-maid-v5r.webp",
+  "imageAlt": "Picture support for this literacy question"
  }
 ];

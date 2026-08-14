@@ -22,15 +22,17 @@ const cz = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
   note
 });
 
-const rf = (u, lvl, ph, v, words, rationales, note = "", frame = "find") => ({
-  u, lvl, ph, v, fmt: "HFW_READ_FIND_WORD",
-  prompt: frame === "point" ? `Point to the word: ${u}` : `Find the word: ${u}`,
-  spoken: `${u}. Find the word ${u}.`,
+const rf = (u, lvl, ph, v, words, rationales, note = "") => ({
+  u, lvl, ph, v, fmt: "HFW_AUDIO_FIND_WORD", questionType: "listen_and_find_word",
+  prompt: "Tap sound. Pick its match.",
+  spoken: "Tap sound. Pick its match.",
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
-  media: "text",
+  media: "audio-required",
   target: u,
-  scannerExpected: true,
-  note: note || "print recognition IS the construct — surface match is the task"
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  constructClaim: "spoken_to_print_high_frequency_word_recognition",
+  note
 });
 
 const sp = (u, lvl, ph, v, sentence, tiles, note = "") => ({

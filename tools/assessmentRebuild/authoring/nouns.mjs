@@ -1,10 +1,8 @@
 // Nouns — v3 authored bank (wave W9, paired with verbs). The family-wide
 // re-keying: concept units (a child masters "nouns name people/places/things"),
 // never the 86 word-keys of the legacy bank.
-// L1 (category recognition): GRAMMAR_IMAGE_CHOICE — one card names the target
-//   category, three cards picture ACTIONS (the doc's function-swap rule), so
-//   the child separates naming words from doing words with pictures.
-//   GRAMMAR_WORD_CHOICE — same discrimination in print.
+// L1 (category recognition): controlled sentence contexts make the child use
+// word function. Pictures no longer reveal the noun/verb distinction.
 // L2: GRAMMAR_SENTENCE_FIT (only one option can NAME the thing in the frame —
 //   distractors are un-nounable verbs/adjectives, which IS the construct),
 //   GRAMMAR_CONTRAST (which word names a thing / which sentence names TWO).
@@ -14,15 +12,32 @@
 const K = t => ({ t, r: "KEY", k: true });
 const P = (t, r) => ({ t, r });
 
-// L1 picture: one category card + three action cards.
+const L1_SENTENCES = {
+  king: "The ___ wore a golden crown.",
+  vet: "The ___ helped the sick dog.",
+  queen: "The ___ sat on the throne.",
+  fox: "A ___ crept past the hens.",
+  zebra: "The ___ had black-and-white stripes.",
+  sheep: "A ___ gave us warm wool.",
+  farm: "We saw cows at the ___.",
+  park: "We played games at the ___.",
+  zoo: "We visited lions at the ___.",
+  cup: "I drank water from a ___.",
+  drum: "Sam tapped the ___ with sticks.",
+  spoon: "I stirred the soup with a ___."
+  , girl: "The ___ waved to her friend."
+  , goat: "The ___ munched grass by the gate."
+};
+
+// L1 context: one naming word and three function-swaps.
 const gic = (u, lvl, ph, v, prompt, cards, keyWord, rationales, note = "") => ({
-  u, lvl, ph, v, fmt: "GRAMMAR_IMAGE_CHOICE",
-  prompt,
-  spoken: prompt,
-  cards,
+  u, lvl, ph, v, fmt: "GRAMMAR_SENTENCE_FIT",
+  prompt: L1_SENTENCES[keyWord],
+  spoken: `Which naming word finishes the sentence? ${L1_SENTENCES[keyWord].replace("___", "hmm")}`,
+  sentence: L1_SENTENCES[keyWord],
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w] || "D-FUNCTION-SWAP"))),
-  media: "image-required",
-  note
+  media: "text",
+  note: note || "language context, not a category-revealing picture, provides the evidence"
 });
 
 // L1 print.

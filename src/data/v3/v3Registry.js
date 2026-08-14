@@ -69,7 +69,11 @@ const HARD_GATES = [
   "G3_answer_integrity",
   "G4_mastery_logic",
   "G5_no_repeats",
-  "G6_one_report"
+  "G6_one_report",
+  "G7_construct_validity",
+  "G8_media_independence",
+  "G9_required_audio",
+  "G10_visual_policy"
 ];
 
 export function getV3PublicationStatus(assessmentSkillId = "") {

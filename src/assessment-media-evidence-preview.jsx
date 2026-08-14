@@ -7,10 +7,13 @@ import "./styles/student-vibrant.css";
 import "./styles/sage-subpages.css";
 import { AssessmentPage } from "./components/AppPages.jsx";
 import { refillAssessmentRoundAfterMediaFailure } from "./policy/assessmentMediaEvidence.js";
+import { importV3Bank } from "./data/v3/v3Registry.js";
 
 const BROKEN_SOURCE = "/images/assessment/does-not-exist-a3-10.webp";
 const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const IS_COMPACT_VISUAL_GRID = PREVIEW_PARAMS.get("scenario") === "compact-visual-grid";
+const REQUESTED_SKILL = PREVIEW_PARAMS.get("skill") || "";
+const REQUESTED_ITEM_ID = PREVIEW_PARAMS.get("item") || "";
 
 const COMPACT_VISUAL_GRID_QUESTION = {
   id: "lp3.initial_sounds.l1.C.j.v3",
@@ -147,13 +150,13 @@ const CANDIDATES = [
   SAFE_REFILL
 ];
 
-export function AssessmentMediaEvidencePreview() {
+export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
   const [round, setRound] = useState(() => IS_COMPACT_VISUAL_GRID
     ? [COMPACT_VISUAL_GRID_QUESTION]
-    : [FAILED_QUESTION, SAFE_QUESTION]);
+    : inspectedQuestion ? [inspectedQuestion] : [FAILED_QUESTION, SAFE_QUESTION]);
   const [currentQuestion, setCurrentQuestion] = useState(() => IS_COMPACT_VISUAL_GRID
     ? COMPACT_VISUAL_GRID_QUESTION
-    : FAILED_QUESTION);
+    : inspectedQuestion || FAILED_QUESTION);
   const [failureCount, setFailureCount] = useState(0);
   const handledQuestionIds = useRef(new Set());
 
@@ -174,25 +177,28 @@ export function AssessmentMediaEvidencePreview() {
 
   return (
     <div
-      className={IS_COMPACT_VISUAL_GRID
+      className={IS_COMPACT_VISUAL_GRID || inspectedQuestion
         ? "app assessment-app no-sidebar lp-skin-sage"
         : "app student-mode-app no-sidebar lp-skin-sage"}
       data-preview-surface="assessment-media-evidence"
-      data-preview-scenario={IS_COMPACT_VISUAL_GRID ? "compact-visual-grid" : "media-evidence"}
+      data-preview-scenario={IS_COMPACT_VISUAL_GRID ? "compact-visual-grid" : inspectedQuestion ? "generated-v3-item" : "media-evidence"}
       data-failure-count={failureCount}
       data-round-question-ids={round.map(question => question.id).join(",")}
     >
       <AssessmentPage
         currentQuestion={currentQuestion}
         feedback={null}
-        studentName={IS_COMPACT_VISUAL_GRID ? "Teacher Ben" : "Aaron"}
+        studentName={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? "Teacher Ben" : "Aaron"}
         currentSkillIndex={0}
-        currentStage={{ id: "initial_sounds", label: "Initial Sounds" }}
+        currentStage={{
+          id: currentQuestion?.skillId || "initial_sounds",
+          label: currentQuestion?.skillName || "Initial Sounds"
+        }}
         setFeedback={() => {}}
         pickQuestion={() => {}}
         roundAnswers={[]}
-        roundLength={IS_COMPACT_VISUAL_GRID ? 10 : 2}
-        roundProgress={IS_COMPACT_VISUAL_GRID ? 10 : 0}
+        roundLength={IS_COMPACT_VISUAL_GRID ? 10 : inspectedQuestion ? 1 : 2}
+        roundProgress={IS_COMPACT_VISUAL_GRID ? 10 : inspectedQuestion ? 100 : 0}
         shouldShowImage={() => false}
         answerQuestion={() => {}}
         speakText={() => {}}
@@ -200,16 +206,22 @@ export function AssessmentMediaEvidencePreview() {
         endAssessment={() => {}}
         returnToStudentOverview={() => {}}
         assessmentMode="mastery"
-        toggleAssessmentFullscreen={IS_COMPACT_VISUAL_GRID ? () => {} : null}
-        skillTree={IS_COMPACT_VISUAL_GRID
-          ? [{ id: "initial_sounds", label: "Initial Sounds" }]
+        toggleAssessmentFullscreen={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? () => {} : null}
+        skillTree={IS_COMPACT_VISUAL_GRID || inspectedQuestion
+          ? [{ id: currentQuestion?.skillId || "initial_sounds", label: currentQuestion?.skillName || "Initial Sounds" }]
           : []}
-        onChangeSkillLevel={IS_COMPACT_VISUAL_GRID ? () => {} : null}
-        onEvidenceImageError={IS_COMPACT_VISUAL_GRID ? null : handleEvidenceImageError}
+        onChangeSkillLevel={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? () => {} : null}
+        onEvidenceImageError={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? null : handleEvidenceImageError}
       />
     </div>
   );
 }
 
 const root = createRoot(document.getElementById("root"));
-root.render(<AssessmentMediaEvidencePreview />);
+if (REQUESTED_SKILL) {
+  const questions = await importV3Bank(REQUESTED_SKILL);
+  const inspectedQuestion = questions.find(question => question.id === REQUESTED_ITEM_ID) || questions[0] || null;
+  root.render(<AssessmentMediaEvidencePreview inspectedQuestion={inspectedQuestion} />);
+} else {
+  root.render(<AssessmentMediaEvidencePreview />);
+}

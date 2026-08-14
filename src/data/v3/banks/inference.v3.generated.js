@@ -65,11 +65,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -79,7 +94,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wiping hands + re-checking music kills every rival reading"
+  "notes": "wiping hands + re-checking music kills every rival reading",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v2",
@@ -145,11 +166,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.feeling_from_evidence.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -159,7 +195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "worried is TRUE earlier — the long breath and flop mark the change; classic before/after trap"
+  "notes": "worried is TRUE earlier — the long breath and flop mark the change; classic before/after trap",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v3",
@@ -225,11 +267,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.feeling_from_evidence.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -239,7 +296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "punching the air kills 'ashamed', the tempting reading of finishing last"
+  "notes": "punching the air kills 'ashamed', the tempting reading of finishing last",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v4",
@@ -305,11 +368,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -319,7 +397,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the too-hard grip and whispered practice are the clues"
+  "notes": "the too-hard grip and whispered practice are the clues",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v5",
@@ -385,11 +469,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.feeling_from_evidence.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -399,7 +498,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wobbling lip + wiped eye; 'thrilled' tempts because fairs are fun"
+  "notes": "wobbling lip + wiped eye; 'thrilled' tempts because fairs are fun",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.C.feeling_from_evidence.v6",
@@ -465,11 +570,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.feeling_from_evidence.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -479,7 +599,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "nervous fits BEFORE results; the wink and straight back mark after"
+  "notes": "nervous fits BEFORE results; the wink and straight back mark after",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.feeling_from_evidence.v7",
@@ -545,11 +671,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -559,7 +700,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "she is scared-ish but holds still and counts — the point is managed fear"
+  "notes": "she is scared-ish but holds still and counts — the point is managed fear",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.feeling_from_evidence.v8",
@@ -625,11 +772,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.feeling_from_evidence.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -639,7 +801,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "slow clap + empty hands; delighted is the surface reading of a party"
+  "notes": "slow clap + empty hands; delighted is the surface reading of a party",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-feeling-from-evidence-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v1",
@@ -705,11 +873,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.where_am_i.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -719,7 +902,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "smell + glass counter + floury apron"
+  "notes": "smell + glass counter + floury apron",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v2",
@@ -785,11 +974,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.where_am_i.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -799,7 +1003,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "whistle tempts football; chlorine and armbands decide"
+  "notes": "whistle tempts football; chlorine and armbands decide",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v3",
@@ -865,11 +1075,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.where_am_i.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -879,7 +1104,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bookshop is the near-miss; the date stamp and borrowing decide"
+  "notes": "bookshop is the near-miss; the date stamp and borrowing decide",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v4",
@@ -945,11 +1176,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.where_am_i.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -959,7 +1205,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "straw + huge warm animal + brush"
+  "notes": "straw + huge warm animal + brush",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v5",
@@ -1025,11 +1277,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.where_am_i.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1039,7 +1306,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bus is close; announced stops + aisle trolley + sliding fields decide"
+  "notes": "bus is close; announced stops + aisle trolley + sliding fields decide",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.C.where_am_i.v6",
@@ -1105,11 +1378,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.where_am_i.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1119,7 +1407,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cinema shares dark + glow; the glass and gliding shapes decide"
+  "notes": "cinema shares dark + glow; the glass and gliding shapes decide",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.where_am_i.v7",
@@ -1185,11 +1479,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.where_am_i.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1199,7 +1508,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tray rails + choosing peas + finding a seat"
+  "notes": "tray rails + choosing peas + finding a seat",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.where_am_i.v8",
@@ -1265,11 +1580,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.where_am_i.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1279,7 +1609,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "van music tempts funfair; gulls + sandcastles + sun cream decide"
+  "notes": "van music tempts funfair; gulls + sandcastles + sun cream decide",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-where-am-i-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v1",
@@ -1345,11 +1681,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.what_happens_next.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1359,7 +1710,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "packing fast + thunder = leaving; barbecue reverses the evidence"
+  "notes": "packing fast + thunder = leaving; barbecue reverses the evidence",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v2",
@@ -1425,11 +1782,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.what_happens_next.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1439,7 +1811,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dog shampoo is the deciding detail against 'his own bath'"
+  "notes": "dog shampoo is the deciding detail against 'his own bath'",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v3",
@@ -1505,11 +1883,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.what_happens_next.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1519,7 +1912,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "reading the paper is what he was doing BEFORE — the swap trap"
+  "notes": "reading the paper is what he was doing BEFORE — the swap trap",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v4",
@@ -1585,11 +1984,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.what_happens_next.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1599,7 +2013,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "money + empty jar + 'we need more' point one way"
+  "notes": "money + empty jar + 'we need more' point one way",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v5",
@@ -1665,11 +2085,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.what_happens_next.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1679,7 +2114,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "remembering the battery drawer is the plan"
+  "notes": "remembering the battery drawer is the plan",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.C.what_happens_next.v6",
@@ -1745,11 +2186,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.what_happens_next.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1759,7 +2215,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sleeping baby + wide eyes = silence needed"
+  "notes": "sleeping baby + wide eyes = silence needed",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-what-happens-next-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.A.what_happens_next.v7",
@@ -1825,11 +2287,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.what_happens_next.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1839,7 +2316,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the glance at the gritting sand sets the plan"
+  "notes": "the glance at the gritting sand sets the plan",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-what-happens-next-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.B.what_happens_next.v8",
@@ -1905,11 +2388,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.B.what_happens_next.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1919,7 +2417,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crumb trail + swinging flap + sticky beak"
+  "notes": "crumb trail + swinging flap + sticky beak",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-b-what-happens-next-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v1",
@@ -1985,11 +2489,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1999,7 +2518,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "two umbrellas + window checks; the rug is put AWAY, not lost"
+  "notes": "two umbrellas + window checks; the rug is put AWAY, not lost",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v2",
@@ -2065,11 +2590,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.why_did_they.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2079,7 +2619,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "'without a word' and looking away kill the showing-off reading"
+  "notes": "'without a word' and looking away kill the showing-off reading",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v3",
@@ -2145,11 +2691,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.why_did_they.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2159,7 +2720,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "she still HAS the scooter; the wet tar is the mechanism"
+  "notes": "she still HAS the scooter; the wet tar is the mechanism",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v4",
@@ -2225,11 +2792,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2239,7 +2821,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "'I can hear you clearly now' confirms the mechanism"
+  "notes": "'I can hear you clearly now' confirms the mechanism",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v5",
@@ -2305,11 +2893,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.why_did_they.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2319,7 +2922,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the training detail is the evidence; parents actually muttered AGAINST it"
+  "notes": "the training detail is the evidence; parents actually muttered AGAINST it",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.C.why_did_they.v6",
@@ -2385,11 +2994,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.why_did_they.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2399,7 +3023,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the tide mark corroborates her one-line explanation"
+  "notes": "the tide mark corroborates her one-line explanation",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.why_did_they.v7",
@@ -2465,11 +3095,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2479,7 +3124,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "first-time-alone frames both choices; nothing supports the rivals"
+  "notes": "first-time-alone frames both choices; nothing supports the rivals",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.why_did_they.v8",
@@ -2545,11 +3196,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.why_did_they.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2559,7 +3225,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the wobble test is the mechanism; the brush comes AFTER by design"
+  "notes": "the wobble test is the mechanism; the brush comes AFTER by design",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-why-did-they-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v1",
@@ -2625,11 +3297,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2639,7 +3326,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "three water clues point outdoors; overflow explains only one of them"
+  "notes": "three water clues point outdoors; overflow explains only one of them",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v2",
@@ -2705,11 +3398,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.what_went_unsaid.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2719,7 +3427,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "spinning wheel + eaten food + built doorway"
+  "notes": "spinning wheel + eaten food + built doorway",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v3",
@@ -2785,11 +3499,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.what_went_unsaid.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2799,7 +3528,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "each clue is smoke management; the binned cake completes it"
+  "notes": "each clue is smoke management; the binned cake completes it",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v4",
@@ -2865,11 +3600,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2879,7 +3629,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the note states it; the light case was the early clue"
+  "notes": "the note states it; the light case was the early clue",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v5",
@@ -2945,11 +3701,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.what_went_unsaid.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2959,7 +3730,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the matching scarf is the fingerprint"
+  "notes": "the matching scarf is the fingerprint",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.C.what_went_unsaid.v6",
@@ -3025,11 +3802,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.what_went_unsaid.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3039,7 +3831,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bent metal + wide prints rule out the small and the bodiless"
+  "notes": "bent metal + wide prints rule out the small and the bodiless",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.what_went_unsaid.v7",
@@ -3105,11 +3903,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3119,7 +3932,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same-colour walls kills the wall reading; silver spots + silver bike join up"
+  "notes": "same-colour walls kills the wall reading; silver spots + silver bike join up",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.what_went_unsaid.v8",
@@ -3185,11 +4004,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.what_went_unsaid.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3199,7 +4033,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "blinking clocks + forgetful radios only fit a power cut, not an open freezer"
+  "notes": "blinking clocks + forgetful radios only fit a power cut, not an open freezer",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-what-went-unsaid-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v1",
@@ -3265,11 +4105,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.evidence_pick.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3279,7 +4134,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the drawing contradicts the words — evidence beats statements"
+  "notes": "the drawing contradicts the words — evidence beats statements",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v2",
@@ -3345,11 +4206,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.evidence_pick.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3359,7 +4235,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "shrug words vs pocket evidence"
+  "notes": "shrug words vs pocket evidence",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v3",
@@ -3425,11 +4307,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.evidence_pick.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3439,7 +4336,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "matching habits are the fingerprint"
+  "notes": "matching habits are the fingerprint",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v4",
@@ -3505,11 +4408,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.evidence_pick.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3519,7 +4437,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "actions over words again — the polishing habit"
+  "notes": "actions over words again — the polishing habit",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v5",
@@ -3585,11 +4509,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.evidence_pick.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3599,7 +4538,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "setup knowledge is the giveaway"
+  "notes": "setup knowledge is the giveaway",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.C.evidence_pick.v6",
@@ -3665,11 +4610,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.evidence_pick.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3679,7 +4639,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the breathing detail settles it"
+  "notes": "the breathing detail settles it",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-evidence-pick-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.A.evidence_pick.v7",
@@ -3745,11 +4711,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.evidence_pick.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3759,7 +4740,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the hand-lettered bowl is devotion in evidence form"
+  "notes": "the hand-lettered bowl is devotion in evidence form",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-evidence-pick-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.B.evidence_pick.v8",
@@ -3825,11 +4812,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.B.evidence_pick.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3839,10 +4841,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "escalating avoidance behaviours are the evidence chain"
+  "notes": "escalating avoidance behaviours are the evidence chain",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-b-evidence-pick-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l1.R.feeling_from_evidence.v9r",
+  "id": "lp3.inference.l1.C.feeling_from_evidence.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -3855,7 +4863,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "inference_cell",
   "itemKey": "feeling_from_evidence",
   "formatType": "COMPREHENSION",
@@ -3867,17 +4875,12 @@ export const questions = [
   "passage": "The splinter was tiny but it was IN Milo's finger. He looked away while Dad held the tweezers. 'Done,' said Dad, before Milo had even squeezed his eyes shut properly. Milo stared at his finger, then laughed out loud.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "sleepy",
    "surprised it was so easy",
    "still terrified",
-   "angry with Dad"
+   "angry with Dad",
+   "sleepy"
   ],
   "answerOptions": [
-   {
-    "value": "sleepy",
-    "label": "sleepy",
-    "text": "sleepy"
-   },
    {
     "value": "surprised it was so easy",
     "label": "surprised it was so easy",
@@ -3892,24 +4895,44 @@ export const questions = [
     "value": "angry with Dad",
     "label": "angry with Dad",
     "text": "angry with Dad"
+   },
+   {
+    "value": "sleepy",
+    "label": "sleepy",
+    "text": "sleepy"
    }
   ],
   "answer": "surprised it was so easy",
   "correctAnswer": "surprised it was so easy",
   "distractorRationales": {
+   "still terrified": "D-SEQUENCE-SWAP",
    "angry with Dad": "D-OPPOSITE",
-   "sleepy": "D-PLAUSIBLE-UNSUPPORTED",
-   "still terrified": "D-SEQUENCE-SWAP"
+   "sleepy": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.feeling_from_evidence.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3919,10 +4942,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-feeling-from-evidence-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l1.R.feeling_from_evidence.v10r",
+  "id": "lp3.inference.l1.A.feeling_from_evidence.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -3935,7 +4964,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "inference_cell",
   "itemKey": "feeling_from_evidence",
   "formatType": "COMPREHENSION",
@@ -3947,17 +4976,12 @@ export const questions = [
   "passage": "Wren had saved her pocket money for six weeks. At the till, the shopkeeper counted her coins slowly and slid the paint set across the counter. Wren carried the bag with both hands all the way home, checking inside at every corner.",
   "cell": "feeling_from_evidence",
   "choices": [
-   "frightened of the shop",
    "bored by painting",
    "proud and careful with her prize",
-   "sorry she bought it"
+   "sorry she bought it",
+   "frightened of the shop"
   ],
   "answerOptions": [
-   {
-    "value": "frightened of the shop",
-    "label": "frightened of the shop",
-    "text": "frightened of the shop"
-   },
    {
     "value": "bored by painting",
     "label": "bored by painting",
@@ -3972,24 +4996,44 @@ export const questions = [
     "value": "sorry she bought it",
     "label": "sorry she bought it",
     "text": "sorry she bought it"
+   },
+   {
+    "value": "frightened of the shop",
+    "label": "frightened of the shop",
+    "text": "frightened of the shop"
    }
   ],
   "answer": "proud and careful with her prize",
   "correctAnswer": "proud and careful with her prize",
   "distractorRationales": {
+   "sorry she bought it": "D-OPPOSITE",
    "frightened of the shop": "D-PLAUSIBLE-UNSUPPORTED",
-   "bored by painting": "D-OPPOSITE",
-   "sorry she bought it": "D-OPPOSITE"
+   "bored by painting": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.feeling_from_evidence.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3999,10 +5043,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-feeling-from-evidence-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l1.R.where_am_i.v9r",
+  "id": "lp3.inference.l1.C.where_am_i.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4015,7 +5065,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "inference_cell",
   "itemKey": "where_am_i",
   "formatType": "COMPREHENSION",
@@ -4027,22 +5077,12 @@ export const questions = [
   "passage": "Rows of red seats sloped down toward the glowing screen. Ana balanced the popcorn on her knees. The lights dimmed slowly, and a hush spread as the first music swelled.",
   "cell": "where_am_i",
   "choices": [
-   "a theatre with actors on stage",
-   "her bedroom",
    "a stadium",
-   "a cinema"
+   "a cinema",
+   "a theatre with actors on stage",
+   "her bedroom"
   ],
   "answerOptions": [
-   {
-    "value": "a theatre with actors on stage",
-    "label": "a theatre with actors on stage",
-    "text": "a theatre with actors on stage"
-   },
-   {
-    "value": "her bedroom",
-    "label": "her bedroom",
-    "text": "her bedroom"
-   },
    {
     "value": "a stadium",
     "label": "a stadium",
@@ -4052,24 +5092,49 @@ export const questions = [
     "value": "a cinema",
     "label": "a cinema",
     "text": "a cinema"
+   },
+   {
+    "value": "a theatre with actors on stage",
+    "label": "a theatre with actors on stage",
+    "text": "a theatre with actors on stage"
+   },
+   {
+    "value": "her bedroom",
+    "label": "her bedroom",
+    "text": "her bedroom"
    }
   ],
   "answer": "a cinema",
   "correctAnswer": "a cinema",
   "distractorRationales": {
-   "a stadium": "D-PLAUSIBLE-UNSUPPORTED",
    "a theatre with actors on stage": "D-TOPIC-ADJACENT",
-   "her bedroom": "D-PLAUSIBLE-UNSUPPORTED"
+   "her bedroom": "D-PLAUSIBLE-UNSUPPORTED",
+   "a stadium": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.C.where_am_i.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4079,10 +5144,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-c-where-am-i-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l1.R.where_am_i.v10r",
+  "id": "lp3.inference.l1.A.where_am_i.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4095,7 +5166,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "inference_cell",
   "itemKey": "where_am_i",
   "formatType": "COMPREHENSION",
@@ -4107,22 +5178,12 @@ export const questions = [
   "passage": "Everything here had a price sticker and a wobbling tower of tins. A voice announced that spilled grapes were being cleaned on aisle four. Mum ticked the last thing off her list and steered the rattling trolley toward the shortest queue.",
   "cell": "where_am_i",
   "choices": [
-   "a supermarket",
-   "a street market",
    "a kitchen",
-   "a garage"
+   "a garage",
+   "a supermarket",
+   "a street market"
   ],
   "answerOptions": [
-   {
-    "value": "a supermarket",
-    "label": "a supermarket",
-    "text": "a supermarket"
-   },
-   {
-    "value": "a street market",
-    "label": "a street market",
-    "text": "a street market"
-   },
    {
     "value": "a kitchen",
     "label": "a kitchen",
@@ -4132,24 +5193,49 @@ export const questions = [
     "value": "a garage",
     "label": "a garage",
     "text": "a garage"
+   },
+   {
+    "value": "a supermarket",
+    "label": "a supermarket",
+    "text": "a supermarket"
+   },
+   {
+    "value": "a street market",
+    "label": "a street market",
+    "text": "a street market"
    }
   ],
   "answer": "a supermarket",
   "correctAnswer": "a supermarket",
   "distractorRationales": {
-   "a street market": "D-TOPIC-ADJACENT",
    "a kitchen": "D-PLAUSIBLE-UNSUPPORTED",
-   "a garage": "D-OPPOSITE"
+   "a garage": "D-OPPOSITE",
+   "a street market": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.A.where_am_i.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4159,7 +5245,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-a-where-am-i-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.R.what_happens_next.v9r",
@@ -4225,11 +5317,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.R.what_happens_next.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4239,7 +5346,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.R.what_happens_next.v10r",
@@ -4305,11 +5418,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.R.what_happens_next.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4319,7 +5447,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-what-happens-next-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.R.feeling_from_evidence.v11r",
@@ -4385,11 +5519,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.R.feeling_from_evidence.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4399,7 +5548,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-feeling-from-evidence-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l1.R.where_am_i.v11r",
@@ -4465,11 +5620,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l1.R.where_am_i.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4479,10 +5649,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l1-r-where-am-i-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l2.R.why_did_they.v9r",
+  "id": "lp3.inference.l2.C.why_did_they.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4495,7 +5671,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "inference_cell",
   "itemKey": "why_did_they",
   "formatType": "COMPREHENSION",
@@ -4507,12 +5683,17 @@ export const questions = [
   "passage": "Half an hour before the guests arrived, Ade hid his favourite dinosaur under his pillow. His baby cousins were coming, and last time, the smallest one had chewed the tail of his second-favourite dinosaur into a soggy stump.",
   "cell": "why_did_they",
   "choices": [
+   "he wanted to sleep with it",
    "to keep it safe from his little cousins",
    "he was tired of dinosaurs",
-   "his mum told him to tidy his whole room",
-   "he wanted to sleep with it"
+   "his mum told him to tidy his whole room"
   ],
   "answerOptions": [
+   {
+    "value": "he wanted to sleep with it",
+    "label": "he wanted to sleep with it",
+    "text": "he wanted to sleep with it"
+   },
    {
     "value": "to keep it safe from his little cousins",
     "label": "to keep it safe from his little cousins",
@@ -4527,29 +5708,39 @@ export const questions = [
     "value": "his mum told him to tidy his whole room",
     "label": "his mum told him to tidy his whole room",
     "text": "his mum told him to tidy his whole room"
-   },
-   {
-    "value": "he wanted to sleep with it",
-    "label": "he wanted to sleep with it",
-    "text": "he wanted to sleep with it"
    }
   ],
   "answer": "to keep it safe from his little cousins",
   "correctAnswer": "to keep it safe from his little cousins",
   "distractorRationales": {
-   "he was tired of dinosaurs": "D-OPPOSITE",
    "his mum told him to tidy his whole room": "D-PLAUSIBLE-UNSUPPORTED",
-   "he wanted to sleep with it": "D-PLAUSIBLE-UNSUPPORTED"
+   "he wanted to sleep with it": "D-PLAUSIBLE-UNSUPPORTED",
+   "he was tired of dinosaurs": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.why_did_they.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4559,10 +5750,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-why-did-they-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l2.R.why_did_they.v10r",
+  "id": "lp3.inference.l2.A.why_did_they.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4575,7 +5772,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "inference_cell",
   "itemKey": "why_did_they",
   "formatType": "COMPREHENSION",
@@ -4587,12 +5784,17 @@ export const questions = [
   "passage": "The cafe owner started opening one hour earlier, at six. She put out a basket of day-old rolls marked 'help yourself' and left the outside light on in the dark mornings. The bin men, the postwoman, and the night-shift nurses began to wave through the window like old friends.",
   "cell": "why_did_they",
   "choices": [
+   "because she could not sleep",
    "because the council made her",
    "to look after the town's early workers",
-   "to sell her rolls for more money",
-   "because she could not sleep"
+   "to sell her rolls for more money"
   ],
   "answerOptions": [
+   {
+    "value": "because she could not sleep",
+    "label": "because she could not sleep",
+    "text": "because she could not sleep"
+   },
    {
     "value": "because the council made her",
     "label": "because the council made her",
@@ -4607,29 +5809,39 @@ export const questions = [
     "value": "to sell her rolls for more money",
     "label": "to sell her rolls for more money",
     "text": "to sell her rolls for more money"
-   },
-   {
-    "value": "because she could not sleep",
-    "label": "because she could not sleep",
-    "text": "because she could not sleep"
    }
   ],
   "answer": "to look after the town's early workers",
   "correctAnswer": "to look after the town's early workers",
   "distractorRationales": {
-   "because the council made her": "D-PLAUSIBLE-UNSUPPORTED",
    "to sell her rolls for more money": "D-OPPOSITE",
-   "because she could not sleep": "D-PLAUSIBLE-UNSUPPORTED"
+   "because she could not sleep": "D-PLAUSIBLE-UNSUPPORTED",
+   "because the council made her": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.why_did_they.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,10 +5851,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-why-did-they-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l2.R.what_went_unsaid.v9r",
+  "id": "lp3.inference.l2.C.what_went_unsaid.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4655,7 +5873,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "inference_cell",
   "itemKey": "what_went_unsaid",
   "formatType": "COMPREHENSION",
@@ -4697,19 +5915,34 @@ export const questions = [
   "answer": "the cat walked through mud and over the cake",
   "correctAnswer": "the cat walked through mud and over the cake",
   "distractorRationales": {
-   "the baker made the cake wrong": "D-OPPOSITE",
    "a candle fell by itself": "D-DETAIL-AS-MAIN",
-   "someone dropped the birthday cake on the floor": "D-PLAUSIBLE-UNSUPPORTED"
+   "someone dropped the birthday cake on the floor": "D-PLAUSIBLE-UNSUPPORTED",
+   "the baker made the cake wrong": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.C.what_went_unsaid.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4719,10 +5952,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-c-what-went-unsaid-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.inference.l2.R.what_went_unsaid.v10r",
+  "id": "lp3.inference.l2.A.what_went_unsaid.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "inference",
@@ -4735,7 +5974,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "inference_cell",
   "itemKey": "what_went_unsaid",
   "formatType": "COMPREHENSION",
@@ -4777,19 +6016,34 @@ export const questions = [
   "answer": "a giant vegetable he grew for the show",
   "correctAnswer": "a giant vegetable he grew for the show",
   "distractorRationales": {
-   "a lost kitten": "D-PLAUSIBLE-UNSUPPORTED",
    "his gardening gloves": "D-PLAUSIBLE-UNSUPPORTED",
-   "his usual flat and empty muddy bag": "D-OPPOSITE"
+   "his usual flat and empty muddy bag": "D-OPPOSITE",
+   "a lost kitten": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.A.what_went_unsaid.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4799,7 +6053,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-a-what-went-unsaid-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.R.evidence_pick.v9r",
@@ -4865,11 +6125,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.R.evidence_pick.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4879,7 +6154,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.R.evidence_pick.v10r",
@@ -4945,11 +6226,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.R.evidence_pick.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4959,7 +6255,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-evidence-pick-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.R.why_did_they.v11r",
@@ -5025,11 +6327,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.R.why_did_they.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5039,7 +6356,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-why-did-they-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.inference.l2.R.what_went_unsaid.v11r",
@@ -5105,11 +6428,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.inference.l2.R.what_went_unsaid.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5119,6 +6457,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-inference-l2-r-what-went-unsaid-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  }
 ];

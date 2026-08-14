@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import fs from "node:fs";
+import path from "node:path";
+import { createHash } from "node:crypto";
 
 import {
   assessmentImageStyleBlocklist,
@@ -15,6 +18,11 @@ import {
   buildMediaQaRecords,
   isMediaQaRuntimeAllowed
 } from "../../src/data/mediaQaManifest.js";
+import { SENTENCE_COMPREHENSION_SCORING_SCENES } from "../../src/content/assessments/v3/assessmentSceneMediaDecisions.js";
+import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
+import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
+
+const projectRoot = path.resolve(import.meta.dirname, "..", "..");
 
 const knownRegressions = [
   "/media/initial-sounds/images/c/cake.webp",
@@ -78,6 +86,64 @@ test("assessment media candidates never include the reviewed style blocklist", (
     assert.ok(candidates.length > 0, word);
     candidates.forEach(candidate => {
       assert.equal(assessmentImageStyleBlockedPaths.has(candidate.path), false, candidate.path);
+    });
+  });
+});
+
+test("every scoring scene records the complete bright, bold, clean-cartoon approval", () => {
+  assert.equal(Object.keys(SENTENCE_COMPREHENSION_SCORING_SCENES).length, 10);
+  Object.entries(SENTENCE_COMPREHENSION_SCORING_SCENES).forEach(([fileName, decision]) => {
+    assert.equal(decision.visualReview, "approved-clean-cartoon", fileName);
+    assert.equal(decision.alignmentReview, "approved-exact-scoring-evidence", fileName);
+    assert.deepEqual(decision.styleProfile, {
+      bright: true,
+      bold: true,
+      flat2d: true,
+      crispOutlines: true,
+      smoothSurfaces: true,
+      canvasOrPaperGrain: false,
+      embossedOrBevelledEdges: false,
+      grittyOrFauxPaintTexture: false,
+      photorealOrCinematicFinish: false
+    }, fileName);
+  });
+});
+
+test("every active assessment image matches its directly reviewed style decision and exact hash", () => {
+  const rows = Object.values(ASSESSMENT_IMAGE_STYLE_DECISIONS);
+  assert.equal(rows.length, 1338);
+  rows.forEach(decision => {
+    const absolutePath = path.join(projectRoot, "public", decision.path.replace(/^\//, ""));
+    assert.equal(fs.existsSync(absolutePath), true, decision.path);
+    const hash = createHash("sha256").update(fs.readFileSync(absolutePath)).digest("hex");
+    assert.equal(decision.sha256, hash, decision.path);
+    assert.equal(decision.visualReview, "approved", decision.path);
+    assert.equal(decision.brightness, "bright", decision.path);
+    assert.equal(decision.saturation, "bold", decision.path);
+    assert.equal(decision.medium, "classic-flat-2d-cartoon", decision.path);
+    assert.equal(decision.contours, "crisp", decision.path);
+    assert.equal(decision.surfaces, "smooth-solid", decision.path);
+    [
+      "grain", "paperOrCanvasTexture", "embossed", "bevelled",
+      "faux3d", "photoreal", "painterly"
+    ].forEach(field => assert.equal(decision[field], false, `${decision.path}:${field}`));
+  });
+});
+
+test("all 2,518 v3 items have an approved meaningful media decision", () => {
+  const rows = Object.values(ASSESSMENT_ITEM_MEDIA_DECISIONS);
+  assert.equal(rows.length, 2518);
+  rows.forEach(decision => {
+    assert.ok(decision.itemId.startsWith("lp3."), decision.itemId);
+    assert.ok([
+      "answer-cards", "sequence", "target-or-scene", "neutral-support", "construct-support"
+    ].includes(decision.role), decision.itemId);
+    assert.equal(decision.constructReview, "approved", decision.itemId);
+    assert.ok(decision.paths.length > 0, decision.itemId);
+    assert.ok(decision.alt, decision.itemId);
+    decision.paths.forEach(assetPath => {
+      assert.ok(assetPath.startsWith("/images/assessment/"), `${decision.itemId}:${assetPath}`);
+      assert.ok(ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath], `${decision.itemId}:${assetPath}`);
     });
   });
 });

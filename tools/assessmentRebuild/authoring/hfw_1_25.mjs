@@ -4,9 +4,8 @@
 //   grammar alone can never eliminate; determiner sets carry one visual-dev
 //   intruder like they/at/is because the pure determiner inventory is too small
 //   for unique option sets, and those intruders are the errors children really
-//   make) + HFW_READ_FIND_WORD (find ⟨was⟩ among real visual neighbours — the
-//   construct IS print recognition, so the surface-match oracle is expected and
-//   the items carry scannerExpected).
+//   make) + HFW_AUDIO_FIND_WORD (hear a production recording, then identify
+//   the matching printed word among real visual neighbours).
 // L2 spell: HFW_SENTENCE_SPELL_CONTEXT + HFW_LETTER_BUILD — tile builds; the
 //   word is never displayed, the letter bank always includes the tempting
 //   wrong letters (was → z, o present). Text tier runs read-and-spell from the
@@ -31,16 +30,18 @@ const cz = (u, lvl, ph, v, sentence, words, rationales, note = "") => ({
   note
 });
 
-// Read-and-find: the construct is print recognition — scanner expected.
-const rf = (u, lvl, ph, v, words, rationales, note = "", frame = "find") => ({
-  u, lvl, ph, v, fmt: "HFW_READ_FIND_WORD",
-  prompt: frame === "point" ? `Point to the word: ${u}` : `Find the word: ${u}`,
-  spoken: `${u}. Find the word ${u}.`,
+// Audio-find: the target is never printed in the prompt.
+const rf = (u, lvl, ph, v, words, rationales, note = "") => ({
+  u, lvl, ph, v, fmt: "HFW_AUDIO_FIND_WORD", questionType: "listen_and_find_word",
+  prompt: "Tap sound. Pick its match.",
+  spoken: "Tap sound. Pick its match.",
   choices: words.map((w, i) => (i === 0 ? K(w) : P(w, rationales[i - 1]))),
-  media: "text",
+  media: "audio-required",
   target: u,
-  scannerExpected: true,
-  note: note || "print recognition IS the construct — surface match is the task"
+  audioRole: "target_word",
+  evidenceModality: "audio+print",
+  constructClaim: "spoken_to_print_high_frequency_word_recognition",
+  note
 });
 
 // Spell in context (tile build, word never shown).

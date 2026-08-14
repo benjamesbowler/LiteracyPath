@@ -11,7 +11,39 @@ const it = (u, lvl, ph, v, passage, prompt, choices, note = "", extra = {}) => (
   u, lvl, ph, v, fmt: "COMPREHENSION", cell: u, passage, prompt, choices, media: "text", note, ...extra
 });
 
-const LITERAL_CELLS = new Set(["who", "where", "what_happened", "number_detail", "precise_detail"]);
+// Literal-detail questions still require comprehension: keys paraphrase the
+// stated detail so a child cannot win by choosing the option that copies the
+// most passage words. Number/time keys also switch notation.
+const PARAPHRASED_LITERAL_KEYS = new Map(Object.entries({
+  "a book with photographs of lightning": "the storm photo book",
+  "neat silver ladder lines": "tidy marks on the ladder",
+  "a tiny crab was inside it": "the shell was somebody's home",
+  "it tore": "it split open",
+  "the bike chain was loose": "the chain was not tight",
+  "an acorn": "a nut from an oak tree",
+  "so they would not crack": "to keep them safe from breaking",
+  "on the sunny classroom window ledge": "in bright light",
+  "into the hall": "inside the school building",
+  "on the bottom": "beneath all the other books",
+  "beside the stairs": "next to the staircase",
+  "in the side pocket of his bag": "in an outside pocket",
+  "in the lost property box": "in a found-items box",
+  "beside the playground gate": "near the entrance to the play area",
+  "Coach Lee": "the sports teacher",
+  "Noah": "the helpful classmate",
+  "Rosa's cousin": "her relative",
+  "the choir teacher": "her singing teacher",
+  "three": "3",
+  "the last note": "the ending sound",
+  "the garden team holding fresh carrots": "the carrot-holding group",
+  "a turtle crawling toward the water": "an animal moving to the shore",
+  "a blue cloth": "blue fabric",
+  "on the front of her notebook": "on her notebook cover",
+  "under the chair": "beneath a seat",
+  "five": "5",
+  "ten thirty": "10:30",
+  "Gita": "the blushing girl"
+}));
 
 export default {
   skillId: "key_details",
@@ -221,12 +253,12 @@ export default {
       passage: "On the meadow walk, Chloe carried a small field guide. She saw yellow butterflies landing on purple flowers. Her partner counted five butterflies before they flew away. Chloe wrote the number beside a quick drawing in her guide.",
       prompt: "How many butterflies did Chloe's partner count?",
       choices: [K("five"), P("two", "D-PLAUSIBLE-UNSUPPORTED"), P("nine", "D-PLAUSIBLE-UNSUPPORTED"), P("twelve", "D-PLAUSIBLE-UNSUPPORTED")],
-      note: "Numeric detail extraction legitimately repeats the stated number.", retention: true, scannerExpected: true },
+      note: "Numeric detail extraction retention check.", retention: true },
     { u: "detail_across_sentences", lvl: 2, ph: 1, v: 13, fmt: "COMPREHENSION", cell: "detail_across_sentences", media: "text",
       passage: "Ethan waited at the station with his grandmother. Their train was late because workers were checking the track. A message on the screen said the train would arrive at ten thirty. Ethan read the time aloud so his grandmother could hear it.",
       prompt: "What time did the screen say the train would arrive?",
       choices: [K("ten thirty"), P("nine fifteen", "D-PLAUSIBLE-UNSUPPORTED"), P("eleven forty", "D-PLAUSIBLE-UNSUPPORTED"), P("eight o'clock", "D-PLAUSIBLE-UNSUPPORTED")],
-      note: "Time-detail extraction legitimately repeats the stated time.", retention: true, scannerExpected: true },
+      note: "Time-detail extraction retention check.", retention: true },
     { u: "detail_across_sentences", lvl: 2, ph: 1, v: 14, fmt: "COMPREHENSION", cell: "detail_across_sentences", media: "text",
       passage: "The class cleaned the playground after the spring fair. Mateo found paper cups near the fence and plastic spoons under a table. He put the cups in the recycling bag. The spoons went into the trash bag because they were dirty.",
       prompt: "What did Mateo put in the recycling bag?",
@@ -357,11 +389,12 @@ export default {
       "The relay team ran in a fixed order. Jaya started, because her starts were lightning. Ben ran second and Priw third, keeping the pace steady. The last leg belonged to Omar — not the fastest starter, but nobody, ever, caught him from in front.",
       "Why did Omar run last?",
       [K("no one could catch him from in front"), P("his starts were lightning","D-SEQUENCE-SWAP"), P("he kept the pace steady","D-SEQUENCE-SWAP"), P("he was the captain","D-PLAUSIBLE-UNSUPPORTED")], "", { retention: true }),
-  ].map(item => (LITERAL_CELLS.has(item.u)
-    // Literal-recall cells: the key is passage-anchored BY CONSTRUCT (finding
-    // the stated detail IS the skill), so the surface-match oracle is expected
-    // to align with the answer here. The discriminating cells (which_is_not,
-    // detail_across_sentences) stay fully leak-gated.
-    ? { ...item, scannerExpected: true }
-    : item))
+  ].map(item => ({
+    ...item,
+    choices: item.choices.map(choice => (
+      choice.k && PARAPHRASED_LITERAL_KEYS.has(choice.t)
+        ? { ...choice, t: PARAPHRASED_LITERAL_KEYS.get(choice.t) }
+        : choice
+    ))
+  }))
 };

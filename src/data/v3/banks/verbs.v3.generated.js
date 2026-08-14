@@ -18,12 +18,13 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_body",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do?",
-  "question": "Which one shows a doing word — something you do?",
-  "spokenPrompt": "Which one shows a doing word — something you do?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "We ___ across the pool.",
+  "question": "We ___ across the pool.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … across the pool.",
+  "sentence": "We ___ across the pool.",
   "choices": [
    "lamp",
    "swim",
@@ -59,15 +60,31 @@ export const questions = [
    "hat": "D-FUNCTION-SWAP",
    "lamp": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ across the pool.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_action_body.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -77,45 +94,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_lamp",
-    "word": "lamp",
-    "value": "lamp",
-    "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
-    "imageAlt": "lamp"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_swim",
-    "word": "swim",
-    "value": "swim",
-    "label": "swim",
-    "image": "/images/assessment/blends/swim.webp",
-    "imagePath": "/images/assessment/blends/swim.webp",
-    "imageAlt": "swim"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_cup",
-    "word": "cup",
-    "value": "cup",
-    "label": "cup",
-    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imageAlt": "cup"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v1_card_hat",
-    "word": "hat",
-    "value": "hat",
-    "label": "hat",
-    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
-    "imageAlt": "hat"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v2",
@@ -134,12 +119,13 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_body",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do?",
-  "question": "Which one shows a doing word — something you do?",
-  "spokenPrompt": "Which one shows a doing word — something you do?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The rabbit can ___ over a log.",
+  "question": "The rabbit can ___ over a log.",
+  "spokenPrompt": "Which doing word finishes the sentence? The rabbit can … over a log.",
+  "sentence": "The rabbit can ___ over a log.",
   "choices": [
    "hop",
    "belt",
@@ -175,15 +161,31 @@ export const questions = [
    "clock": "D-FUNCTION-SWAP",
    "spoon": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The rabbit can ___ over a log.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_action_body.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -193,45 +195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_hop",
-    "word": "hop",
-    "value": "hop",
-    "label": "hop",
-    "image": "/images/assessment/rhyming/variants/op/hop-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/hop-02.webp",
-    "imageAlt": "hop"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_belt",
-    "word": "belt",
-    "value": "belt",
-    "label": "belt",
-    "image": "/images/assessment/blends/belt.webp",
-    "imagePath": "/images/assessment/blends/belt.webp",
-    "imageAlt": "belt"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_clock",
-    "word": "clock",
-    "value": "clock",
-    "label": "clock",
-    "image": "/images/assessment/digraphs/clock.webp",
-    "imagePath": "/images/assessment/digraphs/clock.webp",
-    "imageAlt": "clock"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_action_body.v2_card_spoon",
-    "word": "spoon",
-    "value": "spoon",
-    "label": "spoon",
-    "image": "/images/assessment/long-vowels/spoon.webp",
-    "imagePath": "/images/assessment/long-vowels/spoon.webp",
-    "imageAlt": "spoon"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v3",
@@ -250,12 +220,13 @@ export const questions = [
   "form": "C",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_body",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do?",
-  "question": "Which one shows a doing word — something you do?",
-  "spokenPrompt": "Which one shows a doing word — something you do?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "We ___ when the song ends.",
+  "question": "We ___ when the song ends.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … when the song ends.",
+  "sentence": "We ___ when the song ends.",
   "choices": [
    "drum",
    "tent",
@@ -291,15 +262,31 @@ export const questions = [
    "tent": "D-FUNCTION-SWAP",
    "fork": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ when the song ends.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.C.verb_action_body.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -310,44 +297,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "the drum is the trap — you PLAY it, but the card names a thing",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_tent",
-    "word": "tent",
-    "value": "tent",
-    "label": "tent",
-    "image": "/images/assessment/blends/tent.webp",
-    "imagePath": "/images/assessment/blends/tent.webp",
-    "imageAlt": "tent"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_fork",
-    "word": "fork",
-    "value": "fork",
-    "label": "fork",
-    "image": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-    "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-    "imageAlt": "fork"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_action_body.v3_card_clap",
-    "word": "clap",
-    "value": "clap",
-    "label": "clap",
-    "image": "/images/assessment/blends/clap.webp",
-    "imagePath": "/images/assessment/blends/clap.webp",
-    "imageAlt": "clap"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v4",
@@ -411,11 +366,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_action_body.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -425,7 +395,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v5",
@@ -489,11 +465,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_action_body.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -503,7 +494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "a rhyming panel — only the grammar separates them"
+  "notes": "a rhyming panel — only the grammar separates them",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_body.v6",
@@ -567,11 +564,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.C.verb_action_body.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -581,7 +593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_body.v7",
@@ -600,12 +618,13 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_body",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do?",
-  "question": "Which one shows a doing word — something you do?",
-  "spokenPrompt": "Which one shows a doing word — something you do?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The dog can ___ in the soil.",
+  "question": "The dog can ___ in the soil.",
+  "spokenPrompt": "Which doing word finishes the sentence? The dog can … in the soil.",
+  "sentence": "The dog can ___ in the soil.",
   "choices": [
    "bag",
    "log",
@@ -641,15 +660,31 @@ export const questions = [
    "mug": "D-FUNCTION-SWAP",
    "bag": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The dog can ___ in the soil.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_action_body.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -659,45 +694,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_bag",
-    "word": "bag",
-    "value": "bag",
-    "label": "bag",
-    "image": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ag/bag-02.webp",
-    "imageAlt": "bag"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_log",
-    "word": "log",
-    "value": "log",
-    "label": "log",
-    "image": "/images/assessment/rhyming/variants/og/log-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
-    "imageAlt": "log"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_mug",
-    "word": "mug",
-    "value": "mug",
-    "label": "mug",
-    "image": "/images/assessment/rhyming/variants/mug/mug-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/mug/mug-02.webp",
-    "imageAlt": "mug"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_body.v7_card_dig",
-    "word": "dig",
-    "value": "dig",
-    "label": "dig",
-    "image": "/images/assessment/rhyming/variants/ig/dig-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ig/dig-02.webp",
-    "imageAlt": "dig"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_body.v8",
@@ -761,11 +764,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_action_body.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -775,7 +793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v1",
@@ -794,12 +818,13 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_object",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do to things?",
-  "question": "Which one shows a doing word — something you do to things?",
-  "spokenPrompt": "Which one shows a doing word — something you do to things?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Please ___ a boat on the paper.",
+  "question": "Please ___ a boat on the paper.",
+  "spokenPrompt": "Which doing word finishes the sentence? Please … a boat on the paper.",
+  "sentence": "Please ___ a boat on the paper.",
   "choices": [
    "draw",
    "desk",
@@ -835,15 +860,31 @@ export const questions = [
    "bell": "D-FUNCTION-SWAP",
    "boat": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ a boat on the paper.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_action_object.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -853,45 +894,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_draw",
-    "word": "draw",
-    "value": "draw",
-    "label": "draw",
-    "image": "/images/assessment/blends/draw.webp",
-    "imagePath": "/images/assessment/blends/draw.webp",
-    "imageAlt": "draw"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_desk",
-    "word": "desk",
-    "value": "desk",
-    "label": "desk",
-    "image": "/images/assessment/blends/desk.webp",
-    "imagePath": "/images/assessment/blends/desk.webp",
-    "imageAlt": "desk"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_bell",
-    "word": "bell",
-    "value": "bell",
-    "label": "bell",
-    "image": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
-    "imageAlt": "bell"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v1_card_boat",
-    "word": "boat",
-    "value": "boat",
-    "label": "boat",
-    "image": "/images/assessment/long-vowels/boat.webp",
-    "imagePath": "/images/assessment/long-vowels/boat.webp",
-    "imageAlt": "boat"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v2",
@@ -910,12 +919,13 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_object",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do to things?",
-  "question": "Which one shows a doing word — something you do to things?",
-  "spokenPrompt": "Which one shows a doing word — something you do to things?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Please ___ the switch once.",
+  "question": "Please ___ the switch once.",
+  "spokenPrompt": "Which doing word finishes the sentence? Please … the switch once.",
+  "sentence": "Please ___ the switch once.",
   "choices": [
    "brick",
    "shell",
@@ -951,15 +961,31 @@ export const questions = [
    "shell": "D-FUNCTION-SWAP",
    "moon": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the switch once.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_action_object.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -969,45 +995,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_brick",
-    "word": "brick",
-    "value": "brick",
-    "label": "brick",
-    "image": "/images/assessment/digraphs/brick.webp",
-    "imagePath": "/images/assessment/digraphs/brick.webp",
-    "imageAlt": "brick"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_shell",
-    "word": "shell",
-    "value": "shell",
-    "label": "shell",
-    "image": "/images/assessment/digraphs/shell.webp",
-    "imagePath": "/images/assessment/digraphs/shell.webp",
-    "imageAlt": "shell"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "moon"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_action_object.v2_card_press",
-    "word": "press",
-    "value": "press",
-    "label": "press",
-    "image": "/images/assessment/blends/press.webp",
-    "imagePath": "/images/assessment/blends/press.webp",
-    "imageAlt": "press"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v3",
@@ -1026,12 +1020,13 @@ export const questions = [
   "form": "C",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_object",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do to things?",
-  "question": "Which one shows a doing word — something you do to things?",
-  "spokenPrompt": "Which one shows a doing word — something you do to things?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "We ___ our food before swallowing.",
+  "question": "We ___ our food before swallowing.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … our food before swallowing.",
+  "sentence": "We ___ our food before swallowing.",
   "choices": [
    "bread",
    "chew",
@@ -1067,15 +1062,31 @@ export const questions = [
    "dish": "D-FUNCTION-SWAP",
    "bread": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ our food before swallowing.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.C.verb_action_object.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1086,44 +1097,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "all three thing-cards are chewable — the action card still wins",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_bread",
-    "word": "bread",
-    "value": "bread",
-    "label": "bread",
-    "image": "/images/assessment/blends/bread.webp",
-    "imagePath": "/images/assessment/blends/bread.webp",
-    "imageAlt": "bread"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_chew",
-    "word": "chew",
-    "value": "chew",
-    "label": "chew",
-    "image": "/images/assessment/long-vowels/chew.webp",
-    "imagePath": "/images/assessment/long-vowels/chew.webp",
-    "imageAlt": "chew"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_meat",
-    "word": "meat",
-    "value": "meat",
-    "label": "meat",
-    "image": "/images/child-mode/initial-sounds/meat.png",
-    "imagePath": "/images/child-mode/initial-sounds/meat.png",
-    "imageAlt": "meat"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_action_object.v3_card_dish",
-    "word": "dish",
-    "value": "dish",
-    "label": "dish",
-    "image": "/images/assessment/digraphs/dish.webp",
-    "imagePath": "/images/assessment/digraphs/dish.webp",
-    "imageAlt": "dish"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v4",
@@ -1187,11 +1166,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_action_object.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1201,7 +1195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v5",
@@ -1265,11 +1265,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_action_object.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1279,7 +1294,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.C.verb_action_object.v6",
@@ -1343,11 +1364,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.C.verb_action_object.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1357,7 +1393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_action_object.v7",
@@ -1376,12 +1418,13 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_object",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do to things?",
-  "question": "Which one shows a doing word — something you do to things?",
-  "spokenPrompt": "Which one shows a doing word — something you do to things?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Please ___ the soup with care.",
+  "question": "Please ___ the soup with care.",
+  "spokenPrompt": "Which doing word finishes the sentence? Please … the soup with care.",
+  "sentence": "Please ___ the soup with care.",
   "choices": [
    "lid",
    "moon",
@@ -1417,15 +1460,31 @@ export const questions = [
    "pot": "D-FUNCTION-SWAP",
    "lid": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the soup with care.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_action_object.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1435,45 +1494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_lid",
-    "word": "lid",
-    "value": "lid",
-    "label": "lid",
-    "image": "/images/child-mode/short-i/lid.png",
-    "imagePath": "/images/child-mode/short-i/lid.png",
-    "imageAlt": "lid"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "moon"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_stir",
-    "word": "stir",
-    "value": "stir",
-    "label": "stir",
-    "image": "/images/objects/stir.png",
-    "imagePath": "/images/objects/stir.png",
-    "imageAlt": "stir"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_action_object.v7_card_pot",
-    "word": "pot",
-    "value": "pot",
-    "label": "pot",
-    "image": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ot/pot-02.webp",
-    "imageAlt": "pot"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_action_object.v8",
@@ -1537,11 +1564,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_action_object.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1551,7 +1593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v1",
@@ -1570,12 +1618,13 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "verb_everyday",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do every day?",
-  "question": "Which one shows a doing word — something you do every day?",
-  "spokenPrompt": "Which one shows a doing word — something you do every day?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "We ___ lunch at noon.",
+  "question": "We ___ lunch at noon.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … lunch at noon.",
+  "sentence": "We ___ lunch at noon.",
   "choices": [
    "plate",
    "cake",
@@ -1611,15 +1660,31 @@ export const questions = [
    "cake": "D-FUNCTION-SWAP",
    "corn": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ lunch at noon.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1629,45 +1694,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_plate",
-    "word": "plate",
-    "value": "plate",
-    "label": "plate",
-    "image": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
-    "imagePath": "/images/assessment/language/variants/plurals/plate-plates-01.webp",
-    "imageAlt": "plate"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_cake",
-    "word": "cake",
-    "value": "cake",
-    "label": "cake",
-    "image": "/images/assessment/long-vowels/cake.webp",
-    "imagePath": "/images/assessment/long-vowels/cake.webp",
-    "imageAlt": "cake"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_corn",
-    "word": "corn",
-    "value": "corn",
-    "label": "corn",
-    "image": "/images/assessment/rhyming/variants/or/corn-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/or/corn-02.webp",
-    "imageAlt": "corn"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v1_card_eat",
-    "word": "eat",
-    "value": "eat",
-    "label": "eat",
-    "image": "/images/assessment/language/variants/antonyms-synonyms/eat-munch-01.webp",
-    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/eat-munch-01.webp",
-    "imageAlt": "eat"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v2",
@@ -1686,12 +1719,13 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "verb_everyday",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do every day?",
-  "question": "Which one shows a doing word — something you do every day?",
-  "spokenPrompt": "Which one shows a doing word — something you do every day?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Babies ___ in their cots.",
+  "question": "Babies ___ in their cots.",
+  "spokenPrompt": "Which doing word finishes the sentence? Babies … in their cots.",
+  "sentence": "Babies ___ in their cots.",
   "choices": [
    "lamp",
    "quilt",
@@ -1727,15 +1761,31 @@ export const questions = [
    "quilt": "D-FUNCTION-SWAP",
    "bed": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Babies ___ in their cots.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_everyday.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1745,45 +1795,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_lamp",
-    "word": "lamp",
-    "value": "lamp",
-    "label": "lamp",
-    "image": "/images/assessment/blends/lamp.webp",
-    "imagePath": "/images/assessment/blends/lamp.webp",
-    "imageAlt": "lamp"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_quilt",
-    "word": "quilt",
-    "value": "quilt",
-    "label": "quilt",
-    "image": "/images/child-mode/initial-sounds/quilt.png",
-    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
-    "imageAlt": "quilt"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_sleep",
-    "word": "sleep",
-    "value": "sleep",
-    "label": "sleep",
-    "image": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-    "imageAlt": "sleep"
-   },
-   {
-    "id": "lp3.verbs.l1.B.verb_everyday.v2_card_bed",
-    "word": "bed",
-    "value": "bed",
-    "label": "bed",
-    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
-    "imageAlt": "bed"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v3",
@@ -1802,12 +1820,13 @@ export const questions = [
   "form": "C",
   "itemType": "grammar_concept",
   "itemKey": "verb_everyday",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do every day?",
-  "question": "Which one shows a doing word — something you do every day?",
-  "spokenPrompt": "Which one shows a doing word — something you do every day?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "We ___ a book after lunch.",
+  "question": "We ___ a book after lunch.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … a book after lunch.",
+  "sentence": "We ___ a book after lunch.",
   "choices": [
    "book",
    "desk",
@@ -1843,15 +1862,31 @@ export const questions = [
    "desk": "D-FUNCTION-SWAP",
    "shelf": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ a book after lunch.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.C.verb_everyday.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1861,45 +1896,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_book",
-    "word": "book",
-    "value": "book",
-    "label": "book",
-    "image": "/images/assessment/language/variants/plurals/book-books-01.webp",
-    "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
-    "imageAlt": "book"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_desk",
-    "word": "desk",
-    "value": "desk",
-    "label": "desk",
-    "image": "/images/assessment/blends/desk.webp",
-    "imagePath": "/images/assessment/blends/desk.webp",
-    "imageAlt": "desk"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_shelf",
-    "word": "shelf",
-    "value": "shelf",
-    "label": "shelf",
-    "image": "/images/assessment/blends/shelf.webp",
-    "imagePath": "/images/assessment/blends/shelf.webp",
-    "imageAlt": "shelf"
-   },
-   {
-    "id": "lp3.verbs.l1.C.verb_everyday.v3_card_read",
-    "word": "read",
-    "value": "read",
-    "label": "read",
-    "image": "/images/assessment/hfw/read.webp",
-    "imagePath": "/images/assessment/hfw/read.webp",
-    "imageAlt": "read"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v4",
@@ -1963,11 +1966,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1977,7 +1995,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v5",
@@ -2041,11 +2065,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_everyday.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2055,7 +2094,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.C.verb_everyday.v6",
@@ -2119,11 +2164,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.C.verb_everyday.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2133,7 +2193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.A.verb_everyday.v7",
@@ -2152,12 +2218,13 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "verb_everyday",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do every day?",
-  "question": "Which one shows a doing word — something you do every day?",
-  "spokenPrompt": "Which one shows a doing word — something you do every day?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "We ___ water when we are thirsty.",
+  "question": "We ___ water when we are thirsty.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … water when we are thirsty.",
+  "sentence": "We ___ water when we are thirsty.",
   "choices": [
    "jug",
    "drink",
@@ -2193,15 +2260,31 @@ export const questions = [
    "jug": "D-FUNCTION-SWAP",
    "cup": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ water when we are thirsty.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.A.verb_everyday.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2212,44 +2295,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "pin ties the in/doing overlap",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_jug",
-    "word": "jug",
-    "value": "jug",
-    "label": "jug",
-    "image": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/jug/jug-02.webp",
-    "imageAlt": "jug"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_drink",
-    "word": "drink",
-    "value": "drink",
-    "label": "drink",
-    "image": "/images/objects/drink.png",
-    "imagePath": "/images/objects/drink.png",
-    "imageAlt": "drink"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_cup",
-    "word": "cup",
-    "value": "cup",
-    "label": "cup",
-    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imageAlt": "cup"
-   },
-   {
-    "id": "lp3.verbs.l1.A.verb_everyday.v7_card_hat",
-    "word": "hat",
-    "value": "hat",
-    "label": "hat",
-    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
-    "imageAlt": "hat"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.B.verb_everyday.v8",
@@ -2313,11 +2364,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.B.verb_everyday.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2327,7 +2393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "no second action word competes with brush"
+  "notes": "no second action word competes with brush",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v1",
@@ -2392,12 +2464,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We ___ the raft to the dock.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_in_sentence.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2407,7 +2494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot"
+  "notes": "only pull can DO anything here — rope/wet/dock cannot fill a doing slot",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v2",
@@ -2472,12 +2565,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The twins ___ over the puddle.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_in_sentence.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2487,7 +2595,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v3",
@@ -2552,12 +2666,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Please ___ the door quietly.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.C.verb_in_sentence.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2567,7 +2696,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v4",
@@ -2632,12 +2767,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Owls ___ after dark.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_in_sentence.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2647,7 +2797,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk"
+  "notes": "after dark, not sunset — sunset contains un and would gift the key a chunk",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v5",
@@ -2711,11 +2867,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_in_sentence.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2725,7 +2896,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties"
+  "notes": "dinner matches chased letter-for-letter in length, so the longest-word shortcut ties",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.C.verb_in_sentence.v6",
@@ -2789,11 +2966,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.C.verb_in_sentence.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2803,7 +2995,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_in_sentence.v7",
@@ -2868,12 +3066,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Crabs ___ across the sand.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_in_sentence.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2883,7 +3096,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_in_sentence.v8",
@@ -2948,12 +3167,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We ___ the seeds each morning.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_in_sentence.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2963,7 +3197,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "water the verb — the noun reading has no slot here"
+  "notes": "water the verb — the noun reading has no slot here",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v1",
@@ -3027,11 +3267,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_vs_noun.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3041,7 +3296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the whole word family in one set — only sing does"
+  "notes": "the whole word family in one set — only sing does",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v2",
@@ -3105,11 +3366,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_vs_noun.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3119,7 +3395,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v3",
@@ -3183,11 +3465,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.C.verb_vs_noun.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3197,7 +3494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v4",
@@ -3262,12 +3565,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ swims fifty laps a day.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_vs_noun.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3277,7 +3595,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the verb family competes — only the naming word follows The"
+  "notes": "the verb family competes — only the naming word follows The",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v5",
@@ -3341,11 +3665,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_vs_noun.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3355,7 +3694,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.C.verb_vs_noun.v6",
@@ -3419,11 +3764,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.C.verb_vs_noun.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3433,7 +3793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_vs_noun.v7",
@@ -3498,12 +3864,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ twirled across the stage.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_vs_noun.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3513,7 +3894,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_vs_noun.v8",
@@ -3577,11 +3964,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_vs_noun.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3591,7 +3993,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the past-tense form is unambiguously the action"
+  "notes": "the past-tense form is unambiguously the action",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v1",
@@ -3656,12 +4064,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The frog ___ over the log in one big spring.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3671,7 +4094,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all four are grammatical — one big spring pins jumped"
+  "notes": "all four are grammatical — one big spring pins jumped",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v2",
@@ -3736,12 +4165,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The soup ___ in the pot until bubbles rose.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_precision.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3751,7 +4195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "bubbles pin boiled"
+  "notes": "bubbles pin boiled",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v3",
@@ -3815,11 +4265,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.C.verb_precision.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3829,7 +4294,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap"
+  "notes": "all four are water words — only one matches drop by drop; drain ties the dr/drop overlap",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v4",
@@ -3894,12 +4365,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "She ___ the note in half and half again.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3909,7 +4395,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "in half and half again pins folded"
+  "notes": "in half and half again pins folded",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v5",
@@ -3974,12 +4466,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The snail ___ along, leaving a silver line.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_precision.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3989,7 +4496,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.C.verb_precision.v6",
@@ -4054,12 +4567,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "He ___ the balloon until it nearly burst.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.C.verb_precision.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4069,7 +4597,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "nearly burst pins blew — popped would mean it DID burst"
+  "notes": "nearly burst pins blew — popped would mean it DID burst",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.A.verb_precision.v7",
@@ -4133,11 +4667,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.A.verb_precision.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4147,7 +4696,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.B.verb_precision.v8",
@@ -4212,12 +4767,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Dad ___ the squeaky wheel with oil.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.B.verb_precision.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4227,7 +4797,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_body.v9r",
@@ -4291,11 +4867,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_action_body.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-body.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4305,7 +4896,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chin ties the ch/which overlap"
+  "notes": "chin ties the ch/which overlap",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-body.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v9r",
@@ -4324,12 +4921,13 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "verb_action_object",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do to things?",
-  "question": "Which one shows a doing word — something you do to things?",
-  "spokenPrompt": "Which one shows a doing word — something you do to things?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Please ___ the carrots into pieces.",
+  "question": "Please ___ the carrots into pieces.",
+  "spokenPrompt": "Which doing word finishes the sentence? Please … the carrots into pieces.",
+  "sentence": "Please ___ the carrots into pieces.",
   "choices": [
    "belt",
    "chop",
@@ -4365,15 +4963,31 @@ export const questions = [
    "belt": "D-FUNCTION-SWAP",
    "cloth": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Please ___ the carrots into pieces.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_action_object.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4383,45 +4997,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_belt",
-    "word": "belt",
-    "value": "belt",
-    "label": "belt",
-    "image": "/images/assessment/blends/belt.webp",
-    "imagePath": "/images/assessment/blends/belt.webp",
-    "imageAlt": "belt"
-   },
-   {
-    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_chop",
-    "word": "chop",
-    "value": "chop",
-    "label": "chop",
-    "image": "/images/objects/chop.png",
-    "imagePath": "/images/objects/chop.png",
-    "imageAlt": "chop"
-   },
-   {
-    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_cloth",
-    "word": "cloth",
-    "value": "cloth",
-    "label": "cloth",
-    "image": "/images/assessment/digraphs/cloth.webp",
-    "imagePath": "/images/assessment/digraphs/cloth.webp",
-    "imageAlt": "cloth"
-   },
-   {
-    "id": "lp3.verbs.l1.R.verb_action_object.v9r_card_brick",
-    "word": "brick",
-    "value": "brick",
-    "label": "brick",
-    "image": "/images/assessment/digraphs/brick.webp",
-    "imagePath": "/images/assessment/digraphs/brick.webp",
-    "imageAlt": "brick"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v9r",
@@ -4485,11 +5067,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_everyday.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4499,7 +5096,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v9r",
@@ -4564,12 +5167,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Bees ___ from rose to rose.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_in_sentence.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4579,7 +5197,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.R.verb_vs_noun.v9r",
@@ -4643,11 +5267,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_vs_noun.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-vs-noun.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4657,7 +5296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-vs-noun.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v9r",
@@ -4722,12 +5367,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ice ___ slowly in the warm sun.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_precision.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4737,7 +5397,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.R.verb_action_object.v10r",
@@ -4801,11 +5467,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_action_object.v10r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-action-object.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4815,7 +5496,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-action-object.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l1.R.verb_everyday.v10r",
@@ -4834,12 +5521,13 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "verb_everyday",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a doing word — something you do every day?",
-  "question": "Which one shows a doing word — something you do every day?",
-  "spokenPrompt": "Which one shows a doing word — something you do every day?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "We ___ to school each morning.",
+  "question": "We ___ to school each morning.",
+  "spokenPrompt": "Which doing word finishes the sentence? We … to school each morning.",
+  "sentence": "We ___ to school each morning.",
   "choices": [
    "walk",
    "path",
@@ -4875,15 +5563,31 @@ export const questions = [
    "gate": "D-FUNCTION-SWAP",
    "park": "D-FUNCTION-SWAP"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "We ___ to school each morning.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l1.R.verb_everyday.v10r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-everyday.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4893,45 +5597,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_walk",
-    "word": "walk",
-    "value": "walk",
-    "label": "walk",
-    "image": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
-    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/walk-stroll-01.webp",
-    "imageAlt": "walk"
-   },
-   {
-    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_path",
-    "word": "path",
-    "value": "path",
-    "label": "path",
-    "image": "/images/objects/path.png",
-    "imagePath": "/images/objects/path.png",
-    "imageAlt": "path"
-   },
-   {
-    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_gate",
-    "word": "gate",
-    "value": "gate",
-    "label": "gate",
-    "image": "/images/assessment/long-vowels/gate.webp",
-    "imagePath": "/images/assessment/long-vowels/gate.webp",
-    "imageAlt": "gate"
-   },
-   {
-    "id": "lp3.verbs.l1.R.verb_everyday.v10r_card_park",
-    "word": "park",
-    "value": "park",
-    "label": "park",
-    "image": "/images/child-mode/initial-sounds/park.png",
-    "imagePath": "/images/child-mode/initial-sounds/park.png",
-    "imageAlt": "park"
-   }
-  ]
+  "notes": "language context, not a category-revealing picture, provides the evidence",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-everyday.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.R.verb_in_sentence.v10r",
@@ -4996,12 +5668,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The wind ___ the washing dry.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_in_sentence.v10r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5011,7 +5698,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.verbs.l2.R.verb_precision.v10r",
@@ -5076,12 +5769,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The baby ___ at every funny face.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.verbs.l2.R.verb_precision.v10r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/verbs-verb-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/verbs-verb-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5091,6 +5799,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/verbs-verb-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  }
 ];

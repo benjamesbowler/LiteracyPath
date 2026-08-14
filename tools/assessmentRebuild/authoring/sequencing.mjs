@@ -45,6 +45,10 @@ const sequenceItem = (u, ph, v, passage, events, imageKeys, retention = false) =
     })),
     correctSequence: events,
     media: "image-required",
+    evidenceModality: "audio+image",
+    constructClaim: "heard_story_event_order",
+    hideWrittenLabels: true,
+    displayPassageDuringResponse: false,
     retention
   };
 };

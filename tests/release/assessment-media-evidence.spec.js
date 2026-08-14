@@ -96,3 +96,45 @@ test("compact laptop assessment keeps every picture audio control visible", asyn
     controlsInsideQuestion: true
   });
 });
+
+test("generated scene questions fit a compact laptop and load approved evidence", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 720 });
+  const itemIds = [
+    "lp3.sentence_comprehension.l1.A.picture_match.v1",
+    "lp3.sentence_comprehension.l1.B.picture_match.v2",
+    "lp3.sentence_comprehension.l1.C.picture_match.v3",
+    "lp3.sentence_comprehension.l1.A.picture_match.v4",
+    "lp3.sentence_comprehension.l1.B.picture_match.v5",
+    "lp3.sentence_comprehension.l1.C.picture_match.v6",
+    "lp3.sentence_comprehension.l1.A.picture_match.v7",
+    "lp3.sentence_comprehension.l1.B.picture_match.v8",
+    "lp3.sentence_comprehension.l1.R.picture_match.v9r",
+    "lp3.sentence_comprehension.l1.R.picture_match.v10r"
+  ];
+
+  for (const itemId of itemIds) {
+    await page.goto(`/preview/assessment-media-evidence.html?skill=sentence_comprehension&item=${encodeURIComponent(itemId)}`);
+    const question = page.locator(`[data-assessment-question-id="${itemId}"]`);
+    const image = question.locator('img[data-assessment-media-kind="evidence"]');
+    await expect(question).toBeVisible();
+    await expect(image).toHaveCount(1);
+    await expect.poll(() => image.evaluate(node => node.complete && node.naturalWidth > 0)).toBe(true);
+
+    const geometry = await question.evaluate(element => ({
+      documentOverflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      documentOverflowY: document.documentElement.scrollHeight - document.documentElement.clientHeight,
+      inaccessibleBottomControls: [...element.querySelectorAll(".choice-audio")].some(control => {
+        const rect = control.getBoundingClientRect();
+        return rect.bottom > window.innerHeight || rect.top < 0;
+      }),
+      questionOverflowIsScrollable: element.scrollHeight <= element.clientHeight
+        || ["auto", "scroll"].includes(getComputedStyle(element).overflowY)
+    }));
+    expect(geometry).toEqual({
+      documentOverflowX: 0,
+      documentOverflowY: 0,
+      inaccessibleBottomControls: false,
+      questionOverflowIsScrollable: true
+    });
+  }
+});

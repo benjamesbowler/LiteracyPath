@@ -63,13 +63,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cats",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_s.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/cat-cats-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cats",
+  "stimulusMediaId": "cats",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -149,13 +163,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dogs",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_add_s.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/dog-dogs-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "dogs",
+  "stimulusMediaId": "dogs",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -235,13 +263,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "books",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_add_s.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/book-books-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "books",
+  "stimulusMediaId": "books",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -321,13 +363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cups",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_s.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/cup-cups-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cups",
+  "stimulusMediaId": "cups",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -408,12 +464,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Two ___ sat on the wall.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_add_s.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-s.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -423,7 +494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "sat gifts at to cats and cat alike"
+  "notes": "sat gifts at to cats and cat alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.C.plural_add_s.v6",
@@ -488,12 +565,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The three ___ wag their tails.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_add_s.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-s.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -503,7 +595,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_s.v7",
@@ -568,12 +666,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Both ___ lay open on the desk.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_s.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-s.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -583,7 +696,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "both gifts bo to books and book alike; desk's es chunk touches no option"
+  "notes": "both gifts bo to books and book alike; desk's es chunk touches no option",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_s.v8",
@@ -648,12 +767,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Six ___ shine over the barn.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_add_s.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-s.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -663,7 +797,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "barn gifts ar to stars and star alike"
+  "notes": "barn gifts ar to stars and star alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.A.plural_concept.v1",
@@ -727,13 +867,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_concept.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/at/cat-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cat",
+  "stimulusMediaId": "cat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -813,13 +967,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dogs",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_concept.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/dog-dogs-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "dogs",
+  "stimulusMediaId": "dogs",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -899,13 +1067,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "hats",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_concept.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/hat-hats-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "hats",
+  "stimulusMediaId": "hats",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -985,13 +1167,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cup",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_concept.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/cup/cup-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cup",
+  "stimulusMediaId": "cup",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1072,12 +1268,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "I see one ___ by the door.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_concept.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-concept.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-concept.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1087,7 +1298,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.C.plural_concept.v6",
@@ -1152,12 +1369,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Many ___ twinkle at night.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_concept.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-concept.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-concept.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1167,7 +1399,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.A.plural_concept.v7",
@@ -1232,12 +1470,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "One ___ quacks as it floats on the pond.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_concept.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-concept.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-concept.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1247,7 +1500,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.B.plural_concept.v8",
@@ -1312,12 +1571,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Lots of ___ hop in the grass.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_concept.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-concept.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-concept.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1327,7 +1601,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_es.v1",
@@ -1391,13 +1671,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boxes",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/box-boxes-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boxes",
+  "stimulusMediaId": "boxes",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1477,13 +1771,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dishes",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_add_es.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/dish-dishes-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "dishes",
+  "stimulusMediaId": "dishes",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1563,13 +1871,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "brushes",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_add_es.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/brush-brushes-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "brushes",
+  "stimulusMediaId": "brushes",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1650,12 +1972,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We packed six ___ for the trip.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1665,7 +2002,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_es.v5",
@@ -1730,12 +2073,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ from dinner included plates and bowls.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_add_es.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1745,7 +2103,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.C.plural_add_es.v6",
@@ -1810,12 +2174,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Three ___ chugged up the hill.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_add_es.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1825,7 +2204,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.A.plural_add_es.v7",
@@ -1890,12 +2275,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ scrubbed the mud off our boots.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1905,7 +2305,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "scrubbed gifts ru to brushes and brush alike"
+  "notes": "scrubbed gifts ru to brushes and brush alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.B.plural_add_es.v8",
@@ -1970,12 +2376,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Two red ___ hid in the den.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.B.plural_add_es.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1985,7 +2406,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_y_to_ies.v1",
@@ -2050,12 +2477,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The newborn ___ giggled in their cots.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_y_to_ies.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2065,7 +2507,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_y_to_ies.v2",
@@ -2130,12 +2578,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Three ___ planned the fair.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_y_to_ies.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2145,7 +2608,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "planned gifts la to ladies and lady alike"
+  "notes": "planned gifts la to ladies and lady alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_y_to_ies.v3",
@@ -2210,12 +2679,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We hung balloons for both birthday ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_y_to_ies.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2225,7 +2709,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_y_to_ies.v4",
@@ -2289,11 +2779,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_y_to_ies.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2303,7 +2808,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "babys is the attested error (approvedDevErrors); slept and their tie its chunk length"
+  "notes": "babys is the attested error (approvedDevErrors); slept and their tie its chunk length",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_y_to_ies.v5",
@@ -2367,11 +2878,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_y_to_ies.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2381,7 +2907,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "night ties citys at five letters"
+  "notes": "night ties citys at five letters",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_y_to_ies.v6",
@@ -2445,11 +2977,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_y_to_ies.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2459,7 +3006,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the prompt names pony, so the scanner takes the bait word, not the key"
+  "notes": "the prompt names pony, so the scanner takes the bait word, not the key",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_irregular.v1",
@@ -2524,12 +3077,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ marched in the band.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_irregular.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2539,7 +3107,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "band and marched gift chunks to man and woman — a tied distractor pair"
+  "notes": "band and marched gift chunks to man and woman — a tied distractor pair",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_irregular.v2",
@@ -2604,12 +3178,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Both six-year-old ___ lost a milk tooth today.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_irregular.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2619,7 +3208,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_irregular.v3",
@@ -2683,11 +3278,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_irregular.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2697,7 +3307,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "kitchen outscores mouses, so the scanner lands on a correct word"
+  "notes": "kitchen outscores mouses, so the scanner lands on a correct word",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_irregular.v4",
@@ -2761,11 +3377,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_irregular.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2775,7 +3406,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_irregular.v5",
@@ -2839,11 +3476,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_irregular.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2853,7 +3505,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_irregular.v6",
@@ -2917,11 +3575,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_irregular.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2931,7 +3604,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_f_to_ves.v1",
@@ -2996,12 +3675,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Autumn ___ blew across the path.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_f_to_ves.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3011,7 +3705,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "blew gifts le to leaves and leaf alike"
+  "notes": "blew gifts le to leaves and leaf alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_f_to_ves.v2",
@@ -3076,12 +3776,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ howled on the hill.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_f_to_ves.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3091,7 +3806,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_f_to_ves.v3",
@@ -3156,12 +3877,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The chef laid five ___ by the plates.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_f_to_ves.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3171,7 +3907,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "five and plates gift iv/es to knives, shelves and shelf together — three-way tie"
+  "notes": "five and plates gift iv/es to knives, shelves and shelf together — three-way tie",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_f_to_ves.v4",
@@ -3235,11 +3977,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_f_to_ves.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3249,7 +4006,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_f_to_ves.v5",
@@ -3313,11 +4076,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_f_to_ves.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3327,7 +4105,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_f_to_ves.v6",
@@ -3391,11 +4175,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_f_to_ves.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3405,7 +4204,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_in_sentence.v1",
@@ -3470,12 +4275,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "All the newborn ___ slept in the dog bed.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_in_sentence.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3485,7 +4305,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "asleep gifts ee to the distractor geese only — scanner picks a distractor"
+  "notes": "asleep gifts ee to the distractor geese only — scanner picks a distractor",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_in_sentence.v2",
@@ -3550,12 +4376,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "One ___ was left on the plate.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_in_sentence.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3565,7 +4406,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_in_sentence.v3",
@@ -3630,12 +4477,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Two ___ of bread sat in the basket.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_in_sentence.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3645,7 +4507,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "basket, not oven — oven gifts ve to the key"
+  "notes": "basket, not oven — oven gifts ve to the key",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.A.plural_in_sentence.v4",
@@ -3709,11 +4577,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.A.plural_in_sentence.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3723,7 +4606,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "grazed and meadow tie sheeps at six letters"
+  "notes": "grazed and meadow tie sheeps at six letters",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.B.plural_in_sentence.v5",
@@ -3787,11 +4676,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.B.plural_in_sentence.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3801,7 +4705,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "only one plural in the set — are demands it; ripe and the gift chunks to key and two rivals"
+  "notes": "only one plural in the set — are demands it; ripe and the gift chunks to key and two rivals",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.C.plural_in_sentence.v6",
@@ -3865,11 +4775,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.C.plural_in_sentence.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3879,7 +4804,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.R.plural_add_s.v9r",
@@ -3943,13 +4874,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cats",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_add_s.v9r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/cat-cats-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cats",
+  "stimulusMediaId": "cats",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4030,12 +4975,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Ten ___ bark at the gate.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_add_s.v10r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-s.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4045,10 +5005,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-s.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
-  "id": "lp3.plurals.l1.R.plural_add_es.v9r",
+  "id": "lp3.plurals.l1.C.plural_add_es.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "plurals",
@@ -4061,7 +5027,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "C",
   "itemType": "grammar_concept",
   "itemKey": "plural_add_es",
   "formatType": "PLURAL_SPELLING_CONTEXT",
@@ -4072,12 +5038,17 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Four … played near the barn.",
   "sentence": "Four ___ played near the barn.",
   "choices": [
+   "foxes",
    "fox",
    "book",
-   "sun",
-   "foxes"
+   "sun"
   ],
   "answerOptions": [
+   {
+    "value": "foxes",
+    "label": "foxes",
+    "text": "foxes"
+   },
    {
     "value": "fox",
     "label": "fox",
@@ -4092,30 +5063,40 @@ export const questions = [
     "value": "sun",
     "label": "sun",
     "text": "sun"
-   },
-   {
-    "value": "foxes",
-    "label": "foxes",
-    "text": "foxes"
    }
   ],
   "answer": "foxes",
   "correctAnswer": "foxes",
   "distractorRationales": {
+   "fox": "D-FUNCTION-SWAP",
    "book": "D-SEMANTIC",
-   "sun": "D-SEMANTIC",
-   "fox": "D-FUNCTION-SWAP"
+   "sun": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Four ___ played near the barn.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.C.plural_add_es.v9",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-add-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4125,10 +5106,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "four gifts fo to foxes and fox alike"
+  "notes": "four gifts fo to foxes and fox alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-add-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
-  "id": "lp3.plurals.l1.R.plural_add_es.v10r",
+  "id": "lp3.plurals.l1.A.plural_add_es.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "plurals",
@@ -4141,7 +5128,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "plural_add_es",
   "formatType": "PLURAL_IMAGE_SPELLING",
@@ -4151,12 +5138,17 @@ export const questions = [
   "question": "Which word tells what you see?",
   "spokenPrompt": "Which word tells what you see?",
   "choices": [
+   "cat",
    "boxes",
    "box",
-   "cats",
-   "cat"
+   "cats"
   ],
   "answerOptions": [
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
+   },
    {
     "value": "boxes",
     "label": "boxes",
@@ -4171,31 +5163,40 @@ export const questions = [
     "value": "cats",
     "label": "cats",
     "text": "cats"
-   },
-   {
-    "value": "cat",
-    "label": "cat",
-    "text": "cat"
    }
   ],
   "answer": "boxes",
   "correctAnswer": "boxes",
   "distractorRationales": {
+   "box": "D-FUNCTION-SWAP",
    "cats": "D-SEMANTIC",
-   "cat": "D-SEMANTIC",
-   "box": "D-FUNCTION-SWAP"
+   "cat": "D-SEMANTIC"
   },
   "mediaTier": "image-required",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boxes",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.A.plural_add_es.v10",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/box-boxes-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boxes",
+  "stimulusMediaId": "boxes",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4238,22 +5239,12 @@ export const questions = [
   "spokenPrompt": "Which word finishes the sentence? Just one … purred by the fire.",
   "sentence": "Just one ___ purred by the fire.",
   "choices": [
-   "hens",
-   "cat",
    "cats",
-   "frogs"
+   "frogs",
+   "hens",
+   "cat"
   ],
   "answerOptions": [
-   {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
-   },
-   {
-    "value": "cat",
-    "label": "cat",
-    "text": "cat"
-   },
    {
     "value": "cats",
     "label": "cats",
@@ -4263,6 +5254,16 @@ export const questions = [
     "value": "frogs",
     "label": "frogs",
     "text": "frogs"
+   },
+   {
+    "value": "hens",
+    "label": "hens",
+    "text": "hens"
+   },
+   {
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    }
   ],
   "answer": "cat",
@@ -4276,12 +5277,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Just one ___ purred by the fire.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_concept.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-concept.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-concept.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4291,7 +5307,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-concept.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l1.R.plural_concept.v10r",
@@ -4317,22 +5339,12 @@ export const questions = [
   "question": "More than one! Which word?",
   "spokenPrompt": "More than one! Which word?",
   "choices": [
-   "hens",
-   "hen",
    "books",
-   "book"
+   "book",
+   "hens",
+   "hen"
   ],
   "answerOptions": [
-   {
-    "value": "hens",
-    "label": "hens",
-    "text": "hens"
-   },
-   {
-    "value": "hen",
-    "label": "hen",
-    "text": "hen"
-   },
    {
     "value": "books",
     "label": "books",
@@ -4342,6 +5354,16 @@ export const questions = [
     "value": "book",
     "label": "book",
     "text": "book"
+   },
+   {
+    "value": "hens",
+    "label": "hens",
+    "text": "hens"
+   },
+   {
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
    }
   ],
   "answer": "books",
@@ -4355,13 +5377,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "books",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l1.R.plural_concept.v10r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/book-books-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "books",
+  "stimulusMediaId": "books",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4442,12 +5478,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Both ___ told long stories.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_y_to_ies.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4457,7 +5508,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "stories gifts ie to ladies and ponies alike"
+  "notes": "stories gifts ie to ladies and ponies alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.R.plural_y_to_ies.v8r",
@@ -4521,11 +5578,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_y_to_ies.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4535,7 +5607,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-y-to-ies.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.R.plural_irregular.v7r",
@@ -4600,12 +5678,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Two white ___ squeaked and nibbled the cheese.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_irregular.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4615,7 +5708,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cheese gifts se to the distractor mouse only — scanner picks a distractor"
+  "notes": "cheese gifts se to the distractor mouse only — scanner picks a distractor",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.R.plural_irregular.v8r",
@@ -4679,11 +5778,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_irregular.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-irregular.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4693,7 +5807,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-irregular.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.R.plural_f_to_ves.v7r",
@@ -4758,12 +5878,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The baker sliced two ___ for lunch.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_f_to_ves.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4773,7 +5908,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-f-to-ves.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.plurals.l2.R.plural_in_sentence.v7r",
@@ -4838,12 +5979,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "All four ___ chirped at dawn.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.plurals.l2.R.plural_in_sentence.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/plurals-plural-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4853,6 +6009,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chirped gifts ch to chicks and chick alike"
+  "notes": "chirped gifts ch to chicks and chick alike",
+  "imagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/plurals-plural-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  }
 ];

@@ -64,13 +64,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "web",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.b.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/web-b645c8e4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "web",
+  "stimulusMediaId": "web",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -81,10 +95,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "p is the voicing partner; w is the word's own first sound",
-  "imagePath": "/images/child-mode/initial-sounds/web.png",
-  "imageUrl": "/images/child-mode/initial-sounds/web.png",
-  "targetImage": "/images/child-mode/initial-sounds/web.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/web.png",
+  "imagePath": "/images/assessment/release-media/web-b645c8e4.webp",
+  "imageUrl": "/images/assessment/release-media/web-b645c8e4.webp",
+  "targetImage": "/images/assessment/release-media/web-b645c8e4.webp",
+  "targetImagePath": "/images/assessment/release-media/web-b645c8e4.webp",
   "resolvedImageAssetKey": "web",
   "imageAlt": "web"
  },
@@ -151,11 +165,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "web",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.b.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/release-media/road-9aba0184.webp",
+    "/images/assessment/blends/crab.webp",
+    "/images/assessment/rhyming/variants/ap/cap-02.webp",
+    "/images/assessment/long-vowels/bike.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -173,8 +205,8 @@ export const questions = [
     "word": "road",
     "value": "road",
     "label": "road",
-    "image": "/images/child-mode/vowels/road.png",
-    "imagePath": "/images/child-mode/vowels/road.png",
+    "image": "/images/assessment/release-media/road-9aba0184.webp",
+    "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
     "imageAlt": "road"
    },
    {
@@ -269,13 +301,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "tub",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.b.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/tub-9c34a66d.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "tub",
+  "stimulusMediaId": "tub",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -286,10 +332,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/tub.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tub.png",
-  "targetImage": "/images/child-mode/initial-sounds/tub.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tub.png",
+  "imagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
+  "imageUrl": "/images/assessment/release-media/tub-9c34a66d.webp",
+  "targetImage": "/images/assessment/release-media/tub-9c34a66d.webp",
+  "targetImagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
   "resolvedImageAssetKey": "tub",
   "imageAlt": "tub"
  },
@@ -356,13 +402,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "tub",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.b.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/tub-9c34a66d.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "tub",
+  "stimulusMediaId": "tub",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -373,10 +433,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "tu+p, tu+t, tu+m are all non-words — the only real completion is the target",
-  "imagePath": "/images/child-mode/initial-sounds/tub.png",
-  "imageUrl": "/images/child-mode/initial-sounds/tub.png",
-  "targetImage": "/images/child-mode/initial-sounds/tub.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/tub.png",
+  "imagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
+  "imageUrl": "/images/assessment/release-media/tub-9c34a66d.webp",
+  "targetImage": "/images/assessment/release-media/tub-9c34a66d.webp",
+  "targetImagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
   "resolvedImageAssetKey": "tub",
   "imageAlt": "tub"
  },
@@ -443,13 +503,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bread",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.d.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/bread.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bread",
+  "stimulusMediaId": "bread",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -530,11 +604,29 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bread",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.d.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "/images/assessment/long-vowels/leaf.webp",
+    "/images/assessment/release-media/road-9aba0184.webp",
+    "/images/assessment/long-vowels/boat.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -570,8 +662,8 @@ export const questions = [
     "word": "road",
     "value": "road",
     "label": "road",
-    "image": "/images/child-mode/vowels/road.png",
-    "imagePath": "/images/child-mode/vowels/road.png",
+    "image": "/images/assessment/release-media/road-9aba0184.webp",
+    "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
     "imageAlt": "road"
    },
    {
@@ -648,13 +740,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "road",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.d.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/road-9aba0184.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "road",
+  "stimulusMediaId": "road",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -665,10 +771,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/child-mode/vowels/road.png",
-  "imageUrl": "/images/child-mode/vowels/road.png",
-  "targetImage": "/images/child-mode/vowels/road.png",
-  "targetImagePath": "/images/child-mode/vowels/road.png",
+  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
+  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
   "resolvedImageAssetKey": "road",
   "imageAlt": "road"
  },
@@ -735,13 +841,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "road",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.d.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/road-9aba0184.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "road",
+  "stimulusMediaId": "road",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -752,10 +872,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "roa+t/b/f are non-words (roar/roam deliberately kept out of the set)",
-  "imagePath": "/images/child-mode/vowels/road.png",
-  "imageUrl": "/images/child-mode/vowels/road.png",
-  "targetImage": "/images/child-mode/vowels/road.png",
-  "targetImagePath": "/images/child-mode/vowels/road.png",
+  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
+  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
   "resolvedImageAssetKey": "road",
   "imageAlt": "road"
  },
@@ -822,13 +942,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "flag",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.g.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/flag.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "flag",
+  "stimulusMediaId": "flag",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -909,11 +1043,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "frog",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.g.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/digraphs/duck.webp",
+    "/images/assessment/long-vowels/goat.webp",
+    "/images/assessment/digraphs/sock.webp",
+    "/images/assessment/blends/flag.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1027,13 +1179,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "flag",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.g.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/flag.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "flag",
+  "stimulusMediaId": "flag",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1114,13 +1280,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "frog",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.g.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/frog.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "frog",
+  "stimulusMediaId": "frog",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1201,13 +1381,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "wheel",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.l.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/wheel.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "wheel",
+  "stimulusMediaId": "wheel",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1288,11 +1482,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "wheel",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.l.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/digraphs/shell.webp",
+    "/images/assessment/release-media/deer-946b4c2b.webp",
+    "/images/assessment/blends/lamp.webp",
+    "/images/assessment/long-vowels/boat.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1319,8 +1531,8 @@ export const questions = [
     "word": "deer",
     "value": "deer",
     "label": "deer",
-    "image": "/images/child-mode/r-controlled/deer.png",
-    "imagePath": "/images/child-mode/r-controlled/deer.png",
+    "image": "/images/assessment/release-media/deer-946b4c2b.webp",
+    "imagePath": "/images/assessment/release-media/deer-946b4c2b.webp",
     "imageAlt": "deer"
    },
    {
@@ -1369,7 +1581,7 @@ export const questions = [
   "choices": [
    "moon",
    "pool",
-   "door",
+   "cat",
    "leaf"
   ],
   "answerOptions": [
@@ -1384,9 +1596,9 @@ export const questions = [
     "text": "pool"
    },
    {
-    "value": "door",
-    "label": "door",
-    "text": "door"
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    },
    {
     "value": "leaf",
@@ -1397,7 +1609,7 @@ export const questions = [
   "answer": "pool",
   "correctAnswer": "pool",
   "distractorRationales": {
-   "door": "D-RIME-NEAR",
+   "cat": "D-RIME-NEAR",
    "leaf": "D-POSITION",
    "moon": "D-RIME-NEAR"
   },
@@ -1406,13 +1618,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "wheel",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.l.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/wheel.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "wheel",
+  "stimulusMediaId": "wheel",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1493,13 +1719,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "whirlpool",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.l.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/whirlpool.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "whirlpool",
+  "stimulusMediaId": "whirlpool",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1580,13 +1820,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "drum",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.m.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/drum.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "drum",
+  "stimulusMediaId": "drum",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1667,11 +1921,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "drum",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.m.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "/images/assessment/rhyming/variants/ap/map-02.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -1785,13 +2057,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "jam",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.m.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/am/jam-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "jam",
+  "stimulusMediaId": "jam",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1872,13 +2158,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "jam",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.m.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/am/jam-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "jam",
+  "stimulusMediaId": "jam",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1959,13 +2259,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ten",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.n.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/en/ten-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "ten",
+  "stimulusMediaId": "ten",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2046,11 +2360,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "pin",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.n.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/rhyming/variants/et/net-02.webp",
+    "/images/assessment/blends/drum.webp",
+    "/images/assessment/rhyming/variants/en/hen-02.webp",
+    "/images/assessment/blends/hand.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2164,13 +2496,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "hen",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.n.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/en/hen-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "hen",
+  "stimulusMediaId": "hen",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2251,13 +2597,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "fin",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.n.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/in/fin-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "fin",
+  "stimulusMediaId": "fin",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2338,13 +2698,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "sheep",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.p.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/sheep.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "sheep",
+  "stimulusMediaId": "sheep",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2425,11 +2799,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cap",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.p.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/blends/crab.webp",
+    "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "/images/assessment/release-media/web-b645c8e4.webp",
+    "/images/assessment/rhyming/variants/op/mop-02.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2465,8 +2857,8 @@ export const questions = [
     "word": "web",
     "value": "web",
     "label": "web",
-    "image": "/images/child-mode/initial-sounds/web.png",
-    "imagePath": "/images/child-mode/initial-sounds/web.png",
+    "image": "/images/assessment/release-media/web-b645c8e4.webp",
+    "imagePath": "/images/assessment/release-media/web-b645c8e4.webp",
     "imageAlt": "web"
    },
    {
@@ -2543,13 +2935,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "mop",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.p.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/op/mop-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "mop",
+  "stimulusMediaId": "mop",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2630,13 +3036,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "sleep",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.p.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/eep/sleep-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "sleep",
+  "stimulusMediaId": "sleep",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2717,13 +3137,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "net",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.t.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/et/net-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "net",
+  "stimulusMediaId": "net",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2804,11 +3238,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "hat",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.B.t.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/long-vowels/boat.webp",
+    "/images/assessment/blends/hand.webp",
+    "/images/assessment/long-vowels/toe.webp",
+    "/images/assessment/blends/bread.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -2922,13 +3374,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "goat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.t.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/goat.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "goat",
+  "stimulusMediaId": "goat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3009,13 +3475,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.A.t.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/boat.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boat",
+  "stimulusMediaId": "boat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3096,13 +3576,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "fish",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.sh.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/fish.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "fish",
+  "stimulusMediaId": "fish",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3183,11 +3677,29 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "wish",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.sh.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/digraphs/fish.webp",
+    "/images/assessment/digraphs/whisk.webp",
+    "/images/assessment/blends/wasp.webp",
+    "/images/assessment/blends/glass.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -3301,13 +3813,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "brush",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.sh.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/brush.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "brush",
+  "stimulusMediaId": "brush",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3388,13 +3914,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "splash",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.sh.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/splash.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "splash",
+  "stimulusMediaId": "splash",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3475,13 +4015,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "moth",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.th.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/moth.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "moth",
+  "stimulusMediaId": "moth",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3562,11 +4116,29 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bath",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.th.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/long-vowels/toe.webp",
+    "/images/assessment/digraphs/moth.webp",
+    "/images/assessment/long-vowels/boat.webp",
+    "/images/assessment/rhyming/variants/ing/ring-02.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -3680,13 +4252,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bath",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.th.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/bath.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bath",
+  "stimulusMediaId": "bath",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3767,13 +4353,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cloth",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.th.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/cloth.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cloth",
+  "stimulusMediaId": "cloth",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3854,13 +4454,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bell",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.ll.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/ell/bell-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bell",
+  "stimulusMediaId": "bell",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3941,12 +4555,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "shell",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.ll.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/digraphs/shell.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/digraphs/shell.webp",
+  "stimulusMediaId": "/images/assessment/digraphs/shell.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3956,7 +4585,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "yellow contains ll internally but does not end in ll; no distractor ends in a single l."
+  "notes": "yellow contains ll internally but does not end in ll; no distractor ends in a single l.",
+  "imagePath": "/images/assessment/digraphs/shell.webp",
+  "imageUrl": "/images/assessment/digraphs/shell.webp",
+  "targetImage": "/images/assessment/digraphs/shell.webp",
+  "targetImagePath": "/images/assessment/digraphs/shell.webp",
+  "resolvedImageAssetKey": "/images/assessment/digraphs/shell.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.C.ll.v3",
@@ -4021,12 +4656,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "hill",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.ll.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/hill-5ce9c4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4036,7 +4686,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "No one-l option because it would share the same final sound."
+  "notes": "No one-l option because it would share the same final sound.",
+  "imagePath": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
+  "imageUrl": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
+  "targetImage": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.A.ll.v4",
@@ -4101,13 +4757,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "small",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.ll.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/antonyms-synonyms/small-little-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "small",
+  "stimulusMediaId": "small",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4188,13 +4858,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ring",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.ng.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/ing/ring-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "ring",
+  "stimulusMediaId": "ring",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4275,11 +4959,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "song",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.ng.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "/images/assessment/digraphs/sock.webp",
+    "/images/assessment/digraphs/rock.webp",
+    "/images/assessment/rhyming/variants/ing/ring-02.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -4393,13 +5095,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "king",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.ng.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/ing/king-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "king",
+  "stimulusMediaId": "king",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4480,13 +5196,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "swing",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.ng.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/ing/swing-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "swing",
+  "stimulusMediaId": "swing",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4567,13 +5297,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "hand",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.nd.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/hand.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "hand",
+  "stimulusMediaId": "hand",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4654,12 +5398,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "hand",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.nd.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/blends/hand.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/blends/hand.webp",
+  "stimulusMediaId": "/images/assessment/blends/hand.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4669,7 +5428,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "candle contains nd internally but ends in le; no distractor ends in bare d."
+  "notes": "candle contains nd internally but ends in le; no distractor ends in bare d.",
+  "imagePath": "/images/assessment/blends/hand.webp",
+  "imageUrl": "/images/assessment/blends/hand.webp",
+  "targetImage": "/images/assessment/blends/hand.webp",
+  "targetImagePath": "/images/assessment/blends/hand.webp",
+  "resolvedImageAssetKey": "/images/assessment/blends/hand.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.C.nd.v3",
@@ -4734,13 +5499,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "pond",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.nd.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/pond.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "pond",
+  "stimulusMediaId": "pond",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4821,13 +5600,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "wind",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.nd.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/wind.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "wind",
+  "stimulusMediaId": "wind",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4908,13 +5701,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "drink",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.nk.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/drink-d876a37b.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "drink",
+  "stimulusMediaId": "drink",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4925,10 +5732,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "dri+ng/nt/d are all non-words — drink is the clean nk frame",
-  "imagePath": "/images/objects/drink.png",
-  "imageUrl": "/images/objects/drink.png",
-  "targetImage": "/images/objects/drink.png",
-  "targetImagePath": "/images/objects/drink.png",
+  "imagePath": "/images/assessment/release-media/drink-d876a37b.webp",
+  "imageUrl": "/images/assessment/release-media/drink-d876a37b.webp",
+  "targetImage": "/images/assessment/release-media/drink-d876a37b.webp",
+  "targetImagePath": "/images/assessment/release-media/drink-d876a37b.webp",
   "resolvedImageAssetKey": "drink",
   "imageAlt": "drink"
  },
@@ -4995,12 +5802,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "tank",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.nk.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/tank-b63ae1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/tank-b63ae1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/tank-b63ae1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5010,7 +5832,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "monkey contains nk internally but ends in ey; no distractor ends in bare /k/."
+  "notes": "monkey contains nk internally but ends in ey; no distractor ends in bare /k/.",
+  "imagePath": "/images/assessment/release-support/targets/tank-b63ae1.webp",
+  "imageUrl": "/images/assessment/release-support/targets/tank-b63ae1.webp",
+  "targetImage": "/images/assessment/release-support/targets/tank-b63ae1.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/tank-b63ae1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/tank-b63ae1.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.C.nk.v3",
@@ -5075,13 +5903,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "trunk",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.nk.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/trunk.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "trunk",
+  "stimulusMediaId": "trunk",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5162,13 +6004,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "blink",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.nk.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/blink.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "blink",
+  "stimulusMediaId": "blink",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5249,13 +6105,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "nest",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.st.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/nest.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "nest",
+  "stimulusMediaId": "nest",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5336,11 +6206,29 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "mastery",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "list",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.st.v2",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/digraphs/dish.webp",
+    "/images/assessment/generated/initial-sounds-l2/lemon.webp",
+    "/images/assessment/blends/nest.webp",
+    "/images/assessment/blends/desk.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -5454,13 +6342,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "vest",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.st.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/vest-9a368716.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "vest",
+  "stimulusMediaId": "vest",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5471,10 +6373,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "ve+sk/ft/v are non-words (vet stays out); image pins the target",
-  "imagePath": "/images/child-mode/initial-sounds/vest.png",
-  "imageUrl": "/images/child-mode/initial-sounds/vest.png",
-  "targetImage": "/images/child-mode/initial-sounds/vest.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/vest.png",
+  "imagePath": "/images/assessment/release-media/vest-9a368716.webp",
+  "imageUrl": "/images/assessment/release-media/vest-9a368716.webp",
+  "targetImage": "/images/assessment/release-media/vest-9a368716.webp",
+  "targetImagePath": "/images/assessment/release-media/vest-9a368716.webp",
   "resolvedImageAssetKey": "vest",
   "imageAlt": "vest"
  },
@@ -5541,13 +6443,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "list",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.st.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/list.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "list",
+  "stimulusMediaId": "list",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5628,13 +6544,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "desk",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.sk.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/desk.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "desk",
+  "stimulusMediaId": "desk",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5715,12 +6645,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "desk",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.sk.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/blends/desk.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/blends/desk.webp",
+  "stimulusMediaId": "/images/assessment/blends/desk.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5730,7 +6675,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "basket contains sk internally but ends in et; no distractor ends in bare /k/."
+  "notes": "basket contains sk internally but ends in et; no distractor ends in bare /k/.",
+  "imagePath": "/images/assessment/blends/desk.webp",
+  "imageUrl": "/images/assessment/blends/desk.webp",
+  "targetImage": "/images/assessment/blends/desk.webp",
+  "targetImagePath": "/images/assessment/blends/desk.webp",
+  "resolvedImageAssetKey": "/images/assessment/blends/desk.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.C.sk.v3",
@@ -5795,13 +6746,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "mask",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.sk.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/mask.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "mask",
+  "stimulusMediaId": "mask",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5882,13 +6847,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "tusk",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.sk.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/tusk.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "tusk",
+  "stimulusMediaId": "tusk",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5969,13 +6948,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "gift",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.ft.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/gift.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "gift",
+  "stimulusMediaId": "gift",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6056,12 +7049,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "raft",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.ft.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/generated/concepts/raft.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/generated/concepts/raft.webp",
+  "stimulusMediaId": "/images/assessment/generated/concepts/raft.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6071,7 +7079,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "after contains ft internally but ends in er; no distractor ends in bare t."
+  "notes": "after contains ft internally but ends in er; no distractor ends in bare t.",
+  "imagePath": "/images/assessment/generated/concepts/raft.webp",
+  "imageUrl": "/images/assessment/generated/concepts/raft.webp",
+  "targetImage": "/images/assessment/generated/concepts/raft.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
+  "resolvedImageAssetKey": "/images/assessment/generated/concepts/raft.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.C.ft.v3",
@@ -6136,13 +7150,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "left",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.ft.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/left.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "left",
+  "stimulusMediaId": "left",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6223,13 +7251,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "raft",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.ft.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/raft.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "raft",
+  "stimulusMediaId": "raft",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6310,12 +7352,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "melt",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.lt.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/melt-c6a0f6.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6325,7 +7382,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "me+ft/sk/m are non-words (mess and men stay out)"
+  "notes": "me+ft/sk/m are non-words (mess and men stay out)",
+  "imagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "imageUrl": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "targetImage": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.B.lt.v2",
@@ -6390,12 +7453,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "belt",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.B.lt.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/blends/belt.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/blends/belt.webp",
+  "stimulusMediaId": "/images/assessment/blends/belt.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6405,7 +7483,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t."
+  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t.",
+  "imagePath": "/images/assessment/blends/belt.webp",
+  "imageUrl": "/images/assessment/blends/belt.webp",
+  "targetImage": "/images/assessment/blends/belt.webp",
+  "targetImagePath": "/images/assessment/blends/belt.webp",
+  "resolvedImageAssetKey": "/images/assessment/blends/belt.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.C.lt.v3",
@@ -6470,13 +7554,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "salt",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.C.lt.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/salt.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "salt",
+  "stimulusMediaId": "salt",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6557,13 +7655,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "felt",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.A.lt.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/felt.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "felt",
+  "stimulusMediaId": "felt",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6644,13 +7756,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "web",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.R.b.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/web-b645c8e4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "web",
+  "stimulusMediaId": "web",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6661,10 +7787,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "wet starts like the anchor and ties its letter overlap for scanners",
-  "imagePath": "/images/child-mode/initial-sounds/web.png",
-  "imageUrl": "/images/child-mode/initial-sounds/web.png",
-  "targetImage": "/images/child-mode/initial-sounds/web.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/web.png",
+  "imagePath": "/images/assessment/release-media/web-b645c8e4.webp",
+  "imageUrl": "/images/assessment/release-media/web-b645c8e4.webp",
+  "targetImage": "/images/assessment/release-media/web-b645c8e4.webp",
+  "targetImagePath": "/images/assessment/release-media/web-b645c8e4.webp",
   "resolvedImageAssetKey": "web",
   "imageAlt": "web"
  },
@@ -6731,13 +7857,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "mud",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.R.d.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/mud-4f3d05c0.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "mud",
+  "stimulusMediaId": "mud",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6748,10 +7888,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/child-mode/initial-sounds/mud.png",
-  "imageUrl": "/images/child-mode/initial-sounds/mud.png",
-  "targetImage": "/images/child-mode/initial-sounds/mud.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/mud.png",
+  "imagePath": "/images/assessment/release-media/mud-4f3d05c0.webp",
+  "imageUrl": "/images/assessment/release-media/mud-4f3d05c0.webp",
+  "targetImage": "/images/assessment/release-media/mud-4f3d05c0.webp",
+  "targetImagePath": "/images/assessment/release-media/mud-4f3d05c0.webp",
   "resolvedImageAssetKey": "mud",
   "imageAlt": "mud"
  },
@@ -6818,13 +7958,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "gum",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.R.m.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/gum-5d736380.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "gum",
+  "stimulusMediaId": "gum",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6835,10 +7989,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "gu+d/w/g are non-words (gun stays out of the set by design)",
-  "imagePath": "/images/child-mode/initial-sounds/gum.png",
-  "imageUrl": "/images/child-mode/initial-sounds/gum.png",
-  "targetImage": "/images/child-mode/initial-sounds/gum.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/gum.png",
+  "imagePath": "/images/assessment/release-media/gum-5d736380.webp",
+  "imageUrl": "/images/assessment/release-media/gum-5d736380.webp",
+  "targetImage": "/images/assessment/release-media/gum-5d736380.webp",
+  "targetImagePath": "/images/assessment/release-media/gum-5d736380.webp",
   "resolvedImageAssetKey": "gum",
   "imageAlt": "gum"
  },
@@ -6905,13 +8059,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "mat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.R.t.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/at/mat-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "mat",
+  "stimulusMediaId": "mat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6992,11 +8160,29 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceModality": "audio+image",
+  "evidenceRole": "retention",
+  "constructClaim": "final_sound_discrimination",
+  "hideWrittenLabels": true,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ten",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.R.n.v5r",
+   "role": "answer-cards",
+   "paths": [
+    "/images/assessment/blends/drum.webp",
+    "/images/assessment/rhyming/variants/in/pin-02.webp",
+    "/images/assessment/rhyming/variants/am/jam-02.webp",
+    "/images/assessment/long-vowels/toe.webp"
+   ],
+   "alt": "Picture choices for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-scoring-options"
   },
   "active": true,
   "qaStatus": "verified",
@@ -7110,13 +8296,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dish",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.R.sh.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/dish.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "dish",
+  "stimulusMediaId": "dish",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7197,13 +8397,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "sting",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.R.ng.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/sting.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "sting",
+  "stimulusMediaId": "sting",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7284,13 +8498,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "twist",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.R.st.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/twist.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "twist",
+  "stimulusMediaId": "twist",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7371,12 +8599,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "melt",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.R.lt.v5r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/melt-c6a0f6.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7386,7 +8629,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t."
+  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t.",
+  "imagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "imageUrl": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "targetImage": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.final_sounds.l2.R.nk.v5r",
@@ -7451,13 +8700,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "think",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l2.R.nk.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/think.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "think",
+  "stimulusMediaId": "think",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",

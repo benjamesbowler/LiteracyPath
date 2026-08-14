@@ -107,9 +107,9 @@ export default {
     cps("or", 2, 1, 5, "or (as in corn)", ["sport", "word", "hard", "pin"], "sport",
       { word: "D-PATTERN-TRAP", hard: "D-PATTERN-TRAP", pin: "D-VOWEL" },
       "word has or without the sound and out-chunks everything; horn-type keys stay out because corn contains orn"),
-    cps("or", 2, 1, 6, "or (as in corn)", ["north", "worm", "win", "net"], "north",
+    cps("or", 2, 1, 6, "or (as in corn)", ["fork", "worm", "win", "net"], "fork",
       { worm: "D-PATTERN-TRAP", win: "D-VOWEL", net: "D-VOWEL" },
-      "worm has or with the /ɜr/ sound; win ties the in-chunk"),
+      "fork is concrete and pictureable; worm has or with the /ɜr/ sound; win ties the in-chunk"),
 
     // ================= er (phase 2) =================
     rcp("er", 1, 2, 1, "her", "h__", ["er", "or", "ar", "oa"],

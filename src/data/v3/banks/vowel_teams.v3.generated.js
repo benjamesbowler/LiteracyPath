@@ -63,13 +63,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "rain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ai.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/rain.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "rain",
+  "stimulusMediaId": "rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -149,13 +163,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "train",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ai.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/train.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "train",
+  "stimulusMediaId": "train",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -235,11 +263,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ai.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/rain.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/rain.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/rain.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -249,7 +292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the instructional-standards CPS exemplar, now actually published"
+  "notes": "the instructional-standards CPS exemplar, now actually published",
+  "imagePath": "/images/assessment/long-vowels/rain.webp",
+  "imageUrl": "/images/assessment/long-vowels/rain.webp",
+  "targetImage": "/images/assessment/long-vowels/rain.webp",
+  "targetImagePath": "/images/assessment/long-vowels/rain.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/rain.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ai.v4",
@@ -313,11 +362,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ai.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/digraphs/chain.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/digraphs/chain.webp",
+  "stimulusMediaId": "/images/assessment/digraphs/chain.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -327,7 +391,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "chin is one letter from the key with the short sound"
+  "notes": "chin is one letter from the key with the short sound",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "/images/assessment/digraphs/chain.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ai.v5",
@@ -346,57 +416,73 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ai",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "snail. Which is the real way to write snail?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "snale",
-   "snayl",
-   "snaile",
-   "snail"
+   "rain",
+   "paint",
+   "snail",
+   "chain"
   ],
   "answerOptions": [
    {
-    "value": "snale",
-    "label": "snale",
-    "text": "snale"
+    "value": "rain",
+    "label": "rain",
+    "text": "rain"
    },
    {
-    "value": "snayl",
-    "label": "snayl",
-    "text": "snayl"
-   },
-   {
-    "value": "snaile",
-    "label": "snaile",
-    "text": "snaile"
+    "value": "paint",
+    "label": "paint",
+    "text": "paint"
    },
    {
     "value": "snail",
     "label": "snail",
     "text": "snail"
+   },
+   {
+    "value": "chain",
+    "label": "chain",
+    "text": "chain"
    }
   ],
-  "answer": "snail",
-  "correctAnswer": "snail",
+  "answer": "chain",
+  "correctAnswer": "chain",
   "distractorRationales": {
-   "snayl": "D-DEVELOPMENTAL",
-   "snaile": "D-DEVELOPMENTAL",
-   "snale": "D-DEVELOPMENTAL"
+   "paint": "D-PATTERN-TRAP",
+   "snail": "D-PATTERN-TRAP",
+   "rain": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "snail",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "chain",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ai.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/digraphs/chain.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "chain",
+  "stimulusMediaId": "chain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -406,7 +492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/digraphs/chain.webp",
+  "imageUrl": "/images/assessment/digraphs/chain.webp",
+  "targetImage": "/images/assessment/digraphs/chain.webp",
+  "targetImagePath": "/images/assessment/digraphs/chain.webp",
+  "resolvedImageAssetKey": "chain",
+  "imageAlt": "chain"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ai.v6",
@@ -425,57 +517,73 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ai",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "paint. Which is the real way to write paint?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "pante",
-   "painte",
-   "paint",
-   "paynt"
+   "chain",
+   "snail",
+   "train",
+   "rain"
   ],
   "answerOptions": [
    {
-    "value": "pante",
-    "label": "pante",
-    "text": "pante"
+    "value": "chain",
+    "label": "chain",
+    "text": "chain"
    },
    {
-    "value": "painte",
-    "label": "painte",
-    "text": "painte"
+    "value": "snail",
+    "label": "snail",
+    "text": "snail"
    },
    {
-    "value": "paint",
-    "label": "paint",
-    "text": "paint"
+    "value": "train",
+    "label": "train",
+    "text": "train"
    },
    {
-    "value": "paynt",
-    "label": "paynt",
-    "text": "paynt"
+    "value": "rain",
+    "label": "rain",
+    "text": "rain"
    }
   ],
-  "answer": "paint",
-  "correctAnswer": "paint",
+  "answer": "train",
+  "correctAnswer": "train",
   "distractorRationales": {
-   "paynt": "D-DEVELOPMENTAL",
-   "pante": "D-DEVELOPMENTAL",
-   "painte": "D-DEVELOPMENTAL"
+   "rain": "D-PATTERN-TRAP",
+   "chain": "D-PATTERN-TRAP",
+   "snail": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "paint",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "train",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ai.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/train.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "train",
+  "stimulusMediaId": "train",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -485,7 +593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/long-vowels/train.webp",
+  "imageUrl": "/images/assessment/long-vowels/train.webp",
+  "targetImage": "/images/assessment/long-vowels/train.webp",
+  "targetImagePath": "/images/assessment/long-vowels/train.webp",
+  "resolvedImageAssetKey": "train",
+  "imageAlt": "train"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v1",
@@ -549,13 +663,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "play",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ay.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/play.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "play",
+  "stimulusMediaId": "play",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -635,13 +763,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "tray",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ay.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/tray.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "tray",
+  "stimulusMediaId": "tray",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -721,11 +863,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ay.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/play.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/play.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/play.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -735,7 +892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "plan shares three letters with the key but keeps the short a"
+  "notes": "plan shares three letters with the key but keeps the short a",
+  "imagePath": "/images/assessment/long-vowels/play.webp",
+  "imageUrl": "/images/assessment/long-vowels/play.webp",
+  "targetImage": "/images/assessment/long-vowels/play.webp",
+  "targetImagePath": "/images/assessment/long-vowels/play.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/play.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ay.v4",
@@ -799,11 +962,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ay.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/language/variants/plurals/day-days-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "stimulusMediaId": "/images/assessment/language/variants/plurals/day-days-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -813,7 +991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/day-days-01.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ay.v5",
@@ -832,23 +1016,23 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ay",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "day. Which is the real way to write day?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "dae",
+   "boy",
    "day",
-   "dai",
-   "daye"
+   "play",
+   "tray"
   ],
   "answerOptions": [
    {
-    "value": "dae",
-    "label": "dae",
-    "text": "dae"
+    "value": "boy",
+    "label": "boy",
+    "text": "boy"
    },
    {
     "value": "day",
@@ -856,34 +1040,49 @@ export const questions = [
     "text": "day"
    },
    {
-    "value": "dai",
-    "label": "dai",
-    "text": "dai"
+    "value": "play",
+    "label": "play",
+    "text": "play"
    },
    {
-    "value": "daye",
-    "label": "daye",
-    "text": "daye"
+    "value": "tray",
+    "label": "tray",
+    "text": "tray"
    }
   ],
   "answer": "day",
   "correctAnswer": "day",
   "distractorRationales": {
-   "daye": "D-DEVELOPMENTAL",
-   "dae": "D-DEVELOPMENTAL",
-   "dai": "D-DEVELOPMENTAL"
+   "tray": "D-PATTERN-TRAP",
+   "boy": "D-PATTERN-TRAP",
+   "play": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "day",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ay.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/day-days-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "day",
+  "stimulusMediaId": "day",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -893,7 +1092,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/language/variants/plurals/day-days-01.webp",
   "imageUrl": "/images/assessment/language/variants/plurals/day-days-01.webp",
   "targetImage": "/images/assessment/language/variants/plurals/day-days-01.webp",
@@ -918,57 +1117,73 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ay",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "stay. Which is the real way to write stay?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "stay",
-   "stai",
-   "staye",
-   "stae"
+   "tray",
+   "day",
+   "play",
+   "toy"
   ],
   "answerOptions": [
    {
-    "value": "stay",
-    "label": "stay",
-    "text": "stay"
+    "value": "tray",
+    "label": "tray",
+    "text": "tray"
    },
    {
-    "value": "stai",
-    "label": "stai",
-    "text": "stai"
+    "value": "day",
+    "label": "day",
+    "text": "day"
    },
    {
-    "value": "staye",
-    "label": "staye",
-    "text": "staye"
+    "value": "play",
+    "label": "play",
+    "text": "play"
    },
    {
-    "value": "stae",
-    "label": "stae",
-    "text": "stae"
+    "value": "toy",
+    "label": "toy",
+    "text": "toy"
    }
   ],
-  "answer": "stay",
-  "correctAnswer": "stay",
+  "answer": "tray",
+  "correctAnswer": "tray",
   "distractorRationales": {
-   "stai": "D-DEVELOPMENTAL",
-   "staye": "D-DEVELOPMENTAL",
-   "stae": "D-DEVELOPMENTAL"
+   "day": "D-PATTERN-TRAP",
+   "play": "D-PATTERN-TRAP",
+   "toy": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "stay",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "tray",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ay.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/tray.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "tray",
+  "stimulusMediaId": "tray",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -978,7 +1193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/long-vowels/tray.webp",
+  "imageUrl": "/images/assessment/long-vowels/tray.webp",
+  "targetImage": "/images/assessment/long-vowels/tray.webp",
+  "targetImagePath": "/images/assessment/long-vowels/tray.webp",
+  "resolvedImageAssetKey": "tray",
+  "imageAlt": "tray"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v1",
@@ -1042,13 +1263,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "sheep",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ee.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/sheep.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "sheep",
+  "stimulusMediaId": "sheep",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1128,13 +1363,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "green",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ee.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/green.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "green",
+  "stimulusMediaId": "green",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1214,11 +1463,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ee.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-media/feet-16298da4.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-media/feet-16298da4.webp",
+  "stimulusMediaId": "/images/assessment/release-media/feet-16298da4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1228,7 +1492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/feet-16298da4.webp",
+  "imageUrl": "/images/assessment/release-media/feet-16298da4.webp",
+  "targetImage": "/images/assessment/release-media/feet-16298da4.webp",
+  "targetImagePath": "/images/assessment/release-media/feet-16298da4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-media/feet-16298da4.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ee.v4",
@@ -1292,11 +1562,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ee.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/tree.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/tree.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/tree.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1306,7 +1591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/tree.webp",
+  "imageUrl": "/images/assessment/long-vowels/tree.webp",
+  "targetImage": "/images/assessment/long-vowels/tree.webp",
+  "targetImagePath": "/images/assessment/long-vowels/tree.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/tree.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ee.v5",
@@ -1325,33 +1616,33 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ee",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "sheep. Which is the real way to write sheep?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "sheap",
-   "shepe",
-   "shiep",
+   "green",
+   "tree",
+   "bee",
    "sheep"
   ],
   "answerOptions": [
    {
-    "value": "sheap",
-    "label": "sheap",
-    "text": "sheap"
+    "value": "green",
+    "label": "green",
+    "text": "green"
    },
    {
-    "value": "shepe",
-    "label": "shepe",
-    "text": "shepe"
+    "value": "tree",
+    "label": "tree",
+    "text": "tree"
    },
    {
-    "value": "shiep",
-    "label": "shiep",
-    "text": "shiep"
+    "value": "bee",
+    "label": "bee",
+    "text": "bee"
    },
    {
     "value": "sheep",
@@ -1362,21 +1653,36 @@ export const questions = [
   "answer": "sheep",
   "correctAnswer": "sheep",
   "distractorRationales": {
-   "shepe": "D-DEVELOPMENTAL",
-   "shiep": "D-DEVELOPMENTAL",
-   "sheap": "D-DEVELOPMENTAL"
+   "tree": "D-PATTERN-TRAP",
+   "bee": "D-PATTERN-TRAP",
+   "green": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "sheep",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ee.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/sheep.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "sheep",
+  "stimulusMediaId": "sheep",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1386,7 +1692,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/long-vowels/sheep.webp",
   "imageUrl": "/images/assessment/long-vowels/sheep.webp",
   "targetImage": "/images/assessment/long-vowels/sheep.webp",
@@ -1411,28 +1717,28 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ee",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "bee. Which is the real way to write bee?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "bie",
-   "beey",
+   "feet",
+   "tree",
    "bee",
-   "bea"
+   "sheep"
   ],
   "answerOptions": [
    {
-    "value": "bie",
-    "label": "bie",
-    "text": "bie"
+    "value": "feet",
+    "label": "feet",
+    "text": "feet"
    },
    {
-    "value": "beey",
-    "label": "beey",
-    "text": "beey"
+    "value": "tree",
+    "label": "tree",
+    "text": "tree"
    },
    {
     "value": "bee",
@@ -1440,29 +1746,44 @@ export const questions = [
     "text": "bee"
    },
    {
-    "value": "bea",
-    "label": "bea",
-    "text": "bea"
+    "value": "sheep",
+    "label": "sheep",
+    "text": "sheep"
    }
   ],
   "answer": "bee",
   "correctAnswer": "bee",
   "distractorRationales": {
-   "bea": "D-DEVELOPMENTAL",
-   "bie": "D-DEVELOPMENTAL",
-   "beey": "D-DEVELOPMENTAL"
+   "sheep": "D-PATTERN-TRAP",
+   "feet": "D-PATTERN-TRAP",
+   "tree": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bee",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ee.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bee",
+  "stimulusMediaId": "bee",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1472,7 +1793,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
   "imageUrl": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
   "targetImage": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
@@ -1542,13 +1863,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "leaf",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ea.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/leaf.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "leaf",
+  "stimulusMediaId": "leaf",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1628,13 +1963,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "meat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ea.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/meat-52e1a2a7.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "meat",
+  "stimulusMediaId": "meat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1645,10 +1994,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "meet is real — the meat image pins the target",
-  "imagePath": "/images/child-mode/initial-sounds/meat.png",
-  "imageUrl": "/images/child-mode/initial-sounds/meat.png",
-  "targetImage": "/images/child-mode/initial-sounds/meat.png",
-  "targetImagePath": "/images/child-mode/initial-sounds/meat.png",
+  "imagePath": "/images/assessment/release-media/meat-52e1a2a7.webp",
+  "imageUrl": "/images/assessment/release-media/meat-52e1a2a7.webp",
+  "targetImage": "/images/assessment/release-media/meat-52e1a2a7.webp",
+  "targetImagePath": "/images/assessment/release-media/meat-52e1a2a7.webp",
   "resolvedImageAssetKey": "meat",
   "imageAlt": "meat"
  },
@@ -1714,11 +2063,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ea.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/leaf.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/leaf.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/leaf.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1728,7 +2092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/leaf.webp",
+  "imageUrl": "/images/assessment/long-vowels/leaf.webp",
+  "targetImage": "/images/assessment/long-vowels/leaf.webp",
+  "targetImagePath": "/images/assessment/long-vowels/leaf.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/leaf.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.A.ea.v4",
@@ -1792,11 +2162,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.ea.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/blends/bread.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/blends/bread.webp",
+  "stimulusMediaId": "/images/assessment/blends/bread.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1806,7 +2191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ea's two sounds — bread keeps the letters and loses the sound"
+  "notes": "ea's two sounds — bread keeps the letters and loses the sound",
+  "imagePath": "/images/assessment/blends/bread.webp",
+  "imageUrl": "/images/assessment/blends/bread.webp",
+  "targetImage": "/images/assessment/blends/bread.webp",
+  "targetImagePath": "/images/assessment/blends/bread.webp",
+  "resolvedImageAssetKey": "/images/assessment/blends/bread.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.B.ea.v5",
@@ -1870,11 +2261,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.ea.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/dead-5eb965.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/dead-5eb965.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/dead-5eb965.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1884,7 +2290,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/release-support/targets/dead-5eb965.webp",
+  "imageUrl": "/images/assessment/release-support/targets/dead-5eb965.webp",
+  "targetImage": "/images/assessment/release-support/targets/dead-5eb965.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/dead-5eb965.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/dead-5eb965.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.C.ea.v6",
@@ -1903,17 +2315,17 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ea",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "beach. Which is the real way to write beach?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "beach",
-   "beech",
-   "beache",
-   "biech"
+   "leaf",
+   "meat",
+   "sea"
   ],
   "answerOptions": [
    {
@@ -1922,39 +2334,54 @@ export const questions = [
     "text": "beach"
    },
    {
-    "value": "beech",
-    "label": "beech",
-    "text": "beech"
+    "value": "leaf",
+    "label": "leaf",
+    "text": "leaf"
    },
    {
-    "value": "beache",
-    "label": "beache",
-    "text": "beache"
+    "value": "meat",
+    "label": "meat",
+    "text": "meat"
    },
    {
-    "value": "biech",
-    "label": "biech",
-    "text": "biech"
+    "value": "sea",
+    "label": "sea",
+    "text": "sea"
    }
   ],
   "answer": "beach",
   "correctAnswer": "beach",
   "distractorRationales": {
-   "beech": "D-DEVELOPMENTAL",
-   "beache": "D-DEVELOPMENTAL",
-   "biech": "D-DEVELOPMENTAL"
+   "leaf": "D-PATTERN-TRAP",
+   "meat": "D-PATTERN-TRAP",
+   "sea": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "beach",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.ea.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/beach.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "beach",
+  "stimulusMediaId": "beach",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1964,7 +2391,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "beech is a real tree but not the sandy place — the picture decides",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/long-vowels/beach.webp",
   "imageUrl": "/images/assessment/long-vowels/beach.webp",
   "targetImage": "/images/assessment/long-vowels/beach.webp",
@@ -2034,13 +2461,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.oa.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/boat.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boat",
+  "stimulusMediaId": "boat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2120,13 +2561,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "goat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.oa.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/goat.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "goat",
+  "stimulusMediaId": "goat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2206,11 +2661,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.oa.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/goat.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/goat.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/goat.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2220,7 +2690,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "got is the key minus its team — the short sibling"
+  "notes": "got is the key minus its team — the short sibling",
+  "imagePath": "/images/assessment/long-vowels/goat.webp",
+  "imageUrl": "/images/assessment/long-vowels/goat.webp",
+  "targetImage": "/images/assessment/long-vowels/goat.webp",
+  "targetImagePath": "/images/assessment/long-vowels/goat.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/goat.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.A.oa.v4",
@@ -2284,11 +2760,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.oa.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-media/road-9aba0184.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-media/road-9aba0184.webp",
+  "stimulusMediaId": "/images/assessment/release-media/road-9aba0184.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2298,7 +2789,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
+  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-media/road-9aba0184.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.B.oa.v5",
@@ -2317,33 +2814,33 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "oa",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "boat. Which is the real way to write boat?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "bote",
-   "boet",
-   "boate",
+   "goat",
+   "road",
+   "coat",
    "boat"
   ],
   "answerOptions": [
    {
-    "value": "bote",
-    "label": "bote",
-    "text": "bote"
+    "value": "goat",
+    "label": "goat",
+    "text": "goat"
    },
    {
-    "value": "boet",
-    "label": "boet",
-    "text": "boet"
+    "value": "road",
+    "label": "road",
+    "text": "road"
    },
    {
-    "value": "boate",
-    "label": "boate",
-    "text": "boate"
+    "value": "coat",
+    "label": "coat",
+    "text": "coat"
    },
    {
     "value": "boat",
@@ -2354,21 +2851,36 @@ export const questions = [
   "answer": "boat",
   "correctAnswer": "boat",
   "distractorRationales": {
-   "bote": "D-DEVELOPMENTAL",
-   "boet": "D-DEVELOPMENTAL",
-   "boate": "D-DEVELOPMENTAL"
+   "goat": "D-PATTERN-TRAP",
+   "road": "D-PATTERN-TRAP",
+   "coat": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.oa.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/boat.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boat",
+  "stimulusMediaId": "boat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2378,7 +2890,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/long-vowels/boat.webp",
   "imageUrl": "/images/assessment/long-vowels/boat.webp",
   "targetImage": "/images/assessment/long-vowels/boat.webp",
@@ -2403,28 +2915,28 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "oa",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "coat. Which is the real way to write coat?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "coate",
-   "koat",
+   "goat",
+   "soap",
    "coat",
-   "cote"
+   "boat"
   ],
   "answerOptions": [
    {
-    "value": "coate",
-    "label": "coate",
-    "text": "coate"
+    "value": "goat",
+    "label": "goat",
+    "text": "goat"
    },
    {
-    "value": "koat",
-    "label": "koat",
-    "text": "koat"
+    "value": "soap",
+    "label": "soap",
+    "text": "soap"
    },
    {
     "value": "coat",
@@ -2432,29 +2944,44 @@ export const questions = [
     "text": "coat"
    },
    {
-    "value": "cote",
-    "label": "cote",
-    "text": "cote"
+    "value": "boat",
+    "label": "boat",
+    "text": "boat"
    }
   ],
   "answer": "coat",
   "correctAnswer": "coat",
   "distractorRationales": {
-   "coate": "D-DEVELOPMENTAL",
-   "koat": "D-DEVELOPMENTAL",
-   "cote": "D-DEVELOPMENTAL"
+   "goat": "D-PATTERN-TRAP",
+   "soap": "D-PATTERN-TRAP",
+   "boat": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "coat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.oa.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/oat/coat-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "coat",
+  "stimulusMediaId": "coat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2464,7 +2991,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/rhyming/variants/oat/coat-02.webp",
   "imageUrl": "/images/assessment/rhyming/variants/oat/coat-02.webp",
   "targetImage": "/images/assessment/rhyming/variants/oat/coat-02.webp",
@@ -2534,13 +3061,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "light",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.igh.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/light.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "light",
+  "stimulusMediaId": "light",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2620,13 +3161,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "night",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.igh.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/night.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "night",
+  "stimulusMediaId": "night",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2706,11 +3261,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.igh.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/night.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/night.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/night.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2720,7 +3290,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/night.webp",
+  "imageUrl": "/images/assessment/long-vowels/night.webp",
+  "targetImage": "/images/assessment/long-vowels/night.webp",
+  "targetImagePath": "/images/assessment/long-vowels/night.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/night.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.A.igh.v4",
@@ -2784,11 +3360,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.A.igh.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/light.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/light.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/light.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2798,7 +3389,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "lit is the key minus its team"
+  "notes": "lit is the key minus its team",
+  "imagePath": "/images/assessment/long-vowels/light.webp",
+  "imageUrl": "/images/assessment/long-vowels/light.webp",
+  "targetImage": "/images/assessment/long-vowels/light.webp",
+  "targetImagePath": "/images/assessment/long-vowels/light.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/light.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.B.igh.v5",
@@ -2817,23 +3414,23 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "igh",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "light. Which is the real way to write light?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "lyte",
+   "kite",
    "light",
-   "lite",
-   "liht"
+   "night",
+   "right"
   ],
   "answerOptions": [
    {
-    "value": "lyte",
-    "label": "lyte",
-    "text": "lyte"
+    "value": "kite",
+    "label": "kite",
+    "text": "kite"
    },
    {
     "value": "light",
@@ -2841,34 +3438,49 @@ export const questions = [
     "text": "light"
    },
    {
-    "value": "lite",
-    "label": "lite",
-    "text": "lite"
+    "value": "night",
+    "label": "night",
+    "text": "night"
    },
    {
-    "value": "liht",
-    "label": "liht",
-    "text": "liht"
+    "value": "right",
+    "label": "right",
+    "text": "right"
    }
   ],
   "answer": "light",
   "correctAnswer": "light",
   "distractorRationales": {
-   "liht": "D-DEVELOPMENTAL",
-   "lyte": "D-DEVELOPMENTAL",
-   "lite": "D-DEVELOPMENTAL"
+   "right": "D-PATTERN-TRAP",
+   "kite": "D-PATTERN-TRAP",
+   "night": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "light",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.B.igh.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/light.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "light",
+  "stimulusMediaId": "light",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2878,7 +3490,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "lite is the classic commercial rival spelling",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/long-vowels/light.webp",
   "imageUrl": "/images/assessment/long-vowels/light.webp",
   "targetImage": "/images/assessment/long-vowels/light.webp",
@@ -2903,17 +3515,17 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "igh",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "night. Which is the real way to write night?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "night",
-   "nite",
-   "niht",
-   "nighte"
+   "light",
+   "right",
+   "high"
   ],
   "answerOptions": [
    {
@@ -2922,39 +3534,54 @@ export const questions = [
     "text": "night"
    },
    {
-    "value": "nite",
-    "label": "nite",
-    "text": "nite"
+    "value": "light",
+    "label": "light",
+    "text": "light"
    },
    {
-    "value": "niht",
-    "label": "niht",
-    "text": "niht"
+    "value": "right",
+    "label": "right",
+    "text": "right"
    },
    {
-    "value": "nighte",
-    "label": "nighte",
-    "text": "nighte"
+    "value": "high",
+    "label": "high",
+    "text": "high"
    }
   ],
   "answer": "night",
   "correctAnswer": "night",
   "distractorRationales": {
-   "niht": "D-DEVELOPMENTAL",
-   "nighte": "D-DEVELOPMENTAL",
-   "nite": "D-DEVELOPMENTAL"
+   "right": "D-PATTERN-TRAP",
+   "high": "D-PATTERN-TRAP",
+   "light": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "night",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.C.igh.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/night.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "night",
+  "stimulusMediaId": "night",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2964,7 +3591,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/long-vowels/night.webp",
   "imageUrl": "/images/assessment/long-vowels/night.webp",
   "targetImage": "/images/assessment/long-vowels/night.webp",
@@ -3034,13 +3661,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "moon",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oo.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/moon.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "moon",
+  "stimulusMediaId": "moon",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3120,13 +3761,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "spoon",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.oo.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/spoon.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "spoon",
+  "stimulusMediaId": "spoon",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3206,12 +3861,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "blue",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.oo.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/blue.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/blue.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/blue.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3221,7 +3891,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "book keeps the letters and swaps the sound — the two-oo contrast"
+  "notes": "book keeps the letters and swaps the sound — the two-oo contrast",
+  "imagePath": "/images/assessment/long-vowels/blue.webp",
+  "imageUrl": "/images/assessment/long-vowels/blue.webp",
+  "targetImage": "/images/assessment/long-vowels/blue.webp",
+  "targetImagePath": "/images/assessment/long-vowels/blue.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/blue.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oo.v4",
@@ -3285,12 +3961,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "glue",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oo.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/glue-bf135d.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/glue-bf135d.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/glue-bf135d.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3300,7 +3991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/targets/glue-bf135d.webp",
+  "imageUrl": "/images/assessment/release-support/targets/glue-bf135d.webp",
+  "targetImage": "/images/assessment/release-support/targets/glue-bf135d.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/glue-bf135d.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/glue-bf135d.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oo.v5",
@@ -3364,11 +4061,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.oo.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/language/variants/plurals/book-books-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "stimulusMediaId": "/images/assessment/language/variants/plurals/book-books-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3378,7 +4090,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/book-books-01.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oo.v6",
@@ -3442,11 +4160,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.oo.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/look-e09315.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/look-e09315.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/look-e09315.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3456,7 +4189,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/release-support/targets/look-e09315.webp",
+  "imageUrl": "/images/assessment/release-support/targets/look-e09315.webp",
+  "targetImage": "/images/assessment/release-support/targets/look-e09315.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/look-e09315.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/look-e09315.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v1",
@@ -3520,13 +4259,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "snow",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.ow.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/snow.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "snow",
+  "stimulusMediaId": "snow",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3606,12 +4359,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "grow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.ow.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/grow-c7c5d7.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3621,7 +4389,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
+  "imageUrl": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
+  "targetImage": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/grow-c7c5d7.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v3",
@@ -3685,12 +4459,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boat",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ow.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/boat.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/boat.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/boat.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3700,7 +4489,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cow keeps the letters and swaps the sound"
+  "notes": "cow keeps the letters and swaps the sound",
+  "imagePath": "/images/assessment/long-vowels/boat.webp",
+  "imageUrl": "/images/assessment/long-vowels/boat.webp",
+  "targetImage": "/images/assessment/long-vowels/boat.webp",
+  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/boat.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ow.v4",
@@ -3764,12 +4559,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "loud",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.ow.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/generated/concepts/loud.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/generated/concepts/loud.webp",
+  "stimulusMediaId": "/images/assessment/generated/concepts/loud.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3779,7 +4589,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/loud.webp",
+  "imageUrl": "/images/assessment/generated/concepts/loud.webp",
+  "targetImage": "/images/assessment/generated/concepts/loud.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/loud.webp",
+  "resolvedImageAssetKey": "/images/assessment/generated/concepts/loud.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ow.v5",
@@ -3843,11 +4659,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.ow.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/snow.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/snow.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/snow.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3857,7 +4688,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/long-vowels/snow.webp",
+  "imageUrl": "/images/assessment/long-vowels/snow.webp",
+  "targetImage": "/images/assessment/long-vowels/snow.webp",
+  "targetImagePath": "/images/assessment/long-vowels/snow.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/snow.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ow.v6",
@@ -3921,11 +4758,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ow.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/cow-8bbddb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/cow-8bbddb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3935,7 +4787,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "imageUrl": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "targetImage": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v1",
@@ -3999,13 +4857,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cloud",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.ou.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cloud-86182099.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cloud",
+  "stimulusMediaId": "cloud",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4016,10 +4888,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/child-mode/blends/cloud.png",
-  "imageUrl": "/images/child-mode/blends/cloud.png",
-  "targetImage": "/images/child-mode/blends/cloud.png",
-  "targetImagePath": "/images/child-mode/blends/cloud.png",
+  "imagePath": "/images/assessment/release-media/cloud-86182099.webp",
+  "imageUrl": "/images/assessment/release-media/cloud-86182099.webp",
+  "targetImage": "/images/assessment/release-media/cloud-86182099.webp",
+  "targetImagePath": "/images/assessment/release-media/cloud-86182099.webp",
   "resolvedImageAssetKey": "cloud",
   "imageAlt": "cloud"
  },
@@ -4085,13 +4957,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "house",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.ou.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/rhyming/variants/house/house-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "house",
+  "stimulusMediaId": "house",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4171,12 +5057,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ou.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/cow-8bbddb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/cow-8bbddb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4186,7 +5087,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk"
+  "notes": "keys avoid ound-words — the prompt word sound contains them; fond ties the nd chunk",
+  "imagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "imageUrl": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "targetImage": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/cow-8bbddb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ou.v4",
@@ -4250,12 +5157,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "how",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.ou.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/how-0b0643.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/how-0b0643.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/how-0b0643.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4265,7 +5187,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "moth is the key minus one letter with a different vowel entirely"
+  "notes": "moth is the key minus one letter with a different vowel entirely",
+  "imagePath": "/images/assessment/release-support/targets/how-0b0643.webp",
+  "imageUrl": "/images/assessment/release-support/targets/how-0b0643.webp",
+  "targetImage": "/images/assessment/release-support/targets/how-0b0643.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/how-0b0643.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/how-0b0643.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ou.v5",
@@ -4329,11 +5257,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.ou.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/soup-93ad1e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/soup-93ad1e.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/soup-93ad1e.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4343,7 +5286,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "soup's ou says oo — the variable-team contrast"
+  "notes": "soup's ou says oo — the variable-team contrast",
+  "imagePath": "/images/assessment/release-support/targets/soup-93ad1e.webp",
+  "imageUrl": "/images/assessment/release-support/targets/soup-93ad1e.webp",
+  "targetImage": "/images/assessment/release-support/targets/soup-93ad1e.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/soup-93ad1e.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/soup-93ad1e.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.C.ou.v6",
@@ -4407,11 +5356,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ou.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/could-e30de8.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/could-e30de8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/could-e30de8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4421,7 +5385,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "could's ou says the book-oo"
+  "notes": "could's ou says the book-oo",
+  "imagePath": "/images/assessment/release-support/targets/could-e30de8.webp",
+  "imageUrl": "/images/assessment/release-support/targets/could-e30de8.webp",
+  "targetImage": "/images/assessment/release-support/targets/could-e30de8.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/could-e30de8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/could-e30de8.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v1",
@@ -4485,12 +5455,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oi.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/coin-3478fe.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/coin-3478fe.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4500,7 +5485,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "imageUrl": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "targetImage": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v2",
@@ -4564,13 +5555,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boil",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.oi.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/boil.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boil",
+  "stimulusMediaId": "boil",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4650,12 +5655,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "toy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.oi.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/language/variants/plurals/toy-toys-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "stimulusMediaId": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4665,7 +5685,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oi.v4",
@@ -4729,12 +5755,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oi.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/language/variants/plurals/boy-boys-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "stimulusMediaId": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4744,7 +5785,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oi.v5",
@@ -4763,57 +5810,73 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "oi",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "coin. Which is the real way to write coin?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "koin",
-   "coine",
-   "coin",
-   "coyn"
+   "boil",
+   "toy",
+   "oil",
+   "coin"
   ],
   "answerOptions": [
    {
-    "value": "koin",
-    "label": "koin",
-    "text": "koin"
+    "value": "boil",
+    "label": "boil",
+    "text": "boil"
    },
    {
-    "value": "coine",
-    "label": "coine",
-    "text": "coine"
+    "value": "toy",
+    "label": "toy",
+    "text": "toy"
+   },
+   {
+    "value": "oil",
+    "label": "oil",
+    "text": "oil"
    },
    {
     "value": "coin",
     "label": "coin",
     "text": "coin"
-   },
-   {
-    "value": "coyn",
-    "label": "coyn",
-    "text": "coyn"
    }
   ],
-  "answer": "coin",
-  "correctAnswer": "coin",
+  "answer": "oil",
+  "correctAnswer": "oil",
   "distractorRationales": {
-   "coyn": "D-DEVELOPMENTAL",
-   "koin": "D-DEVELOPMENTAL",
-   "coine": "D-DEVELOPMENTAL"
+   "coin": "D-PATTERN-TRAP",
+   "boil": "D-PATTERN-TRAP",
+   "toy": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "coin",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.oi.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/oil.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "oil",
+  "stimulusMediaId": "oil",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4823,7 +5886,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "coyn is the oy-in-the-middle position error"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/generated/concepts/oil.webp",
+  "imageUrl": "/images/assessment/generated/concepts/oil.webp",
+  "targetImage": "/images/assessment/generated/concepts/oil.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/oil.webp",
+  "resolvedImageAssetKey": "oil",
+  "imageAlt": "oil"
  },
  {
   "id": "lp3.vowel_teams.l2.C.oi.v6",
@@ -4842,57 +5911,73 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "oi",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "point. Which is the real way to write point?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "poynt",
-   "poient",
-   "pointe",
-   "point"
+   "coin",
+   "oil",
+   "boy",
+   "boil"
   ],
   "answerOptions": [
    {
-    "value": "poynt",
-    "label": "poynt",
-    "text": "poynt"
+    "value": "coin",
+    "label": "coin",
+    "text": "coin"
    },
    {
-    "value": "poient",
-    "label": "poient",
-    "text": "poient"
+    "value": "oil",
+    "label": "oil",
+    "text": "oil"
    },
    {
-    "value": "pointe",
-    "label": "pointe",
-    "text": "pointe"
+    "value": "boy",
+    "label": "boy",
+    "text": "boy"
    },
    {
-    "value": "point",
-    "label": "point",
-    "text": "point"
+    "value": "boil",
+    "label": "boil",
+    "text": "boil"
    }
   ],
-  "answer": "point",
-  "correctAnswer": "point",
+  "answer": "boil",
+  "correctAnswer": "boil",
   "distractorRationales": {
-   "pointe": "D-DEVELOPMENTAL",
-   "poynt": "D-DEVELOPMENTAL",
-   "poient": "D-DEVELOPMENTAL"
+   "boy": "D-PATTERN-TRAP",
+   "coin": "D-PATTERN-TRAP",
+   "oil": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "point",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "boil",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.oi.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/boil.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "boil",
+  "stimulusMediaId": "boil",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4902,7 +5987,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/generated/concepts/boil.webp",
+  "imageUrl": "/images/assessment/generated/concepts/boil.webp",
+  "targetImage": "/images/assessment/generated/concepts/boil.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/boil.webp",
+  "resolvedImageAssetKey": "boil",
+  "imageAlt": "boil"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v1",
@@ -4966,13 +6057,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oy.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/boy-boys-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boy",
+  "stimulusMediaId": "boy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5052,13 +6157,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "joy",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.oy.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/joy.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "joy",
+  "stimulusMediaId": "joy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5138,12 +6257,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "coin",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.oy.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/coin-3478fe.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/coin-3478fe.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5153,7 +6287,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "imageUrl": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "targetImage": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/coin-3478fe.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.oy.v4",
@@ -5217,12 +6357,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "oil",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.oy.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/generated/concepts/oil.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/generated/concepts/oil.webp",
+  "stimulusMediaId": "/images/assessment/generated/concepts/oil.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5232,7 +6387,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/oil.webp",
+  "imageUrl": "/images/assessment/generated/concepts/oil.webp",
+  "targetImage": "/images/assessment/generated/concepts/oil.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/oil.webp",
+  "resolvedImageAssetKey": "/images/assessment/generated/concepts/oil.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.oy.v5",
@@ -5251,17 +6412,17 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "oy",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "boy. Which is the real way to write boy?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
    "boy",
-   "boi",
-   "boye",
-   "boey"
+   "toy",
+   "joy",
+   "day"
   ],
   "answerOptions": [
    {
@@ -5270,39 +6431,54 @@ export const questions = [
     "text": "boy"
    },
    {
-    "value": "boi",
-    "label": "boi",
-    "text": "boi"
+    "value": "toy",
+    "label": "toy",
+    "text": "toy"
    },
    {
-    "value": "boye",
-    "label": "boye",
-    "text": "boye"
+    "value": "joy",
+    "label": "joy",
+    "text": "joy"
    },
    {
-    "value": "boey",
-    "label": "boey",
-    "text": "boey"
+    "value": "day",
+    "label": "day",
+    "text": "day"
    }
   ],
   "answer": "boy",
   "correctAnswer": "boy",
   "distractorRationales": {
-   "boi": "D-DEVELOPMENTAL",
-   "boye": "D-DEVELOPMENTAL",
-   "boey": "D-DEVELOPMENTAL"
+   "toy": "D-PATTERN-TRAP",
+   "joy": "D-PATTERN-TRAP",
+   "day": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "boy",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.oy.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/boy-boys-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "boy",
+  "stimulusMediaId": "boy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5312,7 +6488,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "boi is the oi-at-the-end position error",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "imageUrl": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
   "targetImage": "/images/assessment/language/variants/plurals/boy-boys-01.webp",
@@ -5337,23 +6513,23 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "oy",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "toy. Which is the real way to write toy?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "toey",
+   "oil",
    "toy",
-   "toi",
-   "toye"
+   "boy",
+   "joy"
   ],
   "answerOptions": [
    {
-    "value": "toey",
-    "label": "toey",
-    "text": "toey"
+    "value": "oil",
+    "label": "oil",
+    "text": "oil"
    },
    {
     "value": "toy",
@@ -5361,34 +6537,49 @@ export const questions = [
     "text": "toy"
    },
    {
-    "value": "toi",
-    "label": "toi",
-    "text": "toi"
+    "value": "boy",
+    "label": "boy",
+    "text": "boy"
    },
    {
-    "value": "toye",
-    "label": "toye",
-    "text": "toye"
+    "value": "joy",
+    "label": "joy",
+    "text": "joy"
    }
   ],
   "answer": "toy",
   "correctAnswer": "toy",
   "distractorRationales": {
-   "toey": "D-DEVELOPMENTAL",
-   "toi": "D-DEVELOPMENTAL",
-   "toye": "D-DEVELOPMENTAL"
+   "oil": "D-PATTERN-TRAP",
+   "boy": "D-PATTERN-TRAP",
+   "joy": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "toy",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.oy.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/plurals/toy-toys-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "toy",
+  "stimulusMediaId": "toy",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5398,7 +6589,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
   "imageUrl": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
   "targetImage": "/images/assessment/language/variants/plurals/toy-toys-01.webp",
@@ -5468,13 +6659,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "screw",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.ew.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/screw.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "screw",
+  "stimulusMediaId": "screw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5554,13 +6759,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "chew",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.ew.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/chew.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "chew",
+  "stimulusMediaId": "chew",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5640,12 +6859,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "moon",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ew.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/moon.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/moon.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/moon.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5655,7 +6889,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/moon.webp",
+  "imageUrl": "/images/assessment/long-vowels/moon.webp",
+  "targetImage": "/images/assessment/long-vowels/moon.webp",
+  "targetImagePath": "/images/assessment/long-vowels/moon.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/moon.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.ew.v4",
@@ -5719,12 +6959,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "zoo",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.ew.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/language/variants/plurals/zoo-zoos-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "stimulusMediaId": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5734,7 +6989,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "imageUrl": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "targetImage": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "resolvedImageAssetKey": "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.ew.v5",
@@ -5753,28 +7014,28 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "ew",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "new. Which is the real way to write new?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "nue",
-   "newe",
+   "flew",
+   "grew",
    "new",
-   "noo"
+   "chew"
   ],
   "answerOptions": [
    {
-    "value": "nue",
-    "label": "nue",
-    "text": "nue"
+    "value": "flew",
+    "label": "flew",
+    "text": "flew"
    },
    {
-    "value": "newe",
-    "label": "newe",
-    "text": "newe"
+    "value": "grew",
+    "label": "grew",
+    "text": "grew"
    },
    {
     "value": "new",
@@ -5782,29 +7043,44 @@ export const questions = [
     "text": "new"
    },
    {
-    "value": "noo",
-    "label": "noo",
-    "text": "noo"
+    "value": "chew",
+    "label": "chew",
+    "text": "chew"
    }
   ],
   "answer": "new",
   "correctAnswer": "new",
   "distractorRationales": {
-   "noo": "D-DEVELOPMENTAL",
-   "nue": "D-DEVELOPMENTAL",
-   "newe": "D-DEVELOPMENTAL"
+   "chew": "D-PATTERN-TRAP",
+   "flew": "D-PATTERN-TRAP",
+   "grew": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "new",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.ew.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/hfw/new.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "new",
+  "stimulusMediaId": "new",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5814,7 +7090,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/hfw/new.webp",
   "imageUrl": "/images/assessment/hfw/new.webp",
   "targetImage": "/images/assessment/hfw/new.webp",
@@ -5839,57 +7115,73 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "ew",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "grew. Which is the real way to write grew?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "groo",
-   "grue",
-   "grewe",
-   "grew"
+   "new",
+   "chew",
+   "blue",
+   "flew"
   ],
   "answerOptions": [
    {
-    "value": "groo",
-    "label": "groo",
-    "text": "groo"
+    "value": "new",
+    "label": "new",
+    "text": "new"
    },
    {
-    "value": "grue",
-    "label": "grue",
-    "text": "grue"
+    "value": "chew",
+    "label": "chew",
+    "text": "chew"
    },
    {
-    "value": "grewe",
-    "label": "grewe",
-    "text": "grewe"
+    "value": "blue",
+    "label": "blue",
+    "text": "blue"
    },
    {
-    "value": "grew",
-    "label": "grew",
-    "text": "grew"
+    "value": "flew",
+    "label": "flew",
+    "text": "flew"
    }
   ],
-  "answer": "grew",
-  "correctAnswer": "grew",
+  "answer": "flew",
+  "correctAnswer": "flew",
   "distractorRationales": {
-   "grewe": "D-DEVELOPMENTAL",
-   "groo": "D-DEVELOPMENTAL",
-   "grue": "D-DEVELOPMENTAL"
+   "blue": "D-PATTERN-TRAP",
+   "new": "D-PATTERN-TRAP",
+   "chew": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "grew",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "flew",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.ew.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/concepts/flew.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "flew",
+  "stimulusMediaId": "flew",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5899,7 +7191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/generated/concepts/flew.webp",
+  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
+  "targetImage": "/images/assessment/generated/concepts/flew.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
+  "resolvedImageAssetKey": "flew",
+  "imageAlt": "flew"
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v1",
@@ -5963,13 +7261,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "draw",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.aw.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/draw.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "draw",
+  "stimulusMediaId": "draw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6049,13 +7361,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "yawn",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.aw.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "yawn",
+  "stimulusMediaId": "yawn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6135,12 +7461,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.aw.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/ball-8bec04.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/ball-8bec04.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6150,7 +7491,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "imageUrl": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "targetImage": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.A.aw.v4",
@@ -6214,12 +7561,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "tall",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.A.aw.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/rhyming/variants/all/tall-02.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "stimulusMediaId": "/images/assessment/rhyming/variants/all/tall-02.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6229,7 +7591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "resolvedImageAssetKey": "/images/assessment/rhyming/variants/all/tall-02.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.B.aw.v5",
@@ -6248,57 +7616,73 @@ export const questions = [
   "form": "B",
   "itemType": "phonics_pattern",
   "itemKey": "aw",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "saw. Which is the real way to write saw?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
+   "draw",
    "saw",
-   "sau",
-   "sawe",
-   "soar"
+   "straw",
+   "yawn"
   ],
   "answerOptions": [
+   {
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
+   },
    {
     "value": "saw",
     "label": "saw",
     "text": "saw"
    },
    {
-    "value": "sau",
-    "label": "sau",
-    "text": "sau"
+    "value": "straw",
+    "label": "straw",
+    "text": "straw"
    },
    {
-    "value": "sawe",
-    "label": "sawe",
-    "text": "sawe"
-   },
-   {
-    "value": "soar",
-    "label": "soar",
-    "text": "soar"
+    "value": "yawn",
+    "label": "yawn",
+    "text": "yawn"
    }
   ],
-  "answer": "saw",
-  "correctAnswer": "saw",
+  "answer": "draw",
+  "correctAnswer": "draw",
   "distractorRationales": {
-   "sau": "D-DEVELOPMENTAL",
-   "sawe": "D-DEVELOPMENTAL",
-   "soar": "D-DEVELOPMENTAL"
+   "saw": "D-PATTERN-TRAP",
+   "straw": "D-PATTERN-TRAP",
+   "yawn": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "saw",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "draw",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.B.aw.v5",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/blends/draw.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "draw",
+  "stimulusMediaId": "draw",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6308,7 +7692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "soar is a real word but not this one — the picture decides"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/blends/draw.webp",
+  "imageUrl": "/images/assessment/blends/draw.webp",
+  "targetImage": "/images/assessment/blends/draw.webp",
+  "targetImagePath": "/images/assessment/blends/draw.webp",
+  "resolvedImageAssetKey": "draw",
+  "imageAlt": "draw"
  },
  {
   "id": "lp3.vowel_teams.l2.C.aw.v6",
@@ -6327,57 +7717,73 @@ export const questions = [
   "form": "C",
   "itemType": "phonics_pattern",
   "itemKey": "aw",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "claw. Which is the real way to write claw?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "cloar",
-   "claw",
-   "clau",
-   "clawe"
+   "paw",
+   "yawn",
+   "draw",
+   "saw"
   ],
   "answerOptions": [
    {
-    "value": "cloar",
-    "label": "cloar",
-    "text": "cloar"
+    "value": "paw",
+    "label": "paw",
+    "text": "paw"
    },
    {
-    "value": "claw",
-    "label": "claw",
-    "text": "claw"
+    "value": "yawn",
+    "label": "yawn",
+    "text": "yawn"
    },
    {
-    "value": "clau",
-    "label": "clau",
-    "text": "clau"
+    "value": "draw",
+    "label": "draw",
+    "text": "draw"
    },
    {
-    "value": "clawe",
-    "label": "clawe",
-    "text": "clawe"
+    "value": "saw",
+    "label": "saw",
+    "text": "saw"
    }
   ],
-  "answer": "claw",
-  "correctAnswer": "claw",
+  "answer": "yawn",
+  "correctAnswer": "yawn",
   "distractorRationales": {
-   "cloar": "D-DEVELOPMENTAL",
-   "clau": "D-DEVELOPMENTAL",
-   "clawe": "D-DEVELOPMENTAL"
+   "paw": "D-PATTERN-TRAP",
+   "draw": "D-PATTERN-TRAP",
+   "saw": "D-PATTERN-TRAP"
   },
-  "mediaTier": "text",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
-  "targetWord": "claw",
+  "evidenceRole": "mastery",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "yawn",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.C.aw.v6",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/generated/initial-sounds-l2/yawn.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "yawn",
+  "stimulusMediaId": "yawn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6387,7 +7793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors"
+  "notes": "all choices are real words from the taught vowel-team family",
+  "imagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "imageUrl": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImage": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "targetImagePath": "/images/assessment/generated/initial-sounds-l2/yawn.webp",
+  "resolvedImageAssetKey": "yawn",
+  "imageAlt": "yawn"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v7r",
@@ -6451,13 +7863,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "tail",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.ai.v7r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "tail",
+  "stimulusMediaId": "tail",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6537,12 +7963,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "toast",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.oa.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/toast-2d885a.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/toast-2d885a.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/toast-2d885a.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6552,7 +7993,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/targets/toast-2d885a.webp",
+  "imageUrl": "/images/assessment/release-support/targets/toast-2d885a.webp",
+  "targetImage": "/images/assessment/release-support/targets/toast-2d885a.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/toast-2d885a.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/toast-2d885a.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ea.v7r",
@@ -6616,11 +8063,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.ea.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/long-vowels/beach.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/long-vowels/beach.webp",
+  "stimulusMediaId": "/images/assessment/long-vowels/beach.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6630,7 +8092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/long-vowels/beach.webp",
+  "imageUrl": "/images/assessment/long-vowels/beach.webp",
+  "targetImage": "/images/assessment/long-vowels/beach.webp",
+  "targetImagePath": "/images/assessment/long-vowels/beach.webp",
+  "resolvedImageAssetKey": "/images/assessment/long-vowels/beach.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v7r",
@@ -6694,12 +8162,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "flew",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.oo.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/generated/concepts/flew.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/generated/concepts/flew.webp",
+  "stimulusMediaId": "/images/assessment/generated/concepts/flew.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6709,7 +8192,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/flew.webp",
+  "imageUrl": "/images/assessment/generated/concepts/flew.webp",
+  "targetImage": "/images/assessment/generated/concepts/flew.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/flew.webp",
+  "resolvedImageAssetKey": "/images/assessment/generated/concepts/flew.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.R.ai.v8r",
@@ -6728,23 +8217,23 @@ export const questions = [
   "form": "R",
   "itemType": "phonics_pattern",
   "itemKey": "ai",
-  "formatType": "PTD",
-  "templateType": "PTD",
+  "formatType": "PICTURE_TO_PRINT_MATCH",
+  "templateType": "PICTURE_TO_PRINT_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which is the real word?",
-  "question": "Which is the real word?",
-  "spokenPrompt": "rain. Which is the real way to write rain?",
+  "prompt": "Which word names the picture?",
+  "question": "Which word names the picture?",
+  "spokenPrompt": "Which word names the picture?",
   "choices": [
-   "raine",
+   "paint",
    "rain",
-   "rane",
-   "rayn"
+   "chain",
+   "train"
   ],
   "answerOptions": [
    {
-    "value": "raine",
-    "label": "raine",
-    "text": "raine"
+    "value": "paint",
+    "label": "paint",
+    "text": "paint"
    },
    {
     "value": "rain",
@@ -6752,34 +8241,49 @@ export const questions = [
     "text": "rain"
    },
    {
-    "value": "rane",
-    "label": "rane",
-    "text": "rane"
+    "value": "chain",
+    "label": "chain",
+    "text": "chain"
    },
    {
-    "value": "rayn",
-    "label": "rayn",
-    "text": "rayn"
+    "value": "train",
+    "label": "train",
+    "text": "train"
    }
   ],
   "answer": "rain",
   "correctAnswer": "rain",
   "distractorRationales": {
-   "rane": "D-DEVELOPMENTAL",
-   "rayn": "D-DEVELOPMENTAL",
-   "raine": "D-DEVELOPMENTAL"
+   "chain": "D-PATTERN-TRAP",
+   "train": "D-PATTERN-TRAP",
+   "paint": "D-PATTERN-TRAP"
   },
-  "mediaTier": "image-optional",
-  "hadPTD": false,
+  "mediaTier": "image-required",
+  "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "constructClaim": "picture_to_real_word_vowel_team_recognition",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "rain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.ai.v8r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/long-vowels/rain.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "rain",
+  "stimulusMediaId": "rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6789,7 +8293,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival spellings are pronounceable developmental errors",
+  "notes": "all choices are real words from the taught vowel-team family",
   "imagePath": "/images/assessment/long-vowels/rain.webp",
   "imageUrl": "/images/assessment/long-vowels/rain.webp",
   "targetImage": "/images/assessment/long-vowels/rain.webp",
@@ -6859,11 +8363,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.ow.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/blends/brown.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/blends/brown.webp",
+  "stimulusMediaId": "/images/assessment/blends/brown.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6873,7 +8392,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/blends/brown.webp",
+  "imageUrl": "/images/assessment/blends/brown.webp",
+  "targetImage": "/images/assessment/blends/brown.webp",
+  "targetImagePath": "/images/assessment/blends/brown.webp",
+  "resolvedImageAssetKey": "/images/assessment/blends/brown.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l1.R.oa.v8r",
@@ -6937,13 +8462,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "road",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l1.R.oa.v8r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/road-9aba0184.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "road",
+  "stimulusMediaId": "road",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6954,10 +8493,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "reed and raid are real — the road image pins the target",
-  "imagePath": "/images/child-mode/vowels/road.png",
-  "imageUrl": "/images/child-mode/vowels/road.png",
-  "targetImage": "/images/child-mode/vowels/road.png",
-  "targetImagePath": "/images/child-mode/vowels/road.png",
+  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
+  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
+  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
   "resolvedImageAssetKey": "road",
   "imageAlt": "road"
  },
@@ -7023,12 +8562,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "joy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.oi.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/generated/concepts/joy.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/generated/concepts/joy.webp",
+  "stimulusMediaId": "/images/assessment/generated/concepts/joy.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7038,7 +8592,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/generated/concepts/joy.webp",
+  "imageUrl": "/images/assessment/generated/concepts/joy.webp",
+  "targetImage": "/images/assessment/generated/concepts/joy.webp",
+  "targetImagePath": "/images/assessment/generated/concepts/joy.webp",
+  "resolvedImageAssetKey": "/images/assessment/generated/concepts/joy.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.R.ew.v7r",
@@ -7102,13 +8662,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "new",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.ew.v7r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/hfw/new.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "new",
+  "stimulusMediaId": "new",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7188,12 +8762,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ball",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.aw.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/ball-8bec04.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/ball-8bec04.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7203,7 +8792,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "imageUrl": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "targetImage": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/ball-8bec04.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.R.oo.v8r",
@@ -7267,11 +8862,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.oo.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/good-fc1931.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/good-fc1931.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/good-fc1931.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7281,7 +8891,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor"
+  "notes": "same letters, different sound — the scanner's max-overlap pick is a same-sound distractor",
+  "imagePath": "/images/assessment/release-support/targets/good-fc1931.webp",
+  "imageUrl": "/images/assessment/release-support/targets/good-fc1931.webp",
+  "targetImage": "/images/assessment/release-support/targets/good-fc1931.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/good-fc1931.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/good-fc1931.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.vowel_teams.l2.R.aw.v8r",
@@ -7345,12 +8961,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "crawl",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.vowel_teams.l2.R.aw.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/targets/crawl-3b8eaa.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "not-applicable-target-evidence"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
+  "stimulusMediaId": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7360,6 +8991,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crowl, creel and crool are non-words"
+  "notes": "crowl, creel and crool are non-words",
+  "imagePath": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
+  "imageUrl": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
+  "targetImage": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
+  "targetImagePath": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/targets/crawl-3b8eaa.webp",
+  "imageAlt": "Picture support for this literacy question"
  }
 ];

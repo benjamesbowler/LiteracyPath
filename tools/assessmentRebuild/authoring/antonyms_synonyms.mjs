@@ -68,7 +68,7 @@ export default {
   items: [
     // ================= L1 phase 1: antonym_concrete =================
     gic("antonym_concrete", 1, 1, 1, "hot", "What is the opposite of hot?",
-      ["cold", "warm", "boiling", "green"], [TA, OPP, SEM]),
+      ["cold", "boiling", "wet", "green"], [OPP, TA, SEM]),
     gic("antonym_concrete", 1, 1, 2, "big", "What is the opposite of big?",
       ["small", "huge", "tall", "white"], [OPP, TA, SEM]),
     gic("antonym_concrete", 1, 1, 3, "up", "What is the opposite of up?",
@@ -76,8 +76,8 @@ export default {
     lpisc("antonym_concrete", 1, 1, 4, "wet", "What is the opposite of wet?",
       ["dry", "soaked", "cool", "loud"], [OPP, TA, SEM]),
     lpisc("antonym_concrete", 1, 1, 5, "hot", "The picture shows something hot. Pick the opposite of hot.",
-      ["cold", "cool", "boiling", "wet"], [TA, OPP, SEM],
-      "something gifts in to boiling — a distractor tops, never the key"),
+      ["cold", "boiling", "wet", "loud"], [OPP, TA, SEM],
+      "cold is the only temperature opposite; the remaining words describe heat, moisture, or sound"),
     lpisc("antonym_concrete", 1, 1, 6, "whale", "The whale in the picture is big. Pick the opposite of big.",
       ["small", "huge", "long", "green"], [OPP, TA, SEM]),
 
@@ -86,7 +86,7 @@ export default {
       ["glad", "sad", "soft", "tall"], [OPP, TA, SEM]),
     gic("synonym_concrete", 1, 1, 2, "shout", "Which word means about the same as shout?",
       ["yell", "sing", "talk", "jump"], [OPP, TA, SEM]),
-    gic("synonym_concrete", 1, 1, 3, "small", "Which word means about the same as little?",
+    lptc("synonym_concrete", 1, 1, 3, "Which word means about the same as little?",
       ["small", "huge", "thin", "blue"], [OPP, TA, SEM]),
     lpisc("synonym_concrete", 1, 1, 4, "begin", "Which word means about the same as begin?",
       ["start", "finish", "try", "sing"], [OPP, TA, SEM],

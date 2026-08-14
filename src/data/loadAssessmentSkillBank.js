@@ -1,6 +1,5 @@
 import { skillTree } from "../skillTree.js";
 import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
-import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
 import { enrichQuestionWithExistingMedia } from "./questionMediaResolver.js";
 import { normalizeRhymingQuestionChoices } from "./rhymingDistractors.js";
 import {
@@ -103,7 +102,12 @@ function normalizeV3Question(question, assessmentSkillId) {
   const authoredMedia = question.v3AuthoredMedia || {};
   const authoredImage = question.imagePath || question.imageUrl || question.targetImage || question.targetImagePath || "";
   const enriched = enrichQuestionWithExistingMedia(
-    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion({ ...question }))
+    // Current v3 HFW audio-to-print items already carry their reviewed format,
+    // choices, target and media contract. The legacy listen-and-find enhancer
+    // rewrites that format to HEARD_WORD_TO_PRINT_MINIMAL_PAIR, which is not a
+    // v3 blueprint format and therefore causes the published items to be
+    // filtered from student runtime after passing the release gate.
+    enrichInitialSoundPairQuestion({ ...question })
   );
   const normalized = normalizeRhymingQuestionChoices({
     ...enriched,

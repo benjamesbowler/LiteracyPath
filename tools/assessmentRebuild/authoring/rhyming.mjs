@@ -13,9 +13,8 @@
 //     which are chunk-null by construction; ouse (no clean tie) runs entirely
 //     on ODD_ONE_OUT, where the scanner picks a RHYMER (a distractor), never
 //     the odd key. Zero scanner leaks is the target, not the 25% gate ceiling.
-// Audio note: L1 is phonological; until recorded audio ships this is honest
-// print-pattern evidence (blueprint mediaTierNote) — instruction + word audio
-// for every item is checked against the current production-audio registry.
+// L1 is audio-first phonological evidence. Written labels stay hidden and the
+// gate requires approved production word audio for every answer card.
 // Spec: docs/skills-assessment-rebuild/BLUEPRINTS_PHONOLOGICAL.md §3.
 
 import { makeImageResolver } from "../lib.mjs";
@@ -33,6 +32,9 @@ const rmp = (u, lvl, ph, v, anchor, cards, keyWord, rationales, note = "") => ({
   cards,
   choices: cards.map(w => (w === keyWord ? K(w) : P(w, rationales[w]))),
   media: "image-required",
+  evidenceModality: "audio+image",
+  constructClaim: "spoken_rhyme_discrimination",
+  hideWrittenLabels: true,
   target: anchor,
   note
 });

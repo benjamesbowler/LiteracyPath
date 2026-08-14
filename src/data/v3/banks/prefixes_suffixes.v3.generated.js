@@ -21,30 +21,30 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means not happy?",
-  "question": "Which word means not happy?",
-  "spokenPrompt": "Which word means not happy?",
+  "prompt": "Jo dropped the cake and stopped smiling. Which word describes Jo?",
+  "question": "Jo dropped the cake and stopped smiling. Which word describes Jo?",
+  "spokenPrompt": "Jo dropped the cake and stopped smiling. Which word describes Jo?",
   "choices": [
-   "replay",
+   "joyful",
+   "careful",
    "helpful",
-   "singer",
    "unhappy"
   ],
   "answerOptions": [
    {
-    "value": "replay",
-    "label": "replay",
-    "text": "replay"
+    "value": "joyful",
+    "label": "joyful",
+    "text": "joyful"
+   },
+   {
+    "value": "careful",
+    "label": "careful",
+    "text": "careful"
    },
    {
     "value": "helpful",
     "label": "helpful",
     "text": "helpful"
-   },
-   {
-    "value": "singer",
-    "label": "singer",
-    "text": "singer"
    },
    {
     "value": "unhappy",
@@ -55,19 +55,35 @@ export const questions = [
   "answer": "unhappy",
   "correctAnswer": "unhappy",
   "distractorRationales": {
-   "singer": "D-SEMANTIC",
-   "replay": "D-OPPOSITE",
-   "helpful": "D-PATTERN-TRAP"
+   "helpful": "D-SEMANTIC",
+   "joyful": "D-OPPOSITE",
+   "careful": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.prefix_un.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -77,7 +93,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_un.v2",
@@ -99,25 +121,25 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means not fair?",
-  "question": "Which word means not fair?",
-  "spokenPrompt": "Which word means not fair?",
+  "prompt": "Only one team was allowed to score. Which word describes the game?",
+  "question": "Only one team was allowed to score. Which word describes the game?",
+  "spokenPrompt": "Only one team was allowed to score. Which word describes the game?",
   "choices": [
-   "careful",
-   "reader",
+   "helpful",
+   "joyful",
    "unfair",
-   "remake"
+   "careful"
   ],
   "answerOptions": [
    {
-    "value": "careful",
-    "label": "careful",
-    "text": "careful"
+    "value": "helpful",
+    "label": "helpful",
+    "text": "helpful"
    },
    {
-    "value": "reader",
-    "label": "reader",
-    "text": "reader"
+    "value": "joyful",
+    "label": "joyful",
+    "text": "joyful"
    },
    {
     "value": "unfair",
@@ -125,27 +147,43 @@ export const questions = [
     "text": "unfair"
    },
    {
-    "value": "remake",
-    "label": "remake",
-    "text": "remake"
+    "value": "careful",
+    "label": "careful",
+    "text": "careful"
    }
   ],
   "answer": "unfair",
   "correctAnswer": "unfair",
   "distractorRationales": {
-   "remake": "D-OPPOSITE",
-   "careful": "D-PATTERN-TRAP",
-   "reader": "D-SEMANTIC"
+   "careful": "D-OPPOSITE",
+   "helpful": "D-PATTERN-TRAP",
+   "joyful": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.prefix_un.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -155,7 +193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_un.v3",
@@ -177,20 +221,20 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means not kind?",
-  "question": "Which word means not kind?",
-  "spokenPrompt": "Which word means not kind?",
+  "prompt": "The note called Noor nasty names. Which word describes the note?",
+  "question": "The note called Noor nasty names. Which word describes the note?",
+  "spokenPrompt": "The note called Noor nasty names. Which word describes the note?",
   "choices": [
-   "teacher",
+   "careful",
    "unkind",
-   "repaint",
-   "joyful"
+   "joyful",
+   "helpful"
   ],
   "answerOptions": [
    {
-    "value": "teacher",
-    "label": "teacher",
-    "text": "teacher"
+    "value": "careful",
+    "label": "careful",
+    "text": "careful"
    },
    {
     "value": "unkind",
@@ -198,32 +242,48 @@ export const questions = [
     "text": "unkind"
    },
    {
-    "value": "repaint",
-    "label": "repaint",
-    "text": "repaint"
-   },
-   {
     "value": "joyful",
     "label": "joyful",
     "text": "joyful"
+   },
+   {
+    "value": "helpful",
+    "label": "helpful",
+    "text": "helpful"
    }
   ],
   "answer": "unkind",
   "correctAnswer": "unkind",
   "distractorRationales": {
-   "teacher": "D-SEMANTIC",
-   "repaint": "D-OPPOSITE",
-   "joyful": "D-PATTERN-TRAP"
+   "careful": "D-SEMANTIC",
+   "joyful": "D-OPPOSITE",
+   "helpful": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.prefix_un.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -233,7 +293,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.prefix_un.v4",
@@ -297,11 +363,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.prefix_un.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -311,7 +393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_un.v5",
@@ -375,11 +463,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.prefix_un.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -389,7 +493,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_un.v6",
@@ -453,11 +563,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.prefix_un.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -467,7 +593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.prefix_re.v1",
@@ -489,9 +621,9 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means play again?",
-  "question": "Which word means play again?",
-  "spokenPrompt": "Which word means play again?",
+  "prompt": "The match ended. They want to play once more. Pick the word.",
+  "question": "The match ended. They want to play once more. Pick the word.",
+  "spokenPrompt": "The match ended. They want to play once more. Pick the word.",
   "choices": [
    "player",
    "replay",
@@ -531,11 +663,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.prefix_re.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -545,7 +693,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_re.v2",
@@ -567,9 +721,9 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means make again?",
-  "question": "Which word means make again?",
-  "spokenPrompt": "Which word means make again?",
+  "prompt": "Eva's model broke. She will make it once more. Pick the word.",
+  "question": "Eva's model broke. She will make it once more. Pick the word.",
+  "spokenPrompt": "Eva's model broke. She will make it once more. Pick the word.",
   "choices": [
    "remake",
    "unfair",
@@ -609,11 +763,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.prefix_re.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -623,7 +793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_re.v3",
@@ -645,9 +821,9 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means read again?",
-  "question": "Which word means read again?",
-  "spokenPrompt": "Which word means read again?",
+  "prompt": "Milo missed the clue. He reads once more. Pick the word.",
+  "question": "Milo missed the clue. He reads once more. Pick the word.",
+  "spokenPrompt": "Milo missed the clue. He reads once more. Pick the word.",
   "choices": [
    "unkind",
    "careful",
@@ -687,11 +863,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.prefix_re.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -701,7 +893,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.prefix_re.v4",
@@ -765,11 +963,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.prefix_re.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -779,7 +993,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.prefix_re.v5",
@@ -843,11 +1063,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.prefix_re.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -857,7 +1093,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.prefix_re.v6",
@@ -921,11 +1163,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.prefix_re.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -935,7 +1193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_ful.v1",
@@ -957,13 +1221,13 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means ready to help?",
-  "question": "Which word means ready to help?",
-  "spokenPrompt": "Which word means ready to help?",
+  "prompt": "Zara carries her friend's heavy bag. Which word describes Zara?",
+  "question": "Zara carries her friend's heavy bag. Which word describes Zara?",
+  "spokenPrompt": "Zara carries her friend's heavy bag. Which word describes Zara?",
   "choices": [
    "helpless",
    "helper",
-   "rehelp",
+   "replay",
    "helpful"
   ],
   "answerOptions": [
@@ -978,9 +1242,9 @@ export const questions = [
     "text": "helper"
    },
    {
-    "value": "rehelp",
-    "label": "rehelp",
-    "text": "rehelp"
+    "value": "replay",
+    "label": "replay",
+    "text": "replay"
    },
    {
     "value": "helpful",
@@ -992,18 +1256,34 @@ export const questions = [
   "correctAnswer": "helpful",
   "distractorRationales": {
    "helper": "D-PATTERN-TRAP",
-   "rehelp": "D-SEMANTIC",
+   "replay": "D-SEMANTIC",
    "helpless": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_ful.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1013,7 +1293,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_ful.v2",
@@ -1077,11 +1363,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_ful.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1091,7 +1393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_ful.v3",
@@ -1113,20 +1421,20 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means using care?",
-  "question": "Which word means using care?",
-  "spokenPrompt": "Which word means using care?",
+  "prompt": "Ben moves the glass slowly. It must not spill. Pick a word.",
+  "question": "Ben moves the glass slowly. It must not spill. Pick a word.",
+  "spokenPrompt": "Ben moves the glass slowly. It must not spill. Pick a word.",
   "choices": [
-   "recare",
+   "reader",
    "careful",
    "careless",
    "carer"
   ],
   "answerOptions": [
    {
-    "value": "recare",
-    "label": "recare",
-    "text": "recare"
+    "value": "reader",
+    "label": "reader",
+    "text": "reader"
    },
    {
     "value": "careful",
@@ -1148,18 +1456,34 @@ export const questions = [
   "correctAnswer": "careful",
   "distractorRationales": {
    "carer": "D-PATTERN-TRAP",
-   "recare": "D-SEMANTIC",
+   "reader": "D-SEMANTIC",
    "careless": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_ful.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1169,7 +1493,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_ful.v4",
@@ -1233,11 +1563,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_ful.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1247,7 +1593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_ful.v5",
@@ -1311,11 +1663,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_ful.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1325,7 +1693,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_ful.v6",
@@ -1389,11 +1763,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_ful.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1403,7 +1793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_less.v1",
@@ -1425,20 +1821,20 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means without hope?",
-  "question": "Which word means without hope?",
-  "spokenPrompt": "Which word means without hope?",
+  "prompt": "The team thinks it cannot win. Which word describes them?",
+  "question": "The team thinks it cannot win. Which word describes them?",
+  "spokenPrompt": "The team thinks it cannot win. Which word describes them?",
   "choices": [
-   "rehope",
+   "joyful",
    "hopeless",
    "hopeful",
    "helper"
   ],
   "answerOptions": [
    {
-    "value": "rehope",
-    "label": "rehope",
-    "text": "rehope"
+    "value": "joyful",
+    "label": "joyful",
+    "text": "joyful"
    },
    {
     "value": "hopeless",
@@ -1461,17 +1857,33 @@ export const questions = [
   "distractorRationales": {
    "hopeful": "D-OPPOSITE",
    "helper": "D-PATTERN-TRAP",
-   "rehope": "D-SEMANTIC"
+   "joyful": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_less.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1481,7 +1893,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_less.v2",
@@ -1503,14 +1921,14 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means without fear?",
-  "question": "Which word means without fear?",
-  "spokenPrompt": "Which word means without fear?",
+  "prompt": "Ari climbs onto the stage without being afraid. Which word describes Ari?",
+  "question": "Ari climbs onto the stage without being afraid. Which word describes Ari?",
+  "spokenPrompt": "Ari climbs onto the stage without being afraid. Which word describes Ari?",
   "choices": [
    "fearless",
    "fearful",
    "farmer",
-   "refear"
+   "careful"
   ],
   "answerOptions": [
    {
@@ -1529,27 +1947,43 @@ export const questions = [
     "text": "farmer"
    },
    {
-    "value": "refear",
-    "label": "refear",
-    "text": "refear"
+    "value": "careful",
+    "label": "careful",
+    "text": "careful"
    }
   ],
   "answer": "fearless",
   "correctAnswer": "fearless",
   "distractorRationales": {
    "farmer": "D-PATTERN-TRAP",
-   "refear": "D-SEMANTIC",
+   "careful": "D-SEMANTIC",
    "fearful": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_less.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1559,7 +1993,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_less.v3",
@@ -1581,13 +2021,13 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means without harm?",
-  "question": "Which word means without harm?",
-  "spokenPrompt": "Which word means without harm?",
+  "prompt": "The tiny butterfly cannot hurt anyone. Which word describes it?",
+  "question": "The tiny butterfly cannot hurt anyone. Which word describes it?",
+  "spokenPrompt": "The tiny butterfly cannot hurt anyone. Which word describes it?",
   "choices": [
    "harmful",
    "helper",
-   "reharm",
+   "careful",
    "harmless"
   ],
   "answerOptions": [
@@ -1602,9 +2042,9 @@ export const questions = [
     "text": "helper"
    },
    {
-    "value": "reharm",
-    "label": "reharm",
-    "text": "reharm"
+    "value": "careful",
+    "label": "careful",
+    "text": "careful"
    },
    {
     "value": "harmless",
@@ -1617,17 +2057,33 @@ export const questions = [
   "distractorRationales": {
    "harmful": "D-OPPOSITE",
    "helper": "D-PATTERN-TRAP",
-   "reharm": "D-SEMANTIC"
+   "careful": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_less.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1637,7 +2093,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_less.v4",
@@ -1701,11 +2163,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_less.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1715,7 +2193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_less.v5",
@@ -1779,11 +2263,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_less.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1793,7 +2293,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_less.v6",
@@ -1857,11 +2363,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_less.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1871,7 +2393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v1",
@@ -1935,11 +2463,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1949,7 +2493,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v2",
@@ -2013,11 +2563,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2027,7 +2593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v3",
@@ -2091,11 +2663,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2105,7 +2693,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v4",
@@ -2169,11 +2763,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.A.suffix_er_person.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2183,7 +2793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v5",
@@ -2247,11 +2863,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.B.suffix_er_person.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2261,7 +2893,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v6",
@@ -2325,11 +2963,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.C.suffix_er_person.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2339,7 +2993,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_s_es.v1",
@@ -2365,21 +3025,21 @@ export const questions = [
   "question": "Add -s to hen.",
   "spokenPrompt": "Add -s to hen.",
   "choices": [
-   "hennes",
    "pens",
+   "eggs",
    "hens",
    "hen"
   ],
   "answerOptions": [
    {
-    "value": "hennes",
-    "label": "hennes",
-    "text": "hennes"
-   },
-   {
     "value": "pens",
     "label": "pens",
     "text": "pens"
+   },
+   {
+    "value": "eggs",
+    "label": "eggs",
+    "text": "eggs"
    },
    {
     "value": "hens",
@@ -2395,19 +3055,34 @@ export const questions = [
   "answer": "hens",
   "correctAnswer": "hens",
   "distractorRationales": {
-   "hennes": "D-FUNCTION-SWAP",
-   "pens": "D-PATTERN-TRAP",
+   "pens": "D-FUNCTION-SWAP",
+   "eggs": "D-PATTERN-TRAP",
    "hen": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_s_es.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2417,7 +3092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_s_es.v2",
@@ -2444,7 +3125,7 @@ export const questions = [
   "spokenPrompt": "Add -es to fox.",
   "choices": [
    "fox",
-   "foxs",
+   "boxes",
    "dishes",
    "foxes"
   ],
@@ -2455,9 +3136,9 @@ export const questions = [
     "text": "fox"
    },
    {
-    "value": "foxs",
-    "label": "foxs",
-    "text": "foxs"
+    "value": "boxes",
+    "label": "boxes",
+    "text": "boxes"
    },
    {
     "value": "dishes",
@@ -2474,18 +3155,33 @@ export const questions = [
   "correctAnswer": "foxes",
   "distractorRationales": {
    "fox": "D-FUNCTION-SWAP",
-   "foxs": "D-FUNCTION-SWAP",
+   "boxes": "D-FUNCTION-SWAP",
    "dishes": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_s_es.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2495,7 +3191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v3",
@@ -2523,8 +3225,8 @@ export const questions = [
   "choices": [
    "cups",
    "cup",
-   "cupes",
-   "caps"
+   "caps",
+   "mugs"
   ],
   "answerOptions": [
    {
@@ -2538,32 +3240,47 @@ export const questions = [
     "text": "cup"
    },
    {
-    "value": "cupes",
-    "label": "cupes",
-    "text": "cupes"
-   },
-   {
     "value": "caps",
     "label": "caps",
     "text": "caps"
+   },
+   {
+    "value": "mugs",
+    "label": "mugs",
+    "text": "mugs"
    }
   ],
   "answer": "cups",
   "correctAnswer": "cups",
   "distractorRationales": {
-   "cupes": "D-FUNCTION-SWAP",
-   "caps": "D-PATTERN-TRAP",
+   "caps": "D-FUNCTION-SWAP",
+   "mugs": "D-PATTERN-TRAP",
    "cup": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2573,7 +3290,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_s_es.v4",
@@ -2638,12 +3361,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Every day, Dad ___ the car.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_s_es.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2653,7 +3391,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_s_es.v5",
@@ -2718,12 +3462,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "My cat ___ on the mat each day.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_s_es.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2733,7 +3492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v6",
@@ -2798,12 +3563,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Gran ___ bread every Sunday.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_s_es.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2813,7 +3593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ing.v1",
@@ -2877,11 +3663,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ing.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2891,7 +3692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ing.v2",
@@ -2955,11 +3762,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ing.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2969,7 +3791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ing.v3",
@@ -3033,11 +3861,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_ing.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3047,7 +3890,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ing.v4",
@@ -3112,12 +3961,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Right now, the pot is ___ on the stove.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ing.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3127,7 +3991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ing.v5",
@@ -3192,12 +4062,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We are ___ a sandcastle today.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ing.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3207,7 +4092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ing.v6",
@@ -3272,12 +4163,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Keep ___! The finish line is close.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_ing.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3287,7 +4193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ed.v1",
@@ -3351,11 +4263,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ed.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3365,7 +4292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ed.v2",
@@ -3429,11 +4362,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ed.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3443,7 +4391,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ed.v3",
@@ -3507,11 +4461,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_ed.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3521,7 +4490,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ed.v4",
@@ -3586,12 +4561,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Yesterday we ___ to the park.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ed.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3601,7 +4591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ed.v5",
@@ -3666,12 +4662,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Last night, the baby ___ for hours.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ed.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3681,7 +4692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ed.v6",
@@ -3746,12 +4763,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We ___ the door before bed.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_ed.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3761,7 +4793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_er_est.v1",
@@ -3825,11 +4863,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_er_est.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3839,7 +4892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v2",
@@ -3903,11 +4962,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3917,7 +4991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v3",
@@ -3982,12 +5062,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Ben is tall, but Ana is even ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3997,7 +5092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_er_est.v4",
@@ -4062,12 +5163,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Of all three dogs, Rex is the ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_er_est.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4077,7 +5193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v5",
@@ -4141,11 +5263,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_er_est.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4155,7 +5292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v6",
@@ -4219,11 +5362,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_er_est.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4233,7 +5391,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ly.v1",
@@ -4297,11 +5461,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ly.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4311,7 +5490,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ly.v2",
@@ -4375,11 +5560,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ly.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4389,7 +5589,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ly.v3",
@@ -4454,12 +5660,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Set the eggs down ___, with no bumps.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_ly.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4469,7 +5690,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.suffix_ly.v4",
@@ -4534,12 +5761,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The mouse crept ___ past the cat.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.suffix_ly.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4549,7 +5791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.suffix_ly.v5",
@@ -4571,14 +5819,14 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "What does bravely mean?",
-  "question": "What does bravely mean?",
-  "spokenPrompt": "What does bravely mean?",
+  "prompt": "Mia trembled but stepped onto the stage bravely. How did she step?",
+  "question": "Mia trembled but stepped onto the stage bravely. How did she step?",
+  "spokenPrompt": "Mia trembled but stepped onto the stage bravely. How did she step?",
   "choices": [
    "in a brave way",
    "in a soft way",
-   "a brave person",
-   "being afraid"
+   "like a brave person",
+   "while being afraid"
   ],
   "answerOptions": [
    {
@@ -4592,32 +5840,47 @@ export const questions = [
     "text": "in a soft way"
    },
    {
-    "value": "a brave person",
-    "label": "a brave person",
-    "text": "a brave person"
+    "value": "like a brave person",
+    "label": "like a brave person",
+    "text": "like a brave person"
    },
    {
-    "value": "being afraid",
-    "label": "being afraid",
-    "text": "being afraid"
+    "value": "while being afraid",
+    "label": "while being afraid",
+    "text": "while being afraid"
    }
   ],
   "answer": "in a brave way",
   "correctAnswer": "in a brave way",
   "distractorRationales": {
-   "a brave person": "D-PATTERN-TRAP",
-   "being afraid": "D-SEMANTIC",
+   "like a brave person": "D-PATTERN-TRAP",
+   "while being afraid": "D-SEMANTIC",
    "in a soft way": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.suffix_ly.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4627,7 +5890,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.suffix_ly.v6",
@@ -4649,20 +5918,20 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "What does proudly mean?",
-  "question": "What does proudly mean?",
-  "spokenPrompt": "What does proudly mean?",
+  "prompt": "Jay held up the medal proudly. How did Jay hold it?",
+  "question": "Jay held up the medal proudly. How did Jay hold it?",
+  "spokenPrompt": "Jay held up the medal proudly. How did Jay hold it?",
   "choices": [
-   "being sad",
+   "while being sad",
    "in a proud way",
    "in a quick way",
-   "a proud person"
+   "like a proud person"
   ],
   "answerOptions": [
    {
-    "value": "being sad",
-    "label": "being sad",
-    "text": "being sad"
+    "value": "while being sad",
+    "label": "while being sad",
+    "text": "while being sad"
    },
    {
     "value": "in a proud way",
@@ -4675,27 +5944,42 @@ export const questions = [
     "text": "in a quick way"
    },
    {
-    "value": "a proud person",
-    "label": "a proud person",
-    "text": "a proud person"
+    "value": "like a proud person",
+    "label": "like a proud person",
+    "text": "like a proud person"
    }
   ],
   "answer": "in a proud way",
   "correctAnswer": "in a proud way",
   "distractorRationales": {
-   "a proud person": "D-PATTERN-TRAP",
-   "being sad": "D-SEMANTIC",
+   "like a proud person": "D-PATTERN-TRAP",
+   "while being sad": "D-SEMANTIC",
    "in a quick way": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.suffix_ly.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4705,7 +5989,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.prefix_pre.v1",
@@ -4769,11 +6059,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.prefix_pre.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4783,7 +6088,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.prefix_pre.v2",
@@ -4847,11 +6158,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.prefix_pre.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4861,7 +6187,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.prefix_pre.v3",
@@ -4926,12 +6258,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "___ the oven before you mix the batter.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.prefix_pre.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4941,7 +6288,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.A.prefix_pre.v4",
@@ -5006,12 +6359,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We watched a ___ before the film opened.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.A.prefix_pre.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5021,7 +6389,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.B.prefix_pre.v5",
@@ -5043,53 +6417,68 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "What is a pretest?",
-  "question": "What is a pretest?",
-  "spokenPrompt": "What is a pretest?",
+  "prompt": "The coach gives a pretest before the lessons begin. When is it taken?",
+  "question": "The coach gives a pretest before the lessons begin. When is it taken?",
+  "spokenPrompt": "The coach gives a pretest before the lessons begin. When is it taken?",
   "choices": [
-   "the best test",
-   "a look before",
-   "a test before",
-   "a test after"
+   "during the best lesson",
+   "before looking",
+   "before the lessons",
+   "after the lessons"
   ],
   "answerOptions": [
    {
-    "value": "the best test",
-    "label": "the best test",
-    "text": "the best test"
+    "value": "during the best lesson",
+    "label": "during the best lesson",
+    "text": "during the best lesson"
    },
    {
-    "value": "a look before",
-    "label": "a look before",
-    "text": "a look before"
+    "value": "before looking",
+    "label": "before looking",
+    "text": "before looking"
    },
    {
-    "value": "a test before",
-    "label": "a test before",
-    "text": "a test before"
+    "value": "before the lessons",
+    "label": "before the lessons",
+    "text": "before the lessons"
    },
    {
-    "value": "a test after",
-    "label": "a test after",
-    "text": "a test after"
+    "value": "after the lessons",
+    "label": "after the lessons",
+    "text": "after the lessons"
    }
   ],
-  "answer": "a test before",
-  "correctAnswer": "a test before",
+  "answer": "before the lessons",
+  "correctAnswer": "before the lessons",
   "distractorRationales": {
-   "a look before": "D-SEMANTIC",
-   "a test after": "D-OPPOSITE",
-   "the best test": "D-PATTERN-TRAP"
+   "before looking": "D-SEMANTIC",
+   "after the lessons": "D-OPPOSITE",
+   "during the best lesson": "D-PATTERN-TRAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.B.prefix_pre.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5099,7 +6488,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.C.prefix_pre.v6",
@@ -5121,13 +6516,13 @@ export const questions = [
   "formatType": "MORPHEME_TRANSFER",
   "templateType": "MORPHEME_TRANSFER",
   "questionType": "multiple_choice",
-  "prompt": "What does preorder mean?",
-  "question": "What does preorder mean?",
-  "spokenPrompt": "What does preorder mean?",
+  "prompt": "A shop lets people preorder a game before release day. What can they do?",
+  "question": "A shop lets people preorder a game before release day. What can they do?",
+  "spokenPrompt": "A shop lets people preorder a game before release day. What can they do?",
   "choices": [
    "order after it is out",
    "heat the order",
-   "order more",
+   "order more copies",
    "order before it is out"
   ],
   "answerOptions": [
@@ -5142,9 +6537,9 @@ export const questions = [
     "text": "heat the order"
    },
    {
-    "value": "order more",
-    "label": "order more",
-    "text": "order more"
+    "value": "order more copies",
+    "label": "order more copies",
+    "text": "order more copies"
    },
    {
     "value": "order before it is out",
@@ -5157,17 +6552,32 @@ export const questions = [
   "distractorRationales": {
    "order after it is out": "D-OPPOSITE",
    "heat the order": "D-PATTERN-TRAP",
-   "order more": "D-SEMANTIC"
+   "order more copies": "D-SEMANTIC"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.C.prefix_pre.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5177,7 +6587,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.prefix_un.v7r",
@@ -5199,14 +6615,14 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means not safe?",
-  "question": "Which word means not safe?",
-  "spokenPrompt": "Which word means not safe?",
+  "prompt": "The broken bridge could hurt someone. Which word describes it?",
+  "question": "The broken bridge could hurt someone. Which word describes it?",
+  "spokenPrompt": "The broken bridge could hurt someone. Which word describes it?",
   "choices": [
    "safety",
    "helper",
    "unsafe",
-   "resafe"
+   "careless"
   ],
   "answerOptions": [
    {
@@ -5225,15 +6641,15 @@ export const questions = [
     "text": "unsafe"
    },
    {
-    "value": "resafe",
-    "label": "resafe",
-    "text": "resafe"
+    "value": "careless",
+    "label": "careless",
+    "text": "careless"
    }
   ],
   "answer": "unsafe",
   "correctAnswer": "unsafe",
   "distractorRationales": {
-   "resafe": "D-OPPOSITE",
+   "careless": "D-OPPOSITE",
    "safety": "D-PATTERN-TRAP",
    "helper": "D-SEMANTIC"
   },
@@ -5241,11 +6657,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.prefix_un.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5255,7 +6687,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-un.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.prefix_re.v7r",
@@ -5277,20 +6715,20 @@ export const questions = [
   "formatType": "MORPHEME_MEANING_CONTEXT",
   "templateType": "MORPHEME_MEANING_CONTEXT",
   "questionType": "multiple_choice",
-  "prompt": "Which word means paint again?",
-  "question": "Which word means paint again?",
-  "spokenPrompt": "Which word means paint again?",
+  "prompt": "The wall is patchy. Kim will paint once more. Pick the word.",
+  "question": "The wall is patchy. Kim will paint once more. Pick the word.",
+  "spokenPrompt": "The wall is patchy. Kim will paint once more. Pick the word.",
   "choices": [
-   "unpaint",
+   "painting",
    "painter",
-   "paintful",
+   "careful",
    "repaint"
   ],
   "answerOptions": [
    {
-    "value": "unpaint",
-    "label": "unpaint",
-    "text": "unpaint"
+    "value": "painting",
+    "label": "painting",
+    "text": "painting"
    },
    {
     "value": "painter",
@@ -5298,9 +6736,9 @@ export const questions = [
     "text": "painter"
    },
    {
-    "value": "paintful",
-    "label": "paintful",
-    "text": "paintful"
+    "value": "careful",
+    "label": "careful",
+    "text": "careful"
    },
    {
     "value": "repaint",
@@ -5312,18 +6750,34 @@ export const questions = [
   "correctAnswer": "repaint",
   "distractorRationales": {
    "painter": "D-PATTERN-TRAP",
-   "paintful": "D-SEMANTIC",
-   "unpaint": "D-OPPOSITE"
+   "careful": "D-SEMANTIC",
+   "painting": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.prefix_re.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5333,7 +6787,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.suffix_ful.v7r",
@@ -5397,11 +6857,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.suffix_ful.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5411,7 +6887,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ful.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.suffix_less.v7r",
@@ -5475,11 +6957,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.suffix_less.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5489,7 +6987,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-less.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.suffix_er_person.v7r",
@@ -5553,11 +7057,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.suffix_er_person.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5567,7 +7087,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-person.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l1.R.prefix_re.v8r",
@@ -5631,11 +7157,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "constructClaim": "apply_affix_meaning_in_context",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l1.R.prefix_re.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5645,7 +7187,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-re.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_s_es.v7r",
@@ -5672,7 +7220,7 @@ export const questions = [
   "spokenPrompt": "Add -es to bus.",
   "choices": [
    "bus",
-   "buss",
+   "boxes",
    "foxes",
    "buses"
   ],
@@ -5683,9 +7231,9 @@ export const questions = [
     "text": "bus"
    },
    {
-    "value": "buss",
-    "label": "buss",
-    "text": "buss"
+    "value": "boxes",
+    "label": "boxes",
+    "text": "boxes"
    },
    {
     "value": "foxes",
@@ -5703,17 +7251,32 @@ export const questions = [
   "distractorRationales": {
    "foxes": "D-PATTERN-TRAP",
    "bus": "D-FUNCTION-SWAP",
-   "buss": "D-FUNCTION-SWAP"
+   "boxes": "D-FUNCTION-SWAP"
   },
   "mediaTier": "text",
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.suffix_s_es.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5723,7 +7286,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-s-es.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_ing.v7r",
@@ -5787,11 +7356,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.suffix_ing.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5801,7 +7385,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ing.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_ed.v7r",
@@ -5865,11 +7455,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.suffix_ed.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5879,7 +7484,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ed.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_er_est.v7r",
@@ -5944,12 +7555,27 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Sam is quick, but Ali is even ___.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.suffix_er_est.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5959,7 +7585,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-er-est.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.suffix_ly.v7r",
@@ -6023,11 +7655,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.suffix_ly.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6037,7 +7684,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-suffix-ly.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.prefixes_suffixes.l2.R.prefix_pre.v7r",
@@ -6101,11 +7754,26 @@ export const questions = [
   "hadPTD": true,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prefixes_suffixes.l2.R.prefix_pre.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6115,6 +7783,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageUrl": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImage": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "targetImagePath": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/prefixes-suffixes-prefix-pre.webp",
+  "imageAlt": "Picture support for this literacy question"
  }
 ];

@@ -65,12 +65,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "drowsy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.definition_clue.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,7 +96,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v2",
@@ -146,12 +168,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "fragile",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.definition_clue.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -161,7 +199,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v3",
@@ -227,12 +271,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "sturdy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.definition_clue.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -242,7 +302,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v4",
@@ -308,12 +374,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "murmur",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.definition_clue.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -323,7 +405,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v5",
@@ -389,12 +477,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "jagged",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.definition_clue.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -404,7 +508,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.C.definition_clue.v6",
@@ -470,12 +580,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "hollow",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.definition_clue.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -485,7 +611,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.definition_clue.v7",
@@ -551,12 +683,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "chilly",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.definition_clue.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -566,7 +714,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.definition_clue.v8",
@@ -632,12 +786,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "mend",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.definition_clue.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -647,7 +817,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-definition-clue-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v1",
@@ -713,12 +889,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "feast",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.example_clue.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -728,7 +919,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v2",
@@ -794,12 +991,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "clutter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.example_clue.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -809,7 +1021,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v3",
@@ -875,12 +1093,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "enormous",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.example_clue.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -890,7 +1123,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v4",
@@ -956,12 +1195,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "gleaming",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.example_clue.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -971,7 +1225,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v5",
@@ -1037,12 +1297,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "timid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.example_clue.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1052,7 +1327,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.C.example_clue.v6",
@@ -1118,12 +1399,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "swift",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.example_clue.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1133,7 +1429,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.example_clue.v7",
@@ -1199,12 +1501,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ancient",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.example_clue.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1214,7 +1531,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.example_clue.v8",
@@ -1280,12 +1603,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "soggy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.example_clue.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1295,7 +1633,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-example-clue-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v1",
@@ -1361,12 +1705,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "gobbled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.action_clue.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1376,7 +1735,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v2",
@@ -1442,12 +1807,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "glided",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.action_clue.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1457,7 +1837,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v3",
@@ -1488,7 +1874,7 @@ export const questions = [
    "slept in the sun",
    "crawled very slowly",
    "dug a deep hole",
-   "ran with quick little steps"
+   "darted along"
   ],
   "answerOptions": [
    {
@@ -1507,13 +1893,13 @@ export const questions = [
     "text": "dug a deep hole"
    },
    {
-    "value": "ran with quick little steps",
-    "label": "ran with quick little steps",
-    "text": "ran with quick little steps"
+    "value": "darted along",
+    "label": "darted along",
+    "text": "darted along"
    }
   ],
-  "answer": "ran with quick little steps",
-  "correctAnswer": "ran with quick little steps",
+  "answer": "darted along",
+  "correctAnswer": "darted along",
   "distractorRationales": {
    "slept in the sun": "D-OPPOSITE",
    "crawled very slowly": "D-OPPOSITE",
@@ -1523,12 +1909,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "scampered",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.action_clue.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1538,7 +1939,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v4",
@@ -1604,12 +2011,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "pleaded",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.action_clue.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1619,7 +2041,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v5",
@@ -1685,12 +2113,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "trembled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.action_clue.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1700,7 +2143,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.C.action_clue.v6",
@@ -1766,12 +2215,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "grumbled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.action_clue.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1781,7 +2245,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-action-clue-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.A.action_clue.v7",
@@ -1847,12 +2317,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "drifted",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.action_clue.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1862,7 +2347,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-action-clue-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.B.action_clue.v8",
@@ -1928,12 +2419,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "gazed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.B.action_clue.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1943,7 +2449,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-b-action-clue-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v1",
@@ -2009,12 +2521,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dazzling",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.synonym_clue.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2024,7 +2551,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v2",
@@ -2090,12 +2623,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "weary",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.synonym_clue.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2105,7 +2653,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v3",
@@ -2171,12 +2725,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "commotion",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.synonym_clue.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2186,7 +2755,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v4",
@@ -2252,12 +2827,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "drenched",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.synonym_clue.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2267,7 +2857,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v5",
@@ -2333,12 +2929,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "nibbled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.synonym_clue.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2348,7 +2959,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.C.synonym_clue.v6",
@@ -2379,7 +2996,7 @@ export const questions = [
    "covered in flour",
    "very small",
    "closed on Sundays",
-   "perfectly clean"
+   "completely free of dirt"
   ],
   "answerOptions": [
    {
@@ -2398,13 +3015,13 @@ export const questions = [
     "text": "closed on Sundays"
    },
    {
-    "value": "perfectly clean",
-    "label": "perfectly clean",
-    "text": "perfectly clean"
+    "value": "completely free of dirt",
+    "label": "completely free of dirt",
+    "text": "completely free of dirt"
    }
   ],
-  "answer": "perfectly clean",
-  "correctAnswer": "perfectly clean",
+  "answer": "completely free of dirt",
+  "correctAnswer": "completely free of dirt",
   "distractorRationales": {
    "covered in flour": "D-OPPOSITE",
    "very small": "D-PLAUSIBLE-UNSUPPORTED",
@@ -2414,12 +3031,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "spotless",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.synonym_clue.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2429,7 +3061,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.synonym_clue.v7",
@@ -2495,12 +3133,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "soared",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.synonym_clue.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2510,7 +3163,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.synonym_clue.v8",
@@ -2541,7 +3200,7 @@ export const questions = [
    "sweet as honey",
    "too hot to eat",
    "thick and lumpy",
-   "sharp and unpleasant to taste"
+   "an unpleasant flavour"
   ],
   "answerOptions": [
    {
@@ -2560,13 +3219,13 @@ export const questions = [
     "text": "thick and lumpy"
    },
    {
-    "value": "sharp and unpleasant to taste",
-    "label": "sharp and unpleasant to taste",
-    "text": "sharp and unpleasant to taste"
+    "value": "an unpleasant flavour",
+    "label": "an unpleasant flavour",
+    "text": "an unpleasant flavour"
    }
   ],
-  "answer": "sharp and unpleasant to taste",
-  "correctAnswer": "sharp and unpleasant to taste",
+  "answer": "an unpleasant flavour",
+  "correctAnswer": "an unpleasant flavour",
   "distractorRationales": {
    "sweet as honey": "D-OPPOSITE",
    "too hot to eat": "D-PLAUSIBLE-UNSUPPORTED",
@@ -2576,12 +3235,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bitter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.synonym_clue.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2591,7 +3265,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-synonym-clue-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v1",
@@ -2657,12 +3337,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bashful",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2672,7 +3367,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v2",
@@ -2738,12 +3439,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "rickety",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2753,7 +3469,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v3",
@@ -2819,12 +3541,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bare",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2834,7 +3571,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v4",
@@ -2900,12 +3643,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "nippy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2915,7 +3673,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v5",
@@ -2981,12 +3745,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "brisk",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2996,7 +3775,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v6",
@@ -3062,12 +3847,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "mutter",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3077,7 +3877,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v7",
@@ -3143,12 +3949,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "lively",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3158,7 +3979,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.antonym_contrast_clue.v8",
@@ -3224,12 +4051,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dim",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.antonym_contrast_clue.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3239,7 +4081,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-antonym-contrast-clue-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v1",
@@ -3305,12 +4153,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "vanish",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.inference_clue.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3320,7 +4183,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v2",
@@ -3386,12 +4255,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "slumber",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.inference_clue.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3401,7 +4285,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v3",
@@ -3467,12 +4357,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "scent",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.inference_clue.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3482,7 +4387,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v4",
@@ -3548,12 +4459,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "repaid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.inference_clue.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3563,7 +4489,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v5",
@@ -3629,12 +4561,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "peered",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.inference_clue.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3644,7 +4591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.C.inference_clue.v6",
@@ -3710,12 +4663,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bobbed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.inference_clue.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3725,7 +4693,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-inference-clue-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.A.inference_clue.v7",
@@ -3791,12 +4765,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "patched",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.inference_clue.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3806,7 +4795,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-inference-clue-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.B.inference_clue.v8",
@@ -3872,12 +4867,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": true,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dashed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.B.inference_clue.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3887,10 +4897,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-b-inference-clue-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l1.R.definition_clue.v9r",
+  "id": "lp3.context_clues.l1.C.definition_clue.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -3903,7 +4919,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "context_clues_cell",
   "itemKey": "definition_clue",
   "formatType": "COMPREHENSION",
@@ -3915,12 +4931,17 @@ export const questions = [
   "passage": "Snug means warm, comfortable and safe. Inside her blanket nest with a book and the rain outside, Mia felt perfectly snug.",
   "cell": "definition_clue",
   "choices": [
+   "half asleep",
    "warm and comfortable",
    "cold and damp",
-   "bored and restless",
-   "half asleep"
+   "bored and restless"
   ],
   "answerOptions": [
+   {
+    "value": "half asleep",
+    "label": "half asleep",
+    "text": "half asleep"
+   },
    {
     "value": "warm and comfortable",
     "label": "warm and comfortable",
@@ -3935,11 +4956,6 @@ export const questions = [
     "value": "bored and restless",
     "label": "bored and restless",
     "text": "bored and restless"
-   },
-   {
-    "value": "half asleep",
-    "label": "half asleep",
-    "text": "half asleep"
    }
   ],
   "answer": "warm and comfortable",
@@ -3952,13 +4968,29 @@ export const questions = [
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "snug",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.definition_clue.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3968,10 +5000,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-definition-clue-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l1.R.definition_clue.v10r",
+  "id": "lp3.context_clues.l1.A.definition_clue.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -3984,7 +5022,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "context_clues_cell",
   "itemKey": "definition_clue",
   "formatType": "COMPREHENSION",
@@ -3996,12 +5034,17 @@ export const questions = [
   "passage": "A faint sound is one so quiet you can barely hear it. From two gardens away came the faint tinkle of a wind chime.",
   "cell": "definition_clue",
   "choices": [
+   "out of tune",
    "far too slow",
    "very quiet",
-   "booming loud",
-   "out of tune"
+   "booming loud"
   ],
   "answerOptions": [
+   {
+    "value": "out of tune",
+    "label": "out of tune",
+    "text": "out of tune"
+   },
    {
     "value": "far too slow",
     "label": "far too slow",
@@ -4016,30 +5059,41 @@ export const questions = [
     "value": "booming loud",
     "label": "booming loud",
     "text": "booming loud"
-   },
-   {
-    "value": "out of tune",
-    "label": "out of tune",
-    "text": "out of tune"
    }
   ],
   "answer": "very quiet",
   "correctAnswer": "very quiet",
   "distractorRationales": {
+   "out of tune": "D-PLAUSIBLE-UNSUPPORTED",
    "far too slow": "D-PLAUSIBLE-UNSUPPORTED",
-   "booming loud": "D-OPPOSITE",
-   "out of tune": "D-PLAUSIBLE-UNSUPPORTED"
+   "booming loud": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "faint",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.definition_clue.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4049,10 +5103,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-definition-clue-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l1.R.example_clue.v9r",
+  "id": "lp3.context_clues.l1.C.example_clue.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -4065,7 +5125,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "context_clues_cell",
   "itemKey": "example_clue",
   "formatType": "COMPREHENSION",
@@ -4107,20 +5167,35 @@ export const questions = [
   "answer": "huge beyond belief",
   "correctAnswer": "huge beyond belief",
   "distractorRationales": {
-   "scaly and green": "D-TOPIC-ADJACENT",
    "very fierce": "D-PLAUSIBLE-UNSUPPORTED",
-   "tiny and neat": "D-OPPOSITE"
+   "tiny and neat": "D-OPPOSITE",
+   "scaly and green": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "gigantic",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.C.example_clue.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4130,10 +5205,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-c-example-clue-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l1.R.example_clue.v10r",
+  "id": "lp3.context_clues.l1.A.example_clue.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -4146,7 +5227,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "context_clues_cell",
   "itemKey": "example_clue",
   "formatType": "COMPREHENSION",
@@ -4188,20 +5269,35 @@ export const questions = [
   "answer": "easily damaged",
   "correctAnswer": "easily damaged",
   "distractorRationales": {
-   "very expensive": "D-PLAUSIBLE-UNSUPPORTED",
    "high up": "D-TOPIC-ADJACENT",
-   "tough as old boots": "D-OPPOSITE"
+   "tough as old boots": "D-OPPOSITE",
+   "very expensive": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "delicate",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.A.example_clue.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4211,7 +5307,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-a-example-clue-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v9r",
@@ -4277,12 +5379,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "grumpy",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.R.action_clue.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4292,7 +5409,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.R.action_clue.v10r",
@@ -4358,12 +5481,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "darted",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.R.action_clue.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4373,7 +5511,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-action-clue-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.R.definition_clue.v11r",
@@ -4439,12 +5583,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "copyExempt": "direct-definition-clue",
   "targetWord": "elderly",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.R.definition_clue.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4454,7 +5614,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-definition-clue-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l1.R.example_clue.v11r",
@@ -4485,7 +5651,7 @@ export const questions = [
    "a tidy line",
    "a locked box",
    "a shopping list",
-   "a muddle of mixed-up things"
+   "a disordered collection"
   ],
   "answerOptions": [
    {
@@ -4504,13 +5670,13 @@ export const questions = [
     "text": "a shopping list"
    },
    {
-    "value": "a muddle of mixed-up things",
-    "label": "a muddle of mixed-up things",
-    "text": "a muddle of mixed-up things"
+    "value": "a disordered collection",
+    "label": "a disordered collection",
+    "text": "a disordered collection"
    }
   ],
-  "answer": "a muddle of mixed-up things",
-  "correctAnswer": "a muddle of mixed-up things",
+  "answer": "a disordered collection",
+  "correctAnswer": "a disordered collection",
   "distractorRationales": {
    "a shopping list": "D-PLAUSIBLE-UNSUPPORTED",
    "a tidy line": "D-OPPOSITE",
@@ -4520,12 +5686,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "jumble",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l1.R.example_clue.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4535,10 +5716,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l1-r-example-clue-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l2.R.synonym_clue.v9r",
+  "id": "lp3.context_clues.l2.C.synonym_clue.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -4551,7 +5738,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "context_clues_cell",
   "itemKey": "synonym_clue",
   "formatType": "COMPREHENSION",
@@ -4563,17 +5750,12 @@ export const questions = [
   "passage": "The stray kitten was famished — starving, truly hollow-bellied — and it emptied the saucer of food before Ella had even stood back up.",
   "cell": "synonym_clue",
   "choices": [
-   "afraid of people",
    "extremely hungry",
    "completely full",
-   "soft and fluffy"
+   "soft and fluffy",
+   "afraid of people"
   ],
   "answerOptions": [
-   {
-    "value": "afraid of people",
-    "label": "afraid of people",
-    "text": "afraid of people"
-   },
    {
     "value": "extremely hungry",
     "label": "extremely hungry",
@@ -4588,6 +5770,11 @@ export const questions = [
     "value": "soft and fluffy",
     "label": "soft and fluffy",
     "text": "soft and fluffy"
+   },
+   {
+    "value": "afraid of people",
+    "label": "afraid of people",
+    "text": "afraid of people"
    }
   ],
   "answer": "extremely hungry",
@@ -4600,13 +5787,28 @@ export const questions = [
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "famished",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.synonym_clue.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4616,10 +5818,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-synonym-clue-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l2.R.synonym_clue.v10r",
+  "id": "lp3.context_clues.l2.A.synonym_clue.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -4632,7 +5840,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "context_clues_cell",
   "itemKey": "synonym_clue",
   "formatType": "COMPREHENSION",
@@ -4644,17 +5852,12 @@ export const questions = [
   "passage": "The riddle baffled the whole family. It puzzled Dad, confused Gran, and stumped even Priya, who does the crossword in pen.",
   "cell": "synonym_clue",
   "choices": [
-   "made everyone laugh",
    "was solved at once",
    "completely puzzled",
-   "bored quickly"
+   "bored quickly",
+   "made everyone laugh"
   ],
   "answerOptions": [
-   {
-    "value": "made everyone laugh",
-    "label": "made everyone laugh",
-    "text": "made everyone laugh"
-   },
    {
     "value": "was solved at once",
     "label": "was solved at once",
@@ -4669,6 +5872,11 @@ export const questions = [
     "value": "bored quickly",
     "label": "bored quickly",
     "text": "bored quickly"
+   },
+   {
+    "value": "made everyone laugh",
+    "label": "made everyone laugh",
+    "text": "made everyone laugh"
    }
   ],
   "answer": "completely puzzled",
@@ -4681,13 +5889,28 @@ export const questions = [
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "baffled",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.synonym_clue.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4697,10 +5920,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-synonym-clue-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l2.R.antonym_contrast_clue.v9r",
+  "id": "lp3.context_clues.l2.C.antonym_contrast_clue.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -4713,7 +5942,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "context_clues_cell",
   "itemKey": "antonym_contrast_clue",
   "formatType": "COMPREHENSION",
@@ -4725,22 +5954,12 @@ export const questions = [
   "passage": "Most days the sea slapped the rocks in fury, but this morning it was placid — flat, quiet water without one white wave from the beach to the buoy.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "wild and stormy",
-   "deep and cold",
    "full of boats",
-   "calm and peaceful"
+   "calm and peaceful",
+   "wild and stormy",
+   "deep and cold"
   ],
   "answerOptions": [
-   {
-    "value": "wild and stormy",
-    "label": "wild and stormy",
-    "text": "wild and stormy"
-   },
-   {
-    "value": "deep and cold",
-    "label": "deep and cold",
-    "text": "deep and cold"
-   },
    {
     "value": "full of boats",
     "label": "full of boats",
@@ -4750,25 +5969,50 @@ export const questions = [
     "value": "calm and peaceful",
     "label": "calm and peaceful",
     "text": "calm and peaceful"
+   },
+   {
+    "value": "wild and stormy",
+    "label": "wild and stormy",
+    "text": "wild and stormy"
+   },
+   {
+    "value": "deep and cold",
+    "label": "deep and cold",
+    "text": "deep and cold"
    }
   ],
   "answer": "calm and peaceful",
   "correctAnswer": "calm and peaceful",
   "distractorRationales": {
+   "full of boats": "D-TOPIC-ADJACENT",
    "wild and stormy": "D-OPPOSITE",
-   "deep and cold": "D-PLAUSIBLE-UNSUPPORTED",
-   "full of boats": "D-TOPIC-ADJACENT"
+   "deep and cold": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "placid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.C.antonym_contrast_clue.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4778,10 +6022,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-c-antonym-contrast-clue-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.context_clues.l2.R.antonym_contrast_clue.v10r",
+  "id": "lp3.context_clues.l2.A.antonym_contrast_clue.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "context_clues",
@@ -4794,7 +6044,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "context_clues_cell",
   "itemKey": "antonym_contrast_clue",
   "formatType": "COMPREHENSION",
@@ -4806,22 +6056,12 @@ export const questions = [
   "passage": "The first clue was simple enough for anyone, but the last was so cunning that even the puzzle club's champion chewed her pencil over it until the bell.",
   "cell": "antonym_contrast_clue",
   "choices": [
-   "cleverly tricky",
-   "plain and easy",
    "written in ink",
-   "missing a piece"
+   "missing a piece",
+   "cleverly tricky",
+   "plain and easy"
   ],
   "answerOptions": [
-   {
-    "value": "cleverly tricky",
-    "label": "cleverly tricky",
-    "text": "cleverly tricky"
-   },
-   {
-    "value": "plain and easy",
-    "label": "plain and easy",
-    "text": "plain and easy"
-   },
    {
     "value": "written in ink",
     "label": "written in ink",
@@ -4831,25 +6071,50 @@ export const questions = [
     "value": "missing a piece",
     "label": "missing a piece",
     "text": "missing a piece"
+   },
+   {
+    "value": "cleverly tricky",
+    "label": "cleverly tricky",
+    "text": "cleverly tricky"
+   },
+   {
+    "value": "plain and easy",
+    "label": "plain and easy",
+    "text": "plain and easy"
    }
   ],
   "answer": "cleverly tricky",
   "correctAnswer": "cleverly tricky",
   "distractorRationales": {
+   "missing a piece": "D-PLAUSIBLE-UNSUPPORTED",
    "plain and easy": "D-OPPOSITE",
-   "written in ink": "D-PLAUSIBLE-UNSUPPORTED",
-   "missing a piece": "D-PLAUSIBLE-UNSUPPORTED"
+   "written in ink": "D-PLAUSIBLE-UNSUPPORTED"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": true,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cunning",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.A.antonym_contrast_clue.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4859,7 +6124,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-a-antonym-contrast-clue-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v9r",
@@ -4925,12 +6196,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cumbersome",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.R.inference_clue.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4940,7 +6226,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v10r",
@@ -5006,12 +6298,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "rancid",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.R.inference_clue.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5021,7 +6328,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.R.synonym_clue.v11r",
@@ -5087,12 +6400,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "loyal",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.R.synonym_clue.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5102,7 +6430,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-synonym-clue-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.context_clues.l2.R.inference_clue.v11r",
@@ -5168,12 +6502,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": true,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "beamed",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.context_clues.l2.R.inference_clue.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5183,6 +6532,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-context-clues-l2-r-inference-clue-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  }
 ];

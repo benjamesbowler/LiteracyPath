@@ -65,11 +65,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -79,7 +94,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v2",
@@ -145,11 +166,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -159,7 +195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v3",
@@ -225,11 +267,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -239,7 +296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v4",
@@ -305,11 +368,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -319,7 +397,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v5",
@@ -385,11 +469,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -399,7 +498,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v6",
@@ -465,11 +570,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -479,7 +599,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v7",
@@ -545,11 +671,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -559,7 +700,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v8",
@@ -625,11 +772,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_mistake_fixed.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -639,7 +801,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-mistake-fixed-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v1",
@@ -705,11 +873,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -719,7 +902,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v2",
@@ -785,11 +974,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -799,7 +1003,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v3",
@@ -865,11 +1075,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -879,7 +1104,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v4",
@@ -945,11 +1176,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -959,7 +1205,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v5",
@@ -1025,11 +1277,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1039,7 +1306,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v6",
@@ -1105,11 +1378,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_kindness_returned.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1119,7 +1407,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-kindness-returned-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v7",
@@ -1185,11 +1479,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1199,7 +1508,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v8",
@@ -1265,11 +1580,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_kindness_returned.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1279,7 +1609,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-kindness-returned-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v1",
@@ -1345,11 +1681,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1359,7 +1710,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v2",
@@ -1425,11 +1782,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1439,7 +1811,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v3",
@@ -1505,11 +1883,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1519,7 +1912,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v4",
@@ -1585,11 +1984,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1599,7 +2013,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v5",
@@ -1665,11 +2085,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1679,7 +2114,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v6",
@@ -1745,11 +2186,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1759,7 +2215,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v7",
@@ -1825,11 +2287,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_effort_pays.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1839,7 +2316,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-effort-pays-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v8",
@@ -1905,11 +2388,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.B.lesson_effort_pays.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1919,7 +2417,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-b-lesson-effort-pays-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v1",
@@ -1985,11 +2489,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1999,7 +2518,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival reading 'new things are bad' is too strong; evidence supports earned trust"
+  "notes": "rival reading 'new things are bad' is too strong; evidence supports earned trust",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v2",
@@ -2065,11 +2590,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2079,7 +2619,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v3",
@@ -2145,11 +2691,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2159,7 +2720,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v4",
@@ -2225,11 +2792,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2239,7 +2821,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v5",
@@ -2267,16 +2855,16 @@ export const questions = [
   "passage": "When the storm knocked the nest from the hedge, Etta wanted to carry the eggs indoors at once, to save them with blankets and a lamp. Her grandmother stopped her: 'The mother is watching from the fence. Help small, not big.' They wedged the nest back, moved away, and watched the mother return. All three chicks hatched in the hedge, wild and loud, needing nobody's lamp.",
   "cell": "theme_among_rivals",
   "choices": [
-   "small help can be the kindest help",
+   "the gentlest useful action can be best",
    "never touch anything outdoors",
    "storms knock down nests",
    "lamps can keep eggs warm"
   ],
   "answerOptions": [
    {
-    "value": "small help can be the kindest help",
-    "label": "small help can be the kindest help",
-    "text": "small help can be the kindest help"
+    "value": "the gentlest useful action can be best",
+    "label": "the gentlest useful action can be best",
+    "text": "the gentlest useful action can be best"
    },
    {
     "value": "never touch anything outdoors",
@@ -2294,8 +2882,8 @@ export const questions = [
     "text": "lamps can keep eggs warm"
    }
   ],
-  "answer": "small help can be the kindest help",
-  "correctAnswer": "small help can be the kindest help",
+  "answer": "the gentlest useful action can be best",
+  "correctAnswer": "the gentlest useful action can be best",
   "distractorRationales": {
    "never touch anything outdoors": "D-OPPOSITE",
    "storms knock down nests": "D-DETAIL-AS-MAIN",
@@ -2305,11 +2893,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2319,7 +2922,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "rival 'always rescue dramatically' vs supported 'restrain and trust nature'"
+  "notes": "rival 'always rescue dramatically' vs supported 'restrain and trust nature'",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v6",
@@ -2385,11 +2994,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2399,7 +3023,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v7",
@@ -2465,11 +3095,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2479,7 +3124,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v8",
@@ -2545,11 +3196,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.theme_among_rivals.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2559,7 +3225,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-among-rivals-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v1",
@@ -2625,11 +3297,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2639,7 +3326,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "theme vs three plot restatements — the defining discrimination"
+  "notes": "theme vs three plot restatements — the defining discrimination",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v2",
@@ -2705,11 +3398,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2719,7 +3427,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v3",
@@ -2785,11 +3499,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2799,7 +3528,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v4",
@@ -2865,11 +3600,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2879,7 +3629,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v5",
@@ -2945,11 +3701,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2959,7 +3730,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v6",
@@ -3025,11 +3802,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3039,7 +3831,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v7",
@@ -3105,11 +3903,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3119,7 +3932,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v8",
@@ -3185,11 +4004,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.theme_vs_plot.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3199,7 +4033,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-theme-vs-plot-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v1",
@@ -3265,11 +4105,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3279,7 +4134,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "transfer: same lesson, different domain — the sunflower option is the surface trap"
+  "notes": "transfer: same lesson, different domain — the sunflower option is the surface trap",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v2",
@@ -3345,11 +4206,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3359,7 +4235,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v3",
@@ -3425,11 +4307,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.apply_theme.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3439,7 +4336,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v4",
@@ -3505,11 +4408,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3519,7 +4437,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v5",
@@ -3585,11 +4509,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3599,7 +4538,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.C.apply_theme.v6",
@@ -3665,11 +4610,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.apply_theme.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3679,7 +4639,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-apply-theme-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.A.apply_theme.v7",
@@ -3745,11 +4711,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.apply_theme.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3759,7 +4740,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-apply-theme-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.B.apply_theme.v8",
@@ -3825,11 +4812,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.B.apply_theme.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3839,10 +4841,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-b-apply-theme-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v9r",
+  "id": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -3855,7 +4863,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_mistake_fixed",
   "formatType": "COMPREHENSION",
@@ -3867,12 +4875,17 @@ export const questions = [
   "passage": "Zia copied Ola's homework to save time, and got the same three answers wrong. Worse, she could not explain them at the board. That night she did the page herself, slowly. Next test her answers were her own — and she could explain every one.",
   "cell": "lesson_mistake_fixed",
   "choices": [
+   "Zia got three answers wrong",
    "homework is a waste of time",
    "teachers use whiteboards",
-   "copying steals your own chance to learn",
-   "Zia got three answers wrong"
+   "copying steals your own chance to learn"
   ],
   "answerOptions": [
+   {
+    "value": "Zia got three answers wrong",
+    "label": "Zia got three answers wrong",
+    "text": "Zia got three answers wrong"
+   },
    {
     "value": "homework is a waste of time",
     "label": "homework is a waste of time",
@@ -3887,29 +4900,39 @@ export const questions = [
     "value": "copying steals your own chance to learn",
     "label": "copying steals your own chance to learn",
     "text": "copying steals your own chance to learn"
-   },
-   {
-    "value": "Zia got three answers wrong",
-    "label": "Zia got three answers wrong",
-    "text": "Zia got three answers wrong"
    }
   ],
   "answer": "copying steals your own chance to learn",
   "correctAnswer": "copying steals your own chance to learn",
   "distractorRationales": {
-   "homework is a waste of time": "D-OPPOSITE",
    "teachers use whiteboards": "D-TOPIC-ADJACENT",
-   "Zia got three answers wrong": "D-DETAIL-AS-MAIN"
+   "Zia got three answers wrong": "D-DETAIL-AS-MAIN",
+   "homework is a waste of time": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_mistake_fixed.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3919,10 +4942,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-mistake-fixed-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v10r",
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -3935,7 +4964,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_1_phase_1",
-  "form": "R",
+  "form": "A",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_kindness_returned",
   "formatType": "COMPREHENSION",
@@ -3947,12 +4976,17 @@ export const questions = [
   "passage": "On the coldest morning, Ffion cleared frost from her neighbour's windscreen along with her mum's, just because she was out there anyway with the scraper. All winter after that, on bin day, Ffion's family bins came back up the drive before they were even awake — wheeled by a neighbour who was out there anyway.",
   "cell": "lesson_kindness_returned",
   "choices": [
+   "neighbourly kindness circles back around",
    "a windscreen had frost on it",
    "bins should stay by the road",
-   "winter mornings are cold",
-   "neighbourly kindness circles back around"
+   "winter mornings are cold"
   ],
   "answerOptions": [
+   {
+    "value": "neighbourly kindness circles back around",
+    "label": "neighbourly kindness circles back around",
+    "text": "neighbourly kindness circles back around"
+   },
    {
     "value": "a windscreen had frost on it",
     "label": "a windscreen had frost on it",
@@ -3967,29 +5001,39 @@ export const questions = [
     "value": "winter mornings are cold",
     "label": "winter mornings are cold",
     "text": "winter mornings are cold"
-   },
-   {
-    "value": "neighbourly kindness circles back around",
-    "label": "neighbourly kindness circles back around",
-    "text": "neighbourly kindness circles back around"
    }
   ],
   "answer": "neighbourly kindness circles back around",
   "correctAnswer": "neighbourly kindness circles back around",
   "distractorRationales": {
-   "bins should stay by the road": "D-TOPIC-ADJACENT",
    "winter mornings are cold": "D-DETAIL-AS-MAIN",
-   "a windscreen had frost on it": "D-DETAIL-AS-MAIN"
+   "a windscreen had frost on it": "D-DETAIL-AS-MAIN",
+   "bins should stay by the road": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_kindness_returned.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3999,10 +5043,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-kindness-returned-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v9r",
+  "id": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4015,7 +5065,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "C",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_effort_pays",
   "formatType": "COMPREHENSION",
@@ -4057,19 +5107,34 @@ export const questions = [
   "answer": "step-by-step effort builds real skill",
   "correctAnswer": "step-by-step effort builds real skill",
   "distractorRationales": {
-   "beaches have buoys": "D-TOPIC-ADJACENT",
    "Rosa touched the yellow buoy": "D-DETAIL-AS-MAIN",
-   "stay out of the sea in June": "D-OPPOSITE"
+   "stay out of the sea in June": "D-OPPOSITE",
+   "beaches have buoys": "D-TOPIC-ADJACENT"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.C.lesson_effort_pays.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4079,10 +5144,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-c-lesson-effort-pays-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v10r",
+  "id": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4095,7 +5166,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_1_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "lesson_mistake_fixed",
   "formatType": "COMPREHENSION",
@@ -4137,19 +5208,34 @@ export const questions = [
   "answer": "a wrong can be mended, even slowly",
   "correctAnswer": "a wrong can be mended, even slowly",
   "distractorRationales": {
-   "teasing makes people laugh": "D-OPPOSITE",
    "football happens at lunch": "D-TOPIC-ADJACENT",
-   "Ollie's glasses were taped": "D-DETAIL-AS-MAIN"
+   "Ollie's glasses were taped": "D-DETAIL-AS-MAIN",
+   "teasing makes people laugh": "D-OPPOSITE"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.A.lesson_mistake_fixed.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4159,7 +5245,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-a-lesson-mistake-fixed-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r",
@@ -4225,11 +5317,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4239,7 +5346,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v11r",
@@ -4305,11 +5418,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_effort_pays.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4319,7 +5447,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-effort-pays-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v11r",
@@ -4385,11 +5519,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_mistake_fixed.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4399,7 +5548,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-mistake-fixed-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r",
@@ -4465,11 +5620,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l1.R.lesson_kindness_returned.v12r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4479,10 +5649,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l1-r-lesson-kindness-returned-v12r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v9r",
+  "id": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4495,7 +5671,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_among_rivals",
   "formatType": "COMPREHENSION",
@@ -4507,17 +5683,12 @@ export const questions = [
   "passage": "The chess club's best player, Ines, could beat anyone — and said so, often. The club shrank to three. New teacher Ms Drew asked Ines to spend one term coaching instead of winning. It itched at first, losing on purpose to show a trick. But by summer the club filled two classrooms, and when a small coached beginner finally beat her fair and square, Ines was surprised to find she had never enjoyed chess more.",
   "cell": "theme_among_rivals",
   "choices": [
-   "chess clubs need two classrooms",
    "never let anyone win",
    "beginners ruin clubs",
-   "lifting others can beat winning alone"
+   "lifting others can beat winning alone",
+   "chess clubs need two classrooms"
   ],
   "answerOptions": [
-   {
-    "value": "chess clubs need two classrooms",
-    "label": "chess clubs need two classrooms",
-    "text": "chess clubs need two classrooms"
-   },
    {
     "value": "never let anyone win",
     "label": "never let anyone win",
@@ -4532,24 +5703,44 @@ export const questions = [
     "value": "lifting others can beat winning alone",
     "label": "lifting others can beat winning alone",
     "text": "lifting others can beat winning alone"
+   },
+   {
+    "value": "chess clubs need two classrooms",
+    "label": "chess clubs need two classrooms",
+    "text": "chess clubs need two classrooms"
    }
   ],
   "answer": "lifting others can beat winning alone",
   "correctAnswer": "lifting others can beat winning alone",
   "distractorRationales": {
-   "chess clubs need two classrooms": "D-DETAIL-AS-MAIN",
    "never let anyone win": "D-OPPOSITE",
-   "beginners ruin clubs": "D-OPPOSITE"
+   "beginners ruin clubs": "D-OPPOSITE",
+   "chess clubs need two classrooms": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_among_rivals.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4559,10 +5750,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-among-rivals-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v10r",
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4575,7 +5772,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_among_rivals",
   "formatType": "COMPREHENSION",
@@ -4587,17 +5784,12 @@ export const questions = [
   "passage": "Papa's garden was chaos — beans in with roses, pumpkins wandering the path — and next door's garden was ruler-straight rows. Next door teased; Papa just picked. When blight took the whole street's tomatoes, it hopped easily down next door's tidy tomato rows but got lost in Papa's jumble, where marigolds and garlic broke its path. That autumn, next door's rows had two new residents: marigolds, and a little wandering pumpkin.",
   "cell": "theme_among_rivals",
   "choices": [
-   "there is hidden wisdom in ways that look untidy",
    "blight took the street's tomatoes",
    "neat rows are always wrong",
-   "pumpkins wander paths"
+   "pumpkins wander paths",
+   "there is hidden wisdom in ways that look untidy"
   ],
   "answerOptions": [
-   {
-    "value": "there is hidden wisdom in ways that look untidy",
-    "label": "there is hidden wisdom in ways that look untidy",
-    "text": "there is hidden wisdom in ways that look untidy"
-   },
    {
     "value": "blight took the street's tomatoes",
     "label": "blight took the street's tomatoes",
@@ -4612,24 +5804,44 @@ export const questions = [
     "value": "pumpkins wander paths",
     "label": "pumpkins wander paths",
     "text": "pumpkins wander paths"
+   },
+   {
+    "value": "there is hidden wisdom in ways that look untidy",
+    "label": "there is hidden wisdom in ways that look untidy",
+    "text": "there is hidden wisdom in ways that look untidy"
    }
   ],
   "answer": "there is hidden wisdom in ways that look untidy",
   "correctAnswer": "there is hidden wisdom in ways that look untidy",
   "distractorRationales": {
-   "pumpkins wander paths": "D-DETAIL-AS-MAIN",
    "blight took the street's tomatoes": "D-DETAIL-AS-MAIN",
-   "neat rows are always wrong": "D-OPPOSITE"
+   "neat rows are always wrong": "D-OPPOSITE",
+   "pumpkins wander paths": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_among_rivals.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,10 +5851,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-among-rivals-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v9r",
+  "id": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4655,7 +5873,7 @@ export const questions = [
   "phase": 1,
   "assessmentPhase": 1,
   "phaseTarget": "level_2_phase_1",
-  "form": "R",
+  "form": "C",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_vs_plot",
   "formatType": "COMPREHENSION",
@@ -4667,22 +5885,12 @@ export const questions = [
   "passage": "The school play needed a horse, and the horse costume needed two children who could move as one. Rehearsals were disaster — front legs turning left, back legs right, the audience of teachers crying with laughter. So Fen and Alba practised everything together for a month: walking home, queueing, even yawning. On the night, the horse trotted, reared, and bowed — and two very different girls came out of one costume as best friends.",
   "cell": "theme_vs_plot",
   "choices": [
-   "the horse bowed on the night",
-   "working as one can join people for good",
    "a play needed a horse costume",
-   "rehearsals went badly at first"
+   "rehearsals went badly at first",
+   "the horse bowed on the night",
+   "working as one can join people for good"
   ],
   "answerOptions": [
-   {
-    "value": "the horse bowed on the night",
-    "label": "the horse bowed on the night",
-    "text": "the horse bowed on the night"
-   },
-   {
-    "value": "working as one can join people for good",
-    "label": "working as one can join people for good",
-    "text": "working as one can join people for good"
-   },
    {
     "value": "a play needed a horse costume",
     "label": "a play needed a horse costume",
@@ -4692,24 +5900,49 @@ export const questions = [
     "value": "rehearsals went badly at first",
     "label": "rehearsals went badly at first",
     "text": "rehearsals went badly at first"
+   },
+   {
+    "value": "the horse bowed on the night",
+    "label": "the horse bowed on the night",
+    "text": "the horse bowed on the night"
+   },
+   {
+    "value": "working as one can join people for good",
+    "label": "working as one can join people for good",
+    "text": "working as one can join people for good"
    }
   ],
   "answer": "working as one can join people for good",
   "correctAnswer": "working as one can join people for good",
   "distractorRationales": {
+   "a play needed a horse costume": "D-DETAIL-AS-MAIN",
    "rehearsals went badly at first": "D-DETAIL-AS-MAIN",
-   "the horse bowed on the night": "D-DETAIL-AS-MAIN",
-   "a play needed a horse costume": "D-DETAIL-AS-MAIN"
+   "the horse bowed on the night": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.C.theme_vs_plot.v9",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4719,10 +5952,16 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-c-theme-vs-plot-v9.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
-  "id": "lp3.theme_higher_comprehension.l2.R.theme_vs_plot.v10r",
+  "id": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
   "bankStandardVersion": 3,
   "grade": "K-2",
   "skillId": "theme_higher_comprehension",
@@ -4735,7 +5974,7 @@ export const questions = [
   "phase": 2,
   "assessmentPhase": 2,
   "phaseTarget": "level_2_phase_2",
-  "form": "R",
+  "form": "A",
   "itemType": "theme_higher_comprehension_cell",
   "itemKey": "theme_vs_plot",
   "formatType": "COMPREHENSION",
@@ -4747,22 +5986,12 @@ export const questions = [
   "passage": "Great-Aunt Bess left Callum her 'treasure', and the whole family imagined jewellery. The box held a trowel, seed packets, and a notebook: fifty years of what she had planted, for whom, and why — a tree for every new baby on the street, roses for every wedding. Callum was disappointed for exactly one spring. Then the first of HIS trees blossomed outside the maternity window, and he understood what kind of rich his aunt had been.",
   "cell": "theme_vs_plot",
   "choices": [
-   "the family expected jewellery",
-   "a tree blossomed in spring",
    "a life spent giving is its own treasure",
-   "a box held a trowel and seeds"
+   "a box held a trowel and seeds",
+   "the family expected jewellery",
+   "a tree blossomed in spring"
   ],
   "answerOptions": [
-   {
-    "value": "the family expected jewellery",
-    "label": "the family expected jewellery",
-    "text": "the family expected jewellery"
-   },
-   {
-    "value": "a tree blossomed in spring",
-    "label": "a tree blossomed in spring",
-    "text": "a tree blossomed in spring"
-   },
    {
     "value": "a life spent giving is its own treasure",
     "label": "a life spent giving is its own treasure",
@@ -4772,24 +6001,49 @@ export const questions = [
     "value": "a box held a trowel and seeds",
     "label": "a box held a trowel and seeds",
     "text": "a box held a trowel and seeds"
+   },
+   {
+    "value": "the family expected jewellery",
+    "label": "the family expected jewellery",
+    "text": "the family expected jewellery"
+   },
+   {
+    "value": "a tree blossomed in spring",
+    "label": "a tree blossomed in spring",
+    "text": "a tree blossomed in spring"
    }
   ],
   "answer": "a life spent giving is its own treasure",
   "correctAnswer": "a life spent giving is its own treasure",
   "distractorRationales": {
+   "a box held a trowel and seeds": "D-DETAIL-AS-MAIN",
    "the family expected jewellery": "D-DETAIL-AS-MAIN",
-   "a tree blossomed in spring": "D-DETAIL-AS-MAIN",
-   "a box held a trowel and seeds": "D-DETAIL-AS-MAIN"
+   "a tree blossomed in spring": "D-DETAIL-AS-MAIN"
   },
   "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
-  "retentionOnly": true,
-  "scannerExpected": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.A.theme_vs_plot.v10",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4799,7 +6053,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-a-theme-vs-plot-v10.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v9r",
@@ -4865,11 +6125,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4879,7 +6154,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v10r",
@@ -4945,11 +6226,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4959,7 +6255,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v11r",
@@ -5025,11 +6327,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.R.theme_among_rivals.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5039,7 +6356,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-theme-among-rivals-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.theme_higher_comprehension.l2.R.apply_theme.v11r",
@@ -5105,11 +6428,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.theme_higher_comprehension.l2.R.apply_theme.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5119,6 +6457,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-theme-higher-comprehension-l2-r-apply-theme-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  }
 ];

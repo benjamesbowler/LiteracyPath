@@ -4,6 +4,7 @@ import {
 } from "./generated/ledaProductionAudio.generated.js";
 import { LEDA_RUNTIME_SUPPLEMENT_AUDIO } from "./generated/ledaRuntimeSupplement.generated.js";
 import { STORY_QUEST_LEDA_AUDIO } from "./generated/storyQuestLedaAudio.generated.js";
+import { ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE } from "./generated/assessmentLedaGaps.generated.js";
 import { LEDA_PRODUCTION_VOICE } from "./ledaProductionVoice.js";
 
 export { LEDA_PRODUCTION_AUDIO_ROLES, LEDA_PRODUCTION_VOICE };
@@ -45,7 +46,8 @@ export function getLedaProductionAudioPath(
       ? LEDA_RUNTIME_SUPPLEMENT_AUDIO[normalized]
       : role === "story_page"
         ? STORY_QUEST_LEDA_AUDIO[normalized] || LEDA_PRODUCTION_AUDIO_BY_ROLE.story_page?.[normalized]
-        : LEDA_PRODUCTION_AUDIO_BY_ROLE[role]?.[normalized];
+        : LEDA_PRODUCTION_AUDIO_BY_ROLE[role]?.[normalized]
+          || ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE[role]?.[normalized];
     if (path) return path;
   }
   return "";

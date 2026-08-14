@@ -65,11 +65,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_effect.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -79,7 +94,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v2",
@@ -145,11 +166,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.find_effect.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -159,7 +195,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.C.find_effect.v3",
@@ -225,11 +267,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.find_effect.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -239,7 +296,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.find_effect.v4",
@@ -305,11 +368,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_effect.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -319,7 +397,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v5",
@@ -385,11 +469,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.find_effect.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -399,7 +498,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.C.find_effect.v6",
@@ -465,11 +570,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.find_effect.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -479,7 +599,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-effect-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.find_effect.v7",
@@ -545,11 +671,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_effect.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -559,7 +700,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-effect-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.find_effect.v8",
@@ -625,11 +772,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.find_effect.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -639,7 +801,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-effect-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v1",
@@ -705,11 +873,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_cause.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -719,7 +902,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v2",
@@ -785,11 +974,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.find_cause.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -799,7 +1003,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.C.find_cause.v3",
@@ -865,11 +1075,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.find_cause.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -879,7 +1104,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v4",
@@ -945,11 +1176,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_cause.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -959,7 +1205,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "licking fast is the RESPONSE to melting, not the cause of drips"
+  "notes": "licking fast is the RESPONSE to melting, not the cause of drips",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v5",
@@ -1025,11 +1277,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.find_cause.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1039,7 +1306,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.C.find_cause.v6",
@@ -1105,11 +1378,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.find_cause.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1119,7 +1407,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-find-cause-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.find_cause.v7",
@@ -1185,11 +1479,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.find_cause.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1199,7 +1508,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-find-cause-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.find_cause.v8",
@@ -1265,11 +1580,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.find_cause.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1279,7 +1609,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-find-cause-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v1",
@@ -1345,11 +1681,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.because_sentence.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1359,7 +1710,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v2",
@@ -1425,11 +1782,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.because_sentence.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1439,7 +1811,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.C.because_sentence.v3",
@@ -1505,11 +1883,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.because_sentence.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1519,7 +1912,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v4",
@@ -1585,11 +1984,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.because_sentence.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1599,7 +2013,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v5",
@@ -1665,11 +2085,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.because_sentence.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1679,7 +2114,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.C.because_sentence.v6",
@@ -1745,11 +2186,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.C.because_sentence.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1759,7 +2215,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-c-because-sentence-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.A.because_sentence.v7",
@@ -1825,11 +2287,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.A.because_sentence.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1839,7 +2316,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-a-because-sentence-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.B.because_sentence.v8",
@@ -1905,11 +2388,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.B.because_sentence.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1919,7 +2417,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-b-because-sentence-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v1",
@@ -1948,7 +2452,7 @@ export const questions = [
   "cell": "chain",
   "choices": [
    "someone washed the dishes",
-   "he moved suddenly and struck the bag with his elbow",
+   "a sudden bump knocked the bag",
    "the wasp smelled the jam",
    "flour settled on the dishes"
   ],
@@ -1959,9 +2463,9 @@ export const questions = [
     "text": "someone washed the dishes"
    },
    {
-    "value": "he moved suddenly and struck the bag with his elbow",
-    "label": "he moved suddenly and struck the bag with his elbow",
-    "text": "he moved suddenly and struck the bag with his elbow"
+    "value": "a sudden bump knocked the bag",
+    "label": "a sudden bump knocked the bag",
+    "text": "a sudden bump knocked the bag"
    },
    {
     "value": "the wasp smelled the jam",
@@ -1974,8 +2478,8 @@ export const questions = [
     "text": "flour settled on the dishes"
    }
   ],
-  "answer": "he moved suddenly and struck the bag with his elbow",
-  "correctAnswer": "he moved suddenly and struck the bag with his elbow",
+  "answer": "a sudden bump knocked the bag",
+  "correctAnswer": "a sudden bump knocked the bag",
   "distractorRationales": {
    "the wasp smelled the jam": "D-SEQUENCE-SWAP",
    "flour settled on the dishes": "D-SEQUENCE-SWAP",
@@ -1985,11 +2489,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1999,7 +2518,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "middle-link question: jam → wasp → jump → elbow → flour"
+  "notes": "middle-link question: jam → wasp → jump → elbow → flour",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v2",
@@ -2065,11 +2590,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.chain.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2079,7 +2619,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v3",
@@ -2145,11 +2691,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.chain.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2159,7 +2720,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v4",
@@ -2225,11 +2792,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2239,7 +2821,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces"
+  "notes": "flood is the FIRST link, not the operative cause of the over-fence bounces",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v5",
@@ -2305,11 +2893,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.chain.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2319,7 +2922,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.C.chain.v6",
@@ -2385,11 +2994,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.chain.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2399,7 +3023,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-chain-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.chain.v7",
@@ -2465,11 +3095,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.chain.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2479,7 +3124,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-chain-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.chain.v8",
@@ -2545,11 +3196,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.chain.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2559,7 +3225,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-chain-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v1",
@@ -2625,11 +3297,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.multiple_causes.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2639,7 +3326,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "NOT-a-cause format: three real causes, one invented"
+  "notes": "NOT-a-cause format: three real causes, one invented",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v2",
@@ -2705,11 +3398,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.multiple_causes.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2719,7 +3427,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.C.multiple_causes.v3",
@@ -2785,11 +3499,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.multiple_causes.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2799,7 +3528,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the invented option is the intuitive-but-backwards cause"
+  "notes": "the invented option is the intuitive-but-backwards cause",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v4",
@@ -2865,11 +3600,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.multiple_causes.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2879,7 +3629,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v5",
@@ -2945,11 +3701,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.multiple_causes.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2959,7 +3730,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.C.multiple_causes.v6",
@@ -3025,11 +3802,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.multiple_causes.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3039,7 +3831,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-multiple-causes-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.multiple_causes.v7",
@@ -3105,11 +3903,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.multiple_causes.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3119,7 +3932,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-multiple-causes-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.multiple_causes.v8",
@@ -3185,11 +4004,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.multiple_causes.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3199,7 +4033,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-multiple-causes-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v1",
@@ -3265,11 +4105,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.reversal_trap.v1",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3279,7 +4134,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v1.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v2",
@@ -3345,11 +4206,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.reversal_trap.v2",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3359,7 +4235,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v2.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.C.reversal_trap.v3",
@@ -3425,11 +4307,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.reversal_trap.v3",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3439,7 +4336,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v3.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v4",
@@ -3505,11 +4408,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.reversal_trap.v4",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3519,7 +4437,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "two-way causation — the honest answer is the loop itself"
+  "notes": "two-way causation — the honest answer is the loop itself",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v4.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v5",
@@ -3585,11 +4509,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.reversal_trap.v5",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3599,7 +4538,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v5.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.C.reversal_trap.v6",
@@ -3665,11 +4610,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.C.reversal_trap.v6",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3679,7 +4639,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-c-reversal-trap-v6.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.A.reversal_trap.v7",
@@ -3745,11 +4711,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.A.reversal_trap.v7",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3759,7 +4740,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-a-reversal-trap-v7.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.B.reversal_trap.v8",
@@ -3825,11 +4812,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.B.reversal_trap.v8",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3839,7 +4841,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-b-reversal-trap-v8.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v9r",
@@ -3905,11 +4913,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.find_effect.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3919,7 +4942,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v10r",
@@ -3985,11 +5014,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.find_effect.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3999,7 +5043,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v9r",
@@ -4065,11 +5115,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.find_cause.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4079,7 +5144,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v10r",
@@ -4145,11 +5216,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.find_cause.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4159,7 +5245,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.because_sentence.v9r",
@@ -4225,11 +5317,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.because_sentence.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4239,7 +5346,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.because_sentence.v10r",
@@ -4305,11 +5418,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.because_sentence.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4319,7 +5447,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-because-sentence-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.find_effect.v11r",
@@ -4385,11 +5519,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.find_effect.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4399,7 +5548,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-effect-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l1.R.find_cause.v11r",
@@ -4427,16 +5582,16 @@ export const questions = [
   "passage": "The trolley sang a squeaky song all round the supermarket — eee-aww, eee-aww. Dad crouched by the front wheel and found a flattened piece of chewing gum stuck right around it.",
   "cell": "find_cause",
   "choices": [
-   "chewing gum stopped one wheel turning smoothly",
+   "something sticky jammed the wheel",
    "the shopping was too heavy",
    "its song annoyed Dad",
    "the floor was wet"
   ],
   "answerOptions": [
    {
-    "value": "chewing gum stopped one wheel turning smoothly",
-    "label": "chewing gum stopped one wheel turning smoothly",
-    "text": "chewing gum stopped one wheel turning smoothly"
+    "value": "something sticky jammed the wheel",
+    "label": "something sticky jammed the wheel",
+    "text": "something sticky jammed the wheel"
    },
    {
     "value": "the shopping was too heavy",
@@ -4454,8 +5609,8 @@ export const questions = [
     "text": "the floor was wet"
    }
   ],
-  "answer": "chewing gum stopped one wheel turning smoothly",
-  "correctAnswer": "chewing gum stopped one wheel turning smoothly",
+  "answer": "something sticky jammed the wheel",
+  "correctAnswer": "something sticky jammed the wheel",
   "distractorRationales": {
    "the shopping was too heavy": "D-PLAUSIBLE-UNSUPPORTED",
    "its song annoyed Dad": "D-CAUSE-REVERSE",
@@ -4465,11 +5620,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l1.R.find_cause.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4479,7 +5649,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l1-r-find-cause-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v9r",
@@ -4545,11 +5721,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.chain.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4559,7 +5750,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v10r",
@@ -4625,11 +5822,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.chain.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4639,7 +5851,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the open tin is the first link; the operative cause of repainting is the lumpy coat"
+  "notes": "the open tin is the first link; the operative cause of repainting is the lumpy coat",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v9r",
@@ -4705,11 +5923,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.multiple_causes.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4719,7 +5952,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v10r",
@@ -4785,11 +6024,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.multiple_causes.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4799,7 +6053,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.reversal_trap.v9r",
@@ -4865,11 +6125,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.reversal_trap.v9r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4879,7 +6154,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v9r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.reversal_trap.v10r",
@@ -4945,11 +6226,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.reversal_trap.v10r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4959,7 +6255,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-reversal-trap-v10r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.chain.v11r",
@@ -5025,11 +6327,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.chain.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5039,7 +6356,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-chain-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  },
  {
   "id": "lp3.cause_effect.l2.R.multiple_causes.v11r",
@@ -5105,11 +6428,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.cause_effect.l2.R.multiple_causes.v11r",
+   "role": "neutral-support",
+   "paths": [
+    "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp"
+   ],
+   "alt": "Answer-neutral illustration of the passage setting",
+   "constructReview": "approved",
+   "answerNeutral": "approved-empty-setting"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
+  "stimulusMediaId": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5119,6 +6457,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
+  "imageUrl": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
+  "targetImage": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
+  "targetImagePath": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/passages/lp3-cause-effect-l2-r-multiple-causes-v11r.webp",
+  "imageAlt": "Answer-neutral illustration of the passage setting"
  }
 ];

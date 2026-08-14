@@ -63,13 +63,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cat_in_box",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.in.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cat-in-box-b44d5222.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cat_in_box",
+  "stimulusMediaId": "cat_in_box",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -80,10 +94,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/cat_in_box.png",
-  "imageUrl": "/images/prepositions/cat_in_box.png",
-  "targetImage": "/images/prepositions/cat_in_box.png",
-  "targetImagePath": "/images/prepositions/cat_in_box.png",
+  "imagePath": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
+  "imageUrl": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
+  "targetImage": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
+  "targetImagePath": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
   "resolvedImageAssetKey": "cat_in_box",
   "imageAlt": "cat in box"
  },
@@ -149,13 +163,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "goat_inside_barn",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.in.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/goat-inside-barn-23d973f1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "goat_inside_barn",
+  "stimulusMediaId": "goat_inside_barn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -166,10 +194,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/goat_inside_barn.png",
-  "imageUrl": "/images/prepositions/goat_inside_barn.png",
-  "targetImage": "/images/prepositions/goat_inside_barn.png",
-  "targetImagePath": "/images/prepositions/goat_inside_barn.png",
+  "imagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "imageUrl": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "targetImage": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "targetImagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
   "resolvedImageAssetKey": "goat_inside_barn",
   "imageAlt": "goat inside barn"
  },
@@ -235,13 +263,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cat_in_box",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.in.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cat-in-box-b44d5222.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cat_in_box",
+  "stimulusMediaId": "cat_in_box",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -252,10 +294,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/cat_in_box.png",
-  "imageUrl": "/images/prepositions/cat_in_box.png",
-  "targetImage": "/images/prepositions/cat_in_box.png",
-  "targetImagePath": "/images/prepositions/cat_in_box.png",
+  "imagePath": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
+  "imageUrl": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
+  "targetImage": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
+  "targetImagePath": "/images/assessment/release-media/cat-in-box-b44d5222.webp",
   "resolvedImageAssetKey": "cat_in_box",
   "imageAlt": "The cat is in the box."
  },
@@ -321,13 +363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "goat_inside_barn",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.in.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/goat-inside-barn-23d973f1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "goat_inside_barn",
+  "stimulusMediaId": "goat_inside_barn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -338,10 +394,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/goat_inside_barn.png",
-  "imageUrl": "/images/prepositions/goat_inside_barn.png",
-  "targetImage": "/images/prepositions/goat_inside_barn.png",
-  "targetImagePath": "/images/prepositions/goat_inside_barn.png",
+  "imagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "imageUrl": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "targetImage": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "targetImagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
   "resolvedImageAssetKey": "goat_inside_barn",
   "imageAlt": "The goat is in the barn."
  },
@@ -407,13 +463,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ball_on_chair",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.on.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/ball-on-chair-f5c50c79.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "ball_on_chair",
+  "stimulusMediaId": "ball_on_chair",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -424,10 +494,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/ball_on_chair.png",
-  "imageUrl": "/images/prepositions/ball_on_chair.png",
-  "targetImage": "/images/prepositions/ball_on_chair.png",
-  "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "imagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "imageUrl": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "targetImage": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "targetImagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
   "resolvedImageAssetKey": "ball_on_chair",
   "imageAlt": "ball on chair"
  },
@@ -493,13 +563,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "snow_on_roof",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.on.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/snow-on-roof-f8167902.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "snow_on_roof",
+  "stimulusMediaId": "snow_on_roof",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -510,10 +594,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/snow_on_roof.png",
-  "imageUrl": "/images/prepositions/snow_on_roof.png",
-  "targetImage": "/images/prepositions/snow_on_roof.png",
-  "targetImagePath": "/images/prepositions/snow_on_roof.png",
+  "imagePath": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
+  "imageUrl": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
+  "targetImage": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
+  "targetImagePath": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
   "resolvedImageAssetKey": "snow_on_roof",
   "imageAlt": "snow on roof"
  },
@@ -579,13 +663,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ball_on_chair",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.on.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/ball-on-chair-f5c50c79.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "ball_on_chair",
+  "stimulusMediaId": "ball_on_chair",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -596,10 +694,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/ball_on_chair.png",
-  "imageUrl": "/images/prepositions/ball_on_chair.png",
-  "targetImage": "/images/prepositions/ball_on_chair.png",
-  "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "imagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "imageUrl": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "targetImage": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "targetImagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
   "resolvedImageAssetKey": "ball_on_chair",
   "imageAlt": "The ball is on the chair."
  },
@@ -665,13 +763,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "snow_on_roof",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.on.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/snow-on-roof-f8167902.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "snow_on_roof",
+  "stimulusMediaId": "snow_on_roof",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -682,10 +794,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/snow_on_roof.png",
-  "imageUrl": "/images/prepositions/snow_on_roof.png",
-  "targetImage": "/images/prepositions/snow_on_roof.png",
-  "targetImagePath": "/images/prepositions/snow_on_roof.png",
+  "imagePath": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
+  "imageUrl": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
+  "targetImage": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
+  "targetImagePath": "/images/assessment/release-media/snow-on-roof-f8167902.webp",
   "resolvedImageAssetKey": "snow_on_roof",
   "imageAlt": "The snow is on the roof."
  },
@@ -751,13 +863,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dog_under_table",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.under.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/dog-under-table-cf3e17f2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "dog_under_table",
+  "stimulusMediaId": "dog_under_table",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -768,10 +894,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/dog_under_table.png",
-  "imageUrl": "/images/prepositions/dog_under_table.png",
-  "targetImage": "/images/prepositions/dog_under_table.png",
-  "targetImagePath": "/images/prepositions/dog_under_table.png",
+  "imagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "imageUrl": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "targetImage": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "targetImagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
   "resolvedImageAssetKey": "dog_under_table",
   "imageAlt": "dog under table"
  },
@@ -837,13 +963,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "slippers_under_bed",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.under.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/slippers-under-bed-f363802c.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "slippers_under_bed",
+  "stimulusMediaId": "slippers_under_bed",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -854,10 +994,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/slippers_under_bed.png",
-  "imageUrl": "/images/prepositions/slippers_under_bed.png",
-  "targetImage": "/images/prepositions/slippers_under_bed.png",
-  "targetImagePath": "/images/prepositions/slippers_under_bed.png",
+  "imagePath": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
+  "imageUrl": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
+  "targetImage": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
+  "targetImagePath": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
   "resolvedImageAssetKey": "slippers_under_bed",
   "imageAlt": "slippers under bed"
  },
@@ -923,13 +1063,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dog_under_table",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.under.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/dog-under-table-cf3e17f2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "dog_under_table",
+  "stimulusMediaId": "dog_under_table",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -940,10 +1094,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/dog_under_table.png",
-  "imageUrl": "/images/prepositions/dog_under_table.png",
-  "targetImage": "/images/prepositions/dog_under_table.png",
-  "targetImagePath": "/images/prepositions/dog_under_table.png",
+  "imagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "imageUrl": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "targetImage": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "targetImagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
   "resolvedImageAssetKey": "dog_under_table",
   "imageAlt": "The dog is under the table."
  },
@@ -1009,13 +1163,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "slippers_under_bed",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.under.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/slippers-under-bed-f363802c.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "slippers_under_bed",
+  "stimulusMediaId": "slippers_under_bed",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1026,10 +1194,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/slippers_under_bed.png",
-  "imageUrl": "/images/prepositions/slippers_under_bed.png",
-  "targetImage": "/images/prepositions/slippers_under_bed.png",
-  "targetImagePath": "/images/prepositions/slippers_under_bed.png",
+  "imagePath": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
+  "imageUrl": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
+  "targetImage": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
+  "targetImagePath": "/images/assessment/release-media/slippers-under-bed-f363802c.webp",
   "resolvedImageAssetKey": "slippers_under_bed",
   "imageAlt": "The slippers are under the bed."
  },
@@ -1095,13 +1263,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bear_behind_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.behind.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bear_behind_tree",
+  "stimulusMediaId": "bear_behind_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1112,10 +1294,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bear_behind_tree.png",
-  "imageUrl": "/images/prepositions/bear_behind_tree.png",
-  "targetImage": "/images/prepositions/bear_behind_tree.png",
-  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "imagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "imageUrl": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImage": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
   "resolvedImageAssetKey": "bear_behind_tree",
   "imageAlt": "bear behind tree"
  },
@@ -1181,13 +1363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "child_behind_curtain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.behind.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "child_behind_curtain",
+  "stimulusMediaId": "child_behind_curtain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1198,10 +1394,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/child_behind_curtain.png",
-  "imageUrl": "/images/prepositions/child_behind_curtain.png",
-  "targetImage": "/images/prepositions/child_behind_curtain.png",
-  "targetImagePath": "/images/prepositions/child_behind_curtain.png",
+  "imagePath": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
+  "imageUrl": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
+  "targetImage": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
+  "targetImagePath": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
   "resolvedImageAssetKey": "child_behind_curtain",
   "imageAlt": "child behind curtain"
  },
@@ -1267,13 +1463,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bear_behind_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.behind.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bear_behind_tree",
+  "stimulusMediaId": "bear_behind_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1284,10 +1494,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bear_behind_tree.png",
-  "imageUrl": "/images/prepositions/bear_behind_tree.png",
-  "targetImage": "/images/prepositions/bear_behind_tree.png",
-  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "imagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "imageUrl": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImage": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
   "resolvedImageAssetKey": "bear_behind_tree",
   "imageAlt": "The bear is behind the tree."
  },
@@ -1353,13 +1563,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "child_behind_curtain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.behind.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "child_behind_curtain",
+  "stimulusMediaId": "child_behind_curtain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1370,10 +1594,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/child_behind_curtain.png",
-  "imageUrl": "/images/prepositions/child_behind_curtain.png",
-  "targetImage": "/images/prepositions/child_behind_curtain.png",
-  "targetImagePath": "/images/prepositions/child_behind_curtain.png",
+  "imagePath": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
+  "imageUrl": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
+  "targetImage": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
+  "targetImagePath": "/images/assessment/release-media/child-behind-curtain-bcc7e04e.webp",
   "resolvedImageAssetKey": "child_behind_curtain",
   "imageAlt": "The child is behind the curtain."
  },
@@ -1439,13 +1663,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "rabbit_beside_basket",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.next_to.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "rabbit_beside_basket",
+  "stimulusMediaId": "rabbit_beside_basket",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1456,10 +1694,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/rabbit_beside_basket.png",
-  "imageUrl": "/images/prepositions/rabbit_beside_basket.png",
-  "targetImage": "/images/prepositions/rabbit_beside_basket.png",
-  "targetImagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "imagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "imageUrl": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "targetImage": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "targetImagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
   "resolvedImageAssetKey": "rabbit_beside_basket",
   "imageAlt": "rabbit beside basket"
  },
@@ -1525,13 +1763,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cup_next_to_plate",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.next_to.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cup_next_to_plate",
+  "stimulusMediaId": "cup_next_to_plate",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1542,10 +1794,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/cup_next_to_plate.png",
-  "imageUrl": "/images/prepositions/cup_next_to_plate.png",
-  "targetImage": "/images/prepositions/cup_next_to_plate.png",
-  "targetImagePath": "/images/prepositions/cup_next_to_plate.png",
+  "imagePath": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
+  "imageUrl": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
+  "targetImage": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
+  "targetImagePath": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
   "resolvedImageAssetKey": "cup_next_to_plate",
   "imageAlt": "cup next to plate"
  },
@@ -1611,13 +1863,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "rabbit_beside_basket",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.next_to.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "rabbit_beside_basket",
+  "stimulusMediaId": "rabbit_beside_basket",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1628,10 +1894,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/rabbit_beside_basket.png",
-  "imageUrl": "/images/prepositions/rabbit_beside_basket.png",
-  "targetImage": "/images/prepositions/rabbit_beside_basket.png",
-  "targetImagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "imagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "imageUrl": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "targetImage": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "targetImagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
   "resolvedImageAssetKey": "rabbit_beside_basket",
   "imageAlt": "The rabbit is next to the basket."
  },
@@ -1697,13 +1963,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cup_next_to_plate",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.next_to.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cup_next_to_plate",
+  "stimulusMediaId": "cup_next_to_plate",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1714,10 +1994,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/cup_next_to_plate.png",
-  "imageUrl": "/images/prepositions/cup_next_to_plate.png",
-  "targetImage": "/images/prepositions/cup_next_to_plate.png",
-  "targetImagePath": "/images/prepositions/cup_next_to_plate.png",
+  "imagePath": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
+  "imageUrl": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
+  "targetImage": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
+  "targetImagePath": "/images/assessment/release-media/cup-next-to-plate-4f498f19.webp",
   "resolvedImageAssetKey": "cup_next_to_plate",
   "imageAlt": "The cup is next to the plate."
  },
@@ -1783,13 +2063,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cup_between_books",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.between.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cup-between-books-017aa912.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cup_between_books",
+  "stimulusMediaId": "cup_between_books",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1800,10 +2094,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/cup_between_books.png",
-  "imageUrl": "/images/prepositions/cup_between_books.png",
-  "targetImage": "/images/prepositions/cup_between_books.png",
-  "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "imagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "imageUrl": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "targetImage": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "targetImagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
   "resolvedImageAssetKey": "cup_between_books",
   "imageAlt": "cup between books"
  },
@@ -1869,13 +2163,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "teddy_between_pillows",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.between.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "teddy_between_pillows",
+  "stimulusMediaId": "teddy_between_pillows",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1886,10 +2194,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/teddy_between_pillows.png",
-  "imageUrl": "/images/prepositions/teddy_between_pillows.png",
-  "targetImage": "/images/prepositions/teddy_between_pillows.png",
-  "targetImagePath": "/images/prepositions/teddy_between_pillows.png",
+  "imagePath": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
+  "imageUrl": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
+  "targetImage": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
+  "targetImagePath": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
   "resolvedImageAssetKey": "teddy_between_pillows",
   "imageAlt": "teddy between pillows"
  },
@@ -1955,13 +2263,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cup_between_books",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.between.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cup-between-books-017aa912.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cup_between_books",
+  "stimulusMediaId": "cup_between_books",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1972,10 +2294,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/cup_between_books.png",
-  "imageUrl": "/images/prepositions/cup_between_books.png",
-  "targetImage": "/images/prepositions/cup_between_books.png",
-  "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "imagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "imageUrl": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "targetImage": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "targetImagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
   "resolvedImageAssetKey": "cup_between_books",
   "imageAlt": "The cup is between the books."
  },
@@ -2041,13 +2363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "teddy_between_pillows",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.between.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "teddy_between_pillows",
+  "stimulusMediaId": "teddy_between_pillows",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2058,10 +2394,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/teddy_between_pillows.png",
-  "imageUrl": "/images/prepositions/teddy_between_pillows.png",
-  "targetImage": "/images/prepositions/teddy_between_pillows.png",
-  "targetImagePath": "/images/prepositions/teddy_between_pillows.png",
+  "imagePath": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
+  "imageUrl": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
+  "targetImage": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
+  "targetImagePath": "/images/assessment/release-media/teddy-between-pillows-ea981f49.webp",
   "resolvedImageAssetKey": "teddy_between_pillows",
   "imageAlt": "The teddy is between the pillows."
  },
@@ -2127,13 +2463,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bear_behind_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.in_front_of.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bear_behind_tree",
+  "stimulusMediaId": "bear_behind_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2144,10 +2494,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "the same scene answers both relations — the tree stands in front of the bear",
-  "imagePath": "/images/prepositions/bear_behind_tree.png",
-  "imageUrl": "/images/prepositions/bear_behind_tree.png",
-  "targetImage": "/images/prepositions/bear_behind_tree.png",
-  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "imagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "imageUrl": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImage": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
   "resolvedImageAssetKey": "bear_behind_tree",
   "imageAlt": "bear behind tree"
  },
@@ -2213,13 +2563,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bike_in_front_of_garage",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.in_front_of.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bike_in_front_of_garage",
+  "stimulusMediaId": "bike_in_front_of_garage",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2230,10 +2594,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bike_in_front_of_garage.png",
-  "imageUrl": "/images/prepositions/bike_in_front_of_garage.png",
-  "targetImage": "/images/prepositions/bike_in_front_of_garage.png",
-  "targetImagePath": "/images/prepositions/bike_in_front_of_garage.png",
+  "imagePath": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
+  "imageUrl": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
+  "targetImage": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
+  "targetImagePath": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
   "resolvedImageAssetKey": "bike_in_front_of_garage",
   "imageAlt": "bike in front of garage"
  },
@@ -2299,13 +2663,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bear_behind_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.in_front_of.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bear_behind_tree",
+  "stimulusMediaId": "bear_behind_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2316,10 +2694,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bear_behind_tree.png",
-  "imageUrl": "/images/prepositions/bear_behind_tree.png",
-  "targetImage": "/images/prepositions/bear_behind_tree.png",
-  "targetImagePath": "/images/prepositions/bear_behind_tree.png",
+  "imagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "imageUrl": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImage": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
+  "targetImagePath": "/images/assessment/release-media/bear-behind-tree-b145e7e0.webp",
   "resolvedImageAssetKey": "bear_behind_tree",
   "imageAlt": "The tree is in front of the bear."
  },
@@ -2385,13 +2763,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bike_in_front_of_garage",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.in_front_of.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bike_in_front_of_garage",
+  "stimulusMediaId": "bike_in_front_of_garage",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2402,10 +2794,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bike_in_front_of_garage.png",
-  "imageUrl": "/images/prepositions/bike_in_front_of_garage.png",
-  "targetImage": "/images/prepositions/bike_in_front_of_garage.png",
-  "targetImagePath": "/images/prepositions/bike_in_front_of_garage.png",
+  "imagePath": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
+  "imageUrl": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
+  "targetImage": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
+  "targetImagePath": "/images/assessment/release-media/bike-in-front-of-garage-603483c8.webp",
   "resolvedImageAssetKey": "bike_in_front_of_garage",
   "imageAlt": "The bike is in front of the garage."
  },
@@ -2471,13 +2863,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bird_above_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.above.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bird_above_tree",
+  "stimulusMediaId": "bird_above_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2488,10 +2894,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bird_above_tree.png",
-  "imageUrl": "/images/prepositions/bird_above_tree.png",
-  "targetImage": "/images/prepositions/bird_above_tree.png",
-  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "imagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "imageUrl": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImage": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
   "resolvedImageAssetKey": "bird_above_tree",
   "imageAlt": "bird above tree"
  },
@@ -2557,13 +2963,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "clock_above_door",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.above.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/clock-above-door-038c8846.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "clock_above_door",
+  "stimulusMediaId": "clock_above_door",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2574,10 +2994,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/clock_above_door.png",
-  "imageUrl": "/images/prepositions/clock_above_door.png",
-  "targetImage": "/images/prepositions/clock_above_door.png",
-  "targetImagePath": "/images/prepositions/clock_above_door.png",
+  "imagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "imageUrl": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "targetImage": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "targetImagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
   "resolvedImageAssetKey": "clock_above_door",
   "imageAlt": "clock above door"
  },
@@ -2643,13 +3063,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bird_above_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.above.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bird_above_tree",
+  "stimulusMediaId": "bird_above_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2660,10 +3094,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bird_above_tree.png",
-  "imageUrl": "/images/prepositions/bird_above_tree.png",
-  "targetImage": "/images/prepositions/bird_above_tree.png",
-  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "imagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "imageUrl": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImage": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
   "resolvedImageAssetKey": "bird_above_tree",
   "imageAlt": "The bird is above the tree."
  },
@@ -2729,13 +3163,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "clock_above_door",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.above.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/clock-above-door-038c8846.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "clock_above_door",
+  "stimulusMediaId": "clock_above_door",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2746,10 +3194,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/clock_above_door.png",
-  "imageUrl": "/images/prepositions/clock_above_door.png",
-  "targetImage": "/images/prepositions/clock_above_door.png",
-  "targetImagePath": "/images/prepositions/clock_above_door.png",
+  "imagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "imageUrl": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "targetImage": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "targetImagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
   "resolvedImageAssetKey": "clock_above_door",
   "imageAlt": "The clock is above the door."
  },
@@ -2815,13 +3263,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bird_above_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.below.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bird_above_tree",
+  "stimulusMediaId": "bird_above_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2832,10 +3294,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "the inverse question of the same scene",
-  "imagePath": "/images/prepositions/bird_above_tree.png",
-  "imageUrl": "/images/prepositions/bird_above_tree.png",
-  "targetImage": "/images/prepositions/bird_above_tree.png",
-  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "imagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "imageUrl": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImage": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
   "resolvedImageAssetKey": "bird_above_tree",
   "imageAlt": "bird above tree"
  },
@@ -2901,13 +3363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "fish_below_bridge",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.B.below.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "fish_below_bridge",
+  "stimulusMediaId": "fish_below_bridge",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2918,10 +3394,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/fish_below_bridge.png",
-  "imageUrl": "/images/prepositions/fish_below_bridge.png",
-  "targetImage": "/images/prepositions/fish_below_bridge.png",
-  "targetImagePath": "/images/prepositions/fish_below_bridge.png",
+  "imagePath": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
+  "imageUrl": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
+  "targetImage": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
+  "targetImagePath": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
   "resolvedImageAssetKey": "fish_below_bridge",
   "imageAlt": "fish below bridge"
  },
@@ -2987,13 +3463,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "bird_above_tree",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.C.below.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bird-above-tree-b27b365f.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bird_above_tree",
+  "stimulusMediaId": "bird_above_tree",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3004,10 +3494,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bird_above_tree.png",
-  "imageUrl": "/images/prepositions/bird_above_tree.png",
-  "targetImage": "/images/prepositions/bird_above_tree.png",
-  "targetImagePath": "/images/prepositions/bird_above_tree.png",
+  "imagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "imageUrl": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImage": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
+  "targetImagePath": "/images/assessment/release-media/bird-above-tree-b27b365f.webp",
   "resolvedImageAssetKey": "bird_above_tree",
   "imageAlt": "The tree is below the bird."
  },
@@ -3073,13 +3563,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "fish_below_bridge",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.A.below.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "fish_below_bridge",
+  "stimulusMediaId": "fish_below_bridge",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3090,10 +3594,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/fish_below_bridge.png",
-  "imageUrl": "/images/prepositions/fish_below_bridge.png",
-  "targetImage": "/images/prepositions/fish_below_bridge.png",
-  "targetImagePath": "/images/prepositions/fish_below_bridge.png",
+  "imagePath": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
+  "imageUrl": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
+  "targetImage": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
+  "targetImagePath": "/images/assessment/release-media/fish-below-bridge-1d71baa3.webp",
   "resolvedImageAssetKey": "fish_below_bridge",
   "imageAlt": "The fish is below the bridge."
  },
@@ -3160,14 +3664,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The plane flew ___ the town.",
   "targetWord": "plane_over_town",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.over.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/plane-over-town-ccea5cd1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "plane_over_town",
+  "stimulusMediaId": "plane_over_town",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3178,10 +3696,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/plane_over_town.png",
-  "imageUrl": "/images/prepositions/plane_over_town.png",
-  "targetImage": "/images/prepositions/plane_over_town.png",
-  "targetImagePath": "/images/prepositions/plane_over_town.png",
+  "imagePath": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
+  "imageUrl": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
+  "targetImage": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
+  "targetImagePath": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
   "resolvedImageAssetKey": "plane_over_town",
   "imageAlt": "The plane flew over the town."
  },
@@ -3248,14 +3766,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The horse leapt ___ the gate.",
   "targetWord": "horse_over_gate",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.over.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/horse-over-gate-7ddfc247.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "horse_over_gate",
+  "stimulusMediaId": "horse_over_gate",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3266,10 +3798,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/horse_over_gate.png",
-  "imageUrl": "/images/prepositions/horse_over_gate.png",
-  "targetImage": "/images/prepositions/horse_over_gate.png",
-  "targetImagePath": "/images/prepositions/horse_over_gate.png",
+  "imagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "imageUrl": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "targetImage": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "targetImagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
   "resolvedImageAssetKey": "horse_over_gate",
   "imageAlt": "The horse leapt over the gate."
  },
@@ -3336,14 +3868,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "High in the sky, the plane passed ___ the town.",
   "targetWord": "plane_over_town",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.C.over.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/plane-over-town-ccea5cd1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "plane_over_town",
+  "stimulusMediaId": "plane_over_town",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3354,10 +3900,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The elevated picture and high-in-the-sky clue pin over.",
-  "imagePath": "/images/prepositions/plane_over_town.png",
-  "imageUrl": "/images/prepositions/plane_over_town.png",
-  "targetImage": "/images/prepositions/plane_over_town.png",
-  "targetImagePath": "/images/prepositions/plane_over_town.png",
+  "imagePath": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
+  "imageUrl": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
+  "targetImage": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
+  "targetImagePath": "/images/assessment/release-media/plane-over-town-ccea5cd1.webp",
   "resolvedImageAssetKey": "plane_over_town",
   "imageAlt": "High in the sky, the plane passed over the town."
  },
@@ -3424,14 +3970,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The horse jumped ___ the locked gate.",
   "targetWord": "horse_over_gate",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.over.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/horse-over-gate-7ddfc247.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "horse_over_gate",
+  "stimulusMediaId": "horse_over_gate",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3442,10 +4002,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "through and under are possible for an open gate; the locked gate and picture leave over.",
-  "imagePath": "/images/prepositions/horse_over_gate.png",
-  "imageUrl": "/images/prepositions/horse_over_gate.png",
-  "targetImage": "/images/prepositions/horse_over_gate.png",
-  "targetImagePath": "/images/prepositions/horse_over_gate.png",
+  "imagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "imageUrl": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "targetImage": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "targetImagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
   "resolvedImageAssetKey": "horse_over_gate",
   "imageAlt": "The horse jumped over the locked gate."
  },
@@ -3512,14 +4072,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The train roared ___ the tunnel.",
   "targetWord": "train_through_tunnel",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.through.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "train_through_tunnel",
+  "stimulusMediaId": "train_through_tunnel",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3530,10 +4104,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/train_through_tunnel.png",
-  "imageUrl": "/images/prepositions/train_through_tunnel.png",
-  "targetImage": "/images/prepositions/train_through_tunnel.png",
-  "targetImagePath": "/images/prepositions/train_through_tunnel.png",
+  "imagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "imageUrl": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "targetImage": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "targetImagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
   "resolvedImageAssetKey": "train_through_tunnel",
   "imageAlt": "The train roared through the tunnel."
  },
@@ -3600,14 +4174,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Rain dripped ___ the crack in the tent.",
   "targetWord": "rain_through_tent_crack",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.through.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "rain_through_tent_crack",
+  "stimulusMediaId": "rain_through_tent_crack",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3618,10 +4206,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/rain_through_tent_crack.png",
-  "imageUrl": "/images/prepositions/rain_through_tent_crack.png",
-  "targetImage": "/images/prepositions/rain_through_tent_crack.png",
-  "targetImagePath": "/images/prepositions/rain_through_tent_crack.png",
+  "imagePath": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
+  "imageUrl": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
+  "targetImage": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
+  "targetImagePath": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
   "resolvedImageAssetKey": "rain_through_tent_crack",
   "imageAlt": "Rain dripped through the crack in the tent."
  },
@@ -3688,14 +4276,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The train entered one end and left the other: ___ the tunnel.",
   "targetWord": "train_through_tunnel",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.C.through.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "train_through_tunnel",
+  "stimulusMediaId": "train_through_tunnel",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3706,10 +4308,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Entering one end and leaving the other defines through.",
-  "imagePath": "/images/prepositions/train_through_tunnel.png",
-  "imageUrl": "/images/prepositions/train_through_tunnel.png",
-  "targetImage": "/images/prepositions/train_through_tunnel.png",
-  "targetImagePath": "/images/prepositions/train_through_tunnel.png",
+  "imagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "imageUrl": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "targetImage": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "targetImagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
   "resolvedImageAssetKey": "train_through_tunnel",
   "imageAlt": "The train entered one end and left the other: through the tunnel."
  },
@@ -3776,14 +4378,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The tent leaked because rain came ___ a small crack.",
   "targetWord": "rain_through_tent_crack",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.through.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "rain_through_tent_crack",
+  "stimulusMediaId": "rain_through_tent_crack",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3794,10 +4410,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The visible crack is an opening that the rain passes through.",
-  "imagePath": "/images/prepositions/rain_through_tent_crack.png",
-  "imageUrl": "/images/prepositions/rain_through_tent_crack.png",
-  "targetImage": "/images/prepositions/rain_through_tent_crack.png",
-  "targetImagePath": "/images/prepositions/rain_through_tent_crack.png",
+  "imagePath": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
+  "imageUrl": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
+  "targetImage": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
+  "targetImagePath": "/images/assessment/release-media/rain-through-tent-crack-605d07ce.webp",
   "resolvedImageAssetKey": "rain_through_tent_crack",
   "imageAlt": "The tent leaked because rain came through a small crack."
  },
@@ -3864,14 +4480,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Our house is ___ the school on the same short street.",
   "targetWord": "house_near_school",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.near.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/house-near-school-131b7950.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "house_near_school",
+  "stimulusMediaId": "house_near_school",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3882,10 +4512,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The picture shows the house and school close together on one short street.",
-  "imagePath": "/images/prepositions/house_near_school.png",
-  "imageUrl": "/images/prepositions/house_near_school.png",
-  "targetImage": "/images/prepositions/house_near_school.png",
-  "targetImagePath": "/images/prepositions/house_near_school.png",
+  "imagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "imageUrl": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "targetImage": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "targetImagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
   "resolvedImageAssetKey": "house_near_school",
   "imageAlt": "Our house is near the school on the same short street."
  },
@@ -3952,14 +4582,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Keep the bucket ___ the door for spills.",
   "targetWord": "bucket_near_door",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.near.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bucket-near-door-aaa987d5.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bucket_near_door",
+  "stimulusMediaId": "bucket_near_door",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3970,10 +4614,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/bucket_near_door.png",
-  "imageUrl": "/images/prepositions/bucket_near_door.png",
-  "targetImage": "/images/prepositions/bucket_near_door.png",
-  "targetImagePath": "/images/prepositions/bucket_near_door.png",
+  "imagePath": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
+  "imageUrl": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
+  "targetImage": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
+  "targetImagePath": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
   "resolvedImageAssetKey": "bucket_near_door",
   "imageAlt": "Keep the bucket near the door for spills."
  },
@@ -4040,14 +4684,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Home is a short walk away. Our house is ___ the school.",
   "targetWord": "house_near_school",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.C.near.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/house-near-school-131b7950.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "house_near_school",
+  "stimulusMediaId": "house_near_school",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4058,10 +4716,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The picture and short-walk clue establish near without allowing inside, above, or behind.",
-  "imagePath": "/images/prepositions/house_near_school.png",
-  "imageUrl": "/images/prepositions/house_near_school.png",
-  "targetImage": "/images/prepositions/house_near_school.png",
-  "targetImagePath": "/images/prepositions/house_near_school.png",
+  "imagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "imageUrl": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "targetImage": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "targetImagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
   "resolvedImageAssetKey": "house_near_school",
   "imageAlt": "Home is a short walk away. Our house is near the school."
  },
@@ -4128,14 +4786,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Keep the bucket ___ the door so it is quick to reach.",
   "targetWord": "bucket_near_door",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.near.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bucket-near-door-aaa987d5.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bucket_near_door",
+  "stimulusMediaId": "bucket_near_door",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4146,10 +4818,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Quick to reach and the small pictured gap pin near.",
-  "imagePath": "/images/prepositions/bucket_near_door.png",
-  "imageUrl": "/images/prepositions/bucket_near_door.png",
-  "targetImage": "/images/prepositions/bucket_near_door.png",
-  "targetImagePath": "/images/prepositions/bucket_near_door.png",
+  "imagePath": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
+  "imageUrl": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
+  "targetImage": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
+  "targetImagePath": "/images/assessment/release-media/bucket-near-door-aaa987d5.webp",
   "resolvedImageAssetKey": "bucket_near_door",
   "imageAlt": "Keep the bucket near the door so it is quick to reach."
  },
@@ -4216,14 +4888,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The bakery is ___ the bank, just across the road.",
   "targetWord": "bakery_opposite_bank",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.opposite.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bakery_opposite_bank",
+  "stimulusMediaId": "bakery_opposite_bank",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4234,10 +4920,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "just across the road defines opposite",
-  "imagePath": "/images/prepositions/bakery_opposite_bank.png",
-  "imageUrl": "/images/prepositions/bakery_opposite_bank.png",
-  "targetImage": "/images/prepositions/bakery_opposite_bank.png",
-  "targetImagePath": "/images/prepositions/bakery_opposite_bank.png",
+  "imagePath": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
+  "imageUrl": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
+  "targetImage": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
+  "targetImagePath": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
   "resolvedImageAssetKey": "bakery_opposite_bank",
   "imageAlt": "The bakery is opposite the bank, just across the road."
  },
@@ -4304,14 +4990,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The two goals stand ___ each other.",
   "targetWord": "opposite_goals_pitch",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.opposite.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "opposite_goals_pitch",
+  "stimulusMediaId": "opposite_goals_pitch",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4322,10 +5022,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/opposite_goals_pitch.png",
-  "imageUrl": "/images/prepositions/opposite_goals_pitch.png",
-  "targetImage": "/images/prepositions/opposite_goals_pitch.png",
-  "targetImagePath": "/images/prepositions/opposite_goals_pitch.png",
+  "imagePath": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
+  "imageUrl": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
+  "targetImage": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
+  "targetImagePath": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
   "resolvedImageAssetKey": "opposite_goals_pitch",
   "imageAlt": "The two goals stand opposite each other."
  },
@@ -4392,14 +5092,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The bakery faces the bank across the road: ___ the bank.",
   "targetWord": "bakery_opposite_bank",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.C.opposite.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "bakery_opposite_bank",
+  "stimulusMediaId": "bakery_opposite_bank",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4410,10 +5124,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Facing across the road pins opposite; near alone does not express the facing relation.",
-  "imagePath": "/images/prepositions/bakery_opposite_bank.png",
-  "imageUrl": "/images/prepositions/bakery_opposite_bank.png",
-  "targetImage": "/images/prepositions/bakery_opposite_bank.png",
-  "targetImagePath": "/images/prepositions/bakery_opposite_bank.png",
+  "imagePath": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
+  "imageUrl": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
+  "targetImage": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
+  "targetImagePath": "/images/assessment/release-media/bakery-opposite-bank-e3652e80.webp",
   "resolvedImageAssetKey": "bakery_opposite_bank",
   "imageAlt": "The bakery faces the bank across the road: opposite the bank."
  },
@@ -4480,14 +5194,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The goals at the two ends stand ___ each other.",
   "targetWord": "opposite_goals_pitch",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.opposite.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "opposite_goals_pitch",
+  "stimulusMediaId": "opposite_goals_pitch",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4498,10 +5226,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "goals face each other end to end — beside would be the same end",
-  "imagePath": "/images/prepositions/opposite_goals_pitch.png",
-  "imageUrl": "/images/prepositions/opposite_goals_pitch.png",
-  "targetImage": "/images/prepositions/opposite_goals_pitch.png",
-  "targetImagePath": "/images/prepositions/opposite_goals_pitch.png",
+  "imagePath": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
+  "imageUrl": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
+  "targetImage": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
+  "targetImagePath": "/images/assessment/release-media/opposite-goals-pitch-e13732f7.webp",
   "resolvedImageAssetKey": "opposite_goals_pitch",
   "imageAlt": "The goals at the two ends stand opposite each other."
  },
@@ -4568,14 +5296,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "A red tulip grew ___ the yellow tulips.",
   "targetWord": "red_tulip_among_yellow_tulips",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.among.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
+  "stimulusMediaId": "red_tulip_among_yellow_tulips",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4586,10 +5328,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "many yellow ones — among, not the two-thing between",
-  "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "imageUrl": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "targetImage": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "targetImagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "imagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "imageUrl": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "targetImage": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "targetImagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
   "resolvedImageAssetKey": "red_tulip_among_yellow_tulips",
   "imageAlt": "A red tulip grew among the yellow tulips."
  },
@@ -4656,14 +5398,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The deer stood ___ the trees.",
   "targetWord": "deer_among_trees",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.among.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/deer-among-trees-d0bca87e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "deer_among_trees",
+  "stimulusMediaId": "deer_among_trees",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4674,10 +5430,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/deer_among_trees.png",
-  "imageUrl": "/images/prepositions/deer_among_trees.png",
-  "targetImage": "/images/prepositions/deer_among_trees.png",
-  "targetImagePath": "/images/prepositions/deer_among_trees.png",
+  "imagePath": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "imageUrl": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "targetImage": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "targetImagePath": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
   "resolvedImageAssetKey": "deer_among_trees",
   "imageAlt": "The deer stood among the trees."
  },
@@ -4744,14 +5500,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "One red flower grows ___ many yellow flowers.",
   "targetWord": "red_tulip_among_yellow_tulips",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.C.among.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
+  "stimulusMediaId": "red_tulip_among_yellow_tulips",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4762,10 +5532,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Many surrounding flowers require among; between describes a smaller two-sided relation.",
-  "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "imageUrl": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "targetImage": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "targetImagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "imagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "imageUrl": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "targetImage": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "targetImagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
   "resolvedImageAssetKey": "red_tulip_among_yellow_tulips",
   "imageAlt": "One red flower grows among many yellow flowers."
  },
@@ -4832,14 +5602,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "A deer stood ___ the trees, hard to spot.",
   "targetWord": "deer_among_trees",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.among.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/deer-among-trees-d0bca87e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "deer_among_trees",
+  "stimulusMediaId": "deer_among_trees",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4850,10 +5634,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The deer is surrounded by several trees; behind would describe one tree.",
-  "imagePath": "/images/prepositions/deer_among_trees.png",
-  "imageUrl": "/images/prepositions/deer_among_trees.png",
-  "targetImage": "/images/prepositions/deer_among_trees.png",
-  "targetImagePath": "/images/prepositions/deer_among_trees.png",
+  "imagePath": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "imageUrl": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "targetImage": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
+  "targetImagePath": "/images/assessment/release-media/deer-among-trees-d0bca87e.webp",
   "resolvedImageAssetKey": "deer_among_trees",
   "imageAlt": "A deer stood among the trees, hard to spot."
  },
@@ -4920,14 +5704,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The fence runs ___ the whole garden.",
   "targetWord": "fence_around_garden",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.around.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/fence-around-garden-fd900b5e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "fence_around_garden",
+  "stimulusMediaId": "fence_around_garden",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4938,10 +5736,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "the whole garden pins the ring shape of around",
-  "imagePath": "/images/prepositions/fence_around_garden.png",
-  "imageUrl": "/images/prepositions/fence_around_garden.png",
-  "targetImage": "/images/prepositions/fence_around_garden.png",
-  "targetImagePath": "/images/prepositions/fence_around_garden.png",
+  "imagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "imageUrl": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImage": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
   "resolvedImageAssetKey": "fence_around_garden",
   "imageAlt": "The fence runs around the whole garden."
  },
@@ -5008,14 +5806,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The path bends ___ the puddle.",
   "targetWord": "path_around_puddle",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.around.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/path-around-puddle-cdc71276.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "path_around_puddle",
+  "stimulusMediaId": "path_around_puddle",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5026,10 +5838,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/path_around_puddle.png",
-  "imageUrl": "/images/prepositions/path_around_puddle.png",
-  "targetImage": "/images/prepositions/path_around_puddle.png",
-  "targetImagePath": "/images/prepositions/path_around_puddle.png",
+  "imagePath": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
+  "imageUrl": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
+  "targetImage": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
+  "targetImagePath": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
   "resolvedImageAssetKey": "path_around_puddle",
   "imageAlt": "The path bends around the puddle."
  },
@@ -5096,14 +5908,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We walked ___ the puddle to keep our shoes dry.",
   "targetWord": "path_around_puddle",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.C.around.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/path-around-puddle-cdc71276.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "path_around_puddle",
+  "stimulusMediaId": "path_around_puddle",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5114,10 +5940,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "through gets you wet and over means a jump — walking dry pins around",
-  "imagePath": "/images/prepositions/path_around_puddle.png",
-  "imageUrl": "/images/prepositions/path_around_puddle.png",
-  "targetImage": "/images/prepositions/path_around_puddle.png",
-  "targetImagePath": "/images/prepositions/path_around_puddle.png",
+  "imagePath": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
+  "imageUrl": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
+  "targetImage": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
+  "targetImagePath": "/images/assessment/release-media/path-around-puddle-cdc71276.webp",
   "resolvedImageAssetKey": "path_around_puddle",
   "imageAlt": "We walked around the puddle to keep our shoes dry."
  },
@@ -5184,14 +6010,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The fence makes a complete ring ___ the garden.",
   "targetWord": "fence_around_garden",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.around.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/fence-around-garden-fd900b5e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "fence_around_garden",
+  "stimulusMediaId": "fence_around_garden",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5202,10 +6042,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "A complete ring encloses the garden on all sides, which pins around.",
-  "imagePath": "/images/prepositions/fence_around_garden.png",
-  "imageUrl": "/images/prepositions/fence_around_garden.png",
-  "targetImage": "/images/prepositions/fence_around_garden.png",
-  "targetImagePath": "/images/prepositions/fence_around_garden.png",
+  "imagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "imageUrl": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImage": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
   "resolvedImageAssetKey": "fence_around_garden",
   "imageAlt": "The fence makes a complete ring around the garden."
  },
@@ -5272,14 +6112,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "It poured with rain, so we played ___ the house.",
   "targetWord": "children_inside_house_in_rain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.inside_outside.v1",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "children_inside_house_in_rain",
+  "stimulusMediaId": "children_inside_house_in_rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5290,10 +6144,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "rain pins inside",
-  "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
-  "imageUrl": "/images/prepositions/children_inside_house_in_rain.png",
-  "targetImage": "/images/prepositions/children_inside_house_in_rain.png",
-  "targetImagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "imagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "imageUrl": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "targetImage": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "targetImagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
   "resolvedImageAssetKey": "children_inside_house_in_rain",
   "imageAlt": "It poured with rain, so we played inside the house."
  },
@@ -5360,14 +6214,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Leave the muddy boots ___ the door.",
   "targetWord": "muddy_boots_outside_door",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.B.inside_outside.v2",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "muddy_boots_outside_door",
+  "stimulusMediaId": "muddy_boots_outside_door",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5378,10 +6246,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/muddy_boots_outside_door.png",
-  "imageUrl": "/images/prepositions/muddy_boots_outside_door.png",
-  "targetImage": "/images/prepositions/muddy_boots_outside_door.png",
-  "targetImagePath": "/images/prepositions/muddy_boots_outside_door.png",
+  "imagePath": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
+  "imageUrl": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
+  "targetImage": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
+  "targetImagePath": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
   "resolvedImageAssetKey": "muddy_boots_outside_door",
   "imageAlt": "Leave the muddy boots outside the door."
  },
@@ -5448,14 +6316,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Leave your muddy boots ___ the door, then come in.",
   "targetWord": "muddy_boots_outside_door",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.C.inside_outside.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "muddy_boots_outside_door",
+  "stimulusMediaId": "muddy_boots_outside_door",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5466,10 +6348,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Muddy boots stay outdoors before the child comes in, so outside is exact.",
-  "imagePath": "/images/prepositions/muddy_boots_outside_door.png",
-  "imageUrl": "/images/prepositions/muddy_boots_outside_door.png",
-  "targetImage": "/images/prepositions/muddy_boots_outside_door.png",
-  "targetImagePath": "/images/prepositions/muddy_boots_outside_door.png",
+  "imagePath": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
+  "imageUrl": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
+  "targetImage": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
+  "targetImagePath": "/images/assessment/release-media/muddy-boots-outside-door-70820ee5.webp",
   "resolvedImageAssetKey": "muddy_boots_outside_door",
   "imageAlt": "Leave your muddy boots outside the door, then come in."
  },
@@ -5536,14 +6418,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Rain is falling outdoors, but the children are dry ___ the house.",
   "targetWord": "children_inside_house_in_rain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.A.inside_outside.v4",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "children_inside_house_in_rain",
+  "stimulusMediaId": "children_inside_house_in_rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5554,10 +6450,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Dry while rain falls outdoors and the enclosing walls pin inside.",
-  "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
-  "imageUrl": "/images/prepositions/children_inside_house_in_rain.png",
-  "targetImage": "/images/prepositions/children_inside_house_in_rain.png",
-  "targetImagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "imagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "imageUrl": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "targetImage": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "targetImagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
   "resolvedImageAssetKey": "children_inside_house_in_rain",
   "imageAlt": "Rain is falling outdoors, but the children are dry inside the house."
  },
@@ -5623,13 +6519,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "ball_on_chair",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.on.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/ball-on-chair-f5c50c79.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "ball_on_chair",
+  "stimulusMediaId": "ball_on_chair",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5640,10 +6550,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "the inverse question of the same scene",
-  "imagePath": "/images/prepositions/ball_on_chair.png",
-  "imageUrl": "/images/prepositions/ball_on_chair.png",
-  "targetImage": "/images/prepositions/ball_on_chair.png",
-  "targetImagePath": "/images/prepositions/ball_on_chair.png",
+  "imagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "imageUrl": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "targetImage": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
+  "targetImagePath": "/images/assessment/release-media/ball-on-chair-f5c50c79.webp",
   "resolvedImageAssetKey": "ball_on_chair",
   "imageAlt": "ball on chair"
  },
@@ -5709,13 +6619,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "cup_between_books",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.between.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/cup-between-books-017aa912.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "cup_between_books",
+  "stimulusMediaId": "cup_between_books",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5726,10 +6650,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "one book on each side — next to the cup",
-  "imagePath": "/images/prepositions/cup_between_books.png",
-  "imageUrl": "/images/prepositions/cup_between_books.png",
-  "targetImage": "/images/prepositions/cup_between_books.png",
-  "targetImagePath": "/images/prepositions/cup_between_books.png",
+  "imagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "imageUrl": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "targetImage": "/images/assessment/release-media/cup-between-books-017aa912.webp",
+  "targetImagePath": "/images/assessment/release-media/cup-between-books-017aa912.webp",
   "resolvedImageAssetKey": "cup_between_books",
   "imageAlt": "cup between books"
  },
@@ -5795,13 +6719,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "goat_inside_barn",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.in.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/goat-inside-barn-23d973f1.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "goat_inside_barn",
+  "stimulusMediaId": "goat_inside_barn",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5812,10 +6750,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/goat_inside_barn.png",
-  "imageUrl": "/images/prepositions/goat_inside_barn.png",
-  "targetImage": "/images/prepositions/goat_inside_barn.png",
-  "targetImagePath": "/images/prepositions/goat_inside_barn.png",
+  "imagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "imageUrl": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "targetImage": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
+  "targetImagePath": "/images/assessment/release-media/goat-inside-barn-23d973f1.webp",
   "resolvedImageAssetKey": "goat_inside_barn",
   "imageAlt": "Choose the word: the goat waits in the barn."
  },
@@ -5881,13 +6819,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "dog_under_table",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.under.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/dog-under-table-cf3e17f2.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "dog_under_table",
+  "stimulusMediaId": "dog_under_table",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5898,10 +6850,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/dog_under_table.png",
-  "imageUrl": "/images/prepositions/dog_under_table.png",
-  "targetImage": "/images/prepositions/dog_under_table.png",
-  "targetImagePath": "/images/prepositions/dog_under_table.png",
+  "imagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "imageUrl": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "targetImage": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
+  "targetImagePath": "/images/assessment/release-media/dog-under-table-cf3e17f2.webp",
   "resolvedImageAssetKey": "dog_under_table",
   "imageAlt": "Choose the word: the dog rests under the table."
  },
@@ -5967,13 +6919,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "clock_above_door",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.above.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/clock-above-door-038c8846.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "clock_above_door",
+  "stimulusMediaId": "clock_above_door",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5984,10 +6950,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/clock_above_door.png",
-  "imageUrl": "/images/prepositions/clock_above_door.png",
-  "targetImage": "/images/prepositions/clock_above_door.png",
-  "targetImagePath": "/images/prepositions/clock_above_door.png",
+  "imagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "imageUrl": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "targetImage": "/images/assessment/release-media/clock-above-door-038c8846.webp",
+  "targetImagePath": "/images/assessment/release-media/clock-above-door-038c8846.webp",
   "resolvedImageAssetKey": "clock_above_door",
   "imageAlt": "Choose the word: the clock hangs above the door."
  },
@@ -6053,13 +7019,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "targetWord": "rabbit_beside_basket",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l1.R.next_to.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "rabbit_beside_basket",
+  "stimulusMediaId": "rabbit_beside_basket",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6070,10 +7050,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/prepositions/rabbit_beside_basket.png",
-  "imageUrl": "/images/prepositions/rabbit_beside_basket.png",
-  "targetImage": "/images/prepositions/rabbit_beside_basket.png",
-  "targetImagePath": "/images/prepositions/rabbit_beside_basket.png",
+  "imagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "imageUrl": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "targetImage": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
+  "targetImagePath": "/images/assessment/release-media/rabbit-beside-basket-59d1b7cb.webp",
   "resolvedImageAssetKey": "rabbit_beside_basket",
   "imageAlt": "Choose the words: the rabbit sits next to the basket."
  },
@@ -6140,14 +7120,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The horse is jumping ___ the gate.",
   "targetWord": "horse_over_gate",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.over.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/horse-over-gate-7ddfc247.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "horse_over_gate",
+  "stimulusMediaId": "horse_over_gate",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6158,10 +7152,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The horse is visibly airborne above the gate.",
-  "imagePath": "/images/prepositions/horse_over_gate.png",
-  "imageUrl": "/images/prepositions/horse_over_gate.png",
-  "targetImage": "/images/prepositions/horse_over_gate.png",
-  "targetImagePath": "/images/prepositions/horse_over_gate.png",
+  "imagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "imageUrl": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "targetImage": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
+  "targetImagePath": "/images/assessment/release-media/horse-over-gate-7ddfc247.webp",
   "resolvedImageAssetKey": "horse_over_gate",
   "imageAlt": "The horse is jumping over the gate."
  },
@@ -6228,14 +7222,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The train is passing ___ the tunnel.",
   "targetWord": "train_through_tunnel",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.through.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "train_through_tunnel",
+  "stimulusMediaId": "train_through_tunnel",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6246,10 +7254,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The train enters the tunnel opening.",
-  "imagePath": "/images/prepositions/train_through_tunnel.png",
-  "imageUrl": "/images/prepositions/train_through_tunnel.png",
-  "targetImage": "/images/prepositions/train_through_tunnel.png",
-  "targetImagePath": "/images/prepositions/train_through_tunnel.png",
+  "imagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "imageUrl": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "targetImage": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
+  "targetImagePath": "/images/assessment/release-media/train-through-tunnel-adfa0aae.webp",
   "resolvedImageAssetKey": "train_through_tunnel",
   "imageAlt": "The train is passing through the tunnel."
  },
@@ -6316,14 +7324,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "A short path joins home and school. They are ___ each other.",
   "targetWord": "house_near_school",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.near.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/house-near-school-131b7950.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "house_near_school",
+  "stimulusMediaId": "house_near_school",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6334,10 +7356,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The short path and small pictured gap pin near.",
-  "imagePath": "/images/prepositions/house_near_school.png",
-  "imageUrl": "/images/prepositions/house_near_school.png",
-  "targetImage": "/images/prepositions/house_near_school.png",
-  "targetImagePath": "/images/prepositions/house_near_school.png",
+  "imagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "imageUrl": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "targetImage": "/images/assessment/release-media/house-near-school-131b7950.webp",
+  "targetImagePath": "/images/assessment/release-media/house-near-school-131b7950.webp",
   "resolvedImageAssetKey": "house_near_school",
   "imageAlt": "A short path joins home and school. They are near each other."
  },
@@ -6404,14 +7426,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The single red tulip stands ___ the yellow tulips.",
   "targetWord": "red_tulip_among_yellow_tulips",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.among.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "red_tulip_among_yellow_tulips",
+  "stimulusMediaId": "red_tulip_among_yellow_tulips",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6422,10 +7458,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "Several yellow tulips surround the red one, which pins among.",
-  "imagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "imageUrl": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "targetImage": "/images/prepositions/red_tulip_among_yellow_tulips.png",
-  "targetImagePath": "/images/prepositions/red_tulip_among_yellow_tulips.png",
+  "imagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "imageUrl": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "targetImage": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
+  "targetImagePath": "/images/assessment/release-media/red-tulip-among-yellow-tulips-e122def3.webp",
   "resolvedImageAssetKey": "red_tulip_among_yellow_tulips",
   "imageAlt": "The single red tulip stands among the yellow tulips."
  },
@@ -6492,14 +7528,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The fence curves ___ the garden.",
   "targetWord": "fence_around_garden",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.around.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/fence-around-garden-fd900b5e.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "fence_around_garden",
+  "stimulusMediaId": "fence_around_garden",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6510,10 +7560,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The fence encloses the garden.",
-  "imagePath": "/images/prepositions/fence_around_garden.png",
-  "imageUrl": "/images/prepositions/fence_around_garden.png",
-  "targetImage": "/images/prepositions/fence_around_garden.png",
-  "targetImagePath": "/images/prepositions/fence_around_garden.png",
+  "imagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "imageUrl": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImage": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
+  "targetImagePath": "/images/assessment/release-media/fence-around-garden-fd900b5e.webp",
   "resolvedImageAssetKey": "fence_around_garden",
   "imageAlt": "The fence curves around the garden."
  },
@@ -6580,14 +7630,28 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The children stay dry ___ the house.",
   "targetWord": "children_inside_house_in_rain",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.prepositions_of_place.l2.R.inside_outside.v5r",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
   "requiredImageAssetKey": "children_inside_house_in_rain",
+  "stimulusMediaId": "children_inside_house_in_rain",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6598,10 +7662,10 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "The house walls enclose the children while rain falls outdoors.",
-  "imagePath": "/images/prepositions/children_inside_house_in_rain.png",
-  "imageUrl": "/images/prepositions/children_inside_house_in_rain.png",
-  "targetImage": "/images/prepositions/children_inside_house_in_rain.png",
-  "targetImagePath": "/images/prepositions/children_inside_house_in_rain.png",
+  "imagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "imageUrl": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "targetImage": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
+  "targetImagePath": "/images/assessment/release-media/children-inside-house-in-rain-ced30727.webp",
   "resolvedImageAssetKey": "children_inside_house_in_rain",
   "imageAlt": "The children stay dry inside the house."
  }

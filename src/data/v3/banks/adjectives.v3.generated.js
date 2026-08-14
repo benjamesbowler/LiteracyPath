@@ -18,56 +18,73 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "adj_size",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one is very big?",
-  "question": "Which one is very big?",
-  "spokenPrompt": "Which one is very big?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ animal filled the whole page.",
+  "question": "The ___ animal filled the whole page.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ animal filled the whole page.",
   "choices": [
-   "cup",
-   "whale",
-   "ant",
-   "wheel"
+   "soft",
+   "huge",
+   "tiny",
+   "thin"
   ],
   "answerOptions": [
    {
-    "value": "cup",
-    "label": "cup",
-    "text": "cup"
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
    },
    {
-    "value": "whale",
-    "label": "whale",
-    "text": "whale"
+    "value": "huge",
+    "label": "huge",
+    "text": "huge"
    },
    {
-    "value": "ant",
-    "label": "ant",
-    "text": "ant"
+    "value": "tiny",
+    "label": "tiny",
+    "text": "tiny"
    },
    {
-    "value": "wheel",
-    "label": "wheel",
-    "text": "wheel"
+    "value": "thin",
+    "label": "thin",
+    "text": "thin"
    }
   ],
-  "answer": "whale",
-  "correctAnswer": "whale",
+  "answer": "huge",
+  "correctAnswer": "huge",
   "distractorRationales": {
-   "ant": "D-FUNCTION-SWAP",
-   "wheel": "D-FUNCTION-SWAP",
-   "cup": "D-FUNCTION-SWAP"
+   "tiny": "D-PLAUSIBLE-UNSUPPORTED",
+   "thin": "D-PLAUSIBLE-UNSUPPORTED",
+   "soft": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ animal filled the whole page.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_size.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -77,45 +94,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wheel ties the wh/which overlap",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.A.adj_size.v1_card_cup",
-    "word": "cup",
-    "value": "cup",
-    "label": "cup",
-    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
-    "imageAlt": "cup"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_size.v1_card_whale",
-    "word": "whale",
-    "value": "whale",
-    "label": "whale",
-    "image": "/images/assessment/digraphs/whale.webp",
-    "imagePath": "/images/assessment/digraphs/whale.webp",
-    "imageAlt": "whale"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_size.v1_card_ant",
-    "word": "ant",
-    "value": "ant",
-    "label": "ant",
-    "image": "/images/child-mode/initial-sounds/ant.png",
-    "imagePath": "/images/child-mode/initial-sounds/ant.png",
-    "imageAlt": "ant"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_size.v1_card_wheel",
-    "word": "wheel",
-    "value": "wheel",
-    "label": "wheel",
-    "image": "/images/assessment/digraphs/wheel.webp",
-    "imagePath": "/images/assessment/digraphs/wheel.webp",
-    "imageAlt": "wheel"
-   }
-  ]
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_size.v2",
@@ -134,56 +119,73 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "adj_size",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one is tiny?",
-  "question": "Which one is tiny?",
-  "spokenPrompt": "Which one is tiny?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ button was smaller than my fingernail.",
+  "question": "The ___ button was smaller than my fingernail.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ button was smaller than my fingernail.",
   "choices": [
-   "ant",
-   "whale",
-   "house",
-   "tent"
+   "tiny",
+   "huge",
+   "wide",
+   "rough"
   ],
   "answerOptions": [
    {
-    "value": "ant",
-    "label": "ant",
-    "text": "ant"
+    "value": "tiny",
+    "label": "tiny",
+    "text": "tiny"
    },
    {
-    "value": "whale",
-    "label": "whale",
-    "text": "whale"
+    "value": "huge",
+    "label": "huge",
+    "text": "huge"
    },
    {
-    "value": "house",
-    "label": "house",
-    "text": "house"
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
    },
    {
-    "value": "tent",
-    "label": "tent",
-    "text": "tent"
+    "value": "rough",
+    "label": "rough",
+    "text": "rough"
    }
   ],
-  "answer": "ant",
-  "correctAnswer": "ant",
+  "answer": "tiny",
+  "correctAnswer": "tiny",
   "distractorRationales": {
-   "whale": "D-FUNCTION-SWAP",
-   "house": "D-FUNCTION-SWAP",
-   "tent": "D-FUNCTION-SWAP"
+   "huge": "D-PLAUSIBLE-UNSUPPORTED",
+   "wide": "D-PLAUSIBLE-UNSUPPORTED",
+   "rough": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ button was smaller than my fingernail.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_size.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -194,44 +196,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.B.adj_size.v2_card_ant",
-    "word": "ant",
-    "value": "ant",
-    "label": "ant",
-    "image": "/images/child-mode/initial-sounds/ant.png",
-    "imagePath": "/images/child-mode/initial-sounds/ant.png",
-    "imageAlt": "ant"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_size.v2_card_whale",
-    "word": "whale",
-    "value": "whale",
-    "label": "whale",
-    "image": "/images/assessment/digraphs/whale.webp",
-    "imagePath": "/images/assessment/digraphs/whale.webp",
-    "imageAlt": "whale"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_size.v2_card_house",
-    "word": "house",
-    "value": "house",
-    "label": "house",
-    "image": "/images/assessment/rhyming/variants/house/house-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
-    "imageAlt": "house"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_size.v2_card_tent",
-    "word": "tent",
-    "value": "tent",
-    "label": "tent",
-    "image": "/images/assessment/blends/tent.webp",
-    "imagePath": "/images/assessment/blends/tent.webp",
-    "imageAlt": "tent"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_size.v3",
@@ -250,56 +220,73 @@ export const questions = [
   "form": "C",
   "itemType": "grammar_concept",
   "itemKey": "adj_size",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one is very tall?",
-  "question": "Which one is very tall?",
-  "spokenPrompt": "Which one is very tall?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ tree rose above every roof.",
+  "question": "The ___ tree rose above every roof.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ tree rose above every roof.",
   "choices": [
-   "mat",
-   "sock",
-   "dish",
-   "tree"
+   "short",
+   "round",
+   "quiet",
+   "tall"
   ],
   "answerOptions": [
    {
-    "value": "mat",
-    "label": "mat",
-    "text": "mat"
+    "value": "short",
+    "label": "short",
+    "text": "short"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "round",
+    "label": "round",
+    "text": "round"
    },
    {
-    "value": "dish",
-    "label": "dish",
-    "text": "dish"
+    "value": "quiet",
+    "label": "quiet",
+    "text": "quiet"
    },
    {
-    "value": "tree",
-    "label": "tree",
-    "text": "tree"
+    "value": "tall",
+    "label": "tall",
+    "text": "tall"
    }
   ],
-  "answer": "tree",
-  "correctAnswer": "tree",
+  "answer": "tall",
+  "correctAnswer": "tall",
   "distractorRationales": {
-   "mat": "D-FUNCTION-SWAP",
-   "sock": "D-FUNCTION-SWAP",
-   "dish": "D-FUNCTION-SWAP"
+   "short": "D-PLAUSIBLE-UNSUPPORTED",
+   "round": "D-PLAUSIBLE-UNSUPPORTED",
+   "quiet": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ tree rose above every roof.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_size.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -310,44 +297,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.C.adj_size.v3_card_mat",
-    "word": "mat",
-    "value": "mat",
-    "label": "mat",
-    "image": "/images/assessment/rhyming/variants/at/mat-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
-    "imageAlt": "mat"
-   },
-   {
-    "id": "lp3.adjectives.l1.C.adj_size.v3_card_sock",
-    "word": "sock",
-    "value": "sock",
-    "label": "sock",
-    "image": "/images/assessment/digraphs/sock.webp",
-    "imagePath": "/images/assessment/digraphs/sock.webp",
-    "imageAlt": "sock"
-   },
-   {
-    "id": "lp3.adjectives.l1.C.adj_size.v3_card_dish",
-    "word": "dish",
-    "value": "dish",
-    "label": "dish",
-    "image": "/images/assessment/digraphs/dish.webp",
-    "imagePath": "/images/assessment/digraphs/dish.webp",
-    "imageAlt": "dish"
-   },
-   {
-    "id": "lp3.adjectives.l1.C.adj_size.v3_card_tree",
-    "word": "tree",
-    "value": "tree",
-    "label": "tree",
-    "image": "/images/assessment/long-vowels/tree.webp",
-    "imagePath": "/images/assessment/long-vowels/tree.webp",
-    "imageAlt": "tree"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_size.v4",
@@ -411,11 +366,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_size.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -425,7 +395,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_size.v5",
@@ -489,11 +465,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_size.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -503,7 +494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_size.v6",
@@ -567,11 +564,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_size.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -581,7 +593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_color.v1",
@@ -600,56 +618,73 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "adj_color",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one is green?",
-  "question": "Which one is green?",
-  "spokenPrompt": "Which one is green?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The leaf stayed ___ all summer.",
+  "question": "The leaf stayed ___ all summer.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The leaf stayed ___ all summer.",
   "choices": [
-   "crab",
-   "moth",
-   "wasp",
-   "frog"
+   "red",
+   "blue",
+   "brown",
+   "green"
   ],
   "answerOptions": [
    {
-    "value": "crab",
-    "label": "crab",
-    "text": "crab"
+    "value": "red",
+    "label": "red",
+    "text": "red"
    },
    {
-    "value": "moth",
-    "label": "moth",
-    "text": "moth"
+    "value": "blue",
+    "label": "blue",
+    "text": "blue"
    },
    {
-    "value": "wasp",
-    "label": "wasp",
-    "text": "wasp"
+    "value": "brown",
+    "label": "brown",
+    "text": "brown"
    },
    {
-    "value": "frog",
-    "label": "frog",
-    "text": "frog"
+    "value": "green",
+    "label": "green",
+    "text": "green"
    }
   ],
-  "answer": "frog",
-  "correctAnswer": "frog",
+  "answer": "green",
+  "correctAnswer": "green",
   "distractorRationales": {
-   "moth": "D-FUNCTION-SWAP",
-   "wasp": "D-FUNCTION-SWAP",
-   "crab": "D-FUNCTION-SWAP"
+   "blue": "D-PLAUSIBLE-UNSUPPORTED",
+   "brown": "D-PLAUSIBLE-UNSUPPORTED",
+   "red": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The leaf stayed ___ all summer.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_color.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-color.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -659,45 +694,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "canonical colours the child knows even in line art",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.A.adj_color.v1_card_crab",
-    "word": "crab",
-    "value": "crab",
-    "label": "crab",
-    "image": "/images/assessment/blends/crab.webp",
-    "imagePath": "/images/assessment/blends/crab.webp",
-    "imageAlt": "crab"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_color.v1_card_moth",
-    "word": "moth",
-    "value": "moth",
-    "label": "moth",
-    "image": "/images/assessment/digraphs/moth.webp",
-    "imagePath": "/images/assessment/digraphs/moth.webp",
-    "imageAlt": "moth"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_color.v1_card_wasp",
-    "word": "wasp",
-    "value": "wasp",
-    "label": "wasp",
-    "image": "/images/assessment/blends/wasp.webp",
-    "imagePath": "/images/assessment/blends/wasp.webp",
-    "imageAlt": "wasp"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_color.v1_card_frog",
-    "word": "frog",
-    "value": "frog",
-    "label": "frog",
-    "image": "/images/assessment/blends/frog.webp",
-    "imagePath": "/images/assessment/blends/frog.webp",
-    "imageAlt": "frog"
-   }
-  ]
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_color.v2",
@@ -716,56 +719,73 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "adj_color",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one is yellow?",
-  "question": "Which one is yellow?",
-  "spokenPrompt": "Which one is yellow?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ripe banana was bright ___.",
+  "question": "The ripe banana was bright ___.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ripe banana was bright ___.",
   "choices": [
-   "cloud",
-   "log",
-   "sun",
-   "moon"
+   "blue",
+   "black",
+   "yellow",
+   "purple"
   ],
   "answerOptions": [
    {
-    "value": "cloud",
-    "label": "cloud",
-    "text": "cloud"
+    "value": "blue",
+    "label": "blue",
+    "text": "blue"
    },
    {
-    "value": "log",
-    "label": "log",
-    "text": "log"
+    "value": "black",
+    "label": "black",
+    "text": "black"
    },
    {
-    "value": "sun",
-    "label": "sun",
-    "text": "sun"
+    "value": "yellow",
+    "label": "yellow",
+    "text": "yellow"
    },
    {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
+    "value": "purple",
+    "label": "purple",
+    "text": "purple"
    }
   ],
-  "answer": "sun",
-  "correctAnswer": "sun",
+  "answer": "yellow",
+  "correctAnswer": "yellow",
   "distractorRationales": {
-   "moon": "D-FUNCTION-SWAP",
-   "cloud": "D-FUNCTION-SWAP",
-   "log": "D-FUNCTION-SWAP"
+   "purple": "D-PLAUSIBLE-UNSUPPORTED",
+   "blue": "D-PLAUSIBLE-UNSUPPORTED",
+   "black": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ripe banana was bright ___.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_color.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-color.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -776,44 +796,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.B.adj_color.v2_card_cloud",
-    "word": "cloud",
-    "value": "cloud",
-    "label": "cloud",
-    "image": "/images/child-mode/blends/cloud.png",
-    "imagePath": "/images/child-mode/blends/cloud.png",
-    "imageAlt": "cloud"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_color.v2_card_log",
-    "word": "log",
-    "value": "log",
-    "label": "log",
-    "image": "/images/assessment/rhyming/variants/og/log-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
-    "imageAlt": "log"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_color.v2_card_sun",
-    "word": "sun",
-    "value": "sun",
-    "label": "sun",
-    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
-    "imageAlt": "sun"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_color.v2_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "moon"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_color.v3",
@@ -877,11 +865,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_color.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-color.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -891,7 +894,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_color.v4",
@@ -955,11 +964,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_color.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-color.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -969,7 +993,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_color.v5",
@@ -1033,11 +1063,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_color.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-color.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1047,7 +1092,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_color.v6",
@@ -1111,11 +1162,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_color.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-color.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1125,7 +1191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_texture_state.v1",
@@ -1144,56 +1216,73 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "adj_texture_state",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one feels soft?",
-  "question": "Which one feels soft?",
-  "spokenPrompt": "Which one feels soft?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ blanket felt gentle on my cheek.",
+  "question": "The ___ blanket felt gentle on my cheek.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ blanket felt gentle on my cheek.",
   "choices": [
-   "shell",
-   "sheep",
-   "brick",
-   "fork"
+   "wet",
+   "soft",
+   "hard",
+   "rough"
   ],
   "answerOptions": [
    {
-    "value": "shell",
-    "label": "shell",
-    "text": "shell"
+    "value": "wet",
+    "label": "wet",
+    "text": "wet"
    },
    {
-    "value": "sheep",
-    "label": "sheep",
-    "text": "sheep"
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
    },
    {
-    "value": "brick",
-    "label": "brick",
-    "text": "brick"
+    "value": "hard",
+    "label": "hard",
+    "text": "hard"
    },
    {
-    "value": "fork",
-    "label": "fork",
-    "text": "fork"
+    "value": "rough",
+    "label": "rough",
+    "text": "rough"
    }
   ],
-  "answer": "sheep",
-  "correctAnswer": "sheep",
+  "answer": "soft",
+  "correctAnswer": "soft",
   "distractorRationales": {
-   "brick": "D-FUNCTION-SWAP",
-   "fork": "D-FUNCTION-SWAP",
-   "shell": "D-FUNCTION-SWAP"
+   "hard": "D-PLAUSIBLE-UNSUPPORTED",
+   "rough": "D-PLAUSIBLE-UNSUPPORTED",
+   "wet": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ blanket felt gentle on my cheek.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_texture_state.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1203,45 +1292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wool is the canon of soft",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_shell",
-    "word": "shell",
-    "value": "shell",
-    "label": "shell",
-    "image": "/images/assessment/digraphs/shell.webp",
-    "imagePath": "/images/assessment/digraphs/shell.webp",
-    "imageAlt": "shell"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_sheep",
-    "word": "sheep",
-    "value": "sheep",
-    "label": "sheep",
-    "image": "/images/assessment/long-vowels/sheep.webp",
-    "imagePath": "/images/assessment/long-vowels/sheep.webp",
-    "imageAlt": "sheep"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_brick",
-    "word": "brick",
-    "value": "brick",
-    "label": "brick",
-    "image": "/images/assessment/digraphs/brick.webp",
-    "imagePath": "/images/assessment/digraphs/brick.webp",
-    "imageAlt": "brick"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_texture_state.v1_card_fork",
-    "word": "fork",
-    "value": "fork",
-    "label": "fork",
-    "image": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-    "imagePath": "/images/assessment/language/variants/plurals/fork-forks-01.webp",
-    "imageAlt": "fork"
-   }
-  ]
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_texture_state.v2",
@@ -1260,56 +1317,73 @@ export const questions = [
   "form": "B",
   "itemType": "grammar_concept",
   "itemKey": "adj_texture_state",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one feels wet?",
-  "question": "Which one feels wet?",
-  "spokenPrompt": "Which one feels wet?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ towel dripped onto the floor.",
+  "question": "The ___ towel dripped onto the floor.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ towel dripped onto the floor.",
   "choices": [
-   "fish",
-   "brick",
-   "quilt",
-   "drum"
+   "wet",
+   "dry",
+   "soft",
+   "cold"
   ],
   "answerOptions": [
    {
-    "value": "fish",
-    "label": "fish",
-    "text": "fish"
+    "value": "wet",
+    "label": "wet",
+    "text": "wet"
    },
    {
-    "value": "brick",
-    "label": "brick",
-    "text": "brick"
+    "value": "dry",
+    "label": "dry",
+    "text": "dry"
    },
    {
-    "value": "quilt",
-    "label": "quilt",
-    "text": "quilt"
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
    },
    {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
+    "value": "cold",
+    "label": "cold",
+    "text": "cold"
    }
   ],
-  "answer": "fish",
-  "correctAnswer": "fish",
+  "answer": "wet",
+  "correctAnswer": "wet",
   "distractorRationales": {
-   "quilt": "D-FUNCTION-SWAP",
-   "drum": "D-FUNCTION-SWAP",
-   "brick": "D-FUNCTION-SWAP"
+   "soft": "D-PLAUSIBLE-UNSUPPORTED",
+   "cold": "D-PLAUSIBLE-UNSUPPORTED",
+   "dry": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ towel dripped onto the floor.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_texture_state.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1320,44 +1394,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_fish",
-    "word": "fish",
-    "value": "fish",
-    "label": "fish",
-    "image": "/images/assessment/digraphs/fish.webp",
-    "imagePath": "/images/assessment/digraphs/fish.webp",
-    "imageAlt": "fish"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_brick",
-    "word": "brick",
-    "value": "brick",
-    "label": "brick",
-    "image": "/images/assessment/digraphs/brick.webp",
-    "imagePath": "/images/assessment/digraphs/brick.webp",
-    "imageAlt": "brick"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_quilt",
-    "word": "quilt",
-    "value": "quilt",
-    "label": "quilt",
-    "image": "/images/child-mode/initial-sounds/quilt.png",
-    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
-    "imageAlt": "quilt"
-   },
-   {
-    "id": "lp3.adjectives.l1.B.adj_texture_state.v2_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_texture_state.v3",
@@ -1376,56 +1418,73 @@ export const questions = [
   "form": "C",
   "itemType": "grammar_concept",
   "itemKey": "adj_texture_state",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one feels hard?",
-  "question": "Which one feels hard?",
-  "spokenPrompt": "Which one feels hard?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ stone would not bend or squash.",
+  "question": "The ___ stone would not bend or squash.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ stone would not bend or squash.",
   "choices": [
-   "sheep",
-   "jam",
-   "cloud",
-   "rock"
+   "soft",
+   "wet",
+   "warm",
+   "hard"
   ],
   "answerOptions": [
    {
-    "value": "sheep",
-    "label": "sheep",
-    "text": "sheep"
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
    },
    {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
+    "value": "wet",
+    "label": "wet",
+    "text": "wet"
    },
    {
-    "value": "cloud",
-    "label": "cloud",
-    "text": "cloud"
+    "value": "warm",
+    "label": "warm",
+    "text": "warm"
    },
    {
-    "value": "rock",
-    "label": "rock",
-    "text": "rock"
+    "value": "hard",
+    "label": "hard",
+    "text": "hard"
    }
   ],
-  "answer": "rock",
-  "correctAnswer": "rock",
+  "answer": "hard",
+  "correctAnswer": "hard",
   "distractorRationales": {
-   "sheep": "D-FUNCTION-SWAP",
-   "jam": "D-FUNCTION-SWAP",
-   "cloud": "D-FUNCTION-SWAP"
+   "soft": "D-PLAUSIBLE-UNSUPPORTED",
+   "wet": "D-PLAUSIBLE-UNSUPPORTED",
+   "warm": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ stone would not bend or squash.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_texture_state.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1436,44 +1495,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_sheep",
-    "word": "sheep",
-    "value": "sheep",
-    "label": "sheep",
-    "image": "/images/assessment/long-vowels/sheep.webp",
-    "imagePath": "/images/assessment/long-vowels/sheep.webp",
-    "imageAlt": "sheep"
-   },
-   {
-    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_jam",
-    "word": "jam",
-    "value": "jam",
-    "label": "jam",
-    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imageAlt": "jam"
-   },
-   {
-    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_cloud",
-    "word": "cloud",
-    "value": "cloud",
-    "label": "cloud",
-    "image": "/images/child-mode/blends/cloud.png",
-    "imagePath": "/images/child-mode/blends/cloud.png",
-    "imageAlt": "cloud"
-   },
-   {
-    "id": "lp3.adjectives.l1.C.adj_texture_state.v3_card_rock",
-    "word": "rock",
-    "value": "rock",
-    "label": "rock",
-    "image": "/images/assessment/digraphs/rock.webp",
-    "imagePath": "/images/assessment/digraphs/rock.webp",
-    "imageAlt": "rock"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_texture_state.v4",
@@ -1537,11 +1564,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_texture_state.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1551,7 +1593,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_texture_state.v5",
@@ -1615,11 +1663,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_texture_state.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1629,7 +1692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_texture_state.v6",
@@ -1693,11 +1762,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_texture_state.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1707,7 +1791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_feeling.v1",
@@ -1726,56 +1816,73 @@ export const questions = [
   "form": "A",
   "itemType": "grammar_concept",
   "itemKey": "adj_feeling",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one shows a happy face?",
-  "question": "Which one shows a happy face?",
-  "spokenPrompt": "Which one shows a happy face?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "Mina felt ___ when her friend arrived.",
+  "question": "Mina felt ___ when her friend arrived.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "Mina felt ___ when her friend arrived.",
   "choices": [
-   "moth",
-   "brick",
-   "rope",
-   "smile"
+   "sad",
+   "cross",
+   "tired",
+   "happy"
   ],
   "answerOptions": [
    {
-    "value": "moth",
-    "label": "moth",
-    "text": "moth"
+    "value": "sad",
+    "label": "sad",
+    "text": "sad"
    },
    {
-    "value": "brick",
-    "label": "brick",
-    "text": "brick"
+    "value": "cross",
+    "label": "cross",
+    "text": "cross"
    },
    {
-    "value": "rope",
-    "label": "rope",
-    "text": "rope"
+    "value": "tired",
+    "label": "tired",
+    "text": "tired"
    },
    {
-    "value": "smile",
-    "label": "smile",
-    "text": "smile"
+    "value": "happy",
+    "label": "happy",
+    "text": "happy"
    }
   ],
-  "answer": "smile",
-  "correctAnswer": "smile",
+  "answer": "happy",
+  "correctAnswer": "happy",
   "distractorRationales": {
-   "rope": "D-FUNCTION-SWAP",
-   "moth": "D-FUNCTION-SWAP",
-   "brick": "D-FUNCTION-SWAP"
+   "tired": "D-PLAUSIBLE-UNSUPPORTED",
+   "sad": "D-PLAUSIBLE-UNSUPPORTED",
+   "cross": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "Mina felt ___ when her friend arrived.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_feeling.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1786,44 +1893,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_moth",
-    "word": "moth",
-    "value": "moth",
-    "label": "moth",
-    "image": "/images/assessment/digraphs/moth.webp",
-    "imagePath": "/images/assessment/digraphs/moth.webp",
-    "imageAlt": "moth"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_brick",
-    "word": "brick",
-    "value": "brick",
-    "label": "brick",
-    "image": "/images/assessment/digraphs/brick.webp",
-    "imagePath": "/images/assessment/digraphs/brick.webp",
-    "imageAlt": "brick"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_rope",
-    "word": "rope",
-    "value": "rope",
-    "label": "rope",
-    "image": "/images/assessment/long-vowels/rope.webp",
-    "imagePath": "/images/assessment/long-vowels/rope.webp",
-    "imageAlt": "rope"
-   },
-   {
-    "id": "lp3.adjectives.l1.A.adj_feeling.v1_card_smile",
-    "word": "smile",
-    "value": "smile",
-    "label": "smile",
-    "image": "/images/assessment/long-vowels/smile.webp",
-    "imagePath": "/images/assessment/long-vowels/smile.webp",
-    "imageAlt": "smile"
-   }
-  ]
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_feeling.v2",
@@ -1887,11 +1962,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_feeling.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1901,7 +1991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_feeling.v3",
@@ -1965,11 +2061,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_feeling.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1979,7 +2090,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hoppy is the developmental spelling neighbour — real word, wrong class"
+  "notes": "hoppy is the developmental spelling neighbour — real word, wrong class",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.A.adj_feeling.v4",
@@ -2043,11 +2160,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.A.adj_feeling.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2057,7 +2189,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.B.adj_feeling.v5",
@@ -2121,11 +2259,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.B.adj_feeling.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2135,7 +2288,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cross the feeling — the British everyday word for angry"
+  "notes": "cross the feeling — the British everyday word for angry",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.C.adj_feeling.v6",
@@ -2199,11 +2358,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.C.adj_feeling.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2213,7 +2387,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v1",
@@ -2278,12 +2458,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ soup burned my lip.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_in_sentence.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2293,7 +2488,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "all four describe — burned pins hot"
+  "notes": "all four describe — burned pins hot",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v2",
@@ -2358,12 +2559,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "My ___ boots let the rain in.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_in_sentence.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2373,7 +2589,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "let the rain in pins leaky"
+  "notes": "let the rain in pins leaky",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_in_sentence.v3",
@@ -2438,12 +2660,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ box needed two of us to lift.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.C.adj_in_sentence.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2453,7 +2690,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v4",
@@ -2518,12 +2761,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "We squinted in the ___ sunshine.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_in_sentence.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2533,7 +2791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "squinted pins bright"
+  "notes": "squinted pins bright",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v5",
@@ -2597,11 +2861,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_in_sentence.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2611,7 +2890,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_in_sentence.v6",
@@ -2675,11 +2960,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.C.adj_in_sentence.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2689,7 +2989,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_in_sentence.v7",
@@ -2754,12 +3060,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ kitten slept through the storm.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_in_sentence.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2769,7 +3090,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the family fit — only the describing form sits before kitten"
+  "notes": "the family fit — only the describing form sits before kitten",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_in_sentence.v8",
@@ -2834,12 +3161,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Her ___ scarf trailed on the ground.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_in_sentence.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2849,7 +3191,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v1",
@@ -2914,12 +3262,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The path was ___ after days of rain.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_precision.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2929,7 +3292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "days of rain pins muddy — dusty is its dry opposite"
+  "notes": "days of rain pins muddy — dusty is its dry opposite",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v2",
@@ -2994,12 +3363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The lemonade was ___ and made our mouths pucker.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_precision.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3009,7 +3393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_precision.v3",
@@ -3074,12 +3464,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The old stairs were ___ and groaned under our feet.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.C.adj_precision.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3089,7 +3494,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v4",
@@ -3154,12 +3565,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Wear the ___ coat — it is snowing hard.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_precision.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3169,7 +3595,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v5",
@@ -3233,11 +3665,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_precision.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3247,7 +3694,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_precision.v6",
@@ -3311,11 +3764,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.C.adj_precision.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3325,7 +3793,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_precision.v7",
@@ -3390,12 +3864,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ knife went through the pumpkin easily.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_precision.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3405,7 +3894,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_precision.v8",
@@ -3470,12 +3965,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "Our tent felt ___ with five of us in it.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_precision.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3485,7 +3995,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v1",
@@ -3549,11 +4065,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v1",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3563,7 +4094,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v2",
@@ -3627,11 +4164,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_vs_noun_verb.v2",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3641,7 +4193,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_vs_noun_verb.v3",
@@ -3705,11 +4263,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.C.adj_vs_noun_verb.v3",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3719,7 +4292,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "the wind family in one set"
+  "notes": "the wind family in one set",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v4",
@@ -3784,12 +4363,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ sea tossed the little boat.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v4",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3799,7 +4393,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "family fit — only the describing form sits before sea"
+  "notes": "family fit — only the describing form sits before sea",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v5",
@@ -3863,11 +4463,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_vs_noun_verb.v5",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3877,7 +4492,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.C.adj_vs_noun_verb.v6",
@@ -3941,11 +4562,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.C.adj_vs_noun_verb.v6",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3955,7 +4591,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.A.adj_vs_noun_verb.v7",
@@ -4020,12 +4662,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "A ___ morning is best for kites.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.A.adj_vs_noun_verb.v7",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4035,7 +4692,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.B.adj_vs_noun_verb.v8",
@@ -4099,11 +4762,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
-  "scannerExpected": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.B.adj_vs_noun_verb.v8",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4113,7 +4791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_size.v7r",
@@ -4132,56 +4816,73 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "adj_size",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one is very small?",
-  "question": "Which one is very small?",
-  "spokenPrompt": "Which one is very small?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ mark was almost too small to see.",
+  "question": "The ___ mark was almost too small to see.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ mark was almost too small to see.",
   "choices": [
-   "ink",
-   "house",
-   "tent",
-   "tree"
+   "tiny",
+   "huge",
+   "wide",
+   "long"
   ],
   "answerOptions": [
    {
-    "value": "ink",
-    "label": "ink",
-    "text": "ink"
+    "value": "tiny",
+    "label": "tiny",
+    "text": "tiny"
    },
    {
-    "value": "house",
-    "label": "house",
-    "text": "house"
+    "value": "huge",
+    "label": "huge",
+    "text": "huge"
    },
    {
-    "value": "tent",
-    "label": "tent",
-    "text": "tent"
+    "value": "wide",
+    "label": "wide",
+    "text": "wide"
    },
    {
-    "value": "tree",
-    "label": "tree",
-    "text": "tree"
+    "value": "long",
+    "label": "long",
+    "text": "long"
    }
   ],
-  "answer": "ink",
-  "correctAnswer": "ink",
+  "answer": "tiny",
+  "correctAnswer": "tiny",
   "distractorRationales": {
-   "tree": "D-FUNCTION-SWAP",
-   "house": "D-FUNCTION-SWAP",
-   "tent": "D-FUNCTION-SWAP"
+   "long": "D-PLAUSIBLE-UNSUPPORTED",
+   "huge": "D-PLAUSIBLE-UNSUPPORTED",
+   "wide": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ mark was almost too small to see.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_size.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4191,45 +4892,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "an ink drop against three big things",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_ink",
-    "word": "ink",
-    "value": "ink",
-    "label": "ink",
-    "image": "/images/child-mode/initial-sounds/ink.png",
-    "imagePath": "/images/child-mode/initial-sounds/ink.png",
-    "imageAlt": "ink"
-   },
-   {
-    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_house",
-    "word": "house",
-    "value": "house",
-    "label": "house",
-    "image": "/images/assessment/rhyming/variants/house/house-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/house/house-02.webp",
-    "imageAlt": "house"
-   },
-   {
-    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_tent",
-    "word": "tent",
-    "value": "tent",
-    "label": "tent",
-    "image": "/images/assessment/blends/tent.webp",
-    "imagePath": "/images/assessment/blends/tent.webp",
-    "imageAlt": "tent"
-   },
-   {
-    "id": "lp3.adjectives.l1.R.adj_size.v7r_card_tree",
-    "word": "tree",
-    "value": "tree",
-    "label": "tree",
-    "image": "/images/assessment/long-vowels/tree.webp",
-    "imagePath": "/images/assessment/long-vowels/tree.webp",
-    "imageAlt": "tree"
-   }
-  ]
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_color.v7r",
@@ -4293,11 +4962,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_color.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-color.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-color.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4307,7 +4991,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-color.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_texture_state.v7r",
@@ -4371,11 +5061,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_texture_state.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4385,7 +5090,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_feeling.v7r",
@@ -4449,11 +5160,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_feeling.v7r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4463,7 +5189,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.R.adj_in_sentence.v9r",
@@ -4528,12 +5260,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ floor squeaked with every step.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.R.adj_in_sentence.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4543,7 +5290,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.R.adj_precision.v9r",
@@ -4608,12 +5361,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The rope was too ___ to snap.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.R.adj_precision.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4623,7 +5391,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "too ___ to snap — only strong survives the frame"
+  "notes": "too ___ to snap — only strong survives the frame",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.R.adj_vs_noun_verb.v9r",
@@ -4687,11 +5461,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.R.adj_vs_noun_verb.v9r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4701,7 +5490,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-vs-noun-verb.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_size.v8r",
@@ -4765,11 +5560,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_size.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-size.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-size.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4779,7 +5589,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-size.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_texture_state.v8r",
@@ -4798,56 +5614,73 @@ export const questions = [
   "form": "R",
   "itemType": "grammar_concept",
   "itemKey": "adj_texture_state",
-  "formatType": "GRAMMAR_IMAGE_CHOICE",
-  "templateType": "GRAMMAR_IMAGE_CHOICE",
-  "questionType": "visual_card_choice",
-  "prompt": "Which one feels bumpy?",
-  "question": "Which one feels bumpy?",
-  "spokenPrompt": "Which one feels bumpy?",
+  "formatType": "GRAMMAR_SENTENCE_FIT",
+  "templateType": "GRAMMAR_SENTENCE_FIT",
+  "questionType": "multiple_choice",
+  "prompt": "The ___ path made the buggy shake.",
+  "question": "The ___ path made the buggy shake.",
+  "spokenPrompt": "Which describing word finishes the sentence?",
+  "sentence": "The ___ path made the buggy shake.",
   "choices": [
-   "moon",
-   "crab",
-   "quilt",
-   "leaf"
+   "flat",
+   "bumpy",
+   "smooth",
+   "soft"
   ],
   "answerOptions": [
    {
-    "value": "moon",
-    "label": "moon",
-    "text": "moon"
+    "value": "flat",
+    "label": "flat",
+    "text": "flat"
    },
    {
-    "value": "crab",
-    "label": "crab",
-    "text": "crab"
+    "value": "bumpy",
+    "label": "bumpy",
+    "text": "bumpy"
    },
    {
-    "value": "quilt",
-    "label": "quilt",
-    "text": "quilt"
+    "value": "smooth",
+    "label": "smooth",
+    "text": "smooth"
    },
    {
-    "value": "leaf",
-    "label": "leaf",
-    "text": "leaf"
+    "value": "soft",
+    "label": "soft",
+    "text": "soft"
    }
   ],
-  "answer": "crab",
-  "correctAnswer": "crab",
+  "answer": "bumpy",
+  "correctAnswer": "bumpy",
   "distractorRationales": {
-   "leaf": "D-FUNCTION-SWAP",
-   "moon": "D-FUNCTION-SWAP",
-   "quilt": "D-FUNCTION-SWAP"
+   "soft": "D-PLAUSIBLE-UNSUPPORTED",
+   "flat": "D-PLAUSIBLE-UNSUPPORTED",
+   "smooth": "D-PLAUSIBLE-UNSUPPORTED"
   },
-  "mediaTier": "image-required",
+  "mediaTier": "text",
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "sentenceText": "The ___ path made the buggy shake.",
   "v3AuthoredMedia": {
-   "target": false,
-   "cards": true
+   "target": true,
+   "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_texture_state.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-texture-state.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4857,45 +5690,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "a crab's shell is the canon of bumpy",
-  "imageCards": [
-   {
-    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_moon",
-    "word": "moon",
-    "value": "moon",
-    "label": "moon",
-    "image": "/images/assessment/long-vowels/moon.webp",
-    "imagePath": "/images/assessment/long-vowels/moon.webp",
-    "imageAlt": "moon"
-   },
-   {
-    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_crab",
-    "word": "crab",
-    "value": "crab",
-    "label": "crab",
-    "image": "/images/assessment/blends/crab.webp",
-    "imagePath": "/images/assessment/blends/crab.webp",
-    "imageAlt": "crab"
-   },
-   {
-    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_quilt",
-    "word": "quilt",
-    "value": "quilt",
-    "label": "quilt",
-    "image": "/images/child-mode/initial-sounds/quilt.png",
-    "imagePath": "/images/child-mode/initial-sounds/quilt.png",
-    "imageAlt": "quilt"
-   },
-   {
-    "id": "lp3.adjectives.l1.R.adj_texture_state.v8r_card_leaf",
-    "word": "leaf",
-    "value": "leaf",
-    "label": "leaf",
-    "image": "/images/assessment/long-vowels/leaf.webp",
-    "imagePath": "/images/assessment/long-vowels/leaf.webp",
-    "imageAlt": "leaf"
-   }
-  ]
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-texture-state.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.R.adj_in_sentence.v10r",
@@ -4960,12 +5761,27 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "sentenceText": "The ___ moth circled the lamp.",
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.R.adj_in_sentence.v10r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4975,7 +5791,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-in-sentence.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l2.R.adj_precision.v10r",
@@ -5039,11 +5861,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l2.R.adj_precision.v10r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-precision.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5053,7 +5890,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-precision.webp",
+  "imageAlt": "Picture support for this literacy question"
  },
  {
   "id": "lp3.adjectives.l1.R.adj_feeling.v8r",
@@ -5117,11 +5960,26 @@ export const questions = [
   "hadPTD": false,
   "nonGating": false,
   "retentionOnly": true,
-  "scannerExpected": false,
+  "evidenceRole": "retention",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
   "v3AuthoredMedia": {
-   "target": false,
+   "target": true,
    "cards": false
   },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.adjectives.l1.R.adj_feeling.v8r",
+   "role": "construct-support",
+   "paths": [
+    "/images/assessment/release-support/language/adjectives-adj-feeling.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "stimulusMediaId": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5131,6 +5989,12 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": ""
+  "notes": "",
+  "imagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageUrl": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImage": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "targetImagePath": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "resolvedImageAssetKey": "/images/assessment/release-support/language/adjectives-adj-feeling.webp",
+  "imageAlt": "Picture support for this literacy question"
  }
 ];

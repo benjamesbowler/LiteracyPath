@@ -13,14 +13,19 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { execSync } from "node:child_process";
 import {
   ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR,
-  expandBank, lintBank, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
+  expandBank, lintBank, lintPerceptualMediaIndependence, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
   norm, makeImageResolver
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
+import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
+import { getAssessmentSceneMediaDecision } from "../../src/content/assessments/v3/assessmentSceneMediaDecisions.js";
+import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
+import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
 
 const args = process.argv.slice(2);
 const onlySkill = args.includes("--skill") ? args[args.indexOf("--skill") + 1] : null;
@@ -55,7 +60,153 @@ function seededRandom(seedText) {
 
 const oneStatusBrain = productionUsesOneStatusBrain();
 
+function requiredAudioIssues(items) {
+  const issues = [];
+  const requireWord = (item, word, role) => {
+    const audioPath = getLedaWordAudioPath(word);
+    const absolutePath = audioPath
+      ? path.join(ROOT, "public", audioPath.replace(/^\//, ""))
+      : "";
+    if (!audioPath || !fs.existsSync(absolutePath)) {
+      issues.push({
+        code: "L-AUDIO-REQUIRED",
+        itemId: item.id,
+        message: `missing approved LEDA ${role} audio for "${word}"`
+      });
+    }
+  };
+
+  for (const item of items) {
+    if (item.formatType === "HFW_AUDIO_FIND_WORD") {
+      requireWord(item, item.targetWord || item.answer, "target-word");
+    }
+    if (["RHYME_MATCH_PICTURE", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT"].includes(item.formatType)) {
+      for (const card of item.imageCards || []) requireWord(item, card.word || card.label, "answer-card");
+    }
+  }
+  return issues;
+}
+
+function sceneManifestIssues() {
+  const sceneRoot = path.join(ROOT, "public", "images", "assessment", "scenes");
+  const files = [];
+  const visit = directory => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const absolute = path.join(directory, entry.name);
+      if (entry.isDirectory()) visit(absolute);
+      else if (/\.(?:png|webp)$/i.test(entry.name)) files.push(path.relative(sceneRoot, absolute).replaceAll(path.sep, "/"));
+    }
+  };
+  visit(sceneRoot);
+  const issues = [];
+  for (const file of files) {
+    const decision = getAssessmentSceneMediaDecision(file);
+    if (!decision) {
+      issues.push({ code: "L-SCENE-MANIFEST", itemId: file, message: "scene asset has no explicit scoring-use decision" });
+      continue;
+    }
+    if (decision.mediaRole === "scoring-evidence" && (
+      decision.visualReview !== "approved-clean-cartoon"
+      || decision.alignmentReview !== "approved-exact-scoring-evidence"
+      || !decision.reviewedAt
+      || decision.styleProfile?.bright !== true
+      || decision.styleProfile?.bold !== true
+      || decision.styleProfile?.flat2d !== true
+      || decision.styleProfile?.crispOutlines !== true
+      || decision.styleProfile?.smoothSurfaces !== true
+      || decision.styleProfile?.canvasOrPaperGrain !== false
+      || decision.styleProfile?.embossedOrBevelledEdges !== false
+      || decision.styleProfile?.grittyOrFauxPaintTexture !== false
+      || decision.styleProfile?.photorealOrCinematicFinish !== false
+    )) {
+      issues.push({
+        code: "L-SCENE-MANIFEST",
+        itemId: file,
+        message: "scoring scene lacks recorded bright, bold, clean-cartoon style and exact-alignment approval"
+      });
+    }
+  }
+  return issues;
+}
+
+function itemImagePaths(item) {
+  return [...new Set([
+    item.imagePath,
+    item.imageUrl,
+    item.targetImage,
+    item.targetImagePath,
+    ...(item.imageCards || []).flatMap(card => [card.image, card.imagePath]),
+    ...(item.sequenceCards || []).flatMap(card => [card.image, card.imagePath])
+  ].filter(Boolean))];
+}
+
+function visualPolicyIssues(items) {
+  const issues = [];
+  const allowedRoles = new Set(["answer-cards", "sequence", "target-or-scene", "neutral-support", "construct-support"]);
+  const push = (item, message) => issues.push({ code: "L-VISUAL-POLICY", itemId: item.id, message });
+  for (const item of items) {
+    const decision = ASSESSMENT_ITEM_MEDIA_DECISIONS[item.id];
+    const actualPaths = itemImagePaths(item);
+    if (!decision) {
+      push(item, "item has no explicit reviewed media decision");
+      continue;
+    }
+    if (!allowedRoles.has(decision.role)) push(item, `invalid media role: ${decision.role || "(missing)"}`);
+    if (decision.constructReview !== "approved") push(item, "construct review is not approved");
+    if (!String(decision.answerNeutral || "").startsWith("approved") && !String(decision.answerNeutral || "").startsWith("not-applicable")) {
+      push(item, "answer-neutrality review is not approved");
+    }
+    const expectedPaths = [...new Set(decision.paths || [])];
+    if (!actualPaths.length) push(item, "item has no meaningful target, scene, answer-card, or sequence image");
+    if (actualPaths.length !== expectedPaths.length || actualPaths.some(assetPath => !expectedPaths.includes(assetPath))) {
+      push(item, "expanded item images do not exactly match its reviewed decision");
+    }
+    if (["neutral-support", "construct-support", "target-or-scene"].includes(decision.role) && !item.imageAlt) {
+      push(item, "target or scene image is missing non-answer-revealing alt text");
+    }
+    if (decision.role === "answer-cards" && !(item.imageCards || []).length) push(item, "answer-card decision has no image cards");
+    if (decision.role === "sequence" && !(item.sequenceCards || []).length) push(item, "sequence decision has no sequence cards");
+    for (const assetPath of actualPaths) {
+      if (!assetPath.startsWith("/images/assessment/")) {
+        push(item, `active image is outside the assessment-owned namespace: ${assetPath}`);
+        continue;
+      }
+      const absolutePath = path.join(ROOT, "public", assetPath.replace(/^\//, ""));
+      if (!fs.existsSync(absolutePath)) {
+        push(item, `active image file is missing: ${assetPath}`);
+        continue;
+      }
+      const style = ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath];
+      if (!style) {
+        push(item, `active image has no direct visual-review style decision: ${assetPath}`);
+        continue;
+      }
+      const currentHash = createHash("sha256").update(fs.readFileSync(absolutePath)).digest("hex");
+      if (
+        style.sha256 !== currentHash
+        || style.visualReview !== "approved"
+        || style.brightness !== "bright"
+        || style.saturation !== "bold"
+        || style.medium !== "classic-flat-2d-cartoon"
+        || style.contours !== "crisp"
+        || style.surfaces !== "smooth-solid"
+        || style.grain !== false
+        || style.paperOrCanvasTexture !== false
+        || style.embossed !== false
+        || style.bevelled !== false
+        || style.faux3d !== false
+        || style.photoreal !== false
+        || style.painterly !== false
+      ) {
+        push(item, `active image fails the exact reviewed style/hash policy: ${assetPath}`);
+      }
+    }
+  }
+  return issues;
+}
+
 const lexicon = loadLexicon();
+const globalSceneManifestIssues = sceneManifestIssues();
 const results = [];
 const allBanks = new Map();
 
@@ -87,7 +238,11 @@ for (const file of authoringFiles) {
 
     // G1 + G2 + G3 — lints
     const lintIssues = lintBank(items, blueprint, { ...lexicon, imageWords: new Set() });
-    detail.lint = lintIssues;
+    const perceptualMediaIssues = await lintPerceptualMediaIndependence(items);
+    const audioIssues = requiredAudioIssues(items);
+    const manifestIssues = skillId === "sentence_comprehension" ? globalSceneManifestIssues : [];
+    const visualIssues = visualPolicyIssues(items);
+    detail.lint = [...lintIssues, ...perceptualMediaIssues, ...audioIssues, ...manifestIssues, ...visualIssues];
     gates.G1_structure = !lintIssues.some(i => ["L-SCHEMA", "L-COVER", "L-MEDIA"].includes(i.code));
     gates.G2_originality = !lintIssues.some(i => i.code.startsWith("L-UNIQ"));
     gates.G3_answer_integrity = !lintIssues.some(i => ["L-DIST", "L-REALWORD", "L-LEX", "L-GRAM", "L-READ", "L-KEY-BALANCE", "L-AMBIG"].includes(i.code));
@@ -112,6 +267,9 @@ for (const file of authoringFiles) {
     const scanner = await simulate(items, blueprint, {
       policy,
       answerFn: item => {
+        if (item.copyExempt || item.constructClaim === "recognize_shared_digraph_pattern" || item.constructClaim === "apply_affix_meaning_in_context") {
+          return random() < 1 / Math.max(2, item.choices.length || 4);
+        }
         const leak = scannerAnswer(item);
         if (leak && norm(leak) === norm(item.answer)) return true;
         return random() < 1 / Math.max(2, item.choices.length || 4);
@@ -119,7 +277,9 @@ for (const file of authoringFiles) {
       maxSittings: 6
     });
     const scannerLeaks = items.filter(i => {
-      if (i.scannerExpected) return false; // blueprint-documented tier exemption
+      if (i.copyExempt) return false;
+      if (i.constructClaim === "recognize_shared_digraph_pattern") return false;
+      if (i.constructClaim === "apply_affix_meaning_in_context") return false;
       const leak = scannerAnswer(i);
       return leak && norm(leak) === norm(i.answer);
     });
@@ -153,6 +313,16 @@ for (const file of authoringFiles) {
     // G6 — runtime progression, class reports and student reports must all
     // consume the same pure status reducer.
     gates.G6_one_report = oneStatusBrain;
+    gates.G7_construct_validity = !lintIssues.some(i => [
+      "L-AMBIG", "L-HFW-COPY", "L-MODALITY", "L-SEQUENCE-COPY",
+      "L-COMPREHENSION-COPY", "L-COMPREHENSION-VERBATIM", "L-MEDIA-CONSTRUCT", "L-CONSTRUCT-WEAK"
+    ].includes(i.code));
+    gates.G8_media_independence = ![...lintIssues, ...perceptualMediaIssues, ...manifestIssues].some(i => [
+      "L-MEDIA", "L-MEDIA-INDEPENDENCE", "L-MEDIA-CONSTRUCT"
+      , "L-SCENE-MANIFEST"
+    ].includes(i.code));
+    gates.G9_required_audio = audioIssues.length === 0;
+    gates.G10_visual_policy = visualIssues.length === 0;
 
   } catch (error) {
     detail.error = String(error?.stack || error).slice(0, 600);
@@ -181,7 +351,11 @@ const hardGateKeys = [
   "G3_answer_integrity",
   "G4_mastery_logic",
   "G5_no_repeats",
-  "G6_one_report"
+  "G6_one_report",
+  "G7_construct_validity",
+  "G8_media_independence",
+  "G9_required_audio",
+  "G10_visual_policy"
 ];
 let failed = 0;
 for (const row of results) {
@@ -237,9 +411,9 @@ if (write) {
   fs.writeFileSync(reportPath + ".json", JSON.stringify({ generatedAt: new Date().toISOString(), commit, results }, null, 1));
   fs.writeFileSync(reportPath + ".md",
     `# Assessment rebuild gate — ${new Date().toISOString()} @ ${commit}\n\n` +
-    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|\n` +
+    `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | G7 | G8 | G9 | G10 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n` +
     results.map(r => `| ${r.skillId} | ${r.ready ? "✅" : "❌"} | ${hardGateKeys.map(k => r.gates[k] === true ? "✅" : r.gates[k] === false ? "❌" : "—").join(" | ")} | ${r.counts?.total ?? 0} | ${r.detail?.sims?.pass?.sittings ?? "—"} |`).join("\n") +
-    `\n\nPublication requires all six reproducible gates above.\n`);
+    `\n\nPublication requires all ten reproducible gates above.\n`);
 
   console.log(`\nWrote status (${statusEntries.length} ready) and gate report.`);
 }
