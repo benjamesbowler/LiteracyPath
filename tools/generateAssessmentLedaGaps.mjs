@@ -10,6 +10,7 @@ import {
   getLedaProductionAudioPath,
   normalizeLedaAudioText
 } from "../src/data/ledaProductionAudio.js";
+import { ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE } from "../src/data/generated/assessmentLedaGaps.generated.js";
 import {
   importV3Bank,
   listV3PublishedSkillIds
@@ -122,7 +123,9 @@ for (let index = 0; index < rows.length; index += 1) {
   console.log(`[${index + 1}/${rows.length}] ${record.role} -> ${output.publicPath}`);
 }
 
-const byRole = {};
+const byRole = Object.fromEntries(
+  Object.entries(ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE).map(([role, records]) => [role, { ...records }])
+);
 for (const record of generated) {
   byRole[record.role] ||= {};
   byRole[record.role][record.normalized] = record.publicPath;

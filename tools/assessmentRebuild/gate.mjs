@@ -26,6 +26,10 @@ import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 import { getAssessmentSceneMediaDecision } from "../../src/content/assessments/v3/assessmentSceneMediaDecisions.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
 import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
+import {
+  ASSESSMENT_REJECTED_IMAGE_HASHES,
+  ASSESSMENT_REVIEWED_REPLACEMENT_HASHES
+} from "../../src/content/assessments/v3/assessmentImageReviewPolicy.js";
 
 const args = process.argv.slice(2);
 const onlySkill = args.includes("--skill") ? args[args.indexOf("--skill") + 1] : null;
@@ -182,6 +186,13 @@ function visualPolicyIssues(items) {
         continue;
       }
       const currentHash = createHash("sha256").update(fs.readFileSync(absolutePath)).digest("hex");
+      if (ASSESSMENT_REJECTED_IMAGE_HASHES[currentHash]) {
+        push(item, `active image matches a directly rejected bitmap: ${assetPath}`);
+      }
+      const reviewedReplacementHash = ASSESSMENT_REVIEWED_REPLACEMENT_HASHES[assetPath];
+      if (reviewedReplacementHash && reviewedReplacementHash !== currentHash) {
+        push(item, `reviewed replacement pixels changed without a new direct review: ${assetPath}`);
+      }
       if (
         style.sha256 !== currentHash
         || style.visualReview !== "approved"

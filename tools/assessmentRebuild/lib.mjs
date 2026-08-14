@@ -35,6 +35,7 @@ export const RATIONALE_CODES = new Set([
   "KEY",
   "D-ONSET", "D-RIME-NEAR", "D-VOWEL", "D-PATTERN-TRAP", "D-POSITION", "D-VISUAL-NEIGHBOR",
   "D-FUNCTION-SWAP", "D-HOMOPHONE", "D-MORPH-LITERAL", "D-DEVELOPMENTAL", "D-SEMANTIC",
+  "D-SAME-DOMAIN",
   "D-DETAIL-AS-MAIN", "D-TOPIC-ADJACENT", "D-SEQUENCE-SWAP", "D-CAUSE-REVERSE",
   "D-PLAUSIBLE-UNSUPPORTED", "D-OPPOSITE",
   "D-SEQUENCE-START", "D-SEQUENCE-END", "D-SEQUENCE-REVERSE"
@@ -365,6 +366,15 @@ export function lintBank(items, blueprint, {
     const distractors = item.choices.filter(c => norm(c) !== norm(item.answer));
     if (item.choices.length === 4 && distractors.some(d => !(item.distractorRationales || {})[d])) {
       push("L-DIST", item.id, "distractor missing rationale code");
+    }
+    if (item.skillId === "antonyms_synonyms") {
+      const rationales = Object.values(item.distractorRationales || {});
+      if (rationales.includes("D-SEMANTIC")) {
+        push("L-DIST", item.id, "antonym/synonym distractors may not use an unrelated semantic filler");
+      }
+      if (!rationales.includes("D-SAME-DOMAIN")) {
+        push("L-DIST", item.id, "antonym/synonym item needs a same-domain misconception distractor");
+      }
     }
     // A distractor must be real, plausible, and rationale-coded. Requiring two
     // *different* codes per item is not an integrity rule: many sound, grammar,

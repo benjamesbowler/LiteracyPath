@@ -21,6 +21,11 @@ import {
 import { SENTENCE_COMPREHENSION_SCORING_SCENES } from "../../src/content/assessments/v3/assessmentSceneMediaDecisions.js";
 import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
 import { ASSESSMENT_ITEM_MEDIA_DECISIONS } from "../../src/content/assessments/v3/assessmentItemMediaDecisions.generated.js";
+import {
+  ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION,
+  ASSESSMENT_REJECTED_IMAGE_HASHES,
+  ASSESSMENT_REVIEWED_REPLACEMENT_HASHES
+} from "../../src/content/assessments/v3/assessmentImageReviewPolicy.js";
 
 const projectRoot = path.resolve(import.meta.dirname, "..", "..");
 
@@ -111,7 +116,7 @@ test("every scoring scene records the complete bright, bold, clean-cartoon appro
 
 test("every active assessment image matches its directly reviewed style decision and exact hash", () => {
   const rows = Object.values(ASSESSMENT_IMAGE_STYLE_DECISIONS);
-  assert.equal(rows.length, 1338);
+  assert.equal(rows.length, 1339);
   rows.forEach(decision => {
     const absolutePath = path.join(projectRoot, "public", decision.path.replace(/^\//, ""));
     assert.equal(fs.existsSync(absolutePath), true, decision.path);
@@ -127,6 +132,17 @@ test("every active assessment image matches its directly reviewed style decision
       "grain", "paperOrCanvasTexture", "embossed", "bevelled",
       "faux3d", "photoreal", "painterly"
     ].forEach(field => assert.equal(decision[field], false, `${decision.path}:${field}`));
+  });
+});
+
+test("directly rejected pixels cannot return behind regenerated approval metadata", () => {
+  assert.equal(ASSESSMENT_IMAGE_REVIEW_EVIDENCE_VERSION, "direct-pixel-review-2026-08-14-v4");
+  const activeHashes = new Set(Object.values(ASSESSMENT_IMAGE_STYLE_DECISIONS).map(row => row.sha256));
+  Object.entries(ASSESSMENT_REJECTED_IMAGE_HASHES).forEach(([hash, rejection]) => {
+    assert.equal(activeHashes.has(hash), false, `${rejection.path}: ${rejection.reason}`);
+  });
+  Object.entries(ASSESSMENT_REVIEWED_REPLACEMENT_HASHES).forEach(([assetPath, hash]) => {
+    assert.equal(ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath]?.sha256, hash, assetPath);
   });
 });
 

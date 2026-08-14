@@ -149,7 +149,18 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "while being afraid": "/audio/production/en-US/isolated_word/while-being-afraid-e460be503e.mp3",
     "while being sad": "/audio/production/en-US/isolated_word/while-being-sad-791e7bca16.mp3",
     "while the school is dark": "/audio/production/en-US/isolated_word/while-the-school-is-dark-657686e96d.mp3",
-    "wings flapped through the window": "/audio/production/en-US/isolated_word/wings-flapped-through-the-window-479a508200.mp3"
+    "wings flapped through the window": "/audio/production/en-US/isolated_word/wings-flapped-through-the-window-479a508200.mp3",
+    "colourful": "/audio/production/en-US/isolated_word/colourful-aed0960386.mp3",
+    "continue": "/audio/production/en-US/isolated_word/continue-1e6c17f3fa.mp3",
+    "creased": "/audio/production/en-US/isolated_word/creased-d94fb4e1b3.mp3",
+    "dripping": "/audio/production/en-US/isolated_word/dripping-b5254c097b.mp3",
+    "enter": "/audio/production/en-US/isolated_word/enter-af5d12cd2d.mp3",
+    "musical": "/audio/production/en-US/isolated_word/musical-426acdf49e.mp3",
+    "noon": "/audio/production/en-US/isolated_word/noon-2a4b464bb8.mp3",
+    "pride": "/audio/production/en-US/isolated_word/pride-d28c39bbfa.mp3",
+    "steaming": "/audio/production/en-US/isolated_word/steaming-3e6a02401d.mp3",
+    "teammate": "/audio/production/en-US/isolated_word/teammate-0eda6e55e1.mp3",
+    "yesterday": "/audio/production/en-US/isolated_word/yesterday-8fcd594fab.mp3"
   },
   "assessment_prompt": {
     "a ... crept past the hens": "/audio/production/en-US/assessment_prompt/a-crept-past-the-hens-931f3f90c6.mp3",
@@ -265,6 +276,7 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "why is dad's choice of place surprising": "/audio/production/en-US/assessment_prompt/why-is-dad-s-choice-of-place-surprising-d50149f96b.mp3",
     "why might the bird have noticed the object": "/audio/production/en-US/assessment_prompt/why-might-the-bird-have-noticed-the-object-cd580cd849.mp3",
     "why would auntie meg receive the award": "/audio/production/en-US/assessment_prompt/why-would-auntie-meg-receive-the-award-82847aa26f.mp3",
-    "zara carries her friend's heavy bag. which word describes zara": "/audio/production/en-US/assessment_prompt/zara-carries-her-friend-s-heavy-bag-which-word-describes-zara-11f1d16abf.mp3"
+    "zara carries her friend's heavy bag. which word describes zara": "/audio/production/en-US/assessment_prompt/zara-carries-her-friend-s-heavy-bag-which-word-describes-zara-11f1d16abf.mp3",
+    "what is the exact antonym for 'freezing'": "/audio/production/en-US/assessment_prompt/what-is-the-exact-antonym-for-freezing-daeec9cc50.mp3"
   }
 });

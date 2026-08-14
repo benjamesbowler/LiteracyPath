@@ -21,15 +21,15 @@ The release decision is deliberately bounded. The authored corpus, runtime media
 | Live/selectable questions | 2,149 |
 | Retention-only questions | 369 |
 | Explicit item-level media decisions | 2,518 |
-| Active unique assessment images | 1,338 |
-| Existing images restyled to the current policy | 505 |
+| Active unique assessment images | 1,339 |
+| Existing images restyled to the current policy | 516 |
 | New media-completion images | 823 |
 | New independent Sentence Comprehension scenes | 10 |
 | Rejected legacy comprehension scenes removed | 258 |
-| New production LEDA gaps filled | 262 |
-| New LEDA files that decode correctly | 262/262 |
+| New production LEDA gaps filled | 274 |
+| New LEDA files that decode correctly | 274/274 |
 | Assessment rebuild gates | 30/30 pass G1–G10 |
-| Question-design policy | 4,835/4,835 tasks pass |
+| Question-design policy | 4,936/4,936 tasks pass |
 
 The four defects shown in the supplied screenshots are closed across their whole defect families:
 
@@ -44,11 +44,11 @@ The remediation covered the authored source, generated banks, runtime controller
 
 - Every authoring item was rebuilt from `tools/assessmentRebuild/authoring/*.mjs`; generated banks were not hand-edited.
 - Every one of the 2,518 item IDs now has an explicit role, path list, alt description, construct review, and answer-neutrality decision.
-- Every one of the 1,338 active image paths now has an exact SHA-256-bound visual decision. A changed pixel invalidates the approval until the image is reviewed again.
-- All active assessment art was visually reviewed in 53 full contact sheets. Twenty-seven questionable cells were quarantined, regenerated, and re-reviewed over three repair rounds before their replacements were applied.
+- Every one of the 1,339 active image paths now has an exact SHA-256-bound visual decision. A changed pixel invalidates the approval until the image is reviewed again.
+- All active assessment art was visually reviewed in 53 full contact sheets. A final direct-pixel and rendered-browser critique found eleven false approvals that metadata alone had missed (`block`, `chain`, `boiling`, `fur`, `proud`, `sleepy`, `glad`, `hot`, `warm`, `wet`, and `sad`). Those old hashes are now permanently rejected, their bright flat-cartoon replacements are hash-bound, and any later attempt to restore the rejected pixels fails G10. Thirty-eight questionable cells were quarantined, regenerated, and re-reviewed across the complete repair sequence.
 - The 258 old comprehension scenes were reviewed as a complete corpus. They were not restored because many showed the answer, outcome, inferred emotion, clue meaning, or theme. After reference checks confirmed they were inactive, they were removed instead of being retained as an unsafe fallback.
 - Browser coverage exercises the real assessment renderer, image loading, hidden-label rules, Sentence Comprehension scenes, speaker controls, and compact-window scrolling.
-- Audio coverage resolves every current assessment string through production mappings. The 262 newly needed clips use the production `en-US-Chirp3-HD-Leda` voice and have been decoded and probed as valid mono audio.
+- Audio coverage resolves every current assessment string through production mappings. The 274 newly needed clips use the production `en-US-Chirp3-HD-Leda` voice and have been decoded and probed as valid mono audio; the final 12 gaps introduced by the same-domain distractor rewrite were merged without replacing the existing 262 mappings.
 
 ## 3. Construct-validity remediation
 
@@ -56,11 +56,11 @@ The remediation covered the authored source, generated banks, runtime controller
 
 The bank now rejects more than the two reported examples.
 
-- Scalar antonyms cannot put a weaker but defensible opposite beside the key. `hot` now uses `cold` against `boiling`, `wet`, and `loud`.
+- Scalar antonyms cannot put a weaker but defensible opposite beside the key. `hot` now keys `cold` without the ambiguous `cool`; the remaining choices are plausible heat/physical-state near-misses rather than random colours or sounds.
 - Stimulus and answer-card media are declared separately. The release gate fails an undeclared or role-mismatched image.
 - The previous duplicate `little/small` asset route was removed from the item; the question is now a word-to-word synonym decision.
 - Surface-match analysis no longer allows literal comprehension keys to win by copying the most passage text. Key Details and Sentence Comprehension use paraphrase, causal result, two-feature integration, pronoun resolution, time/location reasoning, or best restatement.
-- Distractors remain plausible and in the same semantic/grammatical register. Silly or structurally impossible distractors are not accepted as evidence of comprehension.
+- Distractors remain plausible and in the same semantic/grammatical register. Antonym/Synonym items now require `D-SAME-DOMAIN` and reject generic `D-SEMANTIC` padding; choices such as `green`, `pink`, `red`, and `blue` can no longer make a meaning relation visible through category alone.
 
 ### 3.2 Phonological evidence
 
@@ -162,7 +162,7 @@ The image-generation skill was directed with this exact policy. Generation was f
 | 18 | Prepositions of Place | Pass | All scoring scenes explicitly declared and visually reviewed for the intended relation. |
 | 19 | Plurals | Pass | Media complete; approved error formats remain isolated from ordinary real-word choices. |
 | 20 | Prefixes and Suffixes | Pass | Recognition/transfer claims aligned; malformed distractor leakage removed. |
-| 21 | Antonyms and Synonyms | Pass | `cold/cool` ambiguity and repeated-image answer leakage removed across the family. |
+| 21 | Antonyms and Synonyms | Pass | `cold/cool` ambiguity, repeated-image answer leakage, and unrelated filler distractors removed across all 60 items; same-domain policy and regression tests added. |
 | 22 | Homophones and Homonyms | Pass | Context-led evidence retained; answer-bearing decoration excluded. |
 | 23 | Sentence Comprehension | Pass | Ten real scenes added; `Scene:` answer text removed; literal-copy items rewritten. |
 | 24 | Key Details | Pass | Literal answers paraphrased; lexical-overlap shortcut removed. |

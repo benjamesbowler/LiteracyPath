@@ -84,7 +84,7 @@ Child-facing wording rule (from instructional standards): L1 prompts use meaning
 
 **Formats.** `LANGUAGE_PAIR_TEXT_CHOICE` (kept, rewritten items), `GRAMMAR_IMAGE_CHOICE` (L1 picture pairs), `WORD_IN_SENTENCE_SWAP` (L2: "Pick the word that means the SAME as *begin* in: We begin school at nine." — start/end/like/near).
 
-**The distractor law.** Every antonym item's set contains the true opposite (key), a same-category non-opposite (`D-TOPIC-ADJACENT`: for hot — warm), an unrelated same-POS word, and NEVER a synonym-of-key unless the format explicitly contrasts same-vs-opposite. Synonym items mirror it (key synonym, true ANTONYM as one distractor — the discrimination that proves the relation is understood, `D-OPPOSITE`).
+**The distractor law.** Every antonym item's set contains the true opposite (key), a same-category non-opposite (`D-TOPIC-ADJACENT`), and a second plausible same-domain non-relation (`D-SAME-DOMAIN`). Synonym items mirror it: key synonym, true antonym as one distractor (`D-OPPOSITE`), plus near and same-domain misses. Unrelated same-part-of-speech filler is banned: *hot → cold / boiling / wet / green* leaks the answer through category, while *hot → cold / boiling / warm / steaming* keeps every choice in the temperature/heat domain. A synonym-of-key is never used as an antonym distractor unless the format explicitly contrasts same-vs-opposite.
 
 **Bank.** L1: 4 × 6 = 24; L2: 4 × 6 = 24; + R 12 (one shared reserve). Total 60 as shipped (current 234 → 60; the biggest single prune in the family).
 

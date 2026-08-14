@@ -23,7 +23,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/blends/block.webp": {
     "path": "/images/assessment/blends/block.webp",
-    "sha256": "75eed63a59ad9cb8ae469d6d3938cf9c21dcf2fb4241443d366ec4d54462f8e9",
+    "sha256": "487333440fc337834aca8639ee48d8ca2d49104996e48f0edba25a646a3bd3c1",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -38,9 +38,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "quarantine-4x4.png",
+    "sourceSheet": "direct-repair-2026-08-14-v2.png",
     "sourceCell": 1,
-    "repairedFrom": null
+    "repairedFrom": "75eed63a59ad9cb8ae469d6d3938cf9c21dcf2fb4241443d366ec4d54462f8e9"
   },
   "/images/assessment/blends/blue.webp": {
     "path": "/images/assessment/blends/blue.webp",
@@ -989,7 +989,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/digraphs/chain.webp": {
     "path": "/images/assessment/digraphs/chain.webp",
-    "sha256": "eff177c1557b2fe42852eba1d042cda8eb38b908c7e601c5f91be4702dcdff46",
+    "sha256": "60cb0c91e43018fda300426afd4fc845cc526408bb431d309aa4cf4b862d3d5c",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -1004,9 +1004,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "batch5-01.png",
-    "sourceCell": 23,
-    "repairedFrom": null
+    "sourceSheet": "direct-repair-2026-08-14-v2.png",
+    "sourceCell": 2,
+    "repairedFrom": "eff177c1557b2fe42852eba1d042cda8eb38b908c7e601c5f91be4702dcdff46"
   },
   "/images/assessment/digraphs/cheese.webp": {
     "path": "/images/assessment/digraphs/cheese.webp",
@@ -2060,7 +2060,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/generated/concepts/boiling.webp": {
     "path": "/images/assessment/generated/concepts/boiling.webp",
-    "sha256": "33c6734bc993f1531eeb9b8302d988cd22d6e4ef36238d86148cb132d1562914",
+    "sha256": "56c446fffd75316463e1c663ab597b6bb06a370b86666665e4d6b0c1b8346d4c",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -2075,9 +2075,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "quarantine-4x4.png",
-    "sourceCell": 6,
-    "repairedFrom": null
+    "sourceSheet": "direct-repair-2026-08-14-v2.png",
+    "sourceCell": 3,
+    "repairedFrom": "33c6734bc993f1531eeb9b8302d988cd22d6e4ef36238d86148cb132d1562914"
   },
   "/images/assessment/generated/concepts/clean.webp": {
     "path": "/images/assessment/generated/concepts/clean.webp",
@@ -2246,6 +2246,27 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "sourceSheet": "batch5-04.png",
     "sourceCell": 7,
     "repairedFrom": null
+  },
+  "/images/assessment/generated/concepts/proud.webp": {
+    "path": "/images/assessment/generated/concepts/proud.webp",
+    "sha256": "40d10f026fdd6a9d0e8fff7d166e1a045fce0e75f6f4541fba3f0c71feb99d07",
+    "visualReview": "approved",
+    "reviewedAt": "2026-08-14",
+    "brightness": "bright",
+    "saturation": "bold",
+    "medium": "classic-flat-2d-cartoon",
+    "contours": "crisp",
+    "surfaces": "smooth-solid",
+    "grain": false,
+    "paperOrCanvasTexture": false,
+    "embossed": false,
+    "bevelled": false,
+    "faux3d": false,
+    "photoreal": false,
+    "painterly": false,
+    "sourceSheet": "direct-repair-2026-08-14-v3.png",
+    "sourceCell": 5,
+    "repairedFrom": "433dd4adb99a57053002d9d11bb4faf42c8297244fe7d03de03c049c6e838035"
   },
   "/images/assessment/generated/concepts/heavy.webp": {
     "path": "/images/assessment/generated/concepts/heavy.webp",
@@ -2879,7 +2900,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/generated/concepts/warm.webp": {
     "path": "/images/assessment/generated/concepts/warm.webp",
-    "sha256": "d411d48df83caf7714bcace7fd12d863940e4dd2028e7da39fab82401a4d8535",
+    "sha256": "825cd4c72a1d85610908e141a47303f9d3d089863b54cef3b5c2d79091ad9e6d",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -2894,9 +2915,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "batch5-05.png",
-    "sourceCell": 13,
-    "repairedFrom": null
+    "sourceSheet": "browser-repair-2026-08-14-v4.png",
+    "sourceCell": 3,
+    "repairedFrom": "d411d48df83caf7714bcace7fd12d863940e4dd2028e7da39fab82401a4d8535"
   },
   "/images/assessment/generated/concepts/wind.webp": {
     "path": "/images/assessment/generated/concepts/wind.webp",
@@ -5756,7 +5777,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/language/variants/adjectives/sleepy-01.webp": {
     "path": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
-    "sha256": "a267bad87a5dcc010ce9021cb2148fc281b679851e657bc537515f639d62f233",
+    "sha256": "44209396e9092464db023ce54008072a264d0ccf75c878e767b78b1ebae845b1",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -5771,9 +5792,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "batch5-10.png",
-    "sourceCell": 25,
-    "repairedFrom": null
+    "sourceSheet": "direct-repair-2026-08-14-v3.png",
+    "sourceCell": 6,
+    "repairedFrom": "a267bad87a5dcc010ce9021cb2148fc281b679851e657bc537515f639d62f233"
   },
   "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp": {
     "path": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
@@ -5840,7 +5861,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp": {
     "path": "/images/assessment/language/variants/antonyms-synonyms/glad-upset-01.webp",
-    "sha256": "74cf643deade1a32fd91ebd10e65997eab1f0b7c6ac3117ad5fd572dcdadb115",
+    "sha256": "7843d9d8c90a7e22f11fae4111958093ce68003411002d338afc691e4ec6b3ec",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -5855,9 +5876,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "batch5-11.png",
-    "sourceCell": 4,
-    "repairedFrom": null
+    "sourceSheet": "browser-repair-2026-08-14-v4.png",
+    "sourceCell": 1,
+    "repairedFrom": "74cf643deade1a32fd91ebd10e65997eab1f0b7c6ac3117ad5fd572dcdadb115"
   },
   "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp": {
     "path": "/images/assessment/language/variants/antonyms-synonyms/sharp-dull-01.webp",
@@ -25034,7 +25055,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/release-support/targets/fur-cee609.webp": {
     "path": "/images/assessment/release-support/targets/fur-cee609.webp",
-    "sha256": "1c7bbd2d96639dea9402c32611395cf320d9e8000dad5d9991c86641de18dee6",
+    "sha256": "b64f5d381b0ac222ae952b95e5c98530755dc1dc16895962946454f9e91e38ed",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -25049,9 +25070,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "support-18.png",
-    "sourceCell": 9,
-    "repairedFrom": null
+    "sourceSheet": "direct-repair-2026-08-14-v2.png",
+    "sourceCell": 4,
+    "repairedFrom": "1c7bbd2d96639dea9402c32611395cf320d9e8000dad5d9991c86641de18dee6"
   },
   "/images/assessment/release-support/targets/game-cda051.webp": {
     "path": "/images/assessment/release-support/targets/game-cda051.webp",
@@ -26399,7 +26420,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/rhyming/variants/ad/sad-02.webp": {
     "path": "/images/assessment/rhyming/variants/ad/sad-02.webp",
-    "sha256": "398eaa7d18456bddcc43ccaa0e2c069a3c5a86251e24249374004c223b37aece",
+    "sha256": "7b38e07cfc9616d552fcbac68e1accef6ab86ec3f65dbdc3d56c75f1ba9cd370",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -26414,9 +26435,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "batch5-14.png",
-    "sourceCell": 9,
-    "repairedFrom": null
+    "sourceSheet": "browser-repair-2026-08-14-v4.png",
+    "sourceCell": 5,
+    "repairedFrom": "398eaa7d18456bddcc43ccaa0e2c069a3c5a86251e24249374004c223b37aece"
   },
   "/images/assessment/rhyming/variants/ag/bag-02.webp": {
     "path": "/images/assessment/rhyming/variants/ag/bag-02.webp",
@@ -27197,7 +27218,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/rhyming/variants/et/wet-02.webp": {
     "path": "/images/assessment/rhyming/variants/et/wet-02.webp",
-    "sha256": "896d30775f43c27f6e4cd3d2e0ab9ddfa2decded80ef1d9301d967fc9ede0fec",
+    "sha256": "3198c76943b209d98e42d55680fc68b6bb216083922e63eab312dec7f8b9be8e",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -27212,9 +27233,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "batch5-15.png",
-    "sourceCell": 22,
-    "repairedFrom": null
+    "sourceSheet": "browser-repair-2026-08-14-v4.png",
+    "sourceCell": 4,
+    "repairedFrom": "896d30775f43c27f6e4cd3d2e0ab9ddfa2decded80ef1d9301d967fc9ede0fec"
   },
   "/images/assessment/rhyming/variants/house/house-02.webp": {
     "path": "/images/assessment/rhyming/variants/house/house-02.webp",
@@ -27785,7 +27806,7 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
   },
   "/images/assessment/rhyming/variants/ot/hot-02.webp": {
     "path": "/images/assessment/rhyming/variants/ot/hot-02.webp",
-    "sha256": "86c9cae441ed5a6309a38358f1a7008e79ed888313f7b8edff7dc4b9929205d0",
+    "sha256": "81fde38198e7b0d73f203108b69f20a8ee3889ff4ab52187371e523dd6972d2f",
     "visualReview": "approved",
     "reviewedAt": "2026-08-14",
     "brightness": "bright",
@@ -27800,9 +27821,9 @@ export const ASSESSMENT_IMAGE_STYLE_DECISIONS = Object.freeze({
     "faux3d": false,
     "photoreal": false,
     "painterly": false,
-    "sourceSheet": "quarantine-4x4.png",
-    "sourceCell": 12,
-    "repairedFrom": null
+    "sourceSheet": "browser-repair-2026-08-14-v4.png",
+    "sourceCell": 2,
+    "repairedFrom": "86c9cae441ed5a6309a38358f1a7008e79ed888313f7b8edff7dc4b9929205d0"
   },
   "/images/assessment/rhyming/variants/ot/pot-02.webp": {
     "path": "/images/assessment/rhyming/variants/ot/pot-02.webp",
