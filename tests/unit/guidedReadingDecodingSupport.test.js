@@ -9,10 +9,11 @@ import {
   normalizeDecodingSupportEvent
 } from "../../src/utils/guidedReading/decodingSupport.js";
 
-test("multi-sound words follow whole word, sounds, reread, then restart", () => {
+test("safe short-vowel words follow whole word, sounds, spelling, reread, then restart", () => {
   const whole = getNextDecodingSupportStep({ word: "cat" });
   const sounds = getNextDecodingSupportStep({ word: "cat", previousStage: whole.stage });
-  const reread = getNextDecodingSupportStep({ word: "cat", previousStage: sounds.stage });
+  const spelling = getNextDecodingSupportStep({ word: "cat", previousStage: sounds.stage });
+  const reread = getNextDecodingSupportStep({ word: "cat", previousStage: spelling.stage });
   const restart = getNextDecodingSupportStep({ word: "cat", previousStage: reread.stage });
 
   assert.equal(whole.stage, DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO);
@@ -21,16 +22,32 @@ test("multi-sound words follow whole word, sounds, reread, then restart", () => 
   assert.equal(sounds.hasCompletePhonemeAudio, true);
   assert.equal(sounds.phonemeAudioPaths.length, 3);
   assert.ok(sounds.phonemeAudioPaths.every(path => path.startsWith("/audio/")));
+  assert.equal(spelling.stage, DECODING_SUPPORT_STAGES.LETTER_SPELLING);
+  assert.deepEqual(spelling.letters, ["c", "a", "t"]);
+  assert.equal(spelling.hasCompleteSpellingAudio, true);
+  assert.equal(spelling.letterAudioPaths.length, 3);
   assert.equal(reread.stage, DECODING_SUPPORT_STAGES.REREAD_PROMPT);
   assert.equal(restart.stage, DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO);
 });
 
-test("a single-sound word skips redundant segmentation and reaches reread", () => {
+test("a single-letter word skips sound segmentation but still spells before rereading", () => {
   const whole = getNextDecodingSupportStep({ word: "a" });
-  const reread = getNextDecodingSupportStep({ word: "a", previousStage: whole.stage });
+  const spelling = getNextDecodingSupportStep({ word: "a", previousStage: whole.stage });
+  const reread = getNextDecodingSupportStep({ word: "a", previousStage: spelling.stage });
 
   assert.equal(whole.stage, DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO);
+  assert.equal(spelling.stage, DECODING_SUPPORT_STAGES.LETTER_SPELLING);
   assert.equal(reread.stage, DECODING_SUPPORT_STAGES.REREAD_PROMPT);
+});
+
+test("ambiguous graphemes skip guessed phonemes and keep exact word plus spelling support", () => {
+  for (const word of ["school", "book", "bread", "cow", "the", "circle", "giant", "character", "twitch"]) {
+    const whole = getNextDecodingSupportStep({ word });
+    const spelling = getNextDecodingSupportStep({ word, previousStage: whole.stage });
+    assert.equal(spelling.stage, DECODING_SUPPORT_STAGES.LETTER_SPELLING, word);
+    assert.equal(spelling.hasCompletePhonemeAudio, false, word);
+    assert.equal(spelling.hasCompleteSpellingAudio, true, word);
+  }
 });
 
 test("support events normalize, de-duplicate by identity, and retain the newest 300", () => {
@@ -70,9 +87,9 @@ test("invalid events are rejected and instructional copy never cues guessing", (
   const steps = [
     getNextDecodingSupportStep({ word: "night" }),
     getNextDecodingSupportStep({ word: "night", previousStage: DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO }),
-    getNextDecodingSupportStep({ word: "night", previousStage: DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES })
+    getNextDecodingSupportStep({ word: "night", previousStage: DECODING_SUPPORT_STAGES.LETTER_SPELLING })
   ];
   const copy = steps.map(step => step.message).join(" ").toLowerCase();
   assert.doesNotMatch(copy, /picture|context|guess|illustration/);
-  assert.match(copy, /letters and sounds/);
+  assert.match(copy, /spell/);
 });

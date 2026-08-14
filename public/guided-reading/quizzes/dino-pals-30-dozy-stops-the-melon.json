@@ -29,7 +29,7 @@
       "answer": "Zippy runs up and taps it. The melon rolls fast.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Zippy runs up and taps it. The melon rolls fast. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Zippy runs up and taps it. The melon rolls fast. This shows that the first attempt does not solve the central problem introduced by Dozy guards one round melon for lunch.",
       "evidencePage": 5,
       "evidenceText": "Zippy runs up and taps it. The melon rolls fast."
     },
@@ -44,7 +44,7 @@
       "answer": "Soft stop! Dozy's pillow catches the melon. Zippy slows down.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Soft stop! Dozy's pillow catches the melon. Zippy slows down. This event shows how the central problem is resolved.",
+      "rationale": "Soft stop! Dozy's pillow catches the melon. Zippy slows down. This event shows how the central problem is resolved after Zippy runs up and taps it. The melon rolls fast.",
       "evidencePage": 8,
       "evidenceText": "Soft stop! Dozy's pillow catches the melon. Zippy slows down."
     }

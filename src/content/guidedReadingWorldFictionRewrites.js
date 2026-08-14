@@ -338,22 +338,22 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
   "dino-pals-18-dozys-wonderful-dream": fictionRewrite({
     level: "B",
     canonIds: ["DINO-DOZY", "DINO-BOSSY", "DINO-SUNNY", "DINO-CHOMPY", "DINO-GRUMPY", "DINO-BOUNCY"],
-    storySpine: "Dreaming Dozy wants the warmest cloud bed, but each low cloud fails, so he follows the golden waterfall to Mount Rumble.",
-    failedAttempt: "Food-clouds disappoint Chompy, seat-clouds wobble under Grumpy, and Bouncy's cloud flies away.",
-    resolution: "Dozy reaches the warm peak with his friends, then wakes surrounded by those same friends in the meadow.",
+    storySpine: "Dozy dreams of finding one warm cloud bed that all his waiting friends can share.",
+    failedAttempt: "The first clouds lift too high, break, sink or spring away when the friends try them.",
+    resolution: "A golden stream leads Dozy to his friends, where he builds one sturdy shared cloud and wakes beside them.",
     pages: [
       "Dozy sleeps for hours in Long Meadow.",
       "Bossy and Sunny wait near him.",
-      "Dozy dreams of the best warm cloud bed.",
-      "Soft clouds lift him high. Sunny Hollow looks small.",
-      "Chompy bites his food-cloud. His mouth stays bare.",
-      "Grumpy's seat-cloud will not stay firm.",
-      "Bouncy's cloud springs off with one BOING!",
-      "A gold stream points up to Mount Rumble.",
-      "Dozy finds all his friends on the warm peak.",
-      "Their cloud rests high. Green hills spread far and wide.",
-      "Dozy wakes. His friends sit in a ring.",
-      "Dozy shuts his eyes. His friends curl up close."
+      "Dozy dreams of a warm cloud bed for everyone.",
+      "The first cloud lifts much too high.",
+      "Chompy's food-cloud breaks into mist.",
+      "Grumpy's seat-cloud sinks under him.",
+      "Bouncy's cloud springs away with one BOING!",
+      "A gold stream points towards a warm peak.",
+      "Dozy finds his friends waiting there.",
+      "Together they shape one sturdy shared cloud.",
+      "Dozy wakes. His friends sit close by.",
+      "Dozy pulls everyone close for one shared dream."
     ]
   }),
   "dino-pals-19-zippys-race": fictionRewrite({
@@ -464,9 +464,9 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
   "moonwood-tales-c-04": fictionRewrite({
     level: "C",
     canonIds: ["MOON-GLIMMER", "MOON-SPARK", "MOON-PIP", "MOON-FERN", "MOON-LOCAL-C04-FOX"],
-    storySpine: "Glimmer wants one steady flame, but forcing harder produces smoke and a sore throat, so an urgent seed rescue reveals one protective flare.",
+    storySpine: "Glimmer wants to make useful progress, but forcing for a flame produces smoke and a sore throat, so a seed rescue reveals what warm breath can already do.",
     failedAttempt: "Repeated deep breaths produce smoke, sparks, and cinnamon warmth, but never a steady flame Glimmer can repeat.",
-    resolution: "Glimmer's warning flare makes the fox drop Fern's seeds; they bring the seeds home, and the friends recognize the real flame that appeared when help was needed.",
+    resolution: "Glimmer uses a controlled cinnamon-warm breath to swirl leaves across the fox's path, recovers Fern's seeds and values that useful skill.",
     pages: [
       "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
       "Glimmer planted all four feet and took the first careful breath. A round cloud of gray smoke appeared, but there was no flame inside it.",
@@ -478,8 +478,8 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest.",
       "While the friends rested, a marsh fox darted from the trees with Fern's seed pouch. Glimmer saw the stolen seeds and raced after it.",
       "Glimmer reached the open forest path and planted both feet firmly. \"Drop Fern's seeds!\" they warned as the fox ran toward the far trees.",
-      "A sudden orange flare burst from Glimmer's mouth and landed across the empty path. Startled, the fox dropped the pouch and raced away from the heat.",
-      "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help."
+      "Glimmer blew one steady cinnamon-warm breath. Dry leaves swirled across the path, so the fox dropped the pouch and darted away at once.",
+      "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered."
     ]
   }),
   "moonwood-tales-c-05": fictionRewrite({
@@ -539,7 +539,7 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
       "Burrow checked his careful tunnel records for Dewdrop. He had never drawn the blue-striped fish or found its name beside a single underground path.",
       "Back at the stream, Dewdrop calmly shared exactly what she discovered. \"Why do your stories lead to places you have never visited?\" she asked.",
       "The striped fish swam one slow circle and looked down at the pebbles. \"I wanted to sound important,\" it admitted in a small voice.",
-      "Dewdrop pointed to the fish's unusual blue stripe, which flashed in the water. \"You already have something true and interesting to share,\" she said.",
+      "As Ripple turned, the blue stripe led Dewdrop's eye towards bubbles beneath a twisting root. Tiny bubbles flashed below the stripe in the clear stream.",
       "The fish led Dewdrop beneath a twisting root beside the stream. There, fresh water bubbled from a hidden spring and chilled the bright pebbles.",
       "Dewdrop dipped one finger into the bubbling spring and felt its icy water. The fish then shared smaller facts about the current that she could check.",
       "When Pip arrived, the fish finally offered one simple truth. \"My name is Ripple,\" it said, and began a real story about the cold spring."
@@ -593,19 +593,19 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
   "moonwood-tales-c-10": fictionRewrite({
     level: "C",
     canonIds: ["MOON-LUNA", "MOON-PIP", "MOON-FERN", "MOON-BURROW", "MOON-DEWDROP", "MOON-WREN"],
-    storySpine: "Luna wants to remember an urgent task before afternoon, but searching places at random fails, so the Crystal Stream clue leads to stored seeds.",
-    failedAttempt: "The group searches Hollow Oak, paths, and Whispering Meadow without using Luna's one useful memory: outside water.",
+    storySpine: "Luna remembers that first-tree seeds must be planted today, but the storm has moved the marker for their storage box.",
+    failedAttempt: "The group checks Luna's usual garden and tunnel stores, but neither holds the missing seed box.",
     resolution: "Luna retrieves the first-tree seeds and the group plants them in a ring around tired Hollow Oak.",
     pages: [
-      "Luna woke with the strong feeling that one important task had to happen that day. She searched her memory, but the task itself had completely disappeared.",
-      "The old owl remembered only two clues: the task had to happen outside, and it could not wait. Luna called her friends before more time slipped away.",
-      "Pip asked Luna to remember a sound, smell, or feeling connected to the task. After thinking quietly, she recalled the touch of very cold water.",
-      "Fern suggested the shaded garden, while Burrow named his cool underground tunnels. Luna visited both places, but neither one brought the missing task back.",
-      "The friends searched Hollow Oak, the nearby paths, and all of Whispering Meadow. They found many cold places, yet none held Luna's lost memory.",
-      "Dewdrop finally said the name Crystal Stream, and Luna turned toward the water at once. The familiar rushing sound made her forgotten clue feel close.",
+      "Luna remembered an urgent job: twelve first-tree seeds had to be planted before sunset. She could not find their silver box anywhere.",
+      "She had stored the box outside beside cold water. A storm had moved the little stone that once marked its hiding place.",
+      "Pip asked Luna to remember one more helpful detail. She pictured bright pebbles shifting beneath very cold water. One pebble was striped silver.",
+      "Fern checked the shaded garden while Burrow checked the cool tunnels. Neither place held the silver box. Luna crossed both places off her list.",
+      "The friends searched the nearby paths and Whispering Meadow. They found several bright stones, but no flowing water beside them anywhere nearby.",
+      "Dewdrop named Crystal Stream. Luna remembered hiding the box where its current kept the old seeds cool. The silver pebble marked one broad step.",
       "Luna flew ahead to the stream's broad stepping stones and landed on the largest one. She studied the bright pebbles moving beneath the clear water.",
       "Between the pebbles, a silver box waited exactly where Luna had once hidden it. Dewdrop lifted the box from the current and passed it to her.",
-      "The cold silver box touched Luna's feathers, and the whole task returned. Whatever was inside the box had to be planted before that day ended.",
+      "The cold silver box touched Luna's soft feathers. She checked the twelve seeds and carefully unfolded the planting plan tucked beneath them.",
       "Luna opened the lid and found twelve first-tree seeds inside. Each round seed glowed with steady gold light, waiting for a place in the soil.",
       "As Luna touched one seed, she remembered why she had saved them. \"The tired old trees need young neighbors to grow beside them,\" she explained.",
       "Luna carried the box back to the friends waiting near Hollow Oak. She gave one glowing seed to each helper and showed them where to dig.",
@@ -700,22 +700,22 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
   "moonwood-tales-c-15": fictionRewrite({
     level: "C",
     canonIds: ["MOON-BURROW", "MOON-LUNA"],
-    storySpine: "Burrow wants to understand a carved underground room, but looking alone reveals no meaning, so Luna's remembered touch wakes its stored stories.",
-    failedAttempt: "Burrow studies every carving and glowing stone alone, yet cannot tell what the room records.",
-    resolution: "Luna identifies the Memory Room, lights each carving by touch, and begins its first story while Burrow listens.",
+    storySpine: "Burrow wants to understand a gallery hidden behind the known Memory Room, but its carvings show no order until Luna finds the linking mark.",
+    failedAttempt: "Burrow studies every carving alone, yet cannot tell where the hidden gallery's story begins.",
+    resolution: "Luna recognizes the Memory Room's root mark, wakes a path of carvings and begins the Story Gallery's first tale.",
     pages: [
-      "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
-      "He landed in a chamber wider than any tunnel he had ever made. Burrow brushed dirt from his waistcoat and slowly lifted his lantern to look around.",
+      "Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall blocked it, marked with one deeply carved root.",
+      "A loose stone opened into a hidden gallery beyond the wall. Burrow brushed dirt from his waistcoat and slowly lifted his little brass lantern.",
       "Carved animals, trees, and stars covered every wall. Far above Burrow, tiny stones glowed across the ceiling like a sky hidden deep beneath Moonwood.",
       "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
-      "He hurried to find Luna, who knew Moonwood's oldest secrets. The tunnel was narrow, but Luna carefully folded her broad wings and followed Burrow underground.",
-      "At the chamber doorway, Luna stopped so suddenly that Burrow nearly bumped her. Her amber eyes widened behind her tiny glasses. 'Oh,' she whispered.",
+      "He hurried to find Luna, who knew the Memory Room well. She folded her broad wings and followed Burrow into the narrow new tunnel.",
+      "At the gallery doorway, Luna noticed a familiar carved root. The same mark appeared inside the Memory Room, but this one pointed farther underground.",
       "As Luna stepped inside, one wing brushed a carving. Blue and gold lines woke around the picture, spreading warm light across the dark stone wall.",
       "Burrow stared at the shining picture. 'Have you been here before?' he asked. Luna touched the stone gently, as if greeting a friend she remembered.",
-      "'This is the Memory Room,' Luna explained. 'Moonwood keeps its oldest stories here, so they remain safe when spoken words are forgotten.' Burrow listened closely.",
+      "'This is the Story Gallery behind the Memory Room,' Luna explained. 'Its carvings keep the longer stories safe.' Burrow listened closely beside her.",
       "Luna settled beneath the first glowing carving and began its tale. Burrow sat beside her, listening as the pictured characters seemed to move in the light.",
       "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room.",
-      "Night came while Burrow and Luna were still listening belowground. Many carvings remained dark, but Burrow smiled. The Memory Room had many more stories to share."
+      "Night came while Burrow and Luna were still listening belowground. Many carvings remained dark, but the hidden Story Gallery was no longer lost."
     ]
   }),
   "moonwood-tales-c-16": fictionRewrite({
@@ -784,19 +784,19 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
   "moonwood-tales-c-19": fictionRewrite({
     level: "C",
     canonIds: ["MOON-LUNA", "MOON-PIP", "MOON-FLINT", "MOON-WREN", "MOON-SPARK", "MOON-STONE", "MOON-BURROW", "MOON-DEWDROP", "MOON-FERN"],
-    storySpine: "Luna wants the missing glow seeds found before night, but hurried searches and spells fail, so Fern listens for their living shoots.",
+    storySpine: "Luna wants the missing glow seeds found before night, but hurried searches fail until a cracked box and gold dust lead to Fern's garden.",
     failedAttempt: "Every group searches the expected hiding places while search spells point only at their casters, finding no seeds.",
-    resolution: "Fern discovers she planted them two nights earlier; the group protects the glowing seedlings where they are growing.",
+    resolution: "The trail reveals that storm water carried the escaped seeds into Fern's garden, where the group protects their growing shoots.",
     pages: [
-      "Luna opened the glow-seed box and found it completely empty. She searched the shelf and floor, but not one tiny golden seed remained inside Hollow Oak.",
+      "Luna opened the glow-seed box and found it completely empty. A thin crack crossed one corner, with gold dust scattered beneath it.",
       "Without the glow seeds, Moonwood's paths might become dark that night. Luna called the friends together and explained why they had to find every missing seed.",
-      "The friends divided the forest into careful search routes. Each group chose one place to check, and Luna asked everyone to return before the daylight faded.",
+      "The friends divided into careful search groups. Pip followed the gold dust outside, where the storm had washed it into several faint trails.",
       "Pip searched Fog Marsh and found only sticky mud. Flint explored three unmapped turns, drew them neatly, and returned without seeing a single seed.",
       "Wren and Spark tried search spells in the clearing. Their arrows pointed at each other, so both wizards lowered their wands and searched by hand.",
       "Burrow checked every tunnel beneath Hollow Oak. He searched old shelves, fresh piles of earth, and secret corners, but came back with two empty paws.",
-      "Dewdrop scanned Crystal Stream while Fern listened near the clearing. Everyone else watched the ground, yet Fern stayed still because she heard a faint hum.",
+      "Dewdrop followed one rain channel while Fern listened near her garden. Beneath a thick layer of wet leaves, Fern heard a faint hum nearby.",
       "The soft sound came from beneath a layer of leaves in Fern's garden. When she lifted them, small gold-green shoots glowed, and their new roots hummed together.",
-      "Fern gasped as she remembered. 'I planted the glow seeds two nights ago!' She had meant to help them sprout, then forgotten to tell Luna.",
+      "Dewdrop traced the rain channel back to the cracked box. Storm water had carried the escaped seeds straight into Fern's soft garden soil.",
       "The searchers returned from every path and gathered around the bright seedlings. Their worried faces changed to smiles when they saw the missing seeds were safely growing.",
       "Luna touched one shallow root and felt it tremble. 'We should leave them here,' she said. The young plants needed soil, water, and room to grow.",
       "That night, the friends placed small guards around each seedling. Their gold-green light marked every path near Hollow Oak, and no traveler had to walk in darkness."
@@ -804,23 +804,23 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
   }),
   "moonwood-tales-c-20": fictionRewrite({
     level: "C",
-    canonIds: ["MOON-PIP", "MOON-LUNA", "MOON-STONE", "MOON-WREN", "MOON-FLINT", "MOON-SPARK", "MOON-LOCAL-C20-STAR-SPIRITS"],
-    storySpine: "The friends want fallen star spirits returned before dawn, but tossing them from the clearing fails, so they carry them to Tumblerock Cliffs.",
-    failedAttempt: "Pip tosses one spirit upward from the clearing, but it falls back and bounces away.",
-    resolution: "The group climbs to Moonwood's highest safe ledge and lifts each spirit until the sky draws it home.",
+    canonIds: ["MOON-PIP", "MOON-LUNA", "MOON-STONE", "MOON-WREN", "MOON-FLINT", "MOON-SPARK"],
+    storySpine: "The friends want fallen star fragments returned before dawn, but lifting them from the clearing fails, so they carry them to Tumblerock Cliffs.",
+    failedAttempt: "Pip raises one sky spark from the clearing, but it sinks back because the trees block its constellation.",
+    resolution: "The group climbs to Moonwood's highest safe ledge and turns each fragment until its light answers the matching constellation.",
     pages: [
-      "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
-      "The strange lights giggled as they bounced, leaving glowing trails behind them. Pip, Luna, and the others hurried outside to see what had fallen.",
-      "Pip caught one warm light before it bounced into a bush. It had enormous golden eyes, tiny hands, and a frightened face that made him hold it gently.",
-      "The little spirit pointed upward and managed two worried words: 'Star fell.' Pip held it close while the other spirits reached toward the dark sky.",
-      "Luna listened to their soft cries. 'These are fallen star spirits,' she explained. 'They must return to their places in the sky before dawn arrives.'",
-      "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms.",
-      "'The sky can reach them from Tumblerock's highest safe ledge,' Luna said. Flint knew the route, so he quickly unfolded a map and led the group.",
-      "Everyone followed Flint up the rocky path before dawn. Stone carried two spirits, while Wren and Spark kept the bouncing travelers safely away from the cliff edge.",
-      "As they climbed, the star spirits reached toward the sky. Their golden trails grew brighter, and the dark stars above seemed to answer with gentle flashes.",
-      "At the highest ledge, Stone raised both hands. Pip and Spark guided the bouncing spirits beside him, while Luna watched the paling sky for sunrise.",
-      "One by one, each spirit floated from their hands and rose. The sky drew every golden traveler back into its old place among the waiting stars.",
-      "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home."
+      "Near midnight, several small golden fragments fell from the sky into Moonwood. They landed softly among the mushrooms, leaving bright trails across the clearing.",
+      "The silent fragments pulsed with warm light and rolled between the mushrooms. Pip, Luna, and the others hurried outside to examine what had fallen.",
+      "Pip caught one fragment before it rolled into a dark bush. A tiny star pattern glowed across its smooth, warm golden surface.",
+      "Every fragment brightened when Luna turned it towards the sky. High above the trees, the matching constellations answered with faint white flashes.",
+      "Luna studied every pattern carefully. 'These are pieces of old shooting stars,' she explained. 'Their light belongs with those constellations before dawn.'",
+      "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands.",
+      "'The fragments need a clear view from Tumblerock's highest safe ledge,' Luna said. Flint quickly unfolded a map and led the whole group.",
+      "Everyone followed Flint up the rocky path before dawn. Stone carried two fragments while Wren and Spark kept the others wrapped safely.",
+      "Above the trees, each fragment answered its constellation. Fine golden lines joined the little glowing patterns to the distant waiting stars overhead.",
+      "At the highest ledge, Stone raised both broad hands. Pip and Spark turned each fragment while Luna watched the slowly paling sky.",
+      "One by one, the fragments became narrow beams of light. Each golden beam rose into its matching place among the waiting stars.",
+      "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead."
     ]
   }),
   "moonwood-tales-c-21": fictionRewrite({
@@ -889,11 +889,11 @@ export const GUIDED_READING_WORLD_FICTION_REWRITES = Object.freeze({
   "moonwood-tales-c-24": fictionRewrite({
     level: "C",
     canonIds: ["MOON-GLIMMER", "MOON-LUNA", "MOON-PIP", "MOON-STONE"],
-    storySpine: "After weeks of smoke and sparks, Glimmer wants one controlled flame, but excitement wobbles the second attempt, so they pause and try one careful lantern light.",
+    storySpine: "After weeks of smoke, sparks and useful warm breath, Glimmer wants one controlled flame, but excitement wobbles the second attempt, so they pause and try one careful lantern light.",
     failedAttempt: "Glimmer's first tiny flame fades, and excitement makes the longer second flame wobble, so Luna stops the attempt.",
     resolution: "Under Luna's supervision, Glimmer lights one magic lantern inside the fire circle, and the lantern network carries that careful light.",
     pages: [
-      "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+      "After weeks of smoke, sparks, and useful warm breath, Glimmer entered Luna's fire circle. Today, the young dragon hoped to make a first controlled flame.",
       "A full water bucket and red extinguisher waited outside the stone ring. Pip and Stone watched from a safe distance while Luna checked the practice area.",
       "Glimmer took a slow breath and blew gently. One tiny orange flame burned steadily inside the circle, then faded before it touched any of the stones.",
       "Pip covered his mouth to hold back a cheer. Luna checked the ring and nodded. 'The flame stayed inside,' she told Glimmer. 'That was careful.'",

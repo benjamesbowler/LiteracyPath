@@ -9,8 +9,8 @@
       "prompt": "Which event introduces the situation in Wren's One-Object Pocket?",
       "choices": [
         "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
-        "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her.",
-        "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together."
+        "Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed.",
+        "Wren slipped the single leaf bundle into her magic pocket. This time, nothing popped out behind her. She hurried to Hollow Oak as the rain fell harder."
       ],
       "answer": "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "moonwood-tales-c-29-q2",
       "prompt": "Which event shows that the first attempt fails in Wren's One-Object Pocket?",
       "choices": [
-        "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her.",
+        "Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed.",
         "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
-        "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together."
+        "Wren slipped the single leaf bundle into her magic pocket. This time, nothing popped out behind her. She hurried to Hollow Oak as the rain fell harder."
       ],
-      "answer": "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her.",
+      "answer": "Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 4,
-      "evidenceText": "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her."
+      "rationale": "Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed. This shows that the first attempt does not solve the central problem introduced by Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
+      "evidencePage": 5,
+      "evidenceText": "Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed."
     },
     {
       "id": "moonwood-tales-c-29-q3",
       "prompt": "Which event resolves the central problem in Wren's One-Object Pocket?",
       "choices": [
-        "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together.",
+        "Wren slipped the single leaf bundle into her magic pocket. This time, nothing popped out behind her. She hurried to Hollow Oak as the rain fell harder.",
         "Rain began to fall over Fern's garden, where ten moonberries lay drying on a cloth. Fern watched the drops. The berries had to reach Hollow Oak before they were soaked.",
-        "Wren placed the first moonberry inside, then added another and another. The pocket still felt completely light. She hurried toward Hollow Oak without looking behind her."
+        "Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed."
       ],
-      "answer": "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together.",
+      "answer": "Wren slipped the single leaf bundle into her magic pocket. This time, nothing popped out behind her. She hurried to Hollow Oak as the rain fell harder.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together. This event shows how the central problem is resolved.",
-      "evidencePage": 10,
-      "evidenceText": "Rain drummed outside while Fern opened the dry leaf bundle. She counted every moonberry into her bowl. All ten had reached Hollow Oak together."
+      "rationale": "Wren slipped the single leaf bundle into her magic pocket. This time, nothing popped out behind her. She hurried to Hollow Oak as the rain fell harder. This event shows how the central problem is resolved after Each new berry pushed the previous one out of the magic pocket. Plop after plop, moonberries landed safely on the path behind Wren. She never noticed.",
+      "evidencePage": 9,
+      "evidenceText": "Wren slipped the single leaf bundle into her magic pocket. This time, nothing popped out behind her. She hurried to Hollow Oak as the rain fell harder."
     }
   ]
 }

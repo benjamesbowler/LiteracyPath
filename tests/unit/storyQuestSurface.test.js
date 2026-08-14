@@ -86,6 +86,15 @@ test("Story Quest prompt and choices are one direct decision region", () => {
   assert.match(learnAreaSource, /story-quest-learn-page story-quest-active-page/);
 });
 
+test("every Story Quest manuscript word is tappable for exact word and spelling audio", () => {
+  assert.match(playerSource, /tokenizeStoryQuestLine\(line\)/);
+  assert.match(playerSource, /className="story-quest-word"/);
+  assert.match(playerSource, /wordSrc\(word\)/);
+  assert.match(playerSource, /spellingAudioPaths\(word\)/);
+  assert.match(playerSource, /Tap once for the word\. Tap again to spell it\./);
+  assert.match(playerStyles, /\.story-quest-word:focus-visible[\s\S]*?outline:/);
+});
+
 test("Story Quest progress follows the chosen route and replay starts a fresh run", () => {
   assert.match(playerSource, /const currentSceneNumber = history\.length \+ 1;/);
   assert.match(playerSource, /Scene \{currentSceneNumber\}/);

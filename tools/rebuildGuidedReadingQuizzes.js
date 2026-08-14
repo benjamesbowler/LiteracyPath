@@ -161,7 +161,7 @@ const NONFICTION_DETAIL_OVERRIDES = Object.freeze({
 export const FICTION_PAGE_ANCHORS = Object.freeze({
   "bob-and-nan-01": [1, 2, 5],
   "bob-and-nan-02-park": [1, 2, 7],
-  "bob-and-nan-03-fluff": [1, 5, 6],
+  "bob-and-nan-03-fluff": [1, 4, 6],
   "bob-and-nan-04-beach": [1, 5, 7],
   "bob-and-nan-05-school": [1, 4, 7],
   "bob-and-nan-06-zoo": [1, 5, 8],
@@ -448,10 +448,30 @@ function fictionQuestions(book) {
     questions[2] = makeQuestion(book, 2, {
       prompt: "How do Bob and Nan feel after they sip and rest?",
       answerIndex: 6,
-      answerText: "well",
-      choiceTexts: ["well", "ill", "tired"],
+      answerText: "stronger",
+      choiceTexts: ["stronger", "sicker", "sleepier"],
       skill: "outcome",
-      rationale: "Page 7 says Bob and Nan feel well, which shows that sipping and resting helped them recover."
+      rationale: "Page 7 says Bob and Nan feel stronger, which shows that water and rest helped them recover."
+    });
+  }
+  if (book.id === "meadow-pals-03-clucky-lays-an-egg") {
+    questions[0] = makeQuestion(book, 0, {
+      prompt: "What does Clucky need?",
+      answerIndex: 0,
+      answerText: "a safe nest",
+      choiceTexts: ["a safe nest", "a wet puddle", "a hard log"],
+      skill: "character_action",
+      rationale: "Page 1 says Clucky needs a safe nest."
+    });
+  }
+  if (book.id === "meadow-pals-14-speedy-slows-down") {
+    questions[0] = makeQuestion(book, 0, {
+      prompt: "Where does Speedy run first?",
+      answerIndex: 1,
+      answerText: "past the barn",
+      choiceTexts: ["past the barn", "past the pond", "past the hill"],
+      skill: "sequence",
+      rationale: "Page 2 is the first place Speedy passes after setting off."
     });
   }
   if (book.id === "bob-and-nan-09-read") {

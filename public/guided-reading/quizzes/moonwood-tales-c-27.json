@@ -10,7 +10,7 @@
       "choices": [
         "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
         "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
-        "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed."
+        "The reflected moonlight slid across the flower bed from one end to the other. Each glassleaf bud opened into a shining bell. Warm gold light filled every flower."
       ],
       "answer": "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
         "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
-        "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed."
+        "The reflected moonlight slid across the flower bed from one end to the other. Each glassleaf bud opened into a shining bell. Warm gold light filled every flower."
       ],
       "answer": "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark. This shows that the first attempt does not solve the central problem.",
+      "rationale": "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark. This shows that the first attempt does not solve the central problem introduced by Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
       "evidencePage": 3,
       "evidenceText": "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-27-q3",
       "prompt": "Which event resolves the central problem in Stone and the Glassleaf Moonbeam?",
       "choices": [
-        "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed.",
+        "The reflected moonlight slid across the flower bed from one end to the other. Each glassleaf bud opened into a shining bell. Warm gold light filled every flower.",
         "Fern cupped one glassleaf bud as the moon rose over her garden. The bud needed moonlight before it closed, but old branches shaded the flower bed.",
         "As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark."
       ],
-      "answer": "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed.",
+      "answer": "The reflected moonlight slid across the flower bed from one end to the other. Each glassleaf bud opened into a shining bell. Warm gold light filled every flower.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "Stone walked to Crystal Stream and chose one flat, wet rock. Its smooth surface caught the moonlight. He carried it back without entering the fragile flower bed."
+      "rationale": "The reflected moonlight slid across the flower bed from one end to the other. Each glassleaf bud opened into a shining bell. Warm gold light filled every flower. This event shows how the central problem is resolved after As Stone leaned forward, his enormous shadow spread across the garden. Every glassleaf bud disappeared from the moonbeam. The whole flower bed grew dark.",
+      "evidencePage": 9,
+      "evidenceText": "The reflected moonlight slid across the flower bed from one end to the other. Each glassleaf bud opened into a shining bell. Warm gold light filled every flower."
     }
   ]
 }

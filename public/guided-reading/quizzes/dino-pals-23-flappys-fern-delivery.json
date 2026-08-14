@@ -10,7 +10,7 @@
       "choices": [
         "Rain is coming. Flappy carries one wide roof fern.",
         "Whoosh! Wind catches both sides. Flappy spins around.",
-        "He rolls the wide fern into a narrow bundle."
+        "Just in time! The fern roof keeps Cozy Cave dry."
       ],
       "answer": "Rain is coming. Flappy carries one wide roof fern.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Whoosh! Wind catches both sides. Flappy spins around.",
         "Rain is coming. Flappy carries one wide roof fern.",
-        "He rolls the wide fern into a narrow bundle."
+        "Just in time! The fern roof keeps Cozy Cave dry."
       ],
       "answer": "Whoosh! Wind catches both sides. Flappy spins around.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Whoosh! Wind catches both sides. Flappy spins around. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Whoosh! Wind catches both sides. Flappy spins around. This shows that the first attempt does not solve the central problem introduced by Rain is coming. Flappy carries one wide roof fern.",
       "evidencePage": 3,
       "evidenceText": "Whoosh! Wind catches both sides. Flappy spins around."
     },
@@ -37,16 +37,16 @@
       "id": "dino-pals-23-flappys-fern-delivery-q3",
       "prompt": "Which event solves the problem in Flappy's Fern Delivery?",
       "choices": [
-        "He rolls the wide fern into a narrow bundle.",
+        "Just in time! The fern roof keeps Cozy Cave dry.",
         "Rain is coming. Flappy carries one wide roof fern.",
         "Whoosh! Wind catches both sides. Flappy spins around."
       ],
-      "answer": "He rolls the wide fern into a narrow bundle.",
+      "answer": "Just in time! The fern roof keeps Cozy Cave dry.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "He rolls the wide fern into a narrow bundle. This event shows how the central problem is resolved.",
-      "evidencePage": 5,
-      "evidenceText": "He rolls the wide fern into a narrow bundle."
+      "rationale": "Just in time! The fern roof keeps Cozy Cave dry. This event shows how the central problem is resolved after Whoosh! Wind catches both sides. Flappy spins around.",
+      "evidencePage": 8,
+      "evidenceText": "Just in time! The fern roof keeps Cozy Cave dry."
     }
   ]
 }

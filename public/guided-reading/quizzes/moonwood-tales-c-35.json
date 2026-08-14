@@ -9,8 +9,8 @@
       "prompt": "Which event introduces the situation in Pip and Stone Tune the Root Chimes?",
       "choices": [
         "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
-        "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears.",
-        "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches."
+        "CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\"",
+        "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order."
       ],
       "answer": "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "moonwood-tales-c-35-q2",
       "prompt": "Which event shows that the first attempt fails in Pip and Stone Tune the Root Chimes?",
       "choices": [
-        "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears.",
+        "CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\"",
         "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
-        "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches."
+        "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order."
       ],
-      "answer": "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears.",
+      "answer": "CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\"",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears."
+      "rationale": "CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\" This shows that the first attempt does not solve the central problem introduced by Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
+      "evidencePage": 4,
+      "evidenceText": "CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\""
     },
     {
       "id": "moonwood-tales-c-35-q3",
       "prompt": "Which event resolves the central problem in Pip and Stone Tune the Root Chimes?",
       "choices": [
-        "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches.",
+        "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order.",
         "Before moonrise, Hollow Oak's four root chimes made dull, uneven sounds. Pip listened to each one while Stone inspected their cords. Something needed careful tuning.",
-        "Stone tapped the largest chime with his pebble, then used it on the other three. Every chime answered with the same heavy strike. Pip covered his ears."
+        "CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\""
       ],
-      "answer": "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches.",
+      "answer": "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "The large chime rang clearly beneath the smooth stone. The acorn, leaf stem, and fingertip brought clean notes from the others. Pip had found four matches."
+      "rationale": "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order. This event shows how the central problem is resolved after CLANG! Four harsh notes crashed together inside Hollow Oak. The smallest chime twisted on its cord, and Stone quickly lowered the pebble. \"That did not work.\"",
+      "evidencePage": 9,
+      "evidenceText": "Stone began with the lowest root chime, and Pip answered on the next. Together, they followed the matching tools upward. Four separate notes rang in order."
     }
   ]
 }

@@ -9,8 +9,8 @@
       "prompt": "Which event introduces the situation in Flint's Two Shadows?",
       "choices": [
         "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
-        "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel.",
-        "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark."
+        "Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him.",
+        "Flint lifted the lantern low and tested every nearby root again. Each root now cast one clear shadow away from the path. The guide light worked properly."
       ],
       "answer": "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "moonwood-tales-c-32-q2",
       "prompt": "Which event shows that the first attempt fails in Flint's Two Shadows?",
       "choices": [
-        "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel.",
+        "Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him.",
         "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
-        "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark."
+        "Flint lifted the lantern low and tested every nearby root again. Each root now cast one clear shadow away from the path. The guide light worked properly."
       ],
-      "answer": "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel.",
+      "answer": "Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel."
+      "rationale": "Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him. This shows that the first attempt does not solve the central problem introduced by Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
+      "evidencePage": 4,
+      "evidenceText": "Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him."
     },
     {
       "id": "moonwood-tales-c-32-q3",
       "prompt": "Which event resolves the central problem in Flint's Two Shadows?",
       "choices": [
-        "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark.",
+        "Flint lifted the lantern low and tested every nearby root again. Each root now cast one clear shadow away from the path. The guide light worked properly.",
         "Before carrying maps into Deep Dark, Flint stopped at the fern path to test his lantern. He held the light low beside the rolled maps and checked its glow.",
-        "Flint covered one glass panel with his gloved hand. He expected one shadow to vanish, but both remained. The problem was not inside that panel."
+        "Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him."
       ],
-      "answer": "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark.",
+      "answer": "Flint lifted the lantern low and tested every nearby root again. Each root now cast one clear shadow away from the path. The guide light worked properly.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark. This event shows how the central problem is resolved.",
-      "evidencePage": 10,
-      "evidenceText": "Flint tested the lantern two more times before gathering his maps. One shadow appeared each time. Satisfied, he carried the steady light into Deep Dark."
+      "rationale": "Flint lifted the lantern low and tested every nearby root again. Each root now cast one clear shadow away from the path. The guide light worked properly. This event shows how the central problem is resolved after Flint chose the darker shadow and followed it beside the known path. After only a few steps, he walked straight into a thick fern wall. The shadow had misled him.",
+      "evidencePage": 9,
+      "evidenceText": "Flint lifted the lantern low and tested every nearby root again. Each root now cast one clear shadow away from the path. The guide light worked properly."
     }
   ]
 }

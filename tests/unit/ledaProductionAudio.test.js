@@ -75,7 +75,7 @@ test("every live story-quest page resolves to its Leda narration", async () => {
     }))
   ).filter(page => page.text);
 
-  assert.equal(pages.length, 341);
+  assert.equal(pages.length, 340);
   for (const page of pages) {
     const audioPath = getLedaProductionAudioPath(page.text, ["story_page"]);
     assert.match(audioPath, /^\/audio\/production\/en-US\/story_page\//, page.id);

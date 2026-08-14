@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "james-and-anna-01-space",
-  "contentHash": "sha256:bac87725a1c8f3436fb20baba3f482c66de97af60a1f9a024c99ad906166aab2",
+  "contentHash": "sha256:b0e43dca3a1111eb1a7bd870f583c6c2cced6e8230e8cc6d1b37bd09ee7f9e85",
   "questions": [
     {
       "id": "james-and-anna-01-space-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "James and Anna find big boxes in the garden.",
         "“Five, four, three, two, one!” The rocket stays still.",
-        "Bump! They land back in the garden. Mom brings cake."
+        "They open their eyes in the garden. Mom brings cake."
       ],
       "answer": "James and Anna find big boxes in the garden.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "“Five, four, three, two, one!” The rocket stays still.",
         "James and Anna find big boxes in the garden.",
-        "Bump! They land back in the garden. Mom brings cake."
+        "They open their eyes in the garden. Mom brings cake."
       ],
       "answer": "“Five, four, three, two, one!” The rocket stays still.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "james-and-anna-01-space-q3",
       "prompt": "Which event solves the problem in James and Anna go to Space?",
       "choices": [
-        "Bump! They land back in the garden. Mom brings cake.",
+        "They open their eyes in the garden. Mom brings cake.",
         "James and Anna find big boxes in the garden.",
         "“Five, four, three, two, one!” The rocket stays still."
       ],
-      "answer": "Bump! They land back in the garden. Mom brings cake.",
+      "answer": "They open their eyes in the garden. Mom brings cake.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Bump! They land back in the garden. Mom brings cake. This event shows how the central problem is resolved.",
+      "rationale": "They open their eyes in the garden. Mom brings cake. This event shows how the central problem is resolved.",
       "evidencePage": 14,
-      "evidenceText": "Bump! They land back in the garden. Mom brings cake."
+      "evidenceText": "They open their eyes in the garden. Mom brings cake."
     }
   ]
 }

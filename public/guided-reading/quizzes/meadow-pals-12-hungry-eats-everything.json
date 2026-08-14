@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-12-hungry-eats-everything",
-  "contentHash": "sha256:9db4bb4dbde715202ed0578f4f0b6bbca5762b0a4a939fe715113d96c1aecc16",
+  "contentHash": "sha256:7b088c22be56b5663f756152e648b8821add671234688cadd4defe8f6eb0d21b",
   "questions": [
     {
       "id": "meadow-pals-12-hungry-eats-everything-q1",
       "prompt": "What happens first in Hungry Finds Lunch?",
       "choices": [
-        "Hungry eats some grass.",
-        "Hungry is still hungry.",
-        "Hungry feels full and happy now!"
+        "Hungry chews some grass.",
+        "The trough has no water.",
+        "Hungry's tummy feels full."
       ],
-      "answer": "Hungry eats some grass.",
+      "answer": "Hungry chews some grass.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Hungry eats some grass."
+      "evidenceText": "Hungry chews some grass."
     },
     {
       "id": "meadow-pals-12-hungry-eats-everything-q2",
       "prompt": "What goes wrong in Hungry Finds Lunch?",
       "choices": [
-        "Hungry is still hungry.",
-        "Hungry eats some grass.",
-        "Hungry feels full and happy now!"
+        "The trough has no water.",
+        "Hungry chews some grass.",
+        "Hungry's tummy feels full."
       ],
-      "answer": "Hungry is still hungry.",
+      "answer": "The trough has no water.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Hungry is still hungry. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The trough has no water. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 3,
-      "evidenceText": "Hungry is still hungry."
+      "evidenceText": "The trough has no water."
     },
     {
       "id": "meadow-pals-12-hungry-eats-everything-q3",
       "prompt": "What happens at the end of Hungry Finds Lunch?",
       "choices": [
-        "Hungry feels full and happy now!",
-        "Hungry eats some grass.",
-        "Hungry is still hungry."
+        "Hungry's tummy feels full.",
+        "Hungry chews some grass.",
+        "The trough has no water."
       ],
-      "answer": "Hungry feels full and happy now!",
+      "answer": "Hungry's tummy feels full.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Hungry feels full and happy now! This event shows how the central problem is resolved.",
+      "rationale": "Hungry's tummy feels full. This event shows how the central problem is resolved.",
       "evidencePage": 7,
-      "evidenceText": "Hungry feels full and happy now!"
+      "evidenceText": "Hungry's tummy feels full."
     }
   ]
 }

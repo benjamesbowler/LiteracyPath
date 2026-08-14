@@ -42,8 +42,11 @@ test("every readable Guided Reading word token has current Leda audio", async ()
     for (const page of book.pages || []) {
       if (page.active === false) continue;
       const pageText = Array.isArray(page.text) ? page.text.join(" ") : String(page.text || "");
-      const readableTokens = (pageText.match(/[A-Za-z0-9'’—–-]+/g) || [])
-        .filter(token => /[A-Za-z0-9]/.test(token));
+      // Match the real reader: em/en dashes separate words, while hyphens and
+      // apostrophes can remain inside one tappable word.
+      const readableTokens = pageText.match(
+        /[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*(?:-[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*)*/g
+      ) || [];
       for (const token of readableTokens) {
         const audioPath = getGuidedReadingWordProductionAudioPath({ text: token });
         if (!audioPath.startsWith("/audio/production/en-US/")) {
@@ -59,6 +62,34 @@ test("every readable Guided Reading word token has current Leda audio", async ()
     }
   }
   assert.deepEqual([...missing], []);
+});
+
+test("runtime Guided Reading word buttons split dash-separated words and all resolve to Leda audio", async () => {
+  const failures = [];
+  for (const book of guidedReadingBooks) {
+    for (const page of book.pages || []) {
+      if (page.active === false) continue;
+      for (const [wordIndex, word] of (page.words || []).entries()) {
+        const token = String(word?.text || word || "");
+        const location = [book.id, "page-" + (page.pageNumber || "?"), "word-" + wordIndex];
+        if (/[–—]/.test(token)) {
+          failures.push([...location, "joined-dash", token].join(":"));
+          continue;
+        }
+        const audioPath = getGuidedReadingWordProductionAudioPath(word);
+        if (!audioPath.startsWith("/audio/production/en-US/")) {
+          failures.push([...location, "mapping", token].join(":"));
+          continue;
+        }
+        try {
+          await access(publicFile(audioPath));
+        } catch {
+          failures.push([...location, "file", token].join(":"));
+        }
+      }
+    }
+  }
+  assert.deepEqual(failures, []);
 });
 
 test("deleted legacy full-book files cannot override replacement page narration", () => {

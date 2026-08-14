@@ -2,28 +2,28 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-24",
-  "contentHash": "sha256:c010a36264bcc4194a548f107e09883a393d643e47b3ccf51f2153de179b3ee3",
+  "contentHash": "sha256:d5c22f832e2cef7f98af84ab00d5c21f4a60c2a54e8ddcb5013ec4a21f597964",
   "questions": [
     {
       "id": "moonwood-tales-c-24-q1",
       "prompt": "Which event introduces the situation in Glimmer Breathes Fire at Last?",
       "choices": [
-        "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+        "After weeks of smoke, sparks, and useful warm breath, Glimmer entered Luna's fire circle. Today, the young dragon hoped to make a first controlled flame.",
         "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished.",
         "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern."
       ],
-      "answer": "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+      "answer": "After weeks of smoke, sparks, and useful warm breath, Glimmer entered Luna's fire circle. Today, the young dragon hoped to make a first controlled flame.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control."
+      "evidenceText": "After weeks of smoke, sparks, and useful warm breath, Glimmer entered Luna's fire circle. Today, the young dragon hoped to make a first controlled flame."
     },
     {
       "id": "moonwood-tales-c-24-q2",
       "prompt": "Which event shows that the first attempt fails in Glimmer Breathes Fire at Last?",
       "choices": [
         "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished.",
-        "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+        "After weeks of smoke, sparks, and useful warm breath, Glimmer entered Luna's fire circle. Today, the young dragon hoped to make a first controlled flame.",
         "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern."
       ],
       "answer": "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished.",
@@ -38,7 +38,7 @@
       "prompt": "Which event resolves the central problem in Glimmer Breathes Fire at Last?",
       "choices": [
         "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern.",
-        "After weeks of making only smoke and sparks, Glimmer entered Luna's fire circle. Today, the young dragon hoped to breathe one small flame that stayed under control.",
+        "After weeks of smoke, sparks, and useful warm breath, Glimmer entered Luna's fire circle. Today, the young dragon hoped to make a first controlled flame.",
         "Glimmer gasped, and the flame began to wobble toward the stones. 'Stop,' Luna said firmly. Glimmer closed their mouth, and the unsafe flame vanished."
       ],
       "answer": "Luna smiled at the young dragon. 'One careful flame lit the whole path,' she said. Glimmer's eyes shone as brightly as the nearest lantern.",

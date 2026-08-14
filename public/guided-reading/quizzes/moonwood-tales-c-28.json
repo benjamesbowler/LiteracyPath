@@ -9,7 +9,7 @@
       "prompt": "Which event introduces the situation in Fern and the Humming Root?",
       "choices": [
         "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
-        "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail.",
+        "Fern sang one calm note and waited for the root to relax. Instead, the root copied her sound by curling into one new loop. Fern stared.",
         "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear."
       ],
       "answer": "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
@@ -22,16 +22,16 @@
       "id": "moonwood-tales-c-28-q2",
       "prompt": "Which event shows that the first attempt fails in Fern and the Humming Root?",
       "choices": [
-        "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail.",
+        "Fern sang one calm note and waited for the root to relax. Instead, the root copied her sound by curling into one new loop. Fern stared.",
         "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
         "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear."
       ],
-      "answer": "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail.",
+      "answer": "Fern sang one calm note and waited for the root to relax. Instead, the root copied her sound by curling into one new loop. Fern stared.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 5,
-      "evidenceText": "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail."
+      "rationale": "Fern sang one calm note and waited for the root to relax. Instead, the root copied her sound by curling into one new loop. Fern stared. This shows that the first attempt does not solve the central problem introduced by At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
+      "evidencePage": 4,
+      "evidenceText": "Fern sang one calm note and waited for the root to relax. Instead, the root copied her sound by curling into one new loop. Fern stared."
     },
     {
       "id": "moonwood-tales-c-28-q3",
@@ -39,12 +39,12 @@
       "choices": [
         "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear.",
         "At sunrise, Fern found a silver root curled across Hollow Oak's front step. One loose curve stretched from side to side, blocking every stair. Nobody could pass.",
-        "Fern tried three more soft notes, hoping a longer song would help. The silver root answered with three tight loops. They wrapped around the wooden rail."
+        "Fern sang one calm note and waited for the root to relax. Instead, the root copied her sound by curling into one new loop. Fern stared."
       ],
       "answer": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear. This event shows how the central problem is resolved.",
+      "rationale": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear. This event shows how the central problem is resolved after Fern sang one calm note and waited for the root to relax. Instead, the root copied her sound by curling into one new loop. Fern stared.",
       "evidencePage": 9,
       "evidenceText": "Fern gave one final tap, making three slow taps in all. The root followed the three vibrations around the wooden frame. Soon the front step was clear."
     }

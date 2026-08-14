@@ -9,8 +9,8 @@
       "prompt": "Which event introduces the situation in Glimmer and the Sticky Stars?",
       "choices": [
         "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
-        "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully.",
-        "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm."
+        "The top star's points curled inward, but the deeper stars remained stuck. The sap between them was still cold and hard. Glimmer closed their mouth at once.",
+        "Glimmer lifted one paper star, then another, while Luna held the stack steady. Every layer came apart cleanly. Not one star point tore."
       ],
       "answer": "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "moonwood-tales-c-33-q2",
       "prompt": "Which event shows that the first attempt fails in Glimmer and the Sticky Stars?",
       "choices": [
-        "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully.",
+        "The top star's points curled inward, but the deeper stars remained stuck. The sap between them was still cold and hard. Glimmer closed their mouth at once.",
         "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
-        "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm."
+        "Glimmer lifted one paper star, then another, while Luna held the stack steady. Every layer came apart cleanly. Not one star point tore."
       ],
-      "answer": "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully.",
+      "answer": "The top star's points curled inward, but the deeper stars remained stuck. The sap between them was still cold and hard. Glimmer closed their mouth at once.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully."
+      "rationale": "The top star's points curled inward, but the deeper stars remained stuck. The sap between them was still cold and hard. Glimmer closed their mouth at once. This shows that the first attempt does not solve the central problem introduced by Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
+      "evidencePage": 4,
+      "evidenceText": "The top star's points curled inward, but the deeper stars remained stuck. The sap between them was still cold and hard. Glimmer closed their mouth at once."
     },
     {
       "id": "moonwood-tales-c-33-q3",
       "prompt": "Which event resolves the central problem in Glimmer and the Sticky Stars?",
       "choices": [
-        "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm.",
+        "Glimmer lifted one paper star, then another, while Luna held the stack steady. Every layer came apart cleanly. Not one star point tore.",
         "Luna showed Glimmer a stack of paper stars glued together with cold tree sap. The amber sap had hardened between every layer. Class would begin soon.",
-        "Glimmer leaned over the table and blew cinnamon warmth across the top paper star. Warm air brushed its points. Luna watched the stack carefully."
+        "The top star's points curled inward, but the deeper stars remained stuck. The sap between them was still cold and hard. Glimmer closed their mouth at once."
       ],
-      "answer": "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm.",
+      "answer": "Glimmer lifted one paper star, then another, while Luna held the stack steady. Every layer came apart cleanly. Not one star point tore.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "From that safe distance, Glimmer warmed one flat rock with gentle breath. They kept the rock far from the paper. Soon its surface felt evenly warm."
+      "rationale": "Glimmer lifted one paper star, then another, while Luna held the stack steady. Every layer came apart cleanly. Not one star point tore. This event shows how the central problem is resolved after The top star's points curled inward, but the deeper stars remained stuck. The sap between them was still cold and hard. Glimmer closed their mouth at once.",
+      "evidencePage": 9,
+      "evidenceText": "Glimmer lifted one paper star, then another, while Luna held the stack steady. Every layer came apart cleanly. Not one star point tore."
     }
   ]
 }

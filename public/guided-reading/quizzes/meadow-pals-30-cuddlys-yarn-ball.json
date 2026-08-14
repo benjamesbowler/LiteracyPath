@@ -10,7 +10,7 @@
       "choices": [
         "Cuddly finds loose red yarn.",
         "Three knots pull tight.",
-        "Cuddly taps her tidy ball."
+        "Cuddly rolls yarn into a ball."
       ],
       "answer": "Cuddly finds loose red yarn.",
       "kind": "text",
@@ -24,29 +24,29 @@
       "choices": [
         "Three knots pull tight.",
         "Cuddly finds loose red yarn.",
-        "Cuddly taps her tidy ball."
+        "Cuddly rolls yarn into a ball."
       ],
       "answer": "Three knots pull tight.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Three knots pull tight. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Three knots pull tight. This shows that the first attempt does not solve the central problem introduced by Cuddly finds loose red yarn.",
       "evidencePage": 4,
       "evidenceText": "Three knots pull tight."
     },
     {
       "id": "meadow-pals-30-cuddlys-yarn-ball-q3",
-      "prompt": "What happens at the end of Cuddly's Yarn Ball?",
+      "prompt": "What solves the problem in Cuddly's Yarn Ball?",
       "choices": [
-        "Cuddly taps her tidy ball.",
+        "Cuddly rolls yarn into a ball.",
         "Cuddly finds loose red yarn.",
         "Three knots pull tight."
       ],
-      "answer": "Cuddly taps her tidy ball.",
+      "answer": "Cuddly rolls yarn into a ball.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Cuddly taps her tidy ball. This event shows how the central problem is resolved.",
-      "evidencePage": 8,
-      "evidenceText": "Cuddly taps her tidy ball."
+      "rationale": "Cuddly rolls yarn into a ball. This event shows how the central problem is resolved after Three knots pull tight.",
+      "evidencePage": 7,
+      "evidenceText": "Cuddly rolls yarn into a ball."
     }
   ]
 }

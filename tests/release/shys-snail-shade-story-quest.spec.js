@@ -53,7 +53,7 @@ test("Shy's Snail Shade traverses a mixed-material route in the real child playe
   );
 
   await reader.getByRole("button", { name: "Finish", exact: true }).click();
-  await expect(page.getByRole("img", { name: "Shy's Snail Shade complete" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Shy's Snail Shade complete" })).toBeVisible();
 
   await page.getByRole("button", { name: "Read again", exact: true }).click();
   await expect(reader).toContainText("Hot sun dries one snail trail.");
@@ -70,6 +70,6 @@ test("Shy's Snail Shade traverses a mixed-material route in the real child playe
   await reader.getByRole("button", { name: "Under the old log", exact: true }).click();
   await expect(reader).toContainText("The snail reaches cool bark under the log.");
   await reader.getByRole("button", { name: "Finish", exact: true }).click();
-  await expect(page.getByRole("img", { name: "Shy's Snail Shade complete" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "Shy's Snail Shade complete" })).toBeVisible();
   expect(runtimeErrors).toEqual([]);
 });

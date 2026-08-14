@@ -9,8 +9,8 @@
       "prompt": "Which event begins Sneezy's Seed Cloud?",
       "choices": [
         "Tickly seed fluff drifts toward Cozy Cave.",
-        "\"Stand back!\" Sneezy gives one careful sneeze.",
-        "Sneezy sweeps the fluff onto the damp leaf."
+        "Poof! The fluff bursts into a bigger cloud.",
+        "Dozy enters the clear cave. Sneezy plants the seeds."
       ],
       "answer": "Tickly seed fluff drifts toward Cozy Cave.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-25-sneezys-seed-cloud-q2",
       "prompt": "Which event shows the first plan fails in Sneezy's Seed Cloud?",
       "choices": [
-        "\"Stand back!\" Sneezy gives one careful sneeze.",
+        "Poof! The fluff bursts into a bigger cloud.",
         "Tickly seed fluff drifts toward Cozy Cave.",
-        "Sneezy sweeps the fluff onto the damp leaf."
+        "Dozy enters the clear cave. Sneezy plants the seeds."
       ],
-      "answer": "\"Stand back!\" Sneezy gives one careful sneeze.",
+      "answer": "Poof! The fluff bursts into a bigger cloud.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "\"Stand back!\" Sneezy gives one careful sneeze. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "\"Stand back!\" Sneezy gives one careful sneeze."
+      "rationale": "Poof! The fluff bursts into a bigger cloud. This shows that the first attempt does not solve the central problem introduced by Tickly seed fluff drifts toward Cozy Cave.",
+      "evidencePage": 4,
+      "evidenceText": "Poof! The fluff bursts into a bigger cloud."
     },
     {
       "id": "dino-pals-25-sneezys-seed-cloud-q3",
       "prompt": "Which event solves the problem in Sneezy's Seed Cloud?",
       "choices": [
-        "Sneezy sweeps the fluff onto the damp leaf.",
+        "Dozy enters the clear cave. Sneezy plants the seeds.",
         "Tickly seed fluff drifts toward Cozy Cave.",
-        "\"Stand back!\" Sneezy gives one careful sneeze."
+        "Poof! The fluff bursts into a bigger cloud."
       ],
-      "answer": "Sneezy sweeps the fluff onto the damp leaf.",
+      "answer": "Dozy enters the clear cave. Sneezy plants the seeds.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Sneezy sweeps the fluff onto the damp leaf. This event shows how the central problem is resolved.",
-      "evidencePage": 7,
-      "evidenceText": "Sneezy sweeps the fluff onto the damp leaf."
+      "rationale": "Dozy enters the clear cave. Sneezy plants the seeds. This event shows how the central problem is resolved after Poof! The fluff bursts into a bigger cloud.",
+      "evidencePage": 8,
+      "evidenceText": "Dozy enters the clear cave. Sneezy plants the seeds."
     }
   ]
 }

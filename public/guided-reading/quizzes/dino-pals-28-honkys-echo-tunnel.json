@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-28-honkys-echo-tunnel",
-  "contentHash": "sha256:fa74e031c301e4b11eb89ce3f72cf8db53a3fc78f1b418a18cb39afc31307803",
+  "contentHash": "sha256:850194fbd86f77b8721de3332d58b374d5ea67f118456189765efd2a97e92a3d",
   "questions": [
     {
       "id": "dino-pals-28-honkys-echo-tunnel-q1",
       "prompt": "Which event begins Honky's Echo Tunnel?",
       "choices": [
-        "Honky finds three tunnels behind Cozy Cave.",
-        "HONK! His biggest call fills the chamber.",
-        "Honky taps one short note near each branch."
+        "Honky finds branching tunnels behind Cozy Cave.",
+        "BOOM! Crashing echoes come from every tunnel.",
+        "Honky finds it! He marks the stream tunnel with a bright stone."
       ],
-      "answer": "Honky finds three tunnels behind Cozy Cave.",
+      "answer": "Honky finds branching tunnels behind Cozy Cave.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Honky finds three tunnels behind Cozy Cave."
+      "evidenceText": "Honky finds branching tunnels behind Cozy Cave."
     },
     {
       "id": "dino-pals-28-honkys-echo-tunnel-q2",
       "prompt": "Which event shows the first plan fails in Honky's Echo Tunnel?",
       "choices": [
-        "HONK! His biggest call fills the chamber.",
-        "Honky finds three tunnels behind Cozy Cave.",
-        "Honky taps one short note near each branch."
+        "BOOM! Crashing echoes come from every tunnel.",
+        "Honky finds branching tunnels behind Cozy Cave.",
+        "Honky finds it! He marks the stream tunnel with a bright stone."
       ],
-      "answer": "HONK! His biggest call fills the chamber.",
+      "answer": "BOOM! Crashing echoes come from every tunnel.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "HONK! His biggest call fills the chamber. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "HONK! His biggest call fills the chamber."
+      "rationale": "BOOM! Crashing echoes come from every tunnel. This shows that the first attempt does not solve the central problem introduced by Honky finds branching tunnels behind Cozy Cave.",
+      "evidencePage": 4,
+      "evidenceText": "BOOM! Crashing echoes come from every tunnel."
     },
     {
       "id": "dino-pals-28-honkys-echo-tunnel-q3",
       "prompt": "Which event solves the problem in Honky's Echo Tunnel?",
       "choices": [
-        "Honky taps one short note near each branch.",
-        "Honky finds three tunnels behind Cozy Cave.",
-        "HONK! His biggest call fills the chamber."
+        "Honky finds it! He marks the stream tunnel with a bright stone.",
+        "Honky finds branching tunnels behind Cozy Cave.",
+        "BOOM! Crashing echoes come from every tunnel."
       ],
-      "answer": "Honky taps one short note near each branch.",
+      "answer": "Honky finds it! He marks the stream tunnel with a bright stone.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Honky taps one short note near each branch. This event shows how the central problem is resolved.",
-      "evidencePage": 5,
-      "evidenceText": "Honky taps one short note near each branch."
+      "rationale": "Honky finds it! He marks the stream tunnel with a bright stone. This event shows how the central problem is resolved after BOOM! Crashing echoes come from every tunnel.",
+      "evidencePage": 8,
+      "evidenceText": "Honky finds it! He marks the stream tunnel with a bright stone."
     }
   ]
 }

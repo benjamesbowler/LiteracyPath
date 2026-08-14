@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import { storyQuests } from "../src/data/storyQuests.js";
 import { GUIDED_READING_LEDA_GAPS } from "../src/data/generated/guidedReadingLedaGaps.generated.js";
 import {
   getLedaWordAudioPath,
@@ -12,7 +13,6 @@ import {
 } from "../src/data/ledaProductionAudio.js";
 import {
   buildGuidedReadingAudioInventory,
-  canonicalVisibleText,
   readablePageText,
   stableStringify
 } from "./guidedReadingAudioPipelineLib.mjs";
@@ -55,6 +55,24 @@ const spokenWordOverrides = Object.freeze({
   "1969": "nineteen sixty-nine"
 });
 
+// Two independent speech-recognition passes agreed that these legacy
+// isolated-word clips were unclear enough to risk teaching the wrong word.
+// Rebuild them as deliberately paced, punctuated Leda takes and keep the
+// replacement mapping stable on future corpus rebuilds.
+const auditoryReplacementWords = new Set([
+  "am", "an", "ant", "banks", "bat", "bears", "blaze", "call", "chalk",
+  "chime", "clothes", "corks", "cub", "cup", "cupped", "date", "fan",
+  "few", "fin", "fit", "flicks", "foam", "germs", "glove", "grade",
+  "grip", "hens", "her", "hooted", "hum", "licked", "lid", "lifts",
+  "mirrored", "misses", "mist", "mover", "mrs", "nap", "neck", "patted",
+  "peeked", "picked", "pollination", "potting", "rub", "scales", "scowls",
+  "screen", "script", "scrubs", "seam", "sighs", "species", "spinnerets",
+  "spirals", "spills", "spreading", "steel", "sticky", "stood", "stored",
+  "sturdy", "swallowed", "tapped", "tart", "thanked", "thing", "think",
+  "tooth", "tugged", "vet", "wake", "whale", "wood", "wool", "worn",
+  "wrist", "you've"
+].map(normalizeLedaAudioText));
+
 function readableWordText(value = "") {
   return String(value || "")
     .replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9%]+$/g, "")
@@ -88,19 +106,39 @@ const wait = milliseconds => new Promise(resolve => setTimeout(resolve, millisec
 
 async function synthesize(accessToken, record) {
   for (let attempt = 1; attempt <= 8; attempt += 1) {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json; charset=utf-8",
-        "x-goog-user-project": projectId
-      },
-      body: JSON.stringify({
-        input: { text: record.spokenText },
-        voice: { languageCode: "en-US", name: voiceName },
-        audioConfig: { audioEncoding: "LINEAR16", sampleRateHertz: 24000 }
-      })
-    });
+    let response;
+    try {
+      response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json; charset=utf-8",
+          "x-goog-user-project": projectId
+        },
+        body: JSON.stringify({
+          input: { text: record.spokenText },
+          voice: { languageCode: "en-US", name: voiceName },
+          audioConfig: {
+            audioEncoding: "LINEAR16",
+            sampleRateHertz: 24000,
+            ...(record.auditoryReplacement ? { speakingRate: 0.85 } : {})
+          }
+        })
+      });
+    } catch (error) {
+      if (attempt === 8) {
+        throw new Error(
+          `${record.lookupText} failed after ${attempt} network attempts: ${error.message}`,
+          { cause: error }
+        );
+      }
+      const retryDelay = Math.min(45000, 2500 * (2 ** (attempt - 1)));
+      console.error(
+        `Google Leda network retry ${attempt}/8 for ${record.lookupText} in ${retryDelay}ms.`
+      );
+      await wait(retryDelay);
+      continue;
+    }
     if (response.ok) {
       const result = await response.json();
       await writeFile(record.wavPath, Buffer.from(result.audioContent, "base64"));
@@ -164,20 +202,44 @@ const pageTexts = new Set(
     .map(row => row.displayedText)
 );
 const wordTexts = new Map();
+function collectVisibleWordAudio(text, tokenPattern) {
+  // Preserve em/en dashes here: the reader renders them as punctuation, not
+  // as a hyphen joining the words on either side.
+  for (const token of String(text || "").normalize("NFKC").match(tokenPattern) || []) {
+    const wordText = readableWordText(token);
+    const normalizedWordText = normalizeLedaAudioText(wordText);
+    if (
+      !wordText
+      || (getLedaWordAudioPath(wordText) && !auditoryReplacementWords.has(normalizedWordText))
+    ) continue;
+    if (!wordTexts.has(normalizedWordText)) {
+      wordTexts.set(normalizedWordText, wordText);
+    }
+  }
+}
+
 for (const book of selectedBooks) {
   for (const page of book.pages || []) {
     if (page.active === false) continue;
-    const pageText = canonicalVisibleText(readablePageText(page));
+    // Match the Guided Reader surface: hyphenated compounds are one tappable
+    // word and straight or curly apostrophes stay inside contractions/names.
+    collectVisibleWordAudio(
+      readablePageText(page),
+      /[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*(?:-[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*)*/g
+    );
+  }
+}
 
-    const visibleWordTokens = (pageText.match(/[A-Za-z0-9'’—–-]+/g) || [])
-      .filter(token => /[A-Za-z0-9]/.test(token));
-    for (const token of visibleWordTokens) {
-      const wordText = readableWordText(token);
-      if (!wordText || getLedaWordAudioPath(wordText)) continue;
-      const normalizedWordText = normalizeLedaAudioText(wordText);
-      if (!wordTexts.has(normalizedWordText)) {
-        wordTexts.set(normalizedWordText, wordText);
-      }
+// Story Quest words use the same whole-word and letter-spelling support as
+// Guided Reading. Include their complete visible vocabulary in an all-level
+// generation run so a tappable story word can never end in a silent state.
+if (!requestedLevel) {
+  for (const quest of storyQuests) {
+    for (const page of quest.pages || []) {
+      collectVisibleWordAudio(
+        Array.isArray(page.text) ? page.text.join(" ") : String(page.text || ""),
+        /[A-Za-z]+(?:['’][A-Za-z]+)*/g
+      );
     }
   }
 }
@@ -187,13 +249,17 @@ const records = [
   ...[...wordTexts.values()].map(lookupText => ({
     role: "isolated_word",
     lookupText,
-    spokenText: spokenWordOverrides[lookupText] || lookupText
+    auditoryReplacement: auditoryReplacementWords.has(normalizeLedaAudioText(lookupText)),
+    spokenText: spokenWordOverrides[lookupText]
+      || (auditoryReplacementWords.has(normalizeLedaAudioText(lookupText))
+        ? `${lookupText.charAt(0).toUpperCase()}${lookupText.slice(1)}.`
+        : lookupText)
   }))
 ].map(record => {
   const spokenText = record.spokenText || record.lookupText;
   const normalizedLookupText = normalizeLedaAudioText(record.lookupText);
   const id = `${slug(record.lookupText) || "spoken"}-${hash(
-    `${voiceName}|${record.role}|${record.lookupText}|${spokenText}`
+    `${voiceName}|${record.role}|${record.lookupText}|${spokenText}|${record.auditoryReplacement ? "auditory-replacement-v1" : "standard"}`
   )}`;
   const outputDirectory = path.join(
     repositoryRoot,
@@ -201,8 +267,9 @@ const records = [
     record.role
   );
   const generatedPublicPath = `/audio/production/en-US/${record.role}/${id}.mp3`;
-  const publicPath = GUIDED_READING_LEDA_GAPS[record.role]?.[normalizedLookupText]
-    || generatedPublicPath;
+  const publicPath = record.auditoryReplacement
+    ? generatedPublicPath
+    : GUIDED_READING_LEDA_GAPS[record.role]?.[normalizedLookupText] || generatedPublicPath;
   const mp3Path = path.join(repositoryRoot, "public", publicPath.replace(/^\/+/, ""));
   const wavPath = mp3Path.replace(/\.mp3$/i, ".wav");
   return {

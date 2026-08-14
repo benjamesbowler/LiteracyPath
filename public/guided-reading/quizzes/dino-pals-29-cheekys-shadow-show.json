@@ -9,8 +9,8 @@
       "prompt": "Which event begins Cheeky's Shadow Show?",
       "choices": [
         "Cheeky plans a shadow show beside Big Flat Rock.",
-        "The noon sun beams straight down. His shadow will not fill the screen.",
-        "Fancy adds ears. Wiggly adds a long tail."
+        "Cheeky waves his arms. Just foot shadows show.",
+        "The big dino shadow takes a bow!"
       ],
       "answer": "Cheeky plans a shadow show beside Big Flat Rock.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "dino-pals-29-cheekys-shadow-show-q2",
       "prompt": "Which event shows the first plan fails in Cheeky's Shadow Show?",
       "choices": [
-        "The noon sun beams straight down. His shadow will not fill the screen.",
+        "Cheeky waves his arms. Just foot shadows show.",
         "Cheeky plans a shadow show beside Big Flat Rock.",
-        "Fancy adds ears. Wiggly adds a long tail."
+        "The big dino shadow takes a bow!"
       ],
-      "answer": "The noon sun beams straight down. His shadow will not fill the screen.",
+      "answer": "Cheeky waves his arms. Just foot shadows show.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The noon sun beams straight down. His shadow will not fill the screen. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "The noon sun beams straight down. His shadow will not fill the screen."
+      "rationale": "Cheeky waves his arms. Just foot shadows show. This shows that the first attempt does not solve the central problem introduced by Cheeky plans a shadow show beside Big Flat Rock.",
+      "evidencePage": 4,
+      "evidenceText": "Cheeky waves his arms. Just foot shadows show."
     },
     {
       "id": "dino-pals-29-cheekys-shadow-show-q3",
       "prompt": "Which event solves the problem in Cheeky's Shadow Show?",
       "choices": [
-        "Fancy adds ears. Wiggly adds a long tail.",
+        "The big dino shadow takes a bow!",
         "Cheeky plans a shadow show beside Big Flat Rock.",
-        "The noon sun beams straight down. His shadow will not fill the screen."
+        "Cheeky waves his arms. Just foot shadows show."
       ],
-      "answer": "Fancy adds ears. Wiggly adds a long tail.",
+      "answer": "The big dino shadow takes a bow!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Fancy adds ears. Wiggly adds a long tail. This event shows how the central problem is resolved.",
-      "evidencePage": 7,
-      "evidenceText": "Fancy adds ears. Wiggly adds a long tail."
+      "rationale": "The big dino shadow takes a bow! This event shows how the central problem is resolved after Cheeky waves his arms. Just foot shadows show.",
+      "evidencePage": 8,
+      "evidenceText": "The big dino shadow takes a bow!"
     }
   ]
 }

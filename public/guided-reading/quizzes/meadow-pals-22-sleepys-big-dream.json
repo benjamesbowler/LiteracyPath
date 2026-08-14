@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-22-sleepys-big-dream",
-  "contentHash": "sha256:54b3f0ad6954cfbcd66e743c41d71d5ffcb04e502131fef55f20a5d44b45ddf0",
+  "contentHash": "sha256:ad588424b84dedbe0b5ef4b2c684e38a365ab9c7170c07d7c4e943b7c5e0a3aa",
   "questions": [
     {
       "id": "meadow-pals-22-sleepys-big-dream-q1",
       "prompt": "What happens first in Sleepy's Big Dream?",
       "choices": [
-        "Sleepy closes his eyes.",
-        "Sleepy stirs. He shuts his eyes.",
-        "Dream Sleepy wins the race!"
+        "Sleepy falls asleep before the race.",
+        "He rests before the last lap.",
+        "Then Sleepy wins by one hoof!"
       ],
-      "answer": "Sleepy closes his eyes.",
+      "answer": "Sleepy falls asleep before the race.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Sleepy closes his eyes."
+      "evidenceText": "Sleepy falls asleep before the race."
     },
     {
       "id": "meadow-pals-22-sleepys-big-dream-q2",
       "prompt": "What goes wrong in Sleepy's Big Dream?",
       "choices": [
-        "Sleepy stirs. He shuts his eyes.",
-        "Sleepy closes his eyes.",
-        "Dream Sleepy wins the race!"
+        "He rests before the last lap.",
+        "Sleepy falls asleep before the race.",
+        "Then Sleepy wins by one hoof!"
       ],
-      "answer": "Sleepy stirs. He shuts his eyes.",
+      "answer": "He rests before the last lap.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Sleepy stirs. He shuts his eyes. This shows that the first attempt does not solve the central problem.",
+      "rationale": "He rests before the last lap. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Sleepy stirs. He shuts his eyes."
+      "evidenceText": "He rests before the last lap."
     },
     {
       "id": "meadow-pals-22-sleepys-big-dream-q3",
       "prompt": "What happens at the end of Sleepy's Big Dream?",
       "choices": [
-        "Dream Sleepy wins the race!",
-        "Sleepy closes his eyes.",
-        "Sleepy stirs. He shuts his eyes."
+        "Then Sleepy wins by one hoof!",
+        "Sleepy falls asleep before the race.",
+        "He rests before the last lap."
       ],
-      "answer": "Dream Sleepy wins the race!",
+      "answer": "Then Sleepy wins by one hoof!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Dream Sleepy wins the race! This event shows how the central problem is resolved.",
+      "rationale": "Then Sleepy wins by one hoof! This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Dream Sleepy wins the race!"
+      "evidenceText": "Then Sleepy wins by one hoof!"
     }
   ]
 }

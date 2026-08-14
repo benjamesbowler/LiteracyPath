@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-10-vet",
-  "contentHash": "sha256:85c327340cd54be3e6394fc7644f568312590bddcf4afc304aa5183e5b7a1caf",
+  "contentHash": "sha256:860138955a1ce66d65543c06428a5249de4744180177c91a1966edd55ce722d0",
   "questions": [
     {
       "id": "bob-and-nan-10-vet-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Fluff has a sore leg.",
         "Rest does not help.",
-        "Fluff can run again!"
+        "Weeks pass. Fluff runs again!"
       ],
       "answer": "Fluff has a sore leg.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "Rest does not help.",
         "Fluff has a sore leg.",
-        "Fluff can run again!"
+        "Weeks pass. Fluff runs again!"
       ],
       "answer": "Rest does not help.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "bob-and-nan-10-vet-q3",
       "prompt": "What happens at the end of Fluff Visits the Vet?",
       "choices": [
-        "Fluff can run again!",
+        "Weeks pass. Fluff runs again!",
         "Fluff has a sore leg.",
         "Rest does not help."
       ],
-      "answer": "Fluff can run again!",
+      "answer": "Weeks pass. Fluff runs again!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Fluff can run again! This event shows how the central problem is resolved.",
+      "rationale": "Weeks pass. Fluff runs again! This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Fluff can run again!"
+      "evidenceText": "Weeks pass. Fluff runs again!"
     }
   ]
 }

@@ -29,13 +29,13 @@
       "answer": "Flowers bounce onto soft grass.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Flowers bounce onto soft grass. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Flowers bounce onto soft grass. This shows that the first attempt does not solve the central problem introduced by Giggly pulls a flower cart.",
       "evidencePage": 4,
       "evidenceText": "Flowers bounce onto soft grass."
     },
     {
       "id": "meadow-pals-35-gigglys-round-wheel-q3",
-      "prompt": "What happens at the end of Giggly's Round Wheel?",
+      "prompt": "What solves the problem in Giggly's Round Wheel?",
       "choices": [
         "All eight flowers arrive!",
         "Giggly pulls a flower cart.",
@@ -44,7 +44,7 @@
       "answer": "All eight flowers arrive!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "All eight flowers arrive! This event shows how the central problem is resolved.",
+      "rationale": "All eight flowers arrive! This event shows how the central problem is resolved after Flowers bounce onto soft grass.",
       "evidencePage": 8,
       "evidenceText": "All eight flowers arrive!"
     }

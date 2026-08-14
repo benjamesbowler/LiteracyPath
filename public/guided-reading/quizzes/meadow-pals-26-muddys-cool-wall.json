@@ -9,7 +9,7 @@
       "prompt": "What happens first in Muddy's Cool Wall?",
       "choices": [
         "Muddy wants a cool mud pool.",
-        "He stacks wet mud blocks.",
+        "The wet wall slumps.",
         "The wall shades the pool."
       ],
       "answer": "Muddy wants a cool mud pool.",
@@ -22,29 +22,29 @@
       "id": "meadow-pals-26-muddys-cool-wall-q2",
       "prompt": "What goes wrong in Muddy's Cool Wall?",
       "choices": [
-        "He stacks wet mud blocks.",
+        "The wet wall slumps.",
         "Muddy wants a cool mud pool.",
         "The wall shades the pool."
       ],
-      "answer": "He stacks wet mud blocks.",
+      "answer": "The wet wall slumps.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "He stacks wet mud blocks. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 2,
-      "evidenceText": "He stacks wet mud blocks."
+      "rationale": "The wet wall slumps. This shows that the first attempt does not solve the central problem introduced by Muddy wants a cool mud pool.",
+      "evidencePage": 3,
+      "evidenceText": "The wet wall slumps."
     },
     {
       "id": "meadow-pals-26-muddys-cool-wall-q3",
-      "prompt": "What happens at the end of Muddy's Cool Wall?",
+      "prompt": "What solves the problem in Muddy's Cool Wall?",
       "choices": [
         "The wall shades the pool.",
         "Muddy wants a cool mud pool.",
-        "He stacks wet mud blocks."
+        "The wet wall slumps."
       ],
       "answer": "The wall shades the pool.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The wall shades the pool. This event shows how the central problem is resolved.",
+      "rationale": "The wall shades the pool. This event shows how the central problem is resolved after The wet wall slumps.",
       "evidencePage": 7,
       "evidenceText": "The wall shades the pool."
     }

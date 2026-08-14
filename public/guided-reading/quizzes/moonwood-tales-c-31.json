@@ -10,7 +10,7 @@
       "choices": [
         "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
         "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
-        "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly."
+        "A little later, Burrow's shovel broke through beneath Fern's empty potting bench. He climbed out and looked around. \"Right place!\" he cheered."
       ],
       "answer": "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
         "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
-        "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly."
+        "A little later, Burrow's shovel broke through beneath Fern's empty potting bench. He climbed out and looked around. \"Right place!\" he cheered."
       ],
       "answer": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start. This shows that the first attempt does not solve the central problem.",
+      "rationale": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start. This shows that the first attempt does not solve the central problem introduced by Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
       "evidencePage": 4,
       "evidenceText": "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-31-q3",
       "prompt": "Which event resolves the central problem in Burrow's Round Tunnel?",
       "choices": [
-        "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly.",
+        "A little later, Burrow's shovel broke through beneath Fern's empty potting bench. He climbed out and looked around. \"Right place!\" he cheered.",
         "Before planting began, Burrow planned a short tunnel from Hollow Oak to Fern's garden. His simple map showed one straight line. He picked up his shovel.",
         "The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start."
       ],
-      "answer": "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly.",
+      "answer": "A little later, Burrow's shovel broke through beneath Fern's empty potting bench. He climbed out and looked around. \"Right place!\" he cheered.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly. This event shows how the central problem is resolved.",
-      "evidencePage": 10,
-      "evidenceText": "Burrow drew the hidden root circle on his map before adding the new crossing below it. This time, his straight line reached Fern's garden exactly."
+      "rationale": "A little later, Burrow's shovel broke through beneath Fern's empty potting bench. He climbed out and looked around. \"Right place!\" he cheered. This event shows how the central problem is resolved after The root curved farther and farther until Burrow suddenly popped aboveground. His own shovel stood beside him. He had dug a complete circle back to the start.",
+      "evidencePage": 8,
+      "evidenceText": "A little later, Burrow's shovel broke through beneath Fern's empty potting bench. He climbed out and looked around. \"Right place!\" he cheered."
     }
   ]
 }

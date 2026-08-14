@@ -22,9 +22,9 @@ const humanFictionRewrite = ({ canonIds, storySpine, failedAttempt, resolution, 
 export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
   "james-and-anna-01-space": humanFictionRewrite({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-ZIM"],
-    storySpine: "James and Anna want their cardboard rocket to reach the Moon.",
+    storySpine: "James and Anna want to turn their cardboard rocket into a shared journey to the Moon.",
     failedAttempt: "Their first countdown leaves the rocket sitting in the garden.",
-    resolution: "Shared imaginative play carries them to Zim and back beside Mom's cake.",
+    resolution: "Anna's star map helps them build an imaginative Moon adventure, then they open their eyes safely at home.",
     sourcePageNumbers: [1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14],
     pages: [
       "James and Anna find big boxes in the garden.",
@@ -33,12 +33,12 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "Snip! Rip! Tape! Their rocket grows all morning.",
       "At last, the red and silver rocket is ready.",
       "“Five, four, three, two, one!” The rocket stays still.",
-      "They shut their eyes. “Blast off!” Whoosh! Up they fly.",
-      "Bump! The rocket lands on the pale, quiet Moon.",
-      "Zim, a tiny green alien, skips over to say hello.",
-      "Boing! James, Anna, and Zim bounce across the Moon.",
-      "Soon Anna turns the rocket home. Zim waves below.",
-      "Bump! They land back in the garden. Mom brings cake."
+      "Anna opens her star map. “Close your eyes,” she says.",
+      "In their game, bright planets sweep past the window.",
+      "Their garden becomes the pale, quiet Moon.",
+      "They imagine Zim and bounce together across the Moon.",
+      "Their game turns the rocket towards home.",
+      "They open their eyes in the garden. Mom brings cake."
     ]
   }),
 
@@ -67,7 +67,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-CHIPS"],
     storySpine: "James and Anna want to bring every item on Mom's list home safely.",
     failedAttempt: "The cake stand distracts them before they finish checking the list.",
-    resolution: "They check again, protect the eggs and earn their cakes after lunch.",
+    resolution: "They check again, protect the eggs and unpack every item before Mom cuts the cakes.",
     sourcePageNumbers: [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13],
     pages: [
       "Mom has a long list. She needs two helpers.",
@@ -81,7 +81,7 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "One lemon cake for James. One jam tart for Anna.",
       "At checkout, James counts each item. Every egg stays whole.",
       "The bread smells wonderful. James reaches in. Anna gives him the look.",
-      "The eggs make it home whole. Cake time! “Drop it, Chips!” He does."
+      "At home, they unpack every item. Then Mom cuts the cakes."
     ]
   }),
 
@@ -218,8 +218,8 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
   "ja-b-10": humanFictionRewrite({
     canonIds: ["HUMAN-JAMES", "HUMAN-ANNA", "HUMAN-CHIPS"],
     storySpine: "James and Anna want to complete one whole night camping in the garden.",
-    failedAttempt: "Their air-horn plan scares Dad, and the crowded tent keeps everyone awake.",
-    resolution: "They last until breakfast, and Anna pulls the final tent zip free from Chips.",
+    failedAttempt: "A fox outside frightens them, but blasting the air horn would frighten everyone nearby.",
+    resolution: "Dad's light quietly sends the fox away, and the family stays safely in the tent until breakfast.",
     sourcePageNumbers: [1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13, 14],
     pages: [
       "Dad wrestles with a green tent. Chips steals one peg.",
@@ -227,11 +227,11 @@ export const GUIDED_READING_HUMAN_FICTION_REWRITES = Object.freeze({
       "In go sleeping bags, flashlight, cards, books, and snacks.",
       "At dusk, marshmallows toast over Dad’s safe fire dish.",
       "Chips lunges. Dad pulls the hot marshmallow away. Phew!",
-      "At midnight, a fox barks. Every camper freezes.",
-      "Anna grabs the air horn. “This will scare it!”",
-      "HONK! The fox runs. So does Dad—in his pajamas.",
+      "At midnight, a fox barks. They stay inside the tent.",
+      "Anna reaches for the horn. Dad says, “Wait.”",
+      "Dad switches on the light. The fox trots away.",
       "Chips leans on James. James leans on Anna. Squash!",
-      "Morning light slips in through Chips’s new tent hole.",
+      "Morning shines through the seam Chips chewed.",
       "They last all night! Hot toast tastes wonderful in the morning.",
       "Mom waits at the door. Chips grabs the zip. Anna pulls it free."
     ]

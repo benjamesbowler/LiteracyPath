@@ -12,7 +12,18 @@ import {
   requestBrowserFullscreen
 } from "../utils/browserFullscreen.js";
 import { STOP_CHILD_AUDIO_EVENT } from "../utils/audio/childAudioLifecycle.js";
+import { spellingAudioPaths, wordSrc } from "../utils/questAudio.js";
 import "./StoryQuestPlayer.css";
+
+function tokenizeStoryQuestLine(line = "") {
+  return String(line)
+    .split(/([A-Za-z]+(?:[’'][A-Za-z]+)*)/g)
+    .filter(Boolean)
+    .map(token => ({
+      token,
+      isWord: /^[A-Za-z]+(?:[’'][A-Za-z]+)*$/.test(token)
+    }));
+}
 
 function StoryQuestImage({ src, title }) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -121,8 +132,11 @@ export function StoryQuestPlayer({
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [activeWordSupport, setActiveWordSupport] = useState(null);
   const audioRef = useRef(null);
   const playerRef = useRef(null);
+  const wordSupportStageRef = useRef(new Map());
+  const wordSupportPlaybackTokenRef = useRef(0);
 
   const currentPage = pageById.get(currentPageId) || quest?.pages?.[0] || null;
   const currentAudioUrl = getStoryQuestPageAudioUrl(currentPage);
@@ -167,6 +181,11 @@ export function StoryQuestPlayer({
     if (!currentPageId || isComplete) return;
     onProgress?.(currentPageId, progressSnapshot);
   }, [currentPageId, isComplete, onProgress, progressSnapshot]);
+
+  useEffect(() => {
+    setActiveWordSupport(null);
+    wordSupportStageRef.current.clear();
+  }, [currentPageId]);
 
   useEffect(() => {
     const stopForRouteChange = () => {
@@ -254,10 +273,57 @@ export function StoryQuestPlayer({
   }, []);
 
   function stopAudio() {
+    wordSupportPlaybackTokenRef.current += 1;
     setIsAudioPlaying(false);
     if (!audioRef.current) return;
     audioRef.current.pause();
     audioRef.current = null;
+  }
+
+  async function playWordSupportSequence(paths) {
+    stopAudio();
+    if (!paths.length) return;
+    const playbackToken = wordSupportPlaybackTokenRef.current;
+    setIsAudioPlaying(true);
+
+    for (const path of paths) {
+      if (playbackToken !== wordSupportPlaybackTokenRef.current) return;
+      await new Promise(resolve => {
+        const audio = new Audio(path);
+        audioRef.current = audio;
+        audio.playbackRate = 0.88;
+        audio.onended = resolve;
+        audio.onerror = resolve;
+        audio.play().catch(resolve);
+      });
+    }
+
+    if (playbackToken === wordSupportPlaybackTokenRef.current) {
+      audioRef.current = null;
+      setIsAudioPlaying(false);
+    }
+  }
+
+  function handleStoryWordClick(displayedWord, wordKey) {
+    const word = String(displayedWord || "").replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, "");
+    if (!word) return;
+
+    const previousStage = wordSupportStageRef.current.get(wordKey) || "";
+    const stage = previousStage === "whole_word" ? "letter_spelling" : "whole_word";
+    const paths = stage === "whole_word"
+      ? [wordSrc(word)].filter(Boolean)
+      : spellingAudioPaths(word);
+    const letters = word.toLowerCase().replace(/[^a-z]/g, "").split("");
+    wordSupportStageRef.current.set(wordKey, stage);
+    setActiveWordSupport({
+      word,
+      stage,
+      audioAvailable: paths.length > 0,
+      message: stage === "whole_word"
+        ? `Hear the whole word: ${word}.`
+        : `Spell ${word}: ${letters.join(" · ")}.`
+    });
+    if (paths.length) void playWordSupportSequence(paths);
   }
 
   function replayAudio() {
@@ -514,9 +580,35 @@ export function StoryQuestPlayer({
             key={`${currentPage.id}-text`}
             transition={{ duration: 0.2 }}
           >
-            {(currentPage.text || []).map((line, index) => (
-              <p key={`${currentPage.id}-${index}`}>{line}</p>
+            {(currentPage.text || []).map((line, lineIndex) => (
+              <p key={`${currentPage.id}-${lineIndex}`}>
+                {tokenizeStoryQuestLine(line).map(({ token, isWord }, tokenIndex) => isWord ? (
+                  <button
+                    aria-label={`Get word and spelling audio for ${token}`}
+                    className="story-quest-word"
+                    key={`${currentPage.id}-${lineIndex}-${tokenIndex}`}
+                    onClick={() => handleStoryWordClick(token, `${currentPage.id}:${lineIndex}:${tokenIndex}`)}
+                    title="Tap once for the word. Tap again to spell it."
+                    type="button"
+                  >
+                    {token}
+                  </button>
+                ) : (
+                  <span aria-hidden="true" key={`${currentPage.id}-${lineIndex}-${tokenIndex}`}>{token}</span>
+                ))}
+              </p>
             ))}
+            {activeWordSupport && (
+              <div
+                aria-live="polite"
+                className={`story-quest-word-support stage-${activeWordSupport.stage}`}
+                role="status"
+              >
+                <strong>{activeWordSupport.stage === "whole_word" ? "Word audio" : "Spell the word"}</strong>
+                <span>{activeWordSupport.message}</span>
+                {!activeWordSupport.audioAvailable && <small>Recorded audio is unavailable for this word.</small>}
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>

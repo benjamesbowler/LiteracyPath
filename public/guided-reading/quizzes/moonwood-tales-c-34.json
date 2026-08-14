@@ -9,7 +9,7 @@
       "prompt": "Which event introduces the situation in Spark's Ten-Count Hook?",
       "choices": [
         "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
-        "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below.",
+        "When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail.",
         "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail."
       ],
       "answer": "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
@@ -22,16 +22,16 @@
       "id": "moonwood-tales-c-34-q2",
       "prompt": "Which event shows that the first attempt fails in Spark's Ten-Count Hook?",
       "choices": [
-        "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below.",
+        "When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail.",
         "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
         "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail."
       ],
-      "answer": "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below.",
+      "answer": "When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below."
+      "rationale": "When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail. This shows that the first attempt does not solve the central problem introduced by Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
+      "evidencePage": 4,
+      "evidenceText": "When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail."
     },
     {
       "id": "moonwood-tales-c-34-q3",
@@ -39,12 +39,12 @@
       "choices": [
         "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail.",
         "Before moonrise, Spark found the lowest lantern hanging beside a broken curved hook. Hollow Oak needed a matching replacement. Spark studied the good hook above it.",
-        "Spark hung the waiting lantern from the glowing copied hook and began to count. For nine counts, the hook held firmly. Luna watched from below."
+        "When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail."
       ],
       "answer": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail. This event shows how the central problem is resolved.",
+      "rationale": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail. This event shows how the central problem is resolved after When Spark called \"ten,\" the golden hook vanished without warning. The lantern dropped, but Luna caught it safely. Spark stared at the empty rail.",
       "evidencePage": 9,
       "evidenceText": "When the root fiber dried, Fern lifted a solid hook from the mold. Its curve matched the good hook exactly. Spark carried it to the lowest rail."
     }

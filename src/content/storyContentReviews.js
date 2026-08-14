@@ -3,12 +3,12 @@ import { STORY_CONTENT_POLICY_VERSION } from "./storyContentPolicy.js";
 export const guidedReadingPolicyBaseline = Object.freeze({
   format: "guided-reading-book",
   itemCount: 206,
-  sourceFingerprint: "50af050c4cb73dfec55eb247121ce9106513f624ec4088fc91b1c07e01fd4c05",
+  sourceFingerprint: "25950ed56950b1cae250fcd91092baa4675886e3969ecd90450251565d4ab62b",
   status: "approved",
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-08-09",
-  reviewer: "Product owner release approval",
-  claim: "All 206 books and 1,861 active pages completed the manuscript, illustration, exact-current-text Leda narration and human listening quality checks. The product owner approved the complete catalogue for publication on 2026-08-09."
+  reviewedAt: "2026-08-14",
+  reviewer: "Codex authorised editorial and media audit",
+  claim: "All 206 books and 1,861 active pages completed the current manuscript, level, complete-book visual, exact-current-text Leda narration, isolated-word and spelling-audio checks. All observed defects were repaired before the 2026-08-14 policy baseline refresh."
 });
 
 const historicalStoryQuestPolicyReviews = Object.freeze([
@@ -505,20 +505,20 @@ const historicalStoryQuestPolicyReviews = Object.freeze([
 ]);
 
 const currentStoryQuestReviewState = Object.freeze({
-  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "d3e56c4b0c5fbab0a1c04ca071d0423f41aba6753a1c6f30836fbd16284247f1", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 0 }),
-  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "243691457ccffc44c7c5a9801aba4ab73c68ea28ae9076ef4898bb2cad0a2ebf", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 0 }),
-  mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "68185519d35e3c94a909ce2b54fedd7dcc092f09e80d75dec3e24be9d6dca606", pages: 27, routes: 616, exactAudio: 27, pendingAudio: 0, listeningPending: 0 }),
-  mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "e5884a8c9f4a14e0d3150797a91f009ed4414abadf41028080edeb35b543e2ff", pages: 30, routes: 532, exactAudio: 30, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "f11fc3793bb1641ed7a31c7282161130dd33e5e4e551ebce0f8db9eb0356d9eb", pages: 21, routes: 133, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_01_pip_stone_loud_thing: Object.freeze({ fingerprint: "6ab0b2fac097713855fa4228ec78137f2d6ba4a3ca7a3039020cedd98c9c1387", pages: 24, routes: 1329, exactAudio: 24, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_02_fern_wren_walking_garden: Object.freeze({ fingerprint: "7fd04693173f3e4777fefc59f4e04cd5b06fa2cd02a13496e6e1d2e3dccb21dc", pages: 23, routes: 604, exactAudio: 23, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_03_luna_burrow_star_shell_door: Object.freeze({ fingerprint: "7c44429a15b5094dc1c16321735b1f6f953ea35a49f41622b5f6b97667fd5ace", pages: 26, routes: 704, exactAudio: 26, pendingAudio: 0, listeningPending: 0 }),
+  mw_ra_c_04_dewdrop_flint_lost_glow: Object.freeze({ fingerprint: "0f12ac1a8c6eab26344ffa39184919baf2b47e420dcb32e110ac919d5c42b820", pages: 30, routes: 532, exactAudio: 30, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_01_chompy_big_lunch_hunt: Object.freeze({ fingerprint: "e2e7674c5fa13ace426ea5e486c6684a075b4532821750efacf1a500ae3a13dd", pages: 21, routes: 133, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
   dp_ra_b_02_sunnys_rainy_day_rescue: Object.freeze({ fingerprint: "310588331bfae8e53d291a33059b3df6202d9da4c209b3e16672ff644d5f0982", pages: 22, routes: 108, exactAudio: 22, pendingAudio: 0, listeningPending: 0 }),
-  dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "a373441af7d94e79d45c20d6e6d9eb79c1eea296cf7fd2e2d45519ac741693d8", pages: 34, routes: 69, exactAudio: 34, pendingAudio: 0, listeningPending: 0 }),
+  dp_ra_b_03_grumpy_almost_good_day: Object.freeze({ fingerprint: "931d8eea33bb131c6e78bb81bd3843bc88a1b7652e770d2d353b5fe3d0fa60f2", pages: 34, routes: 69, exactAudio: 34, pendingAudio: 0, listeningPending: 0 }),
   dp_ra_b_04_bouncy_big_bounce: Object.freeze({ fingerprint: "31cb20488389a660072ff07ff59a509803fb6b1703f69be3e99aeaa1f3bd5d2d", pages: 35, routes: 67, exactAudio: 35, pendingAudio: 0, listeningPending: 0 }),
   dp_ra_b_05_shys_snail_shade: Object.freeze({ fingerprint: "ddfc6d52127963ad33b888173ac5130572c38b161931d029aa9dacb2cbe899ae", pages: 15, routes: 32, exactAudio: 15, pendingAudio: 0, listeningPending: 0 }),
-  story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "aaf0e1f1084c9deecf7f449a30e64a0f34a2e1e3ba6f88f3e725086102e55050", pages: 10, routes: 46, exactAudio: 10, pendingAudio: 0, listeningPending: 0 }),
+  story_quest_short_a_sam_pam_01: Object.freeze({ fingerprint: "7739fe8fc5fe57bb29bf00d4f2bf5e009d7005f4c5a70dc62cd0612e9b54dac9", pages: 10, routes: 50, exactAudio: 10, pendingAudio: 0, listeningPending: 0 }),
   mp_ra_a_01_muddy_splashy_missing_hat: Object.freeze({ fingerprint: "e45ea08ec01148f3b31dae5c78954159889f8764492f9db31dba313ba7feccd8", pages: 20, routes: 106, exactAudio: 20, pendingAudio: 0, listeningPending: 0 }),
-  mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "c98e8d8f718112283600d3e30a6b6776ae685ec3db596e06b34b1c215f258885", pages: 21, routes: 86, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
-  mp_ra_a_03_bouncy_speedy_fast_map: Object.freeze({ fingerprint: "40e567f5b6ef7748b7b6caa83fb2f36aecb5e29727c9c534305a9b9e782a3a83", pages: 27, routes: 119, exactAudio: 27, pendingAudio: 0, listeningPending: 0 }),
-  mp_ra_a_04_brave_tiny_big_little_rescue: Object.freeze({ fingerprint: "94bacac37ee1d7d8c33ee3465a7a21358616cfa6b77ef0eb0ef7233d7bed1e31", pages: 32, routes: 102, exactAudio: 32, pendingAudio: 0, listeningPending: 0 })
+  mp_ra_a_02_shy_cuddly_quiet_adventure: Object.freeze({ fingerprint: "53ea487ec09ad2959ef00804522d693e89c367ac1d8e90e1a7bb1129cd3d5dd0", pages: 21, routes: 86, exactAudio: 21, pendingAudio: 0, listeningPending: 0 }),
+  mp_ra_a_03_bouncy_speedy_fast_map: Object.freeze({ fingerprint: "644bd6c2d1990e76f3de2020fb71e063156454bf0d0fe820510cac67c00f4043", pages: 27, routes: 119, exactAudio: 27, pendingAudio: 0, listeningPending: 0 }),
+  mp_ra_a_04_brave_tiny_big_little_rescue: Object.freeze({ fingerprint: "8d205d99f79cceaa0ad404f88d172fd27d9a5a669deaf0e2468471dbc5b5bd40", pages: 32, routes: 102, exactAudio: 32, pendingAudio: 0, listeningPending: 0 })
 });
 
 export const storyQuestPolicyReviews = Object.freeze(
@@ -534,7 +534,7 @@ export const storyQuestPolicyReviews = Object.freeze(
       ...review,
       sourceFingerprint: current.fingerprint,
       status: audioReady ? "approved" : "audited-fail",
-      reviewedAt: "2026-08-05",
+      reviewedAt: "2026-08-12",
       scores: Object.freeze({
         ...review.scores,
         audio: audioReady ? 4 : 0

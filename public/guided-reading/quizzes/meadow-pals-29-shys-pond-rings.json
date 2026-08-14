@@ -29,13 +29,13 @@
       "answer": "Shy's stone plops in the pond.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Shy's stone plops in the pond. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Shy's stone plops in the pond. This shows that the first attempt does not solve the central problem introduced by Shy sees rings on the pond.",
       "evidencePage": 4,
       "evidenceText": "Shy's stone plops in the pond."
     },
     {
       "id": "meadow-pals-29-shys-pond-rings-q3",
-      "prompt": "What happens at the end of Shy's Pond Rings?",
+      "prompt": "What solves the problem in Shy's Pond Rings?",
       "choices": [
         "A green frog pops up.",
         "Shy sees rings on the pond.",
@@ -44,7 +44,7 @@
       "answer": "A green frog pops up.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "A green frog pops up. This event shows how the central problem is resolved.",
+      "rationale": "A green frog pops up. This event shows how the central problem is resolved after Shy's stone plops in the pond.",
       "evidencePage": 7,
       "evidenceText": "A green frog pops up."
     }

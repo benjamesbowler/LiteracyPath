@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "dino-pals-22-shys-sinking-path",
-  "contentHash": "sha256:a7bff1f50abcc0278c3d7cfcb444e630818e10b027ecb15a05de134428905869",
+  "contentHash": "sha256:df7d6080865bf52f0cef1e566227bcd78002fd8163a06793c005ae570ddfe7c4",
   "questions": [
     {
       "id": "dino-pals-22-shys-sinking-path-q1",
       "prompt": "Which event begins Shy's Sinking Path?",
       "choices": [
-        "Plip, plip! Bubbles rise in Shy's path.",
-        "Shy lays one flat stone on the wet spot.",
-        "Shy marks the safe track with bright yellow leaves."
+        "Bubbles rise in Shy's path.",
+        "Glug! The stone sinks. Mud hides the old path.",
+        "Each Pal takes a basket down Shy's dry path."
       ],
-      "answer": "Plip, plip! Bubbles rise in Shy's path.",
+      "answer": "Bubbles rise in Shy's path.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Plip, plip! Bubbles rise in Shy's path."
+      "evidenceText": "Bubbles rise in Shy's path."
     },
     {
       "id": "dino-pals-22-shys-sinking-path-q2",
       "prompt": "Which event shows the first plan fails in Shy's Sinking Path?",
       "choices": [
-        "Shy lays one flat stone on the wet spot.",
-        "Plip, plip! Bubbles rise in Shy's path.",
-        "Shy marks the safe track with bright yellow leaves."
+        "Glug! The stone sinks. Mud hides the old path.",
+        "Bubbles rise in Shy's path.",
+        "Each Pal takes a basket down Shy's dry path."
       ],
-      "answer": "Shy lays one flat stone on the wet spot.",
+      "answer": "Glug! The stone sinks. Mud hides the old path.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Shy lays one flat stone on the wet spot. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "Shy lays one flat stone on the wet spot."
+      "rationale": "Glug! The stone sinks. Mud hides the old path. This shows that the first attempt does not solve the central problem introduced by Bubbles rise in Shy's path.",
+      "evidencePage": 4,
+      "evidenceText": "Glug! The stone sinks. Mud hides the old path."
     },
     {
       "id": "dino-pals-22-shys-sinking-path-q3",
       "prompt": "Which event solves the problem in Shy's Sinking Path?",
       "choices": [
-        "Shy marks the safe track with bright yellow leaves.",
-        "Plip, plip! Bubbles rise in Shy's path.",
-        "Shy lays one flat stone on the wet spot."
+        "Each Pal takes a basket down Shy's dry path.",
+        "Bubbles rise in Shy's path.",
+        "Glug! The stone sinks. Mud hides the old path."
       ],
-      "answer": "Shy marks the safe track with bright yellow leaves.",
+      "answer": "Each Pal takes a basket down Shy's dry path.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Shy marks the safe track with bright yellow leaves. This event shows how the central problem is resolved.",
-      "evidencePage": 7,
-      "evidenceText": "Shy marks the safe track with bright yellow leaves."
+      "rationale": "Each Pal takes a basket down Shy's dry path. This event shows how the central problem is resolved after Glug! The stone sinks. Mud hides the old path.",
+      "evidencePage": 8,
+      "evidenceText": "Each Pal takes a basket down Shy's dry path."
     }
   ]
 }

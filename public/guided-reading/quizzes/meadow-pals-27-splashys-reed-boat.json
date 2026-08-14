@@ -9,7 +9,7 @@
       "prompt": "What happens first in Splashy's Reed Boat?",
       "choices": [
         "Splashy builds a reed boat.",
-        "Splashy lets it go.",
+        "The boat spins round once more!",
         "The boat sails straight."
       ],
       "answer": "Splashy builds a reed boat.",
@@ -22,29 +22,29 @@
       "id": "meadow-pals-27-splashys-reed-boat-q2",
       "prompt": "What goes wrong in Splashy's Reed Boat?",
       "choices": [
-        "Splashy lets it go.",
+        "The boat spins round once more!",
         "Splashy builds a reed boat.",
         "The boat sails straight."
       ],
-      "answer": "Splashy lets it go.",
+      "answer": "The boat spins round once more!",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Splashy lets it go. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 2,
-      "evidenceText": "Splashy lets it go."
+      "rationale": "The boat spins round once more! This shows that the first attempt does not solve the central problem introduced by Splashy builds a reed boat.",
+      "evidencePage": 5,
+      "evidenceText": "The boat spins round once more!"
     },
     {
       "id": "meadow-pals-27-splashys-reed-boat-q3",
-      "prompt": "What happens at the end of Splashy's Reed Boat?",
+      "prompt": "What solves the problem in Splashy's Reed Boat?",
       "choices": [
         "The boat sails straight.",
         "Splashy builds a reed boat.",
-        "Splashy lets it go."
+        "The boat spins round once more!"
       ],
       "answer": "The boat sails straight.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The boat sails straight. This event shows how the central problem is resolved.",
+      "rationale": "The boat sails straight. This event shows how the central problem is resolved after The boat spins round once more!",
       "evidencePage": 7,
       "evidenceText": "The boat sails straight."
     }

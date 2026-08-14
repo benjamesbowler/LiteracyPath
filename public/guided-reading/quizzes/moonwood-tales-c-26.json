@@ -10,7 +10,7 @@
       "choices": [
         "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
         "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
-        "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight."
+        "Another gust bent the old tree and tugged its buried branch. This time, the tied rope could not move. Above them, the bell stayed silent, and one fallen lantern rested below it."
       ],
       "answer": "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
         "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
-        "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight."
+        "Another gust bent the old tree and tugged its buried branch. This time, the tied rope could not move. Above them, the bell stayed silent, and one fallen lantern rested below it."
       ],
       "answer": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more. This shows that the first attempt does not solve the central problem introduced by A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
       "evidencePage": 3,
       "evidenceText": "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more."
     },
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-26-q3",
       "prompt": "Which event resolves the central problem in Pip and the Bell Below?",
       "choices": [
-        "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight.",
+        "Another gust bent the old tree and tugged its buried branch. This time, the tied rope could not move. Above them, the bell stayed silent, and one fallen lantern rested below it.",
         "A brass bell rang beneath Hollow Oak, though nobody touched its hanging rope. Pip looked up in surprise. Why was the bell moving by itself?",
         "Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more."
       ],
-      "answer": "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight.",
+      "answer": "Another gust bent the old tree and tugged its buried branch. This time, the tied rope could not move. Above them, the bell stayed silent, and one fallen lantern rested below it.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight. This event shows how the central problem is resolved.",
-      "evidencePage": 8,
-      "evidenceText": "Pip needed something stronger than the loose wedge. He looped the lower rope around a smooth root peg. Burrow watched while Pip pulled the knot tight."
+      "rationale": "Another gust bent the old tree and tugged its buried branch. This time, the tied rope could not move. Above them, the bell stayed silent, and one fallen lantern rested below it. This event shows how the central problem is resolved after Pip grabbed the rope with both hands and tried to hold it still. Instead, the bell swung harder above him. The lanterns shook even more.",
+      "evidencePage": 9,
+      "evidenceText": "Another gust bent the old tree and tugged its buried branch. This time, the tied rope could not move. Above them, the bell stayed silent, and one fallen lantern rested below it."
     }
   ]
 }

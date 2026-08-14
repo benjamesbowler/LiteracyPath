@@ -2,19 +2,20 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-03-clucky-lays-an-egg",
-  "contentHash": "sha256:94a6664bb671a66ce14695197b4c95ad595ffd604406c6d46fcdcdb4dd23da21",
+  "contentHash": "sha256:1056983b8c4bde32757ee6fa963899db181975a3b65071bc0bcbc496bafa63ba",
   "questions": [
     {
       "id": "meadow-pals-03-clucky-lays-an-egg-q1",
-      "prompt": "What happens first in Clucky Lays an Egg?",
+      "prompt": "What does Clucky need?",
       "choices": [
-        "Clucky needs a safe nest.",
-        "The hat tips over.",
-        "Clucky moves her egg to straw."
+        "a safe nest",
+        "a wet puddle",
+        "a hard log"
       ],
-      "answer": "Clucky needs a safe nest.",
+      "answer": "a safe nest",
       "kind": "text",
-      "skill": "sequence",
+      "skill": "character_action",
+      "rationale": "Page 1 says Clucky needs a safe nest.",
       "evidencePage": 1,
       "evidenceText": "Clucky needs a safe nest."
     },
@@ -24,7 +25,7 @@
       "choices": [
         "The hat tips over.",
         "Clucky needs a safe nest.",
-        "Clucky moves her egg to straw."
+        "Clucky lays one safe egg."
       ],
       "answer": "The hat tips over.",
       "kind": "text",
@@ -37,16 +38,16 @@
       "id": "meadow-pals-03-clucky-lays-an-egg-q3",
       "prompt": "What happens at the end of Clucky Lays an Egg?",
       "choices": [
-        "Clucky moves her egg to straw.",
+        "Clucky lays one safe egg.",
         "Clucky needs a safe nest.",
         "The hat tips over."
       ],
-      "answer": "Clucky moves her egg to straw.",
+      "answer": "Clucky lays one safe egg.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Clucky moves her egg to straw. This event shows how the central problem is resolved.",
+      "rationale": "Clucky lays one safe egg. This event shows how the central problem is resolved.",
       "evidencePage": 8,
-      "evidenceText": "Clucky moves her egg to straw."
+      "evidenceText": "Clucky lays one safe egg."
     }
   ]
 }

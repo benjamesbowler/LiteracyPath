@@ -2,44 +2,45 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "meadow-pals-14-speedy-slows-down",
-  "contentHash": "sha256:e7555e335c22141c80e107a14d32ec48c7901a9069674b0d25a16eda4e288429",
+  "contentHash": "sha256:50cb86437d874808fdf7126dcff3493acb5b60a949eb2ad4f628e97d0263dacf",
   "questions": [
     {
       "id": "meadow-pals-14-speedy-slows-down-q1",
-      "prompt": "What happens first in Speedy Slows Down?",
+      "prompt": "Where does Speedy run first?",
       "choices": [
-        "Speedy runs home.",
-        "Speedy is lost.",
-        "Tiny calls from home."
+        "past the barn",
+        "past the pond",
+        "past the hill"
       ],
-      "answer": "Speedy runs home.",
+      "answer": "past the barn",
       "kind": "text",
       "skill": "sequence",
-      "evidencePage": 1,
-      "evidenceText": "Speedy runs home."
+      "rationale": "Page 2 is the first place Speedy passes after setting off.",
+      "evidencePage": 2,
+      "evidenceText": "Speedy runs past the barn."
     },
     {
       "id": "meadow-pals-14-speedy-slows-down-q2",
       "prompt": "What goes wrong in Speedy Slows Down?",
       "choices": [
-        "Speedy is lost.",
-        "Speedy runs home.",
+        "Speedy cannot find home.",
+        "Speedy races toward home.",
         "Tiny calls from home."
       ],
-      "answer": "Speedy is lost.",
+      "answer": "Speedy cannot find home.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Speedy is lost. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Speedy cannot find home. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 7,
-      "evidenceText": "Speedy is lost."
+      "evidenceText": "Speedy cannot find home."
     },
     {
       "id": "meadow-pals-14-speedy-slows-down-q3",
       "prompt": "What happens at the end of Speedy Slows Down?",
       "choices": [
         "Tiny calls from home.",
-        "Speedy runs home.",
-        "Speedy is lost."
+        "Speedy races toward home.",
+        "Speedy cannot find home."
       ],
       "answer": "Tiny calls from home.",
       "kind": "text",

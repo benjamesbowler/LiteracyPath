@@ -10,7 +10,7 @@
       "choices": [
         "Fancy wants a moonleaf arch before sunset.",
         "Whoosh! The breeze rolls the stones. The arch falls.",
-        "Grumpy brings three flat stones. They stay still."
+        "Sunset shines through Fancy's sturdy purple arch."
       ],
       "answer": "Fancy wants a moonleaf arch before sunset.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Whoosh! The breeze rolls the stones. The arch falls.",
         "Fancy wants a moonleaf arch before sunset.",
-        "Grumpy brings three flat stones. They stay still."
+        "Sunset shines through Fancy's sturdy purple arch."
       ],
       "answer": "Whoosh! The breeze rolls the stones. The arch falls.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Whoosh! The breeze rolls the stones. The arch falls. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Whoosh! The breeze rolls the stones. The arch falls. This shows that the first attempt does not solve the central problem introduced by Fancy wants a moonleaf arch before sunset.",
       "evidencePage": 3,
       "evidenceText": "Whoosh! The breeze rolls the stones. The arch falls."
     },
@@ -37,16 +37,16 @@
       "id": "dino-pals-21-fancys-moonleaf-arch-q3",
       "prompt": "Which event solves the problem in Fancy's Moonleaf Arch?",
       "choices": [
-        "Grumpy brings three flat stones. They stay still.",
+        "Sunset shines through Fancy's sturdy purple arch.",
         "Fancy wants a moonleaf arch before sunset.",
         "Whoosh! The breeze rolls the stones. The arch falls."
       ],
-      "answer": "Grumpy brings three flat stones. They stay still.",
+      "answer": "Sunset shines through Fancy's sturdy purple arch.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Grumpy brings three flat stones. They stay still. This event shows how the central problem is resolved.",
-      "evidencePage": 5,
-      "evidenceText": "Grumpy brings three flat stones. They stay still."
+      "rationale": "Sunset shines through Fancy's sturdy purple arch. This event shows how the central problem is resolved after Whoosh! The breeze rolls the stones. The arch falls.",
+      "evidencePage": 8,
+      "evidenceText": "Sunset shines through Fancy's sturdy purple arch."
     }
   ]
 }

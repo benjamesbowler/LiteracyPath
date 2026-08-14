@@ -1,15 +1,17 @@
 import { segmentWord } from "../graphemeSegments.js";
-import { graphemeSrc } from "../questAudio.js";
+import { graphemeSrc, spellingAudioPaths } from "../questAudio.js";
 
 export const DECODING_SUPPORT_STAGES = Object.freeze({
   WHOLE_WORD_AUDIO: "whole_word_audio",
   SEGMENTED_PHONEMES: "segmented_phonemes",
+  LETTER_SPELLING: "letter_spelling",
   REREAD_PROMPT: "reread_prompt"
 });
 
 export const DECODING_SUPPORT_STAGE_LABELS = Object.freeze({
   [DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO]: "Whole-word audio",
   [DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES]: "Sound-by-sound support",
+  [DECODING_SUPPORT_STAGES.LETTER_SPELLING]: "Spell the word",
   [DECODING_SUPPORT_STAGES.REREAD_PROMPT]: "Reread prompt"
 });
 
@@ -24,17 +26,41 @@ function displaySegment(segment = "") {
   return String(segment).replace("_", "…");
 }
 
-function stageSequenceFor(segments = []) {
-  return segments.length > 1
-    ? [
-        DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO,
-        DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES,
-        DECODING_SUPPORT_STAGES.REREAD_PROMPT
-      ]
-    : [
-        DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO,
-        DECODING_SUPPORT_STAGES.REREAD_PROMPT
-      ];
+const SIMPLE_SHORT_VOWELS = new Set(["a", "e", "i", "o", "u"]);
+const SIMPLE_ONSETS = new Set(["", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "z", "sh"]);
+const SIMPLE_CODAS = new Set(["", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "w", "z", "ck", "ng", "sh"]);
+const SHORT_VOWEL_EXCEPTIONS = new Set([
+  "both", "bush", "bull", "cold", "find", "full", "give", "kind", "mind",
+  "most", "old", "pull", "push", "put", "told", "want", "was", "wash", "what", "wild"
+]);
+
+// The old ladder treated a greedy letter split as a pronunciation and could
+// teach ch=/ch/ in school, oo=/oo/ in book, or unvoiced th in the. Only a
+// tightly bounded short-vowel pattern receives sound-by-sound playback. Every
+// other word still receives exact whole-word audio and exact letter spelling.
+export function hasSafeRecordedSoundSequence(word = "", segments = [], audioPaths = []) {
+  const clean = cleanWord(word).toLowerCase();
+  if (!clean || segments.length < 2 || SHORT_VOWEL_EXCEPTIONS.has(clean) || !audioPaths.length || !audioPaths.every(Boolean)) return false;
+  if (/c(?=[eiy])|g(?=[eiy])/.test(clean)) return false;
+
+  const vowelIndexes = segments
+    .map((segment, index) => SIMPLE_SHORT_VOWELS.has(segment) ? index : -1)
+    .filter(index => index >= 0);
+  if (vowelIndexes.length !== 1) return false;
+
+  const vowelIndex = vowelIndexes[0];
+  const onset = segments.slice(0, vowelIndex).join("");
+  const coda = segments.slice(vowelIndex + 1).join("");
+  return SIMPLE_ONSETS.has(onset) && SIMPLE_CODAS.has(coda);
+}
+
+function stageSequenceFor(hasSafePhonemeAudio = false) {
+  return [
+    DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO,
+    ...(hasSafePhonemeAudio ? [DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES] : []),
+    DECODING_SUPPORT_STAGES.LETTER_SPELLING,
+    DECODING_SUPPORT_STAGES.REREAD_PROMPT
+  ];
 }
 
 export function getDecodingSupportStageLabel(stage = "") {
@@ -44,31 +70,33 @@ export function getDecodingSupportStageLabel(stage = "") {
 export function getNextDecodingSupportStep({ previousStage = "", word = "" } = {}) {
   const normalizedWord = cleanWord(word);
   const segments = segmentWord(normalizedWord);
-  const sequence = stageSequenceFor(segments);
+  const phonemeAudioPaths = segments.map(graphemeSrc);
+  const hasCompletePhonemeAudio = hasSafeRecordedSoundSequence(normalizedWord, segments, phonemeAudioPaths);
+  const letterAudioPaths = spellingAudioPaths(normalizedWord);
+  const sequence = stageSequenceFor(hasCompletePhonemeAudio);
   const previousIndex = sequence.indexOf(previousStage);
   const stage = sequence[(previousIndex + 1) % sequence.length];
-  const phonemeAudioPaths = segments.map(graphemeSrc);
-  const hasCompletePhonemeAudio = Boolean(segments.length) && phonemeAudioPaths.every(Boolean);
-  const stageNumber = stage === DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO
-    ? 1
-    : stage === DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES
-      ? 2
-      : 3;
+  const stageNumber = sequence.indexOf(stage) + 1;
 
   return {
     word: normalizedWord,
     stage,
     stageLabel: getDecodingSupportStageLabel(stage),
     stageNumber,
-    totalStages: 3,
+    totalStages: sequence.length,
     segments,
     displaySegments: segments.map(displaySegment),
     phonemeAudioPaths,
     hasCompletePhonemeAudio,
+    letters: normalizedWord.toLowerCase().replace(/[^a-z]/g, "").split(""),
+    letterAudioPaths,
+    hasCompleteSpellingAudio: letterAudioPaths.length > 0,
     message: stage === DECODING_SUPPORT_STAGES.WHOLE_WORD_AUDIO
       ? `Listen to the whole word: ${normalizedWord}.`
       : stage === DECODING_SUPPORT_STAGES.SEGMENTED_PHONEMES
         ? `Use the letters and sounds: ${segments.map(displaySegment).join(" · ")}.`
+        : stage === DECODING_SUPPORT_STAGES.LETTER_SPELLING
+          ? `Spell ${normalizedWord}: ${normalizedWord.toLowerCase().replace(/[^a-z]/g, "").split("").join(" · ")}.`
         : "Now reread the whole sentence from the start."
   };
 }
@@ -130,4 +158,3 @@ export function appendDecodingSupportEvent(events = [], event) {
   const withoutDuplicate = existing.filter(item => item.eventId !== normalized.eventId);
   return [...withoutDuplicate, normalized].slice(-MAX_SUPPORT_EVENTS);
 }
-

@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { guidedReadingWorldExpansionBooks } from "../src/data/guidedReadingWorldExpansionBooks.js";
+import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
 import { guidedReadingBookContentHash } from "./guidedReadingQuestionAuditLib.js";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -61,7 +62,12 @@ function question(book, index, prompt, answerPage, distractorPages, skill, ratio
 }
 
 fs.mkdirSync(quizDirectory, { recursive: true });
-for (const book of guidedReadingWorldExpansionBooks) {
+const runtimeBooks = guidedReadingWorldExpansionBooks.map(sourceBook => {
+  const runtimeBook = guidedReadingBooks.find(book => book.id === sourceBook.id);
+  if (!runtimeBook) throw new Error(`${sourceBook.id}: missing from current Guided Reading runtime`);
+  return runtimeBook;
+});
+for (const book of runtimeBooks) {
   const [openingPage, failurePage, resolutionPage] = PAGE_ANCHORS[book.id] || [];
   if (!openingPage || !failurePage || !resolutionPage) throw new Error(`${book.id}: missing editorial quiz anchors`);
   const simple = book.level === "A";
@@ -119,4 +125,4 @@ for (const book of guidedReadingWorldExpansionBooks) {
   fs.writeFileSync(path.join(quizDirectory, `${book.id}.json`), `${JSON.stringify(quiz, null, 2)}\n`);
 }
 
-console.log(`Generated ${guidedReadingWorldExpansionBooks.length} Story-Bible-aligned expansion quizzes.`);
+console.log(`Generated ${runtimeBooks.length} Story-Bible-aligned expansion quizzes.`);

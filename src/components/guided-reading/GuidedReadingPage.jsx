@@ -309,11 +309,12 @@ function tokenizeReadingText(text = "") {
     .replace(/\s+([.,!?;:])/g, "$1")
     .replace(/\s{2,}/g, " ")
     .trim();
-  const tokens = normalizedText.match(/[A-Za-z0-9'-]+|[^A-Za-z0-9'-]+/g) || [];
+  const wordPattern = "[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*(?:-[A-Za-z0-9]+(?:['’][A-Za-z0-9]+)*)*";
+  const tokens = normalizedText.match(new RegExp(`${wordPattern}|[^A-Za-z0-9]+`, "g")) || [];
   let wordIndex = -1;
 
   return tokens.map((token, index) => {
-    if (/^[A-Za-z0-9'-]+$/.test(token) && /[A-Za-z0-9]/.test(token)) {
+    if (new RegExp(`^${wordPattern}$`).test(token)) {
       wordIndex += 1;
       return { token, index, type: "word", wordIndex };
     }
@@ -1827,6 +1828,17 @@ export function GuidedReadingPage({
       return;
     }
 
+    if (step.stage === DECODING_SUPPORT_STAGES.LETTER_SPELLING) {
+      brieflyHighlightWord(wordIndex);
+      saveDecodingSupportUse(step, wordIndex, step.hasCompleteSpellingAudio);
+      if (step.hasCompleteSpellingAudio) {
+        await playRecordedSupportSequence(step.letterAudioPaths, playbackToken);
+      } else {
+        setAudioNotice("Recorded letter-name audio is not ready for this spelling yet.");
+      }
+      return;
+    }
+
     setHighlightedSentenceIndex(sentenceIndexForWord(wordIndex));
     saveDecodingSupportUse(step, wordIndex, false);
   }
@@ -2650,6 +2662,13 @@ export function GuidedReadingPage({
                         <div aria-label={`Sound parts for ${activeDecodingSupport.word}`} className="guided-decoding-segments">
                           {activeDecodingSupport.displaySegments.map((segment, index) => (
                             <span key={`${segment}-${index}`}>{segment}</span>
+                          ))}
+                        </div>
+                      )}
+                      {activeDecodingSupport.stage === DECODING_SUPPORT_STAGES.LETTER_SPELLING && (
+                        <div aria-label={`Spelling for ${activeDecodingSupport.word}`} className="guided-decoding-segments">
+                          {activeDecodingSupport.letters.map((letter, index) => (
+                            <span key={`${letter}-${index}`}>{letter}</span>
                           ))}
                         </div>
                       )}

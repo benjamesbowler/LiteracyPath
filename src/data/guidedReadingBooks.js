@@ -36,6 +36,7 @@ const canonicalNarrationText = text =>
 
 const words = text =>
   normalizeReadingText(text)
+    .replace(/[–—]/g, " ")
     .replace(/[.,!?;:()"]/g, "")
     .split(/\s+/)
     .filter(Boolean)

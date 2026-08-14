@@ -10,7 +10,7 @@
       "choices": [
         "Woolly wants to make a cloud.",
         "Whoosh! Wind blows it all off.",
-        "Muddy spreads thin mud on wood."
+        "Her cloud stays put."
       ],
       "answer": "Woolly wants to make a cloud.",
       "kind": "text",
@@ -24,29 +24,29 @@
       "choices": [
         "Whoosh! Wind blows it all off.",
         "Woolly wants to make a cloud.",
-        "Muddy spreads thin mud on wood."
+        "Her cloud stays put."
       ],
       "answer": "Whoosh! Wind blows it all off.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Whoosh! Wind blows it all off. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Whoosh! Wind blows it all off. This shows that the first attempt does not solve the central problem introduced by Woolly wants to make a cloud.",
       "evidencePage": 3,
       "evidenceText": "Whoosh! Wind blows it all off."
     },
     {
       "id": "meadow-pals-28-woollys-wool-cloud-q3",
-      "prompt": "What happens at the end of Woolly's Wool Cloud?",
+      "prompt": "What solves the problem in Woolly's Wool Cloud?",
       "choices": [
-        "Muddy spreads thin mud on wood.",
+        "Her cloud stays put.",
         "Woolly wants to make a cloud.",
         "Whoosh! Wind blows it all off."
       ],
-      "answer": "Muddy spreads thin mud on wood.",
+      "answer": "Her cloud stays put.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Muddy spreads thin mud on wood. This event shows how the central problem is resolved.",
-      "evidencePage": 5,
-      "evidenceText": "Muddy spreads thin mud on wood."
+      "rationale": "Her cloud stays put. This event shows how the central problem is resolved after Whoosh! Wind blows it all off.",
+      "evidencePage": 8,
+      "evidenceText": "Her cloud stays put."
     }
   ]
 }

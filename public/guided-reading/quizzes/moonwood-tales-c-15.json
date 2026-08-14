@@ -2,28 +2,28 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-15",
-  "contentHash": "sha256:3e2cfdf1e98c977b3d417e645d7442dafb44c283c317dfae8a34ea77366cdec5",
+  "contentHash": "sha256:6b419cbaa712d875a88013e6948997a8374bd9d77e9ee11d0158eee8c5598a40",
   "questions": [
     {
       "id": "moonwood-tales-c-15-q1",
       "prompt": "Which event introduces the situation in Burrow and Luna and the Old Secret?",
       "choices": [
-        "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
+        "Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall blocked it, marked with one deeply carved root.",
         "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
         "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room."
       ],
-      "answer": "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
+      "answer": "Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall blocked it, marked with one deeply carved root.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness."
+      "evidenceText": "Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall blocked it, marked with one deeply carved root."
     },
     {
       "id": "moonwood-tales-c-15-q2",
       "prompt": "Which event shows that the first attempt fails in Burrow and Luna and the Old Secret?",
       "choices": [
         "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
-        "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
+        "Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall blocked it, marked with one deeply carved root.",
         "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room."
       ],
       "answer": "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery.",
@@ -38,7 +38,7 @@
       "prompt": "Which event resolves the central problem in Burrow and Luna and the Old Secret?",
       "choices": [
         "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room.",
-        "Burrow was digging a quiet morning tunnel when his shovel broke through an old stone wall. Before he could stop, the loose earth carried him into darkness.",
+        "Behind the known Memory Room, Burrow found a narrow tunnel. An old stone wall blocked it, marked with one deeply carved root.",
         "Burrow studied each picture and tried to find where the story began. No carving had words or numbers, so their order remained a complete mystery."
       ],
       "answer": "When Luna reached the next part, another carving glowed. Then the next picture brightened, until a clear path of light carried the story around the room.",

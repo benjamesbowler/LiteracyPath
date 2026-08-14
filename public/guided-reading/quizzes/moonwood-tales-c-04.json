@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-04",
-  "contentHash": "sha256:312ea9f27bf2af20996ea1280f5a1e240643ed596598a3b201ba528da41ee0d5",
+  "contentHash": "sha256:5a22ff66c034048cb85b6a60af2728805ce1094c9d5ecf94a5060361472bb369",
   "questions": [
     {
       "id": "moonwood-tales-c-04-q1",
@@ -10,7 +10,7 @@
       "choices": [
         "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
         "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest.",
-        "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help."
+        "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered."
       ],
       "answer": "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
       "kind": "text",
@@ -24,7 +24,7 @@
       "choices": [
         "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest.",
         "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
-        "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help."
+        "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered."
       ],
       "answer": "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest.",
       "kind": "text",
@@ -37,16 +37,16 @@
       "id": "moonwood-tales-c-04-q3",
       "prompt": "Which event resolves the central problem in Glimmer Tries and Tries?",
       "choices": [
-        "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help.",
+        "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered.",
         "Every morning, Glimmer practiced breathing fire inside a wide circle of stones. The empty ground kept the lesson safe, even when sparks jumped sideways.",
         "After the tenth try, Glimmer's throat felt sore from forcing every breath. They closed their mouth, drank cool water, and stopped practicing to rest."
       ],
-      "answer": "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help.",
+      "answer": "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help. This event shows how the central problem is resolved.",
+      "rationale": "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "Glimmer brought Fern's seeds safely home. Fern smiled beside the full seed boxes while Pip watched. Glimmer had made one real flame when their friend needed help."
+      "evidenceText": "Glimmer brought Fern's seeds safely home. Their useful warm breath had solved a real problem, even without making a flame. Pip and Fern cheered."
     }
   ]
 }

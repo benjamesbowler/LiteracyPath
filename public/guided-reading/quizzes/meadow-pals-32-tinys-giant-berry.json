@@ -9,8 +9,8 @@
       "prompt": "What happens first in Tiny's Giant Berry?",
       "choices": [
         "Tiny finds a giant berry.",
-        "A root blocks the berry.",
-        "He turns the berry sideways."
+        "Whoops! It rolls back downhill.",
+        "Tiny rolls the berry home!"
       ],
       "answer": "Tiny finds a giant berry.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "meadow-pals-32-tinys-giant-berry-q2",
       "prompt": "What goes wrong in Tiny's Giant Berry?",
       "choices": [
-        "A root blocks the berry.",
+        "Whoops! It rolls back downhill.",
         "Tiny finds a giant berry.",
-        "He turns the berry sideways."
+        "Tiny rolls the berry home!"
       ],
-      "answer": "A root blocks the berry.",
+      "answer": "Whoops! It rolls back downhill.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "A root blocks the berry. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 3,
-      "evidenceText": "A root blocks the berry."
+      "rationale": "Whoops! It rolls back downhill. This shows that the first attempt does not solve the central problem introduced by Tiny finds a giant berry.",
+      "evidencePage": 5,
+      "evidenceText": "Whoops! It rolls back downhill."
     },
     {
       "id": "meadow-pals-32-tinys-giant-berry-q3",
-      "prompt": "What happens at the end of Tiny's Giant Berry?",
+      "prompt": "What solves the problem in Tiny's Giant Berry?",
       "choices": [
-        "He turns the berry sideways.",
+        "Tiny rolls the berry home!",
         "Tiny finds a giant berry.",
-        "A root blocks the berry."
+        "Whoops! It rolls back downhill."
       ],
-      "answer": "He turns the berry sideways.",
+      "answer": "Tiny rolls the berry home!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "He turns the berry sideways. This event shows how the central problem is resolved.",
-      "evidencePage": 7,
-      "evidenceText": "He turns the berry sideways."
+      "rationale": "Tiny rolls the berry home! This event shows how the central problem is resolved after Whoops! It rolls back downhill.",
+      "evidencePage": 8,
+      "evidenceText": "Tiny rolls the berry home!"
     }
   ]
 }

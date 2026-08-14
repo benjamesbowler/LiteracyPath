@@ -408,7 +408,7 @@ export const storyQuests = [
       },
       {
         id: "p12_ending_loud",
-        text: ["Friends gather at Hollow Oak.", "Pip tells how the frog meets its family.", "Stone shows how tiny it is with both hands."],
+        text: ["Friends gather at Hollow Oak.", "Pip tells how the frog finds its family.", "Stone shows how tiny it is with both hands."],
         imageUrl: moonwoodImagePath("pip-stone-loud-thing", "p12_ending_loud"),
         audioUrl: moonwoodAudioPath("pip-stone-loud-thing", "p12_ending_loud"),
         narrationNeedsRebuild: false,
@@ -671,11 +671,11 @@ export const storyQuests = [
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p08_tiny_dance"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p08_tiny_dance"),
         narrationNeedsRebuild: false,
-        choicePrompt: "Let it finish or keep one silly?",
+        choicePrompt: "Let it finish or keep one dancer?",
         skillTags: ["fern", "wren"],
         choices: [
           { label: "Let it finish", nextPageId: "p08_return_home" },
-          { label: "Keep one silly", nextPageId: "p09_silly_garden" },
+          { label: "Keep one dancer", nextPageId: "p09_silly_garden" },
         ]
       },
       {
@@ -684,11 +684,11 @@ export const storyQuests = [
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p08_return_home"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p08_return_home"),
         narrationNeedsRebuild: false,
-        choicePrompt: "Settle every pot or keep one silly?",
+        choicePrompt: "Settle every pot or keep one dancer?",
         skillTags: ["fern", "pots", "walk", "path"],
         choices: [
           { label: "Watch them settle", nextPageId: "p09_plants_settle" },
-          { label: "Keep one silly", nextPageId: "p09_silly_garden" },
+          { label: "Keep one dancer", nextPageId: "p09_silly_garden" },
         ]
       },
       {
@@ -706,7 +706,7 @@ export const storyQuests = [
       },
       {
         id: "p09_silly_garden",
-        text: ["One big pot keeps its legs.", "It dances beside the path, away from the gate.", "Wren and Fern watch it dance."],
+        text: ["Fern shuts the gate and clears the path.", "Wren asks to keep one pot.", "Fern nods. The pot dances inside its ring."],
         imageUrl: moonwoodImagePath("fern-wren-walking-garden", "p09_silly_garden"),
         audioUrl: moonwoodAudioPath("fern-wren-walking-garden", "p09_silly_garden"),
         narrationNeedsRebuild: false,
@@ -764,7 +764,7 @@ export const storyQuests = [
     mediaFolder: "luna-burrow-star-shell-door",
     sentenceFrame: "Luna holds the star shell. Burrow reads the map. The door waits.",
     genuineFailurePageId: "p05_cracked_shell",
-    retiredPageIds: ["p03_marsh_path", "p04_bird_riddle", "p04_quiet_mist", "p05_door_answer", "p05_feather", "p05_song_answer", "p05_tunnel_wide", "p06_map_sings", "p06_stone_helps", "p07_knock_reply", "p07_luna_fixes", "p07_moss_laughs", "p07_stone_too_big", "p07_wrong_shell", "p08_key_joke", "p08_polite_door", "p08_star_room", "p08_stone_guard", "p09_blue_path", "p09_door_answer", "p09_echo_room", "p09_kind_sleep", "p09_luna_laughs", "p09_star_choice", "p10_free_seed", "p10_funny_ending", "p10_home_seed", "p10_marsh_light", "p10_stone_star", "p10_wren_ending"],
+    retiredPageIds: ["p03_marsh_path", "p04_bird_riddle", "p04_quiet_mist", "p05_door_answer", "p05_feather", "p05_song_answer", "p05_tunnel_wide", "p06_map_sings", "p06_stone_helps", "p07_knock_reply", "p07_luna_fixes", "p07_moss_laughs", "p07_stone_too_big", "p07_wrong_shell", "p08_key_joke", "p08_polite_door", "p08_star_room", "p08_stone_guard", "p09_blue_path", "p09_door_answer", "p09_echo_room", "p09_kind_sleep", "p09_luna_laughs", "p09_star_choice", "p10_free_seed", "p10_funny_ending", "p10_home_seed", "p10_marsh_light", "p10_quiet_ending", "p10_stone_star", "p10_wren_ending"],
     coverImageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p01_start"),
     startPageId: "p01_start",
     pages: [
@@ -1021,11 +1021,11 @@ export const storyQuests = [
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p07_wren_checks"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p07_wren_checks"),
         narrationNeedsRebuild: false,
-        choicePrompt: "Use gentle paws or thank Wren and go home?",
+        choicePrompt: "Use gentle paws or enter together?",
         skillTags: ["door", "open"],
         choices: [
           { label: "Use gentle paws", nextPageId: "p07_door_opens" },
-          { label: "Thank Wren; go home", nextPageId: "p10_quiet_ending" },
+          { label: "Enter together", nextPageId: "p08_map_inside" },
         ]
       },
       {
@@ -1034,7 +1034,7 @@ export const storyQuests = [
         imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p07_door_opens"),
         audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p07_door_opens"),
         narrationNeedsRebuild: false,
-        choicePrompt: "Enter the star room or leave the door closed?",
+        choicePrompt: "Enter the star room or take the map home?",
         skillTags: ["burrow", "door", "open"],
         choices: [
           { label: "Go inside", nextPageId: "p08_map_inside" },
@@ -1088,19 +1088,6 @@ export const storyQuests = [
         narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
         skillTags: ["luna", "burrow", "path", "gold"],
-        choices: [
-          { label: "Read again", nextPageId: "p01_start" },
-          { label: "Finish", nextPageId: "end" },
-        ]
-      },
-      {
-        id: "p10_quiet_ending",
-        text: ["Luna and Burrow reach Hollow Oak.", "They mark the round door on the map.", "Next time, they will use gentle paws."],
-        imageUrl: moonwoodImagePath("luna-burrow-star-shell-door", "p10_quiet_ending"),
-        audioUrl: moonwoodAudioPath("luna-burrow-star-shell-door", "p10_quiet_ending"),
-        narrationNeedsRebuild: false,
-        choicePrompt: "Read it again?",
-        skillTags: ["luna", "burrow", "star", "door", "map"],
         choices: [
           { label: "Read again", nextPageId: "p01_start" },
           { label: "Finish", nextPageId: "end" },
@@ -1456,7 +1443,7 @@ export const storyQuests = [
       },
       {
         id: "p07_glow_sleeps",
-        text: ["Flint sits down and waits.", "Dewdrop floats above the mound.", "The little glow sleeps on."],
+        text: ["Flint waits beside the quiet glow.", "Dewdrop pours stream water over the moss.", "A gold line wakes along the mound."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p07_glow_sleeps"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p07_glow_sleeps"),
         narrationNeedsRebuild: false,
@@ -1469,7 +1456,7 @@ export const storyQuests = [
       },
       {
         id: "p07_glow_wakes",
-        text: ["The glow wakes up and turns bright gold.", "It rolls to the edge of the mound.", "Flint sits very still."],
+        text: ["Stream water reaches the moss.", "The glow wakes and follows the wet line.", "Flint sits very still."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p07_glow_wakes"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p07_glow_wakes"),
         narrationNeedsRebuild: false,
@@ -1482,7 +1469,7 @@ export const storyQuests = [
       },
       {
         id: "p08_sorry_glow",
-        text: ["Flint lowers his voice.", "\"Crystal Stream needs your light,\" he says.", "The glow rolls a little closer."],
+        text: ["Flint lowers his voice.", "\"Crystal Stream needs your light,\" he says.", "Dewdrop pours water towards the stream."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p08_sorry_glow"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p08_sorry_glow"),
         narrationNeedsRebuild: false,
@@ -1495,7 +1482,7 @@ export const storyQuests = [
       },
       {
         id: "p08_glow_story",
-        text: ["The glow wakes for Flint's story.", "It follows Flint and Dewdrop to Crystal Stream.", "Blue water sparkles. Moonwood paths shine again."],
+        text: ["Dewdrop pours stream water over the mound.", "The glow follows the trickle home.", "Crystal Stream shines, and every dark path glows again."],
         imageUrl: moonwoodImagePath("dewdrop-flint-lost-glow", "p09_stream_returns"),
         audioUrl: moonwoodAudioPath("dewdrop-flint-lost-glow", "p08_glow_story"),
         narrationNeedsRebuild: false,
@@ -1545,7 +1532,7 @@ export const storyQuests = [
     series: "Dino Pals",
     characters: ["Chompy", "Sunny", "Grumpy", "Bouncy"],
     location: "Sunny Hollow - Cozy Cave, Berry Bush Corner, Big Flat Rock, Muddy Puddle Pool, Long Meadow",
-    targetWords: ["Chompy", "Sunny", "Grumpy", "Bouncy", "lunch", "berries", "berry", "leaf", "leaves", "cave", "rock", "mud", "basket", "grass", "melon", "hat", "path", "hungry"],
+    targetWords: ["Chompy", "Sunny", "Grumpy", "Bouncy", "lunch", "berries", "berry", "leaf", "leaves", "cave", "rock", "mud", "basket", "bowl", "grass", "melon", "path", "hungry"],
     highFrequencyWords: ["I", "a", "and", "can", "in", "is", "it", "not", "on", "says", "see", "the"],
     hfw: ["I", "a", "and", "can", "in", "is", "it", "not", "on", "says", "see", "the"],
     mediaFolder: "chompy-lunch-hunt",
@@ -1784,14 +1771,14 @@ export const storyQuests = [
       },
       {
         id: "p07_leaf_hat",
-        text: ["Sunny helps Chompy make a broad leaf hat.", "The picnic waits nearby."],
+        text: ["Sunny helps Chompy fold a broad leaf bowl.", "The picnic waits nearby."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p07_leaf_hat"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p07_leaf_hat"),
         narrationNeedsRebuild: false,
-        choicePrompt: "Wear it or set the table?",
-        skillTags: ["chompy", "leaf", "sunny", "hat"],
+        choicePrompt: "Carry the bowl or set the table?",
+        skillTags: ["chompy", "leaf", "sunny", "bowl"],
         choices: [
-          { label: "Wear the leaf hat", nextPageId: "p08_leaf_hat_ending" },
+          { label: "Carry the bowl", nextPageId: "p08_leaf_hat_ending" },
           { label: "Set the table", nextPageId: "p08_thank_you_ending" },
         ]
       },
@@ -1827,12 +1814,12 @@ export const storyQuests = [
       },
       {
         id: "p08_leaf_hat_ending",
-        text: ["Chompy serves berries from his leaf hat.", "Every friend gets a picnic lunch."],
+        text: ["Chompy serves berries from the leaf bowl.", "Every friend gets a picnic lunch."],
         imageUrl: dinoPalsImagePath("chompy-lunch-hunt", "p08_leaf_hat_ending"),
         audioUrl: dinoPalsAudioPath("chompy-lunch-hunt", "p08_leaf_hat_ending"),
         narrationNeedsRebuild: false,
         choicePrompt: "Read it again?",
-        skillTags: ["chompy", "berries", "leaf", "hat", "sunny"],
+        skillTags: ["chompy", "berries", "leaf", "bowl", "sunny"],
         artAction: "approved-replacement",
         artNote: "The replacement shows Chompy serving berries from the broad leaf hat while Sunny, Grumpy and Bouncy each receive a varied picnic plate; Bouncy has two canonical spring feet.",
         choices: [
@@ -2253,7 +2240,7 @@ export const storyQuests = [
         skillTags: ["fish", "stream", "chompy"],
         choices: [
           { label: "Welcome Wiggly", nextPageId: "p06_wiggly_splash" },
-          { label: "Call Wiggly, then rest", nextPageId: "p08_soaked_ending" },
+          { label: "Rest in the sun", nextPageId: "p08_warm_ground_ending" },
         ]
       },
       {
@@ -2297,7 +2284,7 @@ export const storyQuests = [
       },
       {
         id: "p08_warm_ground_ending",
-        text: ["They find warm ground in the sun.", "Grumpy naps beside Chompy and Wiggly."],
+        text: ["The friends find warm ground in the sun.", "Grumpy rests at last."],
         imageUrl: dinoPalsImagePath("grumpy-almost-good-day", "p08_warm_ground_ending"),
         audioUrl: dinoPalsAudioPath("grumpy-almost-good-day", "p08_warm_ground_ending"),
         narrationNeedsRebuild: false,
@@ -3333,8 +3320,8 @@ export const storyQuests = [
     characters: ["Sam", "Pam", "Dad"],
     location: "Home lawn and the van",
     targetWords: ["Sam", "Pam", "Dad", "cat", "mat", "bag", "map", "van", "jam", "has", "pats", "sat"],
-    highFrequencyWords: ["a", "the", "is", "in", "on", "and", "at", "it", "they"],
-    hfw: ["a", "the", "is", "in", "on", "and", "at", "it", "they"],
+    highFrequencyWords: ["a", "the", "is", "in", "on", "and", "they"],
+    hfw: ["a", "the", "is", "in", "on", "and", "they"],
     mediaFolder: "sam-pam",
     sentenceFrame: "___ has the ___.",
     genuineFailurePageId: "page-05",
@@ -3396,7 +3383,7 @@ export const storyQuests = [
       },
       {
         id: "page-05",
-        text: ["The cat sat on the map.", "No map!"],
+        text: ["The cat sat on the map."],
         imageUrl: samPamImagePath(5),
         audioUrl: samPamAudioPath(5),
         narrationNeedsRebuild: false,
@@ -3409,28 +3396,28 @@ export const storyQuests = [
       },
       {
         id: "page-06",
-        text: ["The map is on the mat."],
+        text: ["Cat ran. Map is on mat."],
         imageUrl: samPamImagePath(6),
         audioUrl: samPamAudioPath(6),
         narrationNeedsRebuild: false,
-        choicePrompt: "Give Dad the map or get in the van?",
-        skillTags: ["mat", "map"],
+        choicePrompt: "Give Dad the map or pack the bag?",
+        skillTags: ["cat", "mat", "map"],
         choices: [
           { label: "Give Dad the map", nextPageId: "page-08" },
-          { label: "Get in the van", nextPageId: "page-10" },
+          { label: "Pack the bag", nextPageId: "page-07" },
         ]
       },
       {
         id: "page-07",
-        text: ["The bag has jam.", "Sam pats it."],
+        text: ["Sam has bag. Pam has map."],
         imageUrl: samPamImagePath(7),
         audioUrl: samPamAudioPath(7),
         narrationNeedsRebuild: false,
-        choicePrompt: "Give Dad the map or set out the mat?",
-        skillTags: ["sam", "bag", "jam", "has", "pats"],
+        choicePrompt: "Give Dad the map or pack the bag?",
+        skillTags: ["sam", "pam", "bag", "map", "has"],
         choices: [
           { label: "Give Dad the map", nextPageId: "page-08" },
-          { label: "Set out the mat", nextPageId: "page-06" },
+          { label: "Pat the cat first", nextPageId: "page-09" },
         ]
       },
       {
@@ -3448,7 +3435,7 @@ export const storyQuests = [
       },
       {
         id: "page-09",
-        text: ["They pat the cat at the van."],
+        text: ["They pat cat. Bag is in van."],
         imageUrl: samPamImagePath(9),
         audioUrl: samPamAudioPath(9),
         narrationNeedsRebuild: false,
@@ -3461,7 +3448,7 @@ export const storyQuests = [
       },
       {
         id: "page-10",
-        text: ["They pack the van. The cat is in."],
+        text: ["Bag is in van. Cat is in van."],
         imageUrl: samPamImagePath(10),
         audioUrl: samPamAudioPath(10),
         narrationNeedsRebuild: false,
@@ -3768,7 +3755,7 @@ export const storyQuests = [
     cycleFocus: "guided_reading_level_a_story_choice",
     characters: ["Shy", "Cuddly", "Bouncy"],
     location: "Sunny Meadow Farm - big red barn, big oak tree, flower meadow",
-    targetWords: ["barn", "tree", "branch", "bird", "daisy", "hug", "hugs", "grass", "waves"],
+    targetWords: ["barn", "tree", "branch", "bird", "daisy", "hug", "grass", "waves"],
     highFrequencyWords: ["a", "is", "the", "to", "by", "up", "at", "on", "and", "for", "in"],
     hfw: ["a", "is", "the", "to", "by", "up", "at", "on", "and", "for", "in"],
     mediaFolder: "shy-cuddly-quiet",
@@ -4001,7 +3988,7 @@ export const storyQuests = [
       },
       {
         id: "p08_tree_purr",
-        text: ["Cuddly naps near Shy."],
+        text: ["Shy sits close by Cuddly."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p08_tree_purr"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p08_tree_purr"),
         narrationNeedsRebuild: false,
@@ -4014,7 +4001,7 @@ export const storyQuests = [
       },
       {
         id: "p08_wave_from_tree",
-        text: ["Shy waves up high with Cuddly."],
+        text: ["Shy and Cuddly wave together."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p08_wave_from_tree"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p08_wave_from_tree"),
         narrationNeedsRebuild: false,
@@ -4029,7 +4016,7 @@ export const storyQuests = [
       },
       {
         id: "p09_soft_hug_ending",
-        text: ["Shy hugs Cuddly."],
+        text: ["Shy nods. They hug."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p09_soft_hug_ending"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p09_soft_hug_ending"),
         narrationNeedsRebuild: false,
@@ -4042,7 +4029,7 @@ export const storyQuests = [
       },
       {
         id: "p09_almost_hug_ending",
-        text: ["Shy sits near Cuddly."],
+        text: ["Shy waits. Cuddly stays near."],
         imageUrl: meadowPalsImagePath("shy-cuddly-quiet", "p09_almost_hug_ending"),
         audioUrl: meadowPalsAudioPath("shy-cuddly-quiet", "p09_almost_hug_ending"),
         narrationNeedsRebuild: false,
@@ -4389,7 +4376,7 @@ export const storyQuests = [
       },
       {
         id: "p08_farm_view",
-        text: ["The map shows the whole farm."],
+        text: ["The farm matches the map now."],
         imageUrl: meadowPalsImagePath("bouncy-speedy-map", "p08_farm_view"),
         audioUrl: meadowPalsAudioPath("bouncy-speedy-map", "p08_farm_view"),
         narrationNeedsRebuild: false,
@@ -4692,7 +4679,7 @@ export const storyQuests = [
         skillTags: ["hat"],
         choices: [
           { label: "Give it back", nextPageId: "p07_clucky_happy" },
-          { label: "Trade hat for feather", nextPageId: "p09_fancy_brave_ending" },
+          { label: "Ask for a feather", nextPageId: "p09_fancy_brave_ending" },
         ]
       },
       {
@@ -4705,7 +4692,7 @@ export const storyQuests = [
         skillTags: ["hat"],
         choices: [
           { label: "Give it back", nextPageId: "p07_clucky_happy" },
-          { label: "Trade hat for feather", nextPageId: "p09_fancy_brave_ending" },
+          { label: "Ask for a feather", nextPageId: "p09_fancy_brave_ending" },
         ]
       },
       {
@@ -4827,7 +4814,7 @@ export const storyQuests = [
       },
       {
         id: "p09_fancy_brave_ending",
-        text: ["Hat for Clucky. Feather for Brave."],
+        text: ["Clucky gives Brave one feather."],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p09_fancy_brave_ending"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p09_fancy_brave_ending"),
         narrationNeedsRebuild: false,
@@ -4853,7 +4840,7 @@ export const storyQuests = [
       },
       {
         id: "p09_loud_bell_ending",
-        text: ["Woolly wears the quiet bell."],
+        text: ["Tiny waits. Woolly gets the bell."],
         imageUrl: meadowPalsImagePath("brave-tiny-rescue", "p09_loud_bell_ending"),
         audioUrl: meadowPalsAudioPath("brave-tiny-rescue", "p09_loud_bell_ending"),
         narrationNeedsRebuild: false,

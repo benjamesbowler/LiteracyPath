@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-03-fluff",
-  "contentHash": "sha256:d7305724b847991819b17d251a85e845b68ad30a7b2597a31c8410ee57b2aa0c",
+  "contentHash": "sha256:77b34c2ec5309968a00cae212e0471d29f28c4c88a6caa9274a205d89fe96aae",
   "questions": [
     {
       "id": "bob-and-nan-03-fluff-q1",
       "prompt": "What happens first in Bob, Nan and Fluff?",
       "choices": [
-        "Bob and Nan sit outside.",
-        "Bob pats him gently.",
-        "Fluff stays close."
+        "Bob wants Fluff to sit.",
+        "Nan pats Fluff calmly.",
+        "Fluff stops running."
       ],
-      "answer": "Bob and Nan sit outside.",
+      "answer": "Bob wants Fluff to sit.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Bob and Nan sit outside."
+      "evidenceText": "Bob wants Fluff to sit."
     },
     {
       "id": "bob-and-nan-03-fluff-q2",
       "prompt": "What goes wrong in Bob, Nan and Fluff?",
       "choices": [
-        "Bob pats him gently.",
-        "Bob and Nan sit outside.",
-        "Fluff stays close."
+        "Nan pats Fluff calmly.",
+        "Bob wants Fluff to sit.",
+        "Fluff stops running."
       ],
-      "answer": "Bob pats him gently.",
+      "answer": "Nan pats Fluff calmly.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Bob pats him gently. This shows that the first attempt does not solve the central problem.",
-      "evidencePage": 5,
-      "evidenceText": "Bob pats him gently."
+      "rationale": "Nan pats Fluff calmly. This shows that the first attempt does not solve the central problem.",
+      "evidencePage": 4,
+      "evidenceText": "Nan pats Fluff calmly."
     },
     {
       "id": "bob-and-nan-03-fluff-q3",
       "prompt": "What happens at the end of Bob, Nan and Fluff?",
       "choices": [
-        "Fluff stays close.",
-        "Bob and Nan sit outside.",
-        "Bob pats him gently."
+        "Fluff stops running.",
+        "Bob wants Fluff to sit.",
+        "Nan pats Fluff calmly."
       ],
-      "answer": "Fluff stays close.",
+      "answer": "Fluff stops running.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Fluff stays close. This event shows how the central problem is resolved.",
+      "rationale": "Fluff stops running. This event shows how the central problem is resolved.",
       "evidencePage": 6,
-      "evidenceText": "Fluff stays close."
+      "evidenceText": "Fluff stops running."
     }
   ]
 }

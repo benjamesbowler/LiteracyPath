@@ -29,8 +29,10 @@ import {
 } from "../data/phonemeAudioBank.js";
 import {
   getLedaProductionAudioPath,
-  getLedaWordAudioPath
+  getLedaWordAudioPath,
+  normalizeLedaAudioText
 } from "../data/ledaProductionAudio.js";
+import { GUIDED_READING_LEDA_GAPS } from "../data/generated/guidedReadingLedaGaps.generated.js";
 import { QUEST_STOPS } from "../data/questSequence.js";
 
 // The blends the trail actually teaches (st, bl, sw…). ONLY these may fall
@@ -111,9 +113,24 @@ export function letterNameSrc(letter) {
   return firstExisting([getLedaProductionAudioPath(l, ["letter_name"])]);
 }
 
+// Spelling support is deliberately letter-name audio, never inferred phonemes.
+// This remains correct for every ordinary English word, including words whose
+// graphemes change sound by context (school, book, bread, cow, giant, and so on).
+export function spellingAudioPaths(word) {
+  const letters = String(word || "").toLowerCase().replace(/[^a-z]/g, "").split("");
+  if (!letters.length) return [];
+  const paths = letters.map(letterNameSrc);
+  return paths.every(Boolean) ? paths : [];
+}
+
+export function hasSpellingAudio(word) {
+  return spellingAudioPaths(word).length > 0;
+}
+
 export function wordSrc(word) {
   const slug = String(word || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  const ledaPath = getLedaWordAudioPath(word);
+  const ledaPath = GUIDED_READING_LEDA_GAPS.isolated_word?.[normalizeLedaAudioText(word)]
+    || getLedaWordAudioPath(word);
   if (!slug || (hasKnownBadWordAudio(slug) && !ledaPath)) return "";
   return firstExisting([ledaPath]);
 }

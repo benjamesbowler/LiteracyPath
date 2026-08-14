@@ -29,7 +29,7 @@
       "answer": "Grumpy cools down. Chompy's berries stay cool.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Grumpy cools down. Chompy's berries stay cool. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Grumpy cools down. Chompy's berries stay cool. This shows that the first attempt does not solve the central problem introduced by Sunny picks Big Flat Rock for a picnic.",
       "evidencePage": 4,
       "evidenceText": "Grumpy cools down. Chompy's berries stay cool."
     },
@@ -44,7 +44,7 @@
       "answer": "Cool shade. Warm berries. One picnic for all!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Cool shade. Warm berries. One picnic for all! This event shows how the central problem is resolved.",
+      "rationale": "Cool shade. Warm berries. One picnic for all! This event shows how the central problem is resolved after Grumpy cools down. Chompy's berries stay cool.",
       "evidencePage": 8,
       "evidenceText": "Cool shade. Warm berries. One picnic for all!"
     }

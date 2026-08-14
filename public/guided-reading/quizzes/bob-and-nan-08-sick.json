@@ -2,15 +2,15 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "bob-and-nan-08-sick",
-  "contentHash": "sha256:9051b86f4c43ffce7d625c4525136a68da4fcbf3617588b4afd0269b48d418c1",
+  "contentHash": "sha256:5d4abf6ab9d2ff5d5769b687c2d55bd4eb67545d4ef1ff7456cefac87bc2834e",
   "questions": [
     {
       "id": "bob-and-nan-08-sick-q1",
       "prompt": "What happens first in Nan and Bob get Sick?",
       "choices": [
         "Bob feels too ill to play.",
-        "One nap is not enough.",
-        "Bob and Nan feel well!"
+        "Fluff stays close beside them.",
+        "Soon they feel stronger."
       ],
       "answer": "Bob feels too ill to play.",
       "kind": "text",
@@ -22,31 +22,31 @@
       "id": "bob-and-nan-08-sick-q2",
       "prompt": "What goes wrong in Nan and Bob get Sick?",
       "choices": [
-        "One nap is not enough.",
+        "Fluff stays close beside them.",
         "Bob feels too ill to play.",
-        "Bob and Nan feel well!"
+        "Soon they feel stronger."
       ],
-      "answer": "One nap is not enough.",
+      "answer": "Fluff stays close beside them.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "One nap is not enough. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Fluff stays close beside them. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 4,
-      "evidenceText": "One nap is not enough."
+      "evidenceText": "Fluff stays close beside them."
     },
     {
       "id": "bob-and-nan-08-sick-q3",
       "prompt": "How do Bob and Nan feel after they sip and rest?",
       "choices": [
-        "well",
-        "ill",
-        "tired"
+        "stronger",
+        "sicker",
+        "sleepier"
       ],
-      "answer": "well",
+      "answer": "stronger",
       "kind": "word",
       "skill": "outcome",
-      "rationale": "Page 7 says Bob and Nan feel well, which shows that sipping and resting helped them recover.",
+      "rationale": "Page 7 says Bob and Nan feel stronger, which shows that water and rest helped them recover.",
       "evidencePage": 7,
-      "evidenceText": "Bob and Nan feel well!"
+      "evidenceText": "Soon they feel stronger."
     }
   ]
 }

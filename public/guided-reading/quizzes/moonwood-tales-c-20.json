@@ -2,51 +2,51 @@
   "schemaVersion": 2,
   "quizVersion": "2026-08-01.1",
   "bookId": "moonwood-tales-c-20",
-  "contentHash": "sha256:2330e8a296d24fb734d139d9af3d6497505c0beefb55eb51b6c524dd9e7f54d8",
+  "contentHash": "sha256:e118144b06dacb28f4bd69458a52551aa2601156661733e141ea525bd5f3d5ba",
   "questions": [
     {
       "id": "moonwood-tales-c-20-q1",
       "prompt": "Which event introduces the situation in The Night the Stars Fell?",
       "choices": [
-        "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
-        "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms.",
-        "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home."
+        "Near midnight, several small golden fragments fell from the sky into Moonwood. They landed softly among the mushrooms, leaving bright trails across the clearing.",
+        "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands.",
+        "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead."
       ],
-      "answer": "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
+      "answer": "Near midnight, several small golden fragments fell from the sky into Moonwood. They landed softly among the mushrooms, leaving bright trails across the clearing.",
       "kind": "text",
       "skill": "sequence",
       "evidencePage": 1,
-      "evidenceText": "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing."
+      "evidenceText": "Near midnight, several small golden fragments fell from the sky into Moonwood. They landed softly among the mushrooms, leaving bright trails across the clearing."
     },
     {
       "id": "moonwood-tales-c-20-q2",
       "prompt": "Which event shows that the first attempt fails in The Night the Stars Fell?",
       "choices": [
-        "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms.",
-        "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
-        "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home."
+        "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands.",
+        "Near midnight, several small golden fragments fell from the sky into Moonwood. They landed softly among the mushrooms, leaving bright trails across the clearing.",
+        "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead."
       ],
-      "answer": "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms.",
+      "answer": "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands. This shows that the first attempt does not solve the central problem.",
       "evidencePage": 6,
-      "evidenceText": "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms."
+      "evidenceText": "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands."
     },
     {
       "id": "moonwood-tales-c-20-q3",
       "prompt": "Which event resolves the central problem in The Night the Stars Fell?",
       "choices": [
-        "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home.",
-        "Near midnight, several small golden lights fell from the sky into Moonwood. They landed softly among the mushrooms, then began bouncing across the clearing.",
-        "Pip lifted one spirit above his head from the clearing. It stretched upward, but the sky did not pull, and the tired spirit fell into his arms."
+        "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead.",
+        "Near midnight, several small golden fragments fell from the sky into Moonwood. They landed softly among the mushrooms, leaving bright trails across the clearing.",
+        "Pip lifted one fragment above his head. The trees hid its constellation, so its glow faded and it settled back into his hands."
       ],
-      "answer": "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home.",
+      "answer": "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead.",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home. This event shows how the central problem is resolved.",
+      "rationale": "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead. This event shows how the central problem is resolved.",
       "evidencePage": 12,
-      "evidenceText": "The last spirit blinked at Stone from his palm. Then it rose just before dawn. Stone watched one distant star flash brightly, confirming that the final traveler was home."
+      "evidenceText": "The final fragment answered with one bright flash, then joined its constellation just before dawn. Stone watched the complete pattern shine overhead."
     }
   ]
 }

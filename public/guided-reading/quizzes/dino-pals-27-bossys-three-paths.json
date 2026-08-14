@@ -10,7 +10,7 @@
       "choices": [
         "Bossy plans eight stepping stones across Muddy Puddle Pool.",
         "Grumpy reaches the middle. He cannot step farther.",
-        "Close stones, one branch, and the shallow edge make three paths."
+        "Big feet. Quick feet. Every Pal finds a safe path!"
       ],
       "answer": "Bossy plans eight stepping stones across Muddy Puddle Pool.",
       "kind": "text",
@@ -24,12 +24,12 @@
       "choices": [
         "Grumpy reaches the middle. He cannot step farther.",
         "Bossy plans eight stepping stones across Muddy Puddle Pool.",
-        "Close stones, one branch, and the shallow edge make three paths."
+        "Big feet. Quick feet. Every Pal finds a safe path!"
       ],
       "answer": "Grumpy reaches the middle. He cannot step farther.",
       "kind": "text",
       "skill": "problem_solution",
-      "rationale": "Grumpy reaches the middle. He cannot step farther. This shows that the first attempt does not solve the central problem.",
+      "rationale": "Grumpy reaches the middle. He cannot step farther. This shows that the first attempt does not solve the central problem introduced by Bossy plans eight stepping stones across Muddy Puddle Pool.",
       "evidencePage": 3,
       "evidenceText": "Grumpy reaches the middle. He cannot step farther."
     },
@@ -37,16 +37,16 @@
       "id": "dino-pals-27-bossys-three-paths-q3",
       "prompt": "Which event solves the problem in Bossy's Three Paths?",
       "choices": [
-        "Close stones, one branch, and the shallow edge make three paths.",
+        "Big feet. Quick feet. Every Pal finds a safe path!",
         "Bossy plans eight stepping stones across Muddy Puddle Pool.",
         "Grumpy reaches the middle. He cannot step farther."
       ],
-      "answer": "Close stones, one branch, and the shallow edge make three paths.",
+      "answer": "Big feet. Quick feet. Every Pal finds a safe path!",
       "kind": "text",
       "skill": "outcome",
-      "rationale": "Close stones, one branch, and the shallow edge make three paths. This event shows how the central problem is resolved.",
-      "evidencePage": 6,
-      "evidenceText": "Close stones, one branch, and the shallow edge make three paths."
+      "rationale": "Big feet. Quick feet. Every Pal finds a safe path! This event shows how the central problem is resolved after Grumpy reaches the middle. He cannot step farther.",
+      "evidencePage": 8,
+      "evidenceText": "Big feet. Quick feet. Every Pal finds a safe path!"
     }
   ]
 }

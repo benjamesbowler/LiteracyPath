@@ -67,17 +67,17 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   }),
   "bob-and-nan-03-fluff": fictionReview({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN", "HUMAN-FLUFF"],
-    storySpine: "Fluff wants to join Bob and Nan in the garden.",
-    failedAttempt: "Fluff first approaches from across the garden.",
-    resolution: "Gentle pats welcome Fluff between his pals.",
+    storySpine: "Bob wants lively Fluff to sit calmly with him and Nan.",
+    failedAttempt: "Fluff walks past Bob and runs to Nan instead.",
+    resolution: "Bob copies Nan's calm pats, and Fluff settles between them.",
     pages: [
-      "Bob and Nan sit outside.",
-      "Their pup Fluff walks over.",
+      "Bob wants Fluff to sit.",
+      "Fluff walks past Bob.",
       "Fluff runs to Nan.",
-      "Nan strokes his soft ears.",
-      "Bob pats him gently.",
-      "Fluff stays close.",
-      "Fluff sits between his pals."
+      "Nan pats Fluff calmly.",
+      "Bob pats Fluff calmly.",
+      "Fluff stops running.",
+      "Fluff sits between them."
     ]
   }),
   "bob-and-nan-04-beach": fictionReview({
@@ -146,39 +146,39 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN", "HUMAN-MUM", "HUMAN-FLUFF"],
     storySpine: "Bob and Nan want enough strength to play again.",
     failedAttempt: "A short rest is not enough.",
-    resolution: "Longer rest and a warm drink help them recover.",
+    resolution: "Water and two quiet days of rest help them become strong enough for a gentle walk.",
     pages: [
       "Bob feels too ill to play.",
       "Bob rests in bed.",
-      "Nan feels too ill to play.",
-      "One nap is not enough.",
-      "Mom brings a warm drink.",
-      "They sip and rest.",
-      "Bob and Nan feel well!",
-      "They run with Fluff!"
+      "Nan rests beside Fluff.",
+      "Fluff stays close beside them.",
+      "Mom brings them water.",
+      "They rest for two days.",
+      "Soon they feel stronger.",
+      "Later they walk with Fluff."
     ]
   }),
   "bob-and-nan-09-read": fictionReview({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN", "HUMAN-FLUFF"],
     storySpine: "Bob wants to read Nan's book by himself.",
     failedAttempt: "The first word is too hard for Bob.",
-    resolution: "Bob reads with Nan while Fluff naps beside them.",
+    resolution: "Nan helps Bob sound out one page, and they keep practising together each day.",
     pages: [
       "Nan has a red book.",
       "Bob cannot read it yet.",
       "Nan helps Bob.",
       "Bob sounds out cat.",
       "Bob reads one sentence.",
-      "Bob can read!",
-      "They read together.",
-      "Fluff naps beside them."
+      "Bob reads the cat page!",
+      "They practice each day.",
+      "Fluff naps as they read."
     ]
   }),
   "bob-and-nan-10-vet": fictionReview({
     canonIds: ["HUMAN-BOB", "HUMAN-NAN", "HUMAN-FLUFF"],
     storySpine: "Bob and Nan want the vet to help Fluff's sore leg.",
     failedAttempt: "Rest at home has not fixed the pain.",
-    resolution: "The vet treats Fluff and he runs comfortably again.",
+    resolution: "Medicine and several weeks of rest let Fluff's leg heal before he runs again.",
     pages: [
       "Fluff has a sore leg.",
       "Rest does not help.",
@@ -186,8 +186,8 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "Fluff sits on the bed.",
       "The vet checks his leg.",
       "Fluff gets his medicine.",
-      "Fluff stands without pain.",
-      "Fluff can run again!"
+      "The vet says Fluff must rest.",
+      "Weeks pass. Fluff runs again!"
     ]
   }),
 
@@ -228,17 +228,17 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   "meadow-pals-03-clucky-lays-an-egg": fictionReview({
     canonIds: ["MEADOW-CLUCKY"],
     storySpine: "Clucky wants a safe, clean place for her egg.",
-    failedAttempt: "The nest, log, box and hat do not feel right.",
-    resolution: "Clucky lays the egg in mud, then moves it to clean straw.",
+    failedAttempt: "The high nest, hard log, small box and tipping hat do not feel safe.",
+    resolution: "Clucky finds a dry corner, and the farmer adds soft straw before she lays one safe egg.",
     pages: [
       "Clucky needs a safe nest.",
       "The nest feels too high.",
       "The log feels too hard.",
       "The box feels too small.",
       "The hat tips over.",
-      "Clucky sits in the mud.",
-      "Her egg lands in the mud.",
-      "Clucky moves her egg to straw."
+      "Clucky finds a dry corner.",
+      "The farmer brings soft straw.",
+      "Clucky lays one safe egg."
     ]
   }),
   "meadow-pals-04-bouncy-wont-stop": fictionReview({
@@ -350,7 +350,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     resolution: "Slow breathing stops them.",
     pages: [
       "Giggly has the hiccups.",
-      "Hic! Hic! Hic!",
+      "Hiccup! Hiccup! Hiccup!",
       "Her laughs make them worse.",
       "A sip does not help.",
       "A hop does not help.",
@@ -381,16 +381,16 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   "meadow-pals-12-hungry-eats-everything": fictionReview({
     canonIds: ["MEADOW-HUNGRY"],
     storySpine: "Hungry wants enough suitable food for lunch.",
-    failedAttempt: "A little grass and hay do not fill him.",
-    resolution: "Hungry asks at the gate and receives a full meal with water.",
+    failedAttempt: "A little grass and a little hay do not fill him, and the water trough is empty.",
+    resolution: "Hungry calls from the gate, and the farmer brings enough fresh hay and water.",
     pages: [
-      "Hungry eats some grass.",
-      "Hungry eats some hay.",
-      "Hungry is still hungry.",
-      "Hungry asks at the gate.",
-      "The farmer brings fresh hay.",
-      "Hungry eats and drinks.",
-      "Hungry feels full and happy now!"
+      "Hungry chews some grass.",
+      "Hungry eats a bit of hay.",
+      "The trough has no water.",
+      "Hungry calls at the gate.",
+      "The farmer brings hay and water.",
+      "Hungry eats and drinks slowly.",
+      "Hungry's tummy feels full."
     ]
   }),
   "meadow-pals-13-splashy-finds-a-puddle": fictionReview({
@@ -416,13 +416,13 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     failedAttempt: "Speedy races past every landmark and becomes lost.",
     resolution: "Speedy stops, listens to Tiny and follows the path home.",
     pages: [
-      "Speedy runs home.",
+      "Speedy races toward home.",
       "Speedy runs past the barn.",
       "Speedy runs past the pond.",
       "Speedy runs past the hill.",
       "Speedy misses the home path.",
       "No one sees Speedy.",
-      "Speedy is lost.",
+      "Speedy cannot find home.",
       "Speedy stops and listens.",
       "Tiny calls from home.",
       "Speedy finds his way home!"
@@ -453,7 +453,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     resolution: "They wash Grumpy, who smiles and walks with them.",
     pages: [
       "Muddy brings some mud.",
-      "Splashy brings a pail.",
+      "Splashy carries a pail.",
       "They make a mud pool.",
       "They both jump in.",
       "Mud flies up.",
@@ -490,7 +490,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
       "The sky is dark.",
       "Noisy starts the day too soon.",
       "Noisy lets out a loud call.",
-      "Three friends wake.",
+      "Three friends wake up.",
       "Sleepy stays in bed.",
       "Noisy calls once more.",
       "Sleepy peeks with one eye.",
@@ -535,35 +535,35 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
   }),
   "meadow-pals-21-woolly-and-grumpy-are-stuck": fictionReview({
     canonIds: ["MEADOW-WOOLLY", "MEADOW-GRUMPY", "MEADOW-TINY"],
-    storySpine: "Woolly and Grumpy want to untangle Woolly's wool from Grumpy's horn.",
-    failedAttempt: "Pulling and moving together tightens the tangle.",
-    resolution: "They stop, Tiny frees the wool, and they leave space.",
+    storySpine: "Woolly and Grumpy want to untangle a loose lock of Woolly's wool from Grumpy's horn.",
+    failedAttempt: "Pulling and moving together tightens the loose wool.",
+    resolution: "They stop, Tiny frees the lock of wool, and they leave space.",
     pages: [
       "Woolly and Grumpy are stuck.",
-      "Wool catches Grumpy's horn.",
+      "Loose wool catches Grumpy's horn.",
       "They pull too hard.",
       "They both move left.",
       "They both move right.",
       "The knot gets tighter.",
       "They stop moving.",
-      "Tiny frees the wool.",
+      "Tiny frees the lock of wool.",
       "Now they leave space between them."
     ]
   }),
   "meadow-pals-22-sleepys-big-dream": fictionReview({
     canonIds: ["MEADOW-SLEEPY"],
     storySpine: "Sleepy wants to finish a dream race before waking.",
-    failedAttempt: "The dream fades and Sleepy begins to stir.",
-    resolution: "Sleepy shuts his eyes and stays long enough to win.",
+    failedAttempt: "Sleepy runs too fast, tires his legs and must stop before the last lap.",
+    resolution: "One calm breath and a short rest give dream Sleepy the strength to finish.",
     pages: [
-      "Sleepy closes his eyes.",
-      "A big race dream begins.",
-      "Dream Sleepy runs fast.",
-      "Dream Sleepy jumps high.",
-      "Dream Sleepy runs even faster!",
-      "Dream Sleepy feels like a hero.",
-      "Sleepy stirs. He shuts his eyes.",
-      "Dream Sleepy wins the race!"
+      "Sleepy falls asleep before the race.",
+      "A race starts in his dream.",
+      "Sleepy runs much too fast.",
+      "He jumps over one big log.",
+      "His legs feel tired.",
+      "Sleepy stops for one breath.",
+      "He rests before the last lap.",
+      "Then Sleepy wins by one hoof!"
     ]
   }),
   "meadow-pals-23-giggly-and-clucky-bake-a-cake": fictionReview({
@@ -643,7 +643,7 @@ export const GUIDED_READING_STORY_BIBLE_REWRITES = Object.freeze({
     pages: [
       "Our Sun is one huge star in space.",
       "Its light makes daytime on our side.",
-      "Its warmth heats land and water.",
+      "Its warmth heats the land and water.",
       "Plants use sunlight to make food.",
       "Enjoy daylight safely. Never look straight at the Sun.",
       "The Sun's light and warmth help life on Earth."
