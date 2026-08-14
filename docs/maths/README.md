@@ -35,6 +35,10 @@ runtime until a teacher or learner flags the exact clip. A flag enters the RPC-o
 review queue without recording a child. Formal `Secure` judgements remain disabled
 until pilot calibration supplies sufficient teacher-observation evidence.
 
+The exact release evidence, production commit, live database state and remaining
+roadmap boundaries are recorded in
+[Foundation Maths release record — 2026-08-14](FOUNDATION_RELEASE_RECORD_2026-08-14.md).
+
 ## Decision
 
 Build Maths as a subject module inside the existing LiteracyPath application.
