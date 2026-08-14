@@ -99,7 +99,7 @@ for (const [name, result] of [["teacher_list", teacherList], ["teacher_create", 
 for (const [name, result] of teacherOperationResults) {
   if (!denied(result)) failures.push(`${name} was not denied to anon`);
 }
-if (!denied(privateValidator)) failures.push("the authored v2 evidence validator was exposed to anon");
+if (!denied(privateValidator)) failures.push("the authored v3 evidence validator was exposed to anon");
 for (const [table, result] of directTableResults) {
   if (!denied(result)) failures.push(`direct ${table} table access was not denied (HTTP ${result.status})`);
 }
@@ -108,5 +108,5 @@ if (failures.length) {
   console.error(`Live Maths assignment boundary failed:\n${failures.map(item => `- ${item}`).join("\n")}`);
   process.exit(1);
 }
-console.log("Live Maths boundary passed: student identity is token-derived; all teacher operations, the authored v2 validator and five private tables deny anonymous access.");
+console.log("Live Maths boundary passed: student identity is token-derived; all teacher operations, the authored v3 validator and five private tables deny anonymous access.");
 process.exit(0);

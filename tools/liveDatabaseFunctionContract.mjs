@@ -70,6 +70,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_delete_learner_data_staged: ["p_request_id", "p_student_id", "p_subject_ref", "p_confirmation"],
   teacher_delete_planned_intervention: ["p_intervention_id"],
   teacher_delete_saved_assessment_report: ["p_report_id"],
+  teacher_duplicate_maths_assignment: ["p_class_id", "p_assignment_id", "p_due_at"],
   teacher_end_reading_session: ["p_session_id"],
   teacher_end_live_lesson: ["p_session_id"],
   teacher_export_learner_data: ["p_student_id", "p_requester_role", "p_verification_method"],
@@ -79,11 +80,13 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_get_live_lesson_snapshot: ["p_session_id"],
   teacher_list_learner_data_rights: ["p_student_id"],
   teacher_list_maths_assignments: ["p_class_id", "p_include_archived"],
+  teacher_list_maths_media_issues: ["p_class_id", "p_include_reviewed"],
   teacher_list_press_work: ["p_class_id"],
   teacher_mark_intervention_delivered: ["p_intervention_id"],
   teacher_prepare_learner_deletion: ["p_student_id", "p_requester_role", "p_verification_method"],
   teacher_read_lesson_plan: ["p_plan_id"],
   teacher_read_maths_evidence: ["p_class_id", "p_student_id", "p_limit"],
+  teacher_read_maths_evidence_filtered_page: ["p_class_id", "p_student_id", "p_since", "p_source", "p_limit", "p_before_occurred_at", "p_before_id"],
   teacher_read_maths_evidence_page: ["p_class_id", "p_student_id", "p_limit", "p_before_occurred_at", "p_before_id"],
   teacher_read_maths_sync_health: ["p_class_id"],
   teacher_read_worksheet_history: ["p_instance_id"],
@@ -95,6 +98,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_record_worksheet_observation: ["p_instance_id", "p_client_event_id", "p_marks", "p_note", "p_supersedes_batch_id"],
   teacher_regenerate_class_code: ["p_class_id"],
   teacher_reset_student_progress: ["p_student_id", "p_reset_at"],
+  teacher_resolve_maths_media_issue: ["p_issue_id", "p_resolution"],
   teacher_resolve_worksheet_code: ["p_code"],
   teacher_review_instructional_group: ["p_group_id", "p_student_ids", "p_evidence_snapshot"],
   teacher_review_book_revision: ["p_book_id", "p_revision_id", "p_decision", "p_review"],
@@ -112,6 +116,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_start_live_lesson: ["p_class_id", "p_student_ids", "p_cycle_id", "p_day_key", "p_content", "p_content_version"],
   teacher_transfer_student: ["p_student_id", "p_source_class_id", "p_target_class_id"],
   teacher_update_draft_lesson_plan: ["p_plan_id", "p_expected_revision", "p_learner_ids", "p_recipe", "p_scheduled_for"],
+  teacher_update_maths_assignment_due_at: ["p_class_id", "p_assignment_id", "p_due_at"],
   teacher_update_planned_intervention: ["p_intervention_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"]
 });
 

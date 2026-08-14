@@ -1,7 +1,7 @@
 # Foundation Maths release record — 2026-08-14
 
-Status: current v3 Foundation candidate passed the complete local release gate;
-production promotion still follows the database migration and deployment gates
+Status: current v3 Foundation candidate passed the complete local, hosted
+database and production application identity gates
 
 Release boundary: the eight Foundation number-sense goals in
 `FOUNDATION_REBUILD_SPEC.md`. The wider Foundation–Year 2 programme remains a
@@ -39,10 +39,13 @@ started real LEDA lesson audio and an owned instrumental. The browser flow also
 exercised all five game mechanics, story completion and Family Bridge, teacher
 presentation, worksheets, reports, resources and assignments.
 
-The v3 migration is committed with the candidate, but it was deliberately not
-applied to hosted Supabase during this verification run. Therefore this record
-does not claim that v3 evidence is accepted by the live database, nor that the
-current candidate is deployed to production.
+The v3 migration was applied to the linked hosted Supabase project on
+2026-08-14. The remote ledger matched every local migration through
+`20260814143000`; all 101 app-called RPC signatures remained visible to
+PostgREST, and the focused Maths live boundary check passed. The current
+production JavaScript bundle embedded the exact release ID
+`96f99f7bcd7e94eb76c944603f16a85b22e57f7f`, so the v3 client candidate and
+hosted schema are deployed together.
 
 ## Released product evidence
 
@@ -93,8 +96,12 @@ an exact clip is flagged, as directed by the product owner.
 ## Hosted data and production checks
 
 The linked Supabase migration list was read after deployment. Every local
-migration had a matching remote version through `20260813120000`; there was no
-pending SQL.
+migration had a matching remote version through `20260814143000`; there was no
+pending SQL. `check:live-database` confirmed all 101 functions called by the app
+were visible using their real PostgREST parameter signatures. The focused Maths
+probe confirmed token-derived student identity, anonymous denial for all teacher
+operations and the v3 validator, and anonymous denial for the five private
+Maths tables.
 
 The production teacher Maths route was opened in an existing authenticated
 Chrome profile. It loaded the owned class and remained on the Maths teaching
@@ -114,7 +121,7 @@ account continues; the fallback cannot grant elevated access.
 - The wider Foundation–Year 2 skill, story, song, manipulative and game roadmap
   remains planned. This record does not relabel planned content as released.
 
-The current v3 candidate must not be represented as production until its hosted
-migration state and deployment identity are appended to this record. The fresh
-local release and browser evidence above verifies the candidate itself; it does
-not substitute for hosted-state proof.
+The production frontend was fetched directly and its embedded release ID matched
+commit `96f99f7bc`. Future releases must repeat both the hosted migration ledger
+check and this deployed-bundle identity check; a successful local build or Git
+push alone is not production proof.
