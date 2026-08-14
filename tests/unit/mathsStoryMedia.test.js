@@ -9,8 +9,8 @@ import { mathsAssessmentBank } from "../../src/maths/assessment/mathsAssessmentB
 
 test("released Foundation number stories have complete 4:3 page media", async () => {
   const pages = releasedMathsStories.flatMap(story => story.pages.map(page => ({ story, page })));
-  assert.equal(pages.length, 16);
-  assert.equal(new Set(pages.map(({ page }) => page.image)).size, 16);
+  assert.equal(pages.length, 48);
+  assert.equal(new Set(pages.map(({ page }) => page.image)).size, 48);
   for (const { story, page } of pages) {
     const absolute = path.join(process.cwd(), "public", page.image);
     assert.ok(fs.existsSync(absolute), `${story.id} page ${page.pageNumber} is missing`);

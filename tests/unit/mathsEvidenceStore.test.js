@@ -158,6 +158,10 @@ test("learner cleanup removes only Maths evidence belonging to that learner", as
     storage,
     ...baseEvidence
   });
+  storage.setItem("lp-maths-lesson:v1:student-a:F-N-COUNT-10", "1");
+  storage.setItem("lp-maths-lesson:v2:student-a:F-N-PART-10", JSON.stringify({ version: 2, step: 3 }));
+  storage.setItem("lp-maths-lesson:v9:student-a:F-N-MATCH", JSON.stringify({ version: 9, step: 1 }));
+  storage.setItem("lp-maths-lesson:v2:student-b:F-N-PART-10", JSON.stringify({ version: 2, step: 4 }));
   await recordTeacherMathsEvidence({
     client: offline,
     teacherId: "teacher-a",
@@ -170,12 +174,16 @@ test("learner cleanup removes only Maths evidence belonging to that learner", as
 
   assert.deepEqual(
     await clearAndVerifyMathsEvidenceForStudent({ studentId: "student-a", storage }),
-    { removed: 1, residualCount: 0, storageAvailable: true }
+    { removed: 4, residualCount: 0, storageAvailable: true }
   );
   const remaining = readMathsEvidenceQueue({ storage });
   assert.equal(remaining.length, 1);
   assert.equal(remaining[0].entry.studentId, "student-b");
   assert.match(remaining[0].key, new RegExp(`^${MATHS_EVIDENCE_QUEUE_PREFIX}`));
+  assert.equal(storage.getItem("lp-maths-lesson:v1:student-a:F-N-COUNT-10"), null);
+  assert.equal(storage.getItem("lp-maths-lesson:v2:student-a:F-N-PART-10"), null);
+  assert.equal(storage.getItem("lp-maths-lesson:v9:student-a:F-N-MATCH"), null);
+  assert.notEqual(storage.getItem("lp-maths-lesson:v2:student-b:F-N-PART-10"), null);
 });
 
 test("the store rejects unversioned or unknown Maths evidence before networking", () => {

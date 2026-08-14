@@ -1,6 +1,4 @@
-import { useMemo, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
   Basket,
@@ -12,47 +10,6 @@ import {
   Sparkle
 } from "@phosphor-icons/react";
 
-function Stone({ position, active }) {
-  const colour = active ? "#ffd571" : "#d6e6d7";
-  return <group position={position}>
-    <Float floatIntensity={active ? 0.35 : 0.12} rotationIntensity={0.05} speed={active ? 2 : 1}>
-      <mesh castShadow receiveShadow>
-        <cylinderGeometry args={[0.82, 0.95, 0.35, 32]} />
-        <meshStandardMaterial color={colour} roughness={0.72} />
-      </mesh>
-    </Float>
-  </group>;
-}
-
-function MountainScene({ round, selectedSlot }) {
-  const stonePositions = [[-1.9, 0.25, 0.3], [0, 0.38, -0.35], [1.9, 0.55, -0.95]];
-  return <div className="maths-number-trail-scene" aria-hidden="true">
-    <Canvas camera={{ fov: 48, position: [0, 5.2, 7.2] }} dpr={[1, 1.5]}>
-        <color attach="background" args={["#bde3df"]} />
-        <fog attach="fog" args={["#bde3df", 8, 16]} />
-        <ambientLight intensity={1.5} />
-        <directionalLight castShadow intensity={2.2} position={[3, 7, 4]} shadow-mapSize={[1024, 1024]} />
-        <mesh position={[0, -0.06, -1.3]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry args={[14, 12]} />
-          <meshStandardMaterial color="#75aa77" roughness={1} />
-        </mesh>
-        <mesh position={[-3.8, 0.3, -3.7]}>
-          <coneGeometry args={[2.8, 2.8, 5]} />
-          <meshStandardMaterial color="#5b8a6c" roughness={1} />
-        </mesh>
-        <mesh position={[4.2, 0.2, -4.5]}>
-          <coneGeometry args={[3.2, 3.4, 5]} />
-          <meshStandardMaterial color="#477865" roughness={1} />
-        </mesh>
-        <mesh castShadow position={[-2.7, 0.45, 1.25]}>
-          <sphereGeometry args={[0.42, 24, 24]} />
-          <meshStandardMaterial color="#f7a15b" roughness={0.6} />
-        </mesh>
-        {round.options.map((value, index) => <Stone active={selectedSlot === index} key={value} position={stonePositions[index]} />)}
-      </Canvas>
-  </div>;
-}
-
 export function NumberTrailGame({ round, disabled, onAnswer }) {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const choose = (value, index, component) => {
@@ -60,16 +17,35 @@ export function NumberTrailGame({ round, disabled, onAnswer }) {
     onAnswer(value, { component, optionSlot: index, pathOptions: round.options });
   };
   return <div className="maths-arcade-mechanic maths-number-trail-v2">
-    <div className="maths-number-trail-3d">
-      <MountainScene round={round} selectedSlot={selectedSlot} />
+    <div className="maths-number-trail-world">
+      <div aria-hidden="true" className="maths-mountain-layer is-back" /><div aria-hidden="true" className="maths-mountain-layer is-front" />
       <ol aria-label={`Number path: ${round.model.sequence.map(value => value ?? "gap").join(", ")}`} className="maths-trail-sequence">
         {round.model.sequence.map((value, index) => <li className={value === null ? "is-gap" : ""} key={`${value ?? "gap"}-${index}`}><small>{value === null ? "Missing" : `Step ${index + 1}`}</small><strong>{value ?? "?"}</strong></li>)}
       </ol>
-      <div className="maths-trail-stones" data-child-choices role="group" aria-label="Choose a stepping stone for the missing number">
-        {round.options.map((value, index) => <button aria-label={`Put ${value} in the gap`} aria-pressed={selectedSlot === index} className={selectedSlot === index ? "is-selected" : ""} data-answer-slot={index} disabled={disabled} key={value} onClick={() => choose(value, index, "number_trail_stone")} type="button"><span>{value}</span></button>)}
+      <div className="maths-trail-stones" data-child-choices role="group" aria-label="Walk onto a stepping stone for the missing number">
+        {round.options.map((value, index) => <button aria-label={`Step onto ${value} and put it in the gap`} aria-pressed={selectedSlot === index} className={selectedSlot === index ? "is-selected" : ""} data-answer-slot={index} data-depth={index + 1} disabled={disabled} key={value} onClick={() => choose(value, index, "number_trail_stone")} type="button"><span>{value}</span>{selectedSlot === index && <Sparkle aria-hidden="true" size={24} weight="fill" />}</button>)}
       </div>
     </div>
     <p className="maths-trail-hint">Count along the path. Tap the stone that fits the gap.</p>
+  </div>;
+}
+
+export function GlimpseGardenGame({ round, disabled, onAnswer }) {
+  const [view, setView] = useState("ready");
+  useEffect(() => {
+    if (view !== "glimpse") return undefined;
+    const timer = window.setTimeout(() => setView("choose"), 1700);
+    return () => window.clearTimeout(timer);
+  }, [view]);
+  const visible = ["glimpse", "count"].includes(view);
+  return <div className="maths-arcade-mechanic maths-glimpse-world">
+    <div className="maths-glimpse-garden" role="img" aria-label={visible ? `${round.model.total} glowbugs arranged as ${round.model.parts.join(" and ")}` : "The glowbug pattern is hidden behind the garden gate"}>
+      <div aria-hidden={!visible} className={visible ? "maths-glowbug-pattern is-visible" : "maths-glowbug-pattern"} data-pattern={round.model.pattern}>{Array.from({ length: round.model.total }, (_, index) => <Sparkle aria-hidden="true" key={index} size={38} weight="fill" />)}</div>
+      {!visible && <div className="maths-garden-gate" aria-hidden="true"><span /><span /><strong>?</strong></div>}
+    </div>
+    {view === "ready" && <button className="maths-arcade-submit" onClick={() => setView("glimpse")} type="button">Open the garden gate</button>}
+    {view !== "ready" && <div className="maths-glimpse-controls"><button disabled={disabled} onClick={() => setView("glimpse")} type="button">Show again</button><button disabled={disabled} onClick={() => setView("count")} type="button">Keep it open so I can count</button></div>}
+    {["choose", "count"].includes(view) && <div className="maths-glimpse-answers" data-child-choices role="group" aria-label="Choose the number of glowbugs">{round.options.map((value, slot) => <button data-answer-slot={slot} disabled={disabled} key={value} onClick={() => onAnswer(value, { accessMode: view === "count" ? "untimed_counting" : "visual_glimpse", component: "glimpse_garden", optionSlot: slot, pattern: round.model.pattern, parts: round.model.parts })} type="button">{value}</button>)}</div>}
   </div>;
 }
 
@@ -93,19 +69,21 @@ export function FrameFoundryGame({ round, disabled, onAnswer }) {
 
 export function CountCarryGame({ round, disabled, onAnswer }) {
   const [carried, setCarried] = useState([]);
+  const [strategy, setStrategy] = useState("");
   const total = round.model.total;
   const move = index => setCarried(current => current.includes(index) ? current : [...current, index]);
   return <div className="maths-arcade-mechanic maths-carry-world">
-    <div className="maths-carry-landscape">
+    {!strategy && <div className="maths-count-strategy" role="group" aria-label="Choose a counting plan"><strong>Choose a counting plan</strong><button onClick={() => setStrategy("move_once")} type="button">Move each parcel once</button><button onClick={() => setStrategy(round.model.total > 10 ? "ten_and_more" : "make_row")} type="button">{round.model.total > 10 ? "Make ten, then count on" : "Make a clear row"}</button></div>}
+    {strategy && <><div className="maths-carry-landscape">
       <section aria-label="Parcels waiting to be counted" className="maths-parcel-meadow">
-        <span className="maths-world-label">Waiting in the meadow</span>
+        <span className="maths-world-label">{strategy === "ten_and_more" ? "Fill ten first, then move the extras" : strategy === "make_row" ? "Move along the row once" : "Waiting in the meadow"}</span>
         <div>{Array.from({ length: total }, (_, index) => <button aria-label={`Move uncounted parcel ${index + 1}`} className={carried.includes(index) ? "is-carried" : ""} disabled={disabled || carried.includes(index)} key={index} onClick={() => move(index)} type="button"><Package aria-hidden="true" size={total > 12 ? 27 : 33} weight="duotone" /></button>)}</div>
       </section>
       <ArrowRight aria-hidden="true" className="maths-carry-arrow" size={36} weight="bold" />
       <section aria-live="polite" className="maths-carry-cart"><Basket aria-hidden="true" size={52} weight="duotone" /><strong>{carried.length === total ? "Ready" : "Keep moving"}</strong><span>{carried.length === total ? "Every parcel moved once" : "Move one parcel for each number word"}</span></section>
     </div>
     <div className="maths-carry-meter"><span style={{ width: `${(carried.length / total) * 100}%` }} /><small>{carried.length === total ? "Every parcel has moved" : "Keep counted and uncounted parcels separate"}</small></div>
-    {carried.length === total && <div className="maths-carry-answer" data-child-choices role="group" aria-label="Choose how many parcels are in the collection">{round.options.map((value, slot) => <button data-answer-slot={slot} disabled={disabled} key={value} onClick={() => onAnswer(value, { component: "one_to_one_carry", movedItemIndexes: carried, optionSlot: slot, options: round.options })} type="button">{value}</button>)}</div>}
+    {carried.length === total && <div className="maths-carry-answer" data-child-choices role="group" aria-label="Choose how many parcels are in the collection">{round.options.map((value, slot) => <button data-answer-slot={slot} disabled={disabled} key={value} onClick={() => onAnswer(value, { component: "one_to_one_carry", countingStrategy: strategy, movedItemIndexes: carried, optionSlot: slot, options: round.options })} type="button">{value}</button>)}</div>}</>}
   </div>;
 }
 
@@ -121,7 +99,7 @@ function relationshipFor(left, right) {
 export function BridgeBuilderGame({ round, disabled, onAnswer }) {
   const isCompare = round.mechanic === "compare_frames";
   const [built, setBuilt] = useState(0);
-  const [paired, setPaired] = useState(0);
+  const [pairedSlots, setPairedSlots] = useState([]);
   if (!isCompare) return <div className="maths-arcade-mechanic maths-bridge-world">
     <div className="maths-bridge-sky"><Bridge aria-hidden="true" size={46} weight="duotone" /><span>Numeral beacon</span><strong>{round.model.target}</strong></div>
     <BridgePlanks activeClass="is-building" capacity={10} count={built} />
@@ -129,6 +107,7 @@ export function BridgeBuilderGame({ round, disabled, onAnswer }) {
     <button className="maths-arcade-submit" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary disabled={disabled || built === 0} onClick={() => onAnswer(built, { component: "bridge_numeral_builder", plankCount: built })} type="button">Test the bridge <ArrowRight aria-hidden="true" size={20} weight="bold" /></button>
   </div>;
   const possiblePairs = Math.min(round.model.left, round.model.right);
+  const paired = pairedSlots.length;
   const complete = paired === possiblePairs;
   const leftOver = round.model.left - paired;
   const rightOver = round.model.right - paired;
@@ -138,7 +117,7 @@ export function BridgeBuilderGame({ round, disabled, onAnswer }) {
       <div className="maths-paired-channel"><strong>{paired}</strong><span>{paired === 1 ? "pair" : "pairs"} joined</span></div>
       <div><span>Right bank</span><BridgePlanks capacity={round.model.right} count={rightOver} /></div>
     </div>
-    <button className="maths-pair-next" disabled={disabled || complete} onClick={() => setPaired(value => value + 1)} type="button">{complete ? "Every possible pair is joined" : "Join the next pair"}</button>
+    <div className="maths-direct-pairs" role="group" aria-label="Join one plank from each bank">{Array.from({ length: possiblePairs }, (_, index) => { const joined = pairedSlots.includes(index); return <button aria-pressed={joined} disabled={disabled || joined} key={index} onClick={() => setPairedSlots(value => [...value, index])} type="button"><span /><Bridge aria-hidden="true" size={22} weight={joined ? "fill" : "duotone"} /><span /><small>{joined ? `Pair ${index + 1} joined` : `Join pair ${index + 1}`}</small></button>; })}</div>
     <p aria-live="polite" className="maths-pair-result">{complete ? `${leftOver} left unpaired · ${rightOver} right unpaired` : "Pair one from each bank to compare fairly."}</p>
     <div className="maths-relationship-controls" data-child-choices role="group" aria-label="Choose what the pairing proves">
       {[{ value: "a", label: "Left has more" }, { value: "same", label: "Same amount" }, { value: "b", label: "Right has more" }].map((option, slot) => <button data-answer-slot={slot} disabled={disabled || !complete} key={option.value} onClick={() => onAnswer(option.value, { component: "one_to_one_bridge_compare", paired, leftOver, rightOver, derivedRelationship: relationshipFor(round.model.left, round.model.right) })} type="button">{option.label}</button>)}
@@ -147,6 +126,7 @@ export function BridgeBuilderGame({ round, disabled, onAnswer }) {
 }
 
 export function MathsArcadeGame({ gameId, round, disabled, onAnswer }) {
+  if (gameId === "glimpse-garden") return <GlimpseGardenGame disabled={disabled} onAnswer={onAnswer} round={round} />;
   if (gameId === "frame-foundry") return <FrameFoundryGame disabled={disabled} onAnswer={onAnswer} round={round} />;
   if (gameId === "count-and-carry") return <CountCarryGame disabled={disabled} onAnswer={onAnswer} round={round} />;
   if (gameId === "quantity-match") return <BridgeBuilderGame disabled={disabled} onAnswer={onAnswer} round={round} />;

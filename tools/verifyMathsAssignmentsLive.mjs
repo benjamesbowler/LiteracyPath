@@ -71,7 +71,7 @@ const teacherOperationResults = await Promise.all(
 const privateValidator = await post("maths_validate_student_evidence", {
   p_skill_id: "F-N-COUNT-10",
   p_event_type: "skills_check_response",
-  p_content_version: "maths-foundation-number-v2",
+  p_content_version: "maths-foundation-number-v3",
   p_evidence: {}
 });
 const privateTables = [

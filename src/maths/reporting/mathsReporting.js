@@ -38,6 +38,22 @@ function eventOccurrenceKey(event, index) {
   return `${occasion}:${item}`;
 }
 
+function evidenceOccasionKey(event, index) {
+  const evidence = event.evidence || {};
+  return String(evidence.sessionId || evidence.assignmentId || event.id || event.occurredAt || index);
+}
+
+function currentEvidenceWindow(scoredEvents, maximumOccasions = 3) {
+  const newestOccasions = [];
+  for (let index = scoredEvents.length - 1; index >= 0; index -= 1) {
+    const key = evidenceOccasionKey(scoredEvents[index], index);
+    if (!newestOccasions.includes(key)) newestOccasions.push(key);
+    if (newestOccasions.length === maximumOccasions) break;
+  }
+  const allowed = new Set(newestOccasions);
+  return scoredEvents.filter((event, index) => allowed.has(evidenceOccasionKey(event, index)));
+}
+
 function evidenceDirection(scoredEvents) {
   if (scoredEvents.length < 2) return scoredEvents.length ? "Single check" : "No direct check";
   const recent = scoredEvents.slice(-3).map(evidenceOutcome);
@@ -69,15 +85,19 @@ export function mathsSkillReport(events = [], skillId, { now = new Date() } = {}
   const scoredEvents = relevant.filter(event => evidenceOutcome(event) !== null);
   const scored = scoredEvents.map(evidenceOutcome);
   const correct = scored.filter(Boolean).length;
+  const currentScoredEvents = currentEvidenceWindow(scoredEvents);
+  const currentScored = currentScoredEvents.map(evidenceOutcome);
+  const currentOccasions = new Set(currentScoredEvents.map(evidenceOccasionKey));
   const practiceEvents = relevant.filter(event => event.eventType === "practice_attempt" || event.evidence?.constructChanged);
   const representations = new Set(scoredEvents.map(event => event.evidence?.representation || event.evidence?.manipulativeId).filter(Boolean));
+  const currentRepresentations = new Set(currentScoredEvents.map(event => event.evidence?.representation || event.evidence?.manipulativeId).filter(Boolean));
   const practiceRepresentations = new Set(practiceEvents.map(event => event.evidence?.representation || event.evidence?.manipulativeId).filter(Boolean));
   const sources = new Set(scoredEvents.map(event => event.evidence?.source || event.eventType).filter(Boolean));
   const newestEvent = scoredEvents.at(-1) || practiceEvents.at(-1) || null;
   const newest = newestEvent ? new Date(newestEvent.occurredAt || 0).getTime() || 0 : 0;
   const ageDays = newest ? Math.floor((now.getTime() - newest) / DAY) : null;
   const signalOccurrences = new Map();
-  scoredEvents.forEach((event, index) => {
+  currentScoredEvents.forEach((event, index) => {
     if (event.evidence?.response === null) return;
     const signals = event.evidence?.observedSignals
       || (event.evidence?.classification && !["correct", "not_checked"].includes(event.evidence.classification)
@@ -93,10 +113,10 @@ export function mathsSkillReport(events = [], skillId, { now = new Date() } = {}
     .map(([signal]) => signal);
   let status = "Not checked";
   if (!scoredEvents.length && practiceEvents.length) status = "Practice observed";
-  else if (scoredEvents.length) {
-    const outcomeKinds = new Set(scored);
+  else if (currentScoredEvents.length) {
+    const outcomeKinds = new Set(currentScored);
     if (outcomeKinds.size > 1) status = "Mixed evidence";
-    else status = scored.at(-1) ? "Correct on checked items" : "Needs follow-up";
+    else status = currentScored.at(-1) ? "Correct on checked items" : "Needs follow-up";
   }
   const guidance = patternGuidance(possiblePatterns, skillId);
   return Object.freeze({
@@ -107,8 +127,11 @@ export function mathsSkillReport(events = [], skillId, { now = new Date() } = {}
     practiceCount: practiceEvents.length,
     scoredCount: scored.length,
     correctCount: correct,
+    currentScoredCount: currentScored.length,
+    independentOccasionCount: currentOccasions.size,
     sources: [...sources],
     representations: [...representations],
+    currentRepresentations: [...currentRepresentations],
     practiceRepresentations: [...practiceRepresentations],
     newestAt: newest ? new Date(newest).toISOString() : null,
     freshness: ageDays === null ? "No evidence" : ageDays === 0 ? "Today" : ageDays === 1 ? "Yesterday" : `${ageDays} days ago`,
@@ -119,7 +142,7 @@ export function mathsSkillReport(events = [], skillId, { now = new Date() } = {}
     nextAction: guidance.action,
     secureEnabled: false,
     evidenceNote: scoredEvents.length
-      ? `${scoredEvents.length} direct formative event${scoredEvents.length === 1 ? "" : "s"} across ${representations.size} representation${representations.size === 1 ? "" : "s"}${practiceEvents.length ? `, plus ${practiceEvents.length} practice event${practiceEvents.length === 1 ? "" : "s"}` : ""}. This describes checked items only, not mastery.`
+      ? `${currentScoredEvents.length} current direct event${currentScoredEvents.length === 1 ? "" : "s"} from ${currentOccasions.size} independent occasion${currentOccasions.size === 1 ? "" : "s"}; ${scoredEvents.length} direct event${scoredEvents.length === 1 ? "" : "s"} in history across ${representations.size} representation${representations.size === 1 ? "" : "s"}${practiceEvents.length ? `, plus ${practiceEvents.length} practice event${practiceEvents.length === 1 ? "" : "s"}` : ""}. This describes checked items only, not mastery.`
       : practiceEvents.length
         ? `${practiceEvents.length} practice event${practiceEvents.length === 1 ? "" : "s"}; gather a direct check or teacher observation before making an attainment claim.`
         : "No Maths evidence has been collected for this skill."
@@ -169,6 +192,6 @@ export function buildMathsClassGroups(events = [], students = [], skillId = APPR
     practiceOnly: rows.filter(row => row.priority.status === "Practice observed"),
     reconnect: rows.filter(row => row.priority.status === "Needs follow-up"),
     build: rows.filter(row => row.priority.status === "Mixed evidence"),
-    extend: rows.filter(row => row.priority.status === "Correct on checked items" && row.priority.scoredCount >= 2 && row.priority.sources.includes("small_group_exit"))
+    extend: rows.filter(row => row.priority.status === "Correct on checked items" && row.priority.independentOccasionCount >= 2 && row.priority.currentRepresentations.length >= 2 && row.priority.sources.includes("small_group_exit"))
   });
 }

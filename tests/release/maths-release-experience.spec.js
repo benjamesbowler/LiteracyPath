@@ -5,6 +5,15 @@ const STUDENT_ID = "maths-phase-zero-child";
 
 const teacherUrl = `/preview/maths-phase-zero.html?audience=teacher#maths/teacher?class=${CLASS_ID}`;
 const studentUrl = `/preview/maths-phase-zero.html?audience=student#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`;
+const mathsSurfaceIds = ["maths-home", "maths-lesson", "maths-check", "maths-stories", "maths-arcade"];
+const mathsViewportMatrix = [
+  { id: "small-phone-portrait", width: 320, height: 568 },
+  { id: "small-phone-landscape", width: 568, height: 320 },
+  { id: "tablet-portrait", width: 768, height: 1024 },
+  { id: "tablet-landscape", width: 1024, height: 768 },
+  { id: "chromebook", width: 1366, height: 768 },
+  { id: "projector", width: 1920, height: 1080 }
+];
 
 function browserErrors(page) {
   const errors = [];
@@ -12,6 +21,45 @@ function browserErrors(page) {
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
   return errors;
 }
+
+async function expectMathsViewportIntegrity(page, state, root) {
+  await expect.poll(() => page.evaluate(() => ({
+    body: document.body.scrollWidth - window.innerWidth,
+    document: document.documentElement.scrollWidth - window.innerWidth
+  })), `${state} must not overflow horizontally`).toEqual({ body: 0, document: 0 });
+  const controls = root.locator("button:not([disabled]), a[href], select:not([disabled]), summary");
+  await expect.poll(() => controls.evaluateAll(elements => elements
+    .filter(element => {
+      const style = getComputedStyle(element);
+      const box = element.getBoundingClientRect();
+      return style.display !== "none" && style.visibility !== "hidden" && box.width > 0 && box.height > 0;
+    })
+    .map(element => {
+      const box = element.getBoundingClientRect();
+      return { name: element.getAttribute("aria-label") || element.textContent.trim(), width: box.width, height: box.height };
+    })
+    .filter(control => control.width < 44 || control.height < 44)), `${state} keeps enabled controls at least 44px`).toEqual([]);
+}
+
+test("Every Maths surface fits the full release viewport matrix", async ({ page }) => {
+  test.setTimeout(150_000);
+  for (const viewport of mathsViewportMatrix) {
+    await page.setViewportSize(viewport);
+    for (const surfaceId of mathsSurfaceIds) {
+      await page.goto(`/preview/child-surfaces.html?surface=${surfaceId}`);
+      const surface = page.locator(`[data-child-surface="${surfaceId}"]`);
+      await expect(surface).toBeVisible();
+      await expectMathsViewportIntegrity(page, `${surfaceId} at ${viewport.id}`, surface);
+    }
+    await page.goto(teacherUrl);
+    const teacher = page.locator('[data-maths-preview="teacher"]');
+    await expect(teacher).toBeVisible();
+    await expect.poll(() => page.evaluate(() => ({
+      body: document.body.scrollWidth - window.innerWidth,
+      document: document.documentElement.scrollWidth - window.innerWidth
+    })), `Maths teacher workspace at ${viewport.id} must not overflow horizontally`).toEqual({ body: 0, document: 0 });
+  }
+});
 
 test("Maths teacher tools expose seeded presentation, real worksheet visuals, reports and assignment management", async ({ page }) => {
   const errors = browserErrors(page);
@@ -61,9 +109,10 @@ test("Maths student lesson gates progress on an action and real Leda audio can s
   await page.getByRole("button", { name: /Continue lesson/ }).click();
   const next = page.getByRole("button", { name: "Use the model and choose a note" });
   await expect(next).toBeDisabled();
-  await page.getByRole("button", { name: "I touched each one once" }).click();
+  const retrieveThinking = page.getByRole("group", { name: "Show your retrieve thinking" });
+  await retrieveThinking.getByRole("button").first().click();
   await expect(page.getByRole("button", { name: "Use the model and choose a note" })).toBeDisabled();
-  const cells = page.getByRole("gridcell");
+  const cells = page.getByRole("group", { name: "Ten frame spaces" }).getByRole("button");
   for (let index = 0; index < 5; index += 1) await cells.nth(index).click();
   await page.getByRole("button", { name: "Part B, dotted" }).click();
   for (let index = 5; index < 10; index += 1) await cells.nth(index).click();
@@ -118,16 +167,17 @@ test("Maths number stories combine exact page audio, a countable model, talk pro
   expect(errors).toEqual([]);
 });
 
-test("Maths Arcade exposes four distinct mechanics with no timer or speed score", async ({ page }) => {
+test("Maths Arcade exposes five direct-manipulation mechanics with no timer or speed score", async ({ page }) => {
   const errors = browserErrors(page);
   await page.goto(studentUrl);
   await page.getByRole("button", { name: /Maths Arcade/ }).click();
-  await expect(page.getByText("Four different game worlds")).toBeVisible();
+  await expect(page.getByText("Five different game worlds")).toBeVisible();
 
   const expectations = [
-    ["number-trail", ".maths-number-trail-3d canvas"],
+    ["number-trail", ".maths-number-trail-world"],
+    ["glimpse-garden", ".maths-glimpse-garden"],
     ["frame-foundry", ".maths-foundry-machine"],
-    ["count-and-carry", ".maths-carry-landscape"],
+    ["count-and-carry", ".maths-count-strategy"],
     ["quantity-match", ".maths-bridge-world"]
   ];
   for (const [gameId, selector] of expectations) {
@@ -139,13 +189,21 @@ test("Maths Arcade exposes four distinct mechanics with no timer or speed score"
   await page.goto(`/preview/maths-phase-zero.html?audience=student&game=number-trail#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
   await page.getByRole("button", { name: /Maths Arcade/ }).click();
   await page.locator('[data-game="number-trail"]').click();
-  await expect(page.locator(".maths-trail-sequence .is-gap")).toHaveText(/Missing\?/);
-  const trailChoices = page.getByRole("group", { name: "Choose a stepping stone for the missing number" });
+  await expect(page.locator(".maths-trail-sequence .is-gap")).toContainText("Missing");
+  const trailChoices = page.getByRole("group", { name: "Walk onto a stepping stone for the missing number" });
   await expect(trailChoices.getByRole("button")).toHaveCount(3);
-  await expect(page.getByText("Read the path, then tap the stone that fits.")).toBeVisible();
+  await expect(page.getByText("Count along the path. Tap the stone that fits the gap.")).toBeVisible();
+  await page.goto(`/preview/maths-phase-zero.html?audience=student&game=glimpse-garden#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
+  await page.getByRole("button", { name: /Maths Arcade/ }).click();
+  await page.locator('[data-game="glimpse-garden"]').click();
+  await page.getByRole("button", { name: "Open the garden gate" }).click();
+  await expect(page.getByRole("img", { name: /glowbugs arranged as/ })).toBeVisible();
+  await page.getByRole("button", { name: "Keep it open so I can count" }).click();
+  await expect(page.getByRole("group", { name: "Choose the number of glowbugs" })).toBeVisible();
   await page.goto(`/preview/maths-phase-zero.html?audience=student&game=count-and-carry#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
   await page.getByRole("button", { name: /Maths Arcade/ }).click();
   await page.locator('[data-game="count-and-carry"]').click();
+  await page.getByRole("button", { name: /Move each parcel once|Make ten, then count on|Make a clear row/ }).first().click();
   await expect(page.locator(".maths-carry-landscape")).toBeVisible();
   await expect(page.getByRole("group", { name: "Choose how many parcels are in the collection" })).toHaveCount(0);
   const parcelButtons = page.locator('.maths-parcel-meadow button');

@@ -27,7 +27,7 @@ function Frame({ state, dispatch }) {
   };
   const frameLabel = state.cells.length === 20 ? "Double ten-frame" : LABELS[state.id];
   return <div className={`maths-frame maths-frame--${state.cells.length}`}>
-    <div className="maths-frame-grid" role="grid" aria-label={frameLabel}>
+    <div className="maths-frame-grid" role="group" aria-label={`${frameLabel} spaces`}>
       {state.cells.map((cell, index) => (
         <button
           aria-label={`Space ${index + 1}, ${cell === "empty" ? "empty" : cell === "part_a" ? "purple counter" : "orange counter"}`}
@@ -37,7 +37,6 @@ function Frame({ state, dispatch }) {
           onClick={() => dispatch({ type: "toggle_cell", index, part })}
           onKeyDown={event => moveFocus(event, index)}
           ref={element => { cellRefs.current[index] = element; }}
-          role="gridcell"
           tabIndex={index === 0 ? 0 : -1}
           type="button"
         ><span /></button>
@@ -73,11 +72,28 @@ function CounterTray({ state, dispatch }) {
 }
 
 function NumberLine({ state, dispatch }) {
-  return <div className="maths-number-line" role="group" aria-label="Choose a number on the number line">
-    {Array.from({ length: state.maximum - state.minimum + 1 }, (_, index) => index + state.minimum).map(number => (
-      <button className={number === state.current ? "is-current" : ""} key={number} onClick={() => dispatch({ type: "jump", to: number })} type="button"><span>{number}</span></button>
+  const buttonRefs = useRef(new Map());
+  const current = state.current;
+  const numbers = Array.from({ length: state.maximum - state.minimum + 1 }, (_, index) => index + state.minimum);
+  useEffect(() => {
+    buttonRefs.current.get(current)?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }, [current]);
+  const move = (event, number) => {
+    const next = event.key === "Home" ? state.minimum
+      : event.key === "End" ? state.maximum
+        : ["ArrowRight", "ArrowUp"].includes(event.key) ? Math.min(state.maximum, number + 1)
+          : ["ArrowLeft", "ArrowDown"].includes(event.key) ? Math.max(state.minimum, number - 1)
+            : null;
+    if (next === null) return;
+    event.preventDefault();
+    dispatch({ type: "jump", to: next });
+    window.requestAnimationFrame(() => buttonRefs.current.get(next)?.focus());
+  };
+  return <div className="maths-number-line-window"><div className="maths-number-line" role="radiogroup" aria-label="Choose a number on the number line">
+    {numbers.map(number => (
+      <button aria-checked={number === current} className={number === current ? "is-current" : ""} key={number} onClick={() => dispatch({ type: "jump", to: number })} onKeyDown={event => move(event, number)} ref={element => { if (element) buttonRefs.current.set(number, element); else buttonRefs.current.delete(number); }} role="radio" tabIndex={number === current ? 0 : -1} type="button"><span>{number}</span></button>
     ))}
-  </div>;
+  </div><span aria-hidden="true" className="maths-number-line-edge is-start" /><span aria-hidden="true" className="maths-number-line-edge is-end" /></div>;
 }
 
 function PartWhole({ state, dispatch }) {

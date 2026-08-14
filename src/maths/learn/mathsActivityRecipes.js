@@ -1,6 +1,6 @@
 import { APPROVED_FOUNDATION_SKILL_IDS, mathsSkillById } from "../curriculum/mathsSkillTree.js";
 
-export const MATHS_CONTENT_VERSION = "maths-foundation-number-v2";
+export const MATHS_CONTENT_VERSION = "maths-foundation-number-v3";
 export const MATHS_LESSON_STAGES = Object.freeze([
   "retrieve", "notice", "model", "make", "explain", "apply", "check"
 ]);

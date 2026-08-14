@@ -12,6 +12,7 @@ import {
 import StudentGlassShell from "../../components/StudentGlassShell.jsx";
 import { SubjectSwitch } from "../../components/SubjectSwitch.jsx";
 import { SUBJECT_IDS } from "../../subjects/subjectRegistry.js";
+import { MathsAudioButton } from "../media/MathsAudioButton.jsx";
 import "../../styles/maths-platform.css";
 import "../../styles/maths-platform-v2.css";
 
@@ -83,12 +84,12 @@ export function MathsHome({ studentName = "Mathematician", progressScopeKey = "d
       onHome={onOpenLiteracy}
       headerActions={<SubjectSwitch activeSubject={SUBJECT_IDS.MATHS} onSelectSubject={subjectId => { if (subjectId === SUBJECT_IDS.LITERACY) onOpenLiteracy?.(); }} variant="child" />}
     >
-      <main className="maths-home-v2" data-child-surface="maths-home">
+      <div className="maths-home-v2" data-child-surface="maths-home">
         <section className="maths-home-hero">
           <div className="maths-home-hero-copy">
             <p className="maths-eyebrow">Your Maths place</p>
             <h1 data-child-title>Ready to make sense of numbers, {studentName}?</h1>
-            <p data-child-instruction>Move it. See it. Explain it.</p>
+            <div className="maths-home-spoken-intro"><p data-child-instruction>Move it. See it. Explain it.</p><MathsAudioButton client={client} compact label="Hear the Maths choices" requestId="maths-home:intro" token={token} /></div>
             <div className="maths-recommended-card" data-child-choices data-child-progress>
               <span className="maths-recommended-icon" aria-hidden="true"><RecommendedIcon size={30} weight="duotone" /></span>
               <span>
@@ -143,7 +144,7 @@ export function MathsHome({ studentName = "Mathematician", progressScopeKey = "d
           <span><LockSimple aria-hidden="true" size={17} weight="fill" /> No child voice or image recording</span>
           <span><SpeakerHigh aria-hidden="true" size={17} weight="fill" /> Tap audio when you want the words read</span>
         </footer>
-      </main>
+      </div>
     </StudentGlassShell>
   );
 }

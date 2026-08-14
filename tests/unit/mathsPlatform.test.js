@@ -9,6 +9,8 @@ import { mathsSongs } from "../../src/maths/music/mathsSongs.js";
 import { APPROVED_FOUNDATION_SKILL_IDS } from "../../src/maths/curriculum/mathsSkillTree.js";
 import { buildMathsClassGroups, buildMathsClassReport, buildMathsLearnerReport } from "../../src/maths/reporting/mathsReporting.js";
 import { buildMathsWorksheetTasks } from "../../src/maths/teacher/mathsWorksheetTasks.js";
+import { MATHS_PRESENTATION_PROFILES } from "../../src/maths/teacher/mathsTeachingPlans.js";
+import { mathsLessonStageChoices } from "../../src/maths/learn/mathsLessonReflections.js";
 
 test("five launch manipulatives have deterministic serialisable state", () => {
   const ids = ["counter_tray", "five_frame", "ten_frame", "number_line", "part_whole"];
@@ -66,6 +68,11 @@ test("assessment bank has 20 fixed models and variation breadth per released ski
       assert.equal(typeof classifyMathsResponse(item, "").classification, "string");
     }
   }
+  for (const skillId of ["F-N-COUNT-10", "F-N-COUNT-20", "F-N-MATCH"]) {
+    const models = mathsAssessmentBank.filter(model => model.skillId === skillId);
+    assert.equal(new Set(models.map(model => model.blueprintId)).size, 2);
+    assert.equal(new Set(buildMathsAssessmentRound({ skillId, seed: "direction-check", length: 6 }).map(item => item.blueprintId)).size, 2);
+  }
 });
 
 test("assessment rounds balance correct-answer position and bind exact render evidence", () => {
@@ -92,8 +99,8 @@ test("not sure stays neutral even when the expected numeric answer is zero", () 
 });
 
 test("number story countable models match their declared totals and curriculum gate", () => {
-  assert.equal(mathsStories.length, 4);
-  assert.equal(releasedMathsStories.length, 2);
+  assert.equal(mathsStories.length, 8);
+  assert.equal(releasedMathsStories.length, 6);
   for (const story of mathsStories) {
     assert.equal(story.pages.length, 8);
     for (const page of story.pages) {
@@ -104,8 +111,8 @@ test("number story countable models match their declared totals and curriculum g
   }
 });
 
-test("four Maths games create eight deterministic, answerable, untimed decisions", () => {
-  assert.equal(mathsGames.length, 4);
+test("five Maths games create eight deterministic, answerable, untimed decisions", () => {
+  assert.equal(mathsGames.length, 5);
   for (const game of mathsGames) {
     const one = createMathsGameSession(game.id, "same-seed");
     const two = createMathsGameSession(game.id, "same-seed");
@@ -120,6 +127,22 @@ test("four Maths games create eight deterministic, answerable, untimed decisions
   }
 });
 
+test("every released Foundation skill has an exact-mechanic Arcade game and spoken guidance", () => {
+  const covered = new Set(mathsGames.flatMap(game => game.skillIds));
+  assert.deepEqual(covered, new Set(APPROVED_FOUNDATION_SKILL_IDS));
+  assert.ok(mathsGames.every(game => game.instructionText.length > 45 && game.successText.length > 35 && game.repairText.length > 35));
+});
+
+test("Frame Foundry keeps its declared whole invariant while only the parts change", () => {
+  const session = createMathsGameSession("frame-foundry", "whole-invariant");
+  for (const round of session.items) {
+    const expectedWhole = round.skillId === "F-N-PART-5" ? 5 : 10;
+    assert.equal(round.model.target, expectedWhole);
+    assert.equal(round.model.capacity, expectedWhole);
+    assert.equal(round.model.shown + round.target, expectedWhole);
+  }
+});
+
 test("Arcade rounds never reveal or visually preselect an answer", () => {
   const carry = createMathsGameSession("count-and-carry", "semantic-audit");
   for (const item of carry.items) {
@@ -130,6 +153,11 @@ test("Arcade rounds never reveal or visually preselect an answer", () => {
   const trail = createMathsGameSession("number-trail", "semantic-audit");
   assert.ok(trail.items.every(item => item.model.sequence.filter(value => value === null).length === 1));
   assert.ok(trail.items.every(item => item.model.sequence.includes(item.target) === false));
+  assert.ok(trail.items.every(item => item.model.sequence.filter(value => value !== null).every(value => value >= 0 && value <= 20)));
+  const reachableTrailTargets = new Set(Array.from({ length: 100 }, (_, seedIndex) => (
+    createMathsGameSession("number-trail", `reachability-${seedIndex}`).items.map(item => item.target)
+  )).flat());
+  assert.deepEqual([...reachableTrailTargets].sort((left, right) => left - right), Array.from({ length: 20 }, (_, index) => index + 1));
 });
 
 test("Arcade feedback explains the mathematical structure for every mechanic", () => {
@@ -160,9 +188,10 @@ test("every game assignment generates eight rounds for its exact released skill"
   }
 });
 
-test("three original classroom chants are available without becoming evidence", () => {
-  assert.equal(mathsSongs.length, 3);
+test("eight original classroom chants cover every released Foundation skill without becoming evidence", () => {
+  assert.equal(mathsSongs.length, 8);
   assert.ok(mathsSongs.every(song => song.lyrics.length > 100 && song.tempo >= 80));
+  for (const skillId of APPROVED_FOUNDATION_SKILL_IDS) assert.ok(mathsSongs.some(song => song.skillIds.includes(skillId)), `${skillId} needs a chant`);
 });
 
 test("reporting discloses basis and never enables Secure before calibration", () => {
@@ -205,6 +234,33 @@ test("reporting separates repeated item occurrences by session and never extends
   assert.equal(groups.extend.length, 0);
 });
 
+test("reporting separates current indication from older history and extension needs independent varied evidence", () => {
+  const student = { id: "s1", name: "One" };
+  const event = (sessionId, correct, representation, source, daysAgo) => ({
+    id: sessionId,
+    studentId: "s1",
+    skillId: "F-N-PART-10",
+    eventType: "skills_check_response",
+    occurredAt: new Date(Date.now() - daysAgo * 86_400_000).toISOString(),
+    evidence: { sessionId, itemKey: sessionId, correct, source, representation, observedSignals: correct ? [] : ["missing_part_mismatch"] }
+  });
+  const recovered = [
+    event("old", false, "ten_frame", "maths_skills_check", 20),
+    event("recent-a", true, "ten_frame", "small_group_exit", 3),
+    event("recent-b", true, "part_whole", "small_group_exit", 2),
+    event("recent-c", true, "two_colour_frame", "maths_skills_check", 1)
+  ];
+  const report = buildMathsLearnerReport(recovered, "s1").find(row => row.skillId === "F-N-PART-10");
+  assert.equal(report.status, "Correct on checked items");
+  assert.equal(report.direction, "Improving — recent checks were correct");
+  assert.equal(report.independentOccasionCount, 3);
+  assert.deepEqual(report.possiblePatterns, []);
+  assert.equal(buildMathsClassGroups(recovered, [student], "F-N-PART-10").extend.length, 1);
+
+  const oneOccasion = recovered.slice(1).map((row, index) => ({ ...row, id: `same-${index}`, evidence: { ...row.evidence, sessionId: "same-session" } }));
+  assert.equal(buildMathsClassGroups(oneOccasion, [student], "F-N-PART-10").extend.length, 0);
+});
+
 test("worksheet versions contain real task models with matching answer data", () => {
   for (const template of ["frame", "part", "line", "match"]) {
     const versionA = buildMathsWorksheetTasks({ skillId: "F-N-PART-10", template, version: "A" });
@@ -214,4 +270,52 @@ test("worksheet versions contain real task models with matching answer data", ()
     assert.notDeepEqual(versionA, versionB);
     assert.ok(versionA.every(task => task.kind && task.prompt && task.answer));
   }
+});
+
+test("part-whole worksheets keep five or ten invariant across every template, level and version", () => {
+  for (const [skillId, whole] of [["F-N-PART-5", 5], ["F-N-PART-10", 10]]) {
+    for (const template of ["frame", "part", "cut_build"]) {
+      for (const level of ["support", "core", "extend"]) {
+        for (const version of ["A", "B"]) {
+          const tasks = buildMathsWorksheetTasks({ skillId, template, level, version });
+          assert.ok(tasks.every(task => task.whole === whole || task.value === whole));
+          assert.ok(tasks.every(task => {
+            if (task.kind === "part_whole") return task.known + Number(task.answer.split(";")[0]) === whole;
+            if (task.kind === "split_frame") return task.partA + task.partB === whole && task.capacity === whole;
+            if (task.kind === "cut_build") return task.cards.reduce((sum, value) => sum + value, 0) === whole;
+            return false;
+          }));
+          if (level === "support") assert.ok(tasks.every(task => task.workedCue));
+          if (level === "extend") assert.ok(tasks.every(task => task.explain));
+        }
+      }
+    }
+  }
+});
+
+test("presentation claims do not leak truth through parity and part-whole talks keep a fixed whole", () => {
+  for (const [skillId, profile] of Object.entries(MATHS_PRESENTATION_PROFILES)) {
+    const rows = Array.from({ length: profile.maximum - profile.minimum + 1 }, (_, index) => profile.minimum + index)
+      .map(value => ({ value, ...profile.trueFalse(value) }));
+    assert.ok(rows.some(row => row.answer));
+    assert.ok(rows.some(row => !row.answer));
+    assert.ok(rows.some(row => row.value % 2 === 0 && row.answer));
+    assert.ok(rows.some(row => row.value % 2 === 0 && !row.answer));
+    assert.ok(rows.some(row => row.value % 2 === 1 && row.answer));
+    assert.ok(rows.some(row => row.value % 2 === 1 && !row.answer));
+    assert.ok(rows.every(row => row.proofPrompt.length > 20), skillId);
+  }
+  assert.equal(MATHS_PRESENTATION_PROFILES["F-N-PART-5"].fixedWhole, 5);
+  assert.equal(MATHS_PRESENTATION_PROFILES["F-N-PART-10"].fixedWhole, 10);
+});
+
+test("lesson reflection choices name the exact mathematical thinking for every skill", () => {
+  for (const skillId of APPROVED_FOUNDATION_SKILL_IDS) {
+    const allChoices = ["retrieve", "notice", "model", "explain"].flatMap(stage => mathsLessonStageChoices(skillId, stage));
+    assert.equal(allChoices.length, 8);
+    assert.equal(new Set(allChoices).size, 8);
+    assert.ok(allChoices.every(choice => choice.length >= 22));
+  }
+  assert.match(mathsLessonStageChoices("F-N-PART-10", "notice")[0], /complementary parts/);
+  assert.match(mathsLessonStageChoices("F-N-COMPARE", "explain")[1], /more, fewer or same/);
 });

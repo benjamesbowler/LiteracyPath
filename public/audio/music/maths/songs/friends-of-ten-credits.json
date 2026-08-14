@@ -1,10 +1,10 @@
 {
   "title": "Friends of Ten",
   "tempo": 112,
-  "composition": "Original LiteracyPath classroom chant bed",
+  "rootFrequency": 261.63,
+  "composition": "Original LiteracyPath five-layer classroom chant bed",
   "generatedBy": "LiteracyPath deterministic synthesis",
   "childVoiceOrImage": false,
-  "releaseStatus": "accepted-until-flagged",
-  "format": "owned-instrumental-plus-leda-lyric-guide",
+  "vocalPolicy": "Adult LEDA guide accepted until individually flagged",
   "guideVoice": "en-US-Chirp3-HD-Leda"
 }

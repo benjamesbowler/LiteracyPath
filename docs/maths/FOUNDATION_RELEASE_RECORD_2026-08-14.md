@@ -1,27 +1,60 @@
 # Foundation Maths release record — 2026-08-14
 
-Status: released candidate verified on production
+Status: current v3 Foundation candidate passed the complete local release gate;
+production promotion still follows the database migration and deployment gates
 
 Release boundary: the eight Foundation number-sense goals in
 `FOUNDATION_REBUILD_SPEC.md`. The wider Foundation–Year 2 programme remains a
 separately gated roadmap and is not represented as released.
 
-Verified implementation commit: `2cb6b1030a`
+Previous production baseline: commit `2cb6b1030a`
 
-Initial production deployment: Vercel deployment `dpl_GcH4DSwtxQHuxNKfwP6GKaZMW9pJ`,
+Previous production deployment: Vercel deployment `dpl_GcH4DSwtxQHuxNKfwP6GKaZMW9pJ`,
 built from `main` commit `2cb6b10` and promoted to `literacy.guide`.
+
+## Current v3 verification
+
+The current tree passed the scoped Foundation Maths release gate on 2026-08-14:
+
+- content gate: 8 released skills, 40 lesson recipes, 160 authored assessment
+  models, 48 released story pages, 5 direct-manipulation games and 8 chants;
+- unit, content, evidence, reporting, migration and policy layer: 113 passed,
+  0 failed;
+- real-browser release layer: 35 passed, 0 failed;
+- accessibility: zero Axe findings of any impact on all five student Maths
+  routes and the Maths teacher dashboard at desktop and mobile viewports;
+- layout and touch-target matrix: all five student Maths routes plus the teacher
+  dashboard passed without horizontal overflow at phone portrait/landscape,
+  tablet portrait/landscape, laptop and desktop sizes; enabled child controls
+  remained at least 44 CSS pixels after fixed-canvas scaling settled;
+- exact audio gate: 890 request mappings, 252 exact LEDA files and 8 owned
+  instrumentals passed decoding, provenance and duration checks;
+- targeted lint and whitespace checks: passed;
+- production Vite build: passed.
+
+Direct visual inspection covered every new story cover and all 32 new story
+page illustrations, plus the redesigned student home, lesson, skills check,
+story library and Arcade at desktop and small-phone sizes. Browser playback
+started real LEDA lesson audio and an owned instrumental. The browser flow also
+exercised all five game mechanics, story completion and Family Bridge, teacher
+presentation, worksheets, reports, resources and assignments.
+
+The v3 migration is committed with the candidate, but it was deliberately not
+applied to hosted Supabase during this verification run. Therefore this record
+does not claim that v3 evidence is accepted by the live database, nor that the
+current candidate is deployed to production.
 
 ## Released product evidence
 
 - 8 approved Foundation number-sense skills across sequence, counting,
   subitising, matching, comparing and part–whole understanding;
-- 40 seven-stage lesson recipes;
+- 8 seven-stage guided lesson paths powered by 40 phase-specific recipes;
 - 160 stable authored assessment models across six interaction blueprints;
 - 5 interactive manipulatives;
-- 2 released eight-page Number Stories with 16 reviewed page illustrations and
+- 6 released eight-page Number Stories with 48 page illustrations and exact
   countable models; 2 further stories remain clearly marked as drafts;
-- 4 untimed curriculum games with eight decisions per session;
-- 3 original chant/song packs;
+- 5 untimed curriculum game worlds with eight decisions per session;
+- 8 original chant/song packs, with at least one for every released skill;
 - teacher presentation, skills-check, assignment, small-group, worksheet,
   reporting, Family Bridge and audio-review workflows;
 - private, versioned Maths evidence and assignment RPCs with export and verified
@@ -29,7 +62,7 @@ built from `main` commit `2cb6b10` and promoted to `literacy.guide`.
 - no child voice, face, camera, image upload, public profile, timer, lives or
   speed-based mastery claim.
 
-## Verification run
+## Previous baseline verification
 
 The full release command was run from a clean archive of commit `2cb6b1030a`,
 not from the mixed development worktree.
@@ -81,5 +114,7 @@ account continues; the fallback cannot grant elevated access.
 - The wider Foundation–Year 2 skill, story, song, manipulative and game roadmap
   remains planned. This record does not relabel planned content as released.
 
-Within the stated Foundation boundary, there is no known open code, content,
-database, media-resolution, responsive-layout or production-access blocker.
+The current v3 candidate must not be represented as production until its hosted
+migration state and deployment identity are appended to this record. The fresh
+local release and browser evidence above verifies the candidate itself; it does
+not substitute for hosted-state proof.

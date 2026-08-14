@@ -1,4 +1,5 @@
 const maximumForSkill = skillId => skillId.includes("20") ? 20 : skillId.includes("5") ? 5 : 10;
+const fixedWholeForSkill = skillId => skillId === "F-N-PART-5" ? 5 : skillId === "F-N-PART-10" ? 10 : null;
 
 export const MATHS_WORKSHEET_LEVELS = Object.freeze({
   support: Object.freeze({ label: "Supported", count: 6, note: "Smaller quantities, one instruction and a worked visual cue." }),
@@ -36,7 +37,16 @@ function rotatedOptions(value, maximum, index) {
 }
 
 function explanation(level) {
-  return level === "extend" ? "Explain how the picture proves your answer: ______________________________" : "";
+  return level === "extend" ? "Prove your answer in a different way: _________________________________" : "";
+}
+
+function workedCue(level, text) {
+  return level === "support" ? text : "";
+}
+
+function partPair(whole, value) {
+  const first = Math.max(1, Math.min(whole - 1, Number(value) || 1));
+  return Object.freeze([first, whole - first]);
 }
 
 export function buildMathsWorksheetTasks({ skillId, template, version = "A", level = "core", count = null }) {
@@ -46,12 +56,13 @@ export function buildMathsWorksheetTasks({ skillId, template, version = "A", lev
   const availableTemplates = worksheetTemplatesForSkill(skillId).map(item => item.id);
   const safeTemplate = availableTemplates.includes(template) ? template : availableTemplates[0];
   const values = balancedValues(maximum, level, version, taskCount);
+  const fixedWhole = fixedWholeForSkill(skillId);
   return Object.freeze(values.map((value, index) => {
     const id = `${safeTemplate}-${level}-${version}-${index}`;
     if (safeTemplate === "part") {
-      const whole = level === "support" ? Math.min(maximum, 5) : maximum;
-      const known = Math.min(value, whole - 1);
-      return Object.freeze({ id, kind: "part_whole", prompt: `The whole is ${whole}. One part is ${known}. Find the missing part.`, known, whole, explain: explanation(level), answer: `${whole - known}; ${known} and ${whole - known} make ${whole}.` });
+      const whole = fixedWhole || maximum;
+      const [known, missing] = partPair(whole, value);
+      return Object.freeze({ id, kind: "part_whole", prompt: `The whole stays ${whole}. One part is ${known}. Find the missing part.`, known, whole, workedCue: workedCue(level, `Start with ${whole}. Cover the known part ${known}; the spaces left are the missing part.`), explain: explanation(level), answer: `${missing}; ${known} and ${missing} make ${whole}.` });
     }
     if (safeTemplate === "line") {
       const hidden = Math.max(level === "support" ? 1 : 0, Math.min(maximum - 1, value));
@@ -73,15 +84,16 @@ export function buildMathsWorksheetTasks({ skillId, template, version = "A", lev
         const cards = [Math.max(0, value - 1), value, Math.min(maximum, value + 1)];
         return Object.freeze({ id, kind: "cut_build", prompt: "Cut out the number cards. Put them in order and read the path.", value, cards: version === "B" ? [cards[1], cards[2], cards[0]] : [cards[2], cards[0], cards[1]], explain: explanation(level), answer: [...cards].sort((a, b) => a - b).join(", ") });
       }
-      const parts = [Math.max(0, value - Math.min(3, value)), Math.min(3, value)];
+      const whole = fixedWhole || value;
+      const parts = fixedWhole ? partPair(whole, value) : [Math.max(0, value - Math.min(3, value)), Math.min(3, value)];
       const cards = skillId.startsWith("F-N-PART") ? parts : rotatedOptions(value, maximum, index);
-      return Object.freeze({ id, kind: "cut_build", prompt: skillId.startsWith("F-N-PART") ? `Cut out both part cards. Put them together to make ${value}.` : "Cut out the numeral that matches the shown quantity.", value, cards, showQuantity: !skillId.startsWith("F-N-PART"), explain: explanation(level), answer: skillId.startsWith("F-N-PART") ? `${parts[0]} and ${parts[1]} make ${value}.` : String(value) });
+      return Object.freeze({ id, kind: "cut_build", prompt: skillId.startsWith("F-N-PART") ? `Cut out both part cards. Put them together to make the whole ${whole}.` : "Cut out the numeral that matches the shown quantity.", value: skillId.startsWith("F-N-PART") ? whole : value, whole, cards, showQuantity: !skillId.startsWith("F-N-PART"), workedCue: workedCue(level, skillId.startsWith("F-N-PART") ? `Check: ${parts[0]} and ${parts[1]} fill all ${whole} spaces.` : `Count each object once before choosing a numeral.`), explain: explanation(level), answer: skillId.startsWith("F-N-PART") ? `${parts[0]} and ${parts[1]} make ${whole}.` : String(value) });
     }
     const capacity = maximum <= 5 ? 5 : maximum <= 10 ? 10 : 20;
     if (skillId.startsWith("F-N-PART")) {
-      const partA = Math.max(1, value - Math.min(3, value - 1));
-      const partB = value - partA;
-      return Object.freeze({ id, kind: "split_frame", prompt: `Colour ${partA} spaces one way and ${partB} another. Complete the parts and whole.`, value, partA, partB, capacity, explain: explanation(level), answer: `${partA} and ${partB} make ${value}.` });
+      const whole = fixedWhole;
+      const [partA, partB] = partPair(whole, value);
+      return Object.freeze({ id, kind: "split_frame", prompt: `The whole stays ${whole}. Colour ${partA} spaces one way and the remaining part another way.`, value: whole, whole, partA, partB, capacity: whole, workedCue: workedCue(level, `The frame has ${whole} spaces. ${partA} are one part, so colour every space left for the other part.`), explain: explanation(level), answer: `${partA} and ${partB} make ${whole}.` });
     }
     const prompt = skillId === "F-N-SUBITISE-5"
       ? "Look for smaller parts. Write how many altogether without pointing to every dot."

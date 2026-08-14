@@ -1,5 +1,7 @@
 export const MATHS_EVIDENCE_QUEUE_PREFIX = "lp-maths-evidence-queue:v1:";
 export const MATHS_EVIDENCE_SCHEMA_VERSION = 1;
+export const MATHS_CURRENT_LESSON_STORAGE_PREFIX = "lp-maths-lesson:v2:";
+export const MATHS_LESSON_STORAGE_NAMESPACE = "lp-maths-lesson:";
 
 export const MATHS_EVIDENCE_EVENT_TYPES = Object.freeze([
   "lesson_exit_observation",
@@ -41,6 +43,20 @@ function listStorageKeys(storage) {
     return [];
   }
   return keys;
+}
+
+export function mathsLessonStorageKey(studentId, skillId) {
+  return `${MATHS_CURRENT_LESSON_STORAGE_PREFIX}${normalizeId(studentId)}:${normalizeId(skillId)}`;
+}
+
+function isMathsLessonStorageKeyForStudent(key, studentId) {
+  const value = String(key || "");
+  const scopedStudentId = normalizeId(studentId);
+  if (!value.startsWith(MATHS_LESSON_STORAGE_NAMESPACE) || !scopedStudentId) return false;
+  const versionAndScope = value.slice(MATHS_LESSON_STORAGE_NAMESPACE.length);
+  const separator = versionAndScope.indexOf(":");
+  if (separator < 0 || !/^v\d+$/.test(versionAndScope.slice(0, separator))) return false;
+  return versionAndScope.slice(separator + 1).startsWith(`${scopedStudentId}:`);
 }
 
 function safeParse(value) {
@@ -447,17 +463,16 @@ export async function clearAndVerifyMathsEvidenceForStudent({ studentId, storage
     if (record.entry.studentId !== scopedStudentId) continue;
     if (removeEntry(target, record.key)) removed += 1;
   }
-  const lessonPrefix = `lp-maths-lesson:v1:${scopedStudentId}:`;
   for (let index = target.length - 1; index >= 0; index -= 1) {
     const key = target.key(index);
-    if (!String(key || "").startsWith(lessonPrefix)) continue;
+    if (!isMathsLessonStorageKeyForStudent(key, scopedStudentId)) continue;
     if (removeEntry(target, key)) removed += 1;
   }
   const residuals = readAllQueueRecords(target)
     .filter(record => record.entry.studentId === scopedStudentId)
     .map(record => record.key);
   const lessonResiduals = Array.from({ length: target.length }, (_, index) => target.key(index))
-    .filter(key => String(key || "").startsWith(lessonPrefix));
+    .filter(key => isMathsLessonStorageKeyForStudent(key, scopedStudentId));
   if (residuals.length || lessonResiduals.length) {
     const error = new Error("Queued Maths evidence remains after learner cleanup.");
     error.code = "LP_LOCAL_CLEANUP_INCOMPLETE";

@@ -10,6 +10,10 @@ const neutralSql = fs.readFileSync(
   new URL("../../supabase/migrations/20260813120000_maths_not_sure_is_neutral.sql", import.meta.url),
   "utf8"
 );
+const v3Sql = fs.readFileSync(
+  new URL("../../supabase/migrations/20260814143000_maths_assessment_multi_direction_v3.sql", import.meta.url),
+  "utf8"
+);
 
 test("Maths v2 retains queued v1 evidence and dispatches by content version", () => {
   assert.match(sql, /rename to maths_validate_student_evidence_v1/i);
@@ -38,4 +42,17 @@ test("an explicit not-sure response remains neutral after server validation", ()
   assert.match(neutralSql, /'classification','not_checked'/i);
   assert.match(neutralSql, /'observedSignals','\[\]'::jsonb/i);
   assert.match(neutralSql, /revoke all on function public\.maths_validate_student_evidence/i);
+});
+
+test("Maths v3 validates both assessment directions while retaining queued versions", () => {
+  assert.match(v3Sql, /p_content_version='maths-foundation-number-v1'/i);
+  assert.match(v3Sql, /p_content_version='maths-foundation-number-v2'/i);
+  assert.match(v3Sql, /p_content_version='maths-foundation-number-v3'/i);
+  assert.match(v3Sql, /F-N-COUNT-10','F-N-COUNT-20/i);
+  assert.match(v3Sql, /p_skill_id='F-N-MATCH'/i);
+  assert.match(v3Sql, /v_blueprint<>'make_quantity'/i);
+  assert.match(v3Sql, /v_blueprint<>'count_collection'/i);
+  assert.match(v3Sql, /v_expected_representation/i);
+  assert.match(v3Sql, /return public\.maths_validate_student_evidence_v2/i);
+  assert.match(v3Sql, /revoke all on function public\.maths_validate_student_evidence_v3/i);
 });

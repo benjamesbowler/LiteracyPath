@@ -10,16 +10,22 @@ export const MATHS_ASSESSMENT_BLUEPRINTS = Object.freeze([
   "part_whole"
 ]);
 
-const BLUEPRINT_BY_SKILL = Object.freeze({
-  "F-N-SEQ-20": "number_sequence",
-  "F-N-COUNT-10": "count_collection",
-  "F-N-COUNT-20": "count_collection",
-  "F-N-SUBITISE-5": "quick_quantity",
-  "F-N-MATCH": "make_quantity",
-  "F-N-COMPARE": "compare_quantities",
-  "F-N-PART-5": "part_whole",
-  "F-N-PART-10": "part_whole"
+const BLUEPRINTS_BY_SKILL = Object.freeze({
+  "F-N-SEQ-20": Object.freeze(["number_sequence"]),
+  "F-N-COUNT-10": Object.freeze(["count_collection", "make_quantity"]),
+  "F-N-COUNT-20": Object.freeze(["count_collection", "make_quantity"]),
+  "F-N-SUBITISE-5": Object.freeze(["quick_quantity"]),
+  "F-N-MATCH": Object.freeze(["make_quantity", "count_collection"]),
+  "F-N-COMPARE": Object.freeze(["compare_quantities"]),
+  "F-N-PART-5": Object.freeze(["part_whole"]),
+  "F-N-PART-10": Object.freeze(["part_whole"])
 });
+
+function blueprintForSkill(skillId, index) {
+  const blueprints = BLUEPRINTS_BY_SKILL[skillId] || [];
+  if (blueprints.length < 2) return blueprints[0];
+  return blueprints[Math.floor(index / 10) % blueprints.length];
+}
 
 const BLUEPRINT_META = Object.freeze({
   number_sequence: Object.freeze({
@@ -308,7 +314,7 @@ function surfaceVariantsFor(row, blueprintId) {
 }
 
 function makeModel(skillId, row, index) {
-  const blueprintId = BLUEPRINT_BY_SKILL[skillId];
+  const blueprintId = blueprintForSkill(skillId, index);
   const meta = BLUEPRINT_META[blueprintId];
   const target = Number(row.target);
   const other = Number.isFinite(row.other) ? Number(row.other) : Math.max(0, target - 1);
@@ -434,18 +440,33 @@ export function buildMathsAssessmentRound({ skillId, seed = "foundation", length
   const round = [];
   const signatures = new Set();
   const slotOffset = state % 3;
-  while (available.length && round.length < Math.min(length, models.length)) {
-    state = (state * 1664525 + 1013904223) >>> 0;
-    const index = state % available.length;
-    const [model] = available.splice(index, 1);
+  const appendModel = model => {
     const item = materializeAssessmentItem(model, state % 4);
     const signature = assessmentSignature(item);
-    if (signatures.has(signature)) continue;
+    if (signatures.has(signature)) return false;
     signatures.add(signature);
     round.push(Object.freeze({
       ...item,
       answerSlot: (slotOffset + round.length) % 3
     }));
+    return true;
+  };
+  const blueprintIds = [...new Set(models.map(model => model.blueprintId))];
+  if (length >= blueprintIds.length) {
+    for (const blueprintId of blueprintIds) {
+      const candidates = available.filter(model => model.blueprintId === blueprintId);
+      if (!candidates.length) continue;
+      state = (state * 1664525 + 1013904223) >>> 0;
+      const model = candidates[state % candidates.length];
+      available.splice(available.indexOf(model), 1);
+      appendModel(model);
+    }
+  }
+  while (available.length && round.length < Math.min(length, models.length)) {
+    state = (state * 1664525 + 1013904223) >>> 0;
+    const index = state % available.length;
+    const [model] = available.splice(index, 1);
+    appendModel(model);
   }
   return Object.freeze(round);
 }

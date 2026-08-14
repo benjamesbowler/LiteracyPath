@@ -16,16 +16,17 @@ check(mathsAssessmentBank.length === 160, "expected 160 assessment models");
 check(new Set(mathsAssessmentBank.map(item => item.blueprintId)).size === MATHS_ASSESSMENT_BLUEPRINTS.length, "not every assessment blueprint is represented");
 check(mathsAssessmentBank.every(item => item.surfaceVariants.length === 4), "every assessment model needs four surface variants");
 check(mathsAssessmentBank.every(item => item.representationFamilies.length >= 2), "every assessment model needs two representation families");
-check(mathsStories.length === 4 && releasedMathsStories.length === 2, "story catalog or curriculum gate drifted");
+check(mathsStories.length === 8 && releasedMathsStories.length === 6, "story catalog or curriculum gate drifted");
 check(mathsStories.every(item => item.pages.length === 8), "every launch story needs eight pages");
 check(releasedMathsStories.every(item => item.pages.every(page => page.image)), "every released story page needs its own image mapping");
 check(releasedMathsStories.every(item => item.pages.every(page => page.visualDescription && page.talkPrompt)), "every released story page needs distinct visual alternative text and a page-specific talk prompt");
 check(releasedMathsStories.every(item => item.pages.every(page => fs.existsSync(path.join(process.cwd(), "public", page.image)))), "every released story page image must exist");
-check(mathsGames.length === 4, "expected four Foundation practice games");
+check(mathsGames.length === 5, "expected five Foundation practice games");
 check(mathsGames.every(game => createMathsGameSession(game.id, "release").items.length === 8), "every game needs eight decisions");
-check(mathsSongs.length === 3, "expected three original classroom chants");
+check(mathsSongs.length === 8, "expected eight original classroom chants");
+check(APPROVED_FOUNDATION_SKILL_IDS.every(skillId => mathsSongs.some(song => song.skillIds.includes(skillId))), "every released skill needs a classroom chant");
 if (failures.length) {
   console.error("Maths release gate failed:\n" + failures.map(message => `- ${message}`).join("\n"));
   process.exit(1);
 }
-console.log("Maths release content gate passed: 8 skills, 40 lessons, 160 authored checks, 16 illustrated released-story pages, 4 games and 3 chants.");
+console.log("Maths release content gate passed: 8 skills, 40 lesson recipes, 160 authored checks, 48 illustrated released-story pages, 5 games and 8 chants.");
