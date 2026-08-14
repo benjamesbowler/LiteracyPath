@@ -1,10 +1,29 @@
 {
+  "schemaVersion": 2,
+  "songId": "numeral-quantity-match",
   "title": "Card and Collection",
   "tempo": 88,
-  "rootFrequency": 349.23,
-  "composition": "Original LiteracyPath five-layer classroom chant bed",
-  "generatedBy": "LiteracyPath deterministic synthesis",
+  "lyrics": "Original LiteracyPath lyrics",
   "childVoiceOrImage": false,
-  "vocalPolicy": "Adult LEDA guide accepted until individually flagged",
-  "guideVoice": "en-US-Chirp3-HD-Leda"
+  "performed": {
+    "publicPath": "/audio/music/maths/songs/numeral-quantity-match-performed.mp3",
+    "captionsPath": "/audio/music/maths/songs/numeral-quantity-match-lyrics.vtt",
+    "releaseStatus": "planned",
+    "provider": "Suno",
+    "providerTrackId": "",
+    "modelVersion": "",
+    "generatedAt": "",
+    "selectedAt": "",
+    "sourceFileSha256": "",
+    "rightsBasis": "",
+    "vocals": "adult-or-synthetic-adult"
+  },
+  "fallback": {
+    "publicPath": "/audio/music/maths/songs/numeral-quantity-match-instrumental.mp3",
+    "composition": "Original LiteracyPath five-layer classroom chant bed",
+    "generatedBy": "LiteracyPath deterministic synthesis",
+    "rootFrequency": 349.23,
+    "guideVoice": "en-US-Chirp3-HD-Leda",
+    "releaseStatus": "accepted-until-flagged"
+  }
 }

@@ -96,10 +96,15 @@ test("Maths teacher tools expose seeded presentation, real worksheet visuals, re
   await expect(page.getByText("Active assignments")).toBeVisible();
   await expect(page.getByText("5 of 12 complete")).toBeVisible();
   await page.getByRole("button", { name: "Chants and games" }).click();
-  const instrumental = page.locator('.maths-song-player audio[src*="instrumental.mp3"]').first();
-  await page.getByRole("button", { name: "Play instrumental" }).first().click();
-  await expect.poll(() => instrumental.evaluate(element => element.currentTime)).toBeGreaterThan(0);
-  await expect(page.getByRole("button", { name: "Flag instrumental" }).first()).toBeVisible();
+  const performedSong = page.locator('.maths-song-player audio[src*="step-and-count-to-twenty-performed.mp3"]');
+  await expect(performedSong).toHaveCount(1);
+  await expect(performedSong.locator('track[kind="captions"]')).toHaveAttribute("src", /step-and-count-to-twenty-lyrics\.vtt$/);
+  await expect(page.getByText("Complete vocal performance").first()).toBeVisible();
+  await page.getByRole("button", { name: "Play full song with vocals" }).first().click();
+  await expect.poll(() => performedSong.evaluate(element => element.currentTime)).toBeGreaterThan(0);
+  await expect(page.getByRole("button", { name: "Restart" }).first()).toBeVisible();
+  await expect(page.getByRole("button", { name: "Flag full song" }).first()).toBeVisible();
+  await expect(page.getByText("Lyrics", { exact: true }).first()).toBeVisible();
   expect(errors).toEqual([]);
 });
 

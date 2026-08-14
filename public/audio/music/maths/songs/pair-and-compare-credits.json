@@ -1,10 +1,29 @@
 {
+  "schemaVersion": 2,
+  "songId": "pair-and-compare",
   "title": "Pair and Compare",
   "tempo": 108,
-  "rootFrequency": 392,
-  "composition": "Original LiteracyPath five-layer classroom chant bed",
-  "generatedBy": "LiteracyPath deterministic synthesis",
+  "lyrics": "Original LiteracyPath lyrics",
   "childVoiceOrImage": false,
-  "vocalPolicy": "Adult LEDA guide accepted until individually flagged",
-  "guideVoice": "en-US-Chirp3-HD-Leda"
+  "performed": {
+    "publicPath": "/audio/music/maths/songs/pair-and-compare-performed.mp3",
+    "captionsPath": "/audio/music/maths/songs/pair-and-compare-lyrics.vtt",
+    "releaseStatus": "planned",
+    "provider": "Suno",
+    "providerTrackId": "",
+    "modelVersion": "",
+    "generatedAt": "",
+    "selectedAt": "",
+    "sourceFileSha256": "",
+    "rightsBasis": "",
+    "vocals": "adult-or-synthetic-adult"
+  },
+  "fallback": {
+    "publicPath": "/audio/music/maths/songs/pair-and-compare-instrumental.mp3",
+    "composition": "Original LiteracyPath five-layer classroom chant bed",
+    "generatedBy": "LiteracyPath deterministic synthesis",
+    "rootFrequency": 392,
+    "guideVoice": "en-US-Chirp3-HD-Leda",
+    "releaseStatus": "accepted-until-flagged"
+  }
 }

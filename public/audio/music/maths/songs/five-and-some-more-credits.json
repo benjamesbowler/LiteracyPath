@@ -1,10 +1,44 @@
 {
+  "schemaVersion": 2,
+  "songId": "five-and-some-more",
   "title": "Five and Some More",
   "tempo": 92,
-  "rootFrequency": 246.94,
-  "composition": "Original LiteracyPath five-layer classroom chant bed",
-  "generatedBy": "LiteracyPath deterministic synthesis",
+  "lyrics": "Original LiteracyPath lyrics",
   "childVoiceOrImage": false,
-  "vocalPolicy": "Adult LEDA guide accepted until individually flagged",
-  "guideVoice": "en-US-Chirp3-HD-Leda"
+  "performed": {
+    "publicPath": "/audio/music/maths/songs/five-and-some-more-performed.mp3",
+    "captionsPath": "/audio/music/maths/songs/five-and-some-more-lyrics.vtt",
+    "releaseStatus": "accepted-until-flagged",
+    "provider": "Suno",
+    "providerTrackId": "6f07d202-76ba-4572-8184-0e3a8809c994",
+    "modelVersion": "chirp-fenix-t4",
+    "generatedAt": "2026-08-14T12:39:45Z",
+    "selectedAt": "2026-08-14T12:50:21Z",
+    "sourceFileSha256": "092bec2de91f1efeff022e6187088b824e302d5c719e2b78f164381934bd86dd",
+    "sourceExportSha256": "47a9dd9e79a677b89d17ce01855b90c672faecae2fe0ea2527bf204a1aee10ee",
+    "sourceUrl": "https://suno.com/song/6f07d202-76ba-4572-8184-0e3a8809c994",
+    "rightsBasis": "Authorised Suno account export supplied by the product owner; original LiteracyPath lyrics; embedded Suno C2PA provenance.",
+    "vocals": "adult-or-synthetic-adult",
+    "normalization": {
+      "targetIntegratedLufs": -20,
+      "measuredIntegratedLufs": -20.26,
+      "truePeakLimitDb": -2,
+      "measuredTruePeakDb": -6.82,
+      "sampleRateHz": 44100,
+      "channels": 2
+    },
+    "captionAlignment": {
+      "method": "local-faster-whisper-word-timestamps",
+      "model": "small.en",
+      "lyricsMatch": "exact"
+    }
+  },
+  "fallback": {
+    "publicPath": "/audio/music/maths/songs/five-and-some-more-instrumental.mp3",
+    "composition": "Original LiteracyPath five-layer classroom chant bed",
+    "generatedBy": "LiteracyPath deterministic synthesis",
+    "rootFrequency": 246.94,
+    "guideVoice": "en-US-Chirp3-HD-Leda",
+    "releaseStatus": "accepted-until-flagged"
+  }
 }

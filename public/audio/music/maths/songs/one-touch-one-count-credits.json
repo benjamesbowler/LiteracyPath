@@ -1,10 +1,29 @@
 {
+  "schemaVersion": 2,
+  "songId": "one-touch-one-count",
   "title": "One Touch, One Count",
   "tempo": 96,
-  "rootFrequency": 293.66,
-  "composition": "Original LiteracyPath five-layer classroom chant bed",
-  "generatedBy": "LiteracyPath deterministic synthesis",
+  "lyrics": "Original LiteracyPath lyrics",
   "childVoiceOrImage": false,
-  "vocalPolicy": "Adult LEDA guide accepted until individually flagged",
-  "guideVoice": "en-US-Chirp3-HD-Leda"
+  "performed": {
+    "publicPath": "/audio/music/maths/songs/one-touch-one-count-performed.mp3",
+    "captionsPath": "/audio/music/maths/songs/one-touch-one-count-lyrics.vtt",
+    "releaseStatus": "planned",
+    "provider": "Suno",
+    "providerTrackId": "",
+    "modelVersion": "",
+    "generatedAt": "",
+    "selectedAt": "",
+    "sourceFileSha256": "",
+    "rightsBasis": "",
+    "vocals": "adult-or-synthetic-adult"
+  },
+  "fallback": {
+    "publicPath": "/audio/music/maths/songs/one-touch-one-count-instrumental.mp3",
+    "composition": "Original LiteracyPath five-layer classroom chant bed",
+    "generatedBy": "LiteracyPath deterministic synthesis",
+    "rootFrequency": 293.66,
+    "guideVoice": "en-US-Chirp3-HD-Leda",
+    "releaseStatus": "accepted-until-flagged"
+  }
 }

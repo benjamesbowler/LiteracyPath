@@ -11,9 +11,11 @@
 - Essential instructions exist as visible text and can be replayed.
 - Correctness cannot depend on music, pitch, colour or animation.
 - Every countable illustration has a machine-readable quantity specification.
-- Songs use original lyrics with an owned instrumental and a clearly labelled
-  Leda lyric guide. The released classroom-chant format does not require a sung
-  vocal and never labels Leda speech as singing.
+- Songs use original LiteracyPath lyrics and prefer a complete adult or
+  synthetic-adult vocal performance exported from the authorised Suno account.
+  Until a performed take passes the local audio, caption and provenance gate,
+  the player labels and uses the owned backing track plus adult Leda lyric guide
+  as a fallback. Leda speech is never labelled as singing.
 
 ## 2. Directory contract
 
@@ -271,8 +273,8 @@ through the same pipeline.
 For each song create:
 
 ```text
+<song-id>-performed.mp3
 <song-id>-instrumental.mp3
-<song-id>-leda-guide.mp3
 <song-id>-lyrics.vtt
 <song-id>-credits.json
 ```
@@ -281,15 +283,23 @@ Workflow:
 
 1. Lock lyrics and mathematical language.
 2. Compose an original melody and arrangement; store BPM, key and chord chart.
-3. Generate a neutral instrumental demo with an extension of the existing local
-   PCM synthesis tooling, or record/commission an owned instrumental.
-4. Produce LEDA spoken/rhythmic guide phrase-by-phrase for timing only.
-5. Normalise the instrumental and guide and create caption timing.
-6. Complete rights metadata and the technical media check.
-7. Release as `accepted-until-flagged`; repair any exact clip a user flags.
+3. Generate candidate full-song performances in the authorised Suno account;
+   use only an adult or synthetic-adult vocal treatment.
+4. Select and export one take as the song's canonical performed MP3. Record the
+   Suno track ID, model version, generation and selection dates, rights basis and
+   exported-file SHA-256 in the authoritative song record and matching credits.
+5. Author exact-line WebVTT captions from the locked lyrics. Timings must follow
+   the selected take; never invent proportional or estimated lyric timing.
+6. Keep the existing deterministic instrumental and LEDA spoken guide as the
+   clearly labelled offline-safe fallback.
+7. Complete the technical media check. The player may prefer the performed song
+   only when its status is `accepted-until-flagged` or `approved` and the local
+   MP3, WebVTT, credits and SHA-256 all agree.
+8. A flag against the exact performed song immediately moves that player to the
+   backing-track fallback while the performed take is reviewed.
 
 Never use a child vocalist. Never describe LEDA speech as singing. Songs play only
-after a user gesture and include vocal/instrumental toggles.
+after a user gesture; lyrics remain available as text even when audio cannot play.
 
 ## 9. Arcade music and SFX
 
