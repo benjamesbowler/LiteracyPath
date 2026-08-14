@@ -36,6 +36,23 @@ export function resolveCurrentAdminStatusCheck({
 }
 
 /**
+ * Administrator membership is an optional elevation lookup. A failed or slow
+ * lookup must fail closed (never grant admin access), but it must not prevent a
+ * separately approved teacher account from signing in.
+ */
+export async function readOptionalAdminStatus(read) {
+  if (typeof read !== "function") {
+    throw new TypeError("The optional admin-status lookup needs a read function.");
+  }
+
+  try {
+    return await read();
+  } catch (error) {
+    return { data: null, error };
+  }
+}
+
+/**
  * Await one of the later account-access reads without letting its result
  * outlive the request or authenticated identity that started it.
  *

@@ -132,6 +132,23 @@ test("Arcade rounds never reveal or visually preselect an answer", () => {
   assert.ok(trail.items.every(item => item.model.sequence.includes(item.target) === false));
 });
 
+test("Arcade feedback explains the mathematical structure for every mechanic", () => {
+  for (const game of mathsGames) {
+    const session = createMathsGameSession(game.id, "feedback-audit");
+    for (const item of session.items) {
+      const correct = evaluateMathsGameRound(item, item.target);
+      const wrongOption = item.options.find(option => option !== item.target);
+      const incorrect = evaluateMathsGameRound(item, wrongOption);
+      assert.equal(correct.correct, true);
+      assert.equal(incorrect.correct, false);
+      assert.doesNotMatch(correct.feedbackText, /^That matches the maths\.$/);
+      assert.doesNotMatch(incorrect.feedbackText, /^The model does not match yet\./);
+      assert.ok(correct.feedbackText.length >= 40);
+      assert.ok(incorrect.feedbackText.length >= 40);
+    }
+  }
+});
+
 test("every game assignment generates eight rounds for its exact released skill", () => {
   for (const game of mathsGames) {
     for (const skillId of game.skillIds) {

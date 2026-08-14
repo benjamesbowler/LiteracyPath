@@ -4,6 +4,7 @@ import fs from "node:fs";
 import {
   awaitCurrentAccountAccessStage,
   isCurrentAccountAccessCheck,
+  readOptionalAdminStatus,
   resolveCurrentAdminStatusCheck
 } from "../../src/appState/accountAccessCheck.js";
 
@@ -127,6 +128,39 @@ test("only the current admin lookup exposes its result or error for state update
   );
 });
 
+test("a failed optional admin lookup fails closed without blocking teacher approval", async () => {
+  const timeout = new Error("Admin status check timed out.");
+  const result = await readOptionalAdminStatus(async () => {
+    throw timeout;
+  });
+
+  assert.deepEqual(result, { data: null, error: timeout });
+  assert.deepEqual(
+    resolveCurrentAdminStatusCheck({
+      ...CURRENT_IDENTITY,
+      ...result
+    }),
+    {
+      current: true,
+      isAdmin: false,
+      error: timeout
+    },
+    "an unavailable admin table must never grant elevated access"
+  );
+});
+
+test("an optional admin lookup still preserves a valid administrator result", async () => {
+  const result = await readOptionalAdminStatus(async () => ({
+    data: { user_id: "teacher-b" },
+    error: null
+  }));
+
+  assert.deepEqual(result, {
+    data: { user_id: "teacher-b" },
+    error: null
+  });
+});
+
 function deferred() {
   let resolve;
   let reject;
@@ -202,7 +236,9 @@ test("the asynchronous admin lookup remains side-effect-free until identity vali
 
   assert.doesNotMatch(lookup, /setIsAdmin|setAdminStatusError/);
   assert.match(initialization, /resolveCurrentAdminStatusCheck/);
+  assert.match(initialization, /readOptionalAdminStatus/);
   assert.match(initialization, /awaitCurrentAccountAccessStage/);
+  assert.match(initialization, /clearTimeout/);
   assert.match(initialization, /authenticatedUserId:\s*lastAuthUserIdRef\.current/);
   assert.ok(
     initialization.indexOf("if (!adminCheck.current) return;")

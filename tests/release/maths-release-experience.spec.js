@@ -136,6 +136,13 @@ test("Maths Arcade exposes four distinct mechanics with no timer or speed score"
     await page.locator(`[data-game="${gameId}"]`).click();
     await expect(page.locator(selector)).toBeVisible();
   }
+  await page.goto(`/preview/maths-phase-zero.html?audience=student&game=number-trail#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
+  await page.getByRole("button", { name: /Maths Arcade/ }).click();
+  await page.locator('[data-game="number-trail"]').click();
+  await expect(page.locator(".maths-trail-sequence .is-gap")).toHaveText(/Missing\?/);
+  const trailChoices = page.getByRole("group", { name: "Choose a stepping stone for the missing number" });
+  await expect(trailChoices.getByRole("button")).toHaveCount(3);
+  await expect(page.getByText("Read the path, then tap the stone that fits.")).toBeVisible();
   await page.goto(`/preview/maths-phase-zero.html?audience=student&game=count-and-carry#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
   await page.getByRole("button", { name: /Maths Arcade/ }).click();
   await page.locator('[data-game="count-and-carry"]').click();

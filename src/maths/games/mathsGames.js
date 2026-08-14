@@ -84,9 +84,27 @@ export function evaluateMathsGameRound(round, response) {
   const correct = typeof round.target === "number"
     ? Number(response) === round.target
     : String(response) === round.target;
+  const feedbackByMechanic = {
+    trail_step: correct
+      ? "The path counts forward by one. That stone fits the gap."
+      : "Not yet. Count from the stone before the gap, then check the stone after it.",
+    forge_frame: correct
+      ? `Yes. ${round.model.shown} already there and ${round.target} added make ${round.model.target}.`
+      : `Not yet. Compare the whole you built with the target order of ${round.model.target}.`,
+    carry_once: correct
+      ? "Every parcel moved once, and the numeral matches the collection."
+      : "Not yet. Touch-count the parcels in the cart once more, then match that total.",
+    match_frame: correct
+      ? `The bridge has ${round.target} planks, so it matches the numeral.`
+      : "Not yet. Match one plank to each count in the numeral beacon.",
+    compare_frames: correct
+      ? "The pairs prove the comparison. The unpaired planks show which bank has more."
+      : "Not yet. Look at what remains after every possible pair is joined."
+  };
   return Object.freeze({
     correct,
-    feedbackText: correct ? "That matches the maths." : "The model does not match yet. Look at the structure and repair it.",
+    feedbackText: feedbackByMechanic[round.mechanic]
+      || (correct ? "That matches the maths." : "The model does not match yet. Look at the structure and repair it."),
     classification: correct ? "correct" : `${round.mechanic}_mismatch`,
     observedSignals: correct ? [] : [`${round.mechanic}_mismatch`],
     misconceptionCodes: []

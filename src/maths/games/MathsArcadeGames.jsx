@@ -7,15 +7,14 @@ import {
   Bridge,
   Check,
   Factory,
-  HandPointing,
   Package,
   Plus,
   Sparkle
 } from "@phosphor-icons/react";
 
-function Stone({ value, position, active, disabled, onChoose }) {
+function Stone({ position, active }) {
   const colour = active ? "#ffd571" : "#d6e6d7";
-  return <group position={position} onClick={event => { event.stopPropagation(); if (!disabled) onChoose(value); }}>
+  return <group position={position}>
     <Float floatIntensity={active ? 0.35 : 0.12} rotationIntensity={0.05} speed={active ? 2 : 1}>
       <mesh castShadow receiveShadow>
         <cylinderGeometry args={[0.82, 0.95, 0.35, 32]} />
@@ -25,33 +24,32 @@ function Stone({ value, position, active, disabled, onChoose }) {
   </group>;
 }
 
-function MountainScene({ round, disabled, onAnswer, selectedSlot }) {
+function MountainScene({ round, selectedSlot }) {
   const stonePositions = [[-1.9, 0.25, 0.3], [0, 0.38, -0.35], [1.9, 0.55, -0.95]];
-  return <div className="maths-number-trail-3d" aria-hidden="true">
+  return <div className="maths-number-trail-scene" aria-hidden="true">
     <Canvas camera={{ fov: 48, position: [0, 5.2, 7.2] }} dpr={[1, 1.5]}>
-      <color attach="background" args={["#bde3df"]} />
-      <fog attach="fog" args={["#bde3df", 8, 16]} />
-      <ambientLight intensity={1.5} />
-      <directionalLight castShadow intensity={2.2} position={[3, 7, 4]} shadow-mapSize={[1024, 1024]} />
-      <mesh position={[0, -0.06, -1.3]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[14, 12]} />
-        <meshStandardMaterial color="#75aa77" roughness={1} />
-      </mesh>
-      <mesh position={[-3.8, 0.3, -3.7]}>
-        <coneGeometry args={[2.8, 2.8, 5]} />
-        <meshStandardMaterial color="#5b8a6c" roughness={1} />
-      </mesh>
-      <mesh position={[4.2, 0.2, -4.5]}>
-        <coneGeometry args={[3.2, 3.4, 5]} />
-        <meshStandardMaterial color="#477865" roughness={1} />
-      </mesh>
-      <mesh castShadow position={[-2.7, 0.45, 1.25]}>
-        <sphereGeometry args={[0.42, 24, 24]} />
-        <meshStandardMaterial color="#f7a15b" roughness={0.6} />
-      </mesh>
-      {round.options.map((value, index) => <Stone active={selectedSlot === index} disabled={disabled} key={value} onChoose={chosen => onAnswer(chosen, { component: "number_trail_3d", optionSlot: index, pathOptions: round.options })} position={stonePositions[index]} value={value} />)}
-    </Canvas>
-    <div className="maths-trail-overlay"><span>Start {round.model.start}</span>{round.options.map((value, index) => <strong className={selectedSlot === index ? "is-selected" : ""} key={value}>{value}</strong>)}</div>
+        <color attach="background" args={["#bde3df"]} />
+        <fog attach="fog" args={["#bde3df", 8, 16]} />
+        <ambientLight intensity={1.5} />
+        <directionalLight castShadow intensity={2.2} position={[3, 7, 4]} shadow-mapSize={[1024, 1024]} />
+        <mesh position={[0, -0.06, -1.3]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[14, 12]} />
+          <meshStandardMaterial color="#75aa77" roughness={1} />
+        </mesh>
+        <mesh position={[-3.8, 0.3, -3.7]}>
+          <coneGeometry args={[2.8, 2.8, 5]} />
+          <meshStandardMaterial color="#5b8a6c" roughness={1} />
+        </mesh>
+        <mesh position={[4.2, 0.2, -4.5]}>
+          <coneGeometry args={[3.2, 3.4, 5]} />
+          <meshStandardMaterial color="#477865" roughness={1} />
+        </mesh>
+        <mesh castShadow position={[-2.7, 0.45, 1.25]}>
+          <sphereGeometry args={[0.42, 24, 24]} />
+          <meshStandardMaterial color="#f7a15b" roughness={0.6} />
+        </mesh>
+        {round.options.map((value, index) => <Stone active={selectedSlot === index} key={value} position={stonePositions[index]} />)}
+      </Canvas>
   </div>;
 }
 
@@ -62,11 +60,16 @@ export function NumberTrailGame({ round, disabled, onAnswer }) {
     onAnswer(value, { component, optionSlot: index, pathOptions: round.options });
   };
   return <div className="maths-arcade-mechanic maths-number-trail-v2">
-    <MountainScene disabled={disabled} onAnswer={(value, detail) => choose(value, detail.optionSlot, detail.component)} round={round} selectedSlot={selectedSlot} />
-    <div className="maths-arcade-direct-controls" data-child-choices role="group" aria-label="Choose the next stepping stone">
-      <span><HandPointing aria-hidden="true" size={20} weight="duotone" /> {round.model.sequence.map(value => value ?? "?").join(" · ")}</span>
-      <div>{round.options.map((value, index) => <button aria-pressed={selectedSlot === index} data-answer-slot={index} disabled={disabled} key={value} onClick={() => choose(value, index, "number_trail_controls")} type="button">{value}</button>)}</div>
+    <div className="maths-number-trail-3d">
+      <MountainScene round={round} selectedSlot={selectedSlot} />
+      <ol aria-label={`Number path: ${round.model.sequence.map(value => value ?? "gap").join(", ")}`} className="maths-trail-sequence">
+        {round.model.sequence.map((value, index) => <li className={value === null ? "is-gap" : ""} key={`${value ?? "gap"}-${index}`}><small>{value === null ? "Missing" : `Step ${index + 1}`}</small><strong>{value ?? "?"}</strong></li>)}
+      </ol>
+      <div className="maths-trail-stones" data-child-choices role="group" aria-label="Choose a stepping stone for the missing number">
+        {round.options.map((value, index) => <button aria-label={`Put ${value} in the gap`} aria-pressed={selectedSlot === index} className={selectedSlot === index ? "is-selected" : ""} data-answer-slot={index} disabled={disabled} key={value} onClick={() => choose(value, index, "number_trail_stone")} type="button"><span>{value}</span></button>)}
+      </div>
     </div>
+    <p className="maths-trail-hint">Count along the path. Tap the stone that fits the gap.</p>
   </div>;
 }
 

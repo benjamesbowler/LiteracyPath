@@ -23,6 +23,7 @@ import {
 } from "./teacherErrorMessages.js";
 import {
   awaitCurrentAccountAccessStage,
+  readOptionalAdminStatus,
   resolveCurrentAdminStatusCheck
 } from "./accountAccessCheck.js";
 import {
@@ -1545,20 +1546,30 @@ export function useAppSessionController(context) {
     accountAccessCheckUserIdRef.current = userId;
     setTeacherAccountStatus(previousStatus => previousStatus === "approved" ? previousStatus : "checking");
 
-    const withAccountCheckTimeout = (promise, label) =>
-      Promise.race([
+    const withAccountCheckTimeout = (promise, label) => {
+      let timeoutId = null;
+      const timeoutPromise = new Promise((_, reject) => {
+        timeoutId = window.setTimeout(
+          () => reject(new Error(`${label} timed out.`)),
+          10000
+        );
+      });
+      return Promise.race([
         promise,
-        new Promise((_, reject) => {
-          window.setTimeout(() => reject(new Error(`${label} timed out.`)), 10000);
-        })
-      ]);
+        timeoutPromise
+      ]).finally(() => {
+        if (timeoutId !== null) window.clearTimeout(timeoutId);
+      });
+    };
 
     try {
       if (import.meta.env.DEV) {
         console.debug("Account access check started.", { userId, checkSeq });
       }
       const [adminResult, accountResult] = await Promise.all([
-        withAccountCheckTimeout(checkAdminStatus(userId), "Admin status check"),
+        readOptionalAdminStatus(() =>
+          withAccountCheckTimeout(checkAdminStatus(userId), "Admin status check")
+        ),
         withAccountCheckTimeout(fetchTeacherAccountRecord(userId), "Teacher account status check")
       ]);
       const adminCheck = resolveCurrentAdminStatusCheck({
