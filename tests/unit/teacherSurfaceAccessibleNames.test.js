@@ -73,6 +73,7 @@ test("the compact roster controls name the student they act on", async () => {
   assert.match(students, /aria-label=\{`\$\{heatOpenId === selectedStudentRow\.id \? "Hide" : "Show"\} \$\{selectedStudentRow\.name\}'s sound map`\}/);
   assert.match(students, /aria-label=\{`Assess \$\{selectedStudentRow\.name\}`\}/);
   assert.match(students, /aria-label=\{`Select \$\{row\.name\}`\}/);
+  assert.match(students, /role="columnheader" aria-label="Student"/);
   // The row button is not given an aria-label: its own contents (name, sign-in
   // state) are the accessible name, so nothing in the row is hidden from a
   // screen reader by a shorter label.

@@ -2245,7 +2245,7 @@ export function TeacherStudentsPage({
           >
               <thead role="rowgroup">
                 <tr role="row" style={rosterGridStyle}>
-                  <th scope="col" role="columnheader">
+                  <th scope="col" role="columnheader" aria-label="Student">
                     <span className="teacher-roster-head-student">
                       <input
                         aria-label="Select all students on this page"
