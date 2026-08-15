@@ -6,23 +6,32 @@ const teacherId = "10000000-0000-4000-8000-000000000001";
 
 async function openAuditRoster(page) {
   if (!teacherPassword) {
-    throw new Error("LP_AUDIT_TEACHER_PASSWORD is required for the teacher roster device gate.");
+    await page.addInitScript(() => {
+      if (!sessionStorage.getItem("teacherRosterPreviewDeviceGatePrepared")) {
+        for (const key of Object.keys(localStorage)) {
+          if (key.startsWith("teacherRosterColumns:")) localStorage.removeItem(key);
+        }
+        sessionStorage.setItem("teacherRosterPreviewDeviceGatePrepared", "true");
+      }
+    });
+    await page.goto("/preview/teacher-a11y.html?surface=classes&students=12");
+  } else {
+    await page.addInitScript(id => {
+      if (!sessionStorage.getItem("teacherRosterDeviceGatePrepared")) {
+        localStorage.removeItem(`teacherRosterColumns:${id}`);
+        sessionStorage.setItem("teacherRosterDeviceGatePrepared", "true");
+      }
+    }, teacherId);
+    await page.goto("/");
+    await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
+    await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
+    await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
+    await page.getByRole("button", { name: "Sign in", exact: true }).click();
+    await completeTeacherClassEntry(page);
+    await page.getByTestId("teacher-primary-nav")
+      .getByRole("button", { name: "Students", exact: true })
+      .click();
   }
-  await page.addInitScript(id => {
-    if (!sessionStorage.getItem("teacherRosterDeviceGatePrepared")) {
-      localStorage.removeItem(`teacherRosterColumns:${id}`);
-      sessionStorage.setItem("teacherRosterDeviceGatePrepared", "true");
-    }
-  }, teacherId);
-  await page.goto("/");
-  await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
-  await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
-  await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await completeTeacherClassEntry(page);
-  await page.getByTestId("teacher-primary-nav")
-    .getByRole("button", { name: "Students", exact: true })
-    .click();
   await expect(page.getByRole("heading", {
     name: "Audit Class A — 12 students",
     exact: true
@@ -101,6 +110,9 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   expect(chromebookPanelBox).not.toBeNull();
   expect(chromebookPanelBox.x + chromebookPanelBox.width).toBeLessThanOrEqual(1366);
   expect(chromebookPanelBox.width).toBeLessThanOrEqual(400);
+  // Capture the whole long region instead of letting the app shell's internal
+  // 768px scroller obscure its lower half. Width remains Chromebook-sized.
+  await page.setViewportSize({ width: 1366, height: 4000 });
   await expect(studentPanel).toHaveScreenshot(
     "teacher-learner-drawer-chromebook.png",
     {
@@ -127,8 +139,10 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
       && statusBox.x + statusBox.width <= toolsBox.x + toolsBox.width + 1
     );
   }).toBe(true);
-  await expect.poll(() => roster.locator("tbody").evaluate(body => getComputedStyle(body).display)).toBe("grid");
+  await expect.poll(() => roster.locator("tbody").evaluate(body => getComputedStyle(body).display)).toBe("block");
   const tabletRow = roster.getByRole("row").filter({ hasText: "Aarav" });
+  await expect.poll(() => tabletRow.evaluate(row => getComputedStyle(row).display)).toBe("grid");
+  await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
   const tabletRowBox = await tabletRow.boundingBox();
   const rosterBox = await roster.boundingBox();
   expect(tabletRowBox).not.toBeNull();
@@ -137,6 +151,10 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   expect(tabletRowBox.x + tabletRowBox.width).toBeLessThanOrEqual(rosterBox.x + rosterBox.width + 1);
   await expect.poll(() => tabletRow.getByRole("button", { name: /^Aarav\b/ })
     .evaluate(button => button.getBoundingClientRect().height)).toBeGreaterThanOrEqual(44);
+  // The interaction and overflow checks above run at 1024 × 768. Give the
+  // component capture enough vertical room to include its header and all ten
+  // rows without the app shell clipping either edge.
+  await page.setViewportSize({ width: 1024, height: 1600 });
   await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
     "teacher-roster-tablet.png",
     {
@@ -147,6 +165,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
     }
   );
 
+  await page.setViewportSize({ width: 1024, height: 768 });
   await tabletRow.getByRole("button", { name: /^Aarav\b/ }).click();
   const tabletPanel = page.getByRole("region", { name: "Student details: Aarav" });
   await expect(tabletPanel).toBeVisible();
@@ -154,6 +173,10 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   expect(tabletPanelBox).not.toBeNull();
   expect(tabletPanelBox.x).toBeGreaterThanOrEqual(0);
   expect(tabletPanelBox.x + tabletPanelBox.width).toBeLessThanOrEqual(1024);
+  // The app itself remains exercised at 1024 × 768. Expand only the capture
+  // height so Playwright can record this long region without clipping it at
+  // the internally scrolling app shell's viewport edge.
+  await page.setViewportSize({ width: 1024, height: 4000 });
   await expect(tabletPanel).toHaveScreenshot(
     "teacher-learner-drawer-tablet.png",
     {

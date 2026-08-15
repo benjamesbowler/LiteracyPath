@@ -27044,6 +27044,13 @@ body {
     flex-basis: 100%;
     max-width: none;
   }
+
+  /* Once a tablet teacher chooses a name, put the resulting work directly
+     above the roster instead of below ten rows and pagination. The empty
+     prompt stays below the list, where it does not block finding a student. */
+  .teacher-students-page .teacher-student-panel.is-populated {
+    order: -1;
+  }
 }
 
 /* ── Everything the design leaves out but the screen still carries ───────── */

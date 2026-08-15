@@ -381,7 +381,7 @@ function Dashboard({ page }) {
       newClassName={newClassName}
       setNewClassName={setNewClassName}
       createStudent={asyncNoop}
-      teacherId=""
+      teacherId={teacherId}
       classDashboard={dashboardRows}
       loadClassDashboard={asyncNoop}
       skillTree={[{ id: "initial_sounds", label: "Initial Sounds" }]}

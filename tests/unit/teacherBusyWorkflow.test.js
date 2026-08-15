@@ -66,10 +66,15 @@ test("Students defaults to a scannable roster and opens one layer at a time", as
     /function openStudentActions\(student\) \{\s*setStudentActionError\(""\);\s*keepStudentPanelDuring/,
   );
   assert.match(students, /function keepStudentPanelDuring\(action\) \{\s*action\(\);\s*\}/);
+  assert.match(students, /teacher-student-panel\$\{selectedStudentRow \? " is-populated" : ""\}/);
   assert.doesNotMatch(students, /<TeacherDrawer/);
   assert.match(students, /Student settings/);
   assert.match(students, /<details className="teacher-student-panel-more">/);
   assert.match(students, /const ROSTER_PAGE_SIZE = 10;/);
+  assert.match(
+    students,
+    /"--teacher-roster-grid-min-width": `\$\{640 \+ visibleRosterColumns\.length \* 150\}px`/
+  );
   assert.match(students, /className="teacher-roster-pagination"/);
   assert.match(students, /teacher-students-secondary teacher-students-overview/);
   for (const group of ["Student details", "Learning support", "Class and records"]) {

@@ -1106,17 +1106,17 @@ export function TeacherStudentsPage({
   // Student settings; the direct action still opens the same audited,
   // typed-confirmation deletion workflow.
   const rosterGridTemplate = [
-    "minmax(150px, 1.4fr)",
-    "minmax(140px, 1fr)",
-    "minmax(70px, 0.7fr)",
-    "minmax(130px, 0.9fr)",
-    "minmax(90px, 0.8fr)",
-    "minmax(92px, 0.65fr)",
+    "minmax(136px, 1.4fr)",
+    "minmax(118px, 1fr)",
+    "minmax(66px, 0.7fr)",
+    "minmax(108px, 0.9fr)",
+    "minmax(78px, 0.8fr)",
+    "minmax(78px, 0.65fr)",
     ...visibleRosterColumns.map(() => "minmax(140px, 1fr)")
   ].join(" ");
   const rosterGridStyle = {
     "--teacher-roster-grid-template": rosterGridTemplate,
-    "--teacher-roster-grid-min-width": `${720 + visibleRosterColumns.length * 150}px`
+    "--teacher-roster-grid-min-width": `${640 + visibleRosterColumns.length * 150}px`
   };
 
   // The roster summary is not a complete inventory of every record linked to a
@@ -2477,7 +2477,7 @@ export function TeacherStudentsPage({
           here — the four Do-next actions, the sound map, the settings dialog
           and the three footer links. */}
       <aside
-        className="teacher-student-panel"
+        className={`teacher-student-panel${selectedStudentRow ? " is-populated" : ""}`}
         role="region"
         aria-label={selectedStudentRow
           ? `Student details: ${selectedStudentRow.name}`
