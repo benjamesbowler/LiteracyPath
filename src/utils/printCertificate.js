@@ -14,10 +14,9 @@ export function printCertificate({ studentName = "Reader", achievement = "", det
   const date = new Date().toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
   const html = `<!doctype html>
 <html><head><title>Certificate</title>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
   @page { size: landscape; margin: 0; }
-  body { margin: 0; font-family: Inter, sans-serif; }
+  body { margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif; }
   .cert {
     box-sizing: border-box; width: 100vw; height: 100vh;
     display: grid; place-content: center; gap: 14px; text-align: center;
@@ -29,8 +28,8 @@ export function printCertificate({ studentName = "Reader", achievement = "", det
     padding: 56px;
   }
   .kicker { color: #0C6B65; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 13px; }
-  h1 { margin: 0; font-family: Lexend, sans-serif; font-weight: 600; font-size: 52px; color: #101828; }
-  .ach { margin: 0; font-family: Lexend, sans-serif; font-size: 24px; color: #0C6B65; font-weight: 600; }
+  h1 { margin: 0; font-family: Lexend, "Arial Rounded MT Bold", "Segoe UI", Arial, sans-serif; font-weight: 600; font-size: 52px; color: #101828; }
+  .ach { margin: 0; font-family: Lexend, "Arial Rounded MT Bold", "Segoe UI", Arial, sans-serif; font-size: 24px; color: #0C6B65; font-weight: 600; }
   .detail { margin: 0; color: #475569; font-size: 16px; }
   .date { margin-top: 18px; color: #98A2B3; font-size: 13px; }
   .rule { width: 220px; height: 2px; background: #D68A11; margin: 6px auto; }

@@ -39,6 +39,7 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const GATE_ONLY = process.argv.includes("--gate-only");
 const SOFTWARE_SCENE_TIMEOUT = 45_000;
 const SOFTWARE_HANDOFF_TIMEOUT = 60_000;
+const SOFTWARE_SCREENSHOT_TIMEOUT = 60_000;
 
 // The sizes children actually hold. An iPad in landscape is the primary target;
 // a phone is the cruellest test of a side-scroller; the desktop is what the
@@ -288,7 +289,14 @@ async function main() {
     await page.addStyleTag({ content: "*,*::before,*::after{animation-play-state:paused !important;transition:none !important}" });
     await page.waitForTimeout(150);
 
-    await page.screenshot({ path: path.join(OUT, `${shot.name}.png`), fullPage: false });
+    // SwiftShader can need more than Playwright's 30-second default to read a
+    // settled 2x WebGL frame on a busy developer machine. The slice-camera gate
+    // already allows a minute for the same renderer; keep this gate consistent.
+    await page.screenshot({
+      path: path.join(OUT, `${shot.name}.png`),
+      fullPage: false,
+      timeout: SOFTWARE_SCREENSHOT_TIMEOUT
+    });
 
     // What is actually on this screen — so the next decision is made by looking,
     // not by guessing at a selector.

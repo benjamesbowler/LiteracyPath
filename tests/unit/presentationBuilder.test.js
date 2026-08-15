@@ -396,13 +396,13 @@ test("unknown cycle or day throws", () => {
   assert.throws(() => buildCyclePresentation("cycle-2", { day: "someday" }), /Unknown presentation day/);
 });
 
-test("decks contain no emoji and keep offline font fallbacks", () => {
+test("decks contain no emoji, make no Google font request, and keep offline font fallbacks", () => {
   const emoji = /[\u{1F000}-\u{1FAFF}]|\u{FE0F}|[\u{25B6}\u{270F}\u{1F4A1}\u{1F50A}]/u;
   for (const id of ["cycle-2", "cycle-15", "cycle-25", "boy-assessment"]) {
     const { html } = buildCyclePresentation(id);
     assert.ok(!emoji.test(html), `${id} deck is emoji-free`);
     assert.ok(html.includes("'Arial Rounded MT Bold'"), `${id} deck has a system-font fallback stack`);
-    assert.ok(html.includes("fonts.googleapis.com"), `${id} deck keeps the webfont as enhancement`);
+    assert.ok(!/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(html), `${id} deck is offline-safe`);
   }
 });
 

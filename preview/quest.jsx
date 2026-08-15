@@ -32,6 +32,7 @@ import { createRoot } from "react-dom/client";
 // The same global layers main.jsx loads, in the same order. Order matters: the
 // child-facing layers deliberately win the cascade. Load a different set here and
 // the harness would be showing you colours the app never uses.
+import "../src/styles/fonts.js";
 import "../src/index.css";
 import "../src/styles/student-vibrant.css";
 import "../src/styles/comic-theme.css";

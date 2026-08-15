@@ -1014,9 +1014,6 @@ export function buildCyclePresentation(cycleId, { day = "" } = {}) {
   const deckScriptUrl = `${typeof window === "undefined" ? "" : window.location.origin}/present/deck.js`;
   const railLabel = dayKey ? `${railTitle(cycle)} · ${DAY_LABELS[dayKey]}` : railTitle(cycle);
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(title)}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Caprasimo&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>${DECK_CSS}</style></head>
 <body data-deck-key="${esc(`${cycleId}:${dayKey}`)}">
 <div id="scaler"><div id="stage">

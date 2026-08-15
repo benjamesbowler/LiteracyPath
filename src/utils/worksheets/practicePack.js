@@ -159,7 +159,6 @@ export function buildPracticePackDocument({ name, targets = [], stopIndex, date 
 
   const title = `${childName} — sound practice pack`;
   const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
     <style>${PP_STYLES}</style></head>
     <body>${teacherPage}${studentPage}</body></html>`;
   return { title, html, sections, skipped };

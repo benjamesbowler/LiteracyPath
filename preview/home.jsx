@@ -18,6 +18,7 @@ import { createRoot } from "react-dom/client";
 // letterboxed home and centred card titles while this harness looked perfect
 // — App.css's generic .app/button rules are part of the environment the page
 // really lives in.
+import "../src/styles/fonts.js";
 import "../src/index.css";
 import "../src/App.css";
 import "../src/styles/student-vibrant.css";
@@ -27,6 +28,12 @@ import "../src/styles/home-sage.css";
 import "../src/styles/sage-subpages.css";
 import "../src/styles/sage-soft.generated.css";
 import "../src/styles/phonics.css";
+import "../src/styles/sage-form.css";
+import "../src/styles/kids-glass.css";
+import "../src/styles/kids-home.css";
+import "../src/styles/kids-trail.css";
+import "../src/styles/kids-library.css";
+import "../src/styles/ui-quality-pass.css";
 
 import { StudentHomePage } from "../src/components/StudentHomePage.jsx";
 import StepTracer from "../src/components/learn/phonics/components/learning/StepTracer.jsx";

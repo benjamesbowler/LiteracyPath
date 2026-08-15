@@ -23,9 +23,28 @@ import { PAL_WORLDS } from "../../src/utils/palWorlds.js";
 
 const source = readFileSync("src/components/StudentHomePage.jsx", "utf8");
 const css = readFileSync("src/styles/kids-home.css", "utf8");
+const preview = readFileSync("preview/home.jsx", "utf8");
 // Comments explain the rules and legitimately name what was removed, so scans
 // for forbidden copy run against the code with comments stripped.
 const code = source.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+
+test("the visual preview loads the production child layers in cascade order", () => {
+  const requiredLayers = [
+    "styles/fonts.js",
+    "styles/sage-form.css",
+    "styles/kids-glass.css",
+    "styles/kids-home.css",
+    "styles/kids-trail.css",
+    "styles/kids-library.css",
+    "styles/ui-quality-pass.css"
+  ];
+  let previousIndex = -1;
+  for (const layer of requiredLayers) {
+    const layerIndex = preview.indexOf(layer);
+    assert.ok(layerIndex > previousIndex, `${layer} is missing or out of order in the Home preview`);
+    previousIndex = layerIndex;
+  }
+});
 
 test("the home screen has exactly one primary call to action", () => {
   assert.equal(

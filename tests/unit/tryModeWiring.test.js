@@ -1,12 +1,22 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
 const read = name => readFileSync(new URL(`../../src/${name}`, import.meta.url), "utf8");
 const appSurface = read("components/AppSurface.jsx");
 const controller = read("appState/useAppSessionController.js");
 const booksPage = read("components/StudentBooksPage.jsx");
 const entryPage = read("components/StudentEntryPage.jsx");
+
+function runtimeSourceFiles(directory) {
+  return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+    const absolute = path.join(directory, entry.name);
+    if (entry.isDirectory()) return runtimeSourceFiles(absolute);
+    return /\.(?:css|html|js|jsx)$/.test(entry.name) ? [absolute] : [];
+  });
+}
 
 test("try-mode closes the network BEFORE any child surface can mount", () => {
   // Order is the whole guarantee. A surface that mounted first would fire its
@@ -135,6 +145,23 @@ test("no font is fetched from Google, and the CSP would not allow it", () => {
   const vercel = readFileSync(new URL("../../vercel.json", import.meta.url), "utf8");
   assert.ok(!/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(vercel),
     "the CSP still permits Google font domains");
+
+  // Lazy-loaded game CSS and generated print/presentation documents are still
+  // runtime surfaces. Checking index.html alone allowed an old import to hide
+  // until a CI screenshot happened to preload that chunk.
+  const runtimeRoots = ["../../src", "../../preview"].map(relative =>
+    fileURLToPath(new URL(relative, import.meta.url))
+  );
+  const externalFontLink = /@import\s+(?:url\()?['"]https:\/\/fonts\.(?:googleapis|gstatic)\.com|<link[^>]+href=['"]https:\/\/fonts\.(?:googleapis|gstatic)\.com/i;
+  for (const runtimeRoot of runtimeRoots) {
+    for (const file of runtimeSourceFiles(runtimeRoot)) {
+      assert.doesNotMatch(
+        readFileSync(file, "utf8"),
+        externalFontLink,
+        `${path.relative(runtimeRoot, file)} can fetch a Google font at runtime`
+      );
+    }
+  }
 
   // And the families are actually present, so this is a swap rather than a deletion.
   const fonts = readFileSync(new URL("../../src/styles/fonts.js", import.meta.url), "utf8");
