@@ -197,7 +197,9 @@ async function captureSlotSequence(browser, scenario) {
         }
         await page.screenshot({ path: path.join(OUT, `phoneme-slots-fill-${stage + 1}.png`), fullPage: false, timeout: 60_000 });
       } else {
-        await page.waitForFunction(() => document.querySelector(".qh-phoneme-build.is-blending .qh-success-marker"), null, { timeout: 4_000 });
+        await page.waitForFunction(() => (
+          document.querySelector('[aria-live="assertive"]')?.textContent?.includes("Word complete:")
+        ), null, { timeout: 8_000 });
         await page.screenshot({ path: path.join(OUT, "phoneme-slots-blend.png"), fullPage: false, timeout: 60_000 });
       }
     }
@@ -223,14 +225,15 @@ async function captureAccessibleSuccess(browser, scenario) {
       await page.waitForFunction(expected => window.__questSliceDebug?.snapshot?.stageIndex === expected, stage + 1, { timeout: 8_000 });
     }
   }
-  await page.waitForFunction(() => document.querySelector(".qh-success-marker"), null, { timeout: 4_000 });
+  await page.waitForFunction(() => (
+    document.querySelector('[aria-live="assertive"]')?.textContent?.includes("Word complete:")
+  ), null, { timeout: 8_000 });
   const evidence = await page.evaluate(() => ({
-    marker: document.querySelector(".qh-success-marker")?.textContent?.trim() || "",
     announcement: document.querySelector('[aria-live="assertive"]')?.textContent?.trim() || "",
     reducedMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
     muted: new URLSearchParams(location.search).get("sound") === "0"
   }));
-  if (!evidence.marker || !evidence.announcement || !evidence.reducedMotion || !evidence.muted) {
+  if (!evidence.announcement.startsWith("Word complete:") || !evidence.reducedMotion || !evidence.muted) {
     throw new Error(`Accessible success evidence is incomplete: ${JSON.stringify(evidence)}`);
   }
   await page.screenshot({

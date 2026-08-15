@@ -20,6 +20,8 @@ test("release QA exercises pixel while the legacy camera diagnostic stays previe
   assert.match(root, /previewForceLegacy3d \? QUEST_QUALITY_TIERS\.low : runtimeQuality/);
   assert.match(slice, /renderer=legacy3d/);
   assert.doesNotMatch(slice, /display=low/, "the legacy diagnostic still relies on a retired saved setting");
+  assert.match(slice, /Word complete:/, "the legacy diagnostic does not observe the current semantic success announcement");
+  assert.doesNotMatch(slice, /qh-success-marker|qh-phoneme-build/, "the legacy diagnostic still waits on retired success markup");
 
   for (const [name, source] of [["shots", gate], ["route", route], ["slice", slice]]) {
     assert.match(source, /VITE_SUPABASE_URL:\s*process\.env\.VITE_SUPABASE_URL\s*\|\|\s*BASE/,
