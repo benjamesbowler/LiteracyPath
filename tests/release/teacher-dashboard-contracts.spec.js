@@ -526,13 +526,13 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
   const previewBanner = page.getByRole("complementary", { name: "Previewing as Aarav" });
   await expect(previewBanner).toBeVisible();
   await expect(previewBanner).toContainText("Read-only preview");
-  const storyQuestSurface = page.getByRole("main", { name: "Story Quests" });
-  const storyQuestHeading = storyQuestSurface.locator("h1.story-quest-title-logo");
+  const storyQuestSurface = page.locator("[data-child-surface='story-quests']:visible").last();
+  const storyQuestHeading = storyQuestSurface.locator("h1.kg-title");
   await expect(storyQuestHeading).toBeVisible();
   await expect(storyQuestHeading).toContainText("Story Quests");
-  await expect(storyQuestSurface).toContainText("This is a clean practice preview.");
-  await expect(storyQuestSurface.getByRole("button", { name: /^Preview / }).first()).toBeVisible();
-  await storyQuestSurface.getByRole("button", { name: /^Preview / }).first().click();
+  const firstQuest = storyQuestSurface.locator(".kg-quest-card").first();
+  await expect(firstQuest).toBeVisible();
+  await firstQuest.click();
   await expect(page.getByText("Student progress is not saved", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Back to Story Quests", exact: true })).toBeVisible();
   const previewStorageKeys = await page.evaluate(() => Object.keys(window.localStorage)

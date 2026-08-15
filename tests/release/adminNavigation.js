@@ -31,12 +31,15 @@ function sectionConfig(sectionId) {
 }
 
 async function activeAdminSectionControl(page) {
-  const picker = page.locator(".admin-dashboard .teacher-section-select select");
-  const navigation = page.locator(".admin-dashboard .admin-section-tabs");
+  // Responsive/transition shells can produce a hidden match before the active
+  // control. Select the rendered control instead of inspecting that first
+  // hidden match.
+  const picker = page.locator(".admin-dashboard .teacher-section-select select:visible").last();
+  const navigation = page.locator(".admin-dashboard .admin-section-tabs:visible").last();
   await expect.poll(async () => (
-    await picker.isVisible() || await navigation.isVisible()
+    await picker.count() > 0 || await navigation.count() > 0
   )).toBe(true);
-  return { picker, navigation, compact: await picker.isVisible() };
+  return { picker, navigation, compact: await picker.count() > 0 };
 }
 
 // Kept as a compatibility helper for release specs while Admin is one area.
