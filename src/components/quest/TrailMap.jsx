@@ -69,6 +69,8 @@ export default function TrailMap({
   onBack,
   onEditCharacter,
   onTradingPost,
+  onSettings,
+  settingsTriggerRef,
   isSoundEnabled = true
 }) {
   const chapter = QUEST_CHAPTERS[Math.max(0, Math.min(QUEST_CHAPTERS.length - 1, act - 1))];
@@ -151,6 +153,15 @@ export default function TrailMap({
         <div className="q-map-v2-actions">
           <button type="button" className="q-ghost" onClick={onEditCharacter}>Character</button>
           <button type="button" className="q-ghost" onClick={onTradingPost}>Shop</button>
+          <button
+            ref={settingsTriggerRef}
+            type="button"
+            className="q-ghost"
+            onClick={onSettings}
+            aria-label="Open settings"
+          >
+            Settings
+          </button>
           <button type="button" className="q-ghost q-map-review" onClick={onFreeRoam}>
             {reviewPlan.weakest.length ? "Practise" : "Explore"}
           </button>

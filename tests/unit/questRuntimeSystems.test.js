@@ -10,6 +10,7 @@ import {
 } from "../../src/utils/questPerformance.js";
 import { chapterShortcutReviewPlan, freeRoamReviewPlan } from "../../src/utils/questReviewMode.js";
 import { buildTrailSection } from "../../src/utils/questHub.js";
+import { buildPhysicalTask } from "../../src/utils/questPhysicalMechanics.js";
 import { clampQuestWorldResume } from "../../src/utils/questWorldResume.js";
 import {
   addQuestActiveTime,
@@ -901,7 +902,12 @@ test("world resume checkpoints clamp to rebuilt encounters and never create an a
   assert.equal(clamped.activeIdValid, true);
   assert.equal(clamped.encounterIndex, section.encounters.indexOf(wordEncounter));
   assert.equal(clamped.beatIndex, wordEncounter.beats.length - 1);
-  assert.equal(clamped.fieldStage, 2, "the three-part word task must clamp to its last playable stage");
+  const clampedTask = buildPhysicalTask(section, wordEncounter, wordEncounter.beats.at(-1), wordEncounter.beats.length - 1);
+  assert.equal(
+    clamped.fieldStage,
+    clampedTask.stages.length - 1,
+    "the rebuilt word task must clamp to its current last playable stage"
+  );
 
   assert.deepEqual(clampQuestWorldResume(section, {
     activeId: "removed-by-content-update",
@@ -923,30 +929,23 @@ test("world resume checkpoints clamp to rebuilt encounters and never create an a
   assert.match(fallback2d, /encounterIndex \+ 1/, "the active 2D encounter progress is still zero-based");
 });
 
-test("Den destinations pair non-reading symbols with an audible transition cue", () => {
-  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
-  assert.match(den, /if \(soundEnabled\) playWhoosh\(\)/, "Den navigation has no recorded transition cue");
-  for (const kind of ["settings", "map", "review", "creature", "post"]) {
-    assert.match(den, new RegExp(`<DenNavIcon kind="${kind}"`), `${kind} destination still depends on text alone`);
+test("the real trail map exposes every child destination with stable controls", () => {
+  const map = fs.readFileSync("src/components/quest/TrailMap.jsx", "utf8");
+  for (const destination of ["Character", "Shop", "Settings", "Practise", "Explore"]) {
+    assert.match(map, new RegExp(`>\\s*${destination}\\s*<|["']${destination}["']`), `${destination} is missing from the trail map`);
   }
-  for (const accessibleName of [
-    "Open settings",
-    "Open the trail map",
-    "Change my creature",
-    "Open the Trading Post"
-  ]) {
-    assert.match(den, new RegExp(`aria-label="${accessibleName}"`), `${accessibleName} has no stable accessible name`);
-  }
+  assert.match(map, /aria-label="Open settings"/, "settings has no stable accessible name");
+  assert.match(map, /if \(isSoundEnabled\) playWhoosh\(\)/, "entering a trail has no recorded transition cue");
 });
 
-test("Den settings provides a modal fallback without native dialog methods", () => {
-  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
+test("map settings provides a modal fallback without native dialog methods", () => {
+  const settings = fs.readFileSync("src/components/quest/QuestSettingsDialog.jsx", "utf8");
   const css = fs.readFileSync("src/styles/quest.css", "utf8");
-  assert.match(den, /typeof dialog\.showModal === "function"/);
-  assert.match(den, /dialog\.setAttribute\("open", ""\)/);
-  assert.match(den, /data-fallback-modal=/);
-  assert.match(den, /onKeyDown=\{containSettingsFocus\}/);
-  assert.match(den, /settingsTriggerRef\.current\?\.focus\(\)/);
+  assert.match(settings, /typeof dialog\.showModal === "function"/);
+  assert.match(settings, /dialog\.setAttribute\("open", ""\)/);
+  assert.match(settings, /data-fallback-modal=/);
+  assert.match(settings, /onKeyDown=\{containFocus\}/);
+  assert.match(settings, /triggerRef\?\.current\?\.focus\(\)/);
   assert.match(css, /\.q-settings-dialog\[data-fallback-modal="true"\]/);
 });
 
@@ -954,7 +953,7 @@ test("QuestRoot hands focus to each newly mounted non-world screen", () => {
   const root = fs.readFileSync("src/components/quest/QuestRoot.jsx", "utf8");
   assert.match(root, /previousViewRef/, "view changes have no stable focus-transition guard");
   assert.match(root, /portalRef\.current\?\.querySelector\("\.q-screen h1"\)/, "the new screen heading is not selected");
-  assert.match(root, /heading\.focus\(\{ preventScroll: true \}\)/, "focus is not moved after a Den/Map/Post/Creator transition");
+  assert.match(root, /heading\.focus\(\{ preventScroll: true \}\)/, "focus is not moved after a Map/Post/Creator transition");
 });
 
 test("pixel-world audit guards cover stage rebuild, teardown, asset failure, motion and hot-path allocation", () => {
@@ -1826,13 +1825,12 @@ test("all chapter casts resolve to animated resident sheets in both display mode
   }
 });
 
-test("the Den, map and Trading Post keep their complete phone controls", () => {
-  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
+test("the map and Trading Post keep their complete phone controls", () => {
   const map = fs.readFileSync("src/components/quest/TrailMap.jsx", "utf8");
   const shop = fs.readFileSync("src/components/quest/TradingPost.jsx", "utf8");
   const css = fs.readFileSync("src/styles/quest.css", "utf8");
 
-  assert.match(den, /aria-label="Open settings"/, "the adult comfort controls are not clearly named");
+  assert.match(map, /aria-label="Open settings"/, "the adult comfort controls are not clearly named");
   assert.match(map, /className="q-chapter-picker"/, "the phone map has no complete chapter picker");
   assert.match(map, /Choose a story chapter/, "the phone chapter picker is not named for assistive technology");
   assert.match(map, /const MAP_POINTS_BY_WORLD/, "each painted world map needs its own road anchors");

@@ -1,23 +1,24 @@
 import { expect, test } from "@playwright/test";
+import { STUDENT_LOGIN_VOICE_AUDIO } from "../../src/data/generated/shellAudioPaths.generated.js";
 
 const CASES = [
   {
     scenario: "code-not-found",
     title: "That code was not found",
     detail: "Check each letter and number. Your code is still in the box.",
-    audio: "/audio/ui/voice/did-not-match.mp3"
+    audio: STUDENT_LOGIN_VOICE_AUDIO["did-not-match"]
   },
   {
     scenario: "offline",
     title: "You are offline",
     detail: "Reconnect this device, then try the same code again.",
-    audio: "/audio/ui/voice/try-again.mp3"
+    audio: STUDENT_LOGIN_VOICE_AUDIO["try-again"]
   },
   {
     scenario: "ask-teacher",
     title: "Ask your teacher",
     detail: "The class list could not open. Your teacher can check the class code.",
-    audio: "/audio/ui/voice/ask-teacher.mp3"
+    audio: STUDENT_LOGIN_VOICE_AUDIO["ask-teacher"]
   }
 ];
 

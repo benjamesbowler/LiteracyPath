@@ -171,12 +171,12 @@ export function TeacherIntentPage({
   });
   const featureDirectory = [
     { id: "class-quest-live", title: "Class Quest Live", location: "Present", body: "Send private response prompts to signed-in student devices while you control the class slides.", action: "Open Present", onOpen: onOpenPresent },
-    { id: "paper-to-progress", title: "Paper-to-Progress", location: "Worksheets", body: "Create a worksheet code, record quick teacher observations and turn paper work into next-lesson evidence.", action: "Open Worksheets", onOpen: onOpenWorksheets },
+    { id: "paper-to-progress", title: "Paper-to-Progress", location: "Worksheets", body: "Create a worksheet code, record quick teacher observations and use paper work to plan the next lesson.", action: "Open Worksheets", onOpen: onOpenWorksheets },
     { id: "observed-change", title: "Observed Change", location: "Reports", body: "Compare equal assessment windows without overstating small or unmatched cohorts.", action: "Open Reports", onOpen: onOpenReports },
-    { id: "misconception-detective", title: "Misconception Detective", location: "Dashboard", body: "See repeated error patterns that may be worth checking, without automatically diagnosing a learner.", action: "Open Dashboard", onOpen: onOpenToday },
-    { id: "reading-passport", title: "Reading Passport", location: "Students and child Books", body: "Children collect completed-book stamps and make a private text-choice reflection; teachers see it in the student panel.", action: "Open Students", onOpen: onOpenStudents },
+    { id: "misconception-detective", title: "Misconception Detective", location: "Dashboard", body: "See repeated error patterns that may be worth checking, without automatically diagnosing a student.", action: "Open Dashboard", onOpen: onOpenToday },
+    { id: "reading-passport", title: "Reading Passport", location: "Students and Books", body: "Students collect completed-book stamps and make a private text-choice reflection; teachers see it in the student panel.", action: "Open Students", onOpen: onOpenStudents },
     { id: "buddy-reading", title: "Buddy Reading", location: "Guided Reading", body: "Alternates a child reading turn with LEDA narration. It records turn completion, never the child’s voice.", action: "Open Guided Reading", onOpen: onOpenGuidedReading ? () => onOpenGuidedReading("") : null },
-    { id: "transfer-missions", title: "Transfer Missions", location: "Student Home", body: "Offers a short context-transfer mission after enough taught-code evidence. It stays separate from mastery." },
+    { id: "transfer-missions", title: "Transfer Missions", location: "Student Home", body: "Offers a short context-transfer mission after enough taught-code results. It stays separate from mastery." },
     { id: "story-crew", title: "Story Crew", location: "Child Story Quests", body: "A shared-device comprehension activity with three discussion roles. No names, voices or images are collected." }
   ];
 
@@ -245,7 +245,7 @@ export function TeacherIntentPage({
                   <p className="teacher-resource-kind" data-resource-kind="lesson-composer">Teaching plan</p>
                   <h3>Small-group lesson composer</h3>
                   <p className="teacher-resource-body">Turn the selected phonics cycle into an 8, 12 or 20 minute lesson with reviewed examples, connected reading, access supports and an exit observation.</p>
-                  <ul className="teacher-resource-points"><li>Choose the learners and target</li><li>Teach on screen or print one pack</li><li>Practice evidence never changes mastery automatically</li></ul>
+                  <ul className="teacher-resource-points"><li>Choose the students and target</li><li>Teach on screen or print one pack</li><li>Practice observations never change mastery automatically</li></ul>
                   <button className="lp-button lp-button-primary teacher-resource-action" onClick={() => setLessonComposerOpen(true)} type="button">Plan a small-group lesson</button>
                 </article>
                 <article className="teacher-resource-card teacher-resource-card-featured">
@@ -290,7 +290,7 @@ export function TeacherIntentPage({
                 <LevelCShelf copy={copy} onOpenReader={onOpenGuidedReading} />
               </section>
               <section className="teacher-feature-directory" aria-labelledby="teacher-feature-directory-title">
-                <header><p className="teacher-resource-kind">Feature directory</p><h3 id="teacher-feature-directory-title">Where the other new features live</h3><p>Some tools belong in reporting or student experiences rather than the resource shelf. This directory links every teacher-facing destination and names each child-facing location.</p></header>
+                <header><p className="teacher-resource-kind">Feature directory</p><h3 id="teacher-feature-directory-title">Where the other new features live</h3><p>Some tools belong in reporting or student experiences rather than the resource shelf. This directory links every teacher-facing destination and names each student-facing location.</p></header>
                 <div>
                   {featureDirectory.map(feature => <article key={feature.id}><span>{feature.location}</span><h4>{feature.title}</h4><p>{feature.body}</p>{feature.onOpen ? <button className="lp-button lp-button-secondary" type="button" onClick={feature.onOpen}>{feature.action}</button> : <small>Available in the signed-in student experience</small>}</article>)}
                 </div>

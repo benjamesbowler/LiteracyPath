@@ -401,7 +401,7 @@ export default function QuestFieldStudyConsole() {
           </div>
         </div>
         <p className="qe-privacy"><strong>No names.</strong> Use anonymous study codes only.</p>
-        <a className="qe-play-link" href="/preview/quest.html?view=den&display=pixel&sound=1" target="_blank" rel="noreferrer">Open game session</a>
+        <a className="qe-play-link" href="/preview/quest.html?view=map&display=pixel&sound=1" target="_blank" rel="noreferrer">Open game session</a>
       </header>
 
       <div className="qe-workspace">

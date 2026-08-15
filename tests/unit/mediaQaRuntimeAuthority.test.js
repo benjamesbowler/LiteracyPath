@@ -6,6 +6,11 @@ import { getInitialSoundRoundPlan } from "../../src/content/initialSounds/initia
 import { prepareRuntimeQuestionBank } from "../../src/appState/assessmentRuntime.js";
 import { loadAssessmentSkillBank } from "../../src/data/loadAssessmentSkillBank.js";
 import { getMediaQaId, isMediaQaRuntimeAllowed } from "../../src/data/mediaQaManifest.js";
+import {
+  getMediaQaReviewId,
+  isMediaPairingApproved,
+  isMediaPairingRuntimeAllowed
+} from "../../src/data/mediaQaReviewStatus.js";
 import { isRuntimeEligibleEarlySkillQuestion } from "../../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 test("legacy device-local QA drafts cannot block released assessment media", () => {
@@ -32,6 +37,22 @@ test("legacy device-local QA drafts cannot block released assessment media", () 
     if (previousLocalStorage === undefined) delete globalThis.localStorage;
     else globalThis.localStorage = previousLocalStorage;
   }
+});
+
+test("pending media is beta-visible without being misreported as human approved", () => {
+  const pairing = {
+    area: "assessment",
+    skillId: "beta-test-skill",
+    questionId: "beta-test-question",
+    imagePath: "/images/beta-test.png"
+  };
+  const reviewId = getMediaQaReviewId(pairing);
+
+  assert.equal(isMediaPairingApproved(pairing), false);
+  assert.equal(isMediaPairingRuntimeAllowed(pairing, {}), true);
+  assert.equal(isMediaPairingRuntimeAllowed(pairing, {
+    [reviewId]: { ...pairing, status: "quarantined" }
+  }), false);
 });
 
 test("the production Initial Sounds selector uses the published v3 bank", async () => {

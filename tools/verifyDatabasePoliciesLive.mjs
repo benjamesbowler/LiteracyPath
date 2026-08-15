@@ -84,6 +84,11 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_class_id: EXPECTED.teacherA.classId,
     p_assignment_id: "00000000-0000-0000-0000-000000000000"
   },
+  "teacher_duplicate_maths_assignment(uuid, uuid, timestamp with time zone)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_assignment_id: "00000000-0000-0000-0000-000000000000",
+    p_due_at: null
+  },
   "teacher_class_access_log(uuid, integer)": { p_class_id: EXPECTED.teacherA.classId, p_limit: 1 },
   "teacher_class_access_summary(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_close_worksheet_instance(uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000" },
@@ -181,6 +186,10 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_class_id: EXPECTED.teacherA.classId,
     p_include_archived: false
   },
+  "teacher_list_maths_media_issues(uuid, boolean)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_include_resolved: false
+  },
   "teacher_list_press_work(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_mark_intervention_delivered(uuid)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000"
@@ -201,6 +210,15 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_read_maths_evidence_page(uuid, uuid, integer, timestamp with time zone, uuid)": {
     p_class_id: EXPECTED.teacherA.classId,
     p_student_id: EXPECTED.teacherA.studentId,
+    p_limit: 1,
+    p_before_occurred_at: null,
+    p_before_id: null
+  },
+  "teacher_read_maths_evidence_filtered_page(uuid, uuid, timestamp with time zone, text, integer, timestamp with time zone, uuid)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_since: null,
+    p_source: null,
     p_limit: 1,
     p_before_occurred_at: null,
     p_before_id: null
@@ -250,6 +268,10 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_reset_student_progress(uuid, timestamp with time zone)": {
     p_student_id: EXPECTED.teacherA.studentId,
     p_reset_at: "2026-07-27T00:00:00.000Z"
+  },
+  "teacher_resolve_maths_media_issue(uuid, text)": {
+    p_issue_id: "00000000-0000-0000-0000-000000000000",
+    p_resolution: "not_reproducible"
   },
   "teacher_resolve_worksheet_code(text)": { p_code: "AAAAAAAA" },
   "teacher_review_instructional_group(uuid, uuid[], jsonb)": {
@@ -336,6 +358,11 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_learner_ids: [EXPECTED.teacherA.studentId],
     p_recipe: {},
     p_scheduled_for: null
+  },
+  "teacher_update_maths_assignment_due_at(uuid, uuid, timestamp with time zone)": {
+    p_class_id: EXPECTED.teacherA.classId,
+    p_assignment_id: "00000000-0000-0000-0000-000000000000",
+    p_due_at: null
   },
   "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000",

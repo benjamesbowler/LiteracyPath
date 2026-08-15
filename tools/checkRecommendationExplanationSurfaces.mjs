@@ -14,7 +14,7 @@ const inventory = Object.freeze({
     "phonics-letter": "src/components/learn/phonics/PhonicsAlphabetPicker.jsx",
     "adventure-map": "src/components/elQuest/ElSkillsQuest.jsx",
     arcade: "src/components/learn/games/GameArcadeHub.jsx",
-    "guided-reading": "src/components/guided-reading/GuidedReadingPage.jsx"
+    "guided-reading": "src/components/StudentBooksPage.jsx"
   }),
   teacher: Object.freeze({
     "teacher-dashboard-next-steps": "src/components/TeacherStudentsPage.jsx",

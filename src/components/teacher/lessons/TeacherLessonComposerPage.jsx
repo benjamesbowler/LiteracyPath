@@ -125,7 +125,7 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
       </TeacherPageHeader>
 
       <div className="lesson-composer-evidence" role="note">
-        <strong>Evidence source:</strong> teacher-selected class context and target. This plan does not diagnose learners or update mastery. If evidence is limited, run the exit observation and record <em>not checked</em> rather than incorrect.
+        <strong>Planning basis:</strong> teacher-selected class context and target. This plan does not diagnose students or update mastery. If results are limited, run the exit observation and record <em>not checked</em> rather than incorrect.
       </div>
 
       <div className="lesson-composer-layout">
@@ -146,7 +146,7 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
           </fieldset>
 
           <fieldset>
-            <legend>Learners ({learnerIds.length} selected)</legend>
+            <legend>Students ({learnerIds.length} selected)</legend>
             <div className="lesson-composer-checks">
               {activeStudents.map(student => (
                 <label key={student.id}><input type="checkbox" checked={learnerIds.includes(student.id)} onChange={() => toggleLearner(student.id)} /> {student.name}</label>
@@ -166,14 +166,14 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
 
         <div className="lesson-composer-preview" aria-live="polite">
           {!learnerIds.length ? (
-            <div className="lesson-composer-warning"><h3>Choose at least one learner</h3><p>The lesson preview will appear when the group is selected.</p></div>
+            <div className="lesson-composer-warning"><h3>Choose at least one student</h3><p>The lesson preview will appear when the group is selected.</p></div>
           ) : lesson ? (
             <>
               <div className="lesson-composer-summary">
                 <div><span>Target</span><strong>{targets.find(target => target.key === targetKey)?.label}</strong></div>
                 <div><span>Time</span><strong>{duration} minutes</strong></div>
-                <div><span>Group</span><strong>{learnerIds.length} learners</strong></div>
-                <div><span>Evidence</span><strong>Practice observation</strong></div>
+                <div><span>Group</span><strong>{learnerIds.length} students</strong></div>
+                <div><span>Observation</span><strong>Practice only</strong></div>
               </div>
 
               <ol className="lesson-sequence">
@@ -184,7 +184,7 @@ export function TeacherLessonComposerPage({ client, classId, cycleId, students =
                       <p className="lesson-step-role">{step.role}</p>
                       <h3>{step.title}</h3>
                       <p><strong>Say and do:</strong> {step.teacherText}</p>
-                      <p><strong>Learners:</strong> {step.learnerTask}</p>
+                      <p><strong>Students:</strong> {step.learnerTask}</p>
                       {step.examples.length > 0 && <p className="lesson-step-examples">Reviewed examples: {step.examples.join(" · ")}</p>}
                       {step.application?.bookTitle && <p className="lesson-step-examples">Approved text: {step.application.bookTitle} · Level {step.application.bookLevel}</p>}
                       <p className="lesson-step-materials">Materials: {step.materials.join(", ")}</p>

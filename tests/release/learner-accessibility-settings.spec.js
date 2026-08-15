@@ -33,13 +33,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("A3.4 teacher settings persist and every learner effect is active", async ({ page }) => {
-  await page.goto("/preview/teacher-a11y.html?surface=classes");
+  await page.goto("/preview/teacher-a11y.html?surface=classes&learner=1");
 
-  const learnerRow = page.locator("tr").filter({ hasText: "Aarav" }).first();
-  await learnerRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
-  await page.getByRole("dialog", { name: "Student details: Aarav" })
-    .getByRole("button", { name: "Student settings", exact: true })
-    .click();
+  // The current Students design uses an in-page labelled region, not the
+  // retired drawer dialog. The direct preview route keeps this audit stable
+  // without depending on whichever roster row is visible after sorting.
+  const studentPanel = page.getByRole("region", { name: "Student details: Aarav" });
+  await studentPanel.getByText("More for Aarav", { exact: true }).click();
+  await studentPanel.getByRole("button", { name: "Student settings", exact: true }).click();
   await page.getByRole("dialog", { name: "Options for Aarav" })
     .getByRole("button", { name: "Accessibility settings", exact: true })
     .click();
@@ -80,11 +81,9 @@ test("A3.4 teacher settings persist and every learner effect is active", async (
   });
 
   await page.reload();
-  const reloadedRow = page.locator("tr").filter({ hasText: "Aarav" }).first();
-  await reloadedRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
-  await page.getByRole("dialog", { name: "Student details: Aarav" })
-    .getByRole("button", { name: "Student settings", exact: true })
-    .click();
+  const reloadedPanel = page.getByRole("region", { name: "Student details: Aarav" });
+  await reloadedPanel.getByText("More for Aarav", { exact: true }).click();
+  await reloadedPanel.getByRole("button", { name: "Student settings", exact: true }).click();
   await page.getByRole("dialog", { name: "Options for Aarav" })
     .getByRole("button", { name: "Accessibility settings", exact: true })
     .click();
@@ -112,7 +111,7 @@ test("A3.4 teacher settings persist and every learner effect is active", async (
 
   await expect.poll(
     () => page.evaluate(() => window.__playedLearnerAudio.filter(item =>
-      String(item.src).includes("/guided-reading/")
+      String(item.src).includes("/guided_page/")
     ).at(-1) || null)
-  ).toMatchObject({ volume: 0.55, playbackRate: 0.92 });
+  ).toMatchObject({ volume: 0.55, playbackRate: 0.88 });
 });

@@ -27,6 +27,10 @@ const releaseIntegrityMigration = fs.readFileSync(
   new URL("../../supabase/migrations/20260812120000_maths_release_integrity.sql", import.meta.url),
   "utf8"
 );
+const teacherAuthorityMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260814171000_maths_teacher_evidence_authority.sql", import.meta.url),
+  "utf8"
+);
 
 function functionBody(source, name) {
   const marker = `create function public.${name}`;
@@ -137,4 +141,16 @@ test("release integrity adds cursor pagination, sync health and RPC-only audio f
   assert.match(releaseIntegrityMigration, /revoke all on table public\.maths_media_issue_reports from public, anon, authenticated/i);
   assert.match(releaseIntegrityMigration, /student_report_maths_media_issue/i);
   assert.match(releaseIntegrityMigration, /teacher_report_maths_media_issue/i);
+});
+
+test("teacher evidence authority cannot impersonate learner assessment or practice", () => {
+  assert.match(teacherAuthorityMigration, /rename to teacher_record_maths_evidence_unrestricted_v1/i);
+  assert.match(teacherAuthorityMigration, /not public\.maths_released_skill\(p_skill_id\)/i);
+  assert.match(teacherAuthorityMigration, /p_content_version not in \([\s\S]*?maths-foundation-number-v4/i);
+  assert.match(teacherAuthorityMigration, /p_event_type not in \('lesson_exit_observation','teacher_observation'\)/i);
+  assert.match(teacherAuthorityMigration, /p_evidence->>'source' is distinct from 'small_group_exit'/i);
+  assert.match(teacherAuthorityMigration, /p_evidence->>'source' is distinct from 'teacher_observation'/i);
+  assert.match(teacherAuthorityMigration, /'demonstrated','not_yet','not_checked'/i);
+  assert.match(teacherAuthorityMigration, /revoke all on function public\.teacher_record_maths_evidence_unrestricted_v1[\s\S]*?from public,anon,authenticated/i);
+  assert.match(teacherAuthorityMigration, /grant execute on function public\.teacher_record_maths_evidence[\s\S]*?to authenticated/i);
 });

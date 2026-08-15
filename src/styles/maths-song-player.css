@@ -23,7 +23,7 @@
 }
 
 .maths-song-actions > button {
-  min-height: max(44px, var(--kg-physical-hit, 44px));
+  min-height: max(54px, var(--kg-physical-hit, 54px));
   padding: 8px 12px;
   border: 1px solid #9fb6ad;
   border-radius: 999px;
@@ -31,6 +31,13 @@
   background: #fff;
   font: inherit;
   font-weight: 850;
+}
+
+/* The shared child stage is uniformly scaled on laptops. Give every control
+   inside an expanded song enough design-pixel height to remain at least 44px
+   in the physical viewport after that transform. */
+.maths-song-player :is(button, summary) {
+  min-height: max(54px, var(--kg-physical-hit, 54px)) !important;
 }
 
 .maths-song-actions > button:first-child { color: #fff; background: var(--maths-green, #176f5d); }

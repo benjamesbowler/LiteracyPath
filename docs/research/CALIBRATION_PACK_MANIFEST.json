@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "itemId": "A4.10",
-  "protocolVersion": "2026.07.25-a4.10",
-  "monitoringVersion": "2026.07.25-a4.10",
-  "seedDatasetVersion": "LP-CALIBRATION-SEED-2026.07.25",
+  "protocolVersion": "2026.08.09-a4.11",
+  "monitoringVersion": "2026.08.09-a4.11",
+  "seedDatasetVersion": "LP-CALIBRATION-SEED-2026.08.09",
   "packStatus": "EXTERNAL-READY",
   "humanExecutionStatus": "not_started",
   "humanResultsIncluded": false,

@@ -18,7 +18,7 @@
 // could really have produced. A hand-written fake save would let the harness show
 // a screen the game can never reach, which is worse than no harness at all.
 //
-//   /preview/quest.html?view=den
+//   /preview/quest.html?view=map
 //   /preview/quest.html?view=world&stop=s01
 //   /preview/quest.html?view=world&stop=s12&done=11
 //   /preview/quest.html?view=world&stop=s5&done=4&checkpoint=gate&display=2d

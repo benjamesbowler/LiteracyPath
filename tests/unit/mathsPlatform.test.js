@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createManipulativeState, mathsManipulativeReducer, manipulativeTotal, snapshotManipulativeState } from "../../src/maths/manipulatives/mathsManipulatives.js";
-import { mathsActivityRecipes, mathsActivityRecipesBySkill, mathsLessonStageIsReady } from "../../src/maths/learn/mathsActivityRecipes.js";
-import { MATHS_ASSESSMENT_BLUEPRINTS, assessmentOptionsForItem, buildMathsAssessmentRound, classifyMathsResponse, mathsAssessmentBank } from "../../src/maths/assessment/mathsAssessmentBank.js";
+import { MATHS_LESSON_REPAIR_PROGRESSIONS_BY_SKILL, mathsActivityRecipes, mathsActivityRecipesBySkill, mathsLessonStageFeedback, mathsLessonStageIsReady } from "../../src/maths/learn/mathsActivityRecipes.js";
+import { MATHS_ASSESSMENT_BLUEPRINTS, MATHS_ASSESSMENT_CAPABILITIES_BY_SKILL, MATHS_ASSESSMENT_RESPONSE_DIRECTIONS, assessmentOptionsForItem, buildMathsAssessmentRound, classifyMathsResponse, materializeAssessmentItem, mathsAssessmentBank, mathsAssessmentRepairForClassification } from "../../src/maths/assessment/mathsAssessmentBank.js";
 import { mathsStories, releasedMathsStories } from "../../src/maths/stories/mathsStoryCatalog.js";
 import { createMathsGameSession, evaluateMathsGameRound, mathsGames } from "../../src/maths/games/mathsGames.js";
 import { mathsSongs } from "../../src/maths/music/mathsSongs.js";
@@ -34,6 +34,28 @@ test("all eight approved skills ship five structured activity recipes", () => {
     assert.equal(mathsActivityRecipesBySkill[skillId].length, 5);
     assert.deepEqual(mathsActivityRecipesBySkill[skillId].map(recipe => recipe.phase), ["retrieve", "model", "guided", "independent", "transfer"]);
   }
+});
+
+test("every guided lesson recipe carries a graduated, signal-safe repair progression", () => {
+  for (const skillId of APPROVED_FOUNDATION_SKILL_IDS) {
+    const progression = MATHS_LESSON_REPAIR_PROGRESSIONS_BY_SKILL[skillId];
+    assert.equal(progression.steps.length, 3);
+    assert.ok(progression.possibleSignal.length > 40);
+    assert.ok(progression.steps.every(step => step.length > 40));
+    assert.doesNotMatch([progression.possibleSignal, ...progression.steps].join(" "), /master(?:y|ed)|faster|speed score/i);
+    for (const recipe of mathsActivityRecipesBySkill[skillId]) {
+      assert.equal(recipe.feedbackRules.length, 1);
+      assert.equal(recipe.feedbackRules[0].possibleSignal, progression.possibleSignal);
+      assert.deepEqual(recipe.feedbackRules[0].steps, progression.steps);
+    }
+  }
+
+  const empty = createManipulativeState("counter_tray", { maximum: 10 });
+  assert.equal(mathsLessonStageFeedback("F-N-COUNT-10", "make", null).repairStep, "Make one deliberate change to the model, then compare it with the challenge.");
+  const attempts = [0, 1, 2].map(repairAttempt => mathsLessonStageFeedback("F-N-COUNT-10", "make", empty, "", 1, repairAttempt));
+  assert.deepEqual(attempts.map(result => result.repairStep), MATHS_LESSON_REPAIR_PROGRESSIONS_BY_SKILL["F-N-COUNT-10"].steps);
+  const seven = { ...empty, counters: Array.from({ length: 7 }, (_, index) => ({ id: `counter-${index + 1}`, groupId: "a" })) };
+  assert.equal(mathsLessonStageFeedback("F-N-COUNT-10", "make", seven, "", 7).ready, true);
 });
 
 test("guided lesson reflection cannot replace the required mathematical model", () => {
@@ -75,6 +97,75 @@ test("assessment bank has 20 fixed models and variation breadth per released ski
   }
 });
 
+test("assessment capabilities never claim an interaction direction the renderer does not provide", () => {
+  for (const skillId of APPROVED_FOUNDATION_SKILL_IDS) {
+    const capability = MATHS_ASSESSMENT_CAPABILITIES_BY_SKILL[skillId];
+    const actual = [...new Set(mathsAssessmentBank.filter(model => model.skillId === skillId).map(model => model.responseDirection))].sort();
+    assert.deepEqual(actual, [...capability.supportedDirections].sort(), skillId);
+    assert.deepEqual(
+      [...capability.supportedDirections, ...capability.unsupportedDirections].sort(),
+      [...MATHS_ASSESSMENT_RESPONSE_DIRECTIONS].sort(),
+      skillId
+    );
+    assert.ok(capability.unsupportedDirections.every(direction => !actual.includes(direction)), skillId);
+    assert.deepEqual(capability.unsupportedDirections, [], `${skillId} must not falsely omit a released direction`);
+  }
+  assert.ok(mathsAssessmentBank.filter(model => model.responseDirection === "construction" && model.blueprintId === "number_sequence").every(model => model.interactionType === "construct_missing_numeral"));
+  assert.ok(mathsAssessmentBank.filter(model => model.responseDirection === "construction" && model.blueprintId === "quick_quantity").every(model => model.interactionType === "reconstruct_quantity"));
+  assert.ok(mathsAssessmentBank.filter(model => model.responseDirection === "construction" && model.blueprintId === "compare_quantities").every(model => model.interactionType === "pair_then_compare"));
+  assert.ok(mathsAssessmentBank.filter(model => model.responseDirection === "recognition" && model.blueprintId === "part_whole").every(model => model.interactionType === "recognise_missing_part"));
+});
+
+test("every six-decision round deliberately balances directions, representations and transfer", () => {
+  for (const skillId of APPROVED_FOUNDATION_SKILL_IDS) {
+    const capability = MATHS_ASSESSMENT_CAPABILITIES_BY_SKILL[skillId];
+    for (let seedIndex = 0; seedIndex < 100; seedIndex += 1) {
+      const input = { skillId, seed: `breadth-${seedIndex}`, length: 6 };
+      const round = buildMathsAssessmentRound(input);
+      assert.deepEqual(round, buildMathsAssessmentRound(input), `${skillId} must reconstruct deterministically`);
+      assert.deepEqual([...new Set(round.map(item => item.responseDirection))].sort(), [...capability.supportedDirections].sort(), skillId);
+      assert.ok(round.some(item => item.evidencePurpose === "transfer"), `${skillId} needs transfer evidence`);
+      for (const responseDirection of capability.supportedDirections) {
+        const items = round.filter(item => item.responseDirection === responseDirection);
+        assert.ok(new Set(items.map(item => item.representation)).size >= 2, `${skillId}:${responseDirection} needs two rendered representations`);
+      }
+      if (capability.supportedDirections.length === 2) {
+        assert.ok(round.some(item => item.evidencePurpose === "recognition"), `${skillId} needs direct recognition evidence`);
+        assert.ok(round.some(item => item.evidencePurpose === "construction"), `${skillId} needs direct construction evidence`);
+      }
+    }
+  }
+});
+
+test("authored assessment models are answer-safe, plausible and repairable", () => {
+  assert.equal(new Set(mathsAssessmentBank.map(model => model.id)).size, 160);
+  assert.equal(mathsAssessmentBank[0].id, "f-n-seq-20-number_sequence-01");
+  assert.equal(mathsAssessmentBank.at(-1).id, "f-n-part-10-part_whole-20");
+  for (const model of mathsAssessmentBank) {
+    assert.equal(model.feedbackPolicy, "deferred_teacher_review");
+    assert.ok(model.repairProgressions.length >= 2);
+    assert.ok(model.repairProgressions.every(progression => progression.steps.length === 3));
+    assert.equal(new Set(model.distractors).size, model.distractors.length);
+    assert.ok(model.distractors.every(value => Number.isInteger(value) && value >= 0 && value <= model.values.maximum && value !== model.expected));
+    for (let variantIndex = 0; variantIndex < model.surfaceVariants.length; variantIndex += 1) {
+      const item = materializeAssessmentItem(model, variantIndex);
+      if (item.responseDirection === "recognition" && item.blueprintId !== "part_whole" && typeof item.expected === "number") {
+        const visibleNumbers = (item.promptText.match(/\b\d+\b/g) || []).map(Number);
+        assert.ok(!visibleNumbers.includes(item.expected), `${item.itemKey} prompt discloses its answer`);
+      }
+      if (item.responseDirection === "recognition" && item.blueprintId === "part_whole") {
+        assert.match(item.promptText, /Which missing part/);
+        assert.doesNotMatch(item.promptText, /missing part (?:is|equals)\s+\d+/i);
+      }
+    }
+  }
+  for (const classification of ["off_by_one_response", "sequence_choice_mismatch", "comparison_choice_mismatch", "missing_part_mismatch", "other_incorrect_response"]) {
+    const progression = mathsAssessmentRepairForClassification(classification);
+    assert.equal(progression.steps.length, 3);
+    assert.match(progression.possibleSignal, /response|chosen|selected|constructed/i);
+  }
+});
+
 test("assessment rounds balance correct-answer position and bind exact render evidence", () => {
   for (const skillId of APPROVED_FOUNDATION_SKILL_IDS) {
     const round = buildMathsAssessmentRound({ skillId, seed: "position-audit", length: 6 });
@@ -84,6 +175,8 @@ test("assessment rounds balance correct-answer position and bind exact render ev
       assert.equal(item.renderSpec.blueprintId, item.blueprintId);
       assert.equal(item.renderSpec.target, item.values.target);
       assert.equal(item.renderSpec.representation, item.representation);
+      assert.equal(item.renderSpec.responseDirection, item.responseDirection);
+      assert.equal(item.renderSpec.evidencePurpose, item.evidencePurpose);
     }
   }
 });
@@ -220,7 +313,7 @@ test("class reporting keeps Not checked neutral and requires repeated signals fo
   assert.deepEqual(buildMathsLearnerReport(events.slice(0, 1), "s1").find(row => row.skillId === "F-N-PART-10").possiblePatterns, []);
 });
 
-test("reporting separates repeated item occurrences by session and never extends from one auto-check", () => {
+test("reporting does not treat the same authored item repeated across sessions as a stable pattern", () => {
   const students = [{ id: "s1", name: "One" }];
   const events = ["session-a", "session-b"].map((sessionId, index) => ({
     id: `event-${index}`,
@@ -229,7 +322,7 @@ test("reporting separates repeated item occurrences by session and never extends
     evidence: { sessionId, itemKey: "same-item:v1", correct: false, source: "maths_skills_check", representation: "ten_frame", observedSignals: ["missing_part_mismatch"] }
   }));
   const report = buildMathsLearnerReport(events, "s1").find(row => row.skillId === "F-N-PART-10");
-  assert.deepEqual(report.possiblePatterns, ["missing_part_mismatch"]);
+  assert.deepEqual(report.possiblePatterns, []);
   const groups = buildMathsClassGroups([{ ...events[0], evidence: { ...events[0].evidence, correct: true, observedSignals: [] } }], students, "F-N-PART-10");
   assert.equal(groups.extend.length, 0);
 });

@@ -11,7 +11,7 @@ import {
  * may ask this module for a conclusion; it must not recreate these rules.
  */
 export const LEARNING_POLICY_VERSION = "2026.08.09-a4.3c";
-export const STUDENT_HOME_RECOMMENDATION_POLICY_VERSION = "2026.07.24";
+export const STUDENT_HOME_RECOMMENDATION_POLICY_VERSION = "2026.08.15";
 
 export const LEARNING_STATUS_IDS = Object.freeze({
   SECURE: "secure",
@@ -385,9 +385,11 @@ function orderByPolicy(activities, ids) {
  * Partition available student-home activities into one primary, at most two
  * secondary choices, and the remaining exploration choices.
  *
- * Daily mission work wins while a step is incomplete. Once the mission is
- * complete (or its activity is unavailable), the stable fallback order keeps
- * the decision predictable across devices.
+ * A current teacher pick wins first, because hiding an explicit assignment
+ * behind a generic daily mission leaves the child unable to find the work the
+ * teacher chose. Otherwise daily mission work wins while a step is incomplete.
+ * Once the mission is complete (or its activity is unavailable), the stable
+ * fallback order keeps the decision predictable across devices.
  */
 export function selectStudentHomeRecommendation({
   activities = [],
@@ -417,23 +419,29 @@ export function selectStudentHomeRecommendation({
     available,
     STUDENT_HOME_RECOMMENDATION_POLICY.fallbackActivityOrder
   );
-  const primary = primaryMissionKind
-    ? available.find(activity => activity.missionKind === primaryMissionKind)
-    : fallbackOrdered[0];
-  const source = primaryMissionKind
-    ? `daily-mission:${primaryMissionKind}`
+  const teacherPicked = available.find(activity => activity.cardState?.tone === "teacher");
+  const primary = teacherPicked
+    || (primaryMissionKind
+      ? available.find(activity => activity.missionKind === primaryMissionKind)
+      : fallbackOrdered[0]);
+  const source = teacherPicked
+    ? `teacher-assignment:${teacherPicked.id}`
+    : primaryMissionKind
+      ? `daily-mission:${primaryMissionKind}`
     : missionStatus.missionComplete
       ? "daily-mission-complete:fallback"
       : "policy-fallback";
-  const childReason = primaryMissionKind
-    ? "This is your next step in today’s adventure."
+  const childReason = teacherPicked
+    ? "Your teacher picked this for you."
+    : primaryMissionKind
+      ? "This is your next step in today’s adventure."
     : missionStatus.missionComplete
       ? "Your daily adventure is complete, so this is a good next choice."
       : "This is the best available place to start.";
 
   const remaining = available.filter(activity => activity.id !== primary.id);
   const incompleteMissionActivities = incompleteMissionKinds
-    .filter(kind => kind !== primaryMissionKind)
+    .filter(kind => primary.missionKind !== kind)
     .map(kind => remaining.find(activity => activity.missionKind === kind))
     .filter(Boolean);
   const missionIds = new Set(incompleteMissionActivities.map(activity => activity.id));

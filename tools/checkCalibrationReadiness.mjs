@@ -91,6 +91,7 @@ export function inspectCalibrationReadiness() {
   const manifest = inspectManifest(failures);
   const protocol = read("docs/research/CALIBRATION_PROTOCOL.md");
   const admin = read("src/components/AdminDashboardPage.jsx");
+  const adminNavigation = read("src/appState/adminQaNavigation.js");
   const panel = read("src/components/admin/CalibrationMonitoringPanel.jsx");
 
   requireText(protocol, [
@@ -116,11 +117,14 @@ export function inspectCalibrationReadiness() {
     "Screening flags, not bias findings",
     "none adjudicated"
   ], "CalibrationMonitoringPanel.jsx", failures);
-  requireText(admin, [
-    'id: "calibration", label: "Calibration"',
-    'activeSection === "calibration"',
-    "<CalibrationMonitoringPanel"
-  ], "AdminDashboardPage.jsx", failures);
+  if (/activeSection === ["']calibration["']/.test(admin) || /<CalibrationMonitoringPanel/.test(admin)) {
+    failures.push(
+      "Synthetic calibration preview must stay out of operational Admin navigation."
+    );
+  }
+  requireText(adminNavigation, [
+    '"/admin/app/assessment-consistency": "operations"'
+  ], "adminQaNavigation.js", failures);
 
   const forbiddenResearchResults = fs.readdirSync(researchRoot, { recursive: true })
     .map(value => String(value))
@@ -135,10 +139,10 @@ export function inspectCalibrationReadiness() {
   }
   if (
     model.summary?.participants !== 72
-    || model.summary?.itemEvents !== 1152
-    || model.summary?.items !== 8
+    || model.summary?.itemEvents !== 1440
+    || model.summary?.items !== 10
   ) {
-    failures.push("Seeded calibration model no longer exposes the complete 72/1,152/8 preview.");
+    failures.push("Seeded calibration model no longer exposes the complete 72/1,440/10 preview.");
   }
   if (!model.summary?.reteachReviewCandidates || !model.summary?.differentialReviewCandidates) {
     failures.push("Seeded calibration preview must exercise both review queues.");

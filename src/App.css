@@ -5925,6 +5925,15 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   padding: clamp(10px, 1.5vw, 16px);
 }
 
+/* Buddy Reader adds a real row between the header and mode bar. Without an
+   explicit slot the mode bar inherits the flexible content row, leaving a
+   large empty panel and squeezing the actual book page below the fold. */
+.guided-reading-reader-open .guided-reader-card:has(.buddy-reader-launch),
+.guided-reading-reader-open .guided-reader-card:has(.buddy-reader-bar),
+.guided-reading-reader-open .guided-reader-card:has(.buddy-reader-teacher-summary) {
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+}
+
 .guided-reader-header {
   display: flex;
   flex-wrap: wrap;
@@ -6099,6 +6108,10 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   grid-template-rows: auto auto minmax(0, 1fr);
   gap: 8px;
   overflow: hidden;
+}
+
+.guided-reader-shell.fullscreen .guided-reader-card:has(.buddy-reader-bar) {
+  grid-template-rows: auto auto auto minmax(0, 1fr);
 }
 
 .guided-reader-shell.fullscreen .guided-reader-header {
@@ -18087,6 +18100,42 @@ select:focus {
 }
 
 @media (max-width: 640px) and (orientation: landscape) {
+  .guided-reader-shell.fullscreen .buddy-reader-bar {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 5px 8px;
+    border-radius: 10px;
+  }
+
+  .guided-reader-shell.fullscreen .buddy-reader-bar > div:first-child {
+    gap: 0;
+  }
+
+  .guided-reader-shell.fullscreen .buddy-reader-bar span,
+  .guided-reader-shell.fullscreen .buddy-reader-bar p {
+    display: none;
+  }
+
+  .guided-reader-shell.fullscreen .buddy-reader-bar strong {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .guided-reader-shell.fullscreen .buddy-reader-bar > div:last-child {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+  }
+
+  .guided-reader-shell.fullscreen .buddy-reader-bar button {
+    width: auto;
+    min-height: 44px !important;
+    padding: 4px 8px;
+    font-size: 0.68rem;
+  }
+
   .guided-reader-shell.fullscreen .guided-page-layout {
     grid-template-columns: minmax(0, var(--guided-image-track, 50fr)) minmax(0, var(--guided-text-track, 50fr));
     grid-template-rows: minmax(0, 1fr);

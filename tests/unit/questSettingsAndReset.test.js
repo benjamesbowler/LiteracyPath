@@ -169,7 +169,7 @@ test("a second local reset causally settles every reset operation already observ
 });
 
 test("remaking a creature costs the child none of their learning", () => {
-  // The shape the Den's "Make a new creature" button produces.
+  // The shape the map settings' "Choose a new book character" button produces.
   const played = {
     ...baseQuestState(),
     hatched: true,
@@ -178,11 +178,12 @@ test("remaking a creature costs the child none of their learning", () => {
     stones: ["s"],
     trail: { ...baseQuestState().trail, stopsDone: ["s1", "s2"], stars: { s1: 3, s2: 2 } }
   };
-  const remade = { ...played, creature: defaultCreature(), hatched: false };
+  const remade = { ...played, creature: defaultCreature(), hatched: true };
 
   assert.deepEqual(remade.mastery, played.mastery, "mastery must survive a new creature");
   assert.deepEqual(remade.stones, played.stones, "stones must survive a new creature");
   assert.deepEqual(remade.trail, played.trail, "trail progress must survive a new creature");
+  assert.equal(remade.hatched, true, "a character edit must return to the map instead of first-run play");
   assert.notDeepEqual(remade.creature, played.creature);
 });
 

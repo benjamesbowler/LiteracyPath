@@ -11,6 +11,7 @@ A dated document must never override current code.
 - [Shared agent context](brain/START-HERE.md)
 - [Agent efficiency and creative-tools audit (2026-08-08)](brain/research/2026-08-08-agent-efficiency-and-creative-tools-audit.md)
 - [Bounded agent workflow decision](brain/decisions/2026-08-08-bounded-agent-workflow.md)
+- [Beta media test-visibility decision](brain/decisions/2026-08-15-beta-media-test-visibility.md)
 - [Agent task brief](brain/AGENT_TASK_BRIEF.md)
 - [Instructional standards](instructional/instructional_standards.md)
 - [Current-system cleanup record](CURRENT_SYSTEM_CLEANUP_2026-07-31.md)
@@ -47,6 +48,11 @@ The Skills assessment has one current progression threshold: the 70% phase rule 
 `src/content/blueprints/skillBlueprints.js`. Publication is controlled by the six
 automated v3 gates. There is no personal approval switch, legacy-bank fallback,
 random-guess percentage, or separate 80%, 85%, or 90% assessment pass rule.
+
+During the current beta, pending media pairings are test-visible without being
+misreported as human approved. Quarantined pairings remain excluded immediately;
+the stricter human-review completion check remains available but does not block a
+beta deployment.
 
 ## Product design
 

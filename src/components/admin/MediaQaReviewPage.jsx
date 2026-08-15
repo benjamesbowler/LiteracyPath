@@ -138,7 +138,7 @@ export function MediaQaReviewPage({ onBack }) {
           <div>
             <h2>Media QA Review</h2>
             <p className="muted-text">
-              Pick a skill, check the image against the exact question or page text, then choose YES or NO.
+              Pending media is visible for beta testing. Check each image against the exact question or page text; choose YES to retain a human approval or NO to remove it from runtime immediately.
             </p>
           </div>
           <div className="button-row admin-controls">
@@ -149,6 +149,7 @@ export function MediaQaReviewPage({ onBack }) {
         <div className="media-qa-rules">
           <span>YES = exact pairing approved</span>
           <span>NO = quarantined from runtime</span>
+          <span>Pending = beta-visible and still awaiting review</span>
           <span>No image currently used is OK for HFW</span>
           <span>No file deletion</span>
         </div>

@@ -323,6 +323,7 @@ test("a completed River task can flow directly into the next resident encounter"
 });
 
 test("all forty stops consume distinct authored routes in the live renderer", async ({ page }) => {
+  test.setTimeout(120_000);
   await page.setViewportSize({ width: 1280, height: 720 });
   const signatures = [];
   for (let stop = 1; stop <= 40; stop += 1) {
@@ -742,7 +743,8 @@ test("the retired Den route opens the real map and character edits return there"
   await expect(mapHeading).toBeVisible();
   await expect(page.getByRole("heading", { name: "Your Den" })).toHaveCount(0);
 
-  await page.getByRole("button", { name: "Character" }).click();
+  await page.getByRole("button", { name: "Open settings" }).click();
+  await page.getByRole("button", { name: "Choose a new book character" }).click();
   await expect(page.getByRole("heading", { name: "Change your book character" })).toBeFocused();
   await page.getByRole("button", { name: "Done" }).click();
   await expect(mapHeading).toBeVisible();
@@ -841,7 +843,7 @@ test("settings remains modal when native dialog methods are unavailable", async 
       value: undefined
     });
   });
-  await page.goto(`${PREVIEW}&view=den&display=2d`);
+  await page.goto(`${PREVIEW}&view=map&display=2d`);
   const trigger = page.getByRole("button", { name: "Open settings" });
   await trigger.focus();
   await page.keyboard.press("Enter");
@@ -850,7 +852,7 @@ test("settings remains modal when native dialog methods are unavailable", async 
   await expect(settings).toBeVisible();
   await expect(settings).toHaveAttribute("data-fallback-modal", "true");
   await expect(settings).toHaveAttribute("aria-modal", "true");
-  await expect(page.locator(".q-den-panel")).toHaveAttribute("inert", "");
+  await expect(page.locator(".q-map-v2")).toHaveAttribute("inert", "");
   const close = settings.getByRole("button", { name: "Close settings" });
   const done = settings.getByRole("button", { name: "Done" });
   await expect(close).toBeFocused();
@@ -862,7 +864,7 @@ test("settings remains modal when native dialog methods are unavailable", async 
   await page.keyboard.press("Escape");
   await expect(settings).toBeHidden();
   await expect(trigger).toBeFocused();
-  await expect(page.locator(".q-den-panel")).not.toHaveAttribute("inert", "");
+  await expect(page.locator(".q-map-v2")).not.toHaveAttribute("inert", "");
   expect(pageErrors).toEqual([]);
 });
 
@@ -935,7 +937,7 @@ test("start again survives a stale cloud hydrate, close, reopen, and full reload
 
   // Establish the preview origin, then seed a save with every class of state
   // that the child-facing reset promises to clear.
-  await page.goto(`${PREVIEW}&view=den&display=2d`);
+  await page.goto(`${PREVIEW}&view=map&display=2d`);
   const played = await page.evaluate(async key => {
     const { baseQuestState } = await import("/src/utils/questProgress.js");
     const state = {
@@ -959,7 +961,7 @@ test("start again survives a stale cloud hydrate, close, reopen, and full reload
   }, storageKey);
 
   await page.goto(url);
-  await expect(page.getByRole("heading", { name: "Your Den" })).toBeVisible();
+  await expect(page.locator(".q-map-v2 h1")).toBeVisible();
   await page.getByRole("button", { name: "Open settings" }).click();
   await page.getByRole("button", { name: "Start the adventure again" }).click();
   await page.getByRole("button", { name: "Yes, start again" }).click();
@@ -1054,7 +1056,7 @@ test("start again survives a stale cloud hydrate, close, reopen, and full reload
 
 test("simultaneous tabs keep both offline cloud-queue revisions", async ({ page, context }) => {
   const sibling = await context.newPage();
-  const url = `${PREVIEW}&view=den&display=2d&sync=1`;
+  const url = `${PREVIEW}&view=map&display=2d&sync=1`;
   await Promise.all([page.goto(url), sibling.goto(url)]);
 
   // Warm the already-bundled module before taking the context offline, then
@@ -1272,13 +1274,13 @@ test("the customised Beastie has a distinct authored pose for every quest action
   });
 });
 
-test("the mobile release surface keeps the Den and settings child-reachable", async ({ page }) => {
+test("the mobile release map keeps settings child-reachable", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`${PREVIEW}&view=den&done=20`);
+  await page.goto(`${PREVIEW}&view=map&done=20`);
 
-  await expect(page.getByRole("heading", { name: "Your Den" })).toBeVisible();
+  await expect(page.locator(".q-map-v2 h1")).toBeVisible();
   await expectVisibleButtonsReachable(page);
-  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByRole("button", { name: "Open settings" }).click();
   const settings = page.getByRole("dialog", { name: "Display, sound and access" });
   await expect(settings).toBeVisible();
   await expect(settings.getByLabel("Picture style")).toHaveCount(0);

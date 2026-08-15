@@ -1,98 +1,113 @@
 import { expect, test } from "@playwright/test";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../../src/data/ledaProductionAudio.js";
 
-const FULL_DESTINATIONS = [
+const FULL_TABS = [
   ["home", "Home", "home"],
-  ["sounds", "Sound Seekers", "sound"],
-  ["phonics", "Phonics", "phonics"],
-  ["map", "Adventure Map", "map"],
+  ["sounds", "Sounds", "soundWaves"],
   ["books", "Books", "book"],
-  ["stories", "Story Quests", "story"],
-  ["arcade", "Arcade", "arcade"],
-  ["hollow", "My Hollow", "hollow"]
+  ["games", "Games", "arcade"],
+  ["hollow", "Hollow", "hollow"]
 ];
+
+const FULL_DOORS = ["map", "books", "stories", "arcade", "phonics", "hollow"];
+
+function expectedAudioPath(label) {
+  return getLedaInstructionAudioPath(label) || getLedaWordAudioPath(label);
+}
 
 async function installSpeechRecorder(page) {
   await page.addInitScript(() => {
-    window.__spokenRailLabels = [];
-    class RecordedUtterance {
-      constructor(text) {
-        this.text = text;
+    window.__spokenRailAudio = [];
+    class RecordedAudio {
+      constructor(src) {
+        this.src = src;
+        this.listeners = new Map();
+      }
+
+      addEventListener(type, listener) {
+        this.listeners.set(type, listener);
+      }
+
+      play() {
+        window.__spokenRailAudio.push(this.src);
+        queueMicrotask(() => this.listeners.get("ended")?.());
+        return Promise.resolve();
       }
     }
-    Object.defineProperty(window, "SpeechSynthesisUtterance", {
+    Object.defineProperty(window, "Audio", {
       configurable: true,
-      value: RecordedUtterance
-    });
-    Object.defineProperty(window, "speechSynthesis", {
-      configurable: true,
-      value: {
-        cancel() {},
-        speak(utterance) {
-          window.__spokenRailLabels.push({
-            text: utterance.text,
-            lang: utterance.lang,
-            rate: utterance.rate
-          });
-        }
-      }
+      value: RecordedAudio
     });
   });
 }
 
-test("A2.5 full student rail exposes stable named destinations and exact tap-to-hear labels", async ({ page }) => {
+test("A2.5 full child navigation exposes stable tabs, all destinations, and recorded doorway labels", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await installSpeechRecorder(page);
   await page.goto("/preview/student-home-preview.html");
 
-  const rail = page.getByRole("navigation", { name: "Places to play" });
-  await expect(rail).toHaveAttribute("data-choice-mode", "full");
-  await expect(rail.locator("[data-rail-destination]")).toHaveCount(FULL_DESTINATIONS.length);
+  const navigation = page.getByRole("navigation", { name: "Where to go" });
+  const doors = page.locator(".kg-home-doors");
+  await expect(navigation).toHaveAttribute("data-choice-mode", "full");
+  await expect(navigation.locator("[data-tab]")).toHaveCount(FULL_TABS.length);
+  await expect(doors).toHaveAttribute("data-choice-mode", "full");
+  await expect(doors.locator("[data-rail-destination]")).toHaveCount(FULL_DOORS.length);
+  await expect.poll(() => doors.locator("[data-rail-destination]").evaluateAll(items => (
+    items.map(item => item.getAttribute("data-home-priority"))
+  ))).toEqual(FULL_DOORS.map(() => "choice"));
 
-  for (const [id, label, icon] of FULL_DESTINATIONS) {
-    const destination = rail.locator(`[data-rail-destination="${id}"]`);
-    await expect(destination.getByRole("button", { name: label, exact: true })).toHaveCount(1);
-    await expect(destination.locator(`[data-rail-icon="${icon}"]`)).toHaveCount(1);
-    await expect(destination.getByRole("button", { name: `Hear ${label}`, exact: true })).toHaveCount(1);
+  for (const [id, label, icon] of FULL_TABS) {
+    const tab = navigation.locator(`[data-tab="${id}"]`);
+    await expect(tab).toHaveAccessibleName(label);
+    await expect(tab.locator(`[data-kg-icon="${icon}"]`)).toHaveCount(1);
   }
+  await expect.poll(() => doors.locator("[data-rail-destination]").evaluateAll(items => (
+    items.map(item => item.getAttribute("data-child-emphasis"))
+  ))).toEqual(FULL_DOORS.map(() => "choice"));
+  await expect(doors.locator("[data-rail-destination]")).toHaveCount(6);
 
-  await rail.getByRole("button", { name: "Hear Adventure Map", exact: true }).click();
-  await expect.poll(() => page.evaluate(() => window.__spokenRailLabels)).toEqual([
-    { text: "Adventure Map", lang: "en-GB", rate: 0.88 }
-  ]);
+  await page.locator(".kg-home-explore").getByRole("button", { name: "Hear this" }).click();
+  await expect.poll(() => page.evaluate(() => window.__spokenRailAudio)).toEqual(
+    ["Adventure Map", "Books", "Story Quests", "Arcade", "Letters", "My Hollow"]
+      .map(expectedAudioPath)
+  );
   expect(pageErrors).toEqual([]);
 });
 
-test("A2.5 teacher-reduced choices persist and every visible place remains hearable", async ({ page }) => {
+test("A2.5 teacher-reduced choices close alternate tab routes, persist, and remain hearable", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
   await page.emulateMedia({ reducedMotion: "reduce" });
   await installSpeechRecorder(page);
   await page.goto("/preview/student-home-preview.html?scenario=reduced-choice");
 
-  const rail = page.getByRole("navigation", { name: "Places to play" });
-  const reducedLabels = ["Home", "Sound Seekers", "Phonics", "Books"];
-  await expect(rail).toHaveAttribute("data-choice-mode", "reduced");
-  await expect(rail.locator("[data-rail-destination]")).toHaveCount(reducedLabels.length);
-  await expect(rail.locator("[data-rail-destination] .hs-nav-destination")).toHaveText(reducedLabels);
+  const navigation = page.getByRole("navigation", { name: "Where to go" });
+  const doors = page.locator(".kg-home-doors");
+  await expect(navigation).toHaveAttribute("data-choice-mode", "reduced");
+  await expect(navigation.locator("[data-tab]")).toHaveCount(3);
+  await expect(navigation.locator(".kg-tab-label")).toHaveText(["Home", "Sounds", "Books"]);
+  await expect(doors).toHaveAttribute("data-choice-mode", "reduced");
+  await expect(doors.locator("[data-rail-destination]")).toHaveCount(2);
+  await expect(doors.locator(".kg-card-title")).toHaveText(["Books", "Letters"]);
 
-  for (const label of reducedLabels) {
-    await rail.getByRole("button", { name: `Hear ${label}`, exact: true }).click();
-  }
-  await expect.poll(() => page.evaluate(() => (
-    window.__spokenRailLabels.map(item => item.text)
-  ))).toEqual(reducedLabels);
+  await page.locator(".kg-home-explore").getByRole("button", { name: "Hear this" }).click();
+  await expect.poll(() => page.evaluate(() => window.__spokenRailAudio)).toEqual(
+    ["Books", "Letters"].map(expectedAudioPath)
+  );
 
-  await expect(rail.locator(".hs-nav-status")).toHaveCSS("position", "absolute");
-  await expect(page.locator(".hs-side")).toHaveScreenshot("student-rail-reduced-choice-v2.png", {
+  await expect(navigation).toHaveScreenshot("student-rail-reduced-choice-v2.png", {
     animations: "disabled",
     caret: "hide",
     maxDiffPixelRatio: 0.01
   });
 
   await page.goto("/preview/student-home-preview.html");
-  const persistedRail = page.getByRole("navigation", { name: "Places to play" });
-  await expect(persistedRail).toHaveAttribute("data-choice-mode", "reduced");
-  await expect(persistedRail.locator("[data-rail-destination] .hs-nav-destination")).toHaveText(reducedLabels);
+  const persistedNavigation = page.getByRole("navigation", { name: "Where to go" });
+  await expect(persistedNavigation).toHaveAttribute("data-choice-mode", "reduced");
+  await expect(persistedNavigation.locator(".kg-tab-label")).toHaveText(["Home", "Sounds", "Books"]);
   expect(pageErrors).toEqual([]);
 });

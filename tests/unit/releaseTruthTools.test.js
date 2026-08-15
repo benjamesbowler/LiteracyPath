@@ -72,6 +72,12 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
   }
 });
 
+test("the beta release gate exposes pending media without claiming human review", () => {
+  const mediaGate = RELEASE_GATES.find(gate => gate.id === "media-review-release");
+  assert.deepEqual(mediaGate?.command, ["npm", "run", "check:media-review-beta"]);
+  assert.match(mediaGate?.label || "", /Beta media is test-visible/);
+});
+
 test("the permanent integrity gate runs the one current v3 assessment gate", () => {
   const integritySource = readFileSync(
     new URL("../../tools/assessmentRebuild/gate.mjs", import.meta.url),
@@ -81,7 +87,7 @@ test("the permanent integrity gate runs the one current v3 assessment gate", () 
 
   assert.deepEqual(
     integrityGate?.command,
-    ["npm", "run", "check:assessment-question-integrity"]
+    ["npm", "run", "check:assessment-question-integrity", "--", "--check"]
   );
   assert.match(integritySource, /const hardGateKeys = \[/);
   assert.match(integritySource, /"G6_one_report"/);

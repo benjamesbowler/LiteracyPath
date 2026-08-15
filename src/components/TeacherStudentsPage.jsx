@@ -595,7 +595,8 @@ export function TeacherStudentsPage({
   onStartReadingSession,
   setupFocus = "",
   onSetupFocusHandled,
-  activitySyncHealthSeedRows = null
+  activitySyncHealthSeedRows = null,
+  progressEvidenceClient = supabase
 }) {
   const [newStudentName, setNewStudentName] = useState("");
   const [addingStudent, setAddingStudent] = useState(false);
@@ -672,7 +673,22 @@ export function TeacherStudentsPage({
   useEffect(() => {
     let live = true;
     if (!selectedStudentId) return () => { live = false; };
-    supabase
+    // Deterministic preview/audit surfaces deliberately pass no hosted client;
+    // they must never leak a background request into the linked project.
+    if (!progressEvidenceClient) {
+      queueMicrotask(() => {
+        if (!live) return;
+        setTransferEvidenceRead({
+          studentId: selectedStudentId,
+          state: "ready",
+          evidence: [],
+          reflections: {},
+          cooperativeEvidence: []
+        });
+      });
+      return () => { live = false; };
+    }
+    progressEvidenceClient
       .table("student_progress")
       .select("area,payload,updated_at")
       .eq("student_id", selectedStudentId)
@@ -697,7 +713,7 @@ export function TeacherStudentsPage({
         });
       });
     return () => { live = false; };
-  }, [selectedStudentId]);
+  }, [progressEvidenceClient, selectedStudentId]);
   function focusNewClassInput() {
     setClassToolsOpen(true);
     window.requestAnimationFrame(() => {
@@ -2597,9 +2613,9 @@ export function TeacherStudentsPage({
 
             <section className="teacher-student-panel-section">
               {transferEvidenceRead.studentId !== selectedStudentId ? (
-                <p className="muted-text" role="status">Loading transfer evidence…</p>
+                <p className="muted-text" role="status">Loading transfer results…</p>
               ) : transferEvidenceRead.state === "error" ? (
-                <p className="muted-text" role="alert">Transfer evidence could not be loaded. Try opening this student again.</p>
+                <p className="muted-text" role="alert">Transfer results could not be loaded. Try opening this student again.</p>
               ) : (
                 <TransferEvidencePanel evidence={transferEvidenceRead.evidence} />
               )}

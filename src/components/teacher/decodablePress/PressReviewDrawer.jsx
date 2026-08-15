@@ -23,7 +23,7 @@ export function PressReviewDrawer({ client, book, project, onClose, onReviewed }
       <label>Approved challenge words<input value={challenges.join(", ")} onChange={event => setChallenges(event.target.value.split(",").map(word => word.trim().toLowerCase()).filter(Boolean))} /></label>
       <label>Child-safe note<textarea maxLength="1000" value={feedback} onChange={event => setFeedback(event.target.value)} placeholder="Say exactly what to change, or celebrate a specific choice." /></label>
       {project?.allow_class_library && <label className="press-class-library-check"><input type="checkbox" checked={allowClass} onChange={event => setAllowClass(event.target.checked)} /> Approve this exact revision for the class-only library</label>}
-      <p className="press-privacy-note">The teacher review keeps the learner’s name private. Classmates see “A reader in your class” rather than the roster name.</p>
+      <p className="press-privacy-note">The teacher review keeps the student’s name private. Classmates see “A reader in your class” rather than the roster name.</p>
       <button type="button" onClick={() => printPressBooklet({ book: book.content, authorName: book.student_name, revisionId: book.current_revision_id })}>Print this exact revision</button>
       <div className="press-review-actions"><button type="button" disabled={busy} onClick={() => decide("approved")}>Approve exact revision</button><button type="button" disabled={busy || !feedback.trim()} onClick={() => decide("changes_requested")}>Request changes</button><button type="button" disabled={busy} onClick={() => decide("archived")}>Archive privately</button></div>{message && <p role="alert">{message}</p>}
     </section>

@@ -3678,7 +3678,7 @@
 }
 .q2d-header > div { text-align: center; }
 .q2d-header span, .q2d-header strong { display: block; }
-.q2d-header span { color: #66736c; font-size: 12px; }
+.q2d-header span { color: #5f6c65; font-size: 12px; }
 .q2d-header strong { font-size: 19px; }
 .q2d-progress { justify-self: end; font-weight: 800; }
 .q2d-progress small { display: block; margin-top: 3px; color: #53655c; font-size: 10px; white-space: nowrap; }

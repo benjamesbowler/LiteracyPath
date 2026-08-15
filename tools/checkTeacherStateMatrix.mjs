@@ -35,8 +35,8 @@ assert.deepEqual(
 assert.deepEqual(TEACHER_SURFACE_STATE_IDS, ["loading", "empty", "partial"]);
 assert.equal(
   TEACHER_SURFACE_STATE_FIXTURES.length,
-  11,
-  "Only eleven production-reachable combinations should be claimed."
+  12,
+  "Only the twelve production-reachable combinations should be claimed."
 );
 
 for (const fixture of TEACHER_SURFACE_STATE_FIXTURES) {
@@ -115,5 +115,5 @@ assert.ok(
 );
 
 console.log(
-  "Teacher runtime states: eleven production-reachable combinations documented and wired; invented fixture-only states rejected."
+  "Teacher runtime states: twelve production-reachable combinations documented and wired; invented fixture-only states rejected."
 );

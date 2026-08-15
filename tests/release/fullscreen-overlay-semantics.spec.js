@@ -27,8 +27,7 @@ async function dismissActiveGameOnboarding(page) {
 
 test("A2.10 every Sound Seekers fullscreen surface exposes its active name", async ({ page }) => {
   const surfaces = [
-    { query: "view=creator", name: "Change your creature", close: "Close Change your creature" },
-    { query: "view=den", name: "Your Den", close: "Close Your Den" },
+    { query: "view=creator", name: "Change your book character", close: "Close Change your book character" },
     { query: "view=map", name: "Trail map" },
     { query: "view=post", name: "Trading Post" },
     { query: "view=world&stop=s1&display=2d&active=0", name: "Hollow Tree trail" },
@@ -48,11 +47,11 @@ test("A2.10 every Sound Seekers fullscreen surface exposes its active name", asy
   }
 });
 
-test("A2.10 fresh creature creation names the close control from the visible surface", async ({ page }) => {
+test("A2.10 fresh book-character creation names the close control from the visible surface", async ({ page }) => {
   await page.goto("/preview/quest-preview.html?scope=fullscreen-a11y&reset=1&sound=0");
-  const dialog = page.getByRole("dialog", { name: "Make your creature", exact: true });
+  const dialog = page.getByRole("dialog", { name: "Choose your book character", exact: true });
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole("button", { name: "Close Make your creature", exact: true })).toBeVisible();
+  await expect(dialog.getByRole("button", { name: "Close Choose your book character", exact: true })).toBeVisible();
 });
 
 test("A2.10 every registered game overlay and quit prompt uses the game title", async ({ page }) => {

@@ -7,15 +7,16 @@ test("A2.2 continuation names the policy activity and its seeded remaining goal"
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/preview/student-home-preview.html?scenario=continuation");
 
-  const home = page.locator(".lp-home-sage");
+  const home = page.locator('[data-child-surface="student-home"]');
   const continuation = page.locator('[data-home-priority="primary"]');
 
   await expect(home).toHaveAttribute(
     "data-recommendation-source",
     "daily-mission-complete:fallback"
   );
-  await expect(page.locator('[data-home-priority="primary"] h3')).toHaveText("Sound Seekers");
-  await expect(continuation.locator(".hs-card-action")).toHaveText("Continue Sound Seekers — 2 trails left");
+  await expect(home.getByRole("heading", { name: "The Sound Trail", level: 1 })).toBeVisible();
+  await expect(continuation).toHaveAccessibleName("Continue Sound Seekers — 2 trails left");
+  await expect(continuation.locator('[data-child-emphasis-cue]')).toHaveText("Play");
   await expect(continuation).toHaveAttribute("data-continuation-activity", "sound-seekers");
   await expect(continuation).toHaveAttribute("data-continuation-goal", "Sound Seekers trails");
   await expect(continuation).toHaveAttribute("data-continuation-remaining", "2");

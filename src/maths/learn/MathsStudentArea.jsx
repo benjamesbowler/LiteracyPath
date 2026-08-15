@@ -9,6 +9,8 @@ import {
   GridNine,
   House,
   ListNumbers,
+  Pause,
+  Play,
   SpeakerHigh,
   Sparkle
 } from "@phosphor-icons/react";
@@ -17,7 +19,7 @@ import { mathsSkillById, APPROVED_FOUNDATION_SKILL_IDS } from "../curriculum/mat
 import { flushMathsEvidenceQueue, mathsLessonStorageKey, recordStudentMathsEvidence } from "../data/mathsEvidenceStore.js";
 import { MathsManipulative } from "../manipulatives/MathsManipulative.jsx";
 import { MathsAudioButton, MathsSongPlayer } from "../media/MathsAudioButton.jsx";
-import { mathsActivityRecipesBySkill, mathsLessonInstruction, mathsLessonInstructionAudioId, mathsLessonStageIsReady, MATHS_CONTENT_VERSION, MATHS_LESSON_STAGES, MATHS_LESSON_STAGE_GOALS } from "./mathsActivityRecipes.js";
+import { mathsActivityRecipesBySkill, mathsLessonInstruction, mathsLessonInstructionAudioId, mathsLessonStageFeedback, MATHS_CONTENT_VERSION, MATHS_LESSON_STAGES, MATHS_LESSON_STAGE_GOALS } from "./mathsActivityRecipes.js";
 import { assessmentOptionsForItem, buildMathsAssessmentRound, classifyMathsResponse } from "../assessment/mathsAssessmentBank.js";
 import { releasedMathsStories } from "../stories/mathsStoryCatalog.js";
 import { createMathsGameSession, evaluateMathsGameRound, mathsGames } from "../games/mathsGames.js";
@@ -26,6 +28,7 @@ import { mathsSongs } from "../music/mathsSongs.js";
 import { mathsLessonStageChoices } from "./mathsLessonReflections.js";
 import "../../styles/maths-platform.css";
 import "../../styles/maths-platform-v2.css";
+import "../../styles/maths-arcade-premium.css";
 
 const MathsArcadeGame = lazy(() => import("../games/MathsArcadeGames.jsx")
   .then(module => ({ default: module.MathsArcadeGame })));
@@ -78,6 +81,14 @@ async function completeAssignedActivity({ assignment, client, token, saved }) {
 }
 
 function AreaShell({ studentName, progressScopeKey, surfaceId, title, eyebrow, onHome, children }) {
+  useEffect(() => {
+    const resetFrame = window.requestAnimationFrame(() => {
+      const surfaceScroller = document.querySelector(`[data-child-surface="${surfaceId}"]`);
+      if (surfaceScroller) surfaceScroller.scrollTop = 0;
+      window.scrollTo(0, 0);
+    });
+    return () => window.cancelAnimationFrame(resetFrame);
+  }, [eyebrow, surfaceId, title]);
   return <StudentGlassShell studentName={studentName} scopeKey={progressScopeKey} active="maths" tabs={[]} showWallet={false} showGrownUps={false} onHome={onHome}>
     <div className="maths-student-area maths-student-area-v2" data-child-surface={surfaceId}>
       <header className="maths-area-heading maths-area-heading-v2">
@@ -121,7 +132,7 @@ export function QuantityPicture({ model, objectFamily = "stone", compact = false
   </div>;
 }
 
-function QuantityBuilder({ capacity, initial = 0, prompt, onSubmit, disabled = false, representation = "frame", submitLabel = "Use this model" }) {
+function QuantityBuilder({ capacity, initial = 0, prompt, onSubmit, disabled = false, representation = "frame", submitLabel = "Use this model", allowUntouched = false }) {
   const [count, setCount] = useState(initial);
   const [actions, setActions] = useState([]);
   const change = next => {
@@ -132,14 +143,14 @@ function QuantityBuilder({ capacity, initial = 0, prompt, onSubmit, disabled = f
   return <div className="maths-quantity-builder">
     <p>{prompt}</p>
     {representation === "counter_tray"
-      ? <div className="maths-builder-counter-tray" role="img" aria-label={`${count} counters in the tray`}>{Array.from({ length: count }, (_, index) => <span key={index} />)}</div>
+      ? <div className="maths-builder-counter-tray" role="img" aria-label={`${count} counters in a tray with space for ${capacity}`}>{Array.from({ length: capacity }, (_, index) => <span className={index < count ? "is-filled" : "is-empty"} key={index} />)}</div>
       : <QuantityPicture model={{ kind: "frame", capacity, filled: count }} />}
     <div className="maths-builder-controls" role="group" aria-label="Build the quantity">
       <button disabled={disabled || count === 0} onClick={() => change(count - 1)} type="button">Take one away</button>
       <output aria-live="polite">{count}</output>
       <button disabled={disabled || count === capacity} onClick={() => change(count + 1)} type="button">Add one</button>
     </div>
-    <button className="maths-submit-model" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary disabled={disabled} onClick={() => onSubmit(count, { count, actions, capacity, component: representation === "counter_tray" ? "counter_tray_builder" : "frame_builder", representation })} type="button">{submitLabel}</button>
+    <button className="maths-submit-model" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary disabled={disabled || (!allowUntouched && actions.length === 0)} onClick={() => onSubmit(count, { count, actions, capacity, component: representation === "counter_tray" ? "counter_tray_builder" : "frame_builder", representation })} type="button">{submitLabel}</button>
   </div>;
 }
 
@@ -149,11 +160,11 @@ export function MathsLessonPlayer({ studentName, progressScopeKey, client, stude
   const readCheckpoint = selectedSkillId => {
     try {
       const raw = localStorage.getItem(mathsLessonStorageKey(studentId || progressScopeKey, selectedSkillId));
-      if (!raw) return { step: 0, modelState: null, stageFeedback: "" };
-      if (/^\d+$/.test(raw)) return { step: Math.max(0, Math.min(6, Number(raw))), modelState: null, stageFeedback: "" };
+      if (!raw) return { step: 0, modelState: null, stageFeedback: "", stageActionCount: 0, repairAttempt: 0 };
+      if (/^\d+$/.test(raw)) return { step: Math.max(0, Math.min(6, Number(raw))), modelState: null, stageFeedback: "", stageActionCount: 0, repairAttempt: 0 };
       const value = JSON.parse(raw);
-      return { step: Math.max(0, Math.min(6, Number(value?.step) || 0)), modelState: value?.modelState || null, stageFeedback: String(value?.stageFeedback || ""), stageActionCount: Math.max(0, Number(value?.stageActionCount) || 0) };
-    } catch { return { step: 0, modelState: null, stageFeedback: "" }; }
+      return { step: Math.max(0, Math.min(6, Number(value?.step) || 0)), modelState: value?.modelState || null, stageFeedback: String(value?.stageFeedback || ""), stageActionCount: Math.max(0, Number(value?.stageActionCount) || 0), repairAttempt: Math.max(0, Number(value?.repairAttempt) || 0) };
+    } catch { return { step: 0, modelState: null, stageFeedback: "", stageActionCount: 0, repairAttempt: 0 }; }
   };
   const initialCheckpoint = readCheckpoint(initialSkillId);
   const [skillId, setSkillId] = useState(initialSkillId);
@@ -162,6 +173,7 @@ export function MathsLessonPlayer({ studentName, progressScopeKey, client, stude
   const [modelState, setModelState] = useState(initialCheckpoint.modelState);
   const [stageFeedback, setStageFeedback] = useState(initialCheckpoint.stageFeedback);
   const [stageActionCount, setStageActionCount] = useState(initialCheckpoint.stageActionCount || 0);
+  const [repairAttempt, setRepairAttempt] = useState(initialCheckpoint.repairAttempt || 0);
   const [finished, setFinished] = useState(false);
   const [assignmentComplete, setAssignmentComplete] = useState(false);
   const { record, saveState } = useMathsEvidence({ client, studentId, token });
@@ -169,7 +181,8 @@ export function MathsLessonPlayer({ studentName, progressScopeKey, client, stude
   const stage = MATHS_LESSON_STAGES[step];
   const stageChoices = mathsLessonStageChoices(skillId, stage);
   const recipe = recipes[Math.min(recipes.length - 1, stage === "retrieve" ? 0 : ["model", "notice"].includes(stage) ? 1 : ["make", "explain"].includes(stage) ? 2 : stage === "apply" ? 3 : 4)];
-  const stageReady = mathsLessonStageIsReady(skillId, stage, modelState, stageFeedback, stageActionCount);
+  const stageEvaluation = mathsLessonStageFeedback(skillId, stage, modelState, stageFeedback, stageActionCount, repairAttempt);
+  const stageReady = stageEvaluation.ready;
   const persist = checkpoint => {
     try { localStorage.setItem(storageKey, JSON.stringify({ version: 2, ...checkpoint })); } catch { /* resilient private mode */ }
   };
@@ -177,7 +190,8 @@ export function MathsLessonPlayer({ studentName, progressScopeKey, client, stude
     setStep(next);
     setStageFeedback("");
     setStageActionCount(0);
-    persist({ step: next, modelState, stageFeedback: "", stageActionCount: 0 });
+    setRepairAttempt(0);
+    persist({ step: next, modelState, stageFeedback: "", stageActionCount: 0, repairAttempt: 0 });
   };
   const finish = async () => {
     const saved = await record({
@@ -191,7 +205,12 @@ export function MathsLessonPlayer({ studentName, progressScopeKey, client, stude
     setFinished(true);
   };
   if (finished) return <AreaShell eyebrow="Natural stopping point" onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-lesson" title="Lesson complete"><section className="maths-finish-card maths-finish-card-v2" data-child-choices data-child-progress><CheckCircle aria-hidden="true" size={58} weight="duotone" /><h2>You made and explained a model</h2><p>{assignment ? assignmentComplete ? "Your teacher’s activity is complete." : "Your work is saved. The assignment will remain visible until its cloud evidence is confirmed." : "Your practice is saved without changing a mastery score."}</p><button className="maths-primary" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary onClick={onHome} type="button">Back to Maths <House aria-hidden="true" size={20} weight="bold" /></button>{saveState && <p role="status">{saveState}</p>}</section></AreaShell>;
-  const selectStageThought = text => { setStageFeedback(text); persist({ step, modelState, stageFeedback: text, stageActionCount }); };
+  const selectStageThought = text => { setStageFeedback(text); persist({ step, modelState, stageFeedback: text, stageActionCount, repairAttempt }); };
+  const showNextRepair = () => {
+    const nextAttempt = Math.min(stageEvaluation.repairSteps.length - 1, repairAttempt + 1);
+    setRepairAttempt(nextAttempt);
+    persist({ step, modelState, stageFeedback, stageActionCount, repairAttempt: nextAttempt });
+  };
   const changeSkill = nextSkillId => {
     const checkpoint = readCheckpoint(nextSkillId);
     setSkillId(nextSkillId);
@@ -199,6 +218,7 @@ export function MathsLessonPlayer({ studentName, progressScopeKey, client, stude
     setModelState(checkpoint.modelState);
     setStageFeedback(checkpoint.stageFeedback);
     setStageActionCount(checkpoint.stageActionCount || 0);
+    setRepairAttempt(checkpoint.repairAttempt || 0);
   };
   return <AreaShell eyebrow="Make · explain · apply" onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-lesson" title="Guided lesson">
     <div className="maths-lesson-toolbar">
@@ -214,12 +234,55 @@ export function MathsLessonPlayer({ studentName, progressScopeKey, client, stude
         <MathsAudioButton client={client} requestId={mathsLessonInstructionAudioId(recipe, stage)} token={token} />
         {stageChoices.length > 0 && <div className="maths-stage-choices" role="group" aria-label={`Show your ${stage} thinking`}>{stageChoices.map(text => <button aria-pressed={stageFeedback === text} key={text} onClick={() => selectStageThought(text)} type="button">{text}</button>)}</div>}
         {stageFeedback && <p className="maths-feedback" aria-live="polite">Your note is selected. Make sure the model matches the challenge.</p>}
+        {!stageReady && stageActionCount > 0 && stageEvaluation.repairStep && <div className="maths-lesson-repair" aria-live="polite"><strong>Try this next</strong><p>{stageEvaluation.repairStep}</p>{repairAttempt < stageEvaluation.repairSteps.length - 1 && <button onClick={showNextRepair} type="button">Show another clue</button>}</div>}
       </aside>
-      <div className="maths-lesson-model"><MathsManipulative id={recipe.manipulativeId} initialState={modelState?.id === recipe.manipulativeId ? modelState : null} key={`${skillId}:${recipe.manipulativeId}`} maximum={recipe.initialState.maximum} mode={stage === "check" ? "guided" : "explore"} onStateChange={state => { const nextCount = stageActionCount + 1; setStageActionCount(nextCount); setModelState(state); persist({ step, modelState: state, stageFeedback, stageActionCount: nextCount }); }} /></div>
+      <div className="maths-lesson-model"><MathsManipulative id={recipe.manipulativeId} initialState={modelState?.id === recipe.manipulativeId ? modelState : null} key={`${skillId}:${recipe.manipulativeId}`} maximum={recipe.initialState.maximum} mode={stage === "check" ? "guided" : "explore"} onStateChange={state => { const nextCount = stageActionCount + 1; setStageActionCount(nextCount); setModelState(state); persist({ step, modelState: state, stageFeedback, stageActionCount: nextCount, repairAttempt }); }} /></div>
     </section>
     <div className="maths-player-nav maths-player-nav-v2"><button disabled={step === 0} onClick={() => move(step - 1)} type="button"><ArrowLeft aria-hidden="true" size={20} weight="bold" /> Back</button>{step < 6 ? <button className="maths-primary" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary disabled={!stageReady} onClick={() => move(step + 1)} type="button">{stageReady ? `Next: ${MATHS_LESSON_STAGES[step + 1]}` : stageChoices.length > 0 ? "Use the model and choose a note" : "Make the model match"}<ArrowRight aria-hidden="true" size={20} weight="bold" /></button> : <button className="maths-primary" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary disabled={!stageReady} onClick={finish} type="button">{stageReady ? "Finish practice" : "Change the model first"}<CheckCircle aria-hidden="true" size={20} weight="bold" /></button>}</div>
     {saveState && <p className="maths-save-state" role="status">{saveState}</p>}
   </AreaShell>;
+}
+
+function NumberSequenceConstructor({ item, disabled, onAnswer }) {
+  const blankIndex = item.values.sequence.findIndex(value => value === null);
+  const previousValues = item.values.sequence.slice(0, blankIndex).filter(value => Number.isFinite(value));
+  const previous = previousValues[previousValues.length - 1];
+  const next = item.values.sequence.slice(blankIndex + 1).find(value => Number.isFinite(value));
+  const start = Number.isFinite(previous) ? previous : Math.max(0, Number(next || 1) - 1);
+  const [value, setValue] = useState(start);
+  const [steps, setSteps] = useState([]);
+  const moveMarker = change => {
+    const endpoint = Math.max(0, Math.min(item.values.maximum, value + change));
+    if (endpoint === value) return;
+    setValue(endpoint);
+    setSteps(history => [...history, endpoint]);
+  };
+  return <div className="maths-sequence-constructor">
+    <p>Start beside the gap. Move one step at a time, then place your marker.</p>
+    <div className="maths-constructor-controls" role="group" aria-label="Move the number marker">
+      <button disabled={disabled || value === 0} onClick={() => moveMarker(-1)} type="button">Move back one</button>
+      <output aria-live="polite" aria-label={`Marker on ${value}`}>{value}</output>
+      <button disabled={disabled || value === item.values.maximum} onClick={() => moveMarker(1)} type="button">Move forward one</button>
+    </div>
+    <button className="maths-submit-model" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary disabled={disabled || steps.length === 0} onClick={() => onAnswer(value, { responseMode: "construct_sequence", steps, endpoint: value, component: `${item.representation}_sequence_builder`, representation: item.representation, sequence: item.values.sequence })} type="button">Place this number in the gap</button>
+  </div>;
+}
+
+function ComparisonPairBuilder({ item, disabled, onAnswer }) {
+  const pairTarget = Math.min(item.values.target, item.values.other);
+  const [pairsCreated, setPairsCreated] = useState(0);
+  const options = assessmentOptionsForItem(item);
+  const label = option => option === "a" ? "Left group has more" : option === "b" ? "Right group has more" : "Both have the same amount";
+  const ready = pairsCreated === pairTarget;
+  return <div className="maths-pair-builder">
+    <p>Make one pair at a time. Then use what is left to compare.</p>
+    <div className="maths-pair-progress" role="img" aria-label={`${pairsCreated} of ${pairTarget} possible pairs made. ${item.values.target - pairsCreated} left objects and ${item.values.other - pairsCreated} right objects are unpaired.`}>
+      <div aria-hidden="true">{Array.from({ length: pairsCreated }, (_, index) => <span key={index}><i /><i /></span>)}</div>
+      <small>{pairsCreated} of {pairTarget} pairs made</small>
+    </div>
+    <button disabled={disabled || ready} onClick={() => setPairsCreated(value => Math.min(pairTarget, value + 1))} type="button">{ready ? "Every possible pair is made" : "Pair next objects"}</button>
+    {ready && <div className="maths-pair-decisions" data-child-choices role="group" aria-label="Choose the relationship after pairing">{options.map((option, slot) => <button data-answer-slot={slot} disabled={disabled} key={option} onClick={() => onAnswer(option, { responseMode: "construct_pair_then_select", pairsCreated, pairTarget, relationship: option, optionSlot: slot, options, component: `${item.representation}_pair_builder`, representation: item.representation })} type="button">{label(option)}</button>)}</div>}
+  </div>;
 }
 
 function QuickQuantity({ item, disabled, onAnswer }) {
@@ -233,24 +296,28 @@ function QuickQuantity({ item, disabled, onAnswer }) {
     {accessMode === "non_visual_description"
       ? <div className="maths-nonvisual-quantity"><p>Alternative counting task. Move through the unnumbered objects one at a time, then choose the total.</p><div aria-label="Explore unnumbered objects one at a time" role="group">{Array.from({ length: item.values.target }, (_, index) => <button aria-label="Countable object" key={index} type="button">Object</button>)}</div></div>
       : <QuantityPicture accessibleLabel="A small quantity is shown briefly. Look at the pattern without using this description to answer." hidden={!visible} model={{ kind: item.representation === "five_frame" ? "frame" : "objects", arrangement: item.surface.arrangement, capacity: 5, filled: item.values.target, total: item.values.target }} objectFamily={item.surface.objectFamily} />}
-    <button className="maths-access-alternative" onClick={() => { setAccessMode("non_visual_description"); setVisible(false); }} type="button">Use an untimed counting alternative</button>
-    <AnswerChoices disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, accessMode, flashDurationMs: accessMode === "visual_flash" ? 1500 : null })} />
+    <button className="maths-access-alternative" disabled={disabled} onClick={() => { setAccessMode("non_visual_description"); setVisible(false); }} type="button">Use an untimed counting alternative</button>
+    {visible && accessMode === "visual_flash"
+      ? <p aria-live="polite" className="maths-quick-wait">Look at the pattern. The response model comes next.</p>
+      : item.responseDirection === "construction"
+        ? <QuantityBuilder capacity={5} disabled={disabled} onSubmit={(response, detail) => onAnswer(response, { ...detail, responseMode: "construct_quantity", accessMode, flashDurationMs: accessMode === "visual_flash" ? 1500 : null, component: `${item.representation}_reconstruction`, representation: item.representation })} prompt="Build the amount you saw." submitLabel="Use this amount" />
+        : <AnswerChoices disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, accessMode, flashDurationMs: accessMode === "visual_flash" ? 1500 : null, component: item.representation, representation: item.representation })} />}
   </div>;
 }
 
 function AnswerChoices({ item, disabled, onAnswer, asFrames = false }) {
   const options = assessmentOptionsForItem(item);
-  return <div className={`maths-answer-grid${asFrames ? " is-frame-choice" : ""}`} data-child-choices data-child-emphasis="primary" data-child-primary role="group" aria-label="Choose your answer"><p className="maths-answer-cue" data-child-emphasis-cue>Choose your answer</p>{options.map((option, slot) => <button data-answer-slot={slot} disabled={disabled} key={option} onClick={() => onAnswer(option, { responseMode: "single_select", optionSlot: slot, options })} type="button">{asFrames ? <QuantityPicture compact model={{ kind: "frame", capacity: 10, filled: Number(option) }} /> : option === "a" ? "Left group" : option === "b" ? "Right group" : option === "same" ? "Same amount" : option}</button>)}</div>;
+  return <div className={`maths-answer-grid${asFrames ? " is-frame-choice" : ""}`} data-child-choices data-child-emphasis="primary" data-child-primary role="group" aria-label="Choose your answer"><p className="maths-answer-cue" data-child-emphasis-cue>Choose your answer</p>{options.map((option, slot) => <button data-answer-slot={slot} disabled={disabled} key={option} onClick={() => onAnswer(option, { responseMode: "single_select", optionSlot: slot, options })} type="button">{asFrames ? <QuantityPicture accessibleLabel={`${option} in the missing part`} compact model={{ kind: "frame", capacity: item.values.target, filled: Number(option) }} /> : option === "a" ? "Left group" : option === "b" ? "Right group" : option === "same" ? "Same amount" : option}</button>)}</div>;
 }
 
 function AssessmentInteraction({ item, disabled, onAnswer }) {
   if (item.blueprintId === "number_sequence") return <div className="maths-sequence-question"><div className={`maths-sequence-picture is-${item.representation}`} role="img" aria-label={`A number path shows ${item.values.sequence.map(value => value === null ? "a blank" : value).join(", ")}.`}>
     {item.values.sequence.map((value, index) => <span className={value === null ? "is-blank" : ""} key={`${value}:${index}`}>{value === null ? "?" : value}</span>)}
-  </div><AnswerChoices disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, component: item.representation, representation: item.representation, sequence: item.values.sequence })} /></div>;
+  </div>{item.responseDirection === "construction" ? <NumberSequenceConstructor disabled={disabled} item={item} onAnswer={onAnswer} /> : <AnswerChoices disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, component: item.representation, representation: item.representation, sequence: item.values.sequence })} />}</div>;
   if (item.blueprintId === "make_quantity") return <QuantityBuilder capacity={item.values.maximum} disabled={disabled} representation={item.representation === "counter_tray" ? "counter_tray" : "frame"} onSubmit={(response, detail) => onAnswer(response, { ...detail, responseMode: "construct", representation: item.representation })} prompt={`Add or remove counters until the model shows ${item.values.target}.`} />;
-  if (item.blueprintId === "part_whole") return <div className="maths-part-whole-question">{item.representation === "two_colour_frame" ? <QuantityPicture model={{ kind: "frame", capacity: item.values.target, filled: item.values.partA, parts: [item.values.partA, 0] }} /> : <QuantityPicture model={{ kind: "part_whole", total: item.values.target, parts: [item.values.partA, "?"] }} />}<QuantityBuilder capacity={item.values.target} disabled={disabled} representation={item.representation === "two_colour_frame" ? "frame" : "counter_tray"} onSubmit={(response, detail) => onAnswer(response, { ...detail, responseMode: "construct", component: `${item.representation}_missing_part_builder`, representation: item.representation, knownPart: item.values.partA })} prompt="Build only the hidden part." submitLabel="Use this missing part" /></div>;
+  if (item.blueprintId === "part_whole") return <div className="maths-part-whole-question">{item.representation === "two_colour_frame" ? <QuantityPicture accessibleLabel={`${item.values.partA} spaces are one known part of a whole of ${item.values.target}. The other part is missing.`} model={{ kind: "frame", capacity: item.values.target, filled: item.values.partA, parts: [item.values.partA, 0] }} /> : <QuantityPicture accessibleLabel={`The whole is ${item.values.target}. One part is ${item.values.partA} and the other part is missing.`} model={{ kind: "part_whole", total: item.values.target, parts: [item.values.partA, "?"] }} />}{item.responseDirection === "recognition" ? <AnswerChoices asFrames disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, component: `${item.representation}_missing_part_choices`, representation: item.representation, knownPart: item.values.partA })} /> : <QuantityBuilder allowUntouched={item.expected === 0} capacity={item.values.target} disabled={disabled} representation={item.representation === "two_colour_frame" ? "frame" : "counter_tray"} onSubmit={(response, detail) => onAnswer(response, { ...detail, responseMode: "construct", component: `${item.representation}_missing_part_builder`, representation: item.representation, knownPart: item.values.partA })} prompt="Build only the hidden part." submitLabel="Use this missing part" />}</div>;
   if (item.blueprintId === "quick_quantity") return <QuickQuantity disabled={disabled} item={item} onAnswer={onAnswer} />;
-  if (item.blueprintId === "compare_quantities") return <><div className={`maths-assessment-compare is-${item.representation}`}>{item.representation === "structured_frames" ? <><QuantityPicture accessibleLabel="Left frame. Count its filled spaces." model={{ kind: "frame", capacity: item.values.maximum <= 10 ? 10 : 20, filled: item.values.target }} /><QuantityPicture accessibleLabel="Right frame. Count its filled spaces." model={{ kind: "frame", capacity: item.values.maximum <= 10 ? 10 : 20, filled: item.values.other }} /></> : <><QuantityPicture accessibleLabel="Left group. Count its objects." model={{ total: item.values.target, arrangement: "row" }} objectFamily={item.surface.objectFamily} /><QuantityPicture accessibleLabel="Right group. Count its objects." model={{ total: item.values.other, arrangement: "row" }} objectFamily={item.surface.objectFamily} /></>}</div><AnswerChoices disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, component: item.representation, representation: item.representation })} /></>;
+  if (item.blueprintId === "compare_quantities") return <><div className={`maths-assessment-compare is-${item.representation}`}>{item.representation === "structured_frames" ? <><QuantityPicture accessibleLabel="Left frame. Count its filled spaces." model={{ kind: "frame", capacity: item.values.maximum <= 10 ? 10 : 20, filled: item.values.target }} /><QuantityPicture accessibleLabel="Right frame. Count its filled spaces." model={{ kind: "frame", capacity: item.values.maximum <= 10 ? 10 : 20, filled: item.values.other }} /></> : <><QuantityPicture accessibleLabel="Left group. Count its objects." model={{ total: item.values.target, arrangement: "row" }} objectFamily={item.surface.objectFamily} /><QuantityPicture accessibleLabel="Right group. Count its objects." model={{ total: item.values.other, arrangement: "row" }} objectFamily={item.surface.objectFamily} /></>}</div>{item.responseDirection === "construction" ? <ComparisonPairBuilder disabled={disabled} item={item} onAnswer={onAnswer} /> : <AnswerChoices disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, component: item.representation, representation: item.representation })} />}</>;
   return <>{item.representation === "structured_frame" ? <QuantityPicture accessibleLabel="A counting frame. Count its filled spaces." model={{ kind: "frame", capacity: item.values.maximum <= 10 ? 10 : 20, filled: item.values.target }} /> : <QuantityPicture accessibleLabel="A collection of objects. Count each object once." model={{ total: item.values.target, arrangement: item.surface.arrangement }} objectFamily={item.surface.objectFamily} />}<AnswerChoices disabled={disabled} item={item} onAnswer={(response, detail) => onAnswer(response, { ...detail, component: item.representation, representation: item.representation })} /></>;
 }
 
@@ -258,7 +325,16 @@ export function MathsAssessmentPlayer({ studentName, progressScopeKey, client, s
   const assignedSkill = assignment?.skillId && APPROVED_FOUNDATION_SKILL_IDS.includes(assignment.skillId) ? assignment.skillId : "";
   const [skillId, setSkillId] = useState(assignedSkill || APPROVED_FOUNDATION_SKILL_IDS[1]);
   const [sessionSeed, setSessionSeed] = useState(() => assessmentSeed || `${studentId || "student"}-${Date.now()}`);
-  const items = useMemo(() => buildMathsAssessmentRound({ skillId, seed: sessionSeed, length: 6 }), [sessionSeed, skillId]);
+  const items = useMemo(() => {
+    const round = buildMathsAssessmentRound({ skillId, seed: sessionSeed, length: 6 });
+    if (skillId !== "F-N-MATCH") return round;
+    const builderIndex = round.findIndex(item => item.blueprintId === "make_quantity");
+    if (builderIndex <= 0) return round;
+    const ordered = [...round];
+    const [builder] = ordered.splice(builderIndex, 1);
+    ordered.unshift(builder);
+    return ordered;
+  }, [sessionSeed, skillId]);
   const [index, setIndex] = useState(0);
   const [responses, setResponses] = useState([]);
   const [started, setStarted] = useState(false);
@@ -267,6 +343,14 @@ export function MathsAssessmentPlayer({ studentName, progressScopeKey, client, s
   const [assignmentComplete, setAssignmentComplete] = useState(false);
   const { record, saveState } = useMathsEvidence({ client, studentId, token });
   const item = items[index];
+  useEffect(() => {
+    const resetFrame = window.requestAnimationFrame(() => {
+      const checkScroller = document.querySelector('[data-child-surface="maths-check"]');
+      if (checkScroller) checkScroller.scrollTop = 0;
+      window.scrollTo(0, 0);
+    });
+    return () => window.cancelAnimationFrame(resetFrame);
+  }, [index, skillId, started]);
   const answer = async (response, renderedResponse = {}) => {
     if (submitting || feedback) return;
     setSubmitting(true);
@@ -274,7 +358,7 @@ export function MathsAssessmentPlayer({ studentName, progressScopeKey, client, s
     setResponses(rows => [...rows, { itemKey: item.itemKey, response, ...result }]);
     const renderedRepresentation = { ...item.renderSpec, component: renderedResponse.component || item.representation, response: renderedResponse };
     const actualRepresentation = renderedResponse.accessMode === "non_visual_description" ? "sequential_access_count" : renderedResponse.representation || item.representation;
-    const saved = await record({ skillId, eventType: "skills_check_response", contentVersion: item.contentVersion, evidence: { schemaVersion: 1, source: "maths_skills_check", sessionId: sessionSeed, assignmentId: assignment?.id || null, itemKey: item.itemKey, modelIndex: item.modelIndex, blueprintId: item.blueprintId, representation: actualRepresentation, constructChanged: renderedResponse.accessMode === "non_visual_description", renderedRepresentation, promptText: item.promptText, response, correct: result.correct, classification: result.classification, observedSignals: result.observedSignals } });
+    const saved = await record({ skillId, eventType: "skills_check_response", contentVersion: item.contentVersion, evidence: { schemaVersion: 1, source: "maths_skills_check", sessionId: sessionSeed, assignmentId: assignment?.id || null, itemKey: item.itemKey, modelIndex: item.modelIndex, blueprintId: item.blueprintId, responseDirection: item.responseDirection, evidencePurpose: item.evidencePurpose, responseMode: renderedResponse.responseMode || null, representation: actualRepresentation, constructChanged: renderedResponse.accessMode === "non_visual_description", renderedRepresentation, promptText: item.promptText, response, correct: result.correct, classification: result.classification, observedSignals: result.observedSignals } });
     if (index === items.length - 1) setAssignmentComplete(await completeAssignedActivity({ assignment, client, token, saved }).catch(() => false));
     setFeedback(result.classification === "not_checked" ? "Not sure was saved. That is a valid response." : "Response saved. Your teacher will look at the model, not a score.");
     setSubmitting(false);
@@ -288,7 +372,7 @@ export function MathsAssessmentPlayer({ studentName, progressScopeKey, client, s
   </section></AreaShell>;
   return <AreaShell eyebrow={`${mathsSkillById[skillId].childLabel} · decision ${index + 1} of ${items.length}`} onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-check" title="Skills check">
     <div className="maths-check-progress maths-check-progress-v2" data-child-progress><span style={{ width: `${((index + 1) / items.length) * 100}%` }} /><small>{index + 1} of {items.length}</small></div>
-    <section className="maths-check-card maths-check-card-v2"><div className="maths-check-prompt"><p className="maths-instruction">{item.promptText}</p><MathsAudioButton client={client} compact requestId={`assessment:${item.id}:${item.surface.id}:prompt`} token={token} /></div><div className="maths-check-interaction"><AssessmentInteraction disabled={submitting || Boolean(feedback)} item={item} key={item.itemKey} onAnswer={answer} /></div>{!feedback && <button className="maths-not-sure" disabled={submitting} onClick={() => answer(null, { responseMode: "not_sure", component: item.representation, representation: item.representation })} type="button">Not sure yet</button>}<p aria-live="polite" className="maths-feedback">{submitting && !feedback ? "Saving response…" : feedback}</p>{feedback && <button className="maths-primary maths-check-next" data-child-emphasis="primary" data-child-primary onClick={nextDecision} type="button">{index === items.length - 1 ? "Finish check" : "Next decision"} <ArrowRight aria-hidden="true" size={20} /></button>}</section>
+    <section className="maths-check-card maths-check-card-v2"><div className="maths-check-prompt"><p className="maths-instruction">{item.promptText}</p><MathsAudioButton client={client} compact requestId={`assessment:${item.id}:${item.surface.id}:prompt`} token={token} /></div><div className="maths-check-interaction" data-assessment-direction={item.responseDirection} data-assessment-purpose={item.evidencePurpose}><AssessmentInteraction disabled={submitting || Boolean(feedback)} item={item} key={item.itemKey} onAnswer={answer} /></div>{!feedback && <button className="maths-not-sure" disabled={submitting} onClick={() => answer(null, { responseMode: "not_sure", component: item.representation, representation: item.representation })} type="button">Not sure yet</button>}<p aria-live="polite" className="maths-feedback">{submitting && !feedback ? "Saving response…" : feedback}</p>{feedback && <button className="maths-primary maths-check-next" data-child-emphasis="primary" data-child-primary onClick={nextDecision} type="button">{index === items.length - 1 ? "Finish check" : "Next decision"} <ArrowRight aria-hidden="true" size={20} /></button>}</section>
   </AreaShell>;
 }
 
@@ -325,9 +409,18 @@ export function MathsArcade({ studentName, progressScopeKey, client, studentId, 
   const [index, setIndex] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [roundCorrect, setRoundCorrect] = useState(false);
+  const [paused, setPaused] = useState(false);
   const [assignmentComplete, setAssignmentComplete] = useState(false);
   const { record, saveState } = useMathsEvidence({ client, studentId, token });
-  if (!session) return <AreaShell eyebrow="Practice through play" onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-arcade" title="Maths Arcade"><section className="maths-arcade-library" data-child-progress><header><div><p className="maths-stage-label">Five different game worlds</p><h2>Choose how you want to think</h2><span>Every world is untimed. Maths—not speed—moves you forward.</span><MathsAudioButton client={client} compact label="Hear how Arcade works" requestId="maths-arcade:intro" token={token} /></div><Sparkle aria-hidden="true" size={58} weight="duotone" /></header><div className="maths-game-grid maths-game-grid-v2" data-child-choices>{mathsGames.map((game, gameIndex) => { const art = mathsArcadeArt(game.id); const Icon = art.icon; return <button className={art.className} data-child-emphasis={gameIndex === 0 ? "primary" : "choice"} data-child-primary={gameIndex === 0 ? "" : undefined} data-game={game.id} key={game.id} onClick={() => { setGameId(game.id); setIndex(0); }} type="button"><span className="maths-game-card-world"><Icon aria-hidden="true" size={54} weight="duotone" /><i /><i /><i /></span><span className="maths-game-card-copy"><small>{art.world}</small><strong>{game.title}</strong><em>{game.strapline}</em><b data-child-emphasis-cue={gameIndex === 0 ? "" : undefined}>{gameIndex === 0 ? "Play next" : "Open world"} <ArrowRight aria-hidden="true" size={18} /></b><small>8 decisions · no timer · no lives</small></span></button>; })}</div></section></AreaShell>;
+  useEffect(() => {
+    const resetFrame = window.requestAnimationFrame(() => {
+      const arcadeScroller = document.querySelector('[data-child-surface="maths-arcade"]');
+      if (arcadeScroller) arcadeScroller.scrollTop = 0;
+      window.scrollTo(0, 0);
+    });
+    return () => window.cancelAnimationFrame(resetFrame);
+  }, [gameId, index]);
+  if (!session) return <AreaShell eyebrow="Practice through play" onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-arcade" title="Maths Arcade"><section className="maths-arcade-library" data-child-progress><header><div><p className="maths-stage-label">Five different game worlds</p><h2>Choose how you want to think</h2><span>Every world is untimed. Maths, not speed, moves you forward.</span><MathsAudioButton client={client} compact label="Hear how Arcade works" requestId="maths-arcade:intro" token={token} /></div><Sparkle aria-hidden="true" size={58} weight="duotone" /></header><div className="maths-game-grid maths-game-grid-v2" data-child-choices>{mathsGames.map((game, gameIndex) => { const art = mathsArcadeArt(game.id); const Icon = art.icon; return <button className={art.className} data-child-emphasis={gameIndex === 0 ? "primary" : "choice"} data-child-primary={gameIndex === 0 ? "" : undefined} data-game={game.id} key={game.id} onClick={() => { setGameId(game.id); setIndex(0); setPaused(false); }} type="button"><span className="maths-game-card-world"><Icon aria-hidden="true" size={54} weight="duotone" /><i /><i /><i /></span><span className="maths-game-card-copy"><small>{art.world}</small><strong>{game.title}</strong><em>{game.strapline}</em><b data-child-emphasis-cue={gameIndex === 0 ? "" : undefined}>{gameIndex === 0 ? "Play next" : "Open world"} <ArrowRight aria-hidden="true" size={18} /></b><small>{game.genre} · 8 decisions · untimed</small></span></button>; })}</div></section></AreaShell>;
   if (index >= session.items.length) return <AreaShell eyebrow={session.title} onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-arcade" title="Natural stopping place"><section className="maths-finish-card" data-child-choices data-child-progress><span aria-hidden="true">⌂</span><h2>You reached camp</h2><p>You made {session.items.length} maths decisions and repaired each model before moving on. Games are practice only.</p>{assignment && <p>{assignmentComplete ? "Your teacher’s game assignment is complete." : "Your practice is saved; cloud completion is still confirming."}</p>}<button className="maths-primary" data-child-emphasis="primary" data-child-emphasis-cue data-child-primary onClick={assignedGameId ? onHome : () => setGameId("")} type="button">{assignedGameId ? "Back to Maths" : "Choose another game"}</button>{saveState && <p>{saveState}</p>}</section></AreaShell>;
   const round = session.items[index];
   const choose = async (value, renderedResponse = {}) => {
@@ -339,12 +432,38 @@ export function MathsArcade({ studentName, progressScopeKey, client, studentId, 
   };
   const continueRound = () => {
     if (roundCorrect) setIndex(valueIndex => valueIndex + 1);
+    setPaused(false);
     setRoundCorrect(false);
     setFeedback("");
+  };
+  const leaveGame = () => {
+    setPaused(false);
+    setFeedback("");
+    setRoundCorrect(false);
+    setIndex(0);
+    if (assignedGameId) onHome?.();
+    else setGameId("");
   };
   const art = mathsArcadeArt(session.id);
   const controlText = session.id === "quantity-match"
     ? round.mechanic === "compare_frames" ? "Pair one from each bank, then compare what remains." : "Add or remove planks, then test your bridge."
     : art.control;
-  return <AreaShell eyebrow={`${art.world} · challenge ${index + 1} of 8`} onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-arcade" title={session.title}><section className={`maths-game-stage maths-game-stage-v2 ${art.className}`} data-child-progress><header className="maths-arcade-mission"><div><span>Mission</span><h2>{round.prompt}</h2><p>{controlText}</p><MathsAudioButton client={client} compact label="Hear this mission" requestId={`arcade:${session.id}:instruction`} token={token} /></div><div className="maths-game-route" aria-label={`Challenge ${index + 1} of ${session.items.length}`}>{session.items.map((_, position) => <span className={position < index ? "is-done" : position === index ? "is-current" : ""} key={position}>{position < index ? <Check aria-hidden="true" size={15} weight="bold" /> : position + 1}</span>)}</div></header><Suspense fallback={<div aria-live="polite" className="maths-arcade-loading">Opening the game world…</div>}><MathsArcadeGame disabled={Boolean(feedback)} gameId={session.id} key={round.id} onAnswer={choose} round={round} /></Suspense><div className="maths-arcade-feedback-row"><p aria-live="polite" className="maths-feedback maths-arcade-feedback">{feedback}</p>{feedback && <MathsAudioButton client={client} compact label={roundCorrect ? "Hear why it works" : "Hear the repair hint"} requestId={`arcade:${session.id}:${roundCorrect ? "success" : "repair"}`} token={token} />}</div>{feedback && <button className="maths-primary maths-arcade-continue" data-child-emphasis="primary" data-child-primary onClick={continueRound} type="button">{roundCorrect ? "Continue journey" : "Repair this challenge"} <ArrowRight aria-hidden="true" size={20} /></button>}</section></AreaShell>;
+  return <AreaShell eyebrow={`${art.world} · challenge ${index + 1} of 8`} onHome={onHome} progressScopeKey={progressScopeKey} studentName={studentName} surfaceId="maths-arcade" title={session.title}>
+    <section className={`maths-game-stage maths-game-stage-v2 ${art.className}`} data-child-progress>
+      <header className="maths-arcade-mission">
+        <div><span>Mission</span><h2>{round.prompt}</h2><p>{controlText}</p><MathsAudioButton client={client} compact label="Hear this mission" requestId={`arcade:${session.id}:instruction`} token={token} /></div>
+        <div className="maths-arcade-mission-tools">
+          <div className="maths-game-route" aria-label={`Challenge ${index + 1} of ${session.items.length}`}>{session.items.map((_, position) => <span className={position < index ? "is-done" : position === index ? "is-current" : ""} key={position}>{position < index ? <Check aria-hidden="true" size={15} weight="bold" /> : position + 1}</span>)}</div>
+          <div className="maths-arcade-session-actions">
+            <button aria-pressed={paused} onClick={() => setPaused(value => !value)} type="button">{paused ? <Play aria-hidden="true" size={20} weight="fill" /> : <Pause aria-hidden="true" size={20} weight="fill" />}{paused ? "Keep playing" : "Pause game"}</button>
+            <button onClick={leaveGame} type="button"><House aria-hidden="true" size={20} weight="duotone" />{assignedGameId ? "Maths home" : "Exit to Arcade"}</button>
+          </div>
+        </div>
+      </header>
+      <Suspense fallback={<div aria-live="polite" className="maths-arcade-loading">Opening the game world…</div>}><MathsArcadeGame disabled={Boolean(feedback) || paused} gameId={session.id} key={round.id} onAnswer={choose} paused={paused} round={round} /></Suspense>
+      {paused && <div className="maths-game-pause-overlay" role="status"><Pause aria-hidden="true" size={42} weight="duotone" /><strong>Game paused</strong><span>Your challenge is waiting. Nothing changes while you take a break.</span></div>}
+      {feedback && <div className="maths-arcade-feedback-row"><p aria-live="polite" className="maths-feedback maths-arcade-feedback">{feedback}</p><MathsAudioButton client={client} compact label={roundCorrect ? "Hear why it works" : "Hear the repair hint"} requestId={`arcade:${session.id}:${roundCorrect ? "success" : "repair"}`} token={token} /></div>}
+      {feedback && <button className="maths-primary maths-arcade-continue" data-child-emphasis="primary" data-child-primary onClick={continueRound} type="button">{roundCorrect ? "Continue journey" : "Repair this challenge"} <ArrowRight aria-hidden="true" size={20} /></button>}
+    </section>
+  </AreaShell>;
 }

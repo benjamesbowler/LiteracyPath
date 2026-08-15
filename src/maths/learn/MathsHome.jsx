@@ -15,6 +15,7 @@ import { SUBJECT_IDS } from "../../subjects/subjectRegistry.js";
 import { MathsAudioButton } from "../media/MathsAudioButton.jsx";
 import "../../styles/maths-platform.css";
 import "../../styles/maths-platform-v2.css";
+import "../../styles/maths-arcade-premium.css";
 
 const ACTIVITY_META = Object.freeze({
   lesson: Object.freeze({ label: "Guided lesson", action: "Continue lesson", Icon: SquaresFour }),

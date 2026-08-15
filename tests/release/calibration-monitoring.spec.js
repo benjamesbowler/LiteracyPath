@@ -24,8 +24,9 @@ test("@calibration-dashboard renders the guarded seeded monitoring surface", asy
   const summary = panel.getByLabel("Calibration preview summary");
   await expect(summary).toBeVisible();
   await expect(summary.getByText("72", { exact: true })).toBeVisible();
-  await expect(summary.getByText("1,152 item events", { exact: true })).toBeVisible();
-  await expect(summary.getByText("13", { exact: true })).toBeVisible();
+  await expect(summary.getByText("1,440 item events", { exact: true })).toBeVisible();
+  await expect(summary.getByText("10", { exact: true })).toBeVisible();
+  await expect(summary.getByText("5", { exact: true })).toBeVisible();
   await expect(summary.getByText("2", { exact: true })).toBeVisible();
   await expect(summary.getByText("none adjudicated", { exact: false })).toBeVisible();
   await expect(summary.getByText(

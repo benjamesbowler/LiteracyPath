@@ -15,10 +15,10 @@ async function expectNoContrastViolations(page, selector, state) {
   expect(failures, `${state} must preserve disabled-state contrast`).toEqual([]);
 }
 
-test("A3.8 locked creature pieces name their real Sparks cost and shortfall", async ({ page }) => {
+test("A3.8 locked book-character pieces name their real Sparks cost and shortfall", async ({ page }) => {
   await page.goto("/preview/quest.html?view=creator&sound=0&adapt=0&sparks=8");
-  const dialog = page.getByRole("dialog", { name: "Change your creature", exact: true });
-  await dialog.getByRole("tab", { name: "Colour", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "Change your book character", exact: true });
+  await dialog.getByRole("tab", { name: "Colours", exact: true }).click();
   const locked = dialog.locator('[data-locked-item="quest-creature"]');
   const twentySparkItem = locked.filter({ hasText: "20 Sparks — earn 12 more" }).first();
 
@@ -30,7 +30,7 @@ test("A3.8 locked creature pieces name their real Sparks cost and shortfall", as
   await expectNoContrastViolations(
     page,
     '[data-locked-item="quest-creature"]',
-    "Quest creature creator locked items"
+    "Quest book-character creator locked items"
   );
 });
 

@@ -50,6 +50,24 @@ test("Every Maths surface fits the full release viewport matrix", async ({ page 
       const surface = page.locator(`[data-child-surface="${surfaceId}"]`);
       await expect(surface).toBeVisible();
       await expectMathsViewportIntegrity(page, `${surfaceId} at ${viewport.id}`, surface);
+      if (surfaceId === "maths-lesson" && viewport.id === "small-phone-landscape") {
+        const focusedWorkspace = await surface.evaluate(element => {
+          const rect = selector => {
+            const box = element.querySelector(selector)?.getBoundingClientRect();
+            return box ? { width: box.width, height: box.height, top: box.top, bottom: box.bottom } : null;
+          };
+          return {
+            coach: rect(".maths-lesson-coach"),
+            model: rect(".maths-lesson-model"),
+            workbench: rect(".maths-lesson-workbench")
+          };
+        });
+        expect(focusedWorkspace.workbench?.height).toBeGreaterThanOrEqual(120);
+        expect(focusedWorkspace.workbench?.top).toBeGreaterThanOrEqual(0);
+        expect(focusedWorkspace.workbench?.bottom).toBeLessThanOrEqual(viewport.height);
+        expect(focusedWorkspace.coach?.width).toBeGreaterThanOrEqual(180);
+        expect(focusedWorkspace.model?.width).toBeGreaterThanOrEqual(300);
+      }
     }
     await page.goto(teacherUrl);
     const teacher = page.locator('[data-maths-preview="teacher"]');
@@ -180,9 +198,9 @@ test("Maths Arcade exposes five direct-manipulation mechanics with no timer or s
 
   const expectations = [
     ["number-trail", ".maths-number-trail-world"],
-    ["glimpse-garden", ".maths-glimpse-garden"],
+    ["glimpse-garden", '[data-engine="glimpse-garden-2d"]'],
     ["frame-foundry", ".maths-foundry-machine"],
-    ["count-and-carry", ".maths-count-strategy"],
+    ["count-and-carry", '[data-engine="count-and-carry-2d"]'],
     ["quantity-match", ".maths-bridge-world"]
   ];
   for (const [gameId, selector] of expectations) {
@@ -201,20 +219,28 @@ test("Maths Arcade exposes five direct-manipulation mechanics with no timer or s
   await page.goto(`/preview/maths-phase-zero.html?audience=student&game=glimpse-garden#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
   await page.getByRole("button", { name: /Maths Arcade/ }).click();
   await page.locator('[data-game="glimpse-garden"]').click();
-  await page.getByRole("button", { name: "Open the garden gate" }).click();
-  await expect(page.getByRole("img", { name: /glowbugs arranged as/ })).toBeVisible();
+  await page.getByRole("button", { name: "Walk to gate" }).click();
+  await expect(page.getByRole("button", { name: "Open gate" })).toBeEnabled();
+  await page.getByRole("button", { name: "Open gate" }).click();
+  await expect(page.getByRole("button", { name: "Keep it open so I can count" })).toBeVisible();
   await page.getByRole("button", { name: "Keep it open so I can count" }).click();
+  await expect(page.locator(".m2d-glimpse-pattern[aria-label*='glowbugs']")).toBeVisible();
   await expect(page.getByRole("group", { name: "Choose the number of glowbugs" })).toBeVisible();
   await page.goto(`/preview/maths-phase-zero.html?audience=student&game=count-and-carry#maths/home?class=${CLASS_ID}&learner=${STUDENT_ID}`);
   await page.getByRole("button", { name: /Maths Arcade/ }).click();
   await page.locator('[data-game="count-and-carry"]').click();
-  await page.getByRole("button", { name: /Move each parcel once|Make ten, then count on|Make a clear row/ }).first().click();
-  await expect(page.locator(".maths-carry-landscape")).toBeVisible();
-  await expect(page.getByRole("group", { name: "Choose how many parcels are in the collection" })).toHaveCount(0);
-  const parcelButtons = page.locator('.maths-parcel-meadow button');
-  const parcelsToMove = await parcelButtons.count();
-  for (let index = 0; index < parcelsToMove; index += 1) await parcelButtons.nth(index).click();
-  const parcelAnswers = page.getByRole("group", { name: "Choose how many parcels are in the collection" });
+  await page.getByRole("group", { name: "Choose a counting plan" }).getByRole("button").first().click();
+  const carryStage = page.locator(".m2d-carry-stage");
+  await expect(carryStage).toBeVisible();
+  await expect(page.getByRole("group", { name: "Choose how many parcels are in the whole collection" })).toHaveCount(0);
+  const parcelsToMove = (await carryStage.getAttribute("data-layout-rows")).split(",").map(Number).reduce((sum, count) => sum + count, 0);
+  for (let index = 0; index < parcelsToMove; index += 1) {
+    await page.getByRole("button", { name: /Assist the travel/ }).click();
+    await expect(page.getByRole("button", { name: "Load parcel" })).toBeEnabled();
+    await page.getByRole("button", { name: "Load parcel" }).click();
+    await page.getByRole("button", { name: "Place this parcel in the group" }).click();
+  }
+  const parcelAnswers = page.getByRole("group", { name: "Choose how many parcels are in the whole collection" });
   await expect(parcelAnswers).toBeVisible();
   await expect(parcelAnswers.getByRole("button")).toHaveCount(3);
   await expect(page.locator("[data-timer], .timer, .speed-score")).toHaveCount(0);

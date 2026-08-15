@@ -13,6 +13,10 @@ export const STUDENT_MATHS_EVIDENCE_EVENT_TYPES = Object.freeze([
   "practice_attempt",
   "skills_check_response"
 ]);
+export const TEACHER_MATHS_EVIDENCE_EVENT_TYPES = Object.freeze([
+  "lesson_exit_observation",
+  "teacher_observation"
+]);
 
 const MAX_QUEUE_ENTRIES = 500;
 const MAX_RECORDED_ATTEMPTS = 1000;
@@ -355,6 +359,9 @@ export function recordTeacherMathsEvidence({
     throw new TypeError("Teacher, class and student ids are required for Maths evidence.");
   }
   const normalized = normalizeEvidenceInput(input);
+  if (!TEACHER_MATHS_EVIDENCE_EVENT_TYPES.includes(normalized.eventType)) {
+    throw new TypeError(`Teachers cannot record Maths event type: ${normalized.eventType}.`);
+  }
   return recordEntry({
     client,
     storage,

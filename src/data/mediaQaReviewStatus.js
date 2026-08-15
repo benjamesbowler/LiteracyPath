@@ -1,4 +1,5 @@
 import { mediaQaReviewRows } from "./generated/mediaQaReview.generated.js";
+import { isBetaMediaPairingTestVisible } from "../policy/betaReleasePolicy.js";
 
 export const MEDIA_QA_REVIEW_STORAGE_KEY = "lpUnifiedMediaQaReviewDecisions";
 export const MEDIA_QA_REVIEW_STATUSES = ["pending", "approved", "quarantined"];
@@ -67,6 +68,10 @@ export function getMediaQaStatus(input = {}, overrides = readMediaQaReviewOverri
 
 export function isMediaPairingApproved(input = {}) {
   return getMediaQaStatus(input) === "approved";
+}
+
+export function isMediaPairingRuntimeAllowed(input = {}, overrides = readMediaQaReviewOverrides()) {
+  return isBetaMediaPairingTestVisible(getMediaQaStatus(input, overrides));
 }
 
 export function isMediaPairingQuarantined(input = {}) {

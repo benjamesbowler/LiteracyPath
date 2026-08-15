@@ -52,7 +52,7 @@ const SIZES = {
 // Stop ids are s1…s40 — NOT zero-padded. "s01" resolves to nothing and renders a
 // silent blank screen. Don't reintroduce it.
 const SHOTS = [
-  { name: "den-ipad", url: "/preview/quest.html?view=den&done=6", size: "ipad", a11y: true },
+  { name: "map-ipad", url: "/preview/quest.html?view=map&done=6", size: "ipad", a11y: true },
   { name: "world-s1-ipad", url: "/preview/quest.html?view=world&stop=s1", size: "ipad" },
   { name: "world-s12-ipad", url: "/preview/quest.html?view=world&stop=s12&done=11", size: "ipad" },
   { name: "world-s24-ipad", url: "/preview/quest.html?view=world&stop=s24&done=23", size: "ipad" },
@@ -62,7 +62,7 @@ const SHOTS = [
   { name: "world-s1-question-phone", url: "/preview/quest.html?view=world&stop=s1&active=1&creature=showcase", size: "phone" },
   { name: "world-s1-gate-ipad", url: "/preview/quest.html?view=world&stop=s1&checkpoint=gate&creature=showcase", size: "ipad" },
   { name: "pal-three-items-phone", url: "/preview/pal.html?companion=chips&back=gear-explorer-pack&feet=gear-trail-boots&head=gear-wizard-hat", size: "phone" },
-  { name: "den-phone", url: "/preview/quest.html?view=den&done=6", size: "phone" },
+  { name: "map-phone", url: "/preview/quest.html?view=map&done=6", size: "phone" },
   { name: "world-s1-desktop", url: "/preview/quest.html?view=world&stop=s1", size: "desktop" },
   { name: "home-sage-ipad", url: "/preview/home.html", size: "ipad", a11y: true },
   { name: "home-sage-phone", url: "/preview/home.html", size: "phone" },

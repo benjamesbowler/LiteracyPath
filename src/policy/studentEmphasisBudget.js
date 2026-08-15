@@ -1,6 +1,6 @@
 import { CHILD_SURFACE_ROUTES } from "./childSurfaceRules.js";
 
-export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.08.13";
+export const STUDENT_EMPHASIS_BUDGET_VERSION = "2026.08.15";
 
 export const STUDENT_EMPHASIS_VIEWPORTS = Object.freeze([
   Object.freeze({ id: "desktop", width: 1280, height: 900 }),
@@ -15,8 +15,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "student-home",
-    primaryCue: "Continue Adventure Map",
-    treatment: "The recommended learning card owns the largest card, named action bar, and continuation copy."
+    primaryCue: "Play",
+    treatment: "The recommended activity owns the only tier-three Play action; its title, exact continuation point, state, and recommendation reason stay in the same hero."
   }),
   Object.freeze({
     id: "maths-home",
@@ -58,7 +58,8 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   // Adventure Map the named action is the current stop's card ("Your pal is
   // here"); the amber marker above it is the same destination drawn on the
   // plate, and it is the only thing on the screen that moves. On the Sound
-  // Trail it is the accent Go. The old cues described the surfaces these two
+  // Trail the fresh-child route opens the character creator, whose named start
+  // action is the primary cue. The old cues described the surfaces these two
   // front doors now open onto — the Skills Quest's own map ("Go next") and
   // Sound Seekers' creature hatch ("Hatch my creature") — which a child no
   // longer lands on first.
@@ -69,18 +70,18 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
   }),
   Object.freeze({
     id: "sound-seekers",
-    primaryCue: "Go",
-    treatment: "The accent Go beside the next stop is the only tier-three control; the trail markers and sound chips are read-only."
+    primaryCue: "Start my adventure",
+    treatment: "A new child gets one named Start my adventure action; customisation options stay quieter and do not compete with it."
   }),
   Object.freeze({
     id: "story-quests",
-    primaryCue: "Start",
-    treatment: "The named start or continue action is larger and deeper than level filters and story covers."
+    primaryCue: "Start story",
+    treatment: "The first recommended cover names its Start story or Carry on action; world filters and other covers remain quieter choices."
   }),
   Object.freeze({
     id: "reading-library",
-    primaryCue: "Start next",
-    treatment: "The next book is enlarged and double-framed; the reading goal is informative and visually secondary."
+    primaryCue: "Start reading",
+    treatment: "The recommended book owns the one Start reading or Keep reading action; the shelf and reading goal remain quieter."
   }),
   Object.freeze({
     id: "my-hollow",

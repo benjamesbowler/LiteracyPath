@@ -5,7 +5,7 @@ import test from "node:test";
 test("release QA exercises pixel while the legacy camera diagnostic stays preview-only", () => {
   const root = fs.readFileSync("src/components/quest/QuestRoot.jsx", "utf8");
   const preview = fs.readFileSync("preview/quest.jsx", "utf8");
-  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
+  const settings = fs.readFileSync("src/components/quest/QuestSettingsDialog.jsx", "utf8");
   const gate = fs.readFileSync("tools/shootQuest.mjs", "utf8");
   const route = fs.readFileSync("tools/checkQuestRouteVisual.mjs", "utf8");
   const slice = fs.readFileSync("tools/checkQuestSliceCamera.mjs", "utf8");
@@ -21,6 +21,6 @@ test("release QA exercises pixel while the legacy camera diagnostic stays previe
   assert.match(slice, /renderer=legacy3d/);
   assert.doesNotMatch(slice, /display=low/, "the legacy diagnostic still relies on a retired saved setting");
 
-  assert.doesNotMatch(den, /previewForceLegacy3d|renderer=legacy3d/,
+  assert.doesNotMatch(settings, /previewForceLegacy3d|renderer=legacy3d/,
     "the preview-only legacy renderer escaped into child settings");
 });

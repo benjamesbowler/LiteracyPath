@@ -7,14 +7,12 @@ test("A2.3 completing a mission step celebrates once and routes the primary acti
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/preview/student-home-preview.html");
 
-  const mission = page.locator(".hs-mission-main");
+  const mission = page.locator(".kg-home-stops");
   await expect(mission).toBeVisible();
   await expect(mission).toHaveAttribute("data-mission-next-kind", "quest");
-  await expect(mission.locator("[data-mission-step]")).toHaveCount(3);
-  await expect(mission.locator('[data-mission-step="quest"]')).toHaveAttribute(
-    "data-mission-state",
-    "next"
-  );
+  await expect(mission).toHaveAttribute("data-mission-hero-owns-next", "true");
+  await expect(mission.locator("[data-mission-step]")).toHaveCount(2);
+  await expect(mission.locator('[data-mission-step="quest"]')).toHaveCount(0);
   await expect(page.locator('[data-home-priority="primary"]')).toHaveAttribute(
     "data-mission-primary-kind",
     "quest"
@@ -24,11 +22,11 @@ test("A2.3 completing a mission step celebrates once and routes the primary acti
   await page.reload();
 
   const celebration = page.getByRole("dialog", {
-    name: "Adventure Map step complete"
+    name: "One stop done"
   });
   await expect(celebration).toBeVisible();
-  await expect(celebration).toContainText("Adventure Map complete!");
-  await expect(celebration).toContainText("Next up: Reading Library.");
+  await expect(celebration).toContainText("Nice work!");
+  await expect(celebration).toContainText("Next up: Read a book.");
   await celebration.getByRole("button", { name: "See what’s next" }).click();
   await expect(celebration).toHaveCount(0);
 
@@ -37,12 +35,9 @@ test("A2.3 completing a mission step celebrates once and routes the primary acti
     "data-mission-state",
     "done"
   );
-  await expect(mission.locator('[data-mission-step="book"]')).toHaveAttribute(
-    "data-mission-state",
-    "next"
-  );
+  await expect(mission.locator('[data-mission-step="book"]')).toHaveCount(0);
   const primary = page.locator('[data-home-priority="primary"]');
-  await expect(primary.locator(".hs-card-action")).toHaveText("Continue Reading Library — 2 tasks left today");
+  await expect(primary).toHaveAccessibleName("Continue Books — 2 tasks left today");
   await expect(primary).toHaveAttribute("data-mission-primary-kind", "book");
 
   const celebratedSteps = await page.evaluate(() => {

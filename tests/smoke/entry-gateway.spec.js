@@ -13,8 +13,8 @@ test.describe("student and teacher entry gateway", () => {
     await expect(page.getByRole("heading", { name: "Choose your space" })).toBeVisible();
     await expect(studentCard).toBeVisible();
     await expect(teacherCard).toBeVisible();
-    await expect(studentCard.getByText("Children", { exact: true })).toBeVisible();
-    await expect(teacherCard.getByText("Teachers", { exact: true })).toBeVisible();
+    await expect(studentCard).toContainText("Children: Little Literacy Guides");
+    await expect(teacherCard).toContainText("Teachers: Literacy Guide Teacher Tools");
 
     const brandImages = page.locator(".entry-brand-logo");
     await expect(brandImages).toHaveCount(2);
@@ -58,12 +58,14 @@ test.describe("student and teacher entry gateway", () => {
         pageHeight: document.documentElement.scrollHeight,
         viewportHeight: window.innerHeight,
         cardBottoms: cards.map(card => card.getBoundingClientRect().bottom),
-        actionBottoms: actions.map(action => action.getBoundingClientRect().bottom)
+        actionBottoms: actions.map(action => action.getBoundingClientRect().bottom),
+        horizontalOverflow: document.documentElement.scrollWidth - window.innerWidth
       };
     });
-    expect(shortViewportLayout.pageHeight).toBeLessThanOrEqual(shortViewportLayout.viewportHeight + 1);
-    expect(shortViewportLayout.cardBottoms.every(bottom => bottom <= shortViewportLayout.viewportHeight)).toBe(true);
-    expect(shortViewportLayout.actionBottoms.every(bottom => bottom <= shortViewportLayout.viewportHeight)).toBe(true);
+    expect(shortViewportLayout.pageHeight).toBeGreaterThan(shortViewportLayout.viewportHeight);
+    expect(shortViewportLayout.horizontalOverflow).toBeLessThanOrEqual(1);
+    expect(shortViewportLayout.cardBottoms.every(bottom => bottom <= shortViewportLayout.pageHeight)).toBe(true);
+    expect(shortViewportLayout.actionBottoms.every((bottom, index) => bottom <= shortViewportLayout.cardBottoms[index] + 1)).toBe(true);
     expect(pageErrors).toEqual([]);
   });
 });

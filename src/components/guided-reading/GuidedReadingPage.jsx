@@ -38,10 +38,7 @@ import { preloadMediaSet } from "../../utils/preloadMedia.js";
 import { applyLearnerAudioIntensity } from "../../accessibility/learnerAccessibility.js";
 import { getGuidedReadingMeasure } from "../../policy/guidedReadingMeasure.js";
 import { classifyBookReadingPurpose } from "../../policy/literacyExperiencePolicy.js";
-import {
-  ChildRecommendationExplanation,
-  TeacherRecommendationExplanation
-} from "../recommendations/RecommendationExplanation.jsx";
+import { TeacherRecommendationExplanation } from "../recommendations/RecommendationExplanation.jsx";
 import { CHILD_COPY } from "../../copy/childCopy.js";
 import { progressPhrase, TEACHER_COPY } from "../../copy/teacherCopy.js";
 import {
@@ -2463,7 +2460,7 @@ export function GuidedReadingPage({
               </div>
             </div>
 
-            {isStudentMode && canReadWholeBook && !activeGroupSession && buddyStartPage === null && (
+            {isStudentMode && canReadWholeBook && !activeGroupSession && buddyStartPage === null && !isReaderFullscreen && (
               <section className="buddy-reader-launch" aria-label="Buddy Reader option">
                 <div>
                   <strong>Take turns with Leda</strong>

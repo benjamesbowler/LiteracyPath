@@ -63,9 +63,10 @@ test("database contract permits partial private drafts but blocks incomplete sub
 });
 
 test("project creation keeps verified active learners when one requested roster row is stale", () => {
-  const sql = fs.readFileSync(new URL("../../supabase/migrations/20260809162500_press_project_active_roster_resilience.sql", import.meta.url), "utf8");
-  assert.match(sql, /array_agg\(distinct s\.id\)/);
-  assert.match(sql, /coalesce\(s\.is_archived,false\)=false/);
+  const sql = fs.readFileSync(new URL("../../supabase/migrations/20260814171500_press_project_active_roster_column_fix.sql", import.meta.url), "utf8");
+  assert.match(sql, /array_agg\(distinct student\.id\)/);
+  assert.match(sql, /student\.archived_at is null/);
+  assert.doesNotMatch(sql.replace(/^--.*$/gm, ""), /is_archived/);
   assert.match(sql, /'skipped_count'/);
   assert.match(sql, /no_active_learners/);
 });

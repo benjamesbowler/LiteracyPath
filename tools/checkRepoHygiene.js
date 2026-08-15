@@ -33,7 +33,13 @@ const SOURCE_MEDIA_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".psd", ".ai",
 const CURRENT_NAMED_MEDIA_EXCEPTIONS = new Set([
   // This is the production recording for the vocabulary word "source", not a
   // source/reference artifact.
-  "public/audio/production/en-US/isolated_word/source-719dea8a7f.mp3"
+  "public/audio/production/en-US/isolated_word/source-719dea8a7f.mp3",
+  // These six legacy-path PNGs are the hash-reviewed, runtime-selected page
+  // art for Seasons. The folder name predates the hygiene gate; they are
+  // production illustrations, not regeneration scratch files.
+  ...Array.from({ length: 6 }, (_, index) =>
+    `public/guided-reading/regen/pages/gr-b-31-page-${String(index + 1).padStart(2, "0")}.png`
+  )
 ]);
 const HARD_SOURCE_EXTENSIONS = new Set([".psd", ".ai", ".zip", ".md"]);
 const TEMP_ROOT_NAMES = new Set([".tmp", "tmp", "temp", "temporary"]);
@@ -153,6 +159,7 @@ function isSourceName(filePath) {
 
 function isSourceMediaCandidate(filePath) {
   if (!isLiveMediaPath(filePath)) return false;
+  if (CURRENT_NAMED_MEDIA_EXCEPTIONS.has(filePath)) return false;
   const ext = extension(filePath);
   if (SOURCE_MEDIA_EXTENSIONS.has(ext)) return true;
   return isSourceName(filePath) && !isWebpFile(filePath);
@@ -430,6 +437,9 @@ function main() {
   }
 
   for (const entry of gitContext.statusEntries) {
+    // Removing a previously tracked source/reference asset from a live public
+    // media folder is the desired cleanup outcome, not a new hygiene defect.
+    if (entry.deleted) continue;
     if (isSourceMediaCandidate(entry.path)) {
       addFinding(
         failures,

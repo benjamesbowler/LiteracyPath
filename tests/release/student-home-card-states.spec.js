@@ -7,40 +7,34 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/preview/student-home-preview.html?scenario=card-states");
 
-  const cards = page.locator(".hs-card[data-learning-state]");
+  const home = page.locator('[data-child-surface="student-home"]');
+  const cards = home.locator("[data-learning-state]");
   await expect(cards).toHaveCount(7);
-  await expect(cards.locator(".hs-card-state")).toHaveCount(7);
+  await expect(home.locator("[data-learning-state-label]")).toHaveCount(7);
 
-  const adventureMap = cards.filter({ has: page.getByRole("heading", { name: "Adventure Map" }) });
+  const adventureMap = home.locator('[data-rail-destination="map"]');
   await expect(adventureMap).toHaveAttribute("data-learning-state", "Continue");
   await expect(adventureMap).toHaveAttribute("data-progress-marker", "1 map stop complete");
 
-  const readingLibrary = cards.filter({
-    has: page.getByRole("heading", { name: "Reading Library" })
-  });
+  const readingLibrary = home.locator('[data-rail-destination="books"]');
   await expect(readingLibrary).toHaveAttribute("data-learning-state", "Continue");
   await expect(readingLibrary).toHaveAttribute("data-progress-marker", "1 book read");
 
-  const more = page.locator(".hs-more-explore");
-  await more.locator("summary").click();
-
-  const soundSeekers = cards.filter({
-    has: page.getByRole("heading", { name: "Sound Seekers" })
-  });
+  const soundSeekers = home.locator('[data-continuation-activity="sound-seekers"]');
   await expect(soundSeekers).toHaveAttribute("data-learning-state", "Teacher picked");
   await expect(soundSeekers).toHaveAttribute("data-progress-marker", "38 of 40 trails");
-  await expect(page.locator('.hs-card[data-learning-state="New"]')).toHaveCount(4);
+  await expect(home.locator('[data-learning-state="New"]')).toHaveCount(4);
 
-  const childFacingStates = await cards.locator(".hs-card-state-row").allTextContents();
+  const childFacingStates = await home.locator("[data-learning-state-label]").allTextContents();
   expect(childFacingStates.join(" ")).not.toMatch(
     /accuracy|high.?score|percent|%|\b\d+\s*\/\s*\d+\b|\b\d+\s+stars?\b/i
   );
 
   await page.waitForFunction(() => (
-    [...document.querySelectorAll(".hs-thumb img")]
+    [...document.querySelectorAll('[data-child-surface="student-home"] img')]
       .every(image => image.complete && image.naturalWidth > 0)
   ));
-  await expect(page.locator(".hs-sheet")).toHaveScreenshot("student-home-card-states.png", {
+  await expect(page.locator(".kg-stage")).toHaveScreenshot("student-home-card-states.png", {
     animations: "disabled",
     caret: "hide",
     maxDiffPixelRatio: 0.01

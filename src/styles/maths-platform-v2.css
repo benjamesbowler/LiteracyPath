@@ -51,6 +51,10 @@
 .maths-lesson-coach .maths-audio-button { align-self: flex-start; }
 .maths-lesson-coach .maths-stage-choices { justify-content: flex-start; margin-top: 13px; }
 .maths-lesson-coach .maths-stage-choices button { min-height: 44px; border-radius: 11px; }
+.maths-lesson-repair { display: grid; gap: 5px; margin-top: 13px; padding: 11px 13px; color: #4c3b16; background: #fff5d3; border: 1px solid #e2c96f; border-left: 5px solid #bf8e1d; border-radius: 11px; }
+.maths-lesson-repair strong { font-size: 11px; letter-spacing: .055em; text-transform: uppercase; }
+.maths-lesson-repair p { margin: 0; font-size: 14px; line-height: 1.42; }
+.maths-lesson-repair button { justify-self: start; min-height: 44px; margin-top: 3px; padding: 7px 11px; color: #604712; background: #fff; border: 1px solid #caa84b; border-radius: 9px; font: inherit; font-size: 13px; font-weight: 850; }
 .maths-lesson-model { min-width: 0; min-height: 0; display: grid; align-items: center; padding: clamp(14px, 2vw, 24px); overflow: auto; background: #edf7f3 url('/images/backdrops/activity-bg-meadow.webp') center / cover no-repeat; }
 .maths-lesson-model .maths-manipulative { min-height: 0; padding: 0; border: 0; }
 .maths-lesson-model .maths-manipulative > header { padding: 8px 10px; border-radius: 11px; background: rgba(255,255,255,.9); }
@@ -85,6 +89,24 @@
 .maths-sequence-picture span { position: relative; width: clamp(54px, 7vw, 78px); aspect-ratio: 1; display: grid; place-items: center; border: 4px solid #fff; border-radius: 50% 48% 55% 45%; color: #fff; background: #317c6d; box-shadow: 0 5px 0 #1d594e; font-size: clamp(24px, 3vw, 34px); font-weight: 900; transform: rotate(-2deg); }
 .maths-sequence-picture span:nth-child(even) { transform: rotate(3deg); }
 .maths-sequence-picture span.is-blank { border-color: #8066c6; color: #6548ae; background: #f1ecfb; box-shadow: 0 5px 0 #c8b9ef; }
+.maths-sequence-constructor,
+.maths-pair-builder { width: min(680px, 100%); display: grid; justify-items: center; gap: 11px; margin: 0 auto; padding: 14px; color: #294f47; background: #eef6f2; border: 1px solid #c7dacf; border-radius: 16px; }
+.maths-sequence-constructor > p,
+.maths-pair-builder > p { margin: 0; text-align: center; font-weight: 750; line-height: 1.4; }
+.maths-constructor-controls { width: min(520px, 100%); display: grid; grid-template-columns: minmax(0, 1fr) 68px minmax(0, 1fr); align-items: center; gap: 9px; }
+.maths-constructor-controls button,
+.maths-pair-builder > button,
+.maths-pair-decisions button { min-height: 48px; padding: 8px 11px; color: #204e45; background: #fff; border: 2px solid #80a99d; border-radius: 11px; font: inherit; font-weight: 850; }
+.maths-constructor-controls output { min-height: 58px; display: grid; place-items: center; color: #fff; background: #277568; border-radius: 14px; font-size: 28px; font-weight: 950; }
+.maths-sequence-constructor .maths-submit-model { min-height: 48px; }
+.maths-pair-progress { width: 100%; display: grid; justify-items: center; gap: 7px; }
+.maths-pair-progress > div { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+.maths-pair-progress span { display: inline-flex; gap: 3px; padding: 4px; background: #fff; border: 1px solid #b7cdc5; border-radius: 9px; }
+.maths-pair-progress i { width: 13px; height: 13px; display: block; background: #397e71; border-radius: 50%; }
+.maths-pair-progress i:last-child { background: #c2684b; }
+.maths-pair-progress small { font-weight: 800; }
+.maths-pair-decisions { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.maths-quick-wait { min-height: 48px; display: grid; place-items: center; margin: 0; color: #3d5e57; font-weight: 800; text-align: center; }
 .maths-check-card-v2 .maths-answer-grid { width: min(650px,100%); grid-template-columns: repeat(3,1fr); align-items: stretch; margin: 0 auto; }
 .maths-check-card-v2 .maths-answer-grid .maths-answer-cue { grid-column: 1 / -1; }
 .maths-check-card-v2 .maths-answer-grid button { min-height: 66px; border-width: 2px; border-radius: 14px; font-size: 20px; }
@@ -92,7 +114,10 @@
 .maths-check-card-v2 .maths-picture-objects { min-height: 170px; }
 .maths-check-card-v2 .maths-assessment-compare { margin: 0; }
 .maths-check-card-v2 .maths-quantity-builder { gap: 10px; }
-.maths-check-card-v2 .maths-builder-counter-tray { min-height: 130px; }
+.maths-builder-controls button { transition-property: background-color, border-color, box-shadow, color, transform; }
+.maths-check-card-v2 .maths-builder-counter-tray { width: min(430px, 100%); min-height: 130px; display: grid; grid-template-columns: repeat(5, minmax(34px, 1fr)); align-content: center; gap: 7px; margin: 0 auto; padding: 12px; background: #315e58; border: 3px solid #204e49; border-radius: 17px; box-shadow: inset 0 0 0 3px rgba(255,255,255,.14); }
+.maths-builder-counter-tray > span { position: relative; aspect-ratio: 1.12; display: grid; place-items: center; background: #f5f2e7; border: 2px solid rgba(255,255,255,.58); border-radius: 10px; }
+.maths-builder-counter-tray > span.is-filled::after { content: ""; width: 64%; aspect-ratio: 1; background: #e29a3f; border: 3px solid #9d5d22; border-radius: 50%; box-shadow: inset 0 0 0 4px #f4bb62, 0 2px 0 rgba(30,48,42,.22); }
 .maths-finish-card-v2 { align-self: center; width: min(680px,100%); display: grid; justify-items: center; gap: 10px; padding: clamp(28px,4vw,50px); text-align: center; }
 .maths-finish-card-v2 > svg { color: var(--maths-v2-forest); }
 .maths-finish-card-v2 h2 { margin: 0; font-size: clamp(28px,3vw,40px); }
@@ -180,6 +205,9 @@
   .maths-check-card-v2 { padding: 16px 12px; overflow: visible; }
   .maths-sequence-picture { gap: 5px; padding-inline: 0; }
   .maths-sequence-picture span { width: min(15vw,58px); border-width: 3px; }
+  .maths-sequence-constructor,
+  .maths-pair-builder { padding: 11px; }
+  .maths-pair-decisions { grid-template-columns: 1fr; }
   .maths-check-card-v2 .maths-answer-grid { gap: 7px; }
   .maths-check-card-v2 .maths-answer-grid button { min-height: 58px; padding: 7px; }
   .maths-story-library-v2 { display: block; }

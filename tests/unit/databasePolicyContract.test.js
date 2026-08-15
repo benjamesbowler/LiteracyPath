@@ -34,6 +34,7 @@ function validCatalog() {
   exposed.push(row("create_pending_teacher_account_for_new_user()"));
   exposed.push(row("capture_teacher_intervention_event()"));
   exposed.push(row("reject_teacher_account_decision_event_mutation()"));
+  exposed.push(row("teacher_record_maths_evidence_unrestricted_v1(uuid, uuid, text, text, text, jsonb, timestamp with time zone, text)"));
   return exposed;
 }
 
@@ -41,12 +42,35 @@ test("security boundary grants only the explicit RPC surface and guards every te
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
   assert.equal(report.anonymousRpcCount, 22);
-  assert.equal(report.authenticatedRpcCount, 97);
+  assert.equal(report.authenticatedRpcCount, 102);
   // 9, not 8: list_school_names() joined the legacy list on 2026-08-07 when it
   // was replaced by search_school_names(text). The old no-argument form returned
   // every school name to anon in one unbounded call.
   assert.equal(report.legacyRpcCount, 9);
-  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 61);
+  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 66);
+});
+
+test("database lint repairs preserve the final boundary and honest volatility", () => {
+  const migration = fs.readFileSync(
+    new URL(
+      "../../supabase/migrations/20260814171600_database_function_volatility_contracts.sql",
+      import.meta.url
+    ),
+    "utf8"
+  );
+  const mathsV4 = fs.readFileSync(
+    new URL(
+      "../../supabase/migrations/20260814170000_maths_assessment_interaction_integrity_v4.sql",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
+  assert.match(migration, /alter function public\.teacher_class_access_summary\(uuid\) volatile/i);
+  assert.match(migration, /alter function public\.maths_validate_student_evidence_v4\(text, text, jsonb\) stable/i);
+  assert.doesNotMatch(migration, /\bv_i\s+(?:int|integer)\b/i);
+  assert.doesNotMatch(migration, /\bv_index\s+(?:int|integer)\b/i);
+  assert.match(mathsV4, /returns jsonb[\s\S]*language plpgsql stable/i);
 });
 
 test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
@@ -78,8 +102,8 @@ test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
   assert.equal(report.anonymousRpcCount, 22);
-  assert.equal(report.authenticatedRpcCount, 97);
-  assert.equal(report.privateHelperCount, 4);
+  assert.equal(report.authenticatedRpcCount, 102);
+  assert.equal(report.privateHelperCount, 5);
 });
 
 test("the signed-out school lookup cannot export the whole directory", () => {

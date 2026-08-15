@@ -87,10 +87,16 @@ for (const viewport of TARGET_VIEWPORTS) {
 }
 
 test("A3.2 Student Home keeps its complete hierarchy while card art is delayed", async ({ page }) => {
-  await page.route("**/images/home-sage/**", async route => {
-    await new Promise(resolve => setTimeout(resolve, 1200));
-    await route.continue();
+  let releaseImages;
+  const imagesReleased = new Promise(resolve => {
+    releaseImages = resolve;
   });
+  const holdImage = async route => {
+    await imagesReleased;
+    await route.continue();
+  };
+  await page.route("**/images/home-sage/**", holdImage);
+  await page.route("**/images/backdrops/**", holdImage);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/preview/student-home-preview.html", { waitUntil: "domcontentloaded" });
@@ -100,10 +106,11 @@ test("A3.2 Student Home keeps its complete hierarchy while card art is delayed",
   const firstPlaceholder = home.locator('[data-media-state="loading"]').first();
   await expect(firstPlaceholder).toBeVisible();
   await expect(primary).toBeVisible();
-  await expect(primary.locator(".hs-card-action")).toContainText("Continue Adventure Map");
+  await expect(primary).toHaveAccessibleName(/Continue Adventure Map/);
   const placeholderBox = await firstPlaceholder.boundingBox();
   expect(placeholderBox?.width).toBeGreaterThan(300);
   expect(placeholderBox?.height).toBeGreaterThan(150);
+  releaseImages();
   await expect(home.locator('[data-media-state="ready"]').first()).toBeVisible({ timeout: 10_000 });
 });
 

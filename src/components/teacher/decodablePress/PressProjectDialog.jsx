@@ -44,7 +44,7 @@ export function PressProjectDialog({ client, classId, cycleId, students, onClose
         {assetPacks.map(pack => <article key={pack.id}><h4>{pack.title}</h4><div>{pack.assets.map(asset => <figure key={asset.id}><img src={asset.src} alt={asset.alt} /><figcaption>{asset.label}</figcaption></figure>)}</div></article>)}
       </div>
     </section>
-    <fieldset><legend>Learners</legend>{students.map(student => <label key={student.id}><input type="checkbox" checked={learnerIds.includes(student.id)} onChange={() => toggle(student.id)} />{student.name}</label>)}</fieldset>
+    <fieldset><legend>Students</legend>{students.map(student => <label key={student.id}><input type="checkbox" checked={learnerIds.includes(student.id)} onChange={() => toggle(student.id)} />{student.name}</label>)}</fieldset>
     <label>Deadline (optional)<input type="date" value={deadline} onChange={event => setDeadline(event.target.value)} /></label>
     <label className="press-class-library-check"><input type="checkbox" checked={allowClass} onChange={event => setAllowClass(event.target.checked)} /> Let me approve exact revisions for the private class library</label>
     <p className="press-privacy-note">No camera, child image upload, voice recording, public sharing, comments, or likes.</p>

@@ -29,10 +29,17 @@ The only current assessment phase threshold is 70%, defined once by
 - `src/data/questionMediaResolver.js`
 - `src/data/mediaQaManifest.js`
 - `src/data/mediaQaReviewStatus.js`
+- `src/policy/betaReleasePolicy.js`
 - `src/data/childWordMediaManifest.js`
 - `src/data/vocabularyMediaLexicon.js`
 - `src/data/vocabularyAudioPreferences.js`
 - `src/data/cleanAudioManifest.js`
+
+The beta release policy keeps pending media test-visible so complete product
+flows can be exercised. It does not convert pending evidence into human
+approval. A quarantined pairing is still removed from runtime immediately, and
+the strict human-review completion check remains available separately from the
+beta deployment gate.
 
 ### Guided Reading and Story Quest
 

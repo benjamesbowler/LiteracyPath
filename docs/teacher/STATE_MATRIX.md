@@ -31,6 +31,7 @@ The exact production-reachable combinations are:
 | `assess:loading` | Current teacher's class list is still loading. |
 | `assess:empty` | Current teacher's class read completed with no classes. |
 | `assess:partial` | The current class list failed or was truncated. |
+| `progress:loading` | The selected class, roster or saved-results source needed by the report funnel is still loading. |
 | `progress:partial` | A class, roster or saved-results source needed by the report funnel is incomplete. |
 | `resources:loading` | Current teacher's class list is still loading. |
 | `resources:partial` | Current teacher's class list failed or was truncated. |

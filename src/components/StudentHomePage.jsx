@@ -77,6 +77,7 @@ import {
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import ChildHomeMusicControl from "./ChildHomeMusicControl.jsx";
 import { SubjectSwitch } from "./SubjectSwitch.jsx";
+import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { SUBJECT_IDS } from "../subjects/subjectRegistry.js";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
 
@@ -357,6 +358,7 @@ export function StudentHomePage({
     );
   });
   const [accountOpen, setAccountOpen] = useState(false);
+  const [heroMediaState, setHeroMediaState] = useState("loading");
   const [transferProgress,setTransferProgress]=useState(()=>readTransferMissionProgress(progressScopeKey));
   const [openTransferMission,setOpenTransferMission]=useState(null);
   const transferMission=useMemo(()=>{
@@ -448,8 +450,8 @@ export function StudentHomePage({
   // Tap-to-hear. The old rail carried a speaker beside every destination; the
   // redesign has two, so each one reads the whole region it heads rather than
   // one label — a pre-reader still gets every name spoken.
-  function hear(text) {
-    const spoken = speakStudentRailLabel(text, window);
+  function hear(lines) {
+    const spoken = speakStudentRailLabel(lines, window);
     setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
   }
 
@@ -759,22 +761,39 @@ export function StudentHomePage({
             alt=""
             loading="eager"
             decoding="async"
-            onError={hideOnError}
+            data-media-state={heroMediaState}
+            onLoad={() => setHeroMediaState("ready")}
+            onError={event => {
+              setHeroMediaState("error");
+              hideOnError(event);
+            }}
           />
           <div className="kg-home-hero-body kg-on-art">
             <div className="kg-home-hero-copy">
-              <span
-                className="kg-pill kg-eyebrow kg-glass-light kg-glass-light--quiet kg-home-eyebrow"
-                data-child-instruction=""
-              >
-                Carry on where you stopped
-              </span>
+              <div className="kg-home-hero-meta">
+                <span
+                  className="kg-pill kg-eyebrow kg-glass-light kg-glass-light--quiet kg-home-eyebrow"
+                  data-child-instruction=""
+                >
+                  Carry on where you stopped
+                </span>
+                {primary && (
+                  <small className="kg-home-hero-state" data-learning-state-label="">
+                    {primary.cardState?.label || "New"}
+                  </small>
+                )}
+              </div>
               <h1 className="kg-hero-title kg-home-hero-title" id="kg-home-hero-title" data-child-title="">
                 {primary ? primary.title : "Choose a place to go"}
               </h1>
               <p className="kg-body kg-home-hero-stop">
                 {primary ? heroStop : recommendation.childReason}
               </p>
+              <ChildRecommendationExplanation
+                className="kg-home-recommendation-reason"
+                reason={recommendation.childReason}
+                surface="student-home"
+              />
               <div className="kg-home-hero-actions">
                 {primary && (
                   <button
@@ -801,11 +820,9 @@ export function StudentHomePage({
                   type="button"
                   className="kg-speaker kg-speaker--lg kg-glass-light kg-home-hear-hero"
                   aria-label="Hear this"
-                  onClick={() => hear(
-                    primary
-                      ? `Carry on where you stopped. ${primary.title}. ${heroStop}`
-                      : recommendation.childReason
-                  )}
+                  onClick={() => hear(primary
+                    ? ["Carry on where you stopped", primary.title, heroStop]
+                    : [recommendation.childReason])}
                 >
                   <SpeakerGlyph />
                 </button>
@@ -894,9 +911,10 @@ export function StudentHomePage({
               type="button"
               className="kg-speaker kg-glass kg-home-explore-hear"
               aria-label="Hear this"
-              onClick={() => hear(
-                `Or go anywhere you like. ${doors.map(door => door.title).join(". ")}.`
-              )}
+              onClick={() => hear([
+                "Or go anywhere you like",
+                ...doors.map(door => door.title)
+              ])}
             >
               <SpeakerGlyph size={22} />
             </button>
@@ -923,6 +941,7 @@ export function StudentHomePage({
                 data-home-priority="choice"
                 data-child-emphasis="choice"
                 data-learning-state={door.cardState?.label || "New"}
+                data-progress-marker={door.cardState?.progressText || undefined}
                 style={{ "--kg-tint": door.tint }}
               >
                 {/* The icon chip rides ON the artwork, not in the footer. In
@@ -935,6 +954,9 @@ export function StudentHomePage({
                   <span className="kg-home-door-chip">
                     <DoorIcon name={door.icon} />
                   </span>
+                  <small className="kg-home-door-state" data-learning-state-label="">
+                    {door.cardState?.label || "New"}
+                  </small>
                 </span>
                 <span className="kg-home-door-foot">
                   <span className="kg-home-door-text">

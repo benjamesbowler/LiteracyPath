@@ -31,3 +31,13 @@ authoritative source and, when the choice is durable, record a linked decision.
 
 No second-brain infrastructure blocker is recorded. The Codex startup hook was
 installed, reviewed, and trusted on 2026-08-03.
+
+## Current beta release state
+
+- Pending media is test-visible during beta without being labelled human
+  approved. Quarantined pairings remain excluded immediately. The governing
+  decision is `decisions/2026-08-15-beta-media-test-visibility.md`.
+- The linked Supabase project was verified on 2026-08-15 with migrations applied
+  through `20260814172000`, all 101 app-called RPCs visible to PostgREST, and zero
+  linked database-lint errors. Recheck hosted state before relying on this dated
+  observation for a later release.

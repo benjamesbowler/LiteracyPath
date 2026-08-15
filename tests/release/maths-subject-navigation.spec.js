@@ -23,7 +23,7 @@ test("teacher can switch subjects and the Maths route survives reload, Back and 
   await page.getByRole("button", { name: "Maths" }).click();
   await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();
   await expect.poll(() => new URL(page.url()).hash).toBe(`#maths/teacher?class=${CLASS_ID}`);
-  await expect(page.getByText("Every tool uses the same eight learning goals.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Teaching tools" })).toBeVisible();
 
   await page.reload();
   await expect(page.getByRole("heading", { name: "Maths teaching" })).toBeVisible();

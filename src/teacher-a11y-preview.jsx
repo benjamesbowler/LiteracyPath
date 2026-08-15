@@ -392,6 +392,7 @@ function Dashboard({ page }) {
       hasSchool={true}
       saveSchool={asyncNoop}
       activitySyncHealthSeedRows={[]}
+      progressEvidenceClient={null}
     />
   );
 }

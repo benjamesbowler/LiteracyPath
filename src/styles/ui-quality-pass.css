@@ -658,8 +658,10 @@
     grid-template-rows: none;
   }
 
-  .kg-stage .kg-quest-card {
-    min-height: 250px;
+  .kg-stage .kg-quests button.kg-quest-card {
+    /* The glass shell's physical hit floor is !important; match that cascade
+       deliberately so the artwork row cannot collapse to a one-pixel strip. */
+    min-height: 250px !important;
   }
 
   /* Arcade */
@@ -717,14 +719,104 @@
   }
 
   .kg-stage .student-surface-phonics .phonics-letter-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: none;
     flex: none;
     gap: 8px;
   }
 
   .kg-stage .student-surface-phonics .phonics-letter-card {
-    min-height: 68px;
+    min-height: 80px !important;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-letter-card.recommended .phonics-letter-symbol {
+    transform: translateY(-9px);
+  }
+
+  /* Books front door. Its desktop continuation panel has a fixed cover track
+     and a trailing action track; on a phone that third track used to sit past
+     the right edge, leaving the Start reading words outside the viewport even
+     though part of the button was still technically visible. */
+  .kg-stage .kg-books {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kg-stage .kg-books-head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .kg-stage .kg-books-head > div:first-child {
+    flex: 1 0 100%;
+  }
+
+  .kg-stage .kg-books-head > .kg-spacer {
+    display: none;
+  }
+
+  .kg-stage .kg-segment-tray,
+  .kg-stage .kg-collection-tray {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .kg-stage .kg-segment,
+  .kg-stage .kg-collection-chip {
+    min-height: 44px;
+    padding-inline: 12px;
+    font-size: 14px;
+  }
+
+  .kg-stage .kg-books-stories {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+    padding-inline: 10px;
+    font-size: 15px;
+  }
+
+  .kg-stage .kg-continue {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  .kg-stage .kg-continue-cover {
+    width: 96px;
+    height: 96px;
+  }
+
+  .kg-stage .kg-continue-title {
+    font-size: 22px;
+  }
+
+  .kg-stage .kg-continue-reason {
+    margin-top: 4px;
+    font-size: 13px;
+  }
+
+  .kg-stage .kg-continue-actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 52px;
+    gap: 8px;
+  }
+
+  .kg-stage .kg-continue-actions .kg-button {
+    width: 100%;
+  }
+
+  .kg-stage .kg-shelves {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kg-stage .kg-shelf-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
   }
 
   /* Reading library */
@@ -961,5 +1053,30 @@
     width: 100vw !important;
     height: 100dvh;
     transform: translate(-50%, -50%);
+  }
+
+  .kg-stage .kg-quests-head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .kg-stage .kg-quests-head > .kg-spacer {
+    display: none;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment-tray {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    min-width: 0;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment {
+    min-width: 0 !important;
+    justify-content: center;
+    padding-inline: 8px;
   }
 }

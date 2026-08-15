@@ -1,34 +1,39 @@
 import { expect, test } from "@playwright/test";
+import { GUIDED_READING_QUIZZES } from "../../src/data/generated/guidedReadingQuizzes.generated.js";
+
+const BOOK_ID = "level-c-nonfiction-01-bees";
+const BOOK_QUIZ = GUIDED_READING_QUIZZES[BOOK_ID];
 
 test.describe("Guided Reading post-book quiz", () => {
   test("keeps focus, scoring, progression, and reset state reliable", async ({ page }) => {
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
 
-    await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees&quiz=1");
+    await page.goto(`/preview/guided-reading-preview.html?book=${BOOK_ID}&quiz=1`);
 
     const dialog = page.getByRole("dialog", { name: "Book quiz" });
-    const firstQuestion = page.getByRole("heading", { name: "What sweet liquid do worker bees collect?" });
+    const firstQuestion = page.getByRole("heading", { name: BOOK_QUIZ.questions[0].prompt });
     await expect(dialog).toBeVisible();
     await expect(firstQuestion).toBeFocused();
 
-    await page.getByRole("button", { name: "sap", exact: true }).click();
+    const firstWrongAnswer = BOOK_QUIZ.questions[0].choices.find(choice => choice !== BOOK_QUIZ.questions[0].answer);
+    await page.getByRole("button", { name: firstWrongAnswer, exact: true }).click();
     await expect(dialog.getByRole("status").filter({ hasText: "Not that one - try again!" })).toBeVisible();
 
-    await page.getByRole("button", { name: "nectar", exact: true }).click();
-    const secondQuestion = page.getByRole("heading", { name: "Why is moving pollen between flowers important?" });
+    await page.getByRole("button", { name: BOOK_QUIZ.questions[0].answer, exact: true }).click();
+    const secondQuestion = page.getByRole("heading", { name: BOOK_QUIZ.questions[1].prompt });
     await expect(secondQuestion).toBeVisible();
     await expect(secondQuestion).toBeFocused();
 
     await page.keyboard.press("Shift+Tab");
     expect(await page.evaluate(() => Boolean(document.activeElement?.closest("[role='dialog']")))).toBe(true);
 
-    await page.getByRole("button", { name: "it helps plants make seeds", exact: true }).click();
-    const thirdQuestion = page.getByRole("heading", { name: "Which action does the book recommend to help bees?" });
+    await page.getByRole("button", { name: BOOK_QUIZ.questions[1].answer, exact: true }).click();
+    const thirdQuestion = page.getByRole("heading", { name: BOOK_QUIZ.questions[2].prompt });
     await expect(thirdQuestion).toBeVisible();
     await expect(thirdQuestion).toBeFocused();
 
-    await page.getByRole("button", { name: "plant flowers", exact: true }).click();
+    await page.getByRole("button", { name: BOOK_QUIZ.questions[2].answer, exact: true }).click();
     const result = dialog.getByRole("status");
     await expect(result).toContainText("2/3 right on the first try!");
     await expect(result).toBeFocused();
@@ -49,10 +54,11 @@ test.describe("Guided Reading post-book quiz", () => {
     const pageErrors = [];
     page.on("pageerror", error => pageErrors.push(error.message));
 
-    await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees");
+    await page.goto(`/preview/guided-reading-preview.html?book=${BOOK_ID}`);
 
-    const reader = page.getByLabel("Bees full-screen reader");
+    const reader = page.getByRole("region", { name: /full-screen reader$/ });
     await expect(reader).toBeVisible();
+    await expect(reader.getByRole("heading", { name: "Honeybees and Pollination" })).toBeVisible();
     await expect(reader.getByText(/Page 1 of \d+/, { exact: true })).toBeVisible();
 
     await page.keyboard.press("ArrowRight");

@@ -14,6 +14,10 @@ const v3Sql = fs.readFileSync(
   new URL("../../supabase/migrations/20260814143000_maths_assessment_multi_direction_v3.sql", import.meta.url),
   "utf8"
 );
+const v4Sql = fs.readFileSync(
+  new URL("../../supabase/migrations/20260814170000_maths_assessment_interaction_integrity_v4.sql", import.meta.url),
+  "utf8"
+);
 
 test("Maths v2 retains queued v1 evidence and dispatches by content version", () => {
   assert.match(sql, /rename to maths_validate_student_evidence_v1/i);
@@ -55,4 +59,39 @@ test("Maths v3 validates both assessment directions while retaining queued versi
   assert.match(v3Sql, /v_expected_representation/i);
   assert.match(v3Sql, /return public\.maths_validate_student_evidence_v2/i);
   assert.match(v3Sql, /revoke all on function public\.maths_validate_student_evidence_v3/i);
+});
+
+test("Maths v4 binds declared assessment purpose and direction to the authored item", () => {
+  assert.match(v4Sql, /p_content_version='maths-foundation-number-v1'/i);
+  assert.match(v4Sql, /p_content_version='maths-foundation-number-v2'/i);
+  assert.match(v4Sql, /p_content_version='maths-foundation-number-v3'/i);
+  assert.match(v4Sql, /p_content_version='maths-foundation-number-v4'/i);
+  assert.match(v4Sql, /v_response_direction is distinct from v_expected_direction/i);
+  assert.match(v4Sql, /v_evidence_purpose is distinct from v_expected_purpose/i);
+  assert.match(v4Sql, /renderedRepresentation' ->> 'responseDirection'/i);
+  assert.match(v4Sql, /renderedRepresentation' ->> 'evidencePurpose'/i);
+  assert.match(v4Sql, /return public\.maths_validate_student_evidence_v1/i);
+});
+
+test("Maths v4 checks the actual interaction trace rather than trusting a client label", () => {
+  assert.match(v4Sql, /v_expected_response_mode := case/i);
+  assert.match(v4Sql, /construct_sequence/i);
+  assert.match(v4Sql, /construct_quantity/i);
+  assert.match(v4Sql, /construct_pair_then_select/i);
+  assert.match(v4Sql, /jsonb_array_length\(v_response_trace -> 'options'\) <> 3/i);
+  assert.match(v4Sql, /abs\(v_value-v_last\) <> 1/i);
+  assert.match(v4Sql, /v_pairs_created is distinct from v_pair_target/i);
+  assert.match(v4Sql, /count\(\*\) filter \(where action\.value='add'\) - count\(\*\) filter \(where action\.value='remove'\)/i);
+  assert.match(v4Sql, /v_response_trace ->> 'representation' is distinct from v_item_representation/i);
+  assert.match(v4Sql, /p_evidence ->> 'representation'='sequential_access_count'[\s\S]*?accessMode'='non_visual_description'/i);
+  assert.match(v4Sql, /accessMode'='visual_flash'[\s\S]*?flashDurationMs'\)::integer=1500/i);
+  assert.match(v4Sql, /maths_validate_student_evidence_v3/i);
+  assert.match(v4Sql, /revoke all on function public\.maths_validate_student_evidence_v4/i);
+});
+
+test("Maths v4 preserves an explicit not-sure interaction as neutral", () => {
+  assert.match(v4Sql, /v_response_mode is distinct from 'not_sure'/i);
+  assert.match(v4Sql, /'classification','not_checked'/i);
+  assert.match(v4Sql, /'observedSignals','\[\]'::jsonb/i);
+  assert.match(v4Sql, /'misconceptionCodes','\[\]'::jsonb/i);
 });

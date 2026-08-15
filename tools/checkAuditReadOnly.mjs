@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 import { spawnSync } from "node:child_process";
@@ -37,22 +38,10 @@ for (const [name, commandValue] of Object.entries(packageJson.scripts || {})) {
 }
 
 const originalFixturePath = path.join(repoRoot, "docs", "validation", "audit-mode-fixture.txt");
-const artifactFixturePath = path.join(
-  repoRoot,
-  "docs",
-  "release",
-  "artifacts",
-  "audits",
-  "auditWriteFixture",
-  "repo",
-  "docs",
-  "validation",
-  "audit-mode-fixture.txt"
-);
 if (fs.existsSync(originalFixturePath)) {
   failures.push("Fixture precondition failed: docs/validation/audit-mode-fixture.txt already exists.");
 }
-fs.rmSync(artifactFixturePath, { force: true });
+const fixtureTempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "literacypath-audit-contract-"));
 const smoke = spawnSync(
   process.execPath,
   [
@@ -60,7 +49,11 @@ const smoke = spawnSync(
     "--check",
     "tests/fixtures/auditWriteFixture.mjs"
   ],
-  { cwd: repoRoot, encoding: "utf8" }
+  {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: { ...process.env, TMPDIR: fixtureTempRoot }
+  }
 );
 if (smoke.status !== 0) {
   failures.push(`Audit write-guard smoke failed: ${smoke.stderr || smoke.stdout}`);
@@ -68,9 +61,24 @@ if (smoke.status !== 0) {
 if (fs.existsSync(originalFixturePath)) {
   failures.push("Check mode wrote the fixture into tracked docs/validation.");
 }
-if (!fs.existsSync(artifactFixturePath)) {
+const fixtureAuditRoot = path.join(
+  fixtureTempRoot,
+  "literacypath-audits",
+  "auditWriteFixture"
+);
+const redirectedFixtureExists = fs.existsSync(fixtureAuditRoot)
+  && fs.readdirSync(fixtureAuditRoot).some(runId => fs.existsSync(path.join(
+    fixtureAuditRoot,
+    runId,
+    "repo",
+    "docs",
+    "validation",
+    "audit-mode-fixture.txt"
+  )));
+if (!redirectedFixtureExists) {
   failures.push("Check mode did not redirect the fixture into the temporary audit artifact directory.");
 }
+fs.rmSync(fixtureTempRoot, { recursive: true, force: true });
 
 if (failures.length) {
   console.error("Read-only audit mode contract failed:");

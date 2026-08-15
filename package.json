@@ -35,6 +35,7 @@
     "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js",
     "check:media-quality": "node --test tests/unit/assessmentMediaEvidence.test.js tests/unit/assessmentMediaPicker.test.js",
     "check:media-review-release": "node tools/checkMediaQaRelease.mjs",
+    "check:media-review-beta": "node tools/checkMediaQaRelease.mjs --beta",
     "record:story-media-release-approval": "node tools/recordStoryMediaReleaseApproval.mjs",
     "check:media-overwrite-risk": "node tools/checkMediaOverwriteRisk.js",
     "check:repo-hygiene": "node tools/runAuditScript.mjs --check tools/checkRepoHygiene.js",
@@ -280,7 +281,7 @@
       "uuid": "11.1.1"
     },
     "brace-expansion": "5.0.9",
-    "nanoid": "3.3.17",
+    "nanoid": "3.3.18",
     "postcss": "8.5.23"
   }
 }

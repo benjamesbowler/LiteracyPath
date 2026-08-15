@@ -15,6 +15,7 @@ import {
   CREATURE_BODIES,
   CREATURE_SLOTS,
   BOOK_CHARACTER_PRESETS,
+  getDye,
   piecesForSlot
 } from "../../data/creatureParts.js";
 import { playPopSound, playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
@@ -199,32 +200,38 @@ export default function CreatureCreator({
           </Option>
         ))}
 
-        {tab === "colour" && characterLooks.map(look => (
-          <Option
-            key={look.id}
-            label={look.label}
-            selected={creature.dye === look.id}
-            onPick={() => setMany({
-              dye: look.id,
-              pose: "idle",
-              equipped: { ...EMPTY_OUTFIT },
-              visualVariant: `look-${look.variant}`
-            })}
-          >
-            <BookCharacterAvatar
-              creature={{
-                ...creature,
-                ...BOOK_CHARACTER_PRESETS[creature.body],
+        {tab === "colour" && characterLooks.map(look => {
+          const dye = getDye(look.id);
+          return (
+            <Option
+              key={look.id}
+              label={look.label}
+              cost={dye.cost}
+              balance={sparkBalance}
+              locked={!own.has(dye.id)}
+              selected={creature.dye === look.id}
+              onPick={() => setMany({
                 dye: look.id,
                 pose: "idle",
                 equipped: { ...EMPTY_OUTFIT },
                 visualVariant: `look-${look.variant}`
-              }}
-              size={66}
-              decorative
-            />
-          </Option>
-        ))}
+              })}
+            >
+              <BookCharacterAvatar
+                creature={{
+                  ...creature,
+                  ...BOOK_CHARACTER_PRESETS[creature.body],
+                  dye: look.id,
+                  pose: "idle",
+                  equipped: { ...EMPTY_OUTFIT },
+                  visualVariant: `look-${look.variant}`
+                }}
+                size={66}
+                decorative
+              />
+            </Option>
+          );
+        })}
 
         {tab === "expression" && EXPRESSIONS.map(expression => (
           <Option

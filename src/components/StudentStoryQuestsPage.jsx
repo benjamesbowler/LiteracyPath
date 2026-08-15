@@ -222,7 +222,6 @@ export function StudentStoryQuestsPage({
                       />
                       <span
                         className={`kg-quest-badge kg-quest-badge--${card.state}`}
-                        {...(index === 0 ? { "data-child-emphasis-cue": "" } : {})}
                       >
                         {card.badge}
                       </span>
@@ -230,6 +229,11 @@ export function StudentStoryQuestsPage({
                     <span className="kg-quest-foot">
                       <strong className="kg-quest-title">{card.title}</strong>
                       <small className="kg-quest-note">{card.note}</small>
+                      {index === 0 && (
+                        <small className="kg-quest-action" data-child-emphasis-cue="">
+                          {card.state === "carry-on" ? "Carry on" : "Start story"}
+                        </small>
+                      )}
                     </span>
                   </button>
                 ))}

@@ -148,6 +148,28 @@
   color: #FFFFFF;
 }
 
+.kg-stage .kg-home-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--kg-space-9);
+}
+
+.kg-stage .kg-home-hero-state,
+.kg-stage .kg-home-door-state {
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: var(--kg-radius-pill);
+  font-family: var(--kg-font-body);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.kg-stage .kg-home-hero-state {
+  padding: 6px 10px;
+  background: rgba(17, 47, 39, 0.58);
+  color: #FFFFFF;
+}
+
 .kg-stage .kg-home-hero-title {
   margin: 10px 0 0;
 }
@@ -156,6 +178,16 @@
   margin: var(--kg-space-4) 0 0;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.86);
+}
+
+.kg-stage .kg-home-recommendation-reason {
+  display: block;
+  margin-top: var(--kg-space-4);
+  max-width: 52ch;
+  font-family: var(--kg-font-body);
+  font-size: 13px;
+  font-weight: 750;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .kg-stage .kg-home-hero-actions {
@@ -579,6 +611,17 @@
 .kg-stage .kg-home-door-chip .kg-icon {
   width: 21px;
   height: 21px;
+}
+
+.kg-stage .kg-home-door-state {
+  position: absolute;
+  z-index: 3;
+  top: 9px;
+  right: 9px;
+  padding: 5px 8px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--kg-ink-deep);
+  box-shadow: 0 8px 16px -12px rgba(20, 45, 38, 0.7);
 }
 
 .kg-stage .kg-home-door-text {

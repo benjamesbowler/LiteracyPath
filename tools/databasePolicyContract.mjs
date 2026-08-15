@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260812121000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260814172000_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
@@ -61,6 +61,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_create_press_project(uuid, uuid[], jsonb)",
   "teacher_create_worksheet_instance(uuid, uuid[], jsonb)",
   "teacher_delete_empty_class(uuid)",
+  "teacher_duplicate_maths_assignment(uuid, uuid, timestamp with time zone)",
   "teacher_delete_learner_data_staged(uuid, uuid, text, text)",
   "teacher_delete_planned_intervention(uuid)",
   "teacher_delete_saved_assessment_report(text)",
@@ -73,11 +74,13 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_get_live_lesson_snapshot(uuid)",
   "teacher_list_learner_data_rights(uuid)",
   "teacher_list_maths_assignments(uuid, boolean)",
+  "teacher_list_maths_media_issues(uuid, boolean)",
   "teacher_list_press_work(uuid)",
   "teacher_mark_intervention_delivered(uuid)",
   "teacher_prepare_learner_deletion(uuid, text, text)",
   "teacher_read_lesson_plan(uuid)",
   "teacher_read_maths_evidence(uuid, uuid, integer)",
+  "teacher_read_maths_evidence_filtered_page(uuid, uuid, timestamp with time zone, text, integer, timestamp with time zone, uuid)",
   "teacher_read_maths_evidence_page(uuid, uuid, integer, timestamp with time zone, uuid)",
   "teacher_read_maths_sync_health(uuid)",
   "teacher_read_worksheet_history(uuid)",
@@ -89,6 +92,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)",
   "teacher_regenerate_class_code(uuid)",
   "teacher_reset_student_progress(uuid, timestamp with time zone)",
+  "teacher_resolve_maths_media_issue(uuid, text)",
   "teacher_resolve_worksheet_code(text)",
   "teacher_review_instructional_group(uuid, uuid[], jsonb)",
   "teacher_review_book_revision(uuid, uuid, text, jsonb)",
@@ -107,6 +111,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_transfer_student(uuid, uuid, uuid)",
   "teacher_set_school(text)",
   "teacher_update_draft_lesson_plan(uuid, integer, uuid[], jsonb, timestamp with time zone)",
+  "teacher_update_maths_assignment_due_at(uuid, uuid, timestamp with time zone)",
   "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)"
 ]);
 

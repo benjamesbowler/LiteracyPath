@@ -1,6 +1,6 @@
 import { APPROVED_FOUNDATION_SKILL_IDS, mathsSkillById } from "../curriculum/mathsSkillTree.js";
 
-export const MATHS_CONTENT_VERSION = "maths-foundation-number-v3";
+export const MATHS_CONTENT_VERSION = "maths-foundation-number-v4";
 export const MATHS_LESSON_STAGES = Object.freeze([
   "retrieve", "notice", "model", "make", "explain", "apply", "check"
 ]);
@@ -20,6 +20,78 @@ export const MATHS_LESSON_STAGE_GOALS = Object.freeze({
   "F-N-COMPARE": Object.freeze({ make: "Make 6 in group A and 4 in group B.", apply: "Make two equal non-empty groups.", check: "Make two different non-empty groups." }),
   "F-N-PART-5": Object.freeze({ make: "Split 5 into 2 and 3.", apply: "Find a different split of 5.", check: "Split 5 into 1 and 4." }),
   "F-N-PART-10": Object.freeze({ make: "Show 10 as 6 and 4.", apply: "Show a different two-part way to make 10.", check: "Show 10 as 7 and 3." })
+});
+
+const repairProgression = (possibleSignal, steps) => Object.freeze({
+  possibleSignal,
+  steps: Object.freeze(steps)
+});
+
+export const MATHS_LESSON_REPAIR_PROGRESSIONS_BY_SKILL = Object.freeze({
+  "F-N-SEQ-20": repairProgression(
+    "The path does not yet change by one at each step.",
+    [
+      "Point to the number immediately before the place being worked on.",
+      "Move one space and say the next number while the marker moves.",
+      "Read the three-number section forwards, then backwards, to verify its order."
+    ]
+  ),
+  "F-N-COUNT-10": repairProgression(
+    "The collection and the stated total do not yet match one-to-one.",
+    [
+      "Separate the counters into not-counted and counted spaces.",
+      "Move one counter for each number word without recounting a moved counter.",
+      "Cover the collection and ask what the final number says about the whole set."
+    ]
+  ),
+  "F-N-COUNT-20": repairProgression(
+    "The model does not yet show one complete ten and the remaining ones clearly.",
+    [
+      "Fill and name one complete ten before working with the extra counters.",
+      "Count on from ten while moving only the extra counters.",
+      "Rearrange the extras and verify that the total remains ten and some more."
+    ]
+  ),
+  "F-N-SUBITISE-5": repairProgression(
+    "The quantity is not yet organised into visible smaller parts.",
+    [
+      "Hold the pattern still and point to one familiar smaller part.",
+      "Point to the remaining part and join the two parts with the word ‘and’.",
+      "Show the same quantity in a different arrangement and verify the whole."
+    ]
+  ),
+  "F-N-MATCH": repairProgression(
+    "The numeral, spoken number and constructed collection do not yet name the same amount.",
+    [
+      "Say the numeral as a number word before touching the model.",
+      "Build one object for each number word until the named amount is complete.",
+      "Touch-count the finished collection once and compare it with the unchanged numeral."
+    ]
+  ),
+  "F-N-COMPARE": repairProgression(
+    "The two collections are not yet arranged to prove more, fewer or the same.",
+    [
+      "Align both collections at the same starting point.",
+      "Pair one object from each collection without changing either quantity.",
+      "Use any unpaired objects to verify more, fewer or the same."
+    ]
+  ),
+  "F-N-PART-5": repairProgression(
+    "The two parts do not yet preserve the fixed whole of five.",
+    [
+      "Rebuild and name the whole five before separating it.",
+      "Move one counter at a time between the two parts without adding or removing any.",
+      "Recombine both parts and verify that the whole is still five."
+    ]
+  ),
+  "F-N-PART-10": repairProgression(
+    "The two colours do not yet fill the fixed whole of ten.",
+    [
+      "Return to the complete ten-frame and name the whole.",
+      "Name the visible part, then fill only the spaces in its complementary part.",
+      "Name both parts and verify that together they occupy exactly ten spaces."
+    ]
+  )
 });
 
 const frameParts = state => [
@@ -98,6 +170,32 @@ export function mathsLessonStageIsReady(skillId, stage, state, selectedThought =
     return stage === "make" ? a === 6 && b === 4 : stage === "apply" ? total === 10 && a > 0 && b > 0 && !([6, 4].includes(a) && [6, 4].includes(b)) : a === 7 && b === 3;
   }
   return false;
+}
+
+export function mathsLessonStageFeedback(skillId, stage, state, selectedThought = "", actionCount = 0, repairAttempt = 0) {
+  const ready = mathsLessonStageIsReady(skillId, stage, state, selectedThought, actionCount);
+  if (ready) return Object.freeze({ ready: true, possibleSignal: null, repairStep: null, repairSteps: Object.freeze([]) });
+  if (!state || actionCount <= 0) return Object.freeze({
+    ready: false,
+    possibleSignal: "The learner has not yet changed the mathematical model in this stage.",
+    repairStep: "Make one deliberate change to the model, then compare it with the challenge.",
+    repairSteps: Object.freeze(["Make one deliberate change to the model, then compare it with the challenge."])
+  });
+  if (["retrieve", "notice", "model", "explain"].includes(stage) && !selectedThought) return Object.freeze({
+    ready: false,
+    possibleSignal: "The model has been changed, but the mathematical relationship has not yet been identified.",
+    repairStep: "Point to the model and choose the statement that describes what the model proves.",
+    repairSteps: Object.freeze(["Point to the model and choose the statement that describes what the model proves."])
+  });
+  const progression = MATHS_LESSON_REPAIR_PROGRESSIONS_BY_SKILL[skillId];
+  if (!progression) return Object.freeze({ ready: false, possibleSignal: "The model does not yet match the challenge.", repairStep: null, repairSteps: Object.freeze([]) });
+  const safeAttempt = Math.max(0, Math.min(progression.steps.length - 1, Number(repairAttempt) || 0));
+  return Object.freeze({
+    ready: false,
+    possibleSignal: progression.possibleSignal,
+    repairStep: progression.steps[safeAttempt],
+    repairSteps: progression.steps
+  });
 }
 
 export function mathsLessonInstruction(recipe, stage) {
@@ -189,7 +287,12 @@ export const mathsActivityRecipes = Object.freeze(APPROVED_FOUNDATION_SKILL_IDS.
     instructionAudioId: `activity:${skillId}-${phase}-${index + 1}:instruction`,
     initialState: { maximum: profile.maximum },
     targetState: null,
-    feedbackRules: [],
+    feedbackRules: Object.freeze([Object.freeze({
+      id: `${skillId}-${phase}-model-repair`,
+      when: "model_not_ready",
+      possibleSignal: MATHS_LESSON_REPAIR_PROGRESSIONS_BY_SKILL[skillId].possibleSignal,
+      steps: MATHS_LESSON_REPAIR_PROGRESSIONS_BY_SKILL[skillId].steps
+    })]),
     evidenceSource: ["independent", "transfer"].includes(phase) ? "independent_practice" : "guided_practice",
     contentVersion: MATHS_CONTENT_VERSION
   }));

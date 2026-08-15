@@ -4,19 +4,19 @@ import { getGuidedReadingMeasure } from "../../src/policy/guidedReadingMeasure.j
 
 const LEVEL_CASES = [
   {
-    bookId: "first-facts-level-a-01-colors",
+    bookId: "first-facts-level-a-03-big-and-little",
     level: "A",
-    title: "Colors"
+    title: "Big and Little"
   },
   {
-    bookId: "first-facts-a-01-look-at-the-colours",
+    bookId: "gr-b-32",
     level: "B",
-    title: "Look at the Colours!"
+    title: "Fruits"
   },
   {
     bookId: "level-c-nonfiction-01-bees",
     level: "C",
-    title: "Bees"
+    title: "Honeybees and Pollination"
   }
 ];
 

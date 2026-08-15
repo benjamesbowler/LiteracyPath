@@ -45,6 +45,11 @@ const baseEvidence = Object.freeze({
   occurredAt: "2026-08-12T00:00:00.000Z",
   contentVersion: "maths-foundation-v1"
 });
+const teacherEvidence = Object.freeze({
+  ...baseEvidence,
+  eventType: "teacher_observation",
+  evidence: Object.freeze({ schemaVersion: 1, source: "teacher_observation", outcome: "not_checked", representation: "counter_tray" })
+});
 
 test("student Maths evidence is queued before delivery without persisting the session token", async () => {
   const storage = new MemoryStorage();
@@ -105,7 +110,7 @@ test("repeating a failed client event reuses one durable queue record", async ()
       studentId: "student-a",
       clientEventId: "same-event",
       storage,
-      ...baseEvidence
+      ...teacherEvidence
     });
   }
 
@@ -130,7 +135,7 @@ test("the same client event id remains distinct across learners", async () => {
       studentId,
       clientEventId: "shared-event-id",
       storage,
-      ...baseEvidence
+      ...teacherEvidence
     });
   }
 
@@ -156,7 +161,7 @@ test("learner cleanup removes only Maths evidence belonging to that learner", as
     studentId: "student-a",
     clientEventId: "student-a-event",
     storage,
-    ...baseEvidence
+    ...teacherEvidence
   });
   storage.setItem("lp-maths-lesson:v1:student-a:F-N-COUNT-10", "1");
   storage.setItem("lp-maths-lesson:v2:student-a:F-N-PART-10", JSON.stringify({ version: 2, step: 3 }));
@@ -169,7 +174,7 @@ test("learner cleanup removes only Maths evidence belonging to that learner", as
     studentId: "student-b",
     clientEventId: "student-b-event",
     storage,
-    ...baseEvidence
+    ...teacherEvidence
   });
 
   assert.deepEqual(
@@ -220,6 +225,16 @@ test("the store rejects unversioned or unknown Maths evidence before networking"
     /Unknown Maths evidence event type/
   );
   assert.throws(
+    () => recordTeacherMathsEvidence({
+      client,
+      teacherId: "teacher-a",
+      classId: "class-a",
+      studentId: "student-a",
+      ...baseEvidence
+    }),
+    /Teachers cannot record Maths event type/
+  );
+  assert.throws(
     () => recordStudentMathsEvidence({
       client,
       token: "token",
@@ -246,7 +261,7 @@ test("a permanent backend rejection is removed instead of poisoning the retry qu
     studentId: "student-a",
     clientEventId: "conflicting-event",
     storage,
-    ...baseEvidence
+    ...teacherEvidence
   });
 
   assert.equal(result.durable, false);

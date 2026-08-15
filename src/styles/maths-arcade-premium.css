@@ -1,0 +1,587 @@
+/* Premium Foundation Maths play layer. These rules are isolated from the
+   Literacy arcade and keep the Maths child surfaces inside the shared shell. */
+
+.maths-student-area-v2[data-child-surface="maths-arcade"] {
+  grid-template-rows: max-content max-content;
+  align-content: start;
+}
+
+.maths-game-stage-v2 {
+  position: relative;
+  grid-template-rows: auto max-content auto auto;
+  align-content: start;
+  align-self: start;
+  height: max-content;
+  min-height: min(640px, calc(100dvh - 156px));
+  max-height: none;
+  overflow: visible;
+}
+.maths-game-stage-v2 > .maths-arcade-mechanic { min-height: max-content; }
+
+.maths-arcade-mission-tools {
+  display: grid;
+  justify-items: end;
+  gap: 9px;
+}
+
+.maths-arcade-session-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.maths-arcade-session-actions button {
+  min-width: 112px;
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border: 2px solid #8db2a8;
+  border-radius: 13px;
+  color: #174f46;
+  background: #fff;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.maths-arcade-session-actions button[aria-pressed="true"] {
+  color: #fff;
+  background: #1d6f61;
+  border-color: #1d6f61;
+}
+
+.maths-game-pause-overlay {
+  z-index: 12;
+  position: absolute;
+  inset: 104px 16px 80px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  border: 2px solid #8bb2a7;
+  border-radius: 20px;
+  color: #17483f;
+  text-align: center;
+  background: rgba(248, 252, 248, .96);
+  backdrop-filter: blur(10px);
+}
+
+.maths-game-pause-overlay strong { font-size: clamp(1.35rem, 3vw, 2rem); }
+.maths-game-pause-overlay span { max-width: 34ch; color: #4f6962; font-weight: 700; }
+
+.maths-number-trail-three {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.maths-number-trail-three.is-loading,
+.maths-number-trail-three.is-fallback { opacity: 0; }
+.maths-number-trail-three-canvas { width: 100% !important; height: 100% !important; }
+.maths-number-trail-v2 .maths-mountain-layer { z-index: 0; }
+.maths-number-trail-v2 .maths-trail-sequence,
+.maths-number-trail-v2 .maths-trail-stones { z-index: 4; }
+
+.maths-arcade-mechanic button,
+.maths-arcade-submit,
+.maths-arcade-continue {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* kids-glass owns a global 45px !important hit-area floor. Arcade actions
+   deliberately exceed that floor so young learners can target them reliably. */
+.kg-stage .maths-student-area .maths-game-stage-v2 .maths-arcade-mechanic button,
+.kg-stage .maths-student-area .maths-game-stage-v2 .maths-arcade-session-actions button,
+.kg-stage .maths-student-area .maths-game-stage-v2 .maths-arcade-continue,
+.kg-stage .maths-student-area .maths-area-heading-v2 > button {
+  min-height: 60px !important;
+}
+.maths-game-pause-overlay { pointer-events: none; }
+
+/* The library preview carries a miniature, world-specific silhouette instead
+   of repeating one abstract blob treatment five times. */
+.maths-game-grid-v2 .is-mountain .maths-game-card-world i {
+  bottom: -8px;
+  border-radius: 0;
+  background: rgba(48, 105, 78, .46);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.maths-game-grid-v2 .is-mountain .maths-game-card-world i:nth-of-type(2) { top: auto; right: -10px; width: 116px; height: 110px; }
+.maths-game-grid-v2 .is-garden .maths-game-card-world i {
+  width: 25px;
+  height: 25px;
+  background: #ffe06f;
+  box-shadow: 0 0 18px rgba(255, 224, 111, .86);
+}
+.maths-game-grid-v2 .is-garden .maths-game-card-world i:nth-of-type(1) { left: 20px; bottom: 30px; }
+.maths-game-grid-v2 .is-garden .maths-game-card-world i:nth-of-type(2) { top: 28px; right: 20px; width: 19px; height: 19px; }
+.maths-game-grid-v2 .is-garden .maths-game-card-world i:nth-of-type(3) { right: 32px; bottom: 18px; width: 31px; height: 31px; }
+.maths-game-grid-v2 .is-foundry .maths-game-card-world i {
+  border: 5px solid rgba(111, 57, 43, .32);
+  border-radius: 12px;
+  background: rgba(255, 242, 210, .48);
+  transform: rotate(14deg);
+}
+.maths-game-grid-v2 .is-meadow .maths-game-card-world i {
+  width: 48px;
+  height: 38px;
+  border: 3px solid rgba(108, 70, 43, .4);
+  border-radius: 7px;
+  background: rgba(245, 208, 153, .66);
+}
+.maths-game-grid-v2 .is-river .maths-game-card-world i {
+  width: 20px;
+  height: 92px;
+  border: 3px solid rgba(82, 50, 27, .42);
+  border-radius: 5px;
+  background: rgba(219, 151, 79, .78);
+  transform: rotate(90deg);
+}
+
+.maths-glimpse-controls button,
+.maths-glimpse-answers button,
+.maths-foundry-frame > button,
+.maths-count-strategy button,
+.maths-parcel-meadow button,
+.maths-carry-answer button,
+.maths-bridge-build-controls button,
+.maths-direct-pairs button,
+.maths-relationship-controls button,
+.maths-arcade-submit,
+.maths-arcade-continue {
+  min-height: 56px;
+}
+
+.maths-foundry-frame > button,
+.maths-foundry-frame > span { min-width: 56px; }
+.maths-parcel-meadow button { min-width: 56px; }
+
+.maths-foundry-world {
+  background:
+    linear-gradient(90deg, rgba(125, 73, 61, .08) 1px, transparent 1px) 0 0 / 32px 32px,
+    radial-gradient(circle at 50% 20%, #fff5df, #e8b474 72%);
+}
+
+.maths-glimpse-world {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255, 240, 144, .7) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 24%, rgba(255, 240, 144, .62) 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 28%, #f6e9a8, #b8d6b4 48%, #6fa175);
+}
+
+.maths-carry-world {
+  background:
+    linear-gradient(112deg, transparent 0 46%, rgba(255,255,255,.25) 47% 48%, transparent 49%),
+    linear-gradient(#cfe9ed 0 49%, #9fc77c 50%);
+}
+.maths-carry-world.is-planning { min-height: 320px; }
+
+.maths-bridge-world {
+  background:
+    repeating-linear-gradient(100deg, transparent 0 46px, rgba(255,255,255,.1) 47px 49px),
+    linear-gradient(#d9edee 0 38%, #73b8c0 39% 71%, #e5cb8e 72%);
+}
+
+/* Keep every number-line label whole at the viewport edge. */
+.maths-number-line { --maths-number-line-visible: 10; }
+.maths-number-line button {
+  flex: 0 0 calc((100% - 80px) / var(--maths-number-line-visible));
+  min-width: 56px;
+}
+.maths-number-line-edge { width: 22px; }
+.maths-number-line-edge.is-start { background: linear-gradient(90deg, var(--maths-paper) 8%, transparent); }
+.maths-number-line-edge.is-end { background: linear-gradient(-90deg, var(--maths-paper) 8%, transparent); }
+
+/* Make the top-level home affordance readable on every child surface. */
+.maths-area-heading-v2 > button { min-height: 56px; }
+.maths-home-journey > header .maths-eyebrow {
+  display: block;
+  min-height: 17px;
+  margin-bottom: 5px;
+  overflow: visible;
+  line-height: 1.4;
+}
+.maths-home-journey {
+  position: relative;
+  z-index: 3;
+}
+.maths-home-trust { pointer-events: none; }
+
+/* Layout coordinates come from the same pure model saved with the response.
+   CSS only scales them, so mobile cannot silently change the mathematics. */
+.maths-glowbug-pattern {
+  position: relative;
+  display: block;
+  width: min(320px, 100%);
+  min-height: 220px;
+}
+.maths-glowbug-pattern .maths-glowbug {
+  position: absolute;
+  left: var(--glowbug-x);
+  top: var(--glowbug-y);
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+}
+.maths-glowbug-pattern .maths-glowbug.is-empty { visibility: hidden; }
+.maths-glowbug-pattern[data-pattern="frame"] {
+  min-height: 92px;
+  border: 3px solid #f7e7a0;
+  border-radius: 13px;
+}
+.maths-glowbug-pattern[data-pattern="frame"] .maths-glowbug {
+  border: 2px solid rgba(247, 231, 160, .45);
+  border-radius: 9px;
+}
+.maths-glowbug-pattern[data-pattern="frame"] .maths-glowbug.is-empty { visibility: visible; }
+.maths-glowbug-pattern[data-pattern="split"]::before,
+.maths-glowbug-pattern[data-pattern="split"]::after {
+  content: "";
+  position: absolute;
+  top: 18%;
+  bottom: 18%;
+  width: 39%;
+  border: 2px dashed rgba(255, 225, 116, .42);
+  border-radius: 28px;
+  background: rgba(255, 225, 116, .05);
+}
+.maths-glowbug-pattern[data-pattern="split"]::before { left: 6%; }
+.maths-glowbug-pattern[data-pattern="split"]::after { right: 6%; }
+
+/* A chosen counting plan must transform the manipulable layout, not only its label. */
+.maths-parcel-layout {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+}
+.maths-parcel-group { display: grid; gap: 5px; min-width: 0; }
+.maths-parcel-group > small { color: #365d52; font-weight: 900; text-transform: uppercase; }
+.maths-parcel-group > div {
+  display: grid;
+  grid-auto-columns: minmax(56px, 1fr);
+  grid-auto-flow: column;
+  gap: 7px;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 3px;
+  scroll-snap-type: x proximity;
+}
+.maths-parcel-group > div > button { scroll-snap-align: start; }
+.maths-parcel-layout.is-move_once .maths-parcel-group > div > button:nth-child(odd) { transform: translateY(3px) rotate(-1.5deg); }
+.maths-parcel-layout.is-move_once .maths-parcel-group > div > button:nth-child(even) { transform: translateY(-2px) rotate(1.5deg); }
+.maths-parcel-layout.is-make_row .maths-parcel-group {
+  padding: 7px;
+  border: 2px solid rgba(21, 92, 81, .28);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .36);
+}
+.maths-parcel-layout.is-ten_and_more .maths-parcel-group:first-child {
+  padding-bottom: 9px;
+  border-bottom: 3px dashed rgba(21, 92, 81, .35);
+}
+.maths-parcel-layout.is-ten_and_more button:disabled:not(.is-carried) {
+  opacity: .46;
+  filter: saturate(.55);
+}
+
+@media (max-width: 820px) {
+  .maths-game-stage-v2 { min-height: auto; }
+  .maths-arcade-mission-tools { justify-items: stretch; }
+  .maths-arcade-session-actions { justify-content: flex-start; }
+  .maths-game-pause-overlay { inset: 178px 9px 72px; }
+  .maths-number-line { --maths-number-line-visible: 7; }
+}
+
+@media (max-width: 720px) {
+  .maths-home-v2 {
+    grid-template-rows: max-content max-content max-content;
+    align-content: start;
+  }
+  .maths-home-hero,
+  .maths-home-journey { min-height: max-content; }
+  .maths-area-heading-v2 {
+    position: sticky;
+    z-index: 24;
+    top: 0;
+    min-height: 64px;
+    padding: 4px 0;
+    background: rgba(244, 247, 243, .96);
+    backdrop-filter: blur(10px);
+  }
+  .maths-area-heading-v2 > button {
+    width: auto;
+    min-width: 92px;
+    padding-inline: 12px;
+  }
+  .maths-area-heading-v2 > button span { display: inline; }
+  .maths-student-area-v2[data-child-surface="maths-lesson"] { padding-bottom: calc(92px + env(safe-area-inset-bottom)); }
+  .maths-student-area-v2[data-child-surface="maths-lesson"] > .maths-player-nav-v2 {
+    position: fixed !important;
+    z-index: 30;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    max-width: none;
+    margin: 0;
+    padding: 8px 11px calc(8px + env(safe-area-inset-bottom));
+    border: 0;
+    border-top: 1px solid #c9d8d2;
+    border-radius: 0;
+    background: rgba(250, 252, 248, .96);
+    box-shadow: 0 -10px 24px rgba(25, 60, 52, .1);
+    backdrop-filter: blur(12px);
+  }
+  .maths-player-nav-v2 button { min-height: 56px; }
+  .maths-number-line { --maths-number-line-visible: 4; padding-inline: 24px; scroll-padding-inline: 24px; }
+  .maths-number-line button { flex-basis: calc((100% - 48px) / var(--maths-number-line-visible)); }
+}
+
+@media (max-width: 520px) {
+  .maths-game-stage-v2 { gap: 9px; }
+  .maths-arcade-mission-tools { width: 100%; }
+  .maths-arcade-session-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .maths-arcade-session-actions button { min-width: 0; }
+  .maths-game-pause-overlay { inset: 225px 9px 74px; }
+  .maths-foundry-frame { grid-template-columns: repeat(3, minmax(56px, 1fr)); gap: 4px; padding: 5px; }
+  .maths-foundry-frame > button,
+  .maths-foundry-frame > span { min-width: 0; min-height: 56px; aspect-ratio: 1; }
+  .maths-parcel-meadow button { min-width: 0; }
+  .maths-glowbug-pattern[data-pattern] { transform: scale(.82); }
+  .maths-number-trail-three { opacity: .92; }
+}
+
+/* Short phones keep the mission and safety controls, but compress secondary
+   chrome so the first mathematical action is visible without scrolling. */
+@media (max-width: 520px) and (max-height: 700px) {
+  .maths-game-stage-v2 { gap: 7px; padding: 7px; }
+  .maths-arcade-mission {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    min-height: 0;
+    padding: 7px 9px;
+  }
+  .maths-arcade-mission > div:first-child {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 56px;
+    align-items: start;
+    gap: 3px 7px;
+  }
+  .maths-arcade-mission > div:first-child > span { grid-column: 1; }
+  .maths-arcade-mission > div:first-child > h2 { grid-column: 1 / -1; margin: 0; font-size: 1rem; }
+  .maths-arcade-mission > div:first-child > p { display: none; }
+  .maths-arcade-mission .maths-audio-control {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    margin: 0;
+  }
+  .maths-arcade-mission .maths-audio-control > button:first-of-type {
+    width: 56px;
+    min-width: 56px;
+    overflow: hidden;
+    padding: 0;
+    font-size: 0;
+    white-space: nowrap;
+  }
+  .maths-arcade-mission .maths-audio-control > button:first-of-type > span { font-size: 1rem; }
+  .maths-arcade-mission .maths-audio-flag { display: none; }
+  .maths-arcade-mission-tools { display: block; }
+  .maths-game-stage-v2 .maths-game-route {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .maths-arcade-session-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  .maths-arcade-session-actions button { min-width: 0; min-height: 56px; padding-inline: 7px; font-size: .76rem; }
+  .maths-game-stage-v2 > .maths-arcade-mechanic { min-height: 0; }
+  .maths-number-trail-v2 { grid-template-rows: 210px auto; min-height: 0; }
+  .maths-number-trail-world { height: 210px; min-height: 210px; }
+  .maths-trail-sequence li { min-height: 48px; }
+  .maths-trail-stones { bottom: 8%; }
+  .maths-glimpse-world,
+  .maths-foundry-world,
+  .maths-carry-world,
+  .maths-bridge-world { align-content: start; min-height: 0; padding: 8px; }
+  .maths-glimpse-world { gap: 7px; }
+  .maths-glimpse-garden { min-height: 124px; border-width: 4px; }
+  .maths-glowbug-pattern { min-height: 120px; transform: scale(.7); }
+  .maths-glowbug-pattern[data-pattern="frame"] { min-height: 82px; }
+  .maths-foundry-machine { padding: 7px; border-width: 3px; box-shadow: 0 7px 0 #7d493d; }
+  .maths-machine-top > svg { width: 26px; height: 26px; }
+  .maths-machine-top strong { width: 40px; height: 40px; font-size: 1.25rem; }
+  .maths-foundry-frame { margin: 6px 0; padding: 4px; }
+  .maths-foundry-readout { gap: 4px; }
+  .maths-foundry-readout span { font-size: .64rem; }
+  .maths-count-strategy { gap: 7px; padding: 8px; }
+  .maths-count-strategy strong { font-size: 1rem; }
+  .maths-count-strategy button { min-height: 60px; padding: 6px; }
+  .maths-carry-world.is-planning { min-height: 0; }
+  .maths-bridge-world { gap: 7px; }
+  .maths-bridge-sky { padding-block: 4px; }
+  .maths-bridge-planks { min-height: 48px; }
+  .maths-bridge-planks > span { width: 20px; height: 34px; }
+  .maths-bridge-build-controls { gap: 6px; padding: 5px; }
+}
+
+/* A short landscape phone is a focused lesson workspace. The ordinary child
+   header and stacked phone layout leave no mathematical model on screen, even
+   though the fixed Next action remains visible. The lesson keeps its own Home
+   control, so use the recovered height for the instruction and manipulable
+   representation while preserving 44px controls and scroll access to the
+   longer coaching copy. */
+@media (orientation: landscape) and (max-width: 720px) and (max-height: 480px) {
+  .kg-viewport:has(.maths-student-area-v2[data-child-surface="maths-lesson"]) .kg-header {
+    display: none;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 48px 46px minmax(0, 1fr);
+    gap: 6px;
+    padding: 6px 8px calc(62px + env(safe-area-inset-bottom));
+    overflow: hidden;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-area-heading-v2 {
+    min-height: 48px;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-area-heading-v2 > button {
+    width: auto;
+    min-width: 148px;
+    min-height: 44px;
+    padding: 6px 10px;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-area-heading-v2 > div p {
+    font-size: 9px;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-area-heading-v2 h1 {
+    font-size: 21px;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(190px, .8fr);
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-toolbar label > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-toolbar select,
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-progress-v2,
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-progress-v2 summary {
+    min-height: 44px;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-progress-v2 {
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    gap: 5px;
+    padding: 1px 5px;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-progress-v2 > span {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-workbench {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(190px, .72fr) minmax(0, 1.28fr);
+    overflow: hidden;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-coach {
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 8px 10px;
+    overflow: auto;
+    border-right: 1px solid #d5dfda;
+    border-bottom: 0;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-coach h2 {
+    margin-bottom: 4px;
+    font-size: 18px;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-coach .maths-instruction {
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-model {
+    min-height: 0;
+    padding: 6px;
+    overflow: auto;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-model .maths-manipulative,
+  .maths-student-area-v2[data-child-surface="maths-lesson"] .maths-lesson-model .maths-manipulative-canvas {
+    min-height: 0;
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] > .maths-player-nav-v2 {
+    padding: 5px 8px calc(5px + env(safe-area-inset-bottom));
+  }
+
+  .maths-student-area-v2[data-child-surface="maths-lesson"] > .maths-player-nav-v2 button {
+    min-height: 44px;
+  }
+}
+
+@media (max-height: 430px) and (orientation: landscape) {
+  .maths-area-heading-v2 { position: static; }
+  .maths-game-stage-v2 { padding: 8px; }
+  .maths-arcade-mission h2 { font-size: 1rem; }
+  .maths-number-trail-v2 { grid-template-rows: 250px auto; }
+  .maths-number-trail-world { min-height: 250px; height: 250px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .maths-glowbug-pattern.is-visible svg { animation: maths-glowbug-breathe 1.8s ease-in-out infinite alternate; }
+  .maths-number-trail-three.is-ready { animation: maths-world-reveal .42s ease-out both; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .maths-number-trail-three { display: none; }
+  .maths-game-pause-overlay { backdrop-filter: none; }
+}
+
+@keyframes maths-world-reveal {
+  from { opacity: 0; transform: scale(.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes maths-glowbug-breathe {
+  from { opacity: .76; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(-3px); }
+}

@@ -132,10 +132,10 @@ test("the pre-reader affordances survive: speaker buttons and tap-to-hear", () =
     2,
     "the spec puts a speaker on the hero and on the doorway heading"
   );
-  assert.match(code, /speakStudentRailLabel\(text, window\)/);
-  // The old rail spoke one destination per button; the section speaker has to
-  // read every doorway name or a pre-reader loses them.
-  assert.match(code, /doors\.map\(door => door\.title\)\.join\(""?\. ""?\)/);
+  assert.match(code, /speakStudentRailLabel\(lines, window\)/);
+  // The old rail spoke one destination per button; the section speaker queues
+  // every visible doorway name as its own recorded Leda clip.
+  assert.match(code, /\.\.\.doors\.map\(door => door\.title\)/);
   assert.match(code, /aria-live="polite"/);
 });
 

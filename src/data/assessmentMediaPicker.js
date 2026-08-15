@@ -16,7 +16,7 @@ import {
   stripHfwQuestionImageFields
 } from "./hfwQuestionImageReview.js";
 import {
-  isMediaPairingApproved,
+  isMediaPairingRuntimeAllowed,
   isMediaPairingQuarantined
 } from "./mediaQaReviewStatus.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
@@ -468,7 +468,7 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
     const existingImageRecord = existingImage ? getAssessmentMediaByPath(existingImage, "image") : null;
     const policy = String(out.imagePolicy || out.hfwImagePolicy || "no_image").trim() || "no_image";
     const pairing = { area: "assessment", skillId, questionId, imagePath: existingImage };
-    const approvedExactPair = Boolean(existingImage && (isHfwQuestionImagePairApproved(out, existingImage) || isMediaPairingApproved(pairing)));
+    const approvedExactPair = Boolean(existingImage && (isHfwQuestionImagePairApproved(out, existingImage) || isMediaPairingRuntimeAllowed(pairing)));
     const quarantinedExactPair = Boolean(existingImage && isMediaPairingQuarantined(pairing));
     const allowedPolicy = ["verified_cartoon_target_scene", "verified_cartoon_sentence_scene"].includes(policy);
     const allowedRole = ["verified_cartoon_target_scene", "verified_cartoon_sentence_scene", "verified_target_scene", "verified_sentence_scene"].includes(existingImageRecord?.imageRole);

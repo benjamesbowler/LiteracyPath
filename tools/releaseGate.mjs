@@ -93,7 +93,7 @@ export const RELEASE_GATES = Object.freeze([
   {
     id: "assessment-question-integrity",
     label: "Current v3 assessment structure, originality, answer integrity, progression, repeat safety, and reporting",
-    command: ["npm", "run", "check:assessment-question-integrity"],
+    command: ["npm", "run", "check:assessment-question-integrity", "--", "--check"],
     areas: [1, 4, 10]
   },
   {
@@ -261,7 +261,7 @@ export const RELEASE_GATES = Object.freeze([
   {
     id: "strict-curriculum",
     label: "Current v3 assessment publication gate",
-    command: ["npm", "run", "check:audit:assessment-rebuild"],
+    command: ["npm", "run", "check:audit:assessment-rebuild", "--", "--check"],
     areas: [1, 4, 10]
   },
   {
@@ -704,8 +704,8 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "media-review-release",
-    label: "Every published assessment, Guided Reading, and Story Quest media pairing has a human decision",
-    command: ["npm", "run", "check:media-review-release"],
+    label: "Beta media is test-visible while quarantines remain enforced and human-review state stays explicit",
+    command: ["npm", "run", "check:media-review-beta"],
     areas: [1, 3, 4, 10]
   },
   {

@@ -10,6 +10,82 @@ export const MATHS_ASSESSMENT_BLUEPRINTS = Object.freeze([
   "part_whole"
 ]);
 
+export const MATHS_ASSESSMENT_RESPONSE_DIRECTIONS = Object.freeze([
+  "recognition",
+  "construction"
+]);
+
+const RESPONSE_DIRECTION_BY_BLUEPRINT = Object.freeze({
+  number_sequence: "recognition",
+  count_collection: "recognition",
+  quick_quantity: "recognition",
+  make_quantity: "construction",
+  compare_quantities: "recognition",
+  part_whole: "construction"
+});
+
+// A representation switch is treated as transfer evidence only when it moves
+// away from the model used in the guided lesson. This is deliberately separate
+// from responseDirection: changing context does not turn a selection task into
+// a constructed response.
+export const MATHS_ASSESSMENT_CAPABILITIES_BY_SKILL = Object.freeze({
+  "F-N-SEQ-20": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["stepping_stones"]) }),
+  "F-N-COUNT-10": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["structured_frame", "frame"]) }),
+  "F-N-COUNT-20": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["objects", "counter_tray"]) }),
+  "F-N-SUBITISE-5": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["scattered_dots"]) }),
+  "F-N-MATCH": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["objects", "counter_tray"]) }),
+  "F-N-COMPARE": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["structured_frames"]) }),
+  "F-N-PART-5": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["two_colour_frame"]) }),
+  "F-N-PART-10": Object.freeze({ supportedDirections: Object.freeze(["recognition", "construction"]), unsupportedDirections: Object.freeze([]), transferRepresentations: Object.freeze(["part_whole"]) })
+});
+
+export const MATHS_ASSESSMENT_REPAIR_PROGRESSIONS = Object.freeze({
+  off_by_one_response: Object.freeze({
+    possibleSignal: "The response was one away from the represented quantity.",
+    steps: Object.freeze([
+      "Return to the model and mark the starting point and stopping point.",
+      "Move or touch each unit once while saying one number word.",
+      "Change the arrangement, then check the same quantity again without giving the answer."
+    ])
+  }),
+  sequence_choice_mismatch: Object.freeze({
+    possibleSignal: "The chosen numeral did not keep the visible sequence in order.",
+    steps: Object.freeze([
+      "Read the short path up to the gap and pause.",
+      "Name the number before the gap, then move one step forward.",
+      "Read through the repaired path and verify the number after the gap."
+    ])
+  }),
+  comparison_choice_mismatch: Object.freeze({
+    possibleSignal: "The selected relationship did not match the two quantities.",
+    steps: Object.freeze([
+      "Align both collections at the same starting point.",
+      "Pair one object from each collection without changing either amount.",
+      "Use any unpaired objects to check more, fewer or the same."
+    ])
+  }),
+  missing_part_mismatch: Object.freeze({
+    possibleSignal: "The constructed hidden part did not complete the fixed whole.",
+    steps: Object.freeze([
+      "Rebuild the whole and name the part that is already visible.",
+      "Cover only the missing spaces, then construct that covered part.",
+      "Recombine both parts and verify that the whole has not changed."
+    ])
+  }),
+  other_incorrect_response: Object.freeze({
+    possibleSignal: "The response did not yet match the represented quantity.",
+    steps: Object.freeze([
+      "Ask the learner to point to what each number in the response refers to.",
+      "Offer the same structure in the more concrete representation.",
+      "Use a new example to check the idea rather than repeating the answer."
+    ])
+  })
+});
+
+export function mathsAssessmentRepairForClassification(classification) {
+  return MATHS_ASSESSMENT_REPAIR_PROGRESSIONS[classification] || null;
+}
+
 const BLUEPRINTS_BY_SKILL = Object.freeze({
   "F-N-SEQ-20": Object.freeze(["number_sequence"]),
   "F-N-COUNT-10": Object.freeze(["count_collection", "make_quantity"]),
@@ -27,36 +103,56 @@ function blueprintForSkill(skillId, index) {
   return blueprints[Math.floor(index / 10) % blueprints.length];
 }
 
+function responseDirectionForModel(skillId, blueprintId, index) {
+  if (["F-N-COUNT-10", "F-N-COUNT-20", "F-N-MATCH"].includes(skillId)) return RESPONSE_DIRECTION_BY_BLUEPRINT[blueprintId];
+  if (["F-N-PART-5", "F-N-PART-10"].includes(skillId)) return index < 10 ? "construction" : "recognition";
+  return index < 10 ? "recognition" : "construction";
+}
+
+function interactionTypeForModel(blueprintId, responseDirection) {
+  if (responseDirection === "recognition") return blueprintId === "part_whole" ? "recognise_missing_part" : BLUEPRINT_META[blueprintId].interactionType;
+  if (blueprintId === "number_sequence") return "construct_missing_numeral";
+  if (blueprintId === "quick_quantity") return "reconstruct_quantity";
+  if (blueprintId === "compare_quantities") return "pair_then_compare";
+  return BLUEPRINT_META[blueprintId].interactionType;
+}
+
 const BLUEPRINT_META = Object.freeze({
   number_sequence: Object.freeze({
     representations: Object.freeze(["stepping_stones", "number_line"]),
     interactionType: "select_missing_numeral",
-    misconceptionRules: Object.freeze(["sequence_word_omission", "before_after_reversal"])
+    misconceptionRules: Object.freeze(["sequence_word_omission", "before_after_reversal"]),
+    repairClassifications: Object.freeze(["off_by_one_response", "sequence_choice_mismatch", "other_incorrect_response"])
   }),
   count_collection: Object.freeze({
     representations: Object.freeze(["objects", "structured_frame"]),
     interactionType: "touch_count_then_select",
-    misconceptionRules: Object.freeze(["one_to_one", "cardinality", "unstable_order"])
+    misconceptionRules: Object.freeze(["one_to_one", "cardinality", "unstable_order"]),
+    repairClassifications: Object.freeze(["off_by_one_response", "other_incorrect_response"])
   }),
   quick_quantity: Object.freeze({
     representations: Object.freeze(["five_frame", "scattered_dots"]),
     interactionType: "brief_view_then_select",
-    misconceptionRules: Object.freeze(["counts_all", "canonical_pattern_only"])
+    misconceptionRules: Object.freeze(["counts_all", "canonical_pattern_only"]),
+    repairClassifications: Object.freeze(["off_by_one_response", "other_incorrect_response"])
   }),
   make_quantity: Object.freeze({
     representations: Object.freeze(["frame", "counter_tray"]),
     interactionType: "construct_quantity",
-    misconceptionRules: Object.freeze(["numeral_only_recognition", "cardinality"])
+    misconceptionRules: Object.freeze(["numeral_only_recognition", "cardinality"]),
+    repairClassifications: Object.freeze(["off_by_one_response", "other_incorrect_response"])
   }),
   compare_quantities: Object.freeze({
     representations: Object.freeze(["matched_rows", "structured_frames"]),
     interactionType: "compare_relationship",
-    misconceptionRules: Object.freeze(["spatial_extent_bias", "more_means_bigger_objects"])
+    misconceptionRules: Object.freeze(["spatial_extent_bias", "more_means_bigger_objects"]),
+    repairClassifications: Object.freeze(["comparison_choice_mismatch", "other_incorrect_response"])
   }),
   part_whole: Object.freeze({
     representations: Object.freeze(["part_whole", "two_colour_frame"]),
     interactionType: "construct_missing_part",
-    misconceptionRules: Object.freeze(["whole_part_confusion", "single_partition_only"])
+    misconceptionRules: Object.freeze(["whole_part_confusion", "single_partition_only"]),
+    repairClassifications: Object.freeze(["off_by_one_response", "missing_part_mismatch", "other_incorrect_response"])
   })
 });
 
@@ -102,15 +198,20 @@ const compare = (left, right, prompt = "Pair the objects. Which side has more, o
   maximum: 20,
   teacherEvidenceNote: "Compares quantity rather than object size, spacing or row length."
 });
-const part = (whole, known, prompt) => ({
-  target: whole,
-  partA: known,
-  partB: whole - known,
-  prompt,
-  distractors: [Math.max(0, whole - known - 1), Math.min(whole, whole - known + 1)],
-  maximum: whole,
-  teacherEvidenceNote: "Keeps the whole invariant and constructs only the hidden part."
-});
+const part = (whole, known, prompt) => {
+  const expected = whole - known;
+  const distractors = [expected - 1, expected + 1, known, whole, 0]
+    .filter(value => Number.isInteger(value) && value >= 0 && value <= whole && value !== expected);
+  return {
+    target: whole,
+    partA: known,
+    partB: expected,
+    prompt,
+    distractors: [...new Set(distractors)].slice(0, 2),
+    maximum: whole,
+    teacherEvidenceNote: "Keeps the whole invariant and constructs only the hidden part."
+  };
+};
 
 // These records are deliberately explicit. Changing a value or prompt is a content
 // revision and requires a matching server-manifest migration.
@@ -279,7 +380,7 @@ const AUTHORED_ITEMS = Object.freeze({
   ])
 });
 
-function surfacePrompt(blueprintId, row, objectFamily, variantIndex) {
+function surfacePrompt(blueprintId, row, objectFamily, variantIndex, responseDirection) {
   const representation = BLUEPRINT_META[blueprintId].representations[variantIndex % 2];
   if (blueprintId === "number_sequence") {
     const path = row.sequence.map(value => value === null ? "blank" : value).join(", ");
@@ -299,23 +400,29 @@ function surfacePrompt(blueprintId, row, objectFamily, variantIndex) {
   if (blueprintId === "compare_quantities") return representation === "matched_rows"
     ? "Match one object from each row. Which row has more, or are they the same?"
     : "Compare the two frames. Which frame has more, or are they the same?";
-  if (representation === "part_whole") return `The whole is ${row.target}. One part is ${row.partA}. Build only the hidden part.`;
-  if (row.partA === 0) return `The frame has ${row.target} spaces. No spaces are one colour. Build the other part.`;
+  if (representation === "part_whole") return responseDirection === "recognition"
+    ? `The whole is ${row.target}. One part is ${row.partA}. Which missing part completes the whole?`
+    : `The whole is ${row.target}. One part is ${row.partA}. Build only the hidden part.`;
+  if (row.partA === 0) return responseDirection === "recognition"
+    ? `The frame has ${row.target} spaces. No spaces are one colour. Which missing part fills the frame?`
+    : `The frame has ${row.target} spaces. No spaces are one colour. Build the other part.`;
+  if (responseDirection === "recognition") return `The frame has ${row.target} spaces. ${row.partA} ${row.partA === 1 ? "space is" : "spaces are"} one colour. Which missing part fills the frame?`;
   return `The frame has ${row.target} spaces. ${row.partA} ${row.partA === 1 ? "space is" : "spaces are"} one colour. Build the other part.`;
 }
 
-function surfaceVariantsFor(row, blueprintId) {
+function surfaceVariantsFor(row, blueprintId, responseDirection) {
   return Object.freeze(OBJECT_FAMILIES.map((objectFamily, index) => Object.freeze({
     id: `v${index + 1}`,
     objectFamily,
     arrangement: row.arrangement || ARRANGEMENTS[index],
-    promptText: surfacePrompt(blueprintId, row, objectFamily, index)
+    promptText: surfacePrompt(blueprintId, row, objectFamily, index, responseDirection)
   })));
 }
 
 function makeModel(skillId, row, index) {
   const blueprintId = blueprintForSkill(skillId, index);
   const meta = BLUEPRINT_META[blueprintId];
+  const responseDirection = responseDirectionForModel(skillId, blueprintId, index);
   const target = Number(row.target);
   const other = Number.isFinite(row.other) ? Number(row.other) : Math.max(0, target - 1);
   const partA = Number.isFinite(row.partA) ? Number(row.partA) : 0;
@@ -339,11 +446,17 @@ function makeModel(skillId, row, index) {
     }),
     expected,
     distractors: Object.freeze([...row.distractors]),
-    interactionType: meta.interactionType,
+    interactionType: interactionTypeForModel(blueprintId, responseDirection),
+    responseDirection,
     representationFamilies: meta.representations,
-    surfaceVariants: surfaceVariantsFor(row, blueprintId),
+    surfaceVariants: surfaceVariantsFor(row, blueprintId, responseDirection),
     authoredPrompt: row.prompt,
     misconceptionRules: meta.misconceptionRules,
+    feedbackPolicy: "deferred_teacher_review",
+    repairProgressions: Object.freeze(meta.repairClassifications.map(classification => Object.freeze({
+      classification,
+      ...MATHS_ASSESSMENT_REPAIR_PROGRESSIONS[classification]
+    }))),
     teacherEvidenceNote: row.teacherEvidenceNote,
     contentVersion: MATHS_CONTENT_VERSION
   });
@@ -361,8 +474,14 @@ export function materializeAssessmentItem(model, variantIndex = 0) {
   const safeVariantIndex = Math.abs(variantIndex) % model.surfaceVariants.length;
   const variant = model.surfaceVariants[safeVariantIndex];
   const representation = model.representationFamilies[safeVariantIndex % model.representationFamilies.length];
+  const capability = MATHS_ASSESSMENT_CAPABILITIES_BY_SKILL[model.skillId];
+  const evidencePurpose = capability.transferRepresentations.includes(representation)
+    ? "transfer"
+    : model.responseDirection;
   const renderSpec = Object.freeze({
     blueprintId: model.blueprintId,
+    responseDirection: model.responseDirection,
+    evidencePurpose,
     representation,
     objectFamily: variant.objectFamily,
     arrangement: variant.arrangement,
@@ -380,6 +499,7 @@ export function materializeAssessmentItem(model, variantIndex = 0) {
     modelIndex: Number(model.id.slice(model.id.lastIndexOf("-") + 1)),
     promptText: variant.promptText,
     representation,
+    evidencePurpose,
     renderSpec,
     surface: variant
   });
@@ -429,7 +549,7 @@ export function assessmentOptionsForItem(item) {
 }
 
 function assessmentSignature(item) {
-  return [item.blueprintId, item.representation, item.values.target, item.values.other, item.values.partA].join(":");
+  return [item.blueprintId, item.responseDirection, item.representation, item.values.target, item.values.other, item.values.partA].join(":");
 }
 
 export function buildMathsAssessmentRound({ skillId, seed = "foundation", length = 6 } = {}) {
@@ -440,29 +560,49 @@ export function buildMathsAssessmentRound({ skillId, seed = "foundation", length
   const round = [];
   const signatures = new Set();
   const slotOffset = state % 3;
+  const directionIds = [...new Set(models.map(model => model.responseDirection))];
+  const directionOffset = state % directionIds.length;
+  const balanceKeyForModel = model => `${model.blueprintId}:${model.responseDirection}`;
+  const balanceKeys = [...new Set(models.map(balanceKeyForModel))];
+  const modelOccurrences = new Map(balanceKeys.map(key => [key, 0]));
+  const surfaceOffsets = new Map(balanceKeys.map((key, index) => [
+    key,
+    (state + index) % (models.find(model => balanceKeyForModel(model) === key)?.surfaceVariants.length || 1)
+  ]));
   const appendModel = model => {
-    const item = materializeAssessmentItem(model, state % 4);
+    const balanceKey = balanceKeyForModel(model);
+    const occurrence = modelOccurrences.get(balanceKey) || 0;
+    const variantIndex = (surfaceOffsets.get(balanceKey) + occurrence) % model.surfaceVariants.length;
+    const item = materializeAssessmentItem(model, variantIndex);
     const signature = assessmentSignature(item);
     if (signatures.has(signature)) return false;
     signatures.add(signature);
+    modelOccurrences.set(balanceKey, occurrence + 1);
     round.push(Object.freeze({
       ...item,
       answerSlot: (slotOffset + round.length) % 3
     }));
     return true;
   };
-  const blueprintIds = [...new Set(models.map(model => model.blueprintId))];
-  if (length >= blueprintIds.length) {
-    for (const blueprintId of blueprintIds) {
-      const candidates = available.filter(model => model.blueprintId === blueprintId);
-      if (!candidates.length) continue;
-      state = (state * 1664525 + 1013904223) >>> 0;
-      const model = candidates[state % candidates.length];
+
+  const targetLength = Math.min(Math.max(0, Number(length) || 0), models.length);
+  const schedule = Array.from({ length: targetLength }, (_, index) => (
+    directionIds[(directionOffset + index) % directionIds.length]
+  ));
+  for (const responseDirection of schedule) {
+    const candidates = available.filter(model => model.responseDirection === responseDirection);
+    if (!candidates.length) continue;
+    state = (state * 1664525 + 1013904223) >>> 0;
+    const candidateOffset = state % candidates.length;
+    for (let index = 0; index < candidates.length; index += 1) {
+      const model = candidates[(candidateOffset + index) % candidates.length];
+      if (!appendModel(model)) continue;
       available.splice(available.indexOf(model), 1);
-      appendModel(model);
+      break;
     }
   }
-  while (available.length && round.length < Math.min(length, models.length)) {
+
+  while (available.length && round.length < targetLength) {
     state = (state * 1664525 + 1013904223) >>> 0;
     const index = state % available.length;
     const [model] = available.splice(index, 1);

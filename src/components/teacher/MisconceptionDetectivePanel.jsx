@@ -10,7 +10,7 @@ export function MisconceptionDetectivePanel({ signals = [], state = "ready", onO
       </header>
       {state === "loading" ? <p role="status">Checking repeated answer patterns…</p>
         : state === "error" ? <p role="alert">The full answer history could not be checked, so no pattern claim is shown.</p>
-          : signals.length === 0 ? <p>No repeated pattern currently meets the evidence threshold.</p>
+          : signals.length === 0 ? <p>No repeated pattern is strong enough to show yet.</p>
             : <ul>{signals.slice(0, 6).map(signal => <li key={`${signal.studentId}:${signal.target}:${signal.chosen}`}>
               <div>
                 <strong>{signal.studentName}</strong>

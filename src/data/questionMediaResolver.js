@@ -7,7 +7,7 @@ import {
   stripHfwQuestionImageFields
 } from "./hfwQuestionImageReview.js";
 import {
-  isMediaPairingApproved,
+  isMediaPairingRuntimeAllowed,
   isMediaPairingQuarantined
 } from "./mediaQaReviewStatus.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
@@ -532,7 +532,7 @@ export function enrichQuestionWithExistingMedia(question = {}) {
       return applyReleaseWiring(audioWiredQuestion);
     }
     const pairing = { area: "assessment", skillId, questionId, imagePath: existingImage };
-    if (!existingImage || isMediaPairingQuarantined(pairing) || !(isHfwQuestionImagePairApproved(question, existingImage) || isMediaPairingApproved(pairing))) {
+    if (!existingImage || isMediaPairingQuarantined(pairing) || !(isHfwQuestionImagePairApproved(question, existingImage) || isMediaPairingRuntimeAllowed(pairing))) {
       return applyReleaseWiring(stripHfwQuestionImageFields({
         ...audioWiredQuestion,
         imageRequired: false,

@@ -3763,6 +3763,10 @@ class QuestPixelScene extends Phaser.Scene {
         .setScale(finalStop ? 0.36 : 0.4)
         .setDepth(gatePoint.y + 2);
     } else {
+      // Scene rebuilds can reuse the background while reconstructing the gate.
+      // Reassert the frame here so a reused texture can never fall back to its
+      // base image with Phaser's "has no frame moss-arch" warning.
+      addTextureFrame(this.textures.get("seedwake-village"), "moss-arch", 0, 48, 32, 48);
       this.add.image(gatePoint.x, gatePoint.y + 3, "seedwake-village", "moss-arch")
         .setOrigin(0.5, 1)
         .setScale(1.35)

@@ -14,7 +14,6 @@ import {
 test("every Sound Seekers fullscreen view has one specific active-surface name", () => {
   const expected = {
     creator: "Choose your book character",
-    den: "Your Den",
     map: "Trail map",
     world: "Meadow Gate trail",
     ceremony: "Meadow Gate reward",

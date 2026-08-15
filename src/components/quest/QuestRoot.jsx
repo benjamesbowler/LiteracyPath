@@ -13,6 +13,7 @@ import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "rea
 import { createPortal } from "react-dom";
 import { ErrorBoundary } from "../ErrorBoundary.jsx";
 import CreatureCreator from "./CreatureCreator.jsx";
+import QuestSettingsDialog from "./QuestSettingsDialog.jsx";
 import RewardScreen from "./RewardScreen.jsx";
 import TrailMap from "./TrailMap.jsx";
 import QuestTrail2D from "./world/QuestTrail2D.jsx";
@@ -33,11 +34,12 @@ import {
   saveQuestCheckpoint,
   ownedPieces,
   chapterRewardForStop,
-  availableSparks
+  availableSparks,
+  restartQuestProgress
 } from "../../utils/questProgress.js";
 import { isMastered } from "../../utils/questMastery.js";
 import { getStop, QUEST_STOPS } from "../../data/questSequence.js";
-import { CREATURE_GEAR } from "../../data/creatureParts.js";
+import { CREATURE_GEAR, defaultCreature } from "../../data/creatureParts.js";
 import { chapterForStop } from "../../data/questChapters.js";
 import { seedwakeStopSpec } from "../../data/questChapterOne.js";
 import {
@@ -185,6 +187,8 @@ export default function QuestRoot({
       ? VIEW.MAP
       : initialView || (state.hatched ? VIEW.MAP : VIEW.CREATOR)
   );
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const settingsTriggerRef = useRef(null);
   const [activeStop, setActiveStop] = useState(() => (
     [VIEW.WORLD, VIEW.CEREMONY].includes(initialView) ? initialStop : null
   ));
@@ -852,6 +856,51 @@ export default function QuestRoot({
     setView(VIEW.POST);
   }, []);
 
+  const updateQuestSetting = useCallback((key, value) => {
+    const current = stateRef.current;
+    commit({
+      ...current,
+      settings: { ...current.settings, [key]: Boolean(value) },
+      settingsAt: new Date().toISOString()
+    });
+    setForce2d(false);
+    setRuntimeQualityId(null);
+  }, [commit]);
+
+  const resetCharacter = useCallback(() => {
+    const current = stateRef.current;
+    commit({
+      ...current,
+      creature: defaultCreature(),
+      // This is a character edit, not a new journey. Keeping the hatched flag
+      // means Done returns a returning child to the map instead of launching
+      // the first trail again; their learning and trail progress stay intact.
+      hatched: true,
+      creatureAt: new Date().toISOString()
+    });
+    setSettingsOpen(false);
+    setView(VIEW.CREATOR);
+  }, [commit]);
+
+  const resetProgress = useCallback(() => {
+    const current = stateRef.current;
+    const at = new Date().toISOString();
+    const resetId = globalThis.crypto?.randomUUID?.()
+      || `reset-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    const fresh = restartQuestProgress(current, { at, resetId });
+    latestCheckpointRef.current = null;
+    setCeremony(null);
+    setCeremonyOverlayVisible(false);
+    setWorldLayers([]);
+    setActiveStop(null);
+    setTrailNotice(null);
+    setJourneyMode({ kind: "journey", targets: null });
+    commit(fresh);
+    logStudentActivity("phonics_quest", null, "reset_progress", {});
+    setSettingsOpen(false);
+    setView(VIEW.CREATOR);
+  }, [commit]);
+
   const closeQuest = useCallback(() => {
     const checkpointed = latestCheckpointRef.current
       ? saveQuestCheckpoint(stateRef.current, latestCheckpointRef.current)
@@ -920,6 +969,8 @@ export default function QuestRoot({
           onBack={closeQuest}
           onEditCharacter={() => setView(VIEW.CREATOR)}
           onTradingPost={() => setView(VIEW.POST)}
+          onSettings={() => setSettingsOpen(true)}
+          settingsTriggerRef={settingsTriggerRef}
           isSoundEnabled={isSoundEnabled}
         />
       )}
@@ -1071,6 +1122,16 @@ export default function QuestRoot({
       {storageNotice && (
         <aside className="q-runtime-notice is-storage" role="alert">{storageNotice}</aside>
       )}
+
+      <QuestSettingsDialog
+        open={settingsOpen}
+        triggerRef={settingsTriggerRef}
+        settings={state.settings}
+        onSettingChange={updateQuestSetting}
+        onResetCharacter={resetCharacter}
+        onResetProgress={resetProgress}
+        onClose={() => setSettingsOpen(false)}
+      />
 
       {view === VIEW.CEREMONY && ceremony && ceremonyOverlayVisible && (
         <RewardScreen

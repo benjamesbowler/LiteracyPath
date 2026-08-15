@@ -77,11 +77,11 @@ test("the production shell cold-starts the saved chapter, accessible task, Den, 
   expect(await savedCheckpoint(accessiblePage)).toEqual(interruptedCheckpoint);
   await accessiblePage.close();
 
-  const denPage = await context.newPage();
-  const denNavigation = await denPage.goto("/preview/quest.html?view=den&resume=1");
-  expect(denNavigation?.fromServiceWorker()).toBe(true);
-  await expect(denPage.getByRole("heading", { name: "Your Den" })).toBeVisible();
-  await denPage.close();
+  const legacyDenPage = await context.newPage();
+  const legacyDenNavigation = await legacyDenPage.goto("/preview/quest.html?view=den&resume=1");
+  expect(legacyDenNavigation?.fromServiceWorker()).toBe(true);
+  await expect(legacyDenPage.locator(".q-map-v2 h1")).toBeVisible();
+  await legacyDenPage.close();
 
   const mapPage = await context.newPage();
   const mapNavigation = await mapPage.goto("/preview/quest.html?view=map&stop=s36&done=35&resume=1");

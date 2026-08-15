@@ -25,6 +25,31 @@ for (const [index, song] of mathsSongs.entries()) {
     "-f", "lavfi", "-i", `anoisesrc=color=pink:sample_rate=44100:duration=${duration}`,
     "-filter_complex", filter, "-map", "[out]", "-ac", "2", "-ar", "44100", "-codec:a", "libmp3lame", "-b:a", "192k", output], { encoding: "utf8" });
   if (result.status !== 0) throw new Error(result.stderr || `failed to generate ${song.id}`);
-  fs.writeFileSync(path.join(outputDir, `${song.id}-credits.json`), JSON.stringify({ title: song.title, tempo: song.tempo, rootFrequency: base, composition: "Original LiteracyPath five-layer classroom chant bed", generatedBy: "LiteracyPath deterministic synthesis", childVoiceOrImage: false, vocalPolicy: "Adult LEDA guide accepted until individually flagged", guideVoice: "en-US-Chirp3-HD-Leda" }, null, 2));
+  const performed = song.media.performed;
+  const fallback = song.media.fallback;
+  const credits = {
+    schemaVersion: 2,
+    songId: song.id,
+    title: song.title,
+    tempo: song.tempo,
+    lyrics: "Original LiteracyPath lyrics",
+    childVoiceOrImage: false,
+    performed: {
+      publicPath: performed.publicPath,
+      captionsPath: performed.captionsPath,
+      releaseStatus: performed.releaseStatus,
+      provider: performed.provider,
+      ...performed.provenance
+    },
+    fallback: {
+      publicPath: fallback.instrumentalPath,
+      composition: "Original LiteracyPath five-layer classroom chant bed",
+      generatedBy: "LiteracyPath deterministic synthesis",
+      rootFrequency: base,
+      guideVoice: "en-US-Chirp3-HD-Leda",
+      releaseStatus: fallback.releaseStatus
+    }
+  };
+  fs.writeFileSync(path.join(outputDir, `${song.id}-credits.json`), `${JSON.stringify(credits, null, 2)}\n`);
   console.log(`${song.id}: ${output}`);
 }

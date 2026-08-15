@@ -156,14 +156,14 @@ function EvidenceHealthReview({ health = {} }) {
   return (
     <section
       className={`simple-report-evidence-health is-${state}`}
-      aria-label="Evidence review"
+      aria-label="Results quality review"
     >
       <header>
         <div>
-          <span>Evidence review</span>
-          <h2>{health.label || "Evidence checks clear"}</h2>
+          <span>Results quality review</span>
+          <h2>{health.label || "Results review clear"}</h2>
         </div>
-        <p>{health.summary || "No evidence-quality warning was found in the results shown."}</p>
+        <p>{health.summary || "No result-quality warning was found in the results shown."}</p>
       </header>
       {signals.length > 0 && (
         <details>

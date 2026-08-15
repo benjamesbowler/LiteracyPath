@@ -26,7 +26,11 @@ import {
   selectActiveStudentTab
 } from "../policy/studentRailPolicy.js";
 import { applyKidsStageMetrics, readKidsVisibleViewport } from "../utils/kidsStage.js";
-import { getAvailableGuideStars, getCompanion } from "../utils/studentProfile.js";
+import {
+  getAvailableGuideStars,
+  getCompanion,
+  loadStudentProfile
+} from "../utils/studentProfile.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger } from "../utils/hollowState.js";
@@ -200,10 +204,16 @@ export default function StudentGlassShell({
   void profileRevision;
   const companion = getCompanion(scopeKey);
   const wallet = readWallet(scopeKey);
-  const navigationTabs = Array.isArray(tabs) ? tabs : STUDENT_TAB_BAR;
-  const activeTab = navigationTabs === STUDENT_TAB_BAR
+  const requestedTabs = Array.isArray(tabs) ? tabs : STUDENT_TAB_BAR;
+  const activeTab = requestedTabs === STUDENT_TAB_BAR
     ? selectActiveStudentTab(active)
     : active;
+  const reducedChoiceMode = requestedTabs === STUDENT_TAB_BAR
+    && Boolean(loadStudentProfile(scopeKey).reducedChoiceMode);
+  const reducedTabIds = new Set(["home", "sounds", "books", activeTab]);
+  const navigationTabs = reducedChoiceMode
+    ? requestedTabs.filter(tab => reducedTabIds.has(tab.id))
+    : requestedTabs;
   const name = studentName || "Reader";
   const goTo = tabId => {
     if (tabId === "home" && onHome) return onHome();
@@ -294,6 +304,7 @@ export default function StudentGlassShell({
             className="kg-glass-chrome kg-tabbar"
             aria-label="Where to go"
             data-active-tab={activeTab}
+            data-choice-mode={reducedChoiceMode ? "reduced" : "full"}
           >
           {navigationTabs.map(tab => {
             const on = tab.id === activeTab;

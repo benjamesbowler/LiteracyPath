@@ -72,18 +72,43 @@ async function expectKeyboardFocusVisible(page, locator, state) {
 }
 
 async function expectAllVisibleControlsHaveFocus(page, root, state) {
-  const controls = root.locator(
-    'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-  );
-  const count = await controls.count();
-  let checked = 0;
-  for (let index = 0; index < count; index += 1) {
-    const control = controls.nth(index);
-    if (!await control.isVisible()) continue;
-    checked += 1;
-    await expectKeyboardFocusVisible(page, control, `${state} control ${checked}`);
-  }
-  expect(checked, `${state} must expose at least one visible enabled control`).toBeGreaterThan(0);
+  // Enter keyboard modality once, then inspect every control in one browser
+  // round trip. The old per-control Playwright loop spent minutes crossing the
+  // process boundary and timed out before it reached the later games.
+  await page.keyboard.press("Tab");
+  const focusResults = await root.evaluate(element => {
+    const selector = 'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    return [...element.querySelectorAll(selector)]
+      .filter(control => {
+        const style = getComputedStyle(control);
+        const rect = control.getBoundingClientRect();
+        return style.display !== "none"
+          && style.visibility !== "hidden"
+          && Number(style.opacity) > 0
+          && rect.width > 0
+          && rect.height > 0;
+      })
+      .map((control, index) => {
+        control.focus();
+        const style = getComputedStyle(control);
+        return {
+          control: index + 1,
+          name: control.getAttribute("aria-label") || control.textContent?.trim().slice(0, 80) || control.tagName,
+          focusVisible: control.matches(":focus-visible"),
+          outlineStyle: style.outlineStyle,
+          outlineWidth: Number.parseFloat(style.outlineWidth) || 0
+        };
+      });
+  });
+  expect(focusResults.length, `${state} must expose at least one visible enabled control`).toBeGreaterThan(0);
+  expect(
+    focusResults.filter(result => (
+      !result.focusVisible
+      || result.outlineStyle === "none"
+      || result.outlineWidth < MIN_FOCUS_WIDTH_PX
+    )),
+    `${state} controls must all retain a visible keyboard focus indicator`
+  ).toEqual([]);
 }
 
 test.beforeEach(async ({ page }) => {
@@ -95,20 +120,18 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test("A3.5 every registered game overlay passes contrast and visible-focus checks", async ({
-  page
-}) => {
-  test.setTimeout(150_000);
-  const deprecatedThreeWarnings = [];
-  page.on("console", message => {
-    if (
-      message.type() === "warning"
-      && /THREE\.(?:Clock|WebGLShadowMap)|PCFSoftShadowMap/.test(message.text())
-    ) {
-      deprecatedThreeWarnings.push(message.text());
-    }
-  });
-  for (const game of GAME_LIST) {
+for (const game of GAME_LIST) {
+  test(`A3.5 ${game.title} passes overlay contrast and visible-focus checks`, async ({ page }) => {
+    test.setTimeout(45_000);
+    const deprecatedThreeWarnings = [];
+    page.on("console", message => {
+      if (
+        message.type() === "warning"
+        && /THREE\.(?:Clock|WebGLShadowMap)|PCFSoftShadowMap/.test(message.text())
+      ) {
+        deprecatedThreeWarnings.push(message.text());
+      }
+    });
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}`);
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
     await expect(dialog).toBeVisible();
@@ -145,23 +168,19 @@ test("A3.5 every registered game overlay passes contrast and visible-focus check
     await expect(quit).toBeVisible();
     await expectNoColourContrastViolations(page, ".lg-game-confirm", `${game.title} quit prompt`);
     await expectAllVisibleControlsHaveFocus(page, quit, `${game.title} quit prompt`);
-  }
-  expect(deprecatedThreeWarnings).toEqual([]);
-});
+    expect(deprecatedThreeWarnings).toEqual([]);
+  });
 
-test("A3.5 every registered game overlay retains focus in forced-colours mode", async ({
-  page
-}) => {
-  test.setTimeout(90_000);
-  await page.emulateMedia({ forcedColors: "active" });
-  for (const game of GAME_LIST) {
+  test(`A3.5 ${game.title} retains focus in forced-colours mode`, async ({ page }) => {
+    test.setTimeout(20_000);
+    await page.emulateMedia({ forcedColors: "active" });
     await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}`);
     const dialog = page.getByRole("dialog", { name: game.title, exact: true });
     await expect(dialog).toBeVisible();
     await expect(dialog.locator(".lg-game-loading")).toHaveCount(0);
     await expectAllVisibleControlsHaveFocus(page, dialog, `${game.title} forced-colours overlay`);
-  }
-});
+  });
+}
 
 test("A3.5 Sound Racer dark tutorial keeps readable text and visible focus", async ({
   page
@@ -188,8 +207,9 @@ test("A3.5 locked creature options stay legible in standard and high-contrast mo
   for (const contrast of ["standard", "high"]) {
     const query = contrast === "high" ? "&contrast=high" : "";
     await page.goto(`/preview/quest.html?view=creator&sound=0&adapt=0${query}`);
-    const dialog = page.getByRole("dialog", { name: "Change your creature", exact: true });
+    const dialog = page.getByRole("dialog", { name: "Change your book character", exact: true });
     await expect(dialog).toBeVisible();
+    await dialog.getByRole("tab", { name: "Colours", exact: true }).click();
     const locked = dialog.locator(".q-option.is-locked");
     await expect(locked.first()).toBeVisible();
     await expectNoColourContrastViolations(page, ".q-root", `${contrast} creature creator`);

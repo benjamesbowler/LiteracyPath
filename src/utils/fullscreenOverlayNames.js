@@ -1,6 +1,5 @@
 export const QUEST_FULLSCREEN_VIEWS = Object.freeze([
   "creator",
-  "den",
   "map",
   "world",
   "ceremony",
@@ -21,8 +20,6 @@ export function questFullscreenSurfaceName({
   switch (view) {
     case "creator":
       return hatched ? "Change your book character" : "Choose your book character";
-    case "den":
-      return "Your Den";
     case "map":
       return "Trail map";
     case "world":

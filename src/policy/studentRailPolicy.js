@@ -27,7 +27,10 @@
 // unchanged and still in use — reduced-choice mode is a teacher setting that
 // outlives the layout, and tap-to-hear is how a pre-reader uses either shape.
 
-import { getLedaInstructionAudioPath } from "../data/ledaProductionAudio.js";
+import {
+  getLedaInstructionAudioPath,
+  getLedaWordAudioPath
+} from "../data/ledaProductionAudio.js";
 import { STUDENT_TAB_BAR } from "./studentTabBar.js";
 export { STUDENT_TAB_BAR } from "./studentTabBar.js";
 
@@ -124,14 +127,39 @@ export function selectStudentRailItems(
 }
 
 export function speakStudentRailLabel(text = "", browserWindow = globalThis.window) {
-  const audioPath = getLedaInstructionAudioPath(text);
-  if (!audioPath || !browserWindow?.Audio) return false;
-  try {
-    const audio = new browserWindow.Audio(audioPath);
-    const playback = audio.play();
-    playback?.catch?.(() => {});
-    return true;
-  } catch {
-    return false;
-  }
+  const labels = (Array.isArray(text) ? text : [text])
+    .map(label => String(label || "").trim())
+    .filter(Boolean);
+  const queue = labels
+    .map(label => getLedaInstructionAudioPath(label) || getLedaWordAudioPath(label))
+    .filter(Boolean);
+  if (!queue.length || !browserWindow?.Audio) return false;
+
+  let index = 0;
+  const playNext = () => {
+    const audioPath = queue[index];
+    index += 1;
+    if (!audioPath) return;
+    try {
+      const audio = new browserWindow.Audio(audioPath);
+      if (index < queue.length) {
+        let advanced = false;
+        const advanceOnce = () => {
+          if (advanced) return;
+          advanced = true;
+          playNext();
+        };
+        audio.addEventListener?.("ended", advanceOnce, { once: true });
+        audio.addEventListener?.("error", advanceOnce, { once: true });
+        const playback = audio.play();
+        playback?.catch?.(advanceOnce);
+      } else {
+        audio.play()?.catch?.(() => {});
+      }
+    } catch {
+      playNext();
+    }
+  };
+  playNext();
+  return true;
 }

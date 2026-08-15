@@ -50,6 +50,26 @@ test("student-home policy advances past completed and unavailable mission steps"
   );
 });
 
+test("an explicit teacher pick is the primary even while daily mission work remains", () => {
+  const activities = ACTIVITIES.map(activity => (
+    activity.id === "sound-seekers"
+      ? { ...activity, cardState: { label: "Teacher picked", tone: "teacher" } }
+      : activity
+  ));
+  const result = selectStudentHomeRecommendation({
+    activities,
+    missionStatus: { done: { quest: false, book: false, game: false }, missionComplete: false }
+  });
+
+  assert.equal(result.primary.id, "sound-seekers");
+  assert.equal(result.source, "teacher-assignment:sound-seekers");
+  assert.equal(result.childReason, "Your teacher picked this for you.");
+  assert.deepEqual(result.secondary.map(activity => activity.id), [
+    "adventure-map",
+    "reading-library"
+  ]);
+});
+
 test("student-home policy uses the stable fallback after the daily mission", () => {
   const result = selectStudentHomeRecommendation({
     activities: ACTIVITIES,
