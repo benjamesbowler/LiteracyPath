@@ -146,7 +146,7 @@ test("Linux visual baselines have an isolated reviewed refresh workflow", () => 
   assert.match(workflow, /authenticated-missing/);
   assert.match(workflow, /supabase db reset --local --no-seed/);
   assert.match(workflow, /npm run seed:audit-school/);
-  assert.match(workflow, /--update-snapshots/);
+  assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 2);
   assert.match(workflow, /tests\/release\/\*\*\/\*-snapshots\/linux\/\*\.png/);
 });
 
