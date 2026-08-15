@@ -21,6 +21,13 @@ test("release QA exercises pixel while the legacy camera diagnostic stays previe
   assert.match(slice, /renderer=legacy3d/);
   assert.doesNotMatch(slice, /display=low/, "the legacy diagnostic still relies on a retired saved setting");
 
+  for (const [name, source] of [["shots", gate], ["route", route], ["slice", slice]]) {
+    assert.match(source, /VITE_SUPABASE_URL:\s*process\.env\.VITE_SUPABASE_URL\s*\|\|\s*BASE/,
+      `${name} QA does not inject its isolated preview environment`);
+    assert.match(source, /VITE_SUPABASE_ANON_KEY:/,
+      `${name} QA does not inject a non-secret preview key`);
+  }
+
   assert.doesNotMatch(settings, /previewForceLegacy3d|renderer=legacy3d/,
     "the preview-only legacy renderer escaped into child settings");
 });

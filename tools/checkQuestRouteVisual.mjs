@@ -31,7 +31,13 @@ async function ensureServer() {
     cwd: ROOT,
     detached: true,
     stdio: ["ignore", "ignore", "pipe"],
-    env: { ...process.env, BROWSER: "none" }
+    env: {
+      ...process.env,
+      BROWSER: "none",
+      VITE_SUPABASE_URL: process.env.VITE_SUPABASE_URL || BASE,
+      VITE_SUPABASE_ANON_KEY:
+        process.env.VITE_SUPABASE_ANON_KEY || "quest-route-visual-test-key"
+    }
   });
   proc.stderr.on("data", data => process.stderr.write(`  [vite] ${data}`));
   for (let attempt = 0; attempt < 60; attempt += 1) {

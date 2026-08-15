@@ -11,6 +11,7 @@ import {
   hasResolvedElExportScope
 } from "../../src/utils/exportElAssessmentExcel.js";
 import { getStudentElExportEntryDecision } from "../../src/utils/elAssessmentExportPolicy.js";
+import { formatExportDateTime } from "../../src/utils/exportReportSections.js";
 
 const student = { id: "student-aaron", name: "Aaron", classId: "class-one" };
 const classes = [{ id: "class-one", name: "Class One" }];
@@ -147,7 +148,7 @@ test("D-001: Whole Child and the formal EL workbook keep sparse Skills results p
   assert.match(exportedM["Uppercase name evidence provenance"], /Source: Skills assessment/);
   const summaryText = workbook.getWorksheet("Student Summary").getColumn(2).values.join(" ");
   assert.match(summaryText, /assessment_attempts: 1 row/);
-  assert.match(summaryText, /2026-07-23 19:06/);
+  assert.ok(summaryText.includes(formatExportDateTime(syncedAt)));
 });
 
 test("two repeated variants in one Skills sitting cannot become Secure in the formal EL workbook", () => {

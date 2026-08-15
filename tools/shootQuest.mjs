@@ -77,7 +77,13 @@ function startServer() {
     cwd: ROOT,
     detached: true,
     stdio: ["ignore", "pipe", "pipe"],
-    env: { ...process.env, BROWSER: "none" }
+    env: {
+      ...process.env,
+      BROWSER: "none",
+      VITE_SUPABASE_URL: process.env.VITE_SUPABASE_URL || BASE,
+      VITE_SUPABASE_ANON_KEY:
+        process.env.VITE_SUPABASE_ANON_KEY || "quest-shots-test-key"
+    }
   });
   proc.stdout.on("data", () => {});
   proc.stderr.on("data", d => process.stderr.write(`  [vite] ${d}`));
