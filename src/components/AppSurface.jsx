@@ -1233,49 +1233,6 @@ export function AppSurface({ surface }) {
       data-student-session-id={isStudentMode ? studentSessionId || "" : ""}
       {...(isStudentMode ? learnerAccessibilityDataAttributes(learnerAccessibility) : {})}
     >
-      {/*
-        THE ONLY THING THAT TELLS AN ADMINISTRATOR SOMEONE IS WAITING.
-
-        There is no mail, no webhook, no edge function and no realtime
-        subscription anywhere in this application — verified by searching for
-        every one of them. A teacher signs up and the request sits in a table
-        that is read only when somebody remembers to open the admin dashboard
-        and click "Teacher requests". Manual approval was kept deliberately,
-        which makes that the load-bearing gap.
-
-        So the banner sits outside the dashboard, on every screen, and it leads
-        with the WAIT rather than the count: "3 waiting" is easy to postpone,
-        "one since 1 August" is not. It is not dismissible, because the thing it
-        is reporting does not go away when it is dismissed — approving the
-        requests is what removes it.
-      */}
-      {isAdmin && !isStudentMode && pendingAccountAlert?.waiting > 0 && (
-        <button
-          className="admin-waiting-banner"
-          onClick={openAdminDashboard}
-          type="button"
-          data-waiting={pendingAccountAlert.waiting}
-        >
-          <strong>
-            {pendingAccountAlert.waiting === 1
-              ? "1 teacher is waiting for approval"
-              : `${pendingAccountAlert.waiting} teachers are waiting for approval`}
-          </strong>
-          <span>
-            {pendingAccountAlert.oldestRequestedAt && (
-              <>Oldest since {new Date(pendingAccountAlert.oldestRequestedAt)
-                .toLocaleDateString(undefined, { day: "numeric", month: "long" })}. </>
-            )}
-            {pendingAccountAlert.asked > 0 && (
-              <>{pendingAccountAlert.asked} asked about it. </>
-            )}
-            {pendingAccountAlert.blocked > 0 && (
-              <>{pendingAccountAlert.blocked} cannot be approved until a school is set. </>
-            )}
-            Review them now.
-          </span>
-        </button>
-      )}
       {!isFocusedShell && (
         <Suspense fallback={<aside className="lg-sidebar" aria-label="Loading main navigation" />}>
           <Sidebar
@@ -1305,6 +1262,49 @@ export function AppSurface({ surface }) {
         </Suspense>
       )}
       <div className="lg-content-area">
+      {/*
+        THE ONLY THING THAT TELLS AN ADMINISTRATOR SOMEONE IS WAITING.
+
+        There is no mail, no webhook, no edge function and no realtime
+        subscription anywhere in this application — verified by searching for
+        every one of them. A teacher signs up and the request sits in a table
+        that is read only when somebody remembers to open the admin dashboard
+        and click "Teacher requests". Manual approval was kept deliberately,
+        which makes that the load-bearing gap.
+
+        The banner leads with the WAIT rather than the count: "3 waiting" is
+        easy to postpone, "one since 1 August" is not. It belongs inside the
+        content pane so its full width cannot displace the sidebar and page.
+        It is not dismissible, because approving the requests is what removes
+        it.
+      */}
+      {isAdmin && !isStudentMode && pendingAccountAlert?.waiting > 0 && (
+        <button
+          className="admin-waiting-banner"
+          onClick={openAdminDashboard}
+          type="button"
+          data-waiting={pendingAccountAlert.waiting}
+        >
+          <strong>
+            {pendingAccountAlert.waiting === 1
+              ? "1 teacher is waiting for approval"
+              : `${pendingAccountAlert.waiting} teachers are waiting for approval`}
+          </strong>
+          <span>
+            {pendingAccountAlert.oldestRequestedAt && (
+              <>Oldest since {new Date(pendingAccountAlert.oldestRequestedAt)
+                .toLocaleDateString(undefined, { day: "numeric", month: "long" })}. </>
+            )}
+            {pendingAccountAlert.asked > 0 && (
+              <>{pendingAccountAlert.asked} asked about it. </>
+            )}
+            {pendingAccountAlert.blocked > 0 && (
+              <>{pendingAccountAlert.blocked} cannot be approved until a school is set. </>
+            )}
+            Review them now.
+          </span>
+        </button>
+      )}
       {isTeacherClassEntry && (
         <div className="teacher-entry-subject-switch">
           <SubjectSwitch
