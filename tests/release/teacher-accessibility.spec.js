@@ -1,6 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
-import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  completeTeacherClassEntry,
+  expectCurrentTeacherClass
+} from "./support/teacherLanding.js";
 import { expectStudentRoster } from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
@@ -49,7 +52,7 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   const primaryNav = page.getByTestId("teacher-primary-nav");
   await expect(page.getByRole("main")).toHaveCount(1);
   await expect(primaryNav).toHaveAccessibleName("Teacher primary");
-  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
+  await expectCurrentTeacherClass(page, "Audit Class A");
   await expectNoSeriousOrCritical(page, "Today");
 
   // 2026-07-27: the section is called Students, not Children.

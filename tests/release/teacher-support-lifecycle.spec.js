@@ -3,7 +3,10 @@ import { config as loadEnv } from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { expect, test } from "@playwright/test";
 import { localDateKey } from "../../src/utils/teacherInterventions.js";
-import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  completeTeacherClassEntry,
+  switchTeacherClass
+} from "./support/teacherLanding.js";
 
 loadEnv({ path: ".env.local", quiet: true });
 loadEnv({ path: ".env", quiet: true });
@@ -39,11 +42,7 @@ async function login(page) {
 }
 
 async function selectTodayClass(page, className) {
-  const select = page.getByLabel("Current class");
-  await expect(select).toBeEnabled();
-  await select.selectOption({ label: className });
-  await expect(select.locator("option:checked")).toHaveText(className);
-  return select;
+  return switchTeacherClass(page, className);
 }
 
 async function seedIntervention(values) {
@@ -150,7 +149,7 @@ test.afterAll(async () => {
 
 test("class switching discards an open support edit and its selected learners", async ({ page }) => {
   await login(page);
-  const classSelect = await selectTodayClass(page, "Audit Class A");
+  await selectTodayClass(page, "Audit Class A");
   const support = page.locator("details.teacher-dashboard-secondary");
   await expect(support).toHaveAttribute("open", "");
 
@@ -163,7 +162,7 @@ test("class switching discards an open support edit and its selected learners", 
   await expect(planner.getByLabel("Aarav", { exact: true })).toBeChecked();
   await planner.getByLabel("Group name").fill(`${PREFIX} stale draft`);
 
-  await classSelect.selectOption({ label: TEMP_CLASS_NAME });
+  await switchTeacherClass(page, TEMP_CLASS_NAME);
   await expect(support).not.toHaveAttribute("open", "");
   await support.locator(":scope > summary").click();
   await expect(page.getByText(`${PREFIX} stale draft`, { exact: true })).toHaveCount(0);

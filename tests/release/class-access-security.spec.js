@@ -74,10 +74,9 @@ test("A8.3 teacher sees a privacy-minimal access log, alert, and optional expiry
   await expect(expiry.locator("option:checked")).not.toContainText("Stops working on");
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Classes and groups", exact: true })).toBeVisible({
     timeout: 20_000
   });
-  await page.getByRole("button", { name: "Manage classes", exact: true }).click();
   const refreshedPanel = page.locator(".teacher-site-settings");
   await refreshedPanel.locator("select").first().selectOption({ label: "Audit Class A" });
   const refreshedExpiry = refreshedPanel.getByRole("combobox", {

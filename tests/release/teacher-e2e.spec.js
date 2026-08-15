@@ -2,7 +2,12 @@ import { expect, test } from "@playwright/test";
 import {
   chooseStudentReportView
 } from "./support/studentReportNavigation.js";
-import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  auditClassForEmail,
+  completeTeacherClassEntry,
+  openTeacherClassControls,
+  selectTeacherClassFromStudents
+} from "./support/teacherLanding.js";
 import {
   expectStudentRoster,
   openStudentPanel,
@@ -26,38 +31,11 @@ async function logIn(page, email) {
   await completeTeacherClassEntry(page, auditClassForEmail(email));
 }
 
-async function logInAtRoute(page, email, route) {
-  if (!teacherPassword) {
-    throw new Error("LP_AUDIT_TEACHER_PASSWORD is required for the authenticated teacher E2E gate.");
-  }
-  await page.goto(route);
-  await page.getByRole("button", { name: "Teachers: Literacy Guide Teacher Tools" }).click();
-  await expect(page.getByRole("heading", { name: "Teacher sign-in" })).toBeVisible();
-  await page.getByRole("textbox", { name: "Email" }).fill(email);
-  await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
-  await page.getByRole("button", { name: "Sign in", exact: true }).click();
-
-  const destination = page.getByRole("heading", { name: "Open a report", exact: true });
-  const classChooser = page.getByRole("heading", { name: "Choose your class", exact: true });
-  const classRetry = page.getByRole("button", { name: "Try loading again", exact: true });
-  await expect(destination.or(classChooser).or(classRetry)).toBeVisible({ timeout: 20_000 });
-  if (await classChooser.isVisible()) {
-    const classButton = page.locator(".teacher-class-gate-grid")
-      .getByRole("button")
-      .filter({ has: page.getByText(auditClassForEmail(email), { exact: true }) });
-    await expect(classButton).toHaveCount(1);
-    await classButton.click();
-    await expect(destination.or(classRetry)).toBeVisible({ timeout: 20_000 });
-  }
-}
-
 async function openClass(page, className) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  const classSelect = page.getByLabel("Current class");
-  await classSelect.selectOption({ label: className });
-  await expect(classSelect.locator("option:checked")).toHaveText(className);
+  await selectTeacherClassFromStudents(page, className);
   return expectStudentRoster(page, className);
 }
 
@@ -192,6 +170,7 @@ test("A9.7 @teacher-route-deep-link a failed class read preserves and resumes th
   page
 }) => {
   test.setTimeout(90_000);
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
   let refuseClassRead = true;
   await page.route("**/rest/v1/classes?**", async route => {
     const requestUrl = new URL(route.request().url());
@@ -213,7 +192,7 @@ test("A9.7 @teacher-route-deep-link a failed class read preserves and resumes th
 
   const reportRoute =
     `/#teacher/reports/report?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check`;
-  await logInAtRoute(page, "audit-teacher-a@literacypath.invalid", reportRoute);
+  await page.goto(reportRoute);
 
   await expect(page.getByRole("button", { name: "Try loading again", exact: true })).toBeVisible({
     timeout: 20_000
@@ -240,6 +219,7 @@ test("A9.7 @teacher-route-deep-link a failed roster read preserves and resumes t
   page
 }) => {
   test.setTimeout(90_000);
+  await logIn(page, "audit-teacher-a@literacypath.invalid");
   let refuseRosterRead = true;
   await page.route("**/rest/v1/students?**", async route => {
     const requestUrl = new URL(route.request().url());
@@ -261,7 +241,7 @@ test("A9.7 @teacher-route-deep-link a failed roster read preserves and resumes t
 
   const reportRoute =
     `/#teacher/reports/report?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check`;
-  await logInAtRoute(page, "audit-teacher-a@literacypath.invalid", reportRoute);
+  await page.goto(reportRoute);
 
   await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible({
     timeout: 20_000
@@ -322,7 +302,7 @@ test("A9.7 @teacher-roster-read-state a failed roster read stays retryable and n
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
+  await selectTeacherClassFromStudents(page, "Audit Class A");
 
   const rosterState = page.locator(
     '.teacher-dashboard-roster [data-teacher-surface="classes"][data-teacher-state="partial"]'
@@ -366,7 +346,7 @@ test("A10.7 @teacher-route-denial teacher B cannot discover or deep-link into te
     .getByRole("button", { name: "Students", exact: true })
     .click();
 
-  const classSelect = page.getByLabel("Current class");
+  const classSelect = await openTeacherClassControls(page);
   await expect(classSelect.locator("option").filter({ hasText: "Audit Class A" })).toHaveCount(0);
   await expect(classSelect.locator("option").filter({ hasText: "Audit Class B" })).toHaveCount(1);
 

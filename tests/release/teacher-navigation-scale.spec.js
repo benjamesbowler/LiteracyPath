@@ -2,7 +2,10 @@ import { expect, test } from "@playwright/test";
 import {
   chooseStudentReportView
 } from "./support/studentReportNavigation.js";
-import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  completeTeacherClassEntry,
+  expectCurrentTeacherClass
+} from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const CLASS_ID = "00000000-0000-4000-8000-0000000000a1";
@@ -280,7 +283,7 @@ test("Today shows at most three urgent rows and Assess a student opens Assessmen
 }) => {
   test.setTimeout(60_000);
   await logIn(page);
-  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
+  await expectCurrentTeacherClass(page, "Audit Class A");
   const priorityGrid = page.locator(".teacher-today-priority-grid");
   await expect(priorityGrid).toBeVisible({ timeout: 20_000 });
   const visibleUrgentRows = priorityGrid.locator(":scope > section > ul > li");

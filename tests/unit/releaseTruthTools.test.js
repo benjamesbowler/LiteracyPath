@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -105,6 +105,9 @@ test("CI runs the canonical release gate against a fresh seeded local database",
   assert.match(workflow, /supabase db reset --local --no-seed/);
   assert.match(workflow, /npm run seed:audit-school/);
   assert.match(workflow, /npm run check:release/);
+  assert.match(workflow, /workflow_dispatch:/);
+  assert.match(workflow, /release_only:/);
+  assert.match(workflow, /node tools\/releaseGate\.mjs --only "\$RELEASE_ONLY"/);
   assert.match(workflow, /\.artifacts\/release\/manifest\.json/);
   assert.match(workflow, /LP_RECOVERY_SOURCE_DATABASE_URL=\$DB_URL/);
   assert.match(workflow, /LP_RECOVERY_TARGET_DATABASE_URL=\$recovery_target_url/);
@@ -117,6 +120,17 @@ test("CI runs the canonical release gate against a fresh seeded local database",
   assert.match(workflow, /docs\/release\/artifacts\/recovery\//);
   assert.match(workflow, /if: steps\.whole-product\.outcome != 'success'/);
   assert.match(workflow, /npm run lint -- --max-warnings=0/);
+});
+
+test("the local release database can sustain the canonical browser sign-in matrix", () => {
+  const config = readFileSync(
+    new URL("../../supabase/config.toml", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(config, /\[auth\.rate_limit\]/);
+  assert.match(config, /token_refresh = 1000/);
+  assert.match(config, /sign_in_sign_ups = 1000/);
 });
 
 test("CI gives the complete visual evidence lane enough hosted-runner headroom", () => {
@@ -148,6 +162,26 @@ test("Linux visual baselines have an isolated reviewed refresh workflow", () => 
   assert.match(workflow, /npm run seed:audit-school/);
   assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 2);
   assert.match(workflow, /tests\/release\/\*\*\/\*-snapshots\/linux\/\*\.png/);
+});
+
+test("teacher release journeys open the disclosed class control before using it", () => {
+  const releaseRoot = new URL("../release/", import.meta.url);
+  const releaseFiles = readdirSync(releaseRoot, { recursive: true })
+    .filter(file => String(file).endsWith(".js"));
+
+  for (const relativeFile of releaseFiles) {
+    if (relativeFile === "support/teacherLanding.js") continue;
+    const source = readFileSync(new URL(relativeFile, releaseRoot), "utf8");
+    assert.doesNotMatch(
+      source,
+      /getByLabel\((['"])Current class\1\)/,
+      `${relativeFile} bypasses the disclosed class-and-school control`
+    );
+  }
+
+  const support = readFileSync(new URL("support/teacherLanding.js", releaseRoot), "utf8");
+  assert.match(support, /details\.teacher-students-class-tools/);
+  assert.match(support, /element => element\.open/);
 });
 
 test("missing npm scripts are explicitly not implemented", () => {

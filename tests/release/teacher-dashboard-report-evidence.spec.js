@@ -1,8 +1,10 @@
 import { expect, test } from "@playwright/test";
-import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  completeTeacherClassEntry,
+  expectCurrentTeacherClass
+} from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
-const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
 const AARAV_ID = "40000000-0000-4000-8000-000000000001";
 
 async function logIn(page) {
@@ -23,12 +25,7 @@ async function logIn(page) {
 }
 
 async function selectAuditClassFromToday(page) {
-  const classSelect = page.getByLabel("Current class");
-  await expect(classSelect).toBeEnabled({ timeout: 20_000 });
-  if (await classSelect.inputValue() !== AUDIT_CLASS_A_ID) {
-    await classSelect.selectOption({ label: "Audit Class A" });
-  }
-  await expect(classSelect).toHaveValue(AUDIT_CLASS_A_ID);
+  await expectCurrentTeacherClass(page, "Audit Class A");
 }
 
 function dashboardAnswersRequest(request) {

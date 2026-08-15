@@ -50,6 +50,14 @@ enable_manual_linking = false
 minimum_password_length = 8
 password_requirements = ""
 
+# The canonical local/CI release audit signs the same deterministic accounts in
+# across many isolated browser processes. Keep that evidence traffic from
+# tripping the five-minute local Auth limit; this file is not hosted Auth
+# configuration and the production project's rate limits are unchanged.
+[auth.rate_limit]
+token_refresh = 1000
+sign_in_sign_ups = 1000
+
 [auth.email]
 enable_signup = true
 double_confirm_changes = true

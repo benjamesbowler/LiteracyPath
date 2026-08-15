@@ -1,7 +1,10 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { createClient } from "@supabase/supabase-js";
-import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  completeTeacherClassEntry,
+  expectCurrentTeacherClass
+} from "./support/teacherLanding.js";
 
 const url = process.env.VITE_SUPABASE_URL || "";
 const anonKey = process.env.VITE_SUPABASE_ANON_KEY || "";
@@ -84,7 +87,7 @@ test("@synced-guided-reading one teacher keeps two student iPads on the frozen p
     await teacherPage.getByLabel("Password", { exact: true }).fill(teacherPassword);
     await teacherPage.getByRole("button", { name: "Sign in", exact: true }).click();
     await completeTeacherClassEntry(teacherPage, classRow.name);
-    await teacherPage.getByLabel("Current class").selectOption(classRow.id);
+    await expectCurrentTeacherClass(teacherPage, classRow.name);
     await teacherPage.getByRole("button", { name: "Start reading together" }).click();
 
     const setup = teacherPage.getByRole("dialog", { name: "Start reading together" });

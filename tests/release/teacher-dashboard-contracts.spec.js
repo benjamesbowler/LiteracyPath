@@ -9,7 +9,12 @@ import {
   openAdminArea,
   openAdminSection
 } from "./adminNavigation.js";
-import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  auditClassForEmail,
+  completeTeacherClassEntry,
+  expectCurrentTeacherClass,
+  selectTeacherClassFromStudents
+} from "./support/teacherLanding.js";
 import {
   expectStudentRoster,
   openStudentPanel,
@@ -39,9 +44,7 @@ async function selectAuditClass(page, className = "Audit Class A") {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  const classSelect = page.getByLabel("Current class");
-  await classSelect.selectOption({ label: className });
-  await expect(classSelect.locator("option:checked")).toHaveText(className);
+  await selectTeacherClassFromStudents(page, className);
   return expectStudentRoster(page, className);
 }
 
@@ -168,7 +171,7 @@ test("@teacher-reports-route-recovery preserves valid context and recovers from 
   // 2026-07-29: the class comes from the shared context bar, so it is chosen on
   // Students; Assessments then scopes its own student select to it.
   await primaryNav.getByRole("button", { name: "Students", exact: true }).click();
-  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
+  await selectTeacherClassFromStudents(page, "Audit Class A");
   await primaryNav.getByRole("button", { name: "Assessments", exact: true }).click();
   await page.locator(".teacher-assess-panel-student select").selectOption({ label: "Aarav" });
   await expect(page.getByRole("heading", { name: "2 · Assessment", exact: true })).toBeVisible();
@@ -382,9 +385,7 @@ test("@teacher-today-briefing @teacher-urgency-order @teacher-action-feedback @t
 }) => {
   const pageErrors = recordPageErrors(page);
   await logIn(page, "audit-teacher-a@literacypath.invalid");
-  const classSelect = page.getByLabel("Current class");
-  await classSelect.selectOption({ label: "Audit Class A" });
-  await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
+  await expectCurrentTeacherClass(page, "Audit Class A");
 
   const briefing = page.getByRole("region", { name: "Today's class briefing" });
   await expect(briefing).toBeVisible();
@@ -577,9 +578,7 @@ test("@teacher-onboarding-demo sample class is clearly labelled and evidence-emp
       .click();
   }
 
-  const classSelect = page.getByLabel("Current class");
-  await classSelect.selectOption({ label: "Demo Class (sample)" });
-  await expect(classSelect.locator("option:checked")).toHaveText("Demo Class (sample)");
+  await selectTeacherClassFromStudents(page, "Demo Class (sample)");
   const roster = await expectStudentRoster(page, "Demo Class (sample)");
   for (const student of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
     const row = roster.getByRole("row").filter({ hasText: student });

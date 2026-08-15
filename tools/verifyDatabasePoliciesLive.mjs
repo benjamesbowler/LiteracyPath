@@ -828,9 +828,16 @@ async function verifyMathsEvidenceBoundary({
       p_client_event_id: childClientEventId,
       p_skill_id: "F-N-COUNT-10",
       p_event_type: "practice_attempt",
-      p_evidence: { schemaVersion: 1, result: "correct", representation: "counter_tray" },
+      p_evidence: {
+        schemaVersion: 1,
+        source: "lesson_player",
+        recipeId: "F-N-COUNT-10-retrieve-1",
+        renderedRepresentation: { kind: "counter_tray", count: 10 },
+        stage: "check",
+        outcome: "completed_formative_check"
+      },
       p_occurred_at: occurredAt,
-      p_content_version: "maths-foundation-v1"
+      p_content_version: "maths-foundation-number-v1"
     };
     const childWrite = requireData(
       await anonymous.rpc("student_record_maths_evidence", childArgs),
@@ -850,7 +857,10 @@ async function verifyMathsEvidenceBoundary({
     const conflictingRetry = requireData(
       await anonymous.rpc("student_record_maths_evidence", {
         ...childArgs,
-        p_evidence: { schemaVersion: 1, result: "incorrect", representation: "counter_tray" }
+        p_evidence: {
+          ...childArgs.p_evidence,
+          renderedRepresentation: { kind: "counter_tray", count: 9 }
+        }
       }),
       "conflicting child Maths evidence retry"
     );
@@ -866,7 +876,7 @@ async function verifyMathsEvidenceBoundary({
         p_event_type: "teacher_observation",
         p_evidence: { schemaVersion: 1, observed: "counted ten objects one-to-one" },
         p_occurred_at: occurredAt,
-        p_content_version: "maths-foundation-v1"
+        p_content_version: "maths-foundation-number-v1"
       }),
       "teacher Maths evidence write"
     );
@@ -881,7 +891,7 @@ async function verifyMathsEvidenceBoundary({
         p_event_type: "teacher_observation",
         p_evidence: { schemaVersion: 1, observed: "must not persist" },
         p_occurred_at: occurredAt,
-        p_content_version: "maths-foundation-v1"
+        p_content_version: "maths-foundation-number-v1"
       }),
       "cross-tenant Maths evidence write"
     );

@@ -87,6 +87,26 @@ test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
   );
 });
 
+test("live Maths policy probe uses the released server-validated evidence contract", () => {
+  const probe = fs.readFileSync(
+    new URL("../../tools/verifyDatabasePoliciesLive.mjs", import.meta.url),
+    "utf8"
+  );
+  const validator = fs.readFileSync(
+    new URL(
+      "../../supabase/migrations/20260812120000_maths_release_integrity.sql",
+      import.meta.url
+    ),
+    "utf8"
+  );
+
+  assert.match(validator, /p_content_version <> 'maths-foundation-number-v1'/i);
+  assert.match(probe, /p_content_version: "maths-foundation-number-v1"/);
+  assert.match(probe, /source: "lesson_player"/);
+  assert.match(probe, /outcome: "completed_formative_check"/);
+  assert.doesNotMatch(probe, /p_content_version: "maths-foundation-v1"/);
+});
+
 test("security boundary rejects a teacher RPC missing from the account-status inventory", () => {
   const teacherAccountSource = fs.readFileSync(
     new URL(

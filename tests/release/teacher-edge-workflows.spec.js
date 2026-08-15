@@ -1,6 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { randomUUID } from "node:crypto";
-import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  completeTeacherClassEntry,
+  selectTeacherClassFromStudents
+} from "./support/teacherLanding.js";
 import {
   expectStudentRoster,
   openStudentPanel,
@@ -38,9 +41,7 @@ async function openAuditRoster(page) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  const classSelect = page.getByLabel("Current class");
-  await classSelect.selectOption({ label: "Audit Class A" });
-  await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
+  await selectTeacherClassFromStudents(page, "Audit Class A");
   const roster = await expectStudentRoster(page, "Audit Class A");
   await expect(roster.getByRole("row").filter({ hasText: "Aisha" })).toBeVisible();
   return roster;

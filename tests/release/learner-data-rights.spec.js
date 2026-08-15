@@ -1,7 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { randomUUID } from "node:crypto";
 import { openAdminSection } from "./adminNavigation.js";
-import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  auditClassForEmail,
+  completeTeacherClassEntry,
+  selectTeacherClassFromStudents
+} from "./support/teacherLanding.js";
 import { expectStudentRoster, openStudentSettings } from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
@@ -127,7 +131,7 @@ async function openClassRoster(page) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
+  await selectTeacherClassFromStudents(page, "Audit Class A");
   return expectStudentRoster(page, "Audit Class A");
 }
 
