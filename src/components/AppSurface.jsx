@@ -944,6 +944,7 @@ export function AppSurface({ surface }) {
   const activeSubject = subjectForAppView(appView);
   const hasTeacherSchool = Boolean(teacherAccountRecord?.school_id || teacherSchoolName);
   const isTeacherClassEntry = !isStudentMode
+    && !isAdmin
     && !selectedClassId
     && [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD].includes(appView);
   const isFocusedShell = isStudentMode

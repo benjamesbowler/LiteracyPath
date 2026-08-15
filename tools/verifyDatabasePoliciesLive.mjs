@@ -843,16 +843,16 @@ async function verifyMathsEvidenceBoundary({
       await anonymous.rpc("student_record_maths_evidence", childArgs),
       "child Maths evidence write"
     );
-    assert.equal(childWrite?.ok, true);
-    assert.equal(childWrite?.idempotent, false);
+    assert.equal(childWrite?.ok, true, `child Maths write: ${JSON.stringify(childWrite)}`);
+    assert.equal(childWrite?.idempotent, false, `child Maths first write: ${JSON.stringify(childWrite)}`);
 
     const childRetry = requireData(
       await anonymous.rpc("student_record_maths_evidence", childArgs),
       "idempotent child Maths evidence retry"
     );
-    assert.equal(childRetry?.ok, true);
-    assert.equal(childRetry?.id, childWrite?.id);
-    assert.equal(childRetry?.idempotent, true);
+    assert.equal(childRetry?.ok, true, `child Maths retry: ${JSON.stringify(childRetry)}`);
+    assert.equal(childRetry?.id, childWrite?.id, `child Maths retry id: ${JSON.stringify(childRetry)}`);
+    assert.equal(childRetry?.idempotent, true, `child Maths retry state: ${JSON.stringify(childRetry)}`);
 
     const conflictingRetry = requireData(
       await anonymous.rpc("student_record_maths_evidence", {
@@ -864,8 +864,8 @@ async function verifyMathsEvidenceBoundary({
       }),
       "conflicting child Maths evidence retry"
     );
-    assert.equal(conflictingRetry?.ok, false);
-    assert.equal(conflictingRetry?.error, "client_event_id_conflict");
+    assert.equal(conflictingRetry?.ok, false, `conflicting Maths retry: ${JSON.stringify(conflictingRetry)}`);
+    assert.equal(conflictingRetry?.error, "client_event_id_conflict", `conflicting Maths retry: ${JSON.stringify(conflictingRetry)}`);
 
     const teacherWrite = requireData(
       await teacherA.rpc("teacher_record_maths_evidence", {
@@ -874,13 +874,18 @@ async function verifyMathsEvidenceBoundary({
         p_client_event_id: teacherClientEventId,
         p_skill_id: "F-N-COUNT-10",
         p_event_type: "teacher_observation",
-        p_evidence: { schemaVersion: 1, observed: "counted ten objects one-to-one" },
+        p_evidence: {
+          schemaVersion: 1,
+          source: "teacher_observation",
+          outcome: "demonstrated",
+          observed: "counted ten objects one-to-one"
+        },
         p_occurred_at: occurredAt,
         p_content_version: "maths-foundation-number-v1"
       }),
       "teacher Maths evidence write"
     );
-    assert.equal(teacherWrite?.ok, true);
+    assert.equal(teacherWrite?.ok, true, `teacher Maths write: ${JSON.stringify(teacherWrite)}`);
 
     const crossWrite = requireData(
       await teacherA.rpc("teacher_record_maths_evidence", {
@@ -889,14 +894,19 @@ async function verifyMathsEvidenceBoundary({
         p_client_event_id: `maths-audit-cross-${randomUUID()}`,
         p_skill_id: "F-N-COUNT-10",
         p_event_type: "teacher_observation",
-        p_evidence: { schemaVersion: 1, observed: "must not persist" },
+        p_evidence: {
+          schemaVersion: 1,
+          source: "teacher_observation",
+          outcome: "demonstrated",
+          observed: "must not persist"
+        },
         p_occurred_at: occurredAt,
         p_content_version: "maths-foundation-number-v1"
       }),
       "cross-tenant Maths evidence write"
     );
-    assert.equal(crossWrite?.ok, false);
-    assert.equal(crossWrite?.error, "learner_not_in_owned_class");
+    assert.equal(crossWrite?.ok, false, `cross-tenant Maths write: ${JSON.stringify(crossWrite)}`);
+    assert.equal(crossWrite?.error, "learner_not_in_owned_class", `cross-tenant Maths write: ${JSON.stringify(crossWrite)}`);
 
     const crossRead = requireData(
       await teacherB.rpc("teacher_read_maths_evidence", {
@@ -906,8 +916,8 @@ async function verifyMathsEvidenceBoundary({
       }),
       "cross-tenant Maths evidence read"
     );
-    assert.equal(crossRead?.ok, false);
-    assert.equal(crossRead?.error, "class_not_found");
+    assert.equal(crossRead?.ok, false, `cross-tenant Maths read: ${JSON.stringify(crossRead)}`);
+    assert.equal(crossRead?.error, "class_not_found", `cross-tenant Maths read: ${JSON.stringify(crossRead)}`);
 
     const ownerRead = requireData(
       await teacherA.rpc("teacher_read_maths_evidence", {
@@ -917,9 +927,9 @@ async function verifyMathsEvidenceBoundary({
       }),
       "owned Maths evidence read"
     );
-    assert.equal(ownerRead?.ok, true);
-    assert(ownerRead.events.some(event => event.clientEventId === childClientEventId));
-    assert(ownerRead.events.some(event => event.clientEventId === teacherClientEventId));
+    assert.equal(ownerRead?.ok, true, `owned Maths read: ${JSON.stringify(ownerRead)}`);
+    assert(ownerRead.events.some(event => event.clientEventId === childClientEventId), "owned Maths read omitted child evidence");
+    assert(ownerRead.events.some(event => event.clientEventId === teacherClientEventId), "owned Maths read omitted teacher evidence");
 
     const exportPackage = requireData(
       await teacherA.rpc("teacher_export_learner_data", {
@@ -929,9 +939,9 @@ async function verifyMathsEvidenceBoundary({
       }),
       "learner export with Maths evidence"
     );
-    assert(Array.isArray(exportPackage?.mathsEvidence));
-    assert(exportPackage.mathsEvidence.some(event => event.clientEventId === childClientEventId));
-    assert(exportPackage.mathsEvidence.some(event => event.clientEventId === teacherClientEventId));
+    assert(Array.isArray(exportPackage?.mathsEvidence), "learner export omitted Maths evidence array");
+    assert(exportPackage.mathsEvidence.some(event => event.clientEventId === childClientEventId), "learner export omitted child Maths evidence");
+    assert(exportPackage.mathsEvidence.some(event => event.clientEventId === teacherClientEventId), "learner export omitted teacher Maths evidence");
 
     await runPsqlJson(
       databaseUrl,
@@ -947,8 +957,8 @@ async function verifyMathsEvidenceBoundary({
       }),
       "stale-token Maths evidence write"
     );
-    assert.equal(staleTokenWrite?.ok, false);
-    assert.equal(staleTokenWrite?.error, "invalid_student_session");
+    assert.equal(staleTokenWrite?.ok, false, `stale-token Maths write: ${JSON.stringify(staleTokenWrite)}`);
+    assert.equal(staleTokenWrite?.error, "invalid_student_session", `stale-token Maths write: ${JSON.stringify(staleTokenWrite)}`);
 
     const archivedLogin = requireData(
       await anonymous.rpc("student_login", {
@@ -959,8 +969,8 @@ async function verifyMathsEvidenceBoundary({
       }),
       "archived learner Maths login"
     );
-    assert.equal(archivedLogin?.ok, false);
-    assert.equal(archivedLogin?.error, "not_found");
+    assert.equal(archivedLogin?.ok, false, `archived learner Maths login: ${JSON.stringify(archivedLogin)}`);
+    assert.equal(archivedLogin?.error, "not_found", `archived learner Maths login: ${JSON.stringify(archivedLogin)}`);
 
     const masteryAfter = await runPsqlJson(
       databaseUrl,

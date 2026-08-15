@@ -20,6 +20,11 @@ import {
   openStudentPanel,
   openStudentSettings
 } from "./support/teacherStudents.js";
+import {
+  readDownloadWorkbook,
+  worksheetRowsAsObjects,
+  worksheetText
+} from "./support/workbookDownload.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
@@ -60,13 +65,6 @@ async function openAaravReports(page) {
   await expect(page.locator(".lg-report-topbar-copy").getByText("Aarav", { exact: true })).toBeVisible();
 }
 
-async function readDownloadText(download) {
-  const stream = await download.createReadStream();
-  const chunks = [];
-  for await (const chunk of stream) chunks.push(chunk);
-  return Buffer.concat(chunks).toString("utf8");
-}
-
 function recordPageErrors(page) {
   const errors = [];
   page.on("pageerror", error => errors.push(error.message));
@@ -99,9 +97,9 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
   // The roster shortcut stays: an assessment can still start from a row, and lands on
   // the same funnel with the class and the student already answered.
   const roster = await selectAuditClass(page);
-  await expect(
-    roster.getByRole("button", { name: /^Assess / }).first()
-  ).toBeVisible();
+  const studentPanel = await openStudentPanel(page, roster, "Aarav");
+  await expect(studentPanel.getByRole("button", { name: "Assess Aarav", exact: true }))
+    .toBeVisible();
 
   // 2026-07-29: Assessments is the v2 three-step screen (student, assessment,
   // run it) with the class carried by the shared context bar; Reports is still
@@ -122,7 +120,7 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
   }
 
   await primaryNav.getByRole("button", { name: "Resources", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Choose a teaching resource", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
   for (const card of ["Worksheets", "Present"]) {
     await expect(page.getByRole("heading", { name: card, exact: true })).toBeVisible();
   }
@@ -135,13 +133,13 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
     timeout: 20_000
   });
   await page.getByRole("button", { name: "← Back to Resources", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Choose a teaching resource", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
 
-  await page.getByRole("button", { name: "Open a presentation", exact: true }).click();
+  await page.getByRole("button", { name: /^Open (?:Cycle \d+ slides|the slides)$/ }).click();
   await expect(page.locator('main[data-teacher-route="present"]')).toBeVisible();
   await expect(page).toHaveURL(/#teacher\/resources\/present\?class=/);
   await page.goBack();
-  await expect(page.getByRole("heading", { name: "Choose a teaching resource", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Settings", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Class and account", exact: true })).toBeVisible();
@@ -389,7 +387,8 @@ test("@teacher-today-briefing @teacher-urgency-order @teacher-action-feedback @t
 
   const briefing = page.getByRole("region", { name: "Today's class briefing" });
   await expect(briefing).toBeVisible();
-  await expect(briefing.getByText("Today's briefing", { exact: true })).toBeVisible();
+  await expect(briefing.getByRole("region", { name: "Who needs attention" })).toBeVisible();
+  await expect(briefing.getByRole("region", { name: "What's due" })).toBeVisible();
   await expect(briefing.getByRole("button").first()).toBeVisible();
   await expect(page.locator("details.teacher-dashboard-secondary")).not.toHaveAttribute("open", "");
   await expect(page.locator(".teacher-roster-table")).toHaveCount(0);
@@ -482,9 +481,11 @@ test("@teacher-metric-definitions @report-export-provenance @el-empty-export-pol
   await chooseStudentReportView(page, "skills-check");
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download skills assessment data", exact: true }).click();
-  const csv = await readDownloadText(await downloadPromise);
-  expect(csv).toContain('"Student","Aarav"');
-  expect(csv).not.toMatch(/student_id|learner_id|schema_version|policy_version/i);
+  const workbook = await readDownloadWorkbook(await downloadPromise);
+  expect(workbook.worksheets.map(sheet => sheet.name)).toEqual(["Report", "Skills", "Data"]);
+  const dataText = worksheetText(workbook.getWorksheet("Data"));
+  expect(dataText).toContain("Aarav");
+  expect(dataText).not.toMatch(/student_id|learner_id|schema_version|policy_version/i);
   await expect(page.getByRole("region", { name: "About this report" })).toContainText("Audit Class A");
 
   await chooseStudentReportView(page, "el-assessments");
@@ -520,7 +521,7 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
   // Story Quests is a per-student tool, so it opens from the Student panel
   // rather than from a second student picker on Resources.
   const studentPanel = page.getByRole("region", { name: /^Student details: Aarav$/ });
-  await studentPanel.getByText("Learning tools", { exact: true }).click();
+  await studentPanel.getByText("More for Aarav", { exact: true }).click();
   await studentPanel.getByRole("button", { name: "Preview Story Quests", exact: true }).click();
   const previewBanner = page.getByRole("complementary", { name: "Previewing as Aarav" });
   await expect(previewBanner).toBeVisible();
@@ -547,27 +548,32 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
   expect(consoleErrors).toEqual([]);
 });
 
-test("@teacher-onboarding fresh teacher starts the saved setup path from Students", async ({ page }) => {
+test("@teacher-onboarding fresh teacher starts with an actionable first-class setup", async ({ page }) => {
   const pageErrors = recordPageErrors(page);
   await logIn(page, "audit-teacher-fresh@literacypath.invalid");
 
-  const checklist = page.getByRole("region", { name: "Class setup checklist" });
-  await expect(checklist).toHaveAttribute("data-setup-complete", "false");
-  await expect(checklist.getByLabel("0 of 4 setup steps complete")).toBeVisible();
-  await expect(checklist.getByText("Create your class", { exact: true })).toBeVisible();
-  await expect(checklist.getByRole("button", { name: "Explore with a sample class", exact: true })).toBeVisible();
-  await checklist.getByRole("button", { name: "Continue: Create your class", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Create your first class", exact: true }))
+    .toBeVisible();
   await expect(page.getByLabel("Class name")).toBeVisible();
   await expect(page.getByRole("button", { name: "Create class", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", {
+    name: "Explore with a sample class",
+    exact: true
+  })).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
 
 test("@teacher-onboarding-demo sample class is clearly labelled and evidence-empty", async ({ page }) => {
   const pageErrors = recordPageErrors(page);
   await logIn(page, "audit-teacher-demo@literacypath.invalid");
+  const firstClass = page.getByRole("heading", { name: "Create your first class", exact: true });
   const checklist = page.getByRole("region", { name: "Class setup checklist" });
-  if (await checklist.count()) {
+  if (await firstClass.isVisible()) {
+    await page.getByRole("button", {
+      name: "Explore with a sample class",
+      exact: true
+    }).click();
+  } else if (await checklist.count()) {
     await checklist.getByRole("button", {
       name: "Explore with a sample class",
       exact: true
@@ -787,14 +793,15 @@ test("@release-readiness-surface reachable 520-item report is paginated and expo
 
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download skills assessment data", exact: true }).click();
-  const csv = await readDownloadText(await downloadPromise);
-  const lines = csv.split(/\r?\n/).filter(Boolean);
-  const itemRows = lines.filter(line => line.includes('"Item summary"'));
-  const attemptRows = lines.filter(line => line.includes('"Assessment attempt"'));
-  const questionRows = lines.filter(line => line.includes('"Question result"'));
+  const workbook = await readDownloadWorkbook(await downloadPromise);
+  const dataRows = worksheetRowsAsObjects(workbook.getWorksheet("Data"));
+  const itemRows = dataRows.filter(row => row["Row type"] === "Item summary");
+  const attemptRows = dataRows.filter(row => row["Row type"] === "Assessment attempt");
+  const questionRows = dataRows.filter(row => row["Row type"] === "Question result");
   expect(itemRows.length).toBeGreaterThanOrEqual(520);
   expect(attemptRows.length).toBeGreaterThanOrEqual(520);
   expect(questionRows.length).toBeGreaterThanOrEqual(520);
-  expect(csv).not.toMatch(/Attempt ID|Question ID|audit-long-history|audit-item-/i);
+  expect(worksheetText(workbook.getWorksheet("Data")))
+    .not.toMatch(/Attempt ID|Question ID|audit-long-history|audit-item-/i);
   expect(pageErrors).toEqual([]);
 });

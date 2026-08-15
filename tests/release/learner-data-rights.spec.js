@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { execFileSync } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { openAdminSection } from "./adminNavigation.js";
 import {
@@ -12,6 +13,22 @@ const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
 const AUDIT_TEACHER_A_ID = "10000000-0000-4000-8000-000000000001";
 const RIGHTS_LEARNER_NAME = "Rights Gate Reader";
+
+test.afterEach(() => {
+  const databaseUrl = process.env.LP_AUDIT_DATABASE_URL || "";
+  if (!databaseUrl) return;
+  const host = new URL(databaseUrl).hostname;
+  if (!["127.0.0.1", "localhost"].includes(host)) {
+    throw new Error("The data-rights release cleanup is restricted to the local audit database.");
+  }
+  execFileSync("psql", [
+    databaseUrl,
+    "-v",
+    "ON_ERROR_STOP=1",
+    "-c",
+    `delete from public.students where teacher_id = '${AUDIT_TEACHER_A_ID}'::uuid and name like '${RIGHTS_LEARNER_NAME} %';`
+  ], { stdio: "ignore" });
+});
 
 function createRightsLearnerIds() {
   const suffix = randomUUID();

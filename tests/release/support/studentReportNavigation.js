@@ -45,8 +45,9 @@ export async function expectStudentReportViewsAvailable(page, viewIds) {
 
   for (const viewId of viewIds) {
     const view = reportView(viewId);
-    await expect(select.locator(`option[value="${view.id}"]`)).toHaveText(view.label);
-    if (!compact) {
+    if (compact) {
+      await expect(select.locator(`option[value="${view.id}"]`)).toHaveText(view.label);
+    } else {
       await expect(await revealDesktopReportLink(nav, view.id)).toBeVisible();
     }
   }

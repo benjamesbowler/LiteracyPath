@@ -103,7 +103,7 @@ test("teacher Today blocks on a prominent class choice before dashboard content"
   assert.match(teacherToday, /Choose your class/);
   assert.match(teacherToday, /onClick=\{\(\) => onSelectClass\?\.\(classRow\.id\)\}/);
   assert.match(app, /onSelectClass=\{selectTeacherClass\}/);
-  assert.match(app, /const isTeacherClassEntry = !isStudentMode[\s\S]*?!selectedClassId/);
+  assert.match(app, /const isTeacherClassEntry = !isStudentMode[\s\S]*?&& !isAdmin[\s\S]*?!selectedClassId/);
   assert.match(app, /isTeacherClassEntry \? "teacher-class-entry-app no-sidebar"/);
 });
 
@@ -111,6 +111,7 @@ test("teacher login has separate existing-class and first-class entry paths", ()
   assert.match(teacherToday, /visibleClassList\.length === 0 && !selectedClass/);
   assert.match(teacherToday, /Create your first class/);
   assert.match(teacherToday, /onSubmit=\{handleCreateFirstClass\}/);
+  assert.match(teacherToday, /Explore with a sample class/);
   assert.match(app, /createClass=\{createClass\}/);
   assert.match(app, /newClassName=\{newClassName\}/);
   assert.match(app, /setNewClassName=\{setNewClassName\}/);

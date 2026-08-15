@@ -1147,7 +1147,8 @@ export function FinishedReportPage({
          * them by hand. This is the whole picture, in the screen's own words,
          * plus a Teach next sheet the screen cannot put on paper.
          */
-        // The SIMPLE workbook: one sheet to read, one to look things up in.
+        // The SIMPLE workbook: one sheet to read, one to look things up in,
+        // plus the complete machine-readable evidence ledger.
         //
         // exportStudentReportWorkbook.js still exists and still builds the
         // twelve-sheet version — Cover, Summary, Teach next, Reading profile,
@@ -1155,7 +1156,7 @@ export function FinishedReportPage({
         // read this, Data, About this report. Every sheet was defensible on its
         // own and the total was not: a teacher opening it met twelve tabs and
         // had to work out which one answered their question. Same information,
-        // same vocabulary, two sheets.
+        // same vocabulary, with the evidence ledger retained for completeness.
         const { exportSimpleStudentProgressExcel } =
           await import("../utils/exportStudentProgressSimple.js");
         await exportSimpleStudentProgressExcel(reportingWorkspace, {

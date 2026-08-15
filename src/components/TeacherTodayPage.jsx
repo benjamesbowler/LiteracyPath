@@ -844,7 +844,7 @@ export function TeacherTodayPage({
           </div>
           <form
             className="teacher-first-class-form"
-            aria-busy={creatingClass}
+            aria-busy={creatingClass || creatingDemo}
             onSubmit={handleCreateFirstClass}
           >
             <label htmlFor="teacher-first-class-name">Class name</label>
@@ -872,6 +872,16 @@ export function TeacherTodayPage({
               This becomes your active class immediately. You can create more
               classes later from Students.
             </small>
+            {createDemoClass && (
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={creatingClass || creatingDemo}
+                onClick={handleCreateDemo}
+                type="button"
+              >
+                {creatingDemo ? "Creating sample..." : "Explore with a sample class"}
+              </button>
+            )}
           </form>
         </section>
       )}

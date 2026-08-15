@@ -572,7 +572,9 @@ export function downloadLearnerDataPackage(data, learnerName) {
   anchor.href = url;
   anchor.download = download.fileName;
   anchor.rel = "noopener";
+  document.body.appendChild(anchor);
   anchor.click();
+  anchor.remove();
   URL.revokeObjectURL(url);
   return download;
 }

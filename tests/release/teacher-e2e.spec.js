@@ -13,6 +13,11 @@ import {
   openStudentPanel,
   studentRosterHeading
 } from "./support/teacherStudents.js";
+import {
+  readDownloadWorkbook,
+  worksheetRowsAsObjects,
+  worksheetText
+} from "./support/workbookDownload.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
@@ -37,13 +42,6 @@ async function openClass(page, className) {
     .click();
   await selectTeacherClassFromStudents(page, className);
   return expectStudentRoster(page, className);
-}
-
-async function readDownloadText(download) {
-  const stream = await download.createReadStream();
-  const chunks = [];
-  for await (const chunk of stream) chunks.push(chunk);
-  return Buffer.concat(chunks).toString("utf8");
 }
 
 test("A10.7 teacher A completes login → class → learner → assessment → report → parsed export", async ({
@@ -112,19 +110,21 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download skills assessment data", exact: true }).click();
   const download = await downloadPromise;
-  expect(download.suggestedFilename()).toMatch(/\.csv$/i);
-  const csv = await readDownloadText(download);
-  const lines = csv.split(/\r?\n/).filter(Boolean);
-  const provenanceRows = lines.filter(line => line.includes('"About this report"'));
-  const assessmentRows = lines.filter(line => line.includes('"Assessment attempt"'));
-  const questionRows = lines.filter(line => line.includes('"Question result"'));
+  expect(download.suggestedFilename()).toMatch(/\.xlsx$/i);
+  const workbook = await readDownloadWorkbook(download);
+  expect(workbook.worksheets.map(sheet => sheet.name)).toEqual(["Report", "Skills", "Data"]);
+  const dataRows = worksheetRowsAsObjects(workbook.getWorksheet("Data"));
+  const provenanceRows = dataRows.filter(row => row["Row type"] === "Report detail");
+  const assessmentRows = dataRows.filter(row => row["Row type"] === "Assessment attempt");
+  const questionRows = dataRows.filter(row => row["Row type"] === "Question result");
+  const dataText = worksheetText(workbook.getWorksheet("Data"));
 
   expect(provenanceRows.length).toBeGreaterThanOrEqual(10);
   expect(assessmentRows.length).toBeGreaterThanOrEqual(520);
   expect(questionRows.length).toBeGreaterThanOrEqual(520);
-  expect(csv).toContain('"Student","Aarav"');
-  expect(csv).toContain('"Class","Audit Class A"');
-  expect(csv).not.toMatch(/Attempt ID|Question ID|audit-long-history|audit-item-/i);
+  expect(dataText).toContain("Aarav");
+  expect(dataText).toContain("Audit Class A");
+  expect(dataText).not.toMatch(/Attempt ID|Question ID|audit-long-history|audit-item-/i);
   expect(pageErrors).toEqual([]);
 });
 
@@ -201,7 +201,7 @@ test("A9.7 @teacher-route-deep-link a failed class read preserves and resumes th
     `#teacher/reports/report\\?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check$`
   ));
   const shell = page.locator(".lg-app-shell");
-  await expect(shell).toHaveAttribute("data-teacher-class-id", "");
+  await expect(shell).toHaveAttribute("data-teacher-class-id", AUDIT_CLASS_A_ID);
   await expect(shell).toHaveAttribute("data-teacher-learner-id", "");
 
   refuseClassRead = false;

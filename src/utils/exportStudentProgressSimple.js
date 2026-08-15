@@ -30,6 +30,7 @@ import { REPORTING_DOMAIN_LABELS } from "../data/reportingEvidenceModel.js";
 import { buildSimpleOverview } from "../data/simpleStudentReports.js";
 import {
   addKpiBand,
+  addDataSheet,
   addSectionHeading,
   addSheet,
   addTable,
@@ -39,9 +40,34 @@ import {
   writeCell
 } from "./excel/reportWorkbookKit.js";
 import { WORKBOOK_COLORS, WORKBOOK_FONTS } from "./excel/reportWorkbookTheme.js";
+import { buildStudentWorkspaceCsvRows } from "./exportStudentWorkspaceCsv.js";
 
 /** The most a teacher can act on in one week. A longer list is a shorter one nobody reads. */
 const TEACH_NEXT_LIMIT = 8;
+
+function workbookDataValue(value) {
+  if (Array.isArray(value)) return value.join("; ");
+  if (value && typeof value === "object") return JSON.stringify(value);
+  return value ?? "";
+}
+
+function progressDataColumns(rows = []) {
+  const keys = [];
+  const seen = new Set();
+  for (const row of rows) {
+    for (const key of Object.keys(row || {})) {
+      if (seen.has(key)) continue;
+      seen.add(key);
+      keys.push(key);
+    }
+  }
+  return keys.map(key => ({
+    key,
+    header: key,
+    width: Math.min(60, Math.max(14, key.length + 2)),
+    wrap: true
+  }));
+}
 
 function domainLabel(domain) {
   return REPORTING_DOMAIN_LABELS[domain] || domain || "Other";
@@ -289,6 +315,25 @@ export async function createSimpleStudentProgressWorkbook(workspace = {}, {
       repeatHeaderRow: table.headerRow,
       titleForFooter: `${studentName} — skill by skill`
     });
+  }
+
+  // Keep the everyday report easy to read without throwing away the underlying
+  // evidence. The Data sheet is the complete, machine-readable ledger used for
+  // audits, transfers and a teacher's own follow-up analysis.
+  const dataRows = buildStudentWorkspaceCsvRows("skills-check", workspace, {
+    reportTitle: "Skills assessment report",
+    className,
+    learnerName: studentName,
+    generatedAt,
+    filters: {
+      "Report view": "Skills assessment",
+      Period: periodLabel || "All saved results"
+    }
+  }).map(row => Object.fromEntries(
+    Object.entries(row).map(([key, value]) => [key, workbookDataValue(value)])
+  ));
+  if (dataRows.length) {
+    addDataSheet(workbook, progressDataColumns(dataRows), dataRows);
   }
 
   return workbook;

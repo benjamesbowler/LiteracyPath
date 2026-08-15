@@ -108,6 +108,10 @@ test("CI runs the canonical release gate against a fresh seeded local database",
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /release_only:/);
   assert.match(workflow, /node tools\/releaseGate\.mjs --only "\$RELEASE_ONLY"/);
+  assert.match(
+    workflow,
+    /Upload private source maps[\s\S]*?github\.event_name != 'workflow_dispatch' \|\| inputs\.release_only == ''/
+  );
   assert.match(workflow, /\.artifacts\/release\/manifest\.json/);
   assert.match(workflow, /LP_RECOVERY_SOURCE_DATABASE_URL=\$DB_URL/);
   assert.match(workflow, /LP_RECOVERY_TARGET_DATABASE_URL=\$recovery_target_url/);
