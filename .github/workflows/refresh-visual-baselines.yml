@@ -2,6 +2,15 @@ name: Refresh reviewed Linux visual baselines
 
 on:
   workflow_dispatch:
+    inputs:
+      scope:
+        description: Baseline set to refresh
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          - authenticated-missing
 
 jobs:
   refresh:
@@ -41,6 +50,7 @@ jobs:
       - name: Seed deterministic audit school
         run: npm run seed:audit-school
       - name: Refresh every reviewed Linux baseline
+        if: inputs.scope == 'all'
         run: |
           npx playwright test \
             tests/release/el-assessment-completion-device-matrix.spec.js \
@@ -55,6 +65,13 @@ jobs:
             tests/release/student-login-panel.spec.js \
             tests/release/student-login-recovery.spec.js \
             tests/release/student-rail-accessibility.spec.js \
+            tests/release/teacher-roster-device-matrix.spec.js \
+            --project=desktop --workers=1 --update-snapshots
+      - name: Refresh missing authenticated Linux baselines
+        if: inputs.scope == 'authenticated-missing'
+        run: |
+          npx playwright test \
+            tests/release/el-assessment-completion-device-matrix.spec.js \
             tests/release/teacher-roster-device-matrix.spec.js \
             --project=desktop --workers=1 --update-snapshots
       - name: Upload approved Linux baselines

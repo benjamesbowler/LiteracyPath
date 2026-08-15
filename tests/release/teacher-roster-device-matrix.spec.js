@@ -23,8 +23,6 @@ async function openAuditRoster(page) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  const classSelect = page.getByLabel("Current class");
-  await classSelect.selectOption({ label: "Audit Class A" });
   await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(page.locator(".teacher-roster-table tbody > tr")).toHaveCount(10);
   await expect(page.getByRole("navigation", { name: "Student roster pages" })).toContainText(

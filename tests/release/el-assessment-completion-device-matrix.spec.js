@@ -26,7 +26,6 @@ async function openAmaraAssessmentHub(page) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
   const amaraRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Amara" });
   await amaraRow.getByRole("button", { name: "Open Amara", exact: true }).click();
   await expect(page.getByRole("dialog", { name: "Student details: Amara" })).toBeVisible();
