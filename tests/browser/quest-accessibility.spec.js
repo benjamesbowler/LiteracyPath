@@ -513,8 +513,9 @@ test("accessible play performs and checkpoints a restored resident memory", asyn
   await expect(page.getByRole("button", { name: "Close restored trail story", exact: true })).toBeVisible();
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);
-  const checkpoint = await page.evaluate(() => JSON.parse(localStorage.getItem("lp-quest:preview") || "null"));
-  expect(checkpoint?.checkpoint?.visitedMemoryIds).toContain("restored-s1");
+  await expect.poll(() => page.evaluate(() => (
+    JSON.parse(localStorage.getItem("lp-quest:preview") || "null")?.checkpoint?.visitedMemoryIds || []
+  )), { timeout: 5_000 }).toContain("restored-s1");
 });
 
 test("the Singing Weir gate crosses directly into the River Gardens ceremony", async ({ page }) => {
@@ -713,8 +714,13 @@ test("Trading Post reflows at the 640 CSS pixels produced by 200 percent zoom", 
   await page.goto(`${PREVIEW}&view=post&done=5`);
 
   await expect(page.getByRole("heading", { name: "Trading Post" })).toBeVisible();
-  await expect(page.getByRole("tab", { name: "Crest" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Outfits" })).toBeVisible();
   await expect(page.getByRole("tabpanel")).toBeVisible();
+  await expect(page.getByRole("tabpanel").locator("img")).toHaveAttribute("src", /outfit-leaf-cloak\.webp$/);
+  await page.getByRole("button", { name: "Wear it" }).click();
+  await expect(page.getByRole("button", { name: "Wearing", exact: true })).toBeDisabled();
+  await expect(page.getByRole("button", { name: /Leaf cloak Wearing/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Willow wand Yours/ })).toBeVisible();
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);
 });

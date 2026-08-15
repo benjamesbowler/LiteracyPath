@@ -13,11 +13,17 @@
 import { useEffect, useRef, useState } from "react";
 import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
 import {
+  BOOK_CHARACTER_BODY_IDS,
+  BOOK_CHARACTER_LOOKS,
+  BOOK_CHARACTER_OUTFIT_IDS,
+  BOOK_CHARACTER_OUTFIT_LABELS,
+  bookCharacterForCreature,
+  bookCharacterOutfit
+} from "./bookCharacterAvatar.js";
+import {
   CREATURE_BODIES,
   CREATURE_DYES,
-  CREATURE_GEAR,
-  CREATURE_SLOTS,
-  piecesForSlot,
+  CREATURE_GEAR
 } from "../../data/creatureParts.js";
 import {
   availableSparks,
@@ -31,12 +37,32 @@ import { playCelebrationFanfare, playSoftBuzz, playStarChime } from "../../utils
 const TABS = [
   { id: "body", label: "Bodies" },
   { id: "colour", label: "Colours" },
-  ...CREATURE_SLOTS.filter(s => s.kind === "part" && s.id !== "body").map(s => ({ id: s.id, label: s.label })),
-  ...CREATURE_SLOTS.filter(s => s.kind === "gear").map(s => ({ id: s.id, label: s.label }))
+  { id: "outfit", label: "Outfits" }
 ];
 
+const EMPTY_OUTFIT = Object.freeze({ head: null, back: null, neck: null, held: null });
+
+function isIllustratedOutfit(piece) {
+  return Boolean(piece && BOOK_CHARACTER_OUTFIT_IDS.includes(piece.id));
+}
+
+function wearOnlyOutfit(creature, piece) {
+  return {
+    ...creature,
+    equipped: { ...EMPTY_OUTFIT, [piece.slot]: piece.id }
+  };
+}
+
+function visibleShopState(nextState, piece) {
+  if (!isIllustratedOutfit(piece)) return nextState;
+  return {
+    ...nextState,
+    creature: wearOnlyOutfit(nextState.creature, piece)
+  };
+}
+
 export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBack }) {
-  const [tab, setTab] = useState("crest");
+  const [tab, setTab] = useState("outfit");
   const [selectedId, setSelectedId] = useState(null);
   const [flash, setFlash] = useState(null);
   const [notice, setNotice] = useState("");
@@ -59,13 +85,23 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
   const sparks = availableSparks(state);
   const owned = ownedPieces(state);
 
+  const currentCharacter = bookCharacterForCreature(state.creature);
   const stock = tab === "body"
-    ? CREATURE_BODIES.map(b => ({ ...b, slot: "body" }))
+    ? CREATURE_BODIES
+        .filter(body => BOOK_CHARACTER_BODY_IDS.includes(body.id))
+        .map(body => ({ ...body, slot: "body" }))
     : tab === "colour"
-      ? CREATURE_DYES.map(d => ({ ...d, slot: "colour" }))
-      : CREATURE_SLOTS.find(slot => slot.id === tab)?.kind === "gear"
-        ? CREATURE_GEAR.filter(piece => piece.slot === tab)
-        : piecesForSlot(tab);
+      ? (BOOK_CHARACTER_LOOKS[currentCharacter.bodyId] || BOOK_CHARACTER_LOOKS.tuft).map(look => ({
+          ...CREATURE_DYES.find(dye => dye.id === look.id),
+          label: look.label,
+          slot: "colour"
+        }))
+      : CREATURE_GEAR
+          .filter(piece => BOOK_CHARACTER_OUTFIT_IDS.includes(piece.id))
+          .map(piece => ({
+            ...piece,
+            label: BOOK_CHARACTER_OUTFIT_LABELS[piece.id] || piece.label
+          }));
 
   // Arriving from a reward ceremony should open on something the child can
   // actually spend their Sparks on, not the first free/default option in the
@@ -85,21 +121,16 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
       ? state.creature.dye === selected.id
       : selected.slot === "body"
         ? state.creature.body === selected.id
-        : CREATURE_SLOTS.find(slot => slot.id === selected.slot)?.kind === "gear"
-          ? state.creature.equipped?.[selected.slot] === selected.id
-          : state.creature[selected.slot] === selected.id
+        : isIllustratedOutfit(selected)
+          ? bookCharacterOutfit(state.creature)?.id === selected.id
+          : false
   ));
   const preview = (() => {
     if (!selected) return state.creature;
     if (selected.slot === "colour") return { ...state.creature, dye: selected.id };
     if (selected.slot === "body") return { ...state.creature, body: selected.id };
-    if (CREATURE_SLOTS.find(slot => slot.id === selected.slot)?.kind === "gear") {
-      return {
-        ...state.creature,
-        equipped: { ...state.creature.equipped, [selected.slot]: selected.id }
-      };
-    }
-    return { ...state.creature, [selected.slot]: selected.id };
+    if (isIllustratedOutfit(selected)) return wearOnlyOutfit(state.creature, selected);
+    return state.creature;
   })();
 
   function showNotice(message, pieceId = null) {
@@ -134,7 +165,7 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
     if (owned.has(piece.id)) {
       if (selectedEquipped) return;
       if (isSoundEnabled) playStarChime();
-      onBuy?.(equipOwnedPiece(state, piece));
+      onBuy?.(visibleShopState(equipOwnedPiece(state, piece), piece));
       showNotice(`${piece.label} is on.`);
       return;
     }
@@ -149,7 +180,7 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
       return;
     }
     if (isSoundEnabled) { playStarChime(); schedule(playCelebrationFanfare, 200); }
-    onBuy?.(recordPurchaseAndEquip(state, piece));
+    onBuy?.(visibleShopState(recordPurchaseAndEquip(state, piece), piece));
     showNotice(`${piece.label} is yours and ready to wear.`);
   }
 
@@ -207,7 +238,7 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
           <div className="q-post-offer">
             <span className="q-post-status">{selectedEquipped ? "Wearing now" : selectedOwned ? "In your wardrobe" : selected.unlock ? "Trail treasure" : "Ready to collect"}</span>
             <h2>{selected.label}</h2>
-            <p>{selectedEquipped ? "This is part of your current look." : selectedOwned ? "Try it with everything else you are wearing." : selected.unlock ? "Keep walking to discover this reward." : `Spend ${selected.cost || 0} Sparks earned on the trail.`}</p>
+            <p>{selectedEquipped ? "This is your current finished look." : selectedOwned ? "Choose this finished look from your wardrobe." : selected.unlock ? "Keep walking to discover this reward." : `Spend ${selected.cost || 0} Sparks earned on the trail.`}</p>
             <button
               type="button"
               className="q-primary q-post-action"
@@ -238,17 +269,17 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
               ? state.creature.dye === piece.id
               : piece.slot === "body"
                 ? state.creature.body === piece.id
-                : CREATURE_SLOTS.find(slot => slot.id === piece.slot)?.kind === "gear"
-                  ? state.creature.equipped?.[piece.slot] === piece.id
-                  : state.creature[piece.slot] === piece.id
+                : isIllustratedOutfit(piece)
+                  ? bookCharacterOutfit(state.creature)?.id === piece.id
+                  : false
           );
           const thumbnail = piece.slot === "colour"
             ? { ...state.creature, dye: piece.id }
             : piece.slot === "body"
               ? { ...state.creature, body: piece.id }
-              : CREATURE_SLOTS.find(slot => slot.id === piece.slot)?.kind === "gear"
-                ? { ...state.creature, equipped: { ...state.creature.equipped, [piece.slot]: piece.id } }
-                : { ...state.creature, [piece.slot]: piece.id };
+              : isIllustratedOutfit(piece)
+                ? wearOnlyOutfit(state.creature, piece)
+                : state.creature;
 
           return (
             <button

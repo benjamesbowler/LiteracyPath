@@ -3,6 +3,9 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  BOOK_CHARACTER_BODY_IDS,
+  BOOK_CHARACTER_LOOKS,
+  BOOK_CHARACTER_OUTFIT_IDS,
   bookCharacterAsset,
   bookCharacterOutfit
 } from "../../src/components/quest/bookCharacterAvatar.js";
@@ -49,4 +52,22 @@ test("legacy multi-item saves render one deterministic finished outfit", () => {
     slot: "held",
     assetName: "outfit-willow-wand"
   });
+});
+
+test("the visible character catalogue only advertises finished illustrated states", () => {
+  assert.deepEqual(BOOK_CHARACTER_BODY_IDS, ["tuft", "pebble", "moth"]);
+  assert.deepEqual(BOOK_CHARACTER_OUTFIT_IDS, [
+    "leaf-cap",
+    "acorn-hat",
+    "moth-wings",
+    "vine-scarf",
+    "stone-staff"
+  ]);
+  for (const bodyId of BOOK_CHARACTER_BODY_IDS) {
+    assert.equal(BOOK_CHARACTER_LOOKS[bodyId].length, 4, `${bodyId} needs four painted colourways`);
+    for (const look of BOOK_CHARACTER_LOOKS[bodyId]) {
+      const asset = bookCharacterAsset({ body: bodyId, dye: look.id });
+      assert.ok(existsSync(`public${asset}`), `${bodyId}/${look.id} points at missing artwork`);
+    }
+  }
 });

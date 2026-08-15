@@ -10,7 +10,12 @@
 
 import { useState } from "react";
 import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
-import { bookCharacterForCreature } from "./bookCharacterAvatar.js";
+import {
+  BOOK_CHARACTER_BODY_IDS,
+  BOOK_CHARACTER_LOOKS,
+  BOOK_CHARACTER_OUTFIT_LABELS,
+  bookCharacterForCreature
+} from "./bookCharacterAvatar.js";
 import {
   CREATURE_BODIES,
   CREATURE_SLOTS,
@@ -35,36 +40,11 @@ const POSES = Object.freeze([
   { id: "cheer", label: "Cheering" },
   { id: "think", label: "Thinking" }
 ]);
-const FLAGSHIP_BOOK_CHARACTER_IDS = Object.freeze(["tuft", "pebble", "moth"]);
-const CHARACTER_LOOKS = Object.freeze({
-  tuft: Object.freeze([
-    { id: "coral", label: "Story pink", variant: "original" },
-    { id: "sand", label: "Honey gold", variant: "honey" },
-    { id: "plum", label: "Moon lavender", variant: "moon" },
-    { id: "clay", label: "Woodland brown", variant: "woodland" }
-  ]),
-  pebble: Object.freeze([
-    { id: "ember", label: "Story orange", variant: "original" },
-    { id: "moss", label: "Leaf green", variant: "honey" },
-    { id: "slate", label: "Moon blue", variant: "moon" },
-    { id: "coral", label: "Berry red", variant: "woodland" }
-  ]),
-  moth: Object.freeze([
-    { id: "fern", label: "Story green", variant: "original" },
-    { id: "sand", label: "Honey gold", variant: "honey" },
-    { id: "plum", label: "Moon violet", variant: "moon" },
-    { id: "teal", label: "Woodland teal", variant: "woodland" }
-  ])
-});
-const OUTFIT_LABELS = Object.freeze({
-  "leaf-cap": "Leaf cloak",
-  "acorn-hat": "Acorn cap",
-  "moth-wings": "Moth wings",
-  "vine-scarf": "Vine scarf",
-  "stone-staff": "Willow wand"
-});
 const OUTFIT_OPTIONS = Object.freeze(OUTFIT_TABS.flatMap(slot => (
-  piecesForSlot(slot.id).map(piece => ({ ...piece, displayLabel: OUTFIT_LABELS[piece.id] || piece.label }))
+  piecesForSlot(slot.id).map(piece => ({
+    ...piece,
+    displayLabel: BOOK_CHARACTER_OUTFIT_LABELS[piece.id] || piece.label
+  }))
 )));
 const EMPTY_OUTFIT = Object.freeze({ head: null, back: null, neck: null, held: null });
 
@@ -116,7 +96,7 @@ export default function CreatureCreator({
   ];
   const activeTabIndex = Math.max(0, tabs.findIndex(item => item.id === tab));
   const selectedCharacter = bookCharacterForCreature(creature);
-  const characterLooks = CHARACTER_LOOKS[creature.body] || CHARACTER_LOOKS.tuft;
+  const characterLooks = BOOK_CHARACTER_LOOKS[creature.body] || BOOK_CHARACTER_LOOKS.tuft;
   const equippedIds = Object.values(creature.equipped || {}).filter(Boolean);
 
   return (
@@ -170,7 +150,7 @@ export default function CreatureCreator({
       </div>
 
       <div className={`q-reel q-reel--${tab}`}>
-        {tab === "body" && CREATURE_BODIES.filter(body => FLAGSHIP_BOOK_CHARACTER_IDS.includes(body.id)).map(body => (
+        {tab === "body" && CREATURE_BODIES.filter(body => BOOK_CHARACTER_BODY_IDS.includes(body.id)).map(body => (
           <Option
             key={body.id}
             featured

@@ -308,6 +308,50 @@ async function main() {
     const canvases = await page.evaluate(() =>
       [...document.querySelectorAll("canvas")].map(c => `  <canvas> ${c.width}x${c.height}`)
     );
+    const layoutFailures = await page.evaluate(() => {
+      const controls = [...document.querySelectorAll(".q-map-v2-actions button")]
+        .filter(button => button.offsetParent !== null);
+      const failures = controls
+        .filter(button => button.scrollWidth > button.clientWidth + 1 || button.scrollHeight > button.clientHeight + 1)
+        .map(button => `  CLIPPED CONTROL: ${(button.textContent || button.getAttribute("aria-label") || "button").trim()}`);
+      for (let left = 0; left < controls.length; left += 1) {
+        const leftRect = controls[left].getBoundingClientRect();
+        for (let right = left + 1; right < controls.length; right += 1) {
+          const rightRect = controls[right].getBoundingClientRect();
+          const overlaps = leftRect.left < rightRect.right
+            && leftRect.right > rightRect.left
+            && leftRect.top < rightRect.bottom
+            && leftRect.bottom > rightRect.top;
+          if (overlaps) {
+            failures.push(
+              `  OVERLAPPING CONTROLS: ${(controls[left].textContent || "button").trim()} / ${(controls[right].textContent || "button").trim()}`
+            );
+          }
+        }
+      }
+      const walker = document.querySelector(".q-map-v2-walker");
+      if (walker instanceof HTMLElement && walker.offsetParent !== null) {
+        const walkerRect = walker.getBoundingClientRect();
+        const walkerLayer = Number.parseInt(window.getComputedStyle(walker).zIndex, 10) || 0;
+        const labels = [...document.querySelectorAll(".q-map-stop-number, .q-map-stop strong")]
+          .filter(label => label instanceof HTMLElement && label.offsetParent !== null);
+        for (const label of labels) {
+          const labelRect = label.getBoundingClientRect();
+          const labelLayer = Number.parseInt(
+            window.getComputedStyle(label.closest(".q-map-stop")).zIndex,
+            10
+          ) || 0;
+          const overlaps = walkerRect.left < labelRect.right
+            && walkerRect.right > labelRect.left
+            && walkerRect.top < labelRect.bottom
+            && walkerRect.bottom > labelRect.top;
+          if (overlaps && walkerLayer >= labelLayer) {
+            failures.push(`  WALKER OVERLAPS LABEL: ${(label.textContent || "level").trim()}`);
+          }
+        }
+      }
+      return failures;
+    });
 
     // Which requests are STILL IN FLIGHT. This is the list that explains why the
     // document never reaches "complete" — a request that neither finishes nor
@@ -345,6 +389,9 @@ async function main() {
       `FAILED / 4xx REQUESTS (${failedRequests.length})`,
       ...(failedRequests.length ? [...new Set(failedRequests)].map(r => `  ${r}`) : ["  none"]),
       "",
+      `LAYOUT FAILURES (${layoutFailures.length})`,
+      ...(layoutFailures.length ? layoutFailures : ["  none"]),
+      "",
       `VISIBLE BUTTONS (${buttons.length})`,
       ...(buttons.length ? buttons : ["  none"]),
       "",
@@ -355,7 +402,7 @@ async function main() {
     fs.writeFileSync(path.join(OUT, `${shot.name}.txt`), report);
 
     const uniqueFailedRequests = [...new Set(failedRequests)];
-    const bad = errors.length + failedRequests.length + (stillLoading ? 1 : 0)
+    const bad = errors.length + failedRequests.length + layoutFailures.length + (stillLoading ? 1 : 0)
       + (A11Y_ENFORCE ? axeViolations.length : 0);
     if (!A11Y_ENFORCE && axeViolations.length) {
       console.log(`  a11y: ${axeViolations.length} serious/critical (reported, not enforced — A11Y_ENFORCE=1 to gate)`);

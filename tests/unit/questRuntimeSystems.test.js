@@ -931,11 +931,21 @@ test("world resume checkpoints clamp to rebuilt encounters and never create an a
 
 test("the real trail map exposes every child destination with stable controls", () => {
   const map = fs.readFileSync("src/components/quest/TrailMap.jsx", "utf8");
+  const css = fs.readFileSync("src/styles/quest.css", "utf8");
+  const screenshotGate = fs.readFileSync("tools/shootQuest.mjs", "utf8");
   for (const destination of ["Character", "Shop", "Settings", "Practise", "Explore"]) {
     assert.match(map, new RegExp(`>\\s*${destination}\\s*<|["']${destination}["']`), `${destination} is missing from the trail map`);
   }
   assert.match(map, /aria-label="Open settings"/, "settings has no stable accessible name");
   assert.match(map, /if \(isSoundEnabled\) playWhoosh\(\)/, "entering a trail has no recorded transition cue");
+  assert.match(
+    css,
+    /\.q-map-v2-header \{[\s\S]*?grid-template-columns:[^;]*minmax\(300px,/,
+    "the tablet map does not reserve enough room for its four utility controls"
+  );
+  assert.match(screenshotGate, /LAYOUT FAILURES/, "the visual gate cannot report clipped map controls");
+  assert.match(screenshotGate, /button\.scrollWidth > button\.clientWidth/, "the visual gate does not detect clipped control labels");
+  assert.match(screenshotGate, /WALKER OVERLAPS LABEL/, "the visual gate does not detect a character covering a map label");
 });
 
 test("map settings provides a modal fallback without native dialog methods", () => {
@@ -1839,13 +1849,17 @@ test("the map and Trading Post keep their complete phone controls", () => {
   assert.match(map, /const currentPosition = journeyComplete\s*\? null/, "the walker remains on a completed final stop");
   assert.match(map, /const isNext = !journeyComplete && !isDone && stop\.index === nextIndex/, "the final stop remains both done and current");
   assert.match(css, /\.q-post > \* \{ flex: 0 0 auto; \}/, "shop rows can collapse and overlap while scrolling");
-  assert.match(css, /\.q-tabs\.q-post-tabs \{[\s\S]*?grid-template-columns: repeat\(4/, "phone shop shelves do not override the generic scrolling tabs");
-  assert.match(css, /@media \(max-width: 420px\)[\s\S]*?\.q-tabs\.q-post-tabs \{ grid-template-columns: repeat\(3/, "the smallest phone cannot show every shop shelf label");
+  assert.match(css, /\.q-tabs\.q-post-tabs \{[\s\S]*?grid-template-columns: repeat\(3/, "phone shop shelves do not show the three real illustrated categories together");
   assert.match(css, /\.q2d-gate h1 \{[\s\S]*?54px/, "the accessible gate headline can push Walk through below a 720px viewport");
   assert.equal((shop.match(/role="tab"/g) || []).length, 1, "shop shelf semantics were removed");
   assert.match(shop, /tabIndex=\{tab === t\.id \? 0 : -1\}/, "shop tabs do not use one predictable keyboard focus stop");
   assert.match(shop, /event\.key === "ArrowRight"/, "shop tabs cannot be traversed with standard arrow keys");
   assert.match(shop, /role="tabpanel"/, "the selected shop shelf is not connected to its active tab");
+  assert.match(shop, /\{ id: "outfit", label: "Outfits" \}/, "the shop cannot reach its finished illustrated outfits");
+  assert.match(shop, /BOOK_CHARACTER_BODY_IDS\.includes/, "the shop still advertises retired body choices");
+  assert.match(shop, /BOOK_CHARACTER_LOOKS\[currentCharacter\.bodyId\]/, "the shop still advertises colour changes without painted artwork");
+  assert.match(shop, /BOOK_CHARACTER_OUTFIT_IDS\.includes/, "the shop still advertises unsupported pasted-on parts");
+  assert.doesNotMatch(shop, /piecesForSlot/, "the shop has reopened the invisible legacy parts catalogue");
 });
 
 test("earned relic abilities and world memory reach pixel and accessible play", () => {

@@ -21,6 +21,8 @@ const CHARACTER_BY_BODY = Object.freeze({
   })
 });
 
+export const BOOK_CHARACTER_BODY_IDS = Object.freeze(Object.keys(CHARACTER_BY_BODY));
+
 // Older saves can still contain one of the retired procedural body ids. Keep
 // those saves playable, but show a real book character instead of resurrecting
 // the old monster art.
@@ -30,26 +32,33 @@ const LEGACY_BODY_CHARACTER = Object.freeze({
   boulder: "moth"
 });
 
-const LOOK_BY_BODY_AND_DYE = Object.freeze({
-  tuft: Object.freeze({
-    coral: "original",
-    sand: "honey",
-    plum: "moon",
-    clay: "woodland"
-  }),
-  pebble: Object.freeze({
-    ember: "original",
-    moss: "honey",
-    slate: "moon",
-    coral: "woodland"
-  }),
-  moth: Object.freeze({
-    fern: "original",
-    sand: "honey",
-    plum: "moon",
-    teal: "woodland"
-  })
+export const BOOK_CHARACTER_LOOKS = Object.freeze({
+  tuft: Object.freeze([
+    Object.freeze({ id: "coral", label: "Story pink", variant: "original" }),
+    Object.freeze({ id: "sand", label: "Honey gold", variant: "honey" }),
+    Object.freeze({ id: "plum", label: "Moon lavender", variant: "moon" }),
+    Object.freeze({ id: "clay", label: "Woodland brown", variant: "woodland" })
+  ]),
+  pebble: Object.freeze([
+    Object.freeze({ id: "ember", label: "Story orange", variant: "original" }),
+    Object.freeze({ id: "moss", label: "Leaf green", variant: "honey" }),
+    Object.freeze({ id: "slate", label: "Moon blue", variant: "moon" }),
+    Object.freeze({ id: "coral", label: "Berry red", variant: "woodland" })
+  ]),
+  moth: Object.freeze([
+    Object.freeze({ id: "fern", label: "Story green", variant: "original" }),
+    Object.freeze({ id: "sand", label: "Honey gold", variant: "honey" }),
+    Object.freeze({ id: "plum", label: "Moon violet", variant: "moon" }),
+    Object.freeze({ id: "teal", label: "Woodland teal", variant: "woodland" })
+  ])
 });
+
+const LOOK_BY_BODY_AND_DYE = Object.freeze(Object.fromEntries(
+  Object.entries(BOOK_CHARACTER_LOOKS).map(([bodyId, looks]) => [
+    bodyId,
+    Object.freeze(Object.fromEntries(looks.map(look => [look.id, look.variant])))
+  ])
+));
 
 const POSE_ASSET = Object.freeze({
   idle: "pose-ready",
@@ -77,6 +86,15 @@ const OUTFIT_ASSET_BY_ID = Object.freeze({
   "moth-wings": "outfit-moth-wings",
   "vine-scarf": "outfit-vine-scarf",
   "stone-staff": "outfit-willow-wand"
+});
+
+export const BOOK_CHARACTER_OUTFIT_IDS = Object.freeze(Object.keys(OUTFIT_ASSET_BY_ID));
+export const BOOK_CHARACTER_OUTFIT_LABELS = Object.freeze({
+  "leaf-cap": "Leaf cloak",
+  "acorn-hat": "Acorn cap",
+  "moth-wings": "Moth wings",
+  "vine-scarf": "Vine scarf",
+  "stone-staff": "Willow wand"
 });
 
 const OUTFIT_PRIORITY = Object.freeze(["held", "neck", "back", "head"]);
