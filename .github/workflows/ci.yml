@@ -101,7 +101,7 @@ jobs:
           retention-days: 14
 
   release-gate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # The canonical gate currently runs 104 checks sequentially. It takes about
     # 27 minutes on a warm development machine, while a fresh hosted runner also
     # has to install browsers, start Supabase, migrate, and seed the audit school.
@@ -124,9 +124,22 @@ jobs:
           github-token: ${{ github.token }}
       - name: Install PostgreSQL 17 recovery tools
         run: |
+          sudo apt-get install --yes curl ca-certificates
+          sudo install -d /usr/share/postgresql-common/pgdg
+          sudo curl --fail --silent --show-error \
+            --output /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc \
+            https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          printf '%s\n' \
+            'Types: deb' \
+            'URIs: https://apt.postgresql.org/pub/repos/apt' \
+            'Suites: noble-pgdg' \
+            'Components: main' \
+            'Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc' \
+            | sudo tee /etc/apt/sources.list.d/pgdg.sources > /dev/null
           sudo apt-get update
           sudo apt-get install --yes postgresql-client-17
-          pg_dump --version | grep -F "17."
+          echo "/usr/lib/postgresql/17/bin" >> "$GITHUB_PATH"
+          /usr/lib/postgresql/17/bin/pg_dump --version | grep -F "17."
       - name: Start fresh local Supabase
         run: |
           supabase start --exclude realtime,storage,imgproxy,inbucket,meta,studio,edge-runtime,functions,analytics,vector

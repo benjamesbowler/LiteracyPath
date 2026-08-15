@@ -109,8 +109,11 @@ test("CI runs the canonical release gate against a fresh seeded local database",
   assert.match(workflow, /LP_RECOVERY_SOURCE_DATABASE_URL=\$DB_URL/);
   assert.match(workflow, /LP_RECOVERY_TARGET_DATABASE_URL=\$recovery_target_url/);
   assert.match(workflow, /LP_RECOVERY_DRILL_CONFIRM=RESTORE:\$recovery_database/);
+  assert.match(workflow, /runs-on: ubuntu-24\.04/);
+  assert.match(workflow, /https:\/\/apt\.postgresql\.org\/pub\/repos\/apt/);
+  assert.match(workflow, /Suites: noble-pgdg/);
   assert.match(workflow, /postgresql-client-17/);
-  assert.match(workflow, /pg_dump --version \| grep -F "17\."/);
+  assert.match(workflow, /\/usr\/lib\/postgresql\/17\/bin\/pg_dump --version \| grep -F "17\."/);
   assert.match(workflow, /docs\/release\/artifacts\/recovery\//);
   assert.match(workflow, /if: steps\.whole-product\.outcome != 'success'/);
   assert.match(workflow, /npm run lint -- --max-warnings=0/);
