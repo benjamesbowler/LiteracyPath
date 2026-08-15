@@ -7,7 +7,12 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const releaseArtifactRoot = path.join(repoRoot, ".artifacts", "release");
 const canonicalManifestPath = path.join(releaseArtifactRoot, "manifest.json");
-const assessmentGateJsonPath = path.join(repoRoot, "docs", "validation", "assessment_rebuild_gate.json");
+const assessmentGateJsonPath = path.join(
+  repoRoot,
+  ".artifacts",
+  "assessment-rebuild",
+  "assessment_rebuild_gate.json"
+);
 const REQUIRED_AUDIT_ENVIRONMENT = Object.freeze([
   "VITE_SUPABASE_URL",
   "VITE_SUPABASE_ANON_KEY",
@@ -1109,6 +1114,10 @@ export async function runReleaseGate(argv = process.argv.slice(2)) {
   fs.mkdirSync(artifactDir, { recursive: true });
   const git = await readGitMetadata();
   const results = [];
+
+  if (selectedGates.some(gate => gate.id === "assessment-question-integrity")) {
+    fs.rmSync(assessmentGateJsonPath, { force: true });
+  }
 
   for (const gate of selectedGates) {
     const implemented = isGateImplemented(gate, scripts);

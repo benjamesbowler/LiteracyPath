@@ -76,7 +76,7 @@ jobs:
             --project=desktop --workers=1 --update-snapshots=all
       - name: Upload approved Linux baselines
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: reviewed-linux-visual-baselines-${{ github.sha }}
           path: tests/release/**/*-snapshots/linux/*.png
@@ -84,7 +84,7 @@ jobs:
           retention-days: 14
       - name: Upload visual failure evidence
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-visual-failure-evidence-${{ github.sha }}
           path: |

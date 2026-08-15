@@ -124,6 +124,8 @@ test("CI runs the canonical release gate against a fresh seeded local database",
   assert.match(workflow, /docs\/release\/artifacts\/recovery\//);
   assert.match(workflow, /if: steps\.whole-product\.outcome != 'success'/);
   assert.match(workflow, /npm run lint -- --max-warnings=0/);
+  assert.match(workflow, /actions\/upload-artifact@v7/);
+  assert.doesNotMatch(workflow, /actions\/upload-artifact@v[1-6]\b/);
 });
 
 test("the local release database can sustain the canonical browser sign-in matrix", () => {
@@ -166,6 +168,8 @@ test("Linux visual baselines have an isolated reviewed refresh workflow", () => 
   assert.match(workflow, /npm run seed:audit-school/);
   assert.equal(workflow.match(/--update-snapshots=all/g)?.length, 2);
   assert.match(workflow, /tests\/release\/\*\*\/\*-snapshots\/linux\/\*\.png/);
+  assert.match(workflow, /actions\/upload-artifact@v7/);
+  assert.doesNotMatch(workflow, /actions\/upload-artifact@v[1-6]\b/);
 });
 
 test("teacher release journeys open the disclosed class control before using it", () => {
@@ -395,4 +399,48 @@ test("the standalone composed curriculum selection expands to every required dep
     [...expandReleaseGateSelection(new Set(["curriculum-composed", "lint"]))].sort(),
     [...selected, "lint"].sort()
   );
+});
+
+test("the composed curriculum gate reads fresh check-mode assessment evidence", () => {
+  const releaseGate = readFileSync(
+    new URL("../../tools/releaseGate.mjs", import.meta.url),
+    "utf8"
+  );
+  const assessmentGate = readFileSync(
+    new URL("../../tools/assessmentRebuild/gate.mjs", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(
+    releaseGate,
+    /\.artifacts[\s\S]+assessment-rebuild[\s\S]+assessment_rebuild_gate\.json/
+  );
+  assert.match(
+    releaseGate,
+    /fs\.rmSync\(assessmentGateJsonPath, \{ force: true \}\)/
+  );
+  assert.match(
+    assessmentGate,
+    /fs\.writeFileSync\(reportPath \+ "\.json"[\s\S]+if \(write\)/
+  );
+});
+
+test("the full public media inventory is an on-demand audit artifact, not runtime source", () => {
+  const generator = readFileSync(
+    new URL("../../tools/generatePublicMediaInventory.js", import.meta.url),
+    "utf8"
+  );
+  const viteConfig = readFileSync(
+    new URL("../../vite.config.js", import.meta.url),
+    "utf8"
+  );
+  const hygiene = readFileSync(
+    new URL("../../tools/checkRepoHygiene.js", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(generator, /\.artifacts[\s\S]+media-qa[\s\S]+public-media-inventory\.json/);
+  assert.doesNotMatch(generator, /src["',\s]+data["',\s]+publicMediaInventory\.js/);
+  assert.doesNotMatch(viteConfig, /publicMediaInventory/);
+  assert.match(hygiene, /APPROVED_LARGE_SOURCE_FILES[\s\S]+mediaQaReviewItems\.generated\.js/);
 });

@@ -26,6 +26,12 @@ const LIVE_MEDIA_ROOTS = [
 ];
 
 const APPROVED_LARGE_ROOTS = LIVE_MEDIA_ROOTS;
+const APPROVED_LARGE_SOURCE_FILES = new Set([
+  // This generated release registry carries the beta visibility/review state
+  // for every assessment, Guided Reading, and Story Quest media item. It is
+  // consumed by release tooling and tree-shaken out of the production bundle.
+  "src/data/generated/mediaQaReviewItems.generated.js"
+]);
 const ROOT_PREVIEW_RE = /preview.*\.html$/i;
 const BACKUP_EXTENSIONS = new Set([".bak", ".tmp", ".old"]);
 const ZIP_EXTENSIONS = new Set([".zip"]);
@@ -86,7 +92,8 @@ function isLiveMediaPath(filePath) {
 }
 
 function isApprovedLargePath(filePath) {
-  return APPROVED_LARGE_ROOTS.some(root => isUnderRoot(filePath, root));
+  return APPROVED_LARGE_SOURCE_FILES.has(filePath)
+    || APPROVED_LARGE_ROOTS.some(root => isUnderRoot(filePath, root));
 }
 
 function isArchivedAssetDoc(filePath) {

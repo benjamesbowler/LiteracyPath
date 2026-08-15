@@ -3,11 +3,11 @@
 //   node tools/assessmentRebuild/gate.mjs [--skill <id>] [--write]
 //
 // Builds every authored v3 bank, runs lints, simulations, and the shared-policy
-// integration check, and (with
-// --write) regenerates:
+// integration check. Every run writes machine-readable evidence to the ignored
+// audit-artifact directory. With --write it also regenerates:
 //   - src/data/v3/banks/<skill>.v3.generated.js
 //   - src/content/assessments/v3/assessmentRebuildStatus.generated.js
-//   - .artifacts/assessment-rebuild/assessment_rebuild_gate.md (+ .json)
+//   - .artifacts/assessment-rebuild/assessment_rebuild_gate.md
 // Exit code is non-zero when ANY cutover skill has a red gate. "not run" is
 // reported as its own state, never as a pass.
 
@@ -382,9 +382,18 @@ for (const row of results) {
   if (row.detail?.error) console.log(`    ERROR ${row.detail.error.split("\n")[0]}`);
 }
 
+let commit = "";
+try { commit = execSync("git rev-parse --short HEAD", { cwd: ROOT }).toString().trim(); } catch { /* fine */ }
+
+const reportPath = path.join(REPORT_DIR, "assessment_rebuild_gate");
+fs.mkdirSync(REPORT_DIR, { recursive: true });
+fs.writeFileSync(reportPath + ".json", JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  commit,
+  results
+}, null, 1));
+
 if (write) {
-  let commit = "";
-  try { commit = execSync("git rev-parse --short HEAD", { cwd: ROOT }).toString().trim(); } catch { /* fine */ }
 
   for (const [skillId, items] of allBanks) {
     const row = results.find(r => r.skillId === skillId);
@@ -417,9 +426,6 @@ if (write) {
     `export const assessmentRebuildStatusVersion = ${JSON.stringify(ASSESSMENT_REBUILD_STANDARD_VERSION)};\n` +
     `export const assessmentRebuildStatusBySkillId = ${JSON.stringify(merged, null, 1)};\n`);
 
-  const reportPath = path.join(REPORT_DIR, "assessment_rebuild_gate");
-  fs.mkdirSync(REPORT_DIR, { recursive: true });
-  fs.writeFileSync(reportPath + ".json", JSON.stringify({ generatedAt: new Date().toISOString(), commit, results }, null, 1));
   fs.writeFileSync(reportPath + ".md",
     `# Assessment rebuild gate — ${new Date().toISOString()} @ ${commit}\n\n` +
     `| Skill | Ready | G1 | G2 | G3 | G4 | G5 | G6 | G7 | G8 | G9 | G10 | Items | Sittings to Secure |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n` +

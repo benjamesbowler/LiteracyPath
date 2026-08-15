@@ -99,7 +99,7 @@ jobs:
         run: npm run check:soundkeys-midi
       - name: Upload screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: quest-shots
           path: |
@@ -111,7 +111,7 @@ jobs:
 
   release-gate:
     runs-on: ubuntu-24.04
-    # The canonical gate currently runs 104 checks sequentially. It takes about
+    # The canonical gate currently runs more than 100 checks sequentially. It takes about
     # 27 minutes on a warm development machine, while a fresh hosted runner also
     # has to install browsers, start Supabase, migrate, and seed the audit school.
     # Forty-five minutes was terminating healthy runs before they could report
@@ -193,7 +193,7 @@ jobs:
           fi
       - name: Upload release manifest and evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: release-gate-evidence
           path: |
@@ -206,7 +206,7 @@ jobs:
           retention-days: 30
       - name: Upload private source maps
         if: always() && (github.event_name != 'workflow_dispatch' || inputs.release_only == '')
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: private-source-maps-${{ github.sha }}
           path: ${{ runner.temp }}/private-source-maps/

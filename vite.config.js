@@ -184,9 +184,6 @@ export default defineConfig({
           if (id.includes('/node_modules/phaser/')) {
             return 'vendor-phaser-runtime'
           }
-          if (id.includes('/src/data/publicMediaInventory')) {
-            return 'admin-media-inventory'
-          }
           if (id.includes('/src/data/vocabularyAudioPreferences')) {
             return 'child-assets-vocabulary-audio'
           }
