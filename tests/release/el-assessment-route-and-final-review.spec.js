@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import { expectStudentRoster, openStudentPanel } from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 
@@ -20,9 +21,8 @@ async function openAmaraAssessmentHub(page) {
     .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
-  const amaraRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Amara" });
-  await amaraRow.getByRole("button", { name: "Open Amara", exact: true }).click();
-  await expect(page.getByRole("dialog", { name: "Student details: Amara" })).toBeVisible();
+  const roster = await expectStudentRoster(page, "Audit Class A");
+  await openStudentPanel(page, roster, "Amara");
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Assessments", exact: true })
     .click();

@@ -23,7 +23,10 @@ async function openAuditRoster(page) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", {
+    name: "Audit Class A — 12 students",
+    exact: true
+  })).toBeVisible();
   await expect(page.locator(".teacher-roster-table tbody > tr")).toHaveCount(10);
   await expect(page.getByRole("navigation", { name: "Student roster pages" })).toContainText(
     "Page 1 of 2"
@@ -37,7 +40,7 @@ async function expectNoViewportOverflow(page) {
   ))).toBe(true);
 }
 
-test("@teacher-roster-device-matrix keeps a configurable roster and detail drawer usable on Chromebook and tablet", async ({
+test("@teacher-roster-device-matrix keeps a configurable roster and student panel usable on Chromebook and tablet", async ({
   page
 }) => {
   test.setTimeout(90_000);
@@ -45,35 +48,37 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   await openAuditRoster(page);
 
   const roster = page.locator(".teacher-roster-table");
-  // 2026-07-26: "Sign-in" is a default column now — it was the only route to setting
-  // sign-in pictures and hiding it behind the picker made a new class unusable.
-  for (const column of ["Display name", "Current focus", "Sign-in", "Last active", "Actions"]) {
+  // The compact design keeps every essential learning field fixed. Sign-in
+  // readiness is permanently visible under the student's name.
+  for (const column of ["Student", "Current focus", "Accuracy", "Status", "Last active", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeAttached();
   }
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toHaveCount(0);
+  await expect(roster.getByRole("columnheader", { name: "Progress", exact: true })).toHaveCount(0);
   await expectNoViewportOverflow(page);
   await expect.poll(() => roster.evaluate(table => table.scrollWidth <= table.clientWidth + 1)).toBe(true);
 
   const columnPicker = page.locator(".teacher-roster-column-picker");
-  await columnPicker.getByText(/Choose columns/).click();
+  await columnPicker.getByText(/More filters and columns/).click();
   await columnPicker.getByLabel("Sound Seekers", { exact: true }).check();
-  await columnPicker.getByLabel("Sign-in", { exact: true }).check();
+  await columnPicker.getByLabel("Progress", { exact: true }).check();
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toBeAttached();
-  await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toBeAttached();
+  await expect(roster.getByRole("columnheader", { name: "Progress", exact: true })).toBeAttached();
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", {
+    name: "Audit Class A — 12 students",
+    exact: true
+  })).toBeVisible({
     timeout: 20_000
   });
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toBeAttached();
-  await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toBeAttached();
-  await columnPicker.getByText(/Choose columns/).click();
+  await expect(roster.getByRole("columnheader", { name: "Progress", exact: true })).toBeAttached();
+  await columnPicker.getByText(/More filters and columns/).click();
   await columnPicker.getByRole("button", { name: "Restore scannable defaults", exact: true }).click();
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toHaveCount(0);
-  // Sign-in survives a reset to defaults, by design.
-  await expect(roster.getByRole("columnheader", { name: "Sign-in", exact: true })).toBeAttached();
-  await columnPicker.getByText(/Choose columns/).click();
+  await expect(roster.getByRole("columnheader", { name: "Progress", exact: true })).toHaveCount(0);
+  await columnPicker.getByText(/More filters and columns/).click();
   await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
     "teacher-roster-chromebook.png",
     {
@@ -85,36 +90,32 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   );
 
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
-  const drawerDialog = page.getByRole("dialog", { name: "Student details: Aarav" });
-  await expect(drawerDialog).toBeVisible();
-  await expect(drawerDialog.getByRole("region", { name: "Student details: Aarav" })).toContainText(
-    "Pictures ready"
-  );
-  await expect(drawerDialog.getByRole("button", { name: "Close student details", exact: true })).toBeFocused();
-  const chromebookDrawer = drawerDialog.locator(".teacher-learner-drawer");
-  await expect(chromebookDrawer).toBeVisible();
-  const chromebookDrawerBox = await chromebookDrawer.boundingBox();
-  expect(chromebookDrawerBox).not.toBeNull();
-  expect(chromebookDrawerBox.x + chromebookDrawerBox.width).toBeLessThanOrEqual(1366);
-  expect(chromebookDrawerBox.width).toBeLessThanOrEqual(480);
-  await expect(chromebookDrawer).toHaveScreenshot(
+  const openAarav = aaravRow.getByRole("button", { name: /^Aarav\b/ });
+  await openAarav.click();
+  const studentPanel = page.getByRole("region", { name: "Student details: Aarav" });
+  await expect(studentPanel).toBeVisible();
+  await expect(studentPanel).toContainText("Pictures ready");
+  await expect(openAarav).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("dialog", { name: "Student details: Aarav" })).toHaveCount(0);
+  const chromebookPanelBox = await studentPanel.boundingBox();
+  expect(chromebookPanelBox).not.toBeNull();
+  expect(chromebookPanelBox.x + chromebookPanelBox.width).toBeLessThanOrEqual(1366);
+  expect(chromebookPanelBox.width).toBeLessThanOrEqual(400);
+  await expect(studentPanel).toHaveScreenshot(
     "teacher-learner-drawer-chromebook.png",
     {
       animations: "disabled",
-      mask: [drawerDialog.locator(".teacher-learner-drawer-metrics > .teacher-roster-metric:nth-child(3) strong")],
-      maskColor: "#eef2f7",
       maxDiffPixelRatio: 0.025
     }
   );
-  await page.keyboard.press("Escape");
-  await expect(drawerDialog).toHaveCount(0);
-  await expect(aaravRow.getByRole("button", { name: "Open Aarav", exact: true })).toBeFocused();
+  await studentPanel.getByRole("button", { name: "Close student details", exact: true }).click();
+  await expect(page.getByRole("region", { name: "Student panel" })).toBeVisible();
+  await expect(openAarav).toHaveAttribute("aria-pressed", "false");
 
   await page.setViewportSize({ width: 1024, height: 768 });
   await expectNoViewportOverflow(page);
   const rosterTools = page.getByRole("region", {
-    name: "Search, sort, and filter students"
+    name: "Search and filter students"
   });
   await expect.poll(async () => {
     const toolsBox = await rosterTools.boundingBox();
@@ -134,7 +135,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
   expect(rosterBox).not.toBeNull();
   expect(tabletRowBox.x).toBeGreaterThanOrEqual(rosterBox.x);
   expect(tabletRowBox.x + tabletRowBox.width).toBeLessThanOrEqual(rosterBox.x + rosterBox.width + 1);
-  await expect.poll(() => tabletRow.getByRole("button", { name: "Open Aarav", exact: true })
+  await expect.poll(() => tabletRow.getByRole("button", { name: /^Aarav\b/ })
     .evaluate(button => button.getBoundingClientRect().height)).toBeGreaterThanOrEqual(44);
   await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
     "teacher-roster-tablet.png",
@@ -146,20 +147,17 @@ test("@teacher-roster-device-matrix keeps a configurable roster and detail drawe
     }
   );
 
-  await tabletRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
-  const tabletDrawer = page.getByRole("dialog", { name: "Student details: Aarav" });
-  const tabletDrawerSurface = tabletDrawer.locator(".teacher-learner-drawer");
-  await expect(tabletDrawerSurface).toBeVisible();
-  const tabletDrawerBox = await tabletDrawerSurface.boundingBox();
-  expect(tabletDrawerBox).not.toBeNull();
-  expect(tabletDrawerBox.x).toBeGreaterThanOrEqual(0);
-  expect(tabletDrawerBox.x + tabletDrawerBox.width).toBeLessThanOrEqual(1024);
-  await expect(tabletDrawerSurface).toHaveScreenshot(
+  await tabletRow.getByRole("button", { name: /^Aarav\b/ }).click();
+  const tabletPanel = page.getByRole("region", { name: "Student details: Aarav" });
+  await expect(tabletPanel).toBeVisible();
+  const tabletPanelBox = await tabletPanel.boundingBox();
+  expect(tabletPanelBox).not.toBeNull();
+  expect(tabletPanelBox.x).toBeGreaterThanOrEqual(0);
+  expect(tabletPanelBox.x + tabletPanelBox.width).toBeLessThanOrEqual(1024);
+  await expect(tabletPanel).toHaveScreenshot(
     "teacher-learner-drawer-tablet.png",
     {
       animations: "disabled",
-      mask: [tabletDrawer.locator(".teacher-learner-drawer-metrics > .teacher-roster-metric:nth-child(3) strong")],
-      maskColor: "#eef2f7",
       maxDiffPixelRatio: 0.025
     }
   );

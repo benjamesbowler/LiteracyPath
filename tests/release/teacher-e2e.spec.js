@@ -3,6 +3,11 @@ import {
   chooseStudentReportView
 } from "./support/studentReportNavigation.js";
 import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  expectStudentRoster,
+  openStudentPanel,
+  studentRosterHeading
+} from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
@@ -53,7 +58,7 @@ async function openClass(page, className) {
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: className });
   await expect(classSelect.locator("option:checked")).toHaveText(className);
-  return page.locator(".teacher-roster-table");
+  return expectStudentRoster(page, className);
 }
 
 async function readDownloadText(download) {
@@ -72,12 +77,7 @@ test("A10.7 teacher A completes login → class → learner → assessment → r
 
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await openClass(page, "Audit Class A");
-  const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  await expect(aaravRow).toBeVisible();
-  await aaravRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
-
-  const studentDetail = page.getByRole("dialog", { name: "Student details: Aarav" });
-  await expect(studentDetail).toBeVisible();
+  const studentDetail = await openStudentPanel(page, roster, "Aarav");
   // One click to a check: the Student panel starts it directly.
   await expect(studentDetail.getByRole("button", { name: /^Assess Aarav$/ })).toBeEnabled();
   const compactViewport = (page.viewportSize()?.width || 1280) <= 560;
@@ -355,7 +355,7 @@ test("A9.7 @teacher-roster-read-state a failed roster read stays retryable and n
   const roster = page.locator(".teacher-roster-table");
   await expect(roster.getByRole("row").filter({ hasText: "Aarav" })).toBeVisible();
   await expect(page.getByText("12 students", { exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeFocused();
+  await expect(studentRosterHeading(page, "Audit Class A")).toBeFocused();
 });
 
 test("A10.7 @teacher-route-denial teacher B cannot discover or deep-link into teacher A's class or learner", async ({

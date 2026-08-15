@@ -26,9 +26,13 @@ async function openAmaraAssessmentHub(page) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
+  await expect(page.getByRole("heading", {
+    name: "Audit Class A — 12 students",
+    exact: true
+  })).toBeVisible();
   const amaraRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Amara" });
-  await amaraRow.getByRole("button", { name: "Open Amara", exact: true }).click();
-  await expect(page.getByRole("dialog", { name: "Student details: Amara" })).toBeVisible();
+  await amaraRow.getByRole("button", { name: /^Amara\b/ }).click();
+  await expect(page.getByRole("region", { name: "Student details: Amara" })).toBeVisible();
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Assessments", exact: true })
     .click();

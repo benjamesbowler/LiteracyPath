@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { randomUUID } from "node:crypto";
 import { openAdminSection } from "./adminNavigation.js";
 import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
+import { expectStudentRoster, openStudentSettings } from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
@@ -127,7 +128,7 @@ async function openClassRoster(page) {
     .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
-  return page.locator(".teacher-roster-table");
+  return expectStudentRoster(page, "Audit Class A");
 }
 
 test("A8.8 admin can produce a tracked, verified learner access export", async ({
@@ -181,14 +182,8 @@ test("A8.8 verified deletion removes seeded learner UI and evidence but keeps it
     .fill(rightsLearner.studentName);
   const learnerRow = roster.getByRole("row").filter({ hasText: rightsLearner.studentName });
   await expect(learnerRow).toBeVisible();
-  await learnerRow.getByRole("button", {
-    name: `Open ${rightsLearner.studentName}`,
-    exact: true
-  }).click();
-  await page.getByRole("dialog", { name: `Student details: ${rightsLearner.studentName}` })
-    .getByRole("button", { name: "Student settings", exact: true })
-    .click();
-  await page.getByRole("dialog", { name: `Options for ${rightsLearner.studentName}` })
+  const options = await openStudentSettings(page, roster, rightsLearner.studentName);
+  await options
     .getByRole("button", { name: "Privacy and data rights", exact: true })
     .click();
   const dialog = page.getByRole("dialog", {

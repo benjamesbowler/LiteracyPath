@@ -78,6 +78,13 @@ test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
     Object.keys(AUTH_ONLY_PROBE_ARGS).sort(),
     [...AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS].sort()
   );
+  assert.deepEqual(
+    AUTH_ONLY_PROBE_ARGS["teacher_list_maths_media_issues(uuid, boolean)"],
+    {
+      p_class_id: "30000000-0000-4000-8000-000000000001",
+      p_include_reviewed: false
+    }
+  );
 });
 
 test("security boundary rejects a teacher RPC missing from the account-status inventory", () => {

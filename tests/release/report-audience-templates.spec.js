@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import { expectStudentRoster, openStudentPanel } from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const denseAnalyticsJargon = /\b(?:confidence interval|denominator|outlier|percentile|instructional group|weighted average)\b/i;
@@ -21,11 +22,9 @@ async function openAaravReport(page) {
     .getByRole("button", { name: "Students", exact: true })
     .click();
   await page.getByLabel("Current class").selectOption({ label: "Audit Class A" });
-  const aaravRow = page.locator(".teacher-roster-table").getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
-  await page.getByRole("dialog", { name: "Student details: Aarav" })
-    .getByRole("button", { name: "Open report", exact: true })
-    .click();
+  const roster = await expectStudentRoster(page, "Audit Class A");
+  const studentPanel = await openStudentPanel(page, roster, "Aarav");
+  await studentPanel.getByRole("button", { name: "Open report", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Summary", exact: true })).toBeVisible({
     timeout: 20_000
   });

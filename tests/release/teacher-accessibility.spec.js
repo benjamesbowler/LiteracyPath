@@ -1,6 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import { expectStudentRoster } from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 
@@ -54,27 +55,23 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
   // 2026-07-27: the section is called Students, not Children.
   const studentsButton = primaryNav.getByRole("button", { name: "Students", exact: true });
   await activateWithKeyboard(studentsButton);
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
+  const roster = await expectStudentRoster(page, "Audit Class A");
   await expect(page.getByRole("main")).toHaveCount(1);
-  const rosterAdmin = page.locator(".teacher-roster-admin");
-  if (!await rosterAdmin.evaluate(element => element.open)) {
-    await activateWithKeyboard(rosterAdmin.locator(":scope > summary"));
-  }
-  const roster = page.getByRole("table").filter({ has: page.getByRole("columnheader", { name: "Display name" }) });
   const columnPicker = page.locator(".teacher-roster-column-picker");
-  await columnPicker.getByText(/Choose columns/).click();
+  await activateWithKeyboard(columnPicker.getByText(/More filters and columns/));
   await columnPicker.getByLabel("Sound Seekers", { exact: true }).check();
-  await columnPicker.getByLabel("Sign-in", { exact: true }).check();
-  await expect(roster.getByRole("columnheader")).toHaveCount(7);
-  await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(7);
+  await columnPicker.getByLabel("Progress", { exact: true }).check();
+  await expect(roster.getByRole("columnheader")).toHaveCount(8);
+  await expect(roster.getByRole("row").filter({ hasText: "Aarav" }).getByRole("cell")).toHaveCount(8);
 
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  const openAarav = aaravRow.getByRole("button", { name: "Open Aarav", exact: true });
+  const openAarav = aaravRow.locator(".teacher-roster-name");
   await activateWithKeyboard(openAarav);
-  const studentDrawer = page.getByRole("dialog", { name: "Student details: Aarav" });
-  await expect(studentDrawer).toBeVisible();
+  const studentPanel = page.getByRole("region", { name: "Student details: Aarav" });
+  await expect(studentPanel).toBeVisible();
+  await activateWithKeyboard(studentPanel.getByText("More for Aarav", { exact: true }));
   await activateWithKeyboard(
-    studentDrawer.getByRole("button", { name: "Student settings", exact: true })
+    studentPanel.getByRole("button", { name: "Student settings", exact: true })
   );
   const childOptions = page.getByRole("dialog", { name: "Options for Aarav" });
   await expect(childOptions).toBeVisible();

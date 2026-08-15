@@ -188,7 +188,7 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   },
   "teacher_list_maths_media_issues(uuid, boolean)": {
     p_class_id: EXPECTED.teacherA.classId,
-    p_include_resolved: false
+    p_include_reviewed: false
   },
   "teacher_list_press_work(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_mark_intervention_delivered(uuid)": {

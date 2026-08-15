@@ -10,6 +10,11 @@ import {
   openAdminSection
 } from "./adminNavigation.js";
 import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  expectStudentRoster,
+  openStudentPanel,
+  openStudentSettings
+} from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
@@ -34,24 +39,15 @@ async function selectAuditClass(page, className = "Audit Class A") {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: className });
   await expect(classSelect.locator("option:checked")).toHaveText(className);
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
-  await expect(page.getByText(
-    `Add, update, move, or archive students in ${className}.`,
-    { exact: true }
-  )).toBeVisible();
-  return page.locator(".teacher-roster-table");
+  return expectStudentRoster(page, className);
 }
 
 async function openAaravReports(page) {
   const roster = page.locator(".teacher-roster-table");
-  const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
-  await aaravRow.getByRole("button", { name: "Open Aarav", exact: true }).click();
-  const studentDetail = page.getByRole("dialog", { name: "Student details: Aarav" });
-  await expect(studentDetail).toBeVisible();
+  const studentDetail = await openStudentPanel(page, roster, "Aarav");
   // The Student panel opens that child's report directly - it already knows who
   // it is about, so there is no picker in between.
   await studentDetail.getByRole("button", { name: "Open report", exact: true }).click();
@@ -59,17 +55,6 @@ async function openAaravReports(page) {
     timeout: 20_000
   });
   await expect(page.locator(".lg-report-topbar-copy").getByText("Aarav", { exact: true })).toBeVisible();
-}
-
-async function openStudentSettings(page, roster, studentName) {
-  const studentRow = roster.getByRole("row").filter({ hasText: studentName });
-  await studentRow.getByRole("button", { name: `Open ${studentName}`, exact: true }).click();
-  const drawer = page.getByRole("dialog", { name: `Student details: ${studentName}` });
-  await expect(drawer).toBeVisible();
-  await drawer.getByRole("button", { name: "Student settings", exact: true }).click();
-  const options = page.getByRole("dialog", { name: `Options for ${studentName}` });
-  await expect(options).toBeVisible();
-  return options;
 }
 
 async function readDownloadText(download) {
@@ -226,9 +211,9 @@ test("@teacher-dashboard-data @teacher-class-progress @teacher-evidence-basis @t
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await selectAuditClass(page);
 
-  // 2026-07-26: "Sign-in" is a default column again — it holds the only per-student
-  // control that lets a class sign in, so it can no longer be opt-in.
-  for (const column of ["Display name", "Current focus", "Sign-in", "Last active", "Actions"]) {
+  // Essential learning fields are fixed; sign-in readiness stays visible
+  // beneath the student's name rather than becoming a hideable column.
+  for (const column of ["Student", "Current focus", "Accuracy", "Status", "Last active", "Actions"]) {
     await expect(roster.getByRole("columnheader", { name: column, exact: true })).toBeVisible();
   }
   await expect(roster.locator("tbody > tr")).toHaveCount(10);
@@ -277,7 +262,7 @@ test("@teacher-child-lifecycle @teacher-roster-scale edits, opens privacy, archi
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await selectAuditClass(page);
 
-  const rosterTools = page.getByRole("region", { name: "Search, sort, and filter students" });
+  const rosterTools = page.getByRole("region", { name: "Search and filter students" });
   await rosterTools.getByLabel("Search students").fill("Aarav");
   await expect(roster.locator("tbody > tr")).toHaveCount(1);
   await rosterTools.getByLabel("Search students").fill("");
@@ -470,7 +455,7 @@ test("@teacher-class-code @teacher-login-card-print keeps class entry controls i
   await expect(printRoute.getByRole("article", { name: "Aarav sign-in card" })).toBeVisible();
   await expect(printRoute.getByRole("article", { name: "Aisha sign-in card" })).toBeVisible();
   await page.goBack();
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
+  await expectStudentRoster(page, "Audit Class A");
   await page.goForward();
   await expect(printRoute).toBeVisible();
   await page.reload();
@@ -524,9 +509,7 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
   const consoleErrors = recordConsoleErrors(page);
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   const roster = await selectAuditClass(page);
-  await roster.getByRole("row").filter({ hasText: "Aarav" })
-    .getByRole("button", { name: "Open Aarav", exact: true })
-    .click();
+  await openStudentPanel(page, roster, "Aarav");
 
   const shell = page.locator(".lg-app-shell");
   await expect(shell).toHaveAttribute("data-teacher-class-id", AUDIT_CLASS_A_ID);
@@ -594,11 +577,10 @@ test("@teacher-onboarding-demo sample class is clearly labelled and evidence-emp
       .click();
   }
 
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: "Demo Class (sample)" });
   await expect(classSelect.locator("option:checked")).toHaveText("Demo Class (sample)");
-  const roster = page.locator(".teacher-roster-table");
+  const roster = await expectStudentRoster(page, "Demo Class (sample)");
   for (const student of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
     const row = roster.getByRole("row").filter({ hasText: student });
     await expect(row).toBeVisible();

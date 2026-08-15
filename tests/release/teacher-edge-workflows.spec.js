@@ -1,6 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { randomUUID } from "node:crypto";
 import { completeTeacherClassEntry } from "./support/teacherLanding.js";
+import {
+  expectStudentRoster,
+  openStudentPanel,
+  openStudentSettings
+} from "./support/teacherStudents.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_TEACHER_A_ID = "10000000-0000-4000-8000-000000000001";
@@ -33,24 +38,12 @@ async function openAuditRoster(page) {
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();
-  await expect(page.getByRole("heading", { name: "Students", exact: true })).toBeVisible();
   const classSelect = page.getByLabel("Current class");
   await classSelect.selectOption({ label: "Audit Class A" });
   await expect(classSelect.locator("option:checked")).toHaveText("Audit Class A");
-  const roster = page.locator(".teacher-roster-table");
+  const roster = await expectStudentRoster(page, "Audit Class A");
   await expect(roster.getByRole("row").filter({ hasText: "Aisha" })).toBeVisible();
   return roster;
-}
-
-async function openStudentSettings(page, roster, studentName) {
-  const row = roster.getByRole("row").filter({ hasText: studentName });
-  await row.getByRole("button", { name: `Open ${studentName}`, exact: true }).click();
-  const details = page.getByRole("dialog", { name: `Student details: ${studentName}` });
-  await expect(details).toBeVisible();
-  await details.getByRole("button", { name: "Student settings", exact: true }).click();
-  const options = page.getByRole("dialog", { name: `Options for ${studentName}` });
-  await expect(options).toBeVisible();
-  return options;
 }
 
 async function setSymbolPassword(page, studentId, sequence) {
@@ -386,8 +379,8 @@ test("@teacher-mixed-activity Bao's zero-answer row still reports its saved Soun
   await expect(baoRow.getByText("No scored answers yet", { exact: true })).toBeVisible();
   await expect(baoRow).not.toContainText(/no practice|no activity/i);
 
-  await baoRow.getByRole("button", { name: "Open Bao", exact: true }).click();
-  const details = page.getByRole("dialog", { name: "Student details: Bao" });
+  const details = await openStudentPanel(page, roster, "Bao");
+  await details.getByText("More for Bao", { exact: true }).click();
   await expect(details.getByText("Sound Seekers", { exact: true })).toBeVisible();
   await expect(details).toContainText(/3 of 40 trails/i);
   await expect(details).not.toContainText(/Sound Seekers\s+Not started/i);
@@ -410,10 +403,7 @@ test("@teacher-deletion-confirmation Bao's zero-answer row and formal record sti
   const roster = await openAuditRoster(page);
   const baoRow = roster.getByRole("row").filter({ hasText: "Bao" });
   await expect(baoRow.getByText("No scored answers yet", { exact: true })).toBeVisible();
-  await baoRow.getByRole("button", { name: "Open Bao", exact: true }).click();
-  const details = page.getByRole("dialog", { name: "Student details: Bao" });
-  await details.getByRole("button", { name: "Student settings", exact: true }).click();
-  const options = page.getByRole("dialog", { name: "Options for Bao" });
+  const options = await openStudentSettings(page, roster, "Bao");
   await options.getByRole("button", { name: "Delete student…", exact: true }).click();
 
   const deleteDialog = page.getByRole("dialog", { name: "Delete Bao permanently" });
@@ -527,10 +517,7 @@ test("@teacher-mixed-skill-drawer separates Aisha's current focus from accuracy 
 }) => {
   await logIn(page);
   const roster = await openAuditRoster(page);
-  const aishaRow = roster.getByRole("row").filter({ hasText: "Aisha" });
-  await aishaRow.getByRole("button", { name: "Open Aisha", exact: true }).click();
-  const details = page.getByRole("dialog", { name: "Student details: Aisha" });
-  const drawer = details.getByRole("region", { name: "Student details: Aisha" });
+  const drawer = await openStudentPanel(page, roster, "Aisha");
   await expect(drawer).toContainText("Current focus:");
   await expect(drawer).toContainText("Initial Sounds");
 
