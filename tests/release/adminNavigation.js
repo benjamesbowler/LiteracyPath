@@ -38,9 +38,9 @@ async function activeAdminSectionControl(page) {
     name: "Admin Dashboard",
     exact: true
   }).last()).toBeVisible({ timeout: 20_000 });
-  const picker = page.getByRole("combobox", { name: "Choose an admin page" }).last();
-  const navigation = page.getByRole("navigation", { name: "Admin pages" }).last();
-  const compact = await picker.isVisible();
+  const picker = page.locator(".teacher-section-select:visible select").first();
+  const navigation = page.locator(".admin-section-tabs:visible").first();
+  const compact = await picker.count() > 0;
   await expect(compact ? picker : navigation).toBeVisible();
   return { picker, navigation, compact };
 }
