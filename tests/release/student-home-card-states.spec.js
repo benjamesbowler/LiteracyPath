@@ -10,7 +10,7 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
   const home = page.locator('[data-child-surface="student-home"]');
   const cards = home.locator("[data-learning-state]");
   await expect(cards).toHaveCount(7);
-  await expect(home.locator("[data-learning-state-label]")).toHaveCount(7);
+  await expect(home.locator("[data-learning-state-label]")).toHaveCount(3);
 
   const adventureMap = home.locator('[data-rail-destination="map"]');
   await expect(adventureMap).toHaveAttribute("data-learning-state", "Continue");
@@ -24,6 +24,10 @@ test("A2.4 every student activity has a seeded child-safe card state", async ({ 
   await expect(soundSeekers).toHaveAttribute("data-learning-state", "Teacher picked");
   await expect(soundSeekers).toHaveAttribute("data-progress-marker", "38 of 40 trails");
   await expect(home.locator('[data-learning-state="New"]')).toHaveCount(4);
+  await expect(home.locator("[data-child-instruction]"))
+    .toHaveText("Your teacher picked this");
+  await expect(home.locator("[data-learning-state-label]", { hasText: "New" }))
+    .toHaveCount(0);
 
   const childFacingStates = await home.locator("[data-learning-state-label]").allTextContents();
   expect(childFacingStates.join(" ")).not.toMatch(

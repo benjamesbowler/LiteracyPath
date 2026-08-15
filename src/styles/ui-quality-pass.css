@@ -461,6 +461,30 @@
     border-radius: 14px;
   }
 
+  /* Keep every header utility available on a phone without letting its words
+     consume the width needed by the child's identity and wallet. The controls
+     retain complete accessible names through their aria-labels. */
+  .kg-stage .lp-subject-switch--child {
+    width: 97px;
+    padding: 3px;
+  }
+
+  .kg-stage .lp-subject-switch--child .lp-subject-switch-option {
+    padding-inline: 0;
+  }
+
+  .kg-stage .lp-subject-switch--child .lp-subject-switch-label,
+  .kg-stage .kg-home-music-control > span {
+    display: none;
+  }
+
+  .kg-stage .kg-home-music-control {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+
   .kg-stage .kg-main,
   .kg-stage .kg-main--scroll {
     overflow-x: hidden;
@@ -520,17 +544,17 @@
   }
 
   .kg-stage .kg-home-hero {
-    min-height: 278px;
+    min-height: 236px;
   }
 
   .kg-stage .kg-home-hero-body {
-    grid-template-columns: minmax(0, 1fr) 92px;
+    grid-template-columns: minmax(0, 1fr) 76px;
     gap: 8px;
-    padding: 16px;
+    padding: 12px;
   }
 
   .kg-stage .kg-home-hero-title {
-    font-size: clamp(30px, 9vw, 42px);
+    font-size: clamp(28px, 8.5vw, 38px);
   }
 
   .kg-stage .kg-home-hero-stop {
@@ -538,23 +562,36 @@
   }
 
   .kg-stage .kg-home-hero-actions {
-    flex-wrap: wrap;
     gap: 8px;
-    margin-top: 12px;
+    margin-top: 9px;
   }
 
   .kg-stage .kg-home-play {
     padding-inline: 18px;
   }
 
+  .kg-stage .kg-home-play,
+  .kg-stage .kg-home-hear-hero {
+    height: 54px;
+  }
+
+  .kg-stage .kg-home-play {
+    font-size: 23px;
+  }
+
+  .kg-stage .kg-home-hear-hero {
+    width: 54px;
+  }
+
   .kg-stage .kg-home-guide {
-    width: 92px;
+    width: 76px;
+    gap: 5px;
   }
 
   .kg-stage .kg-home-guide-photo {
-    width: 88px;
-    height: 112px;
-    border-radius: 25px;
+    width: 72px;
+    height: 82px;
+    border-radius: 22px;
   }
 
   .kg-stage .kg-home-guide-name {
@@ -562,7 +599,7 @@
   }
 
   .kg-stage .kg-home-guide-name strong {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .kg-stage .kg-home-stops {
@@ -1042,6 +1079,144 @@
     min-height: 0;
     overflow: hidden;
     padding: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .kg-stage .kg-identity {
+    display: none;
+  }
+
+  /* Stars are display-only and remain visible everywhere with more room. On
+     the narrowest phone, keep the spendable coin button and all action
+     controls instead of crushing six header items into one another. */
+  .kg-stage .kg-currency--stars {
+    display: none;
+  }
+}
+
+/* A 568 x 320 phone has only about 200px between its navigation bars. Keep the
+   next action wholly visible there; the checklist and choices remain below it
+   on the same deliberate vertical scroll path. */
+@media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
+  .kg-stage {
+    --kg-header-height: 52px;
+    --kg-tabbar-height: 58px;
+    --kg-tab-height: 48px;
+  }
+
+  .kg-stage .kg-header {
+    gap: 4px;
+    padding-inline: 6px;
+  }
+
+  .kg-stage .kg-avatar,
+  .kg-stage .kg-iconbutton,
+  .kg-stage .kg-currency,
+  .kg-stage .kg-home-music-control {
+    width: 44px;
+    height: 44px;
+  }
+
+  .kg-stage .kg-avatar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .kg-stage .kg-identity {
+    display: none;
+  }
+
+  .kg-stage .kg-screen,
+  .kg-stage .kg-screen--home {
+    padding: 6px;
+  }
+
+  .kg-stage .kg-home {
+    gap: 6px;
+  }
+
+  .kg-stage .kg-home-hero {
+    min-height: 190px;
+  }
+
+  .kg-stage .kg-home-hero-body {
+    grid-template-columns: minmax(0, 1fr) 66px;
+    padding: 8px 12px;
+  }
+
+  .kg-stage .kg-home-eyebrow {
+    padding: 4px 10px;
+  }
+
+  .kg-stage .kg-home-hero-title {
+    margin-top: 6px;
+    font-size: 28px;
+  }
+
+  .kg-stage .kg-home-hero-stop {
+    margin-top: 2px;
+    font-size: 13px;
+  }
+
+  .kg-stage .kg-home-hero-actions {
+    margin-top: 6px;
+  }
+
+  .kg-stage .kg-home-play,
+  .kg-stage .kg-home-hear-hero {
+    height: 46px;
+  }
+
+  .kg-stage .kg-home-play {
+    padding-inline: 15px;
+    font-size: 20px;
+  }
+
+  .kg-stage .kg-home-hear-hero {
+    width: 46px;
+  }
+
+  .kg-stage .kg-home-guide {
+    width: 66px;
+    gap: 3px;
+  }
+
+  .kg-stage .kg-home-guide-photo {
+    width: 58px;
+    height: 58px;
+    border-width: 3px;
+    border-radius: 17px;
+  }
+
+  .kg-stage .kg-home-guide-name {
+    padding: 3px 6px 4px;
+  }
+
+  .kg-stage .kg-home-guide-name small {
+    display: none;
+  }
+
+  .kg-stage .kg-home-guide-name strong {
+    font-size: 12px;
+  }
+
+  .kg-stage .kg-tabbar {
+    gap: 3px;
+    padding-inline: 4px;
+  }
+
+  .kg-stage .kg-tab {
+    border-radius: 12px;
+  }
+
+  .kg-stage .kg-tab .kg-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .kg-stage .kg-tab-label {
+    font-size: 10px;
   }
 }
 

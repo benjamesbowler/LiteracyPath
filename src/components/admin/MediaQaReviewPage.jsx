@@ -7,6 +7,7 @@ import {
   mergeMediaQaReviewItems,
   readMediaQaReviewOverrides
 } from "../../data/mediaQaReviewStatus.js";
+import { summarizeMediaQaWorkload } from "../../utils/mediaQaWorkload.js";
 
 function statusLabel(status = "") {
   if (status === "approved") return "Approved";
@@ -121,6 +122,7 @@ export function MediaQaReviewPage({ onBack }) {
     const matchesGuidedBook = areaFilter !== "guided_reading" || guidedBookFilter === "all" || row.bookTitle === guidedBookFilter;
     return matchesSearch && matchesArea && matchesStatus && matchesGuidedBook;
   });
+  const visibleWorkload = summarizeMediaQaWorkload(visibleRows);
 
   function decide(row, status) {
     const next = applyMediaQaDecision(row, status, row.notes || "");
@@ -196,7 +198,12 @@ export function MediaQaReviewPage({ onBack }) {
             </button>
           ))}
         </div>
-        <p className="muted-text">Showing {visibleRows.length} of {rows.length} review items.</p>
+        <p className="muted-text">
+          Showing {visibleRows.length} of {rows.length} pairings across {visibleWorkload.uniqueImages} unique images
+          {visibleWorkload.textOnlyPairings > 0
+            ? `, plus ${visibleWorkload.textOnlyPairings} text-only pairings.`
+            : "."}
+        </p>
       </section>
 
       <section className="media-qa-grid">

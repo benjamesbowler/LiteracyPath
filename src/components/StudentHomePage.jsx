@@ -100,6 +100,16 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
+function homeHeroInstruction(cardState) {
+  if (cardState?.label === "Teacher picked") return "Your teacher picked this";
+  if (cardState?.label === "Continue") return "Carry on where you stopped";
+  return "Start here";
+}
+
+function visibleDoorState(cardState) {
+  return cardState?.label && cardState.label !== "New" ? cardState.label : "";
+}
+
 // A READ THAT FAILED IS NOT AN EMPTY READ.
 //
 // The old helper swallowed a malformed record and returned {}, which the UI
@@ -554,6 +564,7 @@ export function StudentHomePage({
     ? "We could not find your last stop."
     : primary ? heroStopLine({ activityId: primary.id, progress: homeProgress, mission }) : "";
   const playLabel = homeProgress.ok ? continuation.label : "Play";
+  const heroInstruction = homeHeroInstruction(primary?.cardState);
   const world = worldForScope(progressScopeKey);
 
   // The six doorways, in the spec's order. Ids are the rail destination ids so
@@ -774,14 +785,10 @@ export function StudentHomePage({
                 <span
                   className="kg-pill kg-eyebrow kg-glass-light kg-glass-light--quiet kg-home-eyebrow"
                   data-child-instruction=""
+                  data-learning-state-label=""
                 >
-                  Carry on where you stopped
+                  {heroInstruction}
                 </span>
-                {primary && (
-                  <small className="kg-home-hero-state" data-learning-state-label="">
-                    {primary.cardState?.label || "New"}
-                  </small>
-                )}
               </div>
               <h1 className="kg-hero-title kg-home-hero-title" id="kg-home-hero-title" data-child-title="">
                 {primary ? primary.title : "Choose a place to go"}
@@ -821,7 +828,7 @@ export function StudentHomePage({
                   className="kg-speaker kg-speaker--lg kg-glass-light kg-home-hear-hero"
                   aria-label="Hear this"
                   onClick={() => hear(primary
-                    ? ["Carry on where you stopped", primary.title, heroStop]
+                    ? [heroInstruction, primary.title, heroStop]
                     : [recommendation.childReason])}
                 >
                   <SpeakerGlyph />
@@ -954,9 +961,11 @@ export function StudentHomePage({
                   <span className="kg-home-door-chip">
                     <DoorIcon name={door.icon} />
                   </span>
-                  <small className="kg-home-door-state" data-learning-state-label="">
-                    {door.cardState?.label || "New"}
-                  </small>
+                  {visibleDoorState(door.cardState) && (
+                    <small className="kg-home-door-state" data-learning-state-label="">
+                      {visibleDoorState(door.cardState)}
+                    </small>
+                  )}
                 </span>
                 <span className="kg-home-door-foot">
                   <span className="kg-home-door-text">

@@ -6,10 +6,11 @@ import {
   evaluateQuestDeviceEvidence,
   QUEST_DEVICE_RELEASE_PROFILES
 } from "../src/utils/questDeviceAcceptance.js";
+import { questAcceptanceReportPath } from "./lib/releaseArtifactPaths.mjs";
 
 const allowMissing = process.argv.includes("--allow-missing");
 const evidenceDir = path.resolve("docs/validation/quest-device-acceptance");
-const reportPath = path.resolve("docs/validation/quest_device_acceptance.md");
+const reportPath = questAcceptanceReportPath("quest_device_acceptance.md");
 const failures = [];
 const records = [];
 
@@ -64,6 +65,7 @@ lines.push(
   "",
   "A profile passes only with a 20-minute physical-device record, operator and device identity, stable renderer and memory evidence, bounded input latency, no uncaught/context/offline-shell errors, non-regressing progress, and a recovered network interruption."
 );
+fs.mkdirSync(path.dirname(reportPath), { recursive: true });
 fs.writeFileSync(reportPath, `${lines.join("\n")}\n`);
 
 if (failures.length) {

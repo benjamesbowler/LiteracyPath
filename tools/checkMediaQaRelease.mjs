@@ -1,5 +1,6 @@
 import { mediaQaReviewItems } from "../src/data/generated/mediaQaReviewItems.generated.js";
 import { isBetaMediaPairingTestVisible } from "../src/policy/betaReleasePolicy.js";
+import { summarizeMediaQaWorkload } from "../src/utils/mediaQaWorkload.js";
 
 const betaMode = process.argv.includes("--beta");
 
@@ -12,6 +13,7 @@ const requestedAreas = new Set(
 const reviewItems = requestedAreas.size
   ? mediaQaReviewItems.filter(item => requestedAreas.has(item.area))
   : mediaQaReviewItems;
+const workload = summarizeMediaQaWorkload(reviewItems);
 const counts = {};
 const pending = [];
 
@@ -29,6 +31,11 @@ console.log(
 Object.entries(counts)
   .sort(([a], [b]) => a.localeCompare(b))
   .forEach(([key, count]) => console.log(`  ${key}: ${count}`));
+console.log(
+  `Pending review workload: ${workload.pendingPairings} pairings; `
+  + `${workload.pendingUniqueImages} unique images across ${workload.pendingImagePairings} image pairings; `
+  + `${workload.pendingTextOnlyPairings} text-only pairings.`
+);
 
 if (pending.length && !betaMode) {
   const examples = pending.slice(0, 20).map(item =>

@@ -154,7 +154,6 @@
   gap: var(--kg-space-9);
 }
 
-.kg-stage .kg-home-hero-state,
 .kg-stage .kg-home-door-state {
   border: 1px solid rgba(255, 255, 255, 0.82);
   border-radius: var(--kg-radius-pill);
@@ -162,12 +161,6 @@
   font-size: 12px;
   font-weight: 850;
   line-height: 1;
-}
-
-.kg-stage .kg-home-hero-state {
-  padding: 6px 10px;
-  background: rgba(17, 47, 39, 0.58);
-  color: #FFFFFF;
 }
 
 .kg-stage .kg-home-hero-title {

@@ -7,10 +7,11 @@ import {
   QUEST_HUMAN_PROFILES,
   validateQuestHumanObservation
 } from "../src/utils/questHumanAcceptance.js";
+import { questAcceptanceReportPath } from "./lib/releaseArtifactPaths.mjs";
 
 const allowMissing = process.argv.includes("--allow-missing");
 const evidenceDir = path.resolve("docs/validation/quest-human-acceptance");
-const reportPath = path.resolve("docs/validation/quest_human_acceptance.md");
+const reportPath = questAcceptanceReportPath("quest_human_acceptance.md");
 const records = [];
 const failures = [];
 
@@ -50,6 +51,7 @@ lines.push(
   "",
   "The aggregate gate requires eight first-use child sessions, six repeat-play sessions, eight reward-choice observations, five adult report interpretations, and three distinct classroom-audio environments. Individual children are never labelled pass or fail."
 );
+fs.mkdirSync(path.dirname(reportPath), { recursive: true });
 fs.writeFileSync(reportPath, `${lines.join("\n")}\n`);
 
 if (!allowMissing && result.status !== "pass") failures.push("the complete human acceptance matrix is not yet satisfied");
