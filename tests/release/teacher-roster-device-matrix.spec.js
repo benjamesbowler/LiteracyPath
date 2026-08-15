@@ -88,6 +88,10 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
   await expect(roster.getByRole("columnheader", { name: "Sound Seekers", exact: true })).toHaveCount(0);
   await expect(roster.getByRole("columnheader", { name: "Progress", exact: true })).toHaveCount(0);
   await columnPicker.getByText(/More filters and columns/).click();
+  // The interaction and overflow checks above run at 1366 × 768. Give the
+  // component capture enough vertical room to include its header and all ten
+  // rows without the app shell clipping either edge.
+  await page.setViewportSize({ width: 1366, height: 1600 });
   await expect(page.locator(".teacher-dashboard-roster")).toHaveScreenshot(
     "teacher-roster-chromebook.png",
     {
@@ -98,6 +102,7 @@ test("@teacher-roster-device-matrix keeps a configurable roster and student pane
     }
   );
 
+  await page.setViewportSize({ width: 1366, height: 768 });
   const aaravRow = roster.getByRole("row").filter({ hasText: "Aarav" });
   const openAarav = aaravRow.getByRole("button", { name: /^Aarav\b/ });
   await openAarav.click();
