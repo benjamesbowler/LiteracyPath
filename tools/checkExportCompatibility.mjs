@@ -20,6 +20,10 @@ import {
   createGuidedReadingCompletionWorkbook
 } from "../src/utils/exportGuidedReadingCompletionExcel.js";
 
+// Compatibility snapshots describe workbook meaning, not the timezone of the
+// machine running CI. UTC makes date cells identical on every supported host.
+process.env.TZ = "UTC";
+
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const snapshotPath = path.join(repoRoot, "tests", "fixtures", "exportCompatibility.snapshot.json");
 const distAssetsPath = path.join(repoRoot, "dist", "assets");

@@ -23,6 +23,11 @@ and page errors by `check:a11y-routes`.
 |---|---|
 | `student-login` | Child class-code and learner sign-in |
 | `student-home` | Signed-in child home and daily recommendation |
+| `maths-home` | Maths learning home |
+| `maths-lesson` | Guided maths lesson |
+| `maths-check` | Maths understanding check |
+| `maths-stories` | Maths story problems |
+| `maths-arcade` | Maths arcade selection |
 | `phonics` | Phonics learning route |
 | `arcade` | Arcade game selection |
 | `adventure-map` | Adventure Map |
@@ -36,6 +41,7 @@ and page errors by `check:a11y-routes`.
 | Inventory ID | Human surface |
 |---|---|
 | `teacher-dashboard` | Today dashboard and priorities |
+| `maths-teacher-dashboard` | Teacher maths evidence and action workspace |
 | `teacher-children` | Children and class roster |
 | `teacher-checks` | Check selection |
 | `teacher-reports` | Child reports |

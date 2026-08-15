@@ -342,7 +342,7 @@ function Dashboard({ page }) {
         onOpenClasses={noop}
         onOpenProgress={noop}
         teacherId=""
-        misconceptionAnswersSeed={misconceptionPreviewAnswers}
+        misconceptionAnswersSeed={misconceptionPreviewAnswers || []}
         misconceptionSeedState={params.has("misconception-error") ? "error" : "ready"}
         schoolName="LiteracyPath Audit School"
         hasSchool={true}

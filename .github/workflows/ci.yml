@@ -85,7 +85,7 @@ jobs:
       - name: Slice camera gate
         run: npm run check:quest-slice-camera
       - name: Screenshot gate (fails on console errors / 404s / stuck loads)
-        run: npm run shots
+        run: A11Y_ENFORCE=1 npm run shots
       - name: SoundKeys MIDI device and permission gate
         run: npm run check:soundkeys-midi
       - name: Upload screenshots
@@ -94,6 +94,7 @@ jobs:
         with:
           name: quest-shots
           path: |
+            .artifacts/quest/shots/
             docs/previews/shots/
             docs/previews/slice/
           if-no-files-found: ignore
@@ -130,8 +131,12 @@ jobs:
           supabase status -o env > "$RUNNER_TEMP/supabase.env"
           source "$RUNNER_TEMP/supabase.env"
           audit_password="$(openssl rand -base64 24 | tr -d '\n')"
+          recovery_database="literacypath_recovery-drill"
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -c "create database \"$recovery_database\""
+          recovery_target_url="${DB_URL%/*}/$recovery_database"
           echo "::add-mask::$ANON_KEY"
           echo "::add-mask::$audit_password"
+          echo "::add-mask::$recovery_target_url"
           {
             echo "VITE_SUPABASE_URL=$API_URL"
             echo "VITE_SUPABASE_ANON_KEY=$ANON_KEY"
@@ -139,6 +144,10 @@ jobs:
             echo "LP_AUDIT_SUPABASE_ANON_KEY=$ANON_KEY"
             echo "LP_AUDIT_DATABASE_URL=$DB_URL"
             echo "LP_AUDIT_TEACHER_PASSWORD=$audit_password"
+            echo "LP_RECOVERY_SOURCE_DATABASE_URL=$DB_URL"
+            echo "LP_RECOVERY_TARGET_DATABASE_URL=$recovery_target_url"
+            echo "LP_RECOVERY_DRILL_TARGET_MARKER=$recovery_database"
+            echo "LP_RECOVERY_DRILL_CONFIRM=RESTORE:$recovery_database"
           } >> "$GITHUB_ENV"
       - name: Seed deterministic audit school
         run: npm run seed:audit-school
@@ -156,6 +165,7 @@ jobs:
           path: |
             .artifacts/release/manifest.json
             .artifacts/release/
+            docs/release/artifacts/recovery/
             test-results/
             playwright-report/
           if-no-files-found: warn

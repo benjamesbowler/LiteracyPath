@@ -9,6 +9,7 @@ import {
   openAdminArea,
   openAdminSection
 } from "./adminNavigation.js";
+import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
@@ -24,9 +25,7 @@ async function logIn(page, email) {
   await page.getByRole("textbox", { name: "Email" }).fill(email);
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
-    timeout: 20_000
-  });
+  await completeTeacherClassEntry(page, auditClassForEmail(email));
   await expect(page.locator('[data-teacher-product="class-dashboard"]')).toBeVisible();
   await expect(page.locator(".admin-dashboard")).toHaveCount(0);
 }

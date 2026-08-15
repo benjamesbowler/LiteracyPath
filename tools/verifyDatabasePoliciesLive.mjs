@@ -575,6 +575,12 @@ async function runPsqlJson(databaseUrl, query) {
 
 function verifyTableCatalog(rows) {
   const failures = [];
+  const anonymousSelectTables = new Set([
+    "app_config",
+    // Publication is deliberately readable, but RLS exposes approved books
+    // only. verifyAnonymousBoundary below proves that row-level restriction.
+    "guided_reading_book_reviews"
+  ]);
   for (const row of rows) {
     const anonymousPrivileges = [
       row.anon_insert && "INSERT",
@@ -588,7 +594,7 @@ function verifyTableCatalog(rows) {
     if (anonymousPrivileges.length) {
       failures.push(`${row.table_name}: anon has ${anonymousPrivileges.join("/")}`);
     }
-    if (row.anon_select && row.table_name !== "app_config") {
+    if (row.anon_select && !anonymousSelectTables.has(row.table_name)) {
       failures.push(`${row.table_name}: unexpected anonymous SELECT`);
     }
     if (!row.rls_enabled) failures.push(`${row.table_name}: RLS is disabled`);
@@ -628,6 +634,36 @@ async function verifyAnonymousBoundary(anonymous) {
       `anonymous direct read returned rows from ${table}`
     );
   }
+
+  const publicGuidedReadingReviews = requireData(
+    await anonymous
+      .from("guided_reading_book_reviews")
+      .select("book_id,status")
+      .limit(1000),
+    "anonymous Guided Reading publication allowlist"
+  );
+  assert.equal(
+    publicGuidedReadingReviews.length,
+    206,
+    "anonymous publication did not expose the exact approved 206-book catalogue"
+  );
+  assert(
+    publicGuidedReadingReviews.every(row => row.status === "approved"),
+    "anonymous publication exposed a non-approved Guided Reading review"
+  );
+  const hiddenGuidedReadingReviews = requireData(
+    await anonymous
+      .from("guided_reading_book_reviews")
+      .select("book_id,status")
+      .neq("status", "approved")
+      .limit(1),
+    "anonymous Guided Reading non-approved boundary"
+  );
+  assert.equal(
+    hiddenGuidedReadingReviews.length,
+    0,
+    "anonymous publication exposed a quarantined or unapproved Guided Reading review"
+  );
 
   for (const signature of AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS) {
     const args = AUTH_ONLY_PROBE_ARGS[signature];

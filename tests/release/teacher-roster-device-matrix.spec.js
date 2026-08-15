@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const teacherId = "10000000-0000-4000-8000-000000000001";
@@ -18,9 +19,7 @@ async function openAuditRoster(page) {
   await page.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
-    timeout: 20_000
-  });
+  await completeTeacherClassEntry(page);
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Students", exact: true })
     .click();

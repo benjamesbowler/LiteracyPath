@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { createClient } from "@supabase/supabase-js";
+import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const url = process.env.VITE_SUPABASE_URL || "";
 const anonKey = process.env.VITE_SUPABASE_ANON_KEY || "";
@@ -82,7 +83,7 @@ test("@synced-guided-reading one teacher keeps two student iPads on the frozen p
     await teacherPage.getByRole("textbox", { name: "Email" }).fill("audit-teacher-a@literacypath.invalid");
     await teacherPage.getByLabel("Password", { exact: true }).fill(teacherPassword);
     await teacherPage.getByRole("button", { name: "Sign in", exact: true }).click();
-    await expect(teacherPage.getByRole("heading", { name: "Today", exact: true })).toBeVisible();
+    await completeTeacherClassEntry(teacherPage, classRow.name);
     await teacherPage.getByLabel("Current class").selectOption(classRow.id);
     await teacherPage.getByRole("button", { name: "Start reading together" }).click();
 

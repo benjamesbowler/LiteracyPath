@@ -122,7 +122,10 @@ test.beforeEach(async ({ page }) => {
 
 for (const game of GAME_LIST) {
   test(`A3.5 ${game.title} passes overlay contrast and visible-focus checks`, async ({ page }) => {
-    test.setTimeout(45_000);
+    // The WebGL-heavy games can spend more than 45 seconds completing the
+    // same Axe, focus and quit-dialog assertions on a hosted software renderer.
+    // Keep every assertion and allow the slowest supported renderer to finish.
+    test.setTimeout(75_000);
     const deprecatedThreeWarnings = [];
     page.on("console", message => {
       if (

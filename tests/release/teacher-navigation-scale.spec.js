@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import {
   chooseStudentReportView
 } from "./support/studentReportNavigation.js";
+import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const CLASS_ID = "00000000-0000-4000-8000-0000000000a1";
@@ -23,9 +24,7 @@ async function logIn(page) {
     .fill("audit-teacher-a@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
-    timeout: 20_000
-  });
+  await completeTeacherClassEntry(page);
 }
 
 test("Reports funnel restores report choices through refresh, Back and Forward and focuses its final action", async ({

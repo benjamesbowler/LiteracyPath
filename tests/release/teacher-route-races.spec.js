@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 
@@ -47,9 +48,7 @@ async function logIn(page, email) {
   await page.goto("/");
   await openTeacherSignIn(page);
   await submitTeacherSignIn(page, email);
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
-    timeout: 20_000
-  });
+  await completeTeacherClassEntry(page, auditClassForEmail(email));
 }
 
 function isTeacherClassListRequest(request) {
@@ -650,9 +649,7 @@ test("@teacher-admin-account-race a delayed positive admin result cannot grant t
     await signOutWithAppAuthClient(page);
     await navigateHash(page, "#teacher/dashboard");
     await submitTeacherSignIn(page, TEACHER_B_EMAIL);
-    await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
-      timeout: 20_000
-    });
+    await completeTeacherClassEntry(page, "Audit Class B");
 
     await navigateHash(
       page,

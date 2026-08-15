@@ -71,19 +71,3 @@ export function TeacherDataTable({
     </div>
   );
 }
-
-export function TeacherChart({
-  className = "",
-  label,
-  children
-}) {
-  return (
-    <div
-      className={className}
-      role="img"
-      aria-label={label}
-    >
-      {children}
-    </div>
-  );
-}

@@ -66,8 +66,21 @@ const SHOTS = [
   { name: "world-s1-desktop", url: "/preview/quest.html?view=world&stop=s1", size: "desktop" },
   { name: "home-sage-ipad", url: "/preview/home.html", size: "ipad", a11y: true },
   { name: "home-sage-phone", url: "/preview/home.html", size: "phone" },
-  { name: "home-comic-ipad", url: "/preview/home.html?skin=comic", size: "ipad", a11y: true }
+  { name: "home-sage-desktop", url: "/preview/home.html", size: "desktop", a11y: true }
 ];
+
+const onlyIndex = process.argv.indexOf("--only");
+const requestedShotNames = onlyIndex >= 0
+  ? new Set(String(process.argv[onlyIndex + 1] || "").split(",").map(value => value.trim()).filter(Boolean))
+  : null;
+const RUN_SHOTS = requestedShotNames
+  ? SHOTS.filter(shot => requestedShotNames.has(shot.name))
+  : SHOTS;
+if (requestedShotNames && RUN_SHOTS.length !== requestedShotNames.size) {
+  const known = new Set(SHOTS.map(shot => shot.name));
+  const unknown = [...requestedShotNames].filter(name => !known.has(name));
+  throw new Error(`Unknown shot name: ${unknown.join(", ")}`);
+}
 
 function startServer() {
   // `detached` so the whole process group can be killed. Without it a crashed run
@@ -91,7 +104,8 @@ function startServer() {
 }
 
 async function checkGateHandoff(browser) {
-  const page = await browser.newPage({ viewport: SIZES.phone, deviceScaleFactor: 1 });
+  const context = await browser.newContext({ viewport: SIZES.phone, deviceScaleFactor: 1 });
+  const page = await context.newPage();
   const errors = [];
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
   page.on("pageerror", error => errors.push(`PAGE ERROR: ${error.message}`));
@@ -133,7 +147,7 @@ async function checkGateHandoff(browser) {
   } catch (error) {
     return { ok: false, detail: String(error.message).split("\n")[0], errors };
   } finally {
-    await page.close();
+    await context.close();
   }
 }
 
@@ -209,16 +223,27 @@ async function main() {
     return;
   }
 
-  for (const [i, shot] of SHOTS.entries()) {
+  for (const [i, shot] of RUN_SHOTS.entries()) {
     const size = SIZES[shot.size];
-    process.stdout.write(`  [${i + 1}/${SHOTS.length}] ${shot.name}… `);
-    const page = await browser.newPage({ viewport: size, deviceScaleFactor: 2 });
+    process.stdout.write(`  [${i + 1}/${RUN_SHOTS.length}] ${shot.name}… `);
+    const context = await browser.newContext({ viewport: size, deviceScaleFactor: 2 });
+    const page = await context.newPage();
 
     const errors = [];
     const failedRequests = [];
     page.on("console", m => { if (m.type() === "error") errors.push(m.text()); });
     page.on("pageerror", e => errors.push(`PAGE ERROR: ${e.message}`));
-    page.on("requestfailed", r => failedRequests.push(`${r.failure()?.errorText} ${r.url()}`));
+    page.on("requestfailed", request => {
+      // Chromium deliberately cancels a media range request after it has enough
+      // metadata or when an autoplay attempt is blocked. A missing/broken file
+      // still produces a 4xx response below; only this normal media abort is
+      // excluded from the failure count.
+      if (
+        request.resourceType() === "media"
+        && request.failure()?.errorText === "net::ERR_ABORTED"
+      ) return;
+      failedRequests.push(`${request.failure()?.errorText} ${request.url()}`);
+    });
     page.on("response", r => { if (r.status() >= 400) failedRequests.push(`HTTP ${r.status()} ${r.url()}`); });
 
     // NOT "networkidle", and NOT "load".
@@ -321,6 +346,7 @@ async function main() {
     ].join("\n");
     fs.writeFileSync(path.join(OUT, `${shot.name}.txt`), report);
 
+    const uniqueFailedRequests = [...new Set(failedRequests)];
     const bad = errors.length + failedRequests.length + (stillLoading ? 1 : 0)
       + (A11Y_ENFORCE ? axeViolations.length : 0);
     if (!A11Y_ENFORCE && axeViolations.length) {
@@ -328,18 +354,20 @@ async function main() {
     }
     problems += bad;
     console.log(
-      `${bad ? `${errors.length} errors, ${[...new Set(failedRequests)].length} failed` : "clean"}`
+      `${bad ? `${errors.length} errors, ${uniqueFailedRequests.length} failed` : "clean"}`
       + `${stillLoading ? "  [doc never finished loading]" : ""}`
       + `${pending.length ? `  [${pending.length} requests never settled]` : ""}`
     );
+    for (const failure of uniqueFailedRequests) console.log(`    ${failure}`);
+    for (const error of errors) console.log(`    ${error}`);
 
-    await page.close();
+    await context.close();
   }
 
   await browser.close();
   stop();
 
-  console.log(`\nWrote ${SHOTS.length} screenshots to .artifacts/quest/shots/`);
+  console.log(`\nWrote ${RUN_SHOTS.length} screenshots to .artifacts/quest/shots/`);
   if (problems) console.log(`${problems} console errors / failed requests / stuck loads — see the .txt beside each shot.`);
 
   // A diagnostic that cannot fail is not a gate. The Jul-14 gate screen

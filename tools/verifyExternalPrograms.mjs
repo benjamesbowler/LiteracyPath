@@ -23,7 +23,10 @@ const packageJson = JSON.parse(source("package.json"));
 const releaseGate = source("tools/releaseGate.mjs");
 
 assert.equal(validateA11yInventory(), true);
-assert.equal(A11Y_PRIMARY_ROUTES.length, 20);
+assert.ok(
+  A11Y_PRIMARY_ROUTES.length >= 24,
+  "The manual programme must not lose an established primary route."
+);
 assert.equal(A11Y_KEY_MODAL_STATES.length, 7);
 assert.deepEqual(
   A11Y_VIEWPORTS.map(row => `${row.id}:${row.width}x${row.height}`),
@@ -72,7 +75,8 @@ assert.ok(packageJson.scripts["check:research-pilot-pack"]);
 assert.match(releaseGate, /id: "external-program-readiness"/);
 
 console.log(
-  "External programmes: PASS — 17 routes, 7 key states, 2 viewports, "
+  `External programmes: PASS — ${A11Y_PRIMARY_ROUTES.length} routes, `
+  + `${A11Y_KEY_MODAL_STATES.length} key states, ${A11Y_VIEWPORTS.length} viewports, `
   + "6 manual accessibility modes, an unexecuted first-run record, and a "
   + "recurring representative observation-to-release-criteria pipeline."
 );

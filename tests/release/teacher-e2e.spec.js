@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import {
   chooseStudentReportView
 } from "./support/studentReportNavigation.js";
+import { auditClassForEmail, completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const AUDIT_CLASS_A_ID = "30000000-0000-4000-8000-000000000001";
@@ -17,9 +18,7 @@ async function logIn(page, email) {
   await page.getByRole("textbox", { name: "Email" }).fill(email);
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
-    timeout: 20_000
-  });
+  await completeTeacherClassEntry(page, auditClassForEmail(email));
 }
 
 async function logInAtRoute(page, email, route) {
@@ -32,6 +31,19 @@ async function logInAtRoute(page, email, route) {
   await page.getByRole("textbox", { name: "Email" }).fill(email);
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
+
+  const destination = page.getByRole("heading", { name: "Open a report", exact: true });
+  const classChooser = page.getByRole("heading", { name: "Choose your class", exact: true });
+  const classRetry = page.getByRole("button", { name: "Try loading again", exact: true });
+  await expect(destination.or(classChooser).or(classRetry)).toBeVisible({ timeout: 20_000 });
+  if (await classChooser.isVisible()) {
+    const classButton = page.locator(".teacher-class-gate-grid")
+      .getByRole("button")
+      .filter({ has: page.getByText(auditClassForEmail(email), { exact: true }) });
+    await expect(classButton).toHaveCount(1);
+    await classButton.click();
+    await expect(destination.or(classRetry)).toBeVisible({ timeout: 20_000 });
+  }
 }
 
 async function openClass(page, className) {
@@ -203,7 +215,7 @@ test("A9.7 @teacher-route-deep-link a failed class read preserves and resumes th
     `/#teacher/reports/report?class=${AUDIT_CLASS_A_ID}&learner=${AARAV_ID}&report=skills-check`;
   await logInAtRoute(page, "audit-teacher-a@literacypath.invalid", reportRoute);
 
-  await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible({
+  await expect(page.getByRole("button", { name: "Try loading again", exact: true })).toBeVisible({
     timeout: 20_000
   });
   await expect(page).toHaveURL(new RegExp(

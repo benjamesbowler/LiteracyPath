@@ -5,6 +5,7 @@ import {
   ADMIN_SECTION_PATHS,
   openAdminSection
 } from "./adminNavigation.js";
+import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
 const supabaseUrl = process.env.LP_AUDIT_SUPABASE_URL
@@ -41,8 +42,7 @@ async function logInAdmin(page) {
     .fill("audit-admin@literacypath.invalid");
   await page.getByLabel("Password", { exact: true }).fill(teacherPassword);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true }))
-    .toBeVisible({ timeout: 20_000 });
+  await completeTeacherClassEntry(page);
 }
 
 async function expectAdminSection(page, section) {

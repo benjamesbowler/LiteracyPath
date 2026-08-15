@@ -2,7 +2,13 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "tests",
-  snapshotPathTemplate: "{testDir}/{testFilePath}-snapshots/{arg}{ext}",
+  // Chromium rendering is stable within an OS, while font rasterisation is
+  // not byte-identical between macOS development and Ubuntu CI. Keep the
+  // reviewed macOS baselines in their historic location and a separate,
+  // explicitly refreshed Linux set for the release runner.
+  snapshotPathTemplate: process.platform === "linux"
+    ? "{testDir}/{testFilePath}-snapshots/linux/{arg}{ext}"
+    : "{testDir}/{testFilePath}-snapshots/{arg}{ext}",
   timeout: 30_000,
   expect: {
     timeout: 10_000

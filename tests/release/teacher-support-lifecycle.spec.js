@@ -3,6 +3,7 @@ import { config as loadEnv } from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { expect, test } from "@playwright/test";
 import { localDateKey } from "../../src/utils/teacherInterventions.js";
+import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 loadEnv({ path: ".env.local", quiet: true });
 loadEnv({ path: ".env", quiet: true });
@@ -34,9 +35,7 @@ async function login(page) {
   await page.getByRole("textbox", { name: "Email" }).fill(TEACHER_EMAIL);
   await page.getByLabel("Password", { exact: true }).fill(password);
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
-    timeout: 20_000
-  });
+  await completeTeacherClassEntry(page);
 }
 
 async function selectTodayClass(page, className) {

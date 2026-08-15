@@ -24,8 +24,7 @@ for (const primitive of [
   "TeacherPageShell",
   "TeacherPageHeader",
   "TeacherFilterBar",
-  "TeacherDataTable",
-  "TeacherChart"
+  "TeacherDataTable"
 ]) {
   assert.ok(
     primitives.includes(`export function ${primitive}`),
@@ -110,11 +109,12 @@ for (const snapshot of [
   const snapshotPath = path.join(
     root,
     "tests/release/teacher-roster-device-matrix.spec.js-snapshots",
+    ...(process.platform === "linux" ? ["linux"] : []),
     snapshot
   );
   assert.ok(fs.statSync(snapshotPath).size > 10_000, `Visual baseline ${snapshot} is missing or empty.`);
 }
 
 console.log(
-  "Teacher UI primitives: tokens, page shells, filters, tables, charts, modal dialogs, and drawers are consolidated; four authenticated device baselines are present."
+  "Teacher UI primitives: tokens, page shells, filters, tables, modal dialogs, and drawers are consolidated; four authenticated device baselines are present."
 );

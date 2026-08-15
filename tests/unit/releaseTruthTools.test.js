@@ -106,6 +106,10 @@ test("CI runs the canonical release gate against a fresh seeded local database",
   assert.match(workflow, /npm run seed:audit-school/);
   assert.match(workflow, /npm run check:release/);
   assert.match(workflow, /\.artifacts\/release\/manifest\.json/);
+  assert.match(workflow, /LP_RECOVERY_SOURCE_DATABASE_URL=\$DB_URL/);
+  assert.match(workflow, /LP_RECOVERY_TARGET_DATABASE_URL=\$recovery_target_url/);
+  assert.match(workflow, /LP_RECOVERY_DRILL_CONFIRM=RESTORE:\$recovery_database/);
+  assert.match(workflow, /docs\/release\/artifacts\/recovery\//);
   assert.match(workflow, /if: steps\.whole-product\.outcome != 'success'/);
   assert.match(workflow, /npm run lint -- --max-warnings=0/);
 });
@@ -122,8 +126,22 @@ test("CI gives the complete visual evidence lane enough hosted-runner headroom",
 
   assert.match(visualJob, /timeout-minutes: 40/);
   assert.match(visualJob, /npm run check:quest-slice-camera/);
-  assert.match(visualJob, /npm run shots/);
+  assert.match(visualJob, /A11Y_ENFORCE=1 npm run shots/);
   assert.match(visualJob, /npm run check:soundkeys-midi/);
+  assert.match(visualJob, /\.artifacts\/quest\/shots\//);
+});
+
+test("Linux visual baselines have an isolated reviewed refresh workflow", () => {
+  const workflow = readFileSync(
+    new URL("../../.github/workflows/refresh-visual-baselines.yml", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(workflow, /workflow_dispatch:/);
+  assert.match(workflow, /supabase db reset --local --no-seed/);
+  assert.match(workflow, /npm run seed:audit-school/);
+  assert.match(workflow, /--update-snapshots/);
+  assert.match(workflow, /tests\/release\/\*\*\/\*-snapshots\/linux\/\*\.png/);
 });
 
 test("missing npm scripts are explicitly not implemented", () => {

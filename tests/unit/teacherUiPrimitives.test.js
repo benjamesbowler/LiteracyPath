@@ -61,7 +61,7 @@ test("page shell and header keep the teacher hierarchy and context slot", () => 
   assert.match(html, /<aside>Current class<\/aside>/);
 });
 
-test("filter, table, and chart primitives expose named semantic regions", () => {
+test("filter and table primitives expose named semantic regions", () => {
   const filterHtml = renderToStaticMarkup(
     React.createElement(
       primitives.TeacherFilterBar,
@@ -80,18 +80,9 @@ test("filter, table, and chart primitives expose named semantic regions", () => 
       )
     )
   );
-  const chartHtml = renderToStaticMarkup(
-    React.createElement(
-      primitives.TeacherChart,
-      { className: "quest-heat-grid", label: "Class sound map" },
-      React.createElement("span", { "aria-hidden": "true" }, "sh")
-    )
-  );
-
   assert.match(filterHtml, /<section class="teacher-filter-bar teacher-roster-tools" aria-label="Roster filters">/);
   assert.match(tableHtml, /role="region" aria-label="Active learner roster" tabindex="0"/);
   assert.match(tableHtml, /<table class="dashboard-table">/);
-  assert.match(chartHtml, /role="img" aria-label="Class sound map"/);
 });
 
 test("modal and non-modal teacher dialogs share one accessible wrapper", () => {
