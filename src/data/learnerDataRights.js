@@ -274,7 +274,7 @@ export async function exportLearnerData({
     p_verification_method: verificationMethod
   });
   const data = unwrapRpc(result, "Learner data export");
-  if (data.schemaVersion !== 1 || !data.request?.id || !data.request?.subjectRef) {
+  if (![1, 2].includes(data.schemaVersion) || !data.request?.id || !data.request?.subjectRef) {
     throw new Error("Learner data export omitted its request evidence.");
   }
   return data;
@@ -541,7 +541,7 @@ export async function resumePendingLearnerDeletions({
 }
 
 export function buildLearnerDataDownload(data, learnerName = "learner") {
-  if (data?.schemaVersion !== 1 || !data.request?.id) {
+  if (![1, 2].includes(data?.schemaVersion) || !data.request?.id) {
     throw new Error("Cannot download an invalid learner data package.");
   }
   const safeName = String(learnerName || "learner")

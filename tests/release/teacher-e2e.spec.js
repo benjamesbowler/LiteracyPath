@@ -334,8 +334,9 @@ test("A9.7 @teacher-roster-read-state a failed roster read stays retryable and n
   await successfulRetryClick;
   const roster = page.locator(".teacher-roster-table");
   await expect(roster.getByRole("row").filter({ hasText: "Aarav" })).toBeVisible();
-  await expect(page.getByText("12 students", { exact: true })).toBeVisible();
-  await expect(studentRosterHeading(page, "Audit Class A")).toBeFocused();
+  const heading = studentRosterHeading(page, "Audit Class A");
+  await expect(heading).toContainText("12 students");
+  await expect(heading).toBeFocused();
 });
 
 test("A10.7 @teacher-route-denial teacher B cannot discover or deep-link into teacher A's class or learner", async ({

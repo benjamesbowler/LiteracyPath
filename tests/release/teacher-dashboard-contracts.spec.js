@@ -527,10 +527,9 @@ test("@teacher-persistent-context @teacher-student-preview preserves the selecte
   await expect(previewBanner).toBeVisible();
   await expect(previewBanner).toContainText("Read-only preview");
   const storyQuestSurface = page.getByRole("main", { name: "Story Quests" });
-  await expect(storyQuestSurface.getByRole("heading", {
-    name: "Story Quests",
-    level: 1
-  })).toBeVisible();
+  const storyQuestHeading = storyQuestSurface.locator("h1.story-quest-title-logo");
+  await expect(storyQuestHeading).toBeVisible();
+  await expect(storyQuestHeading).toContainText("Story Quests");
   await expect(storyQuestSurface).toContainText("This is a clean practice preview.");
   await expect(storyQuestSurface.getByRole("button", { name: /^Preview / }).first()).toBeVisible();
   await storyQuestSurface.getByRole("button", { name: /^Preview / }).first().click();
@@ -589,7 +588,8 @@ test("@teacher-onboarding-demo sample class is clearly labelled and evidence-emp
   for (const student of ["Demo Ava", "Demo Ben", "Demo Chen"]) {
     const row = roster.getByRole("row").filter({ hasText: student });
     await expect(row).toBeVisible();
-    await expect(row.getByText("No scored answers yet", { exact: true })).toBeVisible();
+    await expect(row.getByLabel("No accuracy yet", { exact: true })).toBeVisible();
+    await expect(row.getByText("Not checked", { exact: true })).toBeVisible();
   }
   expect(pageErrors).toEqual([]);
 });

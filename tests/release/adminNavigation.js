@@ -31,14 +31,8 @@ function sectionConfig(sectionId) {
 }
 
 async function activeAdminSectionControl(page) {
-  const picker = page.getByRole("combobox", {
-    name: ADMIN_AREAS.operations.pickerName,
-    exact: true
-  });
-  const navigation = page.getByRole("navigation", {
-    name: ADMIN_AREAS.operations.navigationName,
-    exact: true
-  });
+  const picker = page.locator(".admin-dashboard .teacher-section-select select");
+  const navigation = page.locator(".admin-dashboard .admin-section-tabs");
   await expect.poll(async () => (
     await picker.isVisible() || await navigation.isVisible()
   )).toBe(true);

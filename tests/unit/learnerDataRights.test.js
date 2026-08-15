@@ -61,7 +61,7 @@ test("verified export uses the owned learner RPC and requires request evidence",
       calls.push([name, payload]);
       return {
         data: {
-          schemaVersion: 1,
+          schemaVersion: 2,
           request: {
             id: "request-export",
             subjectRef,
@@ -320,7 +320,7 @@ test("request inputs fail closed before any backend call", async () => {
 
 test("download is deterministic, readable JSON, and uses a safe filename", () => {
   const data = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     request: {
       id: "request-export",
       completedAt: "2026-07-25T12:00:00.000Z"
@@ -332,4 +332,36 @@ test("download is deterministic, readable JSON, and uses a safe filename", () =>
   assert.equal(download.mimeType, "application/json");
   assert.deepEqual(JSON.parse(download.text), data);
   assert.doesNotMatch(download.text, /token|device_id/i);
+});
+
+test("learner export accepts the rollout schema while rejecting unknown schemas", async () => {
+  const clientForVersion = schemaVersion => ({
+    async call() {
+      return {
+        data: {
+          schemaVersion,
+          request: { id: "request-export", subjectRef },
+          learner: { id: studentId, displayName: "Reader" }
+        },
+        error: null
+      };
+    }
+  });
+
+  for (const schemaVersion of [1, 2]) {
+    const data = await exportLearnerData({
+      client: clientForVersion(schemaVersion),
+      studentId,
+      requesterRole: "school",
+      verificationMethod: "authorised_school_official"
+    });
+    assert.equal(data.schemaVersion, schemaVersion);
+  }
+
+  await assert.rejects(exportLearnerData({
+    client: clientForVersion(3),
+    studentId,
+    requesterRole: "school",
+    verificationMethod: "authorised_school_official"
+  }), /omitted its request evidence/);
 });

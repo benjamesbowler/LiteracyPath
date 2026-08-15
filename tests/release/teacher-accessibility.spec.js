@@ -87,7 +87,7 @@ test("@a11y-teacher authenticated section journey is keyboard and screen-reader 
     ["Assessments", "Assess a student"],
     ["Reports", "Open a report"],
     ["Resources", "Teach, print, project"],
-    ["Settings", "Settings"]
+    ["Settings", "Class and account"]
   ];
   for (const [name, heading] of intentionChecks) {
     const button = primaryNav.getByRole("button", { name, exact: true });

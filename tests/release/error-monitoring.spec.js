@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { openAdminSection } from "./adminNavigation.js";
 import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
@@ -37,6 +38,7 @@ test("A8.6 deliberate redacted error reaches the release-tagged admin monitor", 
   await completeTeacherClassEntry(page);
   await page.getByRole("button", { name: "Admin", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Admin Dashboard", exact: true })).toBeVisible();
+  await openAdminSection(page, "operations");
 
   const monitor = page.getByRole("region", { name: "Fleet error monitor" });
   await expect(monitor).toHaveAttribute("data-monitor-state", "ready", { timeout: 20_000 });

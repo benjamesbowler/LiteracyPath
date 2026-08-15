@@ -175,7 +175,7 @@ test("A8.8 admin can produce a tracked, verified learner access export", async (
   const downloadPromise = page.waitForEvent("download");
   await dialog.getByRole("button", { name: "Download student data" }).click();
   const exported = await readDownloadJson(await downloadPromise);
-  expect(exported.schemaVersion).toBe(1);
+  expect(exported.schemaVersion).toBe(2);
   expect(exported.learner.displayName).toBe("Aarav");
   expect(exported.answers.length).toBeGreaterThan(0);
   expect(exported.assessmentAttempts.length).toBeGreaterThanOrEqual(520);
