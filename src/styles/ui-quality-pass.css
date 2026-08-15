@@ -1062,6 +1062,13 @@
     min-width: 0;
   }
 
+  /* Linux's display font is a little wider than macOS's at this six-column
+     breakpoint. Keep long one-word labels such as "Adventure" inside their
+     door without reducing the card count or clipping the child's choice. */
+  .kg-stage .kg-home-door .kg-card-title {
+    font-size: 16px;
+  }
+
   .kg-stage .kg-quests-head > .kg-spacer {
     display: none;
   }

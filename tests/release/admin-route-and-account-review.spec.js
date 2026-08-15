@@ -146,7 +146,7 @@ test("all operational Admin pages own cold links, reload and browser history", a
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Dashboard", exact: true })
     .click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true }))
+  await expect(page.getByRole("heading", { name: "Start with these students", exact: true }))
     .toBeVisible();
   await expect.poll(() => new URL(page.url()).pathname).toBe("/");
   await expect(page).toHaveURL(/#teacher\/dashboard/);

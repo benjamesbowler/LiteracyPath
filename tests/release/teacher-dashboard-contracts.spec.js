@@ -672,7 +672,7 @@ test("@admin-compartmentalised-ia @admin-history Admin exposes one operational n
   await page.getByTestId("teacher-primary-nav")
     .getByRole("button", { name: "Dashboard", exact: true })
     .click();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible();
   await expect(page).not.toHaveURL(/\/admin\/question-flags/);
   await expect(page).toHaveURL(/#teacher\/dashboard/);
   expect(pageErrors).toEqual([]);

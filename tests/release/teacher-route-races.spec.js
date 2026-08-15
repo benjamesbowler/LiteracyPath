@@ -427,7 +427,7 @@ test("@teacher-route-history Back during initial deep-report restoration keeps t
   let released = false;
   try {
     await page.goBack();
-    await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+    await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible({
       timeout: 20_000
     });
     await expect.poll(() => readTeacherRoute(page)).toMatchObject({
@@ -440,7 +440,7 @@ test("@teacher-route-history Back during initial deep-report restoration keeps t
     released = true;
     await flushReleasedRead(page);
 
-    await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Skills", exact: true })).toHaveCount(0);
     await expect.poll(() => readTeacherRoute(page)).toMatchObject({
       path: "teacher/dashboard",
@@ -612,7 +612,7 @@ test("@teacher-profile-navigation-race Admin stays open when an older profile re
       name: "Admin Dashboard",
       exact: true
     })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Today", exact: true })).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toHaveCount(0);
   } finally {
     if (!released) await delayedRouteRuntime.release();
   }

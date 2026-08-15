@@ -193,7 +193,7 @@ test("due, taught, and observed support all return to Today after a reload", asy
     .toContainText("to do");
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible({
     timeout: 20_000
   });
   await selectTodayClass(page, "Audit Class A");
@@ -221,7 +221,7 @@ test("a planned support correction survives refresh and an untaught draft can be
     .toBeVisible();
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible({
     timeout: 20_000
   });
   await selectTodayClass(page, "Audit Class A");

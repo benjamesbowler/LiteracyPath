@@ -172,7 +172,7 @@ test("A8.8 verified deletion removes seeded learner UI and evidence but keeps it
   await logIn(page, "audit-teacher-a@literacypath.invalid");
   await expect(await seedRightsLearner(page, rightsLearner)).toEqual({ seeded: true });
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+  await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible({
     timeout: 20_000
   });
 

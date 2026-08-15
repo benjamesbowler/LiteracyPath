@@ -7,16 +7,19 @@ function exactClassButton(page, className) {
 }
 
 export async function completeTeacherClassEntry(page, className = "Audit Class A") {
-  const today = page.getByRole("heading", { name: "Today", exact: true });
+  const dashboard = page.getByRole("heading", {
+    name: "Start with these students",
+    exact: true
+  });
   const chooser = page.getByRole("heading", { name: "Choose your class", exact: true });
 
-  await expect(today.or(chooser)).toBeVisible({ timeout: 20_000 });
+  await expect(dashboard.or(chooser)).toBeVisible({ timeout: 20_000 });
   if (await chooser.isVisible()) {
     const classButton = exactClassButton(page, className);
     await expect(classButton).toHaveCount(1);
     await classButton.click();
   }
-  await expect(today).toBeVisible({ timeout: 20_000 });
+  await expect(dashboard).toBeVisible({ timeout: 20_000 });
 }
 
 export function auditClassForEmail(email) {

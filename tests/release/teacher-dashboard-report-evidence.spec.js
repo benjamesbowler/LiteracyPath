@@ -143,7 +143,7 @@ test(
 
     sourceMode = "truncated";
     await page.reload();
-    await expect(page.getByRole("heading", { name: "Today", exact: true })).toBeVisible({
+    await expect(page.getByRole("heading", { name: "Start with these students", exact: true })).toBeVisible({
       timeout: 20_000
     });
     partial = await expectDashboardPartialTruth(
