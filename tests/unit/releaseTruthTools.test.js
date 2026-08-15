@@ -110,6 +110,22 @@ test("CI runs the canonical release gate against a fresh seeded local database",
   assert.match(workflow, /npm run lint -- --max-warnings=0/);
 });
 
+test("CI gives the complete visual evidence lane enough hosted-runner headroom", () => {
+  const workflow = readFileSync(
+    new URL("../../.github/workflows/ci.yml", import.meta.url),
+    "utf8"
+  );
+  const visualJob = workflow.slice(
+    workflow.indexOf("\n  visual:\n"),
+    workflow.indexOf("\n  release-gate:\n")
+  );
+
+  assert.match(visualJob, /timeout-minutes: 40/);
+  assert.match(visualJob, /npm run check:quest-slice-camera/);
+  assert.match(visualJob, /npm run shots/);
+  assert.match(visualJob, /npm run check:soundkeys-midi/);
+});
+
 test("missing npm scripts are explicitly not implemented", () => {
   const gate = RELEASE_GATES.find(item => item.id === "a11y-routes");
   assert.equal(isGateImplemented(gate, {}), false);

@@ -64,7 +64,11 @@ jobs:
 
   visual:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # The full legacy-camera evidence pass now takes about ten minutes on a
+    # hosted software renderer, followed by fifteen settled screenshots and the
+    # MIDI permission matrix. Keep enough headroom for a slow checkout/runner so
+    # a healthy visual audit can report its real result.
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
