@@ -31,15 +31,18 @@ function sectionConfig(sectionId) {
 }
 
 async function activeAdminSectionControl(page) {
-  // Responsive/transition shells can produce a hidden match before the active
-  // control. Select the rendered control instead of inspecting that first
-  // hidden match.
-  const picker = page.locator(".admin-dashboard .teacher-section-select select:visible").last();
-  const navigation = page.locator(".admin-dashboard .admin-section-tabs:visible").last();
-  await expect.poll(async () => (
-    await picker.count() > 0 || await navigation.count() > 0
-  )).toBe(true);
-  return { picker, navigation, compact: await picker.count() > 0 };
+  // A cold hosted database can take longer than the default assertion window
+  // to finish the first admin read. The heading and responsive controls are
+  // mounted together, so use the page heading as the explicit ready contract.
+  await expect(page.getByRole("heading", {
+    name: "Admin Dashboard",
+    exact: true
+  }).last()).toBeVisible({ timeout: 20_000 });
+  const picker = page.getByRole("combobox", { name: "Choose an admin page" }).last();
+  const navigation = page.getByRole("navigation", { name: "Admin pages" }).last();
+  const compact = await picker.isVisible();
+  await expect(compact ? picker : navigation).toBeVisible();
+  return { picker, navigation, compact };
 }
 
 // Kept as a compatibility helper for release specs while Admin is one area.
