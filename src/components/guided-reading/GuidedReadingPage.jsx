@@ -1827,12 +1827,9 @@ export function GuidedReadingPage({
 
     if (step.stage === DECODING_SUPPORT_STAGES.LETTER_SPELLING) {
       brieflyHighlightWord(wordIndex);
-      saveDecodingSupportUse(step, wordIndex, step.hasCompleteSpellingAudio);
-      if (step.hasCompleteSpellingAudio) {
-        await playRecordedSupportSequence(step.letterAudioPaths, playbackToken);
-      } else {
-        setAudioNotice("Recorded letter-name audio is not ready for this spelling yet.");
-      }
+      // Irregular and ambiguous words keep exact visual spelling support, but
+      // never substitute letter names or guessed phonemes for the word's sounds.
+      saveDecodingSupportUse(step, wordIndex, false);
       return;
     }
 

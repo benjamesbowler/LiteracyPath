@@ -119,7 +119,7 @@
     "check:report-export-provenance": "node --test tests/unit/reportExportProvenance.test.js && npm run test:release-teacher -- --grep @report-export-provenance && npm run check:export-compatibility",
     "check:el-export-consistency": "node --test tests/unit/elExportEvidenceConsistency.test.js && npm run test:release-teacher -- --grep '@el-(empty-export-policy|export-consistency)'",
     "check:whole-child-evidence-integrity": "node --test tests/unit/wholeChildEvidenceIntegrity.test.js",
-    "check:guided-reading-decoding-support": "node --test tests/unit/guidedReadingDecodingSupport.test.js tests/unit/progressMerge.test.js tests/unit/studentReportingWorkspaceModel.test.js && playwright test tests/release/guided-reading-decoding-support.spec.js --project=desktop",
+    "check:guided-reading-decoding-support": "node --test tests/unit/guidedReadingDecodingSupport.test.js tests/unit/progressMerge.test.js tests/unit/studentReportingWorkspaceModel.test.js && playwright test tests/release/guided-reading-decoding-support.spec.js tests/release/guided-story-word-spelling-audio.spec.js --project=desktop",
     "check:research-pilot-pack": "node tools/checkResearchPilotPack.mjs && node --test tests/unit/researchPilotPack.test.js",
     "check:calibration-readiness": "node tools/checkCalibrationReadiness.mjs && node --test tests/unit/calibrationMonitoring.test.js && playwright test tests/release/calibration-monitoring.spec.js --workers=1",
     "check:student-home-hierarchy": "node --test tests/unit/studentHomeRecommendationPolicy.test.js && playwright test tests/release/student-home-hierarchy.spec.js --project=desktop",

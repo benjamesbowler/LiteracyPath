@@ -12,25 +12,33 @@ function captureAudioPlayback() {
   window.Audio.prototype = BrowserAudio.prototype;
   HTMLMediaElement.prototype.play = function play() {
     window.__childReadingAudioSources.push(this.src || this.currentSrc || "");
+    queueMicrotask(() => this.dispatchEvent(new Event("ended")));
     return Promise.resolve();
   };
 }
 
-test("Guided Reading word taps reach recorded whole-word and letter-name audio", async ({ page }) => {
+test("Guided Reading word taps use contextual recorded sounds, never letter names", async ({ page }) => {
   await page.addInitScript(captureAudioPlayback);
-  await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees");
+  await page.goto("/preview/guided-reading-preview.html?book=bob-and-nan-02-park");
 
   const reader = page.getByRole("region", { name: /full-screen reader/ });
-  const word = reader.getByRole("button", { name: "Get reading help for garden", exact: true });
+  await reader.getByRole("button", { name: "Next page", exact: true }).click();
+  const word = reader.getByRole("button", { name: "Get reading help for runs", exact: true });
   await word.click();
   await expect(reader.locator(".guided-decoding-support.stage-whole_word_audio")).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.__childReadingAudioSources.at(-1) || ""))
     .toContain("/audio/production/en-US/isolated_word/");
 
   await word.click();
-  await expect(reader.locator(".guided-decoding-support.stage-letter_spelling")).toBeVisible();
-  await expect.poll(() => page.evaluate(() => window.__childReadingAudioSources.at(-1) || ""))
-    .toContain("/audio/production/en-US/letter_name/");
+  await expect(reader.locator(".guided-decoding-support.stage-segmented_phonemes")).toContainText("r · u · n · s");
+  await expect.poll(() => page.evaluate(() => window.__childReadingAudioSources.slice(-4).map(src => new URL(src).pathname)))
+    .toEqual([
+      "/audio/phonemes/r.mp3",
+      "/audio/phonemes/short_u.mp3",
+      "/audio/phonemes/n.mp3",
+      "/audio/phonemes/z.mp3"
+    ]);
+  expect(await page.evaluate(() => window.__childReadingAudioSources.some(src => src.includes("/letter_name/")))).toBe(false);
 });
 
 test("Guided Reading splits em-dash neighbours into separate audible word buttons", async ({ page }) => {
