@@ -124,11 +124,7 @@ test("every logged-in child destination fits an iPad without hidden controls", a
     const contentRow = page.locator(".kg-main");
     await boundedGeometry(
       await contentRow.count() ? contentRow.first() : surface,
-      `${route.id} destination`,
-      {
-        allowedHorizontalScroll: [".maths-number-line"],
-        allowedVerticalScroll: [".maths-student-area"]
-      }
+      `${route.id} destination`
     );
   }
 });

@@ -51,7 +51,9 @@ test("the Home control exposes truthful states and joins the child audio lifecyc
   assert.match(control, /Play music/);
   assert.match(control, /STOP_CHILD_AUDIO_EVENT/);
   assert.match(control, /loop=\{CHILD_HOME_MUSIC_TRACKS\.length === 1\}/);
-  assert.match(home, /headerActions=\{\(/);
-  assert.match(home, /<ChildHomeMusicControl key=\{progressScopeKey\} scopeKey=\{progressScopeKey\} \/>/);
+  assert.match(
+    home,
+    /headerActions=\{<ChildHomeMusicControl key=\{progressScopeKey\} scopeKey=\{progressScopeKey\} \/>\}/
+  );
   assert.match(shell, /\{headerActions\}/);
 });

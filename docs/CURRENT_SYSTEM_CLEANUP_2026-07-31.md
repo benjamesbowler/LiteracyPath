@@ -7,6 +7,20 @@ banks, stale publication rules, person-specific approval requirements, historica
 audits, generated evidence dumps, old media requests, obsolete Admin QA inventories,
 and disconnected tools have been removed.
 
+## Literacy-only release update — 16 August 2026
+
+The running product is now literacy-only. The former Maths learner and teacher routes,
+navigation, application modules, previews, styles, tests, generation tools, release
+checks, documentation, music, narration and story artwork have been removed. Historical
+Supabase migrations remain as immutable database rebuild history, and the live database
+has not been destructively altered. Learner-deletion code retains only the two retired
+local-storage prefixes and the retired evidence-store name needed to erase legacy data.
+
+Teacher class restoration now starts its class read immediately after account approval,
+before loading the optional route-restoration module. Deep-link hydration reuses that same
+read rather than starting a competing request. A malformed saved profile or a teacher
+route can therefore no longer leave the class list at its initial loading state.
+
 ## Current authoritative sources
 
 ### Skills assessment

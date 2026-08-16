@@ -306,7 +306,7 @@ test("engagement row derives streak, plays, stars and coins from progress areas"
   assert.equal(
     row.coinsEarned,
     earnedCoins({ questStars: 3, gameStars: 2, storiesDone: 1, booksRead: 1 }, 1),
-    "coins earned match the wallet maths the child sees"
+    "coins earned match the wallet calculation the child sees"
   );
   assert.equal(row.coinsSpent, 30);
   assert.equal(row.coinsBalance, row.coinsEarned - 30);

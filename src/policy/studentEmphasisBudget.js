@@ -19,31 +19,6 @@ export const STUDENT_EMPHASIS_ROUTES = Object.freeze([
     treatment: "The recommended activity owns the only tier-three Play action; its title, exact continuation point, state, and recommendation reason stay in the same hero."
   }),
   Object.freeze({
-    id: "maths-home",
-    primaryCue: "Continue lesson",
-    treatment: "The recommended lesson owns the strongest action; checks, stories, Arcade and tool exploration remain quieter alternatives."
-  }),
-  Object.freeze({
-    id: "maths-lesson",
-    primaryCue: "Use the model and choose a note",
-    treatment: "The one strongest action names both required learning actions until the model is valid, then becomes Next or Finish; previous and manipulative controls remain quiet."
-  }),
-  Object.freeze({
-    id: "maths-check",
-    primaryCue: "Start the check",
-    treatment: "One calm start action explains the untimed check before six equally weighted answer groups; progress stays informational."
-  }),
-  Object.freeze({
-    id: "maths-stories",
-    primaryCue: "Read next",
-    treatment: "The recommended story is named Read next; other released covers remain quieter choices. One green next or finish action leads the open page."
-  }),
-  Object.freeze({
-    id: "maths-arcade",
-    primaryCue: "Play next",
-    treatment: "The recommended game is named Play next; other games remain quieter choices. During play there is no timer or speed score."
-  }),
-  Object.freeze({
     id: "phonics",
     primaryCue: "Start here",
     treatment: "The next available letter has the only warm focus field and explicit start badge."

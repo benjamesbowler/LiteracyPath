@@ -67,10 +67,6 @@ import {
   isAdminRoutePath,
   withoutAdminQaHistoryState
 } from "./adminQaNavigation.js";
-import {
-  parseSubjectHomeHash,
-  resolveSubjectHomeView
-} from "../subjects/subjectRegistry.js";
 
 /**
  * Signup input limits, mirrored from the database so a bad value fails on the
@@ -228,13 +224,7 @@ export function useAppSessionController(context) {
     setStudentSessionName(session.studentName || "Reader");
     setSelectedClassId(session.classId || null);
     setNameSaved(true);
-    setAppView(resolveSubjectHomeView({
-      audience: "student",
-      explicitHash: window.location.hash,
-      assignedSubject: session.assignedSubject,
-      recommendedSubject: session.recommendedSubject,
-      preferredSubject: session.preferredSubject
-    }));
+    setAppView(APP_VIEWS.STUDENT_HOME);
     setMessage("");
     try {
       configureProgressSync({ ...session, mode: "student" });
@@ -392,19 +382,6 @@ export function useAppSessionController(context) {
     }
     return undefined;
   }, [sessionMode, appView, setAppView]);
-
-  const restoreStudentSubjectRouteFromHistory = useEffectEvent(() => {
-    const route = parseSubjectHomeHash(window.location.hash);
-    if (route?.audience !== "student" || !isStudentAllowedView(route.appView)) return;
-    setAppView(route.appView);
-  });
-
-  useEffect(() => {
-    if (sessionMode !== "student" || !studentSession?.token) return undefined;
-    const handleHashChange = () => restoreStudentSubjectRouteFromHistory();
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [sessionMode, studentSession?.token]);
 
   useEffect(() => {
     function handlePreviewWriteBlocked(event) {
@@ -821,17 +798,18 @@ export function useAppSessionController(context) {
       return;
     }
 
+    // Class availability is a core teacher-shell read, not a route-module
+    // concern. Start it before the lazy route helper so a stale/missing route
+    // chunk or malformed saved profile cannot leave the dashboard permanently
+    // saying that classes are still loading.
+    const classLoadPromise = loadClasses();
     const { parse } = await loadTeacherRouteRuntime();
     if (!isRestoreCurrent()) return;
     const teacherRoute = parse(window.location.hash);
     const isFreshLoginRestore = freshLoginResetPendingRef.current;
-    // Route hydration owns its class read. Starting a second, unawaited read
-    // here made two valid restorations supersede one another; the older caller
-    // then received an artificial empty list and rejected an owned deep link.
-    // An explicit sign-in is different: it always begins at the class entry
-    // gate, so a stale route from the previous session must not restore a
-    // class before the teacher has chosen it.
-    if (!teacherRoute || isFreshLoginRestore) loadClasses();
+    // Route hydration reuses this exact read below. Starting another request
+    // would make two valid restorations supersede each other and could turn an
+    // owned deep link into an artificial empty result.
 
     const saved = localStorage.getItem(restoreProfileStorageKey);
 
@@ -999,7 +977,7 @@ export function useAppSessionController(context) {
         setCurrentQuestion(null);
 
         if (teacherRoute) {
-          await hydrateTeacherRouteContext(teacherRoute);
+          await hydrateTeacherRouteContext(teacherRoute, classLoadPromise);
           if (!isRestoreCurrent()) return;
         } else {
           loadStudents(restoredClassId);
@@ -1033,7 +1011,7 @@ export function useAppSessionController(context) {
         );
       }
       if (teacherRoute && !isFreshLoginRestore) {
-        await hydrateTeacherRouteContext(teacherRoute);
+        await hydrateTeacherRouteContext(teacherRoute, classLoadPromise);
         if (!isRestoreCurrent()) return;
       } else {
         loadStudents();
@@ -2826,7 +2804,7 @@ export function useAppSessionController(context) {
     return completedRead.rows;
   }
 
-  async function hydrateTeacherRouteContext(route) {
+  async function hydrateTeacherRouteContext(route, classRowsPromise = null) {
     const hydrationTeacherId = teacherId || "";
     const hydrationIdentityGeneration = authIdentityGenerationRef.current;
     const hydrationSessionMode = sessionMode;
@@ -2873,7 +2851,7 @@ export function useAppSessionController(context) {
         route,
         hydrationTeacherId,
         hydrationSessionMode,
-        loadClasses,
+        classRowsPromise ? () => classRowsPromise : loadClasses,
         loadStudents,
         loadClassDashboard,
         loadStudentProgress,

@@ -1,4 +1,4 @@
-// Rewards V2 economy - the maths a child's wallet depends on.
+// Rewards V2 economy - the calculation a child's wallet depends on.
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";

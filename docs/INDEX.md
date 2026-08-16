@@ -79,13 +79,6 @@ beta deployment.
 
 - [Public free tier spec](product/FREE_TIER_SPEC.md) — email + password, two children, ~20% of the
   content, no parent reporting. Spec only; no code.
-- [Maths implementation dossier](maths/README.md) — Foundation–Year 2 architecture and
-  delivery backlog, with the Phase 0 and MATH-101 Foundation vertical slice implemented in
-  the running product: lessons, checks, Number Stories, games, teacher tools and reporting.
-- [Foundation Maths release record](maths/FOUNDATION_RELEASE_RECORD_2026-08-14.md) — exact
-  production commit, clean-checkout verification, live Supabase state and explicit release
-  boundaries for the Foundation number-sense candidate.
-
 ## Operations, research, legal and security
 
 - [Recovery](ops/RECOVERY_RUNBOOK.md), [retention](ops/RETENTION_RUNBOOK.md), and [data rights](ops/DATA_RIGHTS_RUNBOOK.md)

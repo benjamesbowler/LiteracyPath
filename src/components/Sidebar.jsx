@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import logomarkUrl from "../assets/logomark.png";
 import { APP_VIEWS } from "../appState/appViews.js";
-import { SubjectSwitch } from "./SubjectSwitch.jsx";
-import { SUBJECT_IDS, subjectForAppView } from "../subjects/subjectRegistry.js";
 
 const STORAGE_KEY = "lg_sidebar_collapsed";
 
@@ -139,51 +137,6 @@ const TEACHER_INTENT_NAV_ITEMS = [
   },
 ];
 
-const MATHS_TEACHER_NAV_ITEMS = [
-  {
-    id: "maths-home",
-    label: "Overview",
-    icon: "dashboard",
-    views: [APP_VIEWS.MATHS_TEACHER_DASHBOARD]
-  },
-  {
-    id: "maths-assessments",
-    label: "Skills checks",
-    icon: "assessment",
-    views: [APP_VIEWS.MATHS_TEACHER_ASSESSMENTS]
-  },
-  {
-    id: "maths-reports",
-    label: "Reports",
-    icon: "reports",
-    views: [APP_VIEWS.MATHS_TEACHER_REPORTS]
-  },
-  {
-    id: "maths-resources",
-    label: "Resources",
-    icon: "reading",
-    views: [APP_VIEWS.MATHS_TEACHER_RESOURCES]
-  },
-  {
-    id: "maths-present",
-    label: "Present",
-    icon: "present",
-    views: [APP_VIEWS.MATHS_PRESENT]
-  },
-  {
-    id: "maths-groups",
-    label: "Small groups",
-    icon: "student",
-    views: [APP_VIEWS.MATHS_SMALL_GROUPS]
-  },
-  {
-    id: "maths-worksheets",
-    label: "Worksheets",
-    icon: "worksheets",
-    views: [APP_VIEWS.MATHS_WORKSHEETS]
-  }
-];
-
 export function Sidebar({
   appView,
   nameSaved = true,
@@ -196,14 +149,6 @@ export function Sidebar({
   goToTeacherReports,
   goToTeacherResources,
   goToTeacherSettings,
-  goToLiteracyHome,
-  goToMathsHome,
-  goToMathsAssessments,
-  goToMathsReports,
-  goToMathsResources,
-  goToMathsPresent,
-  goToMathsWorksheets,
-  goToMathsGroups,
   logOutTeacher,
   isAdmin,
   openAdminDashboard,
@@ -221,10 +166,7 @@ export function Sidebar({
     collapsed
     || (compactViewport && !mobileExpanded)
   );
-  const activeSubject = subjectForAppView(appView);
-  const navigationItems = activeSubject === SUBJECT_IDS.MATHS
-    ? MATHS_TEACHER_NAV_ITEMS
-    : TEACHER_INTENT_NAV_ITEMS;
+  const navigationItems = TEACHER_INTENT_NAV_ITEMS;
 
   useEffect(() => {
     try {
@@ -269,13 +211,6 @@ export function Sidebar({
       case "reports":     return goToTeacherReports?.();
       case "resources":   return goToTeacherResources?.();
       case "settings":    return goToTeacherSettings?.();
-      case "maths-home":  return goToMathsHome?.();
-      case "maths-assessments": return goToMathsAssessments?.();
-      case "maths-reports": return goToMathsReports?.();
-      case "maths-resources": return goToMathsResources?.();
-      case "maths-present": return goToMathsPresent?.();
-      case "maths-worksheets": return goToMathsWorksheets?.();
-      case "maths-groups": return goToMathsGroups?.();
       case "admin":       return openAdminDashboard?.();
       default:            return null;
     }
@@ -302,9 +237,7 @@ export function Sidebar({
           <div className="lg-sb-icon" aria-hidden="true">
             <img src={logomarkUrl} alt="" width="16" height="16" />
           </div>
-          <span className="lg-sb-name" aria-hidden={railCollapsed}>
-            {activeSubject === SUBJECT_IDS.MATHS ? "Literacy Path" : "Literacy Guide"}
-          </span>
+          <span className="lg-sb-name" aria-hidden={railCollapsed}>Literacy Guide</span>
         </div>
         <button
           className="lg-sb-toggle"
@@ -315,16 +248,6 @@ export function Sidebar({
           <span className="lg-sb-toggle-icon">{ICONS.chevron}</span>
         </button>
       </div>
-
-      <SubjectSwitch
-        activeSubject={activeSubject}
-        onSelectSubject={subjectId => {
-          if (subjectId === SUBJECT_IDS.MATHS) goToMathsHome?.();
-          else goToLiteracyHome?.();
-          if (compactViewport) setMobileExpanded(false);
-        }}
-        variant="teacher"
-      />
 
       {/* ── Class / context label ── */}
       <div className="lg-sb-class" aria-hidden={railCollapsed}>

@@ -152,7 +152,6 @@ test("every child destination is visible or reachable in a compact MacBook brows
     await expect(page.locator(`[data-child-surface="${route.id}"]`)).toBeVisible();
     await auditRenderedViewport(page, {
       allowDocumentScroll: route.id === "student-login",
-      allowedVerticalScroll: [".maths-student-area"],
       state: `child ${route.id}`
     });
   }

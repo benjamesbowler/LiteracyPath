@@ -26,16 +26,6 @@ const TEACHER_PATH_VIEWS = Object.freeze({
   settings: APP_VIEWS.TEACHER_SETTINGS
 });
 
-const MATHS_TEACHER_PATH_VIEWS = Object.freeze({
-  "maths/teacher": APP_VIEWS.MATHS_TEACHER_DASHBOARD,
-  "maths/teacher/assessments": APP_VIEWS.MATHS_TEACHER_ASSESSMENTS,
-  "maths/teacher/reports": APP_VIEWS.MATHS_TEACHER_REPORTS,
-  "maths/teacher/resources": APP_VIEWS.MATHS_TEACHER_RESOURCES,
-  "maths/teacher/present": APP_VIEWS.MATHS_PRESENT,
-  "maths/teacher/worksheets": APP_VIEWS.MATHS_WORKSHEETS,
-  "maths/teacher/small-groups": APP_VIEWS.MATHS_SMALL_GROUPS
-});
-
 // Deep links must round-trip EVERY report style the report page can show.
 //
 // This was a hand-kept list of four while the report page offered six, so
@@ -53,13 +43,6 @@ const CLASS_ONLY_INTENTS = [
   "resources/worksheets",
   "resources/present",
   "resources/guided-reading",
-  "maths/teacher",
-  "maths/teacher/assessments",
-  "maths/teacher/reports",
-  "maths/teacher/resources",
-  "maths/teacher/present",
-  "maths/teacher/worksheets",
-  "maths/teacher/small-groups",
   "settings",
   "reports/class"
 ];
@@ -83,16 +66,11 @@ function parseTeacherRouteHash(hash = "") {
         : "whole-child"
     };
   }
-  const isMathsTeacherRoute = Boolean(MATHS_TEACHER_PATH_VIEWS[path]);
   const intentPath = path.startsWith("teacher/") ? path.slice("teacher/".length) : "";
-  const intent = isMathsTeacherRoute
-    ? path
-    : intentPath.startsWith("settings/")
-      ? "settings"
-      : intentPath;
-  const appView = isMathsTeacherRoute
-    ? MATHS_TEACHER_PATH_VIEWS[path]
-    : TEACHER_PATH_VIEWS[intent];
+  const intent = intentPath.startsWith("settings/")
+    ? "settings"
+    : intentPath;
+  const appView = TEACHER_PATH_VIEWS[intent];
   if (!appView) return null;
   const learnerId = CLASS_ONLY_INTENTS.includes(intent)
     ? ""

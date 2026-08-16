@@ -8,17 +8,6 @@ import {
   listV3PublishedSkillIds
 } from "../src/data/v3/v3Registry.js";
 import { skillTree } from "../src/skillTree.js";
-import {
-  APPROVED_FOUNDATION_SKILL_IDS,
-  mathsSkillById
-} from "../src/maths/curriculum/mathsSkillTree.js";
-import { mathsActivityRecipesBySkill } from "../src/maths/learn/mathsActivityRecipes.js";
-import { assessmentModelsForSkill } from "../src/maths/assessment/mathsAssessmentBank.js";
-import {
-  MATHS_EVIDENCE_EVENT_TYPES,
-  MATHS_EVIDENCE_SCHEMA_VERSION
-} from "../src/maths/data/mathsEvidenceStore.js";
-import { mathsSkillReport } from "../src/maths/reporting/mathsReporting.js";
 
 const NODE_TYPES = Object.freeze({
   GOAL: "curriculum_goal",
@@ -150,81 +139,6 @@ async function addLiteracyCapabilities({ nodes, edges, issues, now }) {
   }
 }
 
-function addMathsCapabilities({ nodes, edges, issues, now }) {
-  const supportsSkillsCheck = MATHS_EVIDENCE_EVENT_TYPES.includes("skills_check_response");
-  const supportsLessonObservation = MATHS_EVIDENCE_EVENT_TYPES.includes("lesson_exit_observation");
-
-  for (const skillId of APPROVED_FOUNDATION_SKILL_IDS) {
-    const skill = mathsSkillById[skillId];
-    const recipes = mathsActivityRecipesBySkill[skillId] || [];
-    const models = assessmentModelsForSkill(skillId);
-    const report = mathsSkillReport([], skillId, { now });
-    const goalId = `maths:goal:${skillId}`;
-    const lessonId = `maths:lesson:${skillId}`;
-    const assessmentId = `maths:assessment:${skillId}`;
-    const evidenceId = `maths:evidence:${skillId}`;
-    const reportId = `maths:report:${skillId}`;
-
-    addNode(nodes, {
-      id: goalId,
-      type: NODE_TYPES.GOAL,
-      subject: "maths",
-      key: skillId,
-      label: skill?.childLabel || skillId
-    });
-    addNode(nodes, {
-      id: lessonId,
-      type: NODE_TYPES.EXPERIENCE,
-      subject: "maths",
-      key: skillId,
-      label: `${skill?.childLabel || skillId} lesson`,
-      itemCount: recipes.length
-    });
-    addNode(nodes, {
-      id: assessmentId,
-      type: NODE_TYPES.EXPERIENCE,
-      subject: "maths",
-      key: skillId,
-      label: `${skill?.childLabel || skillId} skills check`,
-      itemCount: models.length
-    });
-
-    if (!skill) addIssue(issues, "maths", skillId, "missing_runtime_goal", `${skillId} is approved but has no curriculum definition.`);
-    if (!recipes.length) addIssue(issues, "maths", skillId, "missing_lesson", `${skillId} has no released lesson recipe.`);
-    if (!models.length) addIssue(issues, "maths", skillId, "missing_assessment", `${skillId} has no released assessment model.`);
-    if (!supportsSkillsCheck || !supportsLessonObservation || MATHS_EVIDENCE_SCHEMA_VERSION !== 1) {
-      addIssue(issues, "maths", skillId, "missing_evidence_contract", `${skillId} cannot reach both lesson and skills-check evidence under the current schema.`);
-    }
-    if (report?.skillId !== skillId || report?.status !== "Not checked") {
-      addIssue(issues, "maths", skillId, "missing_report_row", `${skillId} does not produce a neutral teacher report row.`);
-    }
-
-    if (supportsSkillsCheck && supportsLessonObservation && MATHS_EVIDENCE_SCHEMA_VERSION === 1) {
-      addNode(nodes, {
-        id: evidenceId,
-        type: NODE_TYPES.EVIDENCE,
-        subject: "maths",
-        key: skillId,
-        label: "Maths evidence schema v1"
-      });
-      addEdge(edges, lessonId, evidenceId, "records");
-      addEdge(edges, assessmentId, evidenceId, "records");
-    }
-    if (report?.skillId === skillId) {
-      addNode(nodes, {
-        id: reportId,
-        type: NODE_TYPES.REPORT,
-        subject: "maths",
-        key: skillId,
-        label: `${skill?.childLabel || skillId} teacher report`
-      });
-      addEdge(edges, evidenceId, reportId, "appears_in");
-    }
-    addEdge(edges, goalId, lessonId, "taught_by");
-    addEdge(edges, goalId, assessmentId, "checked_by");
-  }
-}
-
 function reachableReportPath(goalId, nodes, edges) {
   const outgoing = new Map();
   edges.forEach(edge => {
@@ -252,7 +166,6 @@ export async function buildLearningCapabilityGraph({ now = new Date() } = {}) {
   const edges = [];
   const issues = [];
   await addLiteracyCapabilities({ nodes, edges, issues, now });
-  addMathsCapabilities({ nodes, edges, issues, now });
 
   const duplicateEdgeIds = edges
     .map(edge => edge.id)

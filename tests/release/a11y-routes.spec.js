@@ -18,23 +18,9 @@ function blockingViolations(result) {
     }));
 }
 
-function allViolations(result) {
-  return result.violations.map(violation => ({
-    id: violation.id,
-    impact: violation.impact,
-    help: violation.help,
-    targets: violation.nodes.map(node => node.target.join(" "))
-  }));
-}
-
 async function expectNoBlockingViolations(page, state, selector = "body") {
   const result = await new AxeBuilder({ page }).include(selector).analyze();
   expect(blockingViolations(result), `${state} has serious or critical accessibility violations`).toEqual([]);
-}
-
-async function expectNoMathsViolations(page, state, selector = "body") {
-  const result = await new AxeBuilder({ page }).include(selector).analyze();
-  expect(allViolations(result), `${state} has Axe accessibility violations`).toEqual([]);
 }
 
 async function waitForRoute(page, route) {
@@ -57,8 +43,7 @@ async function waitForRoute(page, route) {
 
 for (const viewport of A11Y_VIEWPORTS) {
   for (const route of A11Y_PRIMARY_ROUTES) {
-    const axeExpectation = route.id.startsWith("maths-") ? "zero Axe findings" : "zero serious/critical Axe findings";
-    test(`A3.3 ${route.id} has ${axeExpectation} at ${viewport.id}`, async ({
+    test(`A3.3 ${route.id} has zero serious/critical Axe findings at ${viewport.id}`, async ({
       page
     }) => {
       test.setTimeout(45_000);
@@ -70,11 +55,7 @@ for (const viewport of A11Y_VIEWPORTS) {
       });
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await waitForRoute(page, route);
-      if (route.id.startsWith("maths-")) {
-        await expectNoMathsViolations(page, `${route.id} at ${viewport.id}`);
-      } else {
-        await expectNoBlockingViolations(page, `${route.id} at ${viewport.id}`);
-      }
+      await expectNoBlockingViolations(page, `${route.id} at ${viewport.id}`);
       expect(pageErrors).toEqual([]);
       expect(consoleErrors).toEqual([]);
     });

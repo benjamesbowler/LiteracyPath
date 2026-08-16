@@ -67,12 +67,6 @@ test("Sound Seekers specifically is reachable by a student", () => {
   assert.ok(isStudentAllowedView(APP_VIEWS.PHONICS_QUEST));
 });
 
-test("the Maths home is reachable by a learner but Maths teacher views are not", () => {
-  assert.equal(isStudentAllowedView(APP_VIEWS.MATHS_STUDENT_HOME), true);
-  assert.equal(isStudentAllowedView(APP_VIEWS.MATHS_TEACHER_DASHBOARD), false);
-  assert.equal(shouldShowFooterUtilityActions({ appView: APP_VIEWS.MATHS_STUDENT_HOME }), false);
-});
-
 test("the allowlist only contains real views", () => {
   const all = new Set(Object.values(APP_VIEWS));
   for (const view of STUDENT_ALLOWED_VIEWS) {
@@ -92,8 +86,7 @@ test("teacher-only views are NOT on the student allowlist", () => {
     APP_VIEWS.ADMIN_DASHBOARD,
     APP_VIEWS.REPORTS,
     APP_VIEWS.WORKSHEETS,
-    APP_VIEWS.PRESENT,
-    APP_VIEWS.MATHS_TEACHER_DASHBOARD
+    APP_VIEWS.PRESENT
   ]) {
     assert.equal(isStudentAllowedView(view), false, `${view} must not be reachable by a student`);
   }
@@ -134,8 +127,7 @@ test("teacher intentions persist and restore without requiring a selected learne
     APP_VIEWS.TEACHER_RESOURCES,
     APP_VIEWS.TEACHER_SETTINGS,
     APP_VIEWS.WORKSHEETS,
-    APP_VIEWS.PRESENT,
-    APP_VIEWS.MATHS_TEACHER_DASHBOARD
+    APP_VIEWS.PRESENT
   ]) {
     assert.equal(getPersistedAppView({ studentId: "", appView: view }), view);
     assert.equal(getRestoredAppView({ restoredStudentId: "", storedAppView: view }), view);
@@ -244,25 +236,6 @@ test("restored module-shaped teacher routes redirect to the focused teacher IA",
 test("all teacher sections expose an honest class, group, and learner hash", () => {
   assert.equal(
     teacherIntentHash({
-      appView: APP_VIEWS.MATHS_TEACHER_DASHBOARD,
-      classId: "class-a",
-      groupId: "attention",
-      learnerId: "learner-a"
-    }),
-    "#maths/teacher?class=class-a"
-  );
-  assert.deepEqual(
-    parseTeacherRouteHash("#maths/teacher?class=class-a&learner=not-trusted"),
-    {
-      appView: APP_VIEWS.MATHS_TEACHER_DASHBOARD,
-      classId: "class-a",
-      groupId: "all",
-      learnerId: "",
-      reportView: ""
-    }
-  );
-  assert.equal(
-    teacherIntentHash({
       appView: APP_VIEWS.TEACHER_DASHBOARD,
       classId: "class-a",
       groupId: "attention",
@@ -359,43 +332,6 @@ test("whole-class resource subroutes survive refresh without inventing a learner
       view
     );
   }
-});
-
-test("a Maths teacher deep link still passes through owned-class hydration", async () => {
-  const calls = [];
-  const route = parseTeacherRouteHash("#maths/teacher?class=class-a");
-  const result = await hydrateTeacherRoute([
-    route,
-    "teacher-a",
-    "teacher",
-    async () => [{ id: "class-a", name: "Owned class" }],
-    async classId => {
-      calls.push(["students", classId]);
-      return [];
-    },
-    async classId => {
-      calls.push(["dashboard", classId]);
-      return [];
-    },
-    async () => {
-      throw new Error("A whole-class Maths route must not load a learner.");
-    },
-    [
-      () => calls.push(["clear-class-data"]),
-      classId => calls.push(["class", classId]),
-      groupId => calls.push(["group", groupId]),
-      message => calls.push(["message", message]),
-      saved => calls.push(["name-saved", saved]),
-      report => calls.push(["report", report]),
-      (id, name) => calls.push(["student", id, name]),
-      view => calls.push(["view", view])
-    ]
-  ]);
-
-  assert.equal(result, true);
-  assert.ok(calls.some(call => call[0] === "class" && call[1] === "class-a"));
-  assert.ok(calls.some(call => call[0] === "view" && call[1] === APP_VIEWS.MATHS_TEACHER_DASHBOARD));
-  assert.ok(calls.some(call => call[0] === "students" && call[1] === "class-a"));
 });
 
 test("the old class-report link still lands on the funnel that absorbed it", () => {

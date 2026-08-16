@@ -31,8 +31,6 @@ import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { StudentSoundTrailPage } from "./components/StudentSoundTrailPage.jsx";
 import { StudentStoryQuestsPage } from "./components/StudentStoryQuestsPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
-import { MathsHome } from "./maths/learn/MathsHome.jsx";
-import { MathsArcade, MathsAssessmentPlayer, MathsLessonPlayer, MathsStoryLibrary } from "./maths/learn/MathsStudentArea.jsx";
 import { GUIDED_READING_BOOK_INDEX } from "./data/generated/guidedReadingBookIndex.generated.js";
 import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { COMPANIONS, setCompanion } from "./utils/studentProfile.js";
@@ -48,12 +46,6 @@ window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("learn_games", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("el_quest", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("story_quests", PREVIEW_SCOPE));
-for (let index = window.localStorage.length - 1; index >= 0; index -= 1) {
-  const key = window.localStorage.key(index);
-  if (["v1", "v2"].some(version => String(key || "").startsWith(`lp-maths-lesson:${version}:${PREVIEW_SCOPE}:`))) {
-    window.localStorage.removeItem(key);
-  }
-}
 if (PREVIEW_PARAMS.get("unlockWords") === "1") {
   window.localStorage.setItem(
     `lp_phonics_progress_${PREVIEW_SCOPE}`,
@@ -157,16 +149,6 @@ function Surface() {
       return <PreviewShell active="phonics"><div className="student-surface-frame student-surface-phonics"><PhonicsLearnPage initialIsland={PREVIEW_PARAMS.get("island") || "letters"} initialStep={Number(PREVIEW_PARAMS.get("step")) || 1} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "arcade":
       return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
-    case "maths-home":
-      return <MathsHome studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} onOpenLiteracy={() => markDestination("student-home")} onOpenLearn={() => markDestination("maths-lesson")} onOpenAssessment={() => markDestination("maths-check")} onOpenStories={() => markDestination("maths-stories")} onOpenArcade={() => markDestination("maths-arcade")} />;
-    case "maths-lesson":
-      return <MathsLessonPlayer studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} onHome={() => markDestination("maths-home")} />;
-    case "maths-check":
-      return <MathsAssessmentPlayer assessmentSeed="child-surface-review" studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} onHome={() => markDestination("maths-home")} />;
-    case "maths-stories":
-      return <MathsStoryLibrary studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} onHome={() => markDestination("maths-home")} />;
-    case "maths-arcade":
-      return <MathsArcade studentName="Aaron" progressScopeKey={PREVIEW_SCOPE} onHome={() => markDestination("maths-home")} />;
     // Both of these are the phase-C front doors now, which is what a child
     // actually lands on; the mode each one launches is handed in exactly as the
     // router hands it in, so the preview and the app agree.

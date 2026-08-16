@@ -116,13 +116,20 @@ test("teacher login has separate existing-class and first-class entry paths", ()
   assert.match(app, /newClassName=\{newClassName\}/);
   assert.match(app, /setNewClassName=\{setNewClassName\}/);
 
-  assert.match(
-    teacherController,
-    /const isFreshLoginRestore = freshLoginResetPendingRef\.current;[\s\S]*?if \(!teacherRoute \|\| isFreshLoginRestore\) loadClasses\(\);/
+  const classLoadIndex = teacherController.indexOf("const classLoadPromise = loadClasses();");
+  const routeRuntimeIndex = teacherController.indexOf("const { parse } = await loadTeacherRouteRuntime();");
+  assert.ok(classLoadIndex >= 0, "approved teacher restoration must always start the class read");
+  assert.ok(
+    classLoadIndex < routeRuntimeIndex,
+    "class loading must begin before the lazy route module so route restoration cannot strand the class list"
   );
   assert.match(
     teacherController,
-    /if \(teacherRoute && !isFreshLoginRestore\) \{[\s\S]*?hydrateTeacherRouteContext\(teacherRoute\)/
+    /if \(teacherRoute && !isFreshLoginRestore\) \{[\s\S]*?hydrateTeacherRouteContext\(teacherRoute, classLoadPromise\)/
+  );
+  assert.match(
+    teacherController,
+    /classRowsPromise \? \(\) => classRowsPromise : loadClasses/
   );
   assert.match(
     teacherController,

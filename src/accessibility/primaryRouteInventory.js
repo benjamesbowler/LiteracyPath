@@ -7,15 +7,6 @@ export const A11Y_PRIMARY_ROUTES = Object.freeze([
   Object.freeze({ id: "student-login", audience: "student", url: "/preview/child-surfaces.html?surface=student-login" }),
   Object.freeze({ id: "student-home", audience: "student", url: "/preview/child-surfaces.html?surface=student-home" }),
   Object.freeze({
-    id: "maths-home",
-    audience: "student",
-    url: "/preview/child-surfaces.html?surface=maths-home"
-  }),
-  Object.freeze({ id: "maths-lesson", audience: "student", url: "/preview/child-surfaces.html?surface=maths-lesson" }),
-  Object.freeze({ id: "maths-check", audience: "student", url: "/preview/child-surfaces.html?surface=maths-check" }),
-  Object.freeze({ id: "maths-stories", audience: "student", url: "/preview/child-surfaces.html?surface=maths-stories" }),
-  Object.freeze({ id: "maths-arcade", audience: "student", url: "/preview/child-surfaces.html?surface=maths-arcade" }),
-  Object.freeze({
     id: "phonics",
     audience: "student",
     url: "/preview/child-surfaces.html?surface=phonics",
@@ -28,12 +19,6 @@ export const A11Y_PRIMARY_ROUTES = Object.freeze([
   Object.freeze({ id: "reading-library", audience: "student", url: "/preview/child-surfaces.html?surface=reading-library" }),
   Object.freeze({ id: "my-hollow", audience: "student", url: "/preview/child-surfaces.html?surface=my-hollow" }),
   Object.freeze({ id: "teacher-dashboard", audience: "teacher", url: "/preview/teacher-a11y.html?surface=today" }),
-  Object.freeze({
-    id: "maths-teacher-dashboard",
-    audience: "teacher",
-    url: "/preview/maths-phase-zero.html?audience=teacher#maths/teacher?class=00000000-0000-4000-8000-0000000000a1",
-    readySelector: '[data-maths-preview="teacher"]'
-  }),
   Object.freeze({ id: "teacher-children", audience: "teacher", url: "/preview/teacher-a11y.html?surface=classes" }),
   Object.freeze({ id: "teacher-checks", audience: "teacher", url: "/preview/teacher-a11y.html?surface=assess" }),
   Object.freeze({ id: "teacher-reports", audience: "teacher", url: "/preview/teacher-a11y.html?surface=progress" }),

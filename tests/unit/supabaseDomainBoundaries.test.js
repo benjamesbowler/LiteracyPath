@@ -51,7 +51,7 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 
 test("all domain registries expose the complete reviewed backend surface", () => {
   assert.equal(BOUNDARY_TABLES.length, 37);
-  assert.equal(BOUNDARY_RPCS.length, 101);
+  assert.equal(BOUNDARY_RPCS.length, 83);
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("reading_sessions"));
   assert.ok(BOUNDARY_TABLES.includes("assessment_attempts"));
@@ -72,24 +72,6 @@ test("all domain registries expose the complete reviewed backend surface", () =>
   assert.ok(BOUNDARY_RPCS.includes("teacher_export_learner_data"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_create_lesson_plan"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_record_lesson_delivery"));
-  assert.ok(BOUNDARY_RPCS.includes("student_record_maths_evidence"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_record_maths_evidence"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_read_maths_evidence"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_create_maths_assignment"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_list_maths_assignments"));
-  assert.ok(BOUNDARY_RPCS.includes("student_list_maths_assignments"));
-  assert.ok(BOUNDARY_RPCS.includes("student_complete_maths_assignment"));
-  assert.ok(BOUNDARY_RPCS.includes("student_report_maths_evidence_sync_health"));
-  assert.ok(BOUNDARY_RPCS.includes("student_report_maths_media_issue"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_read_maths_evidence_page"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_read_maths_sync_health"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_archive_maths_assignment"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_report_maths_media_issue"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_update_maths_assignment_due_at"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_duplicate_maths_assignment"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_list_maths_media_issues"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_resolve_maths_media_issue"));
-  assert.ok(BOUNDARY_RPCS.includes("teacher_read_maths_evidence_filtered_page"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_delete_learner_data_staged"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_complete_learner_deletion"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_reset_student_progress"));
