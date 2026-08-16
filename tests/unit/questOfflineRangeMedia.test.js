@@ -7,6 +7,7 @@ import { serviceWorkerSource } from "../../tools/viteQuestOfflinePlugin.mjs";
 function createWorkerHarness({ cachedResponse = null, networkResponse }) {
   const listeners = new Map();
   const cacheWrites = [];
+  let skipWaitingCalls = 0;
   const cache = {
     async match() { return cachedResponse; },
     async put(request, response) { cacheWrites.push({ request, response }); }
@@ -17,6 +18,7 @@ function createWorkerHarness({ cachedResponse = null, networkResponse }) {
       async claim() {},
       async matchAll() { return []; }
     },
+    async skipWaiting() { skipWaitingCalls += 1; },
     addEventListener(type, listener) { listeners.set(type, listener); }
   };
 
@@ -34,6 +36,16 @@ function createWorkerHarness({ cachedResponse = null, networkResponse }) {
 
   return {
     cacheWrites,
+    get skipWaitingCalls() { return skipWaitingCalls; },
+    async message(data) {
+      let waitPromise = Promise.resolve();
+      listeners.get("message")({
+        data,
+        source: null,
+        waitUntil(value) { waitPromise = Promise.resolve(value); }
+      });
+      await waitPromise;
+    },
     async fetch(request) {
       let responsePromise = null;
       listeners.get("fetch")({
@@ -77,4 +89,14 @@ test("the offline worker can still serve a warmed complete media file to a range
   assert.equal(response, cachedResponse);
   assert.equal(response.status, 200);
   assert.equal(harness.cacheWrites.length, 0);
+});
+
+test("a same-origin recovery action can activate a corrected waiting worker", async () => {
+  const harness = createWorkerHarness({
+    networkResponse: () => new Response(null, { status: 200 })
+  });
+
+  await harness.message({ type: "LP_ACTIVATE_UPDATE" });
+
+  assert.equal(harness.skipWaitingCalls, 1);
 });

@@ -126,6 +126,13 @@ self.addEventListener("fetch", event => {
 
 self.addEventListener("message", event => {
   const data = event.data || {};
+  // Keep normal releases on the safe "activate after clients close" policy,
+  // while allowing an explicit same-origin recovery action to replace a
+  // broken active worker without asking a child to find and close every tab.
+  if (data.type === "LP_ACTIVATE_UPDATE") {
+    event.waitUntil(self.skipWaiting());
+    return;
+  }
   if (data.type === "LP_OFFLINE_STATUS") {
     event.source?.postMessage({ type: "LP_OFFLINE_SHELL_READY", buildId: BUILD_ID, precached: PRECACHE.length });
     return;
