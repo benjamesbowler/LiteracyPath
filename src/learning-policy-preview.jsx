@@ -170,7 +170,7 @@ export function LearningPolicyPreview() {
         updateStudentSymbolPassword={async () => true}
         resetStudentSymbolPassword={asyncNoop}
         startStudentLogin={noop}
-        schoolName="LiteracyPath Audit School"
+        schoolName="Literacy Guide Audit School"
         hasSchool
         activitySyncHealthSeedRows={[]}
       />

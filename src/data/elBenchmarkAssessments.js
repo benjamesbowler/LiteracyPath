@@ -1,5 +1,5 @@
 /**
- * Stable public API for LiteracyPath's original provisional EL-aligned
+ * Stable public API for Literacy Guide's original provisional EL-aligned
  * benchmark forms.  UI, reporting, and persistence code should import from
  * this facade rather than reaching into the catalog/scorer implementation.
  */

@@ -297,7 +297,7 @@ function benchmarkAttemptBase(record = {}, definition = {}) {
     scoringRuleVersion: record.scoringRuleVersion || metadata.scoringRuleVersion || "",
     administrationVersion: record.administrationVersion || metadata.administrationVersion || "legacy_unspecified",
     responseSchemaVersion: Number(record.responseSchemaVersion || metadata.responseSchemaVersion || 1),
-    framework: cloneValue(record.framework, record.framework || "LiteracyPath provisional"),
+    framework: cloneValue(record.framework, record.framework || "Literacy Guide provisional"),
     plannedQuestionCount: Number(record.plannedQuestionCount || record.questionRecords?.length || 0),
     scoredCount: Number(record.scoredCount ?? record.totalQuestions ?? 0),
     notAdministeredCount: Number(record.notAdministeredCount || 0),

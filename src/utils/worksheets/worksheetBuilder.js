@@ -1304,7 +1304,7 @@ export function printWorksheet(recipe) {
 export function buildTrackedWorksheetDocument(recipe, { qrDataUrl, shortCode }) {
   if (!/^data:image\//.test(qrDataUrl || "") || !/^[A-Z2-9]{8}$/.test(shortCode || "")) throw new Error("Tracked worksheet print details are invalid");
   const { title, html } = buildWorksheetDocument(recipe);
-  const marker = `<aside class="ws-tracking" aria-label="Tracked worksheet"><img src="${esc(qrDataUrl)}" alt="QR code to open teacher marking"><div><strong>Teacher marking</strong><span>Code ${esc(shortCode)}</span><small>Sign in to LiteracyPath or enter this code. The code contains no learner name.</small></div></aside>`;
+  const marker = `<aside class="ws-tracking" aria-label="Tracked worksheet"><img src="${esc(qrDataUrl)}" alt="QR code to open teacher marking"><div><strong>Teacher marking</strong><span>Code ${esc(shortCode)}</span><small>Sign in to Literacy Guide or enter this code. The code contains no learner name.</small></div></aside>`;
   const trackedHtml = html.replace("</style>", `.ws-tracking{display:flex;align-items:center;gap:8px;border:1px solid #94a3b8;border-radius:8px;padding:6px;margin-top:8px;font:11px Arial,sans-serif}.ws-tracking img{width:58px;height:58px}.ws-tracking div{display:grid;gap:2px}.ws-tracking span{font:700 15px monospace;letter-spacing:2px}</style>`).replace(/(<div class="ws-footer">)/g, `${marker}$1`);
   return { title, html: trackedHtml };
 }

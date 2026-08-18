@@ -56,6 +56,7 @@ import {
   installChildAudioPageLifecycle,
   stopAllChildAudio
 } from "./utils/audio/childAudioLifecycle.js";
+import { PRODUCT_NAME } from "./data/teacherBrand.js";
 
 const STUDENT_PREVIEW_VIEWS = new Set([
   APP_VIEWS.STUDENT_HOME,
@@ -2925,7 +2926,7 @@ export default function App() {
   }
 
   return (
-    <Suspense fallback={<div className="app"><div className="card page-card">Loading Literacy Path...</div></div>}>
+    <Suspense fallback={<div className="app"><div className="card page-card">Loading {PRODUCT_NAME}...</div></div>}>
       <AppSurface
         surface={{
       PASS_SCORE, ROUND_LENGTH, adminClasses, adminConfirm, adminConfirmBusy, adminDeleteClass,

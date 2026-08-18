@@ -1970,7 +1970,7 @@ function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChan
               <h1>{passage.title || "Fluency passage"}</h1>
               <p>{passage.text || passage.passage || ""}</p>
               <footer className="el-benchmark-clean-passage-disclaimer">
-                Teacher note — not part of the timed passage. LiteracyPath EL-aligned provisional form · not an official EL Education benchmark.
+                Teacher note — not part of the timed passage. Literacy Guide EL-aligned provisional form · not an official EL Education benchmark.
               </footer>
             </article>
           </details>
@@ -3245,7 +3245,7 @@ export function ELBenchmarkAssessmentPage({
 
     const now = new Date().toISOString();
     const confirmedPlacement = {
-      framework: "LiteracyPath provisional",
+      framework: "Literacy Guide provisional",
       isProvisional: true,
       microphase: selected.id,
       candidateMicrophase: selected.id,
@@ -3701,7 +3701,7 @@ export function ELBenchmarkAssessmentPage({
     return (
       <main className="el-benchmark-shell el-benchmark-empty-state" aria-labelledby="el-benchmark-error-title">
         <section>
-          <span className="el-benchmark-framework-label">LiteracyPath EL-aligned</span>
+          <span className="el-benchmark-framework-label">Literacy Guide EL-aligned</span>
           <h1 id="el-benchmark-error-title">Assessment unavailable</h1>
           <p>{CHECK_LOAD_ERROR_COPY}</p>
           <div className="el-benchmark-button-row">
@@ -3716,7 +3716,7 @@ export function ELBenchmarkAssessmentPage({
     return (
       <main className="el-benchmark-shell el-benchmark-empty-state" aria-labelledby="el-benchmark-empty-title">
         <section>
-          <span className="el-benchmark-framework-label">LiteracyPath EL-aligned</span>
+          <span className="el-benchmark-framework-label">Literacy Guide EL-aligned</span>
           <h1 id="el-benchmark-empty-title">No items in this plan</h1>
           <p>The selected grade, time of year, and starting point did not return an assessment.</p>
           <div className="el-benchmark-button-row">

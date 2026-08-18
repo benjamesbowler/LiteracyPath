@@ -8,7 +8,7 @@ import { EL_DECODING_MICROPHASES } from "./elDecodingMicrophases.js";
 export { EL_DECODING_MICROPHASES } from "./elDecodingMicrophases.js";
 
 /**
- * Original LiteracyPath benchmark content.
+ * Original Literacy Guide benchmark content.
  *
  * These fixed forms are EL Skills Block-aligned in sequence and language, but
  * they are not copied from, endorsed by, or represented as official EL
@@ -111,9 +111,9 @@ const GRADES = Object.freeze(["K", "1", "2"]);
 const WINDOWS = Object.freeze(["BOY", "MOY", "EOY"]);
 
 const FRAMEWORK = Object.freeze({
-  label: "LiteracyPath provisional",
+  label: "Literacy Guide provisional",
   isProvisional: true,
-  source: "Original LiteracyPath-authored assessment content",
+  source: "Original Literacy Guide-authored assessment content",
   disclaimer: "EL-aligned, not an official or proprietary EL Education assessment and not nationally normed."
 });
 
@@ -521,7 +521,7 @@ function fluencyPassage(microphaseId, title, text, referenceGrade, referenceWind
       primaryPatterns: featureTags,
       controlNotes: audit.controlNotes,
       plannedSupportWords: audit.plannedSupportWords || [],
-      originalLiteracyPathText: true
+      originalAuthoredText: true
     },
     finishEarlyProtocol: "If the student reaches the end before 60 seconds, record finishedEarly and the actual elapsed time. Do not extrapolate or report WCPM; retain the completed-text accuracy observation and use teacher judgement before continuing.",
     prosodyRubric: {

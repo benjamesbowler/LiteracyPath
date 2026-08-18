@@ -27,7 +27,7 @@ export const hfwQuestionImageReviewRows = ROWS.map(row => {
     rejectionReason: metadata.rejectionReason || "",
     reviewerNotes: metadata.reviewerNotes || "",
     replacementPrompt: metadata.replacementPrompt
-      || `Create one clean child-friendly LiteracyPath cartoon scene matching this exact sentence: "${fullSentence}". ${REPLACEMENT_SUFFIX}`
+      || `Create one clean child-friendly Literacy Guide cartoon scene matching this exact sentence: "${fullSentence}". ${REPLACEMENT_SUFFIX}`
   };
 });
 

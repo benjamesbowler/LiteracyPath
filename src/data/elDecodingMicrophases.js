@@ -11,7 +11,7 @@ export const EL_DECODING_MICROPHASES = Object.freeze([
   Object.freeze({
     id: "middle_pre", label: "Middle Pre", anchorCycle: 1, rangeNote: "Cycle 1 anchor",
     constructFocus: "VC and simplest transparent CVC baseline",
-    progressionBasis: "LiteracyPath-authored construct sequence; the cycle value is a comparison anchor, not an assessed exact cycle."
+    progressionBasis: "Literacy Guide-authored construct sequence; the cycle value is a comparison anchor, not an assessed exact cycle."
   }),
   Object.freeze({
     id: "early_partial", label: "Early Partial", anchorCycle: 15, rangeNote: "Cycle 15 anchor",

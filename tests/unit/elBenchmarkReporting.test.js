@@ -47,7 +47,7 @@ const common = {
   contentVersion: "content-a-v1",
   scoringVersion: "scoring-a-v1",
   scoringRuleVersion: "scoring-rule-a-v1",
-  framework: "LiteracyPath provisional",
+  framework: "Literacy Guide provisional",
   startedAt: "2026-07-21T01:00:00.000Z",
   completedAt: "2026-07-21T01:10:00.000Z"
 };

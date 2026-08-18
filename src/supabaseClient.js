@@ -14,7 +14,7 @@ export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 // raises an app-visible event so the shell can show a banner.
 function shoutUnconfiguredWrite(operation) {
   console.error(
-    `[LiteracyPath] BLOCKED ${operation}: Supabase is NOT configured, nothing is being saved. `
+    `[Literacy Guide] BLOCKED ${operation}: Supabase is NOT configured, nothing is being saved. `
     + "Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in the deploy environment.",
     new Error("unconfigured supabase write").stack
   );
@@ -80,7 +80,7 @@ function createMissingSupabaseClient() {
 
 if (!isSupabaseConfigured) {
   console.error(
-    "[LiteracyPath] Supabase frontend environment is MISSING. The app will render, "
+    "[Literacy Guide] Supabase frontend environment is MISSING. The app will render, "
     + "but logins fail and NO progress is saved. Set VITE_SUPABASE_URL and "
     + "VITE_SUPABASE_ANON_KEY before trusting anything this build appears to do."
   );

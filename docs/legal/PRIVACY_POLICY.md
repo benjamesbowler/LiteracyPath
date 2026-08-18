@@ -1,4 +1,4 @@
-# LiteracyPath privacy policy (source)
+# Literacy Guide privacy policy (source)
 
 > **Status:** EXTERNAL-READY DRAFT — QUALIFIED LEGAL REVIEW REQUIRED
 > **Last reviewed against the product:** 8 August 2026
@@ -10,7 +10,7 @@ The final legal identity, address, dedicated contacts, provider regions, transfe
 terms, and approved contractual retention periods remain open in
 `LEGAL_DEPLOYMENT_FACTS.md`.
 
-LiteracyPath is an early-literacy and phonics service for learners roughly aged
+Literacy Guide is an early-literacy and phonics service for learners roughly aged
 4–7.
 
 ## Two routes, and why this policy is organised around them
@@ -36,7 +36,7 @@ and a child can read a few books without anyone having to hand over data first.
 Until August 2026 this policy stated flatly that no child could reach the
 product outside the school-managed context. The try-out made that sentence
 untrue, and it has been replaced rather than qualified. The accurate statement
-is that **a child can reach LiteracyPath without a school, but only through a
+is that **a child can reach Literacy Guide without a school, but only through a
 route that collects nothing.** There is deliberately no third option in which a
 child uses the product outside a school while data is kept about them. The
 planned family route described at the end of this policy would create one, and
@@ -93,7 +93,7 @@ to be recognised on a later visit.
 - **No cookies are set by us**, on this route or any other.
 
 **The honest carve-out.** "We collect nothing" is a statement about
-LiteracyPath, not about the internet. Loading any web page causes the server that
+Literacy Guide, not about the internet. Loading any web page causes the server that
 hosts it to see the request. Our host, Vercel, records ordinary request metadata
 — IP address, user agent, URL, and time — in platform logs, exactly as it does
 for every visitor to every site it serves, and exactly as any other web host
@@ -134,12 +134,12 @@ provider.
 The school or other authorised customer must select a valid legal basis, give
 required notices, and use an institutionally approved process. Under a valid US
 COPPA school-authorisation model, school authority is limited to the educational
-context; it cannot authorise unrelated commercial use. LiteracyPath keeps its
+context; it cannot authorise unrelated commercial use. Literacy Guide keeps its
 own operator duties and does not transfer them to the school.
 
 Parents and guardians can ask the school to review, correct, export, restrict,
 or delete their child’s information, stop further collection where applicable,
-and explain an alternative learning route. LiteracyPath may verify and route a
+and explain an alternative learning route. Literacy Guide may verify and route a
 request through the school to protect the learner and the education record.
 
 The anonymous try-out sits outside this arrangement in both directions. No school

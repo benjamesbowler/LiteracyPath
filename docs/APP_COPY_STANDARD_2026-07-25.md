@@ -13,13 +13,14 @@ copy remains age-appropriate and normally avoids both words.
 
 ## 1. Universal rules (every audience, every surface)
 
-1. **Name things by what the person does or gets — never by internal mechanism.** "Saving & syncing", not "Evidence delivery". "Results", not "learning events".
-2. **One name per concept, product-wide.** Sign-in (never login/access on surfaces) · assessment (teacher surfaces; never checkpoint/check) · results (never evidence) · class code · coins · Sparks. Student-facing copy normally names the task itself ("Find the sound", "Read this page") instead of saying assessment. If two screens disagree, that's a bug — fix toward this doc.
-3. **Internal identifiers never render.** No range labels ("Kindergarten BOY: Middle Pre baseline" — D-007), no content slugs ("level-c", "moonwood-tales", "longer-story-pages" — A1.7), no status tokens ("not-assessed"), no policy math ("70% required"). If a value comes from a catalog/config field, it must pass through a display-mapping function — rendering a raw config string to any human is banned.
-4. **Sentence case everywhere.** Buttons start with verbs. No Title Case Headings.
-5. **Numbers read as sentences:** "3 of 24", never "3/24" (teacher/parent surfaces). Students get words or pictures, not fractions.
-6. **Empty states say what to do next** (one sentence + the button that does it). **Error states are three beats:** what happened → what it means for their stuff (usually "nothing is lost") → the action. Never expose transport ("RPC", "telemetry", "in this browser").
-7. **Every string lives in a copy module** (`src/copy/childCopy.js`, `teacherCopy.js`, `familyCopy.js`), not inline in components — one home for audits, consistency, and future translation. Migrate as you touch each surface.
+1. **The umbrella product name is “Literacy Guide”.** “Little Literacy Guides” is the child-area sub-brand. “Literacy Path” and “LiteracyPath” are retired display names and must never reach a screen, install label, browser title, public page, report, export, printable, accessible name, or authored credit. Lowercase legacy technical identifiers may remain only where changing them would break package, deployment, cache, database, or saved-browser-data compatibility; they never render. `src/data/teacherBrand.js` is the runtime name authority, and `npm run check:product-brand` enforces the public and install surfaces.
+2. **Name things by what the person does or gets — never by internal mechanism.** "Saving & syncing", not "Evidence delivery". "Results", not "learning events".
+3. **One name per concept, product-wide.** Sign-in (never login/access on surfaces) · assessment (teacher surfaces; never checkpoint/check) · results (never evidence) · class code · coins · Sparks. Student-facing copy normally names the task itself ("Find the sound", "Read this page") instead of saying assessment. If two screens disagree, that's a bug — fix toward this doc.
+4. **Internal identifiers never render.** No range labels ("Kindergarten BOY: Middle Pre baseline" — D-007), no content slugs ("level-c", "moonwood-tales", "longer-story-pages" — A1.7), no status tokens ("not-assessed"), no policy math ("70% required"). If a value comes from a catalog/config field, it must pass through a display-mapping function — rendering a raw config string to any human is banned.
+5. **Sentence case everywhere.** Buttons start with verbs. No Title Case Headings.
+6. **Numbers read as sentences:** "3 of 24", never "3/24" (teacher/parent surfaces). Students get words or pictures, not fractions.
+7. **Empty states say what to do next** (one sentence + the button that does it). **Error states are three beats:** what happened → what it means for their stuff (usually "nothing is lost") → the action. Never expose transport ("RPC", "telemetry", "in this browser").
+8. **Every string lives in a copy module** (`src/copy/childCopy.js`, `teacherCopy.js`, `familyCopy.js`), not inline in components — one home for audits, consistency, and future translation. Migrate as you touch each surface.
 
 ## 2. Register A — Students (ages 4–7)
 
@@ -119,8 +120,9 @@ Admin QA consoles, release dashboards, content tooling may use precise internal 
 ## 8. Enforcement (how this sticks — do these, not just the rewrites)
 
 1. **Copy gate in CI:** `tools/checkAppCopy.js` — banned-term scan per register. Authoritative mode renders the seeded routes (teacher + student + a report export) and scans the DOM/output, per the plan's route-level rule; source scan is a fast pre-filter only. Wire into `check:release`.
-2. **String centralization** (§1.7) as each surface is touched.
-3. **The 5-second test:** in Loop C-lite reviews, a fresh-eyes session is shown each screen and asked "what would you do here?" — any label it can't act on in one reading is filed to `DISCOVERED.md` as a copy bug.
-4. **Sweep order:** Students (this doc) → Dashboard → assessment runner (D-005/D-007 together) → Reports → student home + Guided Reading (A1.7) → dialogs/toasts/errors → exports & printables → emails. One commit per surface, each referencing this doc.
+2. **Product-name gate:** `npm run check:product-brand` verifies browser/install metadata, the no-script loading screen, public pages, and customer-facing runtime sources against the current name authority.
+3. **String centralization** (§1.8) as each surface is touched.
+4. **The 5-second test:** in Loop C-lite reviews, a fresh-eyes session is shown each screen and asked "what would you do here?" — any label it can't act on in one reading is filed to `DISCOVERED.md` as a copy bug.
+5. **Sweep order:** Students (this doc) → Dashboard → assessment runner (D-005/D-007 together) → Reports → student home + Guided Reading (A1.7) → dialogs/toasts/errors → exports & printables → emails. One commit per surface, each referencing this doc.
 
 *This is not dumbing down. The model, both averages, and the fairness rules stay exactly as built — teachers get a plain sentence, students get words they can hear or decode, parents get plain English, and the ⓘ carries the statistics degree.*

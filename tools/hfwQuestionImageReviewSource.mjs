@@ -1,7 +1,7 @@
 const DEFAULT_REPLACEMENT_SUFFIX = "No embedded text, labels, signs, watermarks, logos, photorealism, rainbow/babyish style, AI slop, extra hands/fingers/limbs, or distorted faces.";
 
 function defaultReplacementPrompt(fullSentence = "") {
-  return `Create one clean child-friendly LiteracyPath cartoon scene matching this exact sentence: "${fullSentence}". ${DEFAULT_REPLACEMENT_SUFFIX}`;
+  return `Create one clean child-friendly Literacy Guide cartoon scene matching this exact sentence: "${fullSentence}". ${DEFAULT_REPLACEMENT_SUFFIX}`;
 }
 
 export function compactHfwQuestionImageReviewRow(row) {
@@ -92,7 +92,7 @@ export const hfwQuestionImageReviewRows = ROWS.map(row => {
     rejectionReason: metadata.rejectionReason || "",
     reviewerNotes: metadata.reviewerNotes || "",
     replacementPrompt: metadata.replacementPrompt
-      || \`Create one clean child-friendly LiteracyPath cartoon scene matching this exact sentence: "\${fullSentence}". \${REPLACEMENT_SUFFIX}\`
+      || \`Create one clean child-friendly Literacy Guide cartoon scene matching this exact sentence: "\${fullSentence}". \${REPLACEMENT_SUFFIX}\`
   };
 });
 

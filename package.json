@@ -39,6 +39,7 @@
     "record:story-media-release-approval": "node tools/recordStoryMediaReleaseApproval.mjs",
     "check:media-overwrite-risk": "node tools/checkMediaOverwriteRisk.js",
     "check:repo-hygiene": "node tools/runAuditScript.mjs --check tools/checkRepoHygiene.js",
+    "check:product-brand": "node --test tests/unit/productBrand.test.js && playwright test tests/release/product-brand.spec.js --project=desktop",
     "check:app-copy": "node tools/checkAppCopy.js --rendered",
     "check:approved-runtime-sources": "node --test tests/unit/assessmentStrictAuditV3Pool.test.js",
     "check:assessment-shell-regressions": "node tools/checkAssessmentShellRegressions.js",

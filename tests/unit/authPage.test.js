@@ -75,7 +75,7 @@ test("signup asks only for teacher-facing identity and clearly labels email", ()
   const html = renderAuthPage({ authMode: "signup" });
 
   assert.match(html, /Email address/);
-  assert.match(html, /Name shown in LiteracyPath/);
+  assert.match(html, /Name shown in Literacy Guide/);
   assert.match(html, />School</);
   assert.match(html, />Password</);
   assert.doesNotMatch(html, /Account name/);

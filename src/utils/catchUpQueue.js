@@ -1,4 +1,4 @@
-// Shared "catch-up" queue for every LiteracyPath game.
+// Shared "catch-up" queue for every Literacy Guide game.
 //
 // The child works through a level's targets in order. If they MISS a target
 // (e.g. grab the wrong letter while spelling a word), that target is requeued

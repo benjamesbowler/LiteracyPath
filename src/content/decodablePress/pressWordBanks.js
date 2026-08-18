@@ -23,7 +23,7 @@ const PACKS = [
     words: ["bright", "cheer", "dream", "float", "green", "light", "moon", "night", "paint", "rain", "road", "sail", "seed", "shine", "storm", "team", "train", "turn", "wait", "whisper"],
     highFrequencyWords: ["because", "could", "every", "from", "little", "make", "people", "their", "there", "what", "when", "where", "would"]
   }
-].map(pack => Object.freeze({ ...pack, words: Object.freeze(pack.words), highFrequencyWords: Object.freeze(pack.highFrequencyWords), review: Object.freeze({ status: "approved", reviewedAt: "2026-08-09", source: "LiteracyPath taught-sequence editorial pack" }) }));
+].map(pack => Object.freeze({ ...pack, words: Object.freeze(pack.words), highFrequencyWords: Object.freeze(pack.highFrequencyWords), review: Object.freeze({ status: "approved", reviewedAt: "2026-08-09", source: "Literacy Guide taught-sequence editorial pack" }) }));
 
 export const PRESS_WORD_BANKS = Object.freeze(PACKS);
 

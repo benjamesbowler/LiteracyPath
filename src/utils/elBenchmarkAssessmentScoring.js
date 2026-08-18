@@ -273,13 +273,13 @@ function completionFromRecords(records, plannedQuestionCount = records.length) {
 
 function provisionalPlacement({ label = "", status = "provisional", evidence = {}, reason = "" } = {}) {
   return {
-    framework: "LiteracyPath provisional",
+    framework: "Literacy Guide provisional",
     isProvisional: true,
     status,
-    label: label || "LiteracyPath provisional — placement not available",
+    label: label || "Literacy Guide provisional — placement not available",
     evidence,
     reason,
-    disclaimer: "This is a LiteracyPath instructional indication, not an official EL Education result or a nationally normed placement."
+    disclaimer: "This is a Literacy Guide instructional indication, not an official EL Education result or a nationally normed placement."
   };
 }
 
@@ -354,7 +354,7 @@ function scorePhonologicalAwareness(plan, responses, administrationStatus) {
   const placement = scoreStatus === "scored"
     ? provisionalPlacement({
         status: "descriptive_evidence",
-        label: "LiteracyPath provisional — descriptive sound-awareness evidence",
+        label: "Literacy Guide provisional — descriptive sound-awareness evidence",
         evidence: {
           accuracy,
           strands: strands.map(row => ({
@@ -525,7 +525,7 @@ function scoreEncoding(plan, responses, administrationStatus, session) {
     ? {
         ...provisionalPlacement({
         status: "descriptive_evidence",
-        label: "LiteracyPath provisional — descriptive encoding evidence",
+        label: "Literacy Guide provisional — descriptive encoding evidence",
         evidence: {
           exactAccuracy,
           plausibleAccuracy,
@@ -838,7 +838,7 @@ function scoreDecoding(plan, responses, administrationStatus, session) {
   const placement = candidate
     ? {
         ...provisionalPlacement({
-          label: `LiteracyPath provisional — candidate ${candidate.label}${candidate.anchorCycle ? ` (Cycle ${candidate.anchorCycle} anchor)` : ""}`,
+          label: `Literacy Guide provisional — candidate ${candidate.label}${candidate.anchorCycle ? ` (Cycle ${candidate.anchorCycle} anchor)` : ""}`,
           evidence: {
             candidateMicrophase: candidate.id,
             candidateCycle: candidate.anchorCycle,
@@ -911,7 +911,7 @@ function scoreDecoding(plan, responses, administrationStatus, session) {
         : "",
     recommendations: [
       ...(candidate
-        ? [`Use ${candidate.label} as a LiteracyPath provisional candidate and confirm it with encoding and classroom reading evidence.`]
+        ? [`Use ${candidate.label} as a Literacy Guide provisional candidate and confirm it with encoding and classroom reading evidence.`]
         : ["Complete one full eight-item band before making a decoding placement indication."]),
       ...earlyPartialFollowUp(session)
     ],
@@ -1312,7 +1312,7 @@ function scoreFluency(plan, responses, administrationStatus, session) {
   const placement = metricRecords.length
     ? provisionalPlacement({
         status: "descriptive_evidence",
-        label: "LiteracyPath provisional — descriptive fluency evidence only",
+        label: "Literacy Guide provisional — descriptive fluency evidence only",
         evidence: {
           startMicrophase: start.microphase,
           highestAccurateMicrophase: fluencySequence.highestAccurateMicrophase,

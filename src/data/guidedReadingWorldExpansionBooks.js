@@ -27,7 +27,7 @@ const SERIES = Object.freeze({
     level: "A",
     ageRange: "4-5",
     author: "Nora Bell",
-    illustrator: "LiteracyPath Studio",
+    illustrator: "Literacy Guide Studio",
     setting: "Sunny Meadow Farm in clear natural daylight: red barn, duck pond, mud wallow, big oak, hill, stone wall, hay, flower meadow and stream. No magic, text or human objects beyond simple farm materials.",
     style: "bright uncluttered children's storybook art, rounded farm characters, warm natural daylight, simple depth, one large readable action",
     characterReference: Object.freeze({
@@ -49,7 +49,7 @@ const SERIES = Object.freeze({
     level: "B",
     ageRange: "5-6",
     author: "Nora Bell",
-    illustrator: "LiteracyPath Studio",
+    illustrator: "Literacy Guide Studio",
     setting: "Sunny Hollow in warm daylight: Cozy Cave, Berry Bush Corner, Big Flat Rock, Muddy Puddle Pool, stream, Fernwood and long meadow. Colourful rounded prehistoric valley with no unexplained magic.",
     style: "colourful textured children's storybook art, rounded young dinosaurs, large readable gestures, warm prehistoric valley, clear physical comedy",
     characterReference: Object.freeze({
@@ -75,7 +75,7 @@ const SERIES = Object.freeze({
     level: "C",
     ageRange: "7-9",
     author: "Lina Moss",
-    illustrator: "LiteracyPath Studio",
+    illustrator: "Literacy Guide Studio",
     setting: "Moonwood at night in the approved painterly style: Hollow Oak, Crystal Stream, Fog Marsh, Deep Dark, old roots, glow cave, Fern's garden and star rooms. Controlled glow and rule-bound magic only.",
     style: "cohesive painterly moonlit woodland fantasy, rich readable backgrounds, controlled blue-gold glow, tactile bark and foliage, never flat cel art",
     characterReference: Object.freeze({

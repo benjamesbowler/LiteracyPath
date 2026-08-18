@@ -1,5 +1,5 @@
 /**
- * Original LiteracyPath-authored parallel content for EL Assessments 3-6.
+ * Original Literacy Guide-authored parallel content for EL Assessments 3-6.
  *
  * Form A remains in elBenchmarkAssessmentCatalog.js unchanged. These compact
  * specifications provide controlled Form B and Form C replacements. The

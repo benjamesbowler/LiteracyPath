@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
+import { PRODUCT_NAME } from "../data/teacherBrand.js";
 
 export function AuthPage({
   authMode = "login",
@@ -73,7 +74,7 @@ export function AuthPage({
         {isSignup && (
           <>
             <label className="auth-field">
-              <strong>Name shown in LiteracyPath <span className="muted-text">(optional)</span></strong>
+              <strong>Name shown in {PRODUCT_NAME} <span className="muted-text">(optional)</span></strong>
               <input
                 autoComplete="name"
                 value={authDisplayName}

@@ -1,4 +1,4 @@
-// LiteracyPath Story Quests
+// Literacy Guide Story Quests
 //
 // REWRITTEN 2026-07-26. Every page of the original 13 quests was re-authored to sit at its
 // declared Fountas & Pinnell band and to match what the existing illustrations

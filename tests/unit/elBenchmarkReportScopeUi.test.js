@@ -46,7 +46,7 @@ test("finished report renders a visible saved-route selector with the newest rou
     classId: "class-1",
     teacherId: "teacher-1",
     gradePath: "1",
-    framework: "LiteracyPath provisional",
+    framework: "Literacy Guide provisional",
     startedAt: "2026-07-21T01:00:00.000Z",
     administrationStatus: "completed"
   };
@@ -200,7 +200,7 @@ test("finished report exposes expandable semantic answer details for every bench
     classId: "class-1",
     teacherId: "teacher-1",
     gradePath: "1",
-    framework: "LiteracyPath provisional",
+    framework: "Literacy Guide provisional",
     startedAt: "2026-07-21T03:00:00.000Z",
     completedAt: "2026-07-21T03:10:00.000Z",
     administrationStatus: "completed",

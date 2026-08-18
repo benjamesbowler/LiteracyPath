@@ -4,7 +4,7 @@
 // here does not make any file playable. Runtime approval remains owned by
 // phonemeAudioBank.js and the generated public-audio manifest.
 //
-// The prompts are original LiteracyPath directions. They deliberately name an
+// The prompts are original Literacy Guide directions. They deliberately name an
 // anchor word but ask the performer to record only the isolated sound. No
 // third-party recording is an input to this specification.
 

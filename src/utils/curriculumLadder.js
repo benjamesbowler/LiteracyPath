@@ -1,4 +1,4 @@
-// Shared curriculum ladder for EVERY LiteracyPath game.
+// Shared curriculum ladder for EVERY Literacy Guide game.
 //
 // Given a difficulty and a 0-based level index (0..9), returns a ramped,
 // no-repeat plan of targets for that level. Difficulty maps to a world (and

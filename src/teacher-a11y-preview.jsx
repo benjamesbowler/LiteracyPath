@@ -344,7 +344,7 @@ function Dashboard({ page }) {
         teacherId=""
         misconceptionAnswersSeed={misconceptionPreviewAnswers || []}
         misconceptionSeedState={params.has("misconception-error") ? "error" : "ready"}
-        schoolName="LiteracyPath Audit School"
+        schoolName="Literacy Guide Audit School"
         hasSchool={true}
       />
     );
@@ -388,7 +388,7 @@ function Dashboard({ page }) {
       updateStudentSymbolPassword={asyncNoop}
       resetStudentSymbolPassword={asyncNoop}
       startStudentLogin={noop}
-      schoolName="LiteracyPath Audit School"
+      schoolName="Literacy Guide Audit School"
       hasSchool={true}
       saveSchool={asyncNoop}
       activitySyncHealthSeedRows={[]}
@@ -753,7 +753,7 @@ function Settings() {
       loadingStudents={studentReadStatus === "loading"}
       archivedStudentList={[]}
       schoolName={schoolReadStatus === "complete"
-        ? "LiteracyPath Audit School"
+        ? "Literacy Guide Audit School"
         : ""}
       schoolNameReadState={{
         status: schoolReadStatus,

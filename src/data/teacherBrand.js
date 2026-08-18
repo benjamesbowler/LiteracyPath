@@ -1,5 +1,7 @@
+export const PRODUCT_NAME = "Literacy Guide";
+
 export const TEACHER_BRAND = Object.freeze({
-  name: "Literacy Guide",
+  name: PRODUCT_NAME,
   areaName: "Teacher Tools",
-  endorsedName: "Literacy Guide Teacher Tools"
+  endorsedName: `${PRODUCT_NAME} Teacher Tools`
 });

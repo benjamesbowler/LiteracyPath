@@ -4,7 +4,7 @@ export const ASSESSMENT_AUDIO_STANDARD = {
   voiceId: "en-US-Chirp3-HD-Leda",
   modelId: "Chirp 3 HD",
   standardRoot: "/audio/production/en-US/",
-  source: "LiteracyPath Leda production audio pack"
+  source: "Literacy Guide Leda production audio pack"
 };
 
 export const REPLACEMENT_VOICE_INSTRUCTIONS = [

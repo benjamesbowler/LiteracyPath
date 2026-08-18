@@ -154,7 +154,7 @@ function teacherConfirmedPlacement(microphase, overrides = {}) {
     anchorCycle: null,
     candidateMicrophase: microphase,
     confirmedAt: "2026-07-22T12:00:00.000Z",
-    framework: "LiteracyPath provisional",
+    framework: "Literacy Guide provisional",
     isProvisional: true,
     label,
     microphase,
@@ -1473,7 +1473,7 @@ test("ORF retains a clean printable student passage without scoring controls ins
 
   assert.match(html, /Printable clean passage/);
   assert.match(html, /Print passage/);
-  assert.match(sheet, /LiteracyPath EL-aligned provisional form/);
+  assert.match(sheet, /Literacy Guide EL-aligned provisional form/);
   assert.match(sheet, /not an official EL Education benchmark/);
   assert.match(sheet, new RegExp(`<h1>${item.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}<\\/h1><p>`));
   assert.match(sheet, /Teacher note — not part of the timed passage/);

@@ -60,7 +60,7 @@ test("public catalog exposes all four original provisional assessment domains", 
   assert.equal(EL_BENCHMARK_CONTENT_VERSION, "2026.07.21-v2");
   assert.equal(EL_BENCHMARK_FORM_ID, "form-a-v2");
   assert.deepEqual(EL_BENCHMARK_CATALOG.map(row => row.id), ASSESSMENT_IDS);
-  assert.ok(EL_BENCHMARK_CATALOG.every(row => row.framework.label === "LiteracyPath provisional"));
+  assert.ok(EL_BENCHMARK_CATALOG.every(row => row.framework.label === "Literacy Guide provisional"));
   assert.ok(EL_BENCHMARK_CATALOG.every(row => /not an official/i.test(row.framework.disclaimer)));
   assert.deepEqual(
     EL_BENCHMARK_CATALOG.find(row => row.id === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY).routineGrades,
@@ -1808,7 +1808,7 @@ test("persistence builder projects rich evidence and adds no generic mastery ver
   assert.equal(first.administrationStatus, "completed");
   assert.equal(first.plannedQuestionCount, 8);
   assert.equal(first.scoredCount, 8);
-  assert.equal(first.framework.label, "LiteracyPath provisional");
+  assert.equal(first.framework.label, "Literacy Guide provisional");
   assert.equal(first.formVersion, EL_BENCHMARK_FORM_ID);
   assert.equal(first.contentVersion, EL_BENCHMARK_CONTENT_VERSION);
   assert.equal(first.benchmarkWindow, "BOY");
