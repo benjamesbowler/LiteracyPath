@@ -228,6 +228,23 @@
   background: linear-gradient(180deg, var(--lg-primary-soft) 0%, var(--lg-surface-subtle) 55%);
 }
 
+/* GamePlayer is portalled to <body>, so it sits outside .student-mode-app and
+   cannot inherit that surface's iPad tap protections. Keep text selection and
+   the iOS touch callout off the complete game surface, then reserve touches
+   that begin on controls for the game so held movement is not cancelled as a
+   browser pan/zoom gesture. Game canvases keep their own pointer policies. */
+.lg-game-player,
+.lg-game-player * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lg-game-player :is(button, [role="button"]) {
+  touch-action: none;
+}
+
 .lg-game-player:fullscreen {
   width: 100vw;
   height: 100vh;
