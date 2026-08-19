@@ -703,7 +703,7 @@
   border-radius: 12px;
   background: var(--el-surface-subtle);
   color: var(--el-ink);
-  font-family: var(--lp-font-reading, var(--lp-font-ui));
+  font-family: var(--lp-font-assessment, var(--lp-font-reading, var(--lp-font-ui)));
   font-size: clamp(78px, 12vw, 148px);
   font-weight: 800;
   letter-spacing: 0.01em;
@@ -857,7 +857,7 @@
 
 .el-benchmark-rhyme-pair > span {
   color: #3f2b12;
-  font-family: var(--lp-font-readable, var(--lp-font-ui));
+  font-family: var(--lp-font-assessment, var(--lp-font-readable, var(--lp-font-ui)));
   font-size: clamp(29px, 4.5vw, 44px);
   font-weight: 800;
   line-height: 1.1;
@@ -1510,7 +1510,7 @@
 .el-benchmark-clean-passage-sheet h1 {
   margin: 0 0 24px;
   color: #111827;
-  font-family: var(--lp-font-readable, Georgia, serif);
+  font-family: var(--lp-font-assessment, var(--lp-font-readable, Georgia, serif));
   font-size: clamp(25px, 4vw, 38px);
   line-height: 1.15;
   text-align: center;
@@ -1535,7 +1535,7 @@
   max-width: 72ch;
   margin: 0 auto;
   color: #111827;
-  font-family: var(--lp-font-readable, Georgia, serif);
+  font-family: var(--lp-font-assessment, var(--lp-font-readable, Georgia, serif));
   font-size: clamp(21px, 2.8vw, 29px);
   line-height: 1.75;
 }
@@ -1713,7 +1713,7 @@
   border-radius: 12px;
   background: #fffefc;
   color: var(--el-ink);
-  font-family: var(--lp-font-readable, var(--lp-font-reading, sans-serif));
+  font-family: var(--lp-font-assessment, var(--lp-font-readable, var(--lp-font-reading, sans-serif)));
   font-size: clamp(22px, 2.4vw, 28px);
   font-weight: 550;
   line-height: 1.9;

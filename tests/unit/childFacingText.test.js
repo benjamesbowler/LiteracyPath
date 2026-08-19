@@ -29,6 +29,45 @@ test("app letter models use the school-style font token", () => {
   assert.match(questStyles, /\.sbq-answer-grid\.letters button[\s\S]*?var\(--lp-font-letter/);
 });
 
+test("every assessment family uses the unambiguous early-literacy font", () => {
+  const appStyles = readFileSync("src/App.css", "utf8");
+  const assessmentStyles = readFileSync("src/styles/assessment.css", "utf8");
+  const benchmarkStyles = readFileSync(
+    "src/components/assessment/el-benchmark-assessment.css",
+    "utf8"
+  );
+  const fontSources = readFileSync("src/styles/fonts.js", "utf8");
+
+  assert.match(appStyles, /--lp-font-assessment:\s*"Andika"/);
+  assert.match(fontSources, /@fontsource\/andika\/latin-400\.css/);
+  assert.match(fontSources, /@fontsource\/andika\/latin-700\.css/);
+
+  // Skills assessments inherit the font for prompts, stimuli and answers.
+  assert.match(
+    assessmentStyles,
+    /\.assessment-card\s*\{[^}]*font-family:\s*var\(--lp-font-assessment/
+  );
+
+  // Manual letter and pattern checks show their tested print in the same font.
+  assert.match(appStyles, /\.letter-display\s*\{[^}]*font-family:\s*var\(--lp-font-assessment/);
+  assert.match(appStyles, /\.pattern-display\s*\{[^}]*font-family:\s*var\(--lp-font-assessment/);
+  assert.match(appStyles, /\.pattern-example\s*\{[^}]*font-family:\s*var\(--lp-font-assessment/);
+
+  // Formal EL assessments use it for decoding words and both fluency views.
+  assert.match(
+    benchmarkStyles,
+    /\.el-benchmark-word-display\s*\{[^}]*font-family:\s*var\(--lp-font-assessment/
+  );
+  assert.match(
+    benchmarkStyles,
+    /\.el-benchmark-tokenized-passage\s*\{[^}]*font-family:\s*var\(--lp-font-assessment/
+  );
+  assert.match(
+    benchmarkStyles,
+    /\.el-benchmark-clean-passage-sheet p\s*\{[^}]*font-family:\s*var\(--lp-font-assessment/
+  );
+});
+
 test("letter tracing uses manuscript single-storey a and g paths", () => {
   assert.equal(LETTER_STROKES.a.length, 2);
   assert.match(LETTER_STROKES.a.join(" "), /C58 62 26 60/);

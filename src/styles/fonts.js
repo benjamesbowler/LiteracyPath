@@ -24,6 +24,11 @@
 import "@fontsource/anton/400.css";
 import "@fontsource/press-start-2p/400.css";
 
+/* Andika — 400, 700. SIL designed it specifically for beginning readers;
+   assessment print uses its distinct I/l/1 and school-style a/g forms. */
+import "@fontsource/andika/latin-400.css";
+import "@fontsource/andika/latin-700.css";
+
 /* Baloo 2 — 500, 600, 700 */
 import "@fontsource/baloo-2/500.css";
 import "@fontsource/baloo-2/600.css";

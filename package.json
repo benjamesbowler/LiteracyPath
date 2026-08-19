@@ -215,6 +215,7 @@
     "sync": "bash tools/sync.sh"
   },
   "dependencies": {
+    "@fontsource/andika": "^5.3.0",
     "@fontsource/anton": "^5.3.0",
     "@fontsource/baloo-2": "^5.3.0",
     "@fontsource/fredoka": "^5.3.0",

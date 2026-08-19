@@ -50,6 +50,10 @@
   --lp-font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-font-reading: Lexend, "Atkinson Hyperlegible", Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-font-readable: "Atkinson Hyperlegible", Lexend, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Assessment print must make the tested glyph unambiguous. Andika keeps
+     capital I, lowercase l and numeral 1 distinct and uses school-style
+     single-storey a and g forms by default. */
+  --lp-font-assessment: "Andika", "Fredoka", "Comic Sans MS", sans-serif;
   /* Letter models use school-style single-storey a and g. Reading and UI
      copy keep their own highly legible fonts; this token is for glyphs a
      child is being asked to recognise, copy, build or write. */
@@ -13498,8 +13502,9 @@ select:focus {
 }
 
 .letter-display {
+  font-family: var(--lp-font-assessment);
   font-size: 150px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1;
   color: var(--lp-color-text-strong) !important;
 }
@@ -13509,15 +13514,17 @@ select:focus {
 }
 
 .pattern-display {
+  font-family: var(--lp-font-assessment);
   font-size: clamp(86px, 20vh, 180px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1;
   color: var(--lp-color-text-strong) !important;
 }
 
 .pattern-example {
+  font-family: var(--lp-font-assessment);
   font-size: clamp(34px, 8vh, 72px);
-  font-weight: 800;
+  font-weight: 700;
   color: #344054 !important;
 }
 
