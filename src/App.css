@@ -25961,11 +25961,257 @@ body {
   font-size: 14px;
 }
 
+.teacher-assess-page .teacher-assess-history-toggle {
+  flex: 0 0 auto;
+  min-height: 44px !important;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .teacher-assess-page .teacher-page-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-assess-page .teacher-assess-history-toggle {
+    width: 100%;
+  }
+}
+
 /* The global :focus-visible ring is a 3px shadow; the design asks for a 2px
    outline, so the page states it for everything inside it. */
 .teacher-assess-page :focus-visible {
   outline: 2px solid var(--lp-color-primary);
   outline-offset: 2px;
+}
+
+/* ── completed assessment record ──────────────────────────────────────── */
+.teacher-assess-history {
+  overflow: hidden;
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-assess-history-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-assess-history-head .panel-label {
+  margin: 0 0 3px;
+  color: var(--lp-color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.teacher-assess-history-head h3,
+.teacher-assess-history-head p,
+.teacher-assess-history-state h3,
+.teacher-assess-history-state p,
+.teacher-assess-history-more p {
+  margin: 0;
+}
+
+.teacher-assess-history-head h3 {
+  color: var(--lp-color-text-strong);
+  font-family: "Lexend", "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.teacher-assess-history-head p:not(.panel-label) {
+  margin-top: 4px;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-assess-history-state {
+  display: grid;
+  min-height: 230px;
+  align-content: center;
+  justify-items: center;
+  gap: 9px;
+  padding: 36px 20px;
+  color: var(--lp-color-text-muted);
+  text-align: center;
+}
+
+.teacher-assess-history-state.is-warning {
+  background: var(--lp-color-warning-soft);
+}
+
+.teacher-assess-history-state h3 {
+  color: var(--lp-color-text-strong);
+  font-size: 18px;
+}
+
+.teacher-assess-history-state p {
+  max-width: 58ch;
+  font-size: 13px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.teacher-assess-history-state .lp-button {
+  min-height: 44px !important;
+  margin-top: 6px;
+}
+
+.teacher-assess-history .teacher-data-table-region {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 0;
+}
+
+.teacher-assess-history table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.teacher-assess-history th,
+.teacher-assess-history td {
+  padding: 13px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--lp-color-border);
+  color: var(--lp-color-text);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.teacher-assess-history thead th {
+  background: var(--lp-color-background);
+  color: var(--lp-color-text-subtle);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.teacher-assess-history thead th:nth-child(1) {
+  width: 19%;
+}
+
+.teacher-assess-history thead th:nth-child(2) {
+  width: 32%;
+}
+
+.teacher-assess-history thead th:nth-child(3) {
+  width: 28%;
+}
+
+.teacher-assess-history thead th:nth-child(4) {
+  width: 21%;
+}
+
+.teacher-assess-history tbody th {
+  color: var(--lp-color-text-strong);
+  font-weight: 700;
+}
+
+.teacher-assess-history tbody tr:last-child th,
+.teacher-assess-history tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.teacher-assess-history tbody tr:hover {
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-assess-history-assessment {
+  display: grid;
+  gap: 2px;
+}
+
+.teacher-assess-history-assessment strong {
+  color: var(--lp-color-text-strong);
+  font-weight: 700;
+}
+
+.teacher-assess-history-assessment small {
+  color: var(--lp-color-text-subtle);
+  font-size: 11px;
+}
+
+.teacher-assess-history time {
+  color: var(--lp-color-text-muted);
+  white-space: nowrap;
+}
+
+.teacher-assess-history-status {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.teacher-assess-history-status[data-status="discontinued"] {
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-warning);
+}
+
+.teacher-assess-history-status[data-status="not_scorable"] {
+  background: var(--lp-color-danger-soft);
+  color: var(--lp-color-danger);
+}
+
+.teacher-assess-history-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+}
+
+.teacher-assess-history-more p {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+}
+
+.teacher-assess-page .teacher-assess-history-more .lp-button {
+  flex: 0 0 auto;
+  min-height: 40px !important;
+}
+
+@media (max-width: 640px) {
+  .teacher-assess-history-head {
+    padding: 14px;
+  }
+
+  .teacher-assess-history th,
+  .teacher-assess-history td {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .teacher-assess-history-more {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-assess-history-more .lp-button {
+    width: 100%;
+  }
 }
 
 /* ── 1-2-3 step strip ──────────────────────────────────────────────────── */

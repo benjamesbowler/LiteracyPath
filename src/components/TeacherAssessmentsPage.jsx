@@ -22,6 +22,7 @@ import { useElBenchmarkStartPoint } from "./assessment/elBenchmarkStartPoint.js"
 import { ElPrerequisiteReview } from "./assessment/ELAssessmentsPage.jsx";
 import { ConfirmActionDialog } from "./teacher/TeacherAdminDialogs.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
+import { TeacherDataTable } from "./teacher/ui/TeacherPrimitives.jsx";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
@@ -49,6 +50,19 @@ import { getClassDashboardReadView } from "../appState/classDashboardReadState.j
 const CATALOG = listAssessmentCatalog();
 const SKILL_START_POINTS = listSkillStartPoints();
 const EVIDENCE_WINDOW_DAYS = LEARNING_EVIDENCE_POLICY.recency.conclusionWindowDays;
+const HISTORY_PAGE_SIZE = 25;
+
+const ASSESSMENT_HISTORY_TYPE_LABELS = Object.freeze({
+  skill_checkpoint: "Skills assessment",
+  el_letter_assessment: "Letter names and sounds",
+  advanced_phonics_patterns: "Phonics patterns"
+});
+
+const ASSESSMENT_HISTORY_STATUS = Object.freeze({
+  completed: Object.freeze({ id: "completed", label: "Completed" }),
+  discontinued: Object.freeze({ id: "discontinued", label: "Stopped early" }),
+  not_scorable: Object.freeze({ id: "not_scorable", label: "Could not score" })
+});
 
 // The one assessment the app can aim at a named student's own next skill is the
 // one it can suggest. Found by its start point rather than by id, so the
@@ -95,6 +109,71 @@ function studentDisplayRows(rows = [], fallback = []) {
     .sort((left, right) => String(left.name || "").localeCompare(String(right.name || "")));
 }
 
+function historyStatus(record = {}) {
+  const value = String(record.administrationStatus || "").trim().toLowerCase();
+  if (ASSESSMENT_HISTORY_STATUS[value]) return ASSESSMENT_HISTORY_STATUS[value];
+  if (record.discontinued === true) return ASSESSMENT_HISTORY_STATUS.discontinued;
+  // Fully normalised archive rows always carry administrationStatus. This
+  // fallback keeps older completed rows visible without mistaking partial,
+  // in-progress or explicitly unadministered records for finished work.
+  if (
+    record.completedAt
+    && !["partial", "in_progress", "not_administered"].includes(value)
+  ) {
+    return ASSESSMENT_HISTORY_STATUS.completed;
+  }
+  return null;
+}
+
+function historyTimestamp(record = {}) {
+  const value = record.completedAt || record.updatedAt || record.startedAt || "";
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function formatHistoryDate(record = {}) {
+  const timestamp = historyTimestamp(record);
+  if (!timestamp) return "Date unavailable";
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  }).format(new Date(timestamp));
+}
+
+function historyCatalogEntry(record = {}) {
+  const assessmentType = String(record.assessmentType || "");
+  return CATALOG.find(row => (
+    row.id === assessmentType || row.benchmarkId === assessmentType
+  )) || null;
+}
+
+function historyAssessmentLabel(record = {}) {
+  return ASSESSMENT_HISTORY_TYPE_LABELS[record.assessmentType]
+    || historyCatalogEntry(record)?.label
+    || record.skillName
+    || "Assessment";
+}
+
+function historyAssessmentDetail(record = {}) {
+  if (record.assessmentType === "skill_checkpoint") {
+    return record.skillName && record.skillName !== "Assessment" ? record.skillName : "";
+  }
+  const catalogEntry = historyCatalogEntry(record);
+  if (catalogEntry?.starter !== ASSESSMENT_STARTERS.EL_BENCHMARK) return "";
+  const grade = ASSESSMENT_GRADE_OPTIONS.find(option => option.value === record.gradePath)?.label || "";
+  const timeOfYear = ASSESSMENT_TIME_OF_YEAR_OPTIONS.find(
+    option => option.value === record.benchmarkWindow
+  )?.label || "";
+  return [grade, timeOfYear].filter(Boolean).join(" · ");
+}
+
+function countLabel(count, singular, plural = `${singular}s`) {
+  return `${count} ${count === 1 ? singular : plural}`;
+}
+
 export function TeacherAssessmentsPage({
   classList = [],
   classListReadState = null,
@@ -119,6 +198,8 @@ export function TeacherAssessmentsPage({
   onRetryStudentEvidence,
   firstUnsecuredSkillIndex = 0,
   assessmentHistory = [],
+  assessmentHistoryReadState = null,
+  onRetryAssessmentHistory,
   elBenchmarkDraft = null,
   letterAssessmentDraft = null,
   phonicsPatternAssessmentDraft = null,
@@ -156,6 +237,13 @@ export function TeacherAssessmentsPage({
   const [discardDraftBusy, setDiscardDraftBusy] = useState(false);
   const [discardDraftError, setDiscardDraftError] = useState("");
   const [assessmentChoicesOpen, setAssessmentChoicesOpen] = useState(() => !checkId);
+  const [previousAssessmentsOpen, setPreviousAssessmentsOpen] = useState(
+    () => params.get("view") === "previous"
+  );
+  const [historyPage, setHistoryPage] = useState(() => ({
+    classId: selectedClassId,
+    count: HISTORY_PAGE_SIZE
+  }));
 
   const assessmentHeadingRef = useRef(null);
   const assessmentPanelRef = useRef(null);
@@ -202,6 +290,38 @@ export function TeacherAssessmentsPage({
       studentRows
     ]
   );
+  const selectedStudentAssessmentHistory = useMemo(
+    () => assessmentHistory.filter(record => record?.studentId === selectedStudentId),
+    [assessmentHistory, selectedStudentId]
+  );
+  const previousAssessments = useMemo(() => {
+    const currentNames = new Map(rows.map(row => [String(row.id), row.name]));
+    const seenAttemptIds = new Set();
+    return assessmentHistory
+      .filter(record => String(record?.classId || "") === String(selectedClassId || ""))
+      .map(record => ({ record, status: historyStatus(record) }))
+      .filter(item => item.status)
+      .filter(({ record }) => {
+        const stableId = String(record.attemptId || record.id || "").trim();
+        if (!stableId) return true;
+        if (seenAttemptIds.has(stableId)) return false;
+        seenAttemptIds.add(stableId);
+        return true;
+      })
+      .sort((left, right) => historyTimestamp(right.record) - historyTimestamp(left.record))
+      .map(({ record, status }) => ({
+        attemptId: record.attemptId || record.id || "",
+        studentId: record.studentId || "",
+        studentName: currentNames.get(String(record.studentId || ""))
+          || record.studentName
+          || "Student",
+        assessmentLabel: historyAssessmentLabel(record),
+        assessmentDetail: historyAssessmentDetail(record),
+        completedAt: record.completedAt || record.updatedAt || record.startedAt || "",
+        dateLabel: formatHistoryDate(record),
+        status
+      }));
+  }, [assessmentHistory, rows, selectedClassId]);
   const entry = getAssessmentCatalogEntry(checkId);
   const hasClass = Boolean(
     classRead.complete
@@ -223,9 +343,24 @@ export function TeacherAssessmentsPage({
   // "empty list plus a selected class" guess left an established teacher reading
   // "Make your class first". The real loading flag settles it.
   const classesLoading = classRead.loading;
+  const historyReadComplete = !assessmentHistoryReadState || Boolean(
+    assessmentHistoryReadState.complete === true
+    && assessmentHistoryReadState.truncated !== true
+    && !assessmentHistoryReadState.error
+  );
+  const historyLoading = Boolean(
+    assessmentHistoryReadState
+    && !historyReadComplete
+    && ["idle", "loading"].includes(assessmentHistoryReadState.status)
+  );
+  const historyIncomplete = Boolean(
+    assessmentHistoryReadState
+    && !historyReadComplete
+    && !historyLoading
+  );
 
   const elStartPoint = useElBenchmarkStartPoint({
-    assessmentHistory,
+    assessmentHistory: selectedStudentAssessmentHistory,
     studentId: selectedStudentId,
     assessmentId: entry?.starter === ASSESSMENT_STARTERS.EL_BENCHMARK ? entry.benchmarkId : "",
     grade,
@@ -323,6 +458,7 @@ export function TeacherAssessmentsPage({
   // Keep the URL honest on every answer, so a refresh lands exactly here.
   useEffect(() => {
     writeTeacherFunnelParams({
+      view: previousAssessmentsOpen ? "previous" : "",
       check: checkId,
       skill: entry?.startPoint.kind === ASSESSMENT_START_POINT_KINDS.SKILL && skillIndex !== null
         ? String(skillIndex)
@@ -331,7 +467,17 @@ export function TeacherAssessmentsPage({
       time: entry && entry.startPoint.fields.includes("timeOfYear") ? timeOfYear : "",
       band: needsBand && bandChosenByTeacher ? band : ""
     });
-  }, [band, bandChosenByTeacher, checkId, entry, grade, needsBand, skillIndex, timeOfYear]);
+  }, [
+    band,
+    bandChosenByTeacher,
+    checkId,
+    entry,
+    grade,
+    needsBand,
+    previousAssessmentsOpen,
+    skillIndex,
+    timeOfYear
+  ]);
 
   // Move both focus and the viewport to the panel that just became live.
   // Focusing with `preventScroll` used to leave step 3 below a tall assessment
@@ -444,6 +590,17 @@ export function TeacherAssessmentsPage({
   const orderedCatalog = SUGGESTED_ENTRY
     ? [SUGGESTED_ENTRY, ...CATALOG.filter(row => row.id !== SUGGESTED_ENTRY.id)]
     : CATALOG;
+  const assessedStudentCount = new Set(previousAssessments.map(row => (
+    row.studentId || row.studentName
+  ))).size;
+  const visibleHistoryCount = historyPage.classId === selectedClassId
+    ? historyPage.count
+    : HISTORY_PAGE_SIZE;
+  const visiblePreviousAssessments = previousAssessments.slice(0, visibleHistoryCount);
+  const historySummary = `${countLabel(previousAssessments.length, "assessment")} for ${countLabel(
+    assessedStudentCount,
+    "student"
+  )}.`;
 
   return (
     <>
@@ -451,12 +608,25 @@ export function TeacherAssessmentsPage({
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Assessments</p>
-          <h2>Assess a student</h2>
+          <h2>{previousAssessmentsOpen ? "Previous assessments" : "Assess a student"}</h2>
           <p>
-            Three steps, always in the same order. The student stays selected from
-            wherever you came in.
+            {previousAssessmentsOpen
+              ? "See who was assessed, what they completed, and when it was saved."
+              : "Three steps, always in the same order. The student stays selected from wherever you came in."}
           </p>
         </div>
+        <button
+          className="lp-button lp-button-secondary teacher-assess-history-toggle"
+          onClick={() => {
+            if (!previousAssessmentsOpen) {
+              setHistoryPage({ classId: selectedClassId, count: HISTORY_PAGE_SIZE });
+            }
+            setPreviousAssessmentsOpen(open => !open);
+          }}
+          type="button"
+        >
+          {previousAssessmentsOpen ? "Start an assessment" : "Previous assessments"}
+        </button>
       </section>
 
       {classesLoading ? (
@@ -489,6 +659,119 @@ export function TeacherAssessmentsPage({
             </button>
           )}
         </div>
+      ) : previousAssessmentsOpen ? (
+        <section
+          aria-labelledby="teacher-assess-history-title"
+          className="teacher-assess-history"
+        >
+          <header className="teacher-assess-history-head">
+            <div>
+              <p className="panel-label">{className || "Selected class"}</p>
+              <h3 id="teacher-assess-history-title">Assessment record</h3>
+              {historyReadComplete && previousAssessments.length > 0 && <p>{historySummary}</p>}
+            </div>
+          </header>
+
+          {historyLoading ? (
+            <div className="teacher-assess-history-state" role="status" aria-busy="true">
+              <span className="spinner" aria-hidden="true" />
+              <h3>Loading previous assessments</h3>
+              <p>Checking every saved assessment for this class.</p>
+            </div>
+          ) : historyIncomplete ? (
+            <div className="teacher-assess-history-state is-warning" role="alert">
+              <h3>Previous assessments could not be confirmed</h3>
+              <p>
+                The complete saved record is not available yet. Missing assessments are not being
+                treated as absent.
+              </p>
+              {onRetryAssessmentHistory && (
+                <button
+                  className="lp-button lp-button-primary"
+                  onClick={onRetryAssessmentHistory}
+                  type="button"
+                >
+                  Try loading again
+                </button>
+              )}
+            </div>
+          ) : previousAssessments.length === 0 ? (
+            <div className="teacher-assess-history-state" role="status">
+              <h3>No previous assessments yet</h3>
+              <p>
+                Completed or stopped assessments for this class will appear here with the student,
+                assessment, date and status.
+              </p>
+              <button
+                className="lp-button lp-button-primary"
+                onClick={() => setPreviousAssessmentsOpen(false)}
+                type="button"
+              >
+                Start the first assessment
+              </button>
+            </div>
+          ) : (
+            <>
+              <TeacherDataTable label={`Previous assessments for ${className || "selected class"}`}>
+                <thead>
+                  <tr>
+                    <th scope="col">Student</th>
+                    <th scope="col">Assessment</th>
+                    <th scope="col">When</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {visiblePreviousAssessments.map((row, index) => (
+                    <tr key={row.attemptId || `${row.studentId}-${row.completedAt}-${index}`}>
+                      <th scope="row">{row.studentName}</th>
+                      <td>
+                        <span className="teacher-assess-history-assessment">
+                          <strong>{row.assessmentLabel}</strong>
+                          {row.assessmentDetail && <small>{row.assessmentDetail}</small>}
+                        </span>
+                      </td>
+                      <td>
+                        {row.completedAt ? (
+                          <time dateTime={row.completedAt}>{row.dateLabel}</time>
+                        ) : row.dateLabel}
+                      </td>
+                      <td>
+                        <span
+                          className="teacher-assess-history-status"
+                          data-status={row.status.id}
+                        >
+                          {row.status.label}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </TeacherDataTable>
+              {previousAssessments.length > visiblePreviousAssessments.length && (
+                <footer className="teacher-assess-history-more">
+                  <p>
+                    Showing {visiblePreviousAssessments.length} of {previousAssessments.length} assessments
+                  </p>
+                  <button
+                    className="lp-button lp-button-secondary"
+                    onClick={() => setHistoryPage(current => ({
+                      classId: selectedClassId,
+                      count: (
+                        current.classId === selectedClassId
+                          ? current.count
+                          : HISTORY_PAGE_SIZE
+                      ) + HISTORY_PAGE_SIZE
+                    }))}
+                    type="button"
+                  >
+                    Show more
+                  </button>
+                </footer>
+              )}
+            </>
+          )}
+        </section>
       ) : (
         <>
           <ol className="teacher-assess-steps" aria-label="How an assessment is started">

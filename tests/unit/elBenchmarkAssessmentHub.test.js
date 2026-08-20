@@ -136,6 +136,168 @@ test("the page is three derived steps: student, assessment, run it", () => {
   );
 });
 
+test("previous assessments show who, what and when for the selected class", () => {
+  const history = [
+    {
+      attemptId: "skill-completed",
+      classId: "class-a",
+      studentId: "student-1",
+      studentName: "Ada's old name",
+      assessmentType: "skill_checkpoint",
+      skillName: "Initial Sounds",
+      administrationStatus: "completed",
+      completedAt: "2026-08-18T08:05:00.000Z"
+    },
+    {
+      attemptId: "decoding-stopped",
+      classId: "class-a",
+      studentId: "student-2",
+      studentName: "Bo",
+      assessmentType: EL_BENCHMARK_IDS.DECODING,
+      gradePath: "1",
+      benchmarkWindow: "MOY",
+      administrationStatus: "discontinued",
+      completedAt: "2026-08-19T09:10:00.000Z"
+    },
+    {
+      attemptId: "fluency-not-scorable",
+      classId: "class-a",
+      studentId: "student-3",
+      studentName: "Cleo",
+      assessmentType: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+      gradePath: "2",
+      benchmarkWindow: "EOY",
+      administrationStatus: "not_scorable",
+      completedAt: "2026-08-20T10:15:00.000Z"
+    },
+    {
+      attemptId: "partial-hidden",
+      classId: "class-a",
+      studentId: "student-4",
+      studentName: "Partial Pat",
+      assessmentType: EL_BENCHMARK_IDS.ENCODING,
+      administrationStatus: "partial",
+      completedAt: "2026-08-20T11:15:00.000Z"
+    },
+    {
+      attemptId: "other-class-hidden",
+      classId: "class-b",
+      studentId: "student-5",
+      studentName: "Wrong Class",
+      assessmentType: "el_letter_assessment",
+      administrationStatus: "completed",
+      completedAt: "2026-08-20T12:15:00.000Z"
+    }
+  ];
+  const html = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+    assessmentHistory: history,
+    assessmentHistoryReadState: {
+      status: "complete",
+      complete: true,
+      truncated: false,
+      error: null
+    },
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    className: "Audit Class A",
+    selectedClassId: "class-a",
+    studentRows: [
+      { id: "student-1", name: "Ada Updated" },
+      { id: "student-2", name: "Bo" },
+      { id: "student-3", name: "Cleo" }
+    ],
+    routeHash: "#teacher/assessments?class=class-a&view=previous"
+  }));
+
+  assert.match(html, /<h2>Previous assessments<\/h2>/);
+  assert.match(html, />Start an assessment<\/button>/);
+  assert.match(html, /3 assessments for 3 students\./);
+  assert.match(html, /<th scope="row">Ada Updated<\/th>/);
+  assert.doesNotMatch(html, /Ada.s old name/);
+  assert.match(html, /<strong>Skills assessment<\/strong><small>Initial Sounds<\/small>/);
+  assert.match(html, /<strong>Word reading<\/strong><small>Grade 1 · Middle of year<\/small>/);
+  assert.match(html, /<strong>Reading fluency<\/strong><small>Grade 2 · End of year<\/small>/);
+  assert.match(html, /dateTime="2026-08-18T08:05:00\.000Z"/);
+  assert.match(html, />Completed<\/span>/);
+  assert.match(html, />Stopped early<\/span>/);
+  assert.match(html, />Could not score<\/span>/);
+  assert.doesNotMatch(html, /Partial Pat|Wrong Class/);
+  assert.ok(
+    html.indexOf("Cleo") < html.indexOf("Bo") && html.indexOf("Bo") < html.indexOf("Ada Updated"),
+    "finished assessments should be newest first"
+  );
+  assert.match(SURFACE_SOURCE, /assessmentHistory=\{assessmentHistory\}/);
+  assert.match(SURFACE_SOURCE, /assessmentHistoryReadState=\{assessmentHistoryReadState\}/);
+  assert.match(SURFACE_SOURCE, /onRetryAssessmentHistory=\{retryAssessmentHistoryHydration\}/);
+  assert.doesNotMatch(
+    SURFACE_SOURCE,
+    /assessmentHistory=\{assessmentHistory\.filter\(record => record\.studentId === studentId\)\}/
+  );
+});
+
+test("previous assessments fail closed while the full archive is loading or incomplete", () => {
+  const shared = {
+    assessmentHistory: [{
+      attemptId: "local-only",
+      classId: "class-a",
+      studentId: "student-1",
+      studentName: "Local-only Ada",
+      assessmentType: "skill_checkpoint",
+      administrationStatus: "completed",
+      completedAt: "2026-08-18T08:05:00.000Z"
+    }],
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    className: "Audit Class A",
+    selectedClassId: "class-a",
+    routeHash: "#teacher/assessments?class=class-a&view=previous"
+  };
+  const loading = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+    ...shared,
+    assessmentHistoryReadState: {
+      status: "loading",
+      complete: false,
+      truncated: false,
+      error: null
+    }
+  }));
+  assert.match(loading, /Loading previous assessments/);
+  assert.match(loading, /aria-busy="true"/);
+  assert.doesNotMatch(loading, /Local-only Ada/);
+
+  const incomplete = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+    ...shared,
+    assessmentHistoryReadState: {
+      status: "partial",
+      complete: false,
+      truncated: true,
+      error: new Error("archive truncated")
+    },
+    onRetryAssessmentHistory: () => {}
+  }));
+  assert.match(incomplete, /Previous assessments could not be confirmed/);
+  assert.match(incomplete, /Missing assessments are not being treated as absent/);
+  assert.match(incomplete, />Try loading again<\/button>/);
+  assert.doesNotMatch(incomplete, /Local-only Ada/);
+});
+
+test("an empty completed archive offers a direct route back to starting an assessment", () => {
+  const html = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
+    assessmentHistory: [],
+    assessmentHistoryReadState: {
+      status: "complete",
+      complete: true,
+      truncated: false,
+      error: null
+    },
+    classList: [{ id: "class-a", name: "Audit Class A" }],
+    className: "Audit Class A",
+    selectedClassId: "class-a",
+    routeHash: "#teacher/assessments?class=class-a&view=previous"
+  }));
+  assert.match(html, /No previous assessments yet/);
+  assert.match(html, />Start the first assessment<\/button>/);
+  assert.doesNotMatch(html, /<table/);
+});
+
 test("the step strip is derived from the answers, never stored", () => {
   const noStudent = renderToStaticMarkup(React.createElement(TeacherAssessmentsPage, {
     classList: [{ id: "class-a", name: "Audit Class A" }],

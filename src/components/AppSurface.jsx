@@ -1695,7 +1695,9 @@ export function AppSurface({ surface }) {
                   : Promise.resolve(null)
               )}
               firstUnsecuredSkillIndex={currentSkillIndex}
-              assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
+              assessmentHistory={assessmentHistory}
+              assessmentHistoryReadState={assessmentHistoryReadState}
+              onRetryAssessmentHistory={retryAssessmentHistoryHydration}
               elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
               letterAssessmentDraft={
                 letterAssessment.length > 0 && letterIndex < letterItems.length

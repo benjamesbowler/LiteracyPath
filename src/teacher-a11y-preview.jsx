@@ -229,6 +229,36 @@ const assessmentHistory = [
       isCorrect: true,
       timestamp: "2026-08-12T09:02:00.000Z"
     }]
+  },
+  {
+    attemptId: "letters-audit-1",
+    assessmentType: "el_letter_assessment",
+    skillId: "letter_names_and_sounds",
+    skillName: "Letter Names and Sounds",
+    studentId: "student-aisha",
+    studentName: "Aisha",
+    classId,
+    teacherId: "teacher-a",
+    administrationStatus: "completed",
+    startedAt: "2026-08-15T08:00:00.000Z",
+    completedAt: "2026-08-15T08:12:00.000Z",
+    questionRecords: []
+  },
+  {
+    attemptId: "decoding-audit-1",
+    assessmentType: EL_BENCHMARK_IDS.DECODING,
+    skillId: EL_BENCHMARK_IDS.DECODING,
+    skillName: "EL Decoding",
+    studentId: "student-camila",
+    studentName: "Camila",
+    classId,
+    teacherId: "teacher-a",
+    gradePath: "1",
+    benchmarkWindow: "MOY",
+    administrationStatus: "discontinued",
+    startedAt: "2026-08-14T10:00:00.000Z",
+    completedAt: "2026-08-14T10:06:00.000Z",
+    questionRecords: []
   }
 ];
 const noop = () => {};
@@ -488,6 +518,13 @@ function Checks() {
       onSelectStudent={(id, name) => setSelected({ id, name })}
       firstUnsecuredSkillIndex={3}
       assessmentHistory={assessmentHistory}
+      assessmentHistoryReadState={{
+        status: "complete",
+        source: "preview",
+        complete: true,
+        truncated: false,
+        error: null
+      }}
       onStartSkillCheck={noop}
       onStartLetterCheck={noop}
       onStartPhonicsPatternCheck={noop}
