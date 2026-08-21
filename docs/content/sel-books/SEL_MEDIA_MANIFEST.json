@@ -2,7 +2,252 @@
   "collection": "Little Literacy Guides SEL Books 1-10",
   "generatedFrom": "src/data/guidedReadingSelBooks.draft.js",
   "status": "draft-only",
+  "imageDimensions": "1376x768",
   "pageCount": 240,
+  "coverCount": 30,
+  "audioVoice": "en-US-Chirp3-HD-Leda",
+  "covers": [
+    {
+      "bookId": "llg-sel-a-01",
+      "label": "Little Literacy Guides SEL Book 1",
+      "title": "Pip Finds a Quiet Spot",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-01/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-02",
+      "label": "Little Literacy Guides SEL Book 2",
+      "title": "Fern Waits",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-02/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-03",
+      "label": "Little Literacy Guides SEL Book 3",
+      "title": "Muddy's Turn",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-03/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-04",
+      "label": "Little Literacy Guides SEL Book 4",
+      "title": "Bob and Nan Make Space",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-04/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-05",
+      "label": "Little Literacy Guides SEL Book 5",
+      "title": "James and Anna Share the Map",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-05/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-06",
+      "label": "Little Literacy Guides SEL Book 6",
+      "title": "Glimmer's Warm Breath",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-06/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-07",
+      "label": "Little Literacy Guides SEL Book 7",
+      "title": "Chips Says Stop",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-07/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-08",
+      "label": "Little Literacy Guides SEL Book 8",
+      "title": "Stone's Slow Step",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-08/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-09",
+      "label": "Little Literacy Guides SEL Book 9",
+      "title": "Luna Listens",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-09/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-a-10",
+      "label": "Little Literacy Guides SEL Book 10",
+      "title": "Fluff Needs a Pause",
+      "level": "A",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-a-10/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-01",
+      "label": "Little Literacy Guides SEL Book 1",
+      "title": "Muddy and the Muddy Mitt",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-01/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-02",
+      "label": "Little Literacy Guides SEL Book 2",
+      "title": "Wren's Plan Has Two Paths",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-02/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-03",
+      "label": "Little Literacy Guides SEL Book 3",
+      "title": "James, Anna and the Unheard Idea",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-03/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-04",
+      "label": "Little Literacy Guides SEL Book 4",
+      "title": "Glimmer Shares the Glow",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-04/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-05",
+      "label": "Little Literacy Guides SEL Book 5",
+      "title": "Chips and the Open Gate",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-05/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-06",
+      "label": "Little Literacy Guides SEL Book 6",
+      "title": "Stone and the Small Bridge",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-06/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-07",
+      "label": "Little Literacy Guides SEL Book 7",
+      "title": "Bob and Nan's Two Listening Ears",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-07/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-08",
+      "label": "Little Literacy Guides SEL Book 8",
+      "title": "Luna and the Wrong Nest",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-08/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-09",
+      "label": "Little Literacy Guides SEL Book 9",
+      "title": "Fern's Song for the Whole Garden",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-09/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-b-10",
+      "label": "Little Literacy Guides SEL Book 10",
+      "title": "Fluff Finds the Lost Bell",
+      "level": "B",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-b-10/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-01",
+      "label": "Little Literacy Guides SEL Book 1",
+      "title": "The Lantern That Needed Listening",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-01/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-02",
+      "label": "Little Literacy Guides SEL Book 2",
+      "title": "Anna's Red Thread",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-02/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-03",
+      "label": "Little Literacy Guides SEL Book 3",
+      "title": "Stone Carries the Quiet",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-03/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-04",
+      "label": "Little Literacy Guides SEL Book 4",
+      "title": "The Garden With Two Entrances",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-04/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-05",
+      "label": "Little Literacy Guides SEL Book 5",
+      "title": "Glimmer's Safe Spark",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-05/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-06",
+      "label": "Little Literacy Guides SEL Book 6",
+      "title": "The Listening Bench",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-06/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-07",
+      "label": "Little Literacy Guides SEL Book 7",
+      "title": "James and Anna Repair the Kite",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-07/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-08",
+      "label": "Little Literacy Guides SEL Book 8",
+      "title": "The Map That Changed Its Mind",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-08/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-09",
+      "label": "Little Literacy Guides SEL Book 9",
+      "title": "Nan's Red Scarf",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-09/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    },
+    {
+      "bookId": "llg-sel-c-10",
+      "label": "Little Literacy Guides SEL Book 10",
+      "title": "The Door Wren Built",
+      "level": "C",
+      "coverPath": "/images/guided-reading/sel-books/llg-sel-c-10/cover.webp",
+      "imageStatus": "generated-direct-visual-review-complete"
+    }
+  ],
   "pages": [
     {
       "bookId": "llg-sel-a-01",
@@ -15,7 +260,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-01/page-01-pip-finds-a-quiet-spot.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-01-page-01-4e66a25b84.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -29,7 +274,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-01/page-02-pip-finds-a-quiet-spot.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-01-page-02-5625994d85.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -43,7 +288,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-01/page-03-pip-finds-a-quiet-spot.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-01-page-03-b8d9eb7851.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -57,7 +302,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-01/page-04-pip-finds-a-quiet-spot.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-01-page-04-1d416b48a4.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -71,7 +316,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-01/page-05-pip-finds-a-quiet-spot.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-01-page-05-b22d14321f.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -85,7 +330,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-01/page-06-pip-finds-a-quiet-spot.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-01-page-06-54fa64cb52.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -99,7 +344,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-02/page-01-fern-waits.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-02-page-01-9c360450ac.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -113,7 +358,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-02/page-02-fern-waits.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-02-page-02-110c303d80.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -127,7 +372,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-02/page-03-fern-waits.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-02-page-03-2aac6d86ed.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -141,7 +386,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-02/page-04-fern-waits.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-02-page-04-abe3ae04fc.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -155,7 +400,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-02/page-05-fern-waits.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-02-page-05-fc3b0739fb.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -169,7 +414,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-02/page-06-fern-waits.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-02-page-06-782ff39410.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -180,10 +425,10 @@
       "pageNumber": 1,
       "exactText": "Muddy sees the blue pail.",
       "illustrationPrompt": "Muddy's Turn: Muddy reaches toward the pail.. Preserve the canon characters MEADOW-MUDDY, MEADOW-SPLASHY, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-01-muddy-s-turn.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-01-muddys-turn.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-03-page-01-eef4811dff.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -194,10 +439,10 @@
       "pageNumber": 2,
       "exactText": "Muddy grabs the pail.",
       "illustrationPrompt": "Muddy's Turn: Splashy holds the other handle.. Preserve the canon characters MEADOW-MUDDY, MEADOW-SPLASHY, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-02-muddy-s-turn.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-02-muddys-turn.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-03-page-02-33448ff703.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -208,10 +453,10 @@
       "pageNumber": 3,
       "exactText": "The pail tips over.",
       "illustrationPrompt": "Muddy's Turn: Water spills across the dry tray.. Preserve the canon characters MEADOW-MUDDY, MEADOW-SPLASHY, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-03-muddy-s-turn.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-03-muddys-turn.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-03-page-03-03f0247f1a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -222,10 +467,10 @@
       "pageNumber": 4,
       "exactText": "Muddy gives it back.",
       "illustrationPrompt": "Muddy's Turn: Muddy returns the pail to Splashy.. Preserve the canon characters MEADOW-MUDDY, MEADOW-SPLASHY, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-04-muddy-s-turn.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-04-muddys-turn.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-03-page-04-4b360b897a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -236,10 +481,10 @@
       "pageNumber": 5,
       "exactText": "Splashy fills one cup.",
       "illustrationPrompt": "Muddy's Turn: Splashy pours one cup and slides the pail over.. Preserve the canon characters MEADOW-MUDDY, MEADOW-SPLASHY, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-05-muddy-s-turn.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-05-muddys-turn.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-03-page-05-4db1069d3e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -250,10 +495,10 @@
       "pageNumber": 6,
       "exactText": "Muddy fills the next cup.",
       "illustrationPrompt": "Muddy's Turn: Muddy takes a turn and the tray fills.. Preserve the canon characters MEADOW-MUDDY, MEADOW-SPLASHY, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-06-muddy-s-turn.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-03/page-06-muddys-turn.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-03-page-06-0bbdca8adc.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -267,7 +512,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-04/page-01-bob-and-nan-make-space.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-04-page-01-5a45fee7a6.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -281,7 +526,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-04/page-02-bob-and-nan-make-space.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-04-page-02-fee6aa9f5f.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -295,7 +540,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-04/page-03-bob-and-nan-make-space.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-04-page-03-ae954da5ab.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -309,7 +554,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-04/page-04-bob-and-nan-make-space.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-04-page-04-07f82301e2.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -323,7 +568,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-04/page-05-bob-and-nan-make-space.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-04-page-05-d610dfffad.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -337,7 +582,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-04/page-06-bob-and-nan-make-space.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-04-page-06-4fb70fcfb9.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -351,7 +596,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-05/page-01-james-and-anna-share-the-map.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-05-page-01-a7e0f687b7.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -365,7 +610,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-05/page-02-james-and-anna-share-the-map.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-05-page-02-bc0f240f4d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -379,7 +624,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-05/page-03-james-and-anna-share-the-map.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-05-page-03-656e556ea1.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -393,7 +638,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-05/page-04-james-and-anna-share-the-map.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-05-page-04-0cf1e8b9e6.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -407,7 +652,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-05/page-05-james-and-anna-share-the-map.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-05-page-05-9dfae88313.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -421,7 +666,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-05/page-06-james-and-anna-share-the-map.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-05-page-06-9e19e4b484.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -432,10 +677,10 @@
       "pageNumber": 1,
       "exactText": "Glimmer sees a dark cave.",
       "illustrationPrompt": "Glimmer's Warm Breath: Glimmer stands at the cave mouth.. Preserve the canon characters MOON-GLIMMER, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-01-glimmer-s-warm-breath.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-01-glimmers-warm-breath.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-06-page-01-ec1ded801d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -446,10 +691,10 @@
       "pageNumber": 2,
       "exactText": "Glimmer blows warm air.",
       "illustrationPrompt": "Glimmer's Warm Breath: The nearest lantern flares bright.. Preserve the canon characters MOON-GLIMMER, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-02-glimmer-s-warm-breath.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-02-glimmers-warm-breath.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-06-page-02-aa6d5df899.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -460,10 +705,10 @@
       "pageNumber": 3,
       "exactText": "Pip steps back.",
       "illustrationPrompt": "Glimmer's Warm Breath: Pip shields his eyes from the bright glow.. Preserve the canon characters MOON-GLIMMER, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-03-glimmer-s-warm-breath.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-03-glimmers-warm-breath.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-06-page-03-ba32dc7019.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -474,10 +719,10 @@
       "pageNumber": 4,
       "exactText": "Glimmer stops his breath.",
       "illustrationPrompt": "Glimmer's Warm Breath: Glimmer closes his mouth and lowers his wings.. Preserve the canon characters MOON-GLIMMER, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-04-glimmer-s-warm-breath.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-04-glimmers-warm-breath.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-06-page-04-b9b22ec031.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -488,10 +733,10 @@
       "pageNumber": 5,
       "exactText": "Glimmer breathes out slow.",
       "illustrationPrompt": "Glimmer's Warm Breath: A small warm puff lights one lantern.. Preserve the canon characters MOON-GLIMMER, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-05-glimmer-s-warm-breath.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-05-glimmers-warm-breath.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-06-page-05-3a04f478fa.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -502,10 +747,10 @@
       "pageNumber": 6,
       "exactText": "The cave glows soft.",
       "illustrationPrompt": "Glimmer's Warm Breath: Glimmer and Pip walk through the gentle light.. Preserve the canon characters MOON-GLIMMER, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-06-glimmer-s-warm-breath.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-06/page-06-glimmers-warm-breath.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-06-page-06-95e96d5c85.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -519,7 +764,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-07/page-01-chips-says-stop.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-07-page-01-28ac3b958e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -533,7 +778,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-07/page-02-chips-says-stop.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-07-page-02-29f0b62a48.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -547,7 +792,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-07/page-03-chips-says-stop.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-07-page-03-cec45e1a0b.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -561,7 +806,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-07/page-04-chips-says-stop.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-07-page-04-72921aa2f8.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -575,7 +820,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-07/page-05-chips-says-stop.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-07-page-05-b5bd98ae27.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -589,7 +834,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-07/page-06-chips-says-stop.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-07-page-06-6911942123.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -600,10 +845,10 @@
       "pageNumber": 1,
       "exactText": "Stone sees the root path.",
       "illustrationPrompt": "Stone's Slow Step: Stone looks at the narrow path.. Preserve the canon characters MOON-STONE, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-01-stone-s-slow-step.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-01-stones-slow-step.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-08-page-01-96c637c4cc.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -614,10 +859,10 @@
       "pageNumber": 2,
       "exactText": "Stone takes one big step.",
       "illustrationPrompt": "Stone's Slow Step: The soft root bends under Stone's foot.. Preserve the canon characters MOON-STONE, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-02-stone-s-slow-step.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-02-stones-slow-step.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-08-page-02-062ea4d3a6.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -628,10 +873,10 @@
       "pageNumber": 3,
       "exactText": "The root bridge breaks.",
       "illustrationPrompt": "Stone's Slow Step: Stone's foot rests beside the broken root.. Preserve the canon characters MOON-STONE, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-03-stone-s-slow-step.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-03-stones-slow-step.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-08-page-03-3d30eef244.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -642,10 +887,10 @@
       "pageNumber": 4,
       "exactText": "Stone feels stuck.",
       "illustrationPrompt": "Stone's Slow Step: Stone lowers his head while Pip studies the roots.. Preserve the canon characters MOON-STONE, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-04-stone-s-slow-step.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-04-stones-slow-step.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-08-page-04-09e4a804b8.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -656,10 +901,10 @@
       "pageNumber": 5,
       "exactText": "Pip finds flat stones.",
       "illustrationPrompt": "Stone's Slow Step: Pip points to a row of flat stones.. Preserve the canon characters MOON-STONE, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-05-stone-s-slow-step.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-05-stones-slow-step.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-08-page-05-7d8e890f8f.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -670,10 +915,10 @@
       "pageNumber": 6,
       "exactText": "Stone takes small steps.",
       "illustrationPrompt": "Stone's Slow Step: Stone crosses with careful feet beside Pip.. Preserve the canon characters MOON-STONE, MOON-PIP, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-06-stone-s-slow-step.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-a-08/page-06-stones-slow-step.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-08-page-06-7ed45c0c9b.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -687,7 +932,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-09/page-01-luna-listens.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-09-page-01-06d76e4921.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -701,7 +946,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-09/page-02-luna-listens.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-09-page-02-f27a7a2b23.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -715,7 +960,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-09/page-03-luna-listens.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-09-page-03-537b323d6c.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -729,7 +974,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-09/page-04-luna-listens.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-09-page-04-229bdca029.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -743,7 +988,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-09/page-05-luna-listens.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-09-page-05-72153ea017.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -757,7 +1002,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-09/page-06-luna-listens.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-09-page-06-6eb3bd68ce.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -771,7 +1016,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-10/page-01-fluff-needs-a-pause.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-10-page-01-9183fac62c.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -785,7 +1030,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-10/page-02-fluff-needs-a-pause.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-10-page-02-37a012a5e3.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -799,7 +1044,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-10/page-03-fluff-needs-a-pause.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-10-page-03-b269c91cd8.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -813,7 +1058,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-10/page-04-fluff-needs-a-pause.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-10-page-04-fa45f957c7.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -827,7 +1072,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-10/page-05-fluff-needs-a-pause.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-10-page-05-bd9b953c37.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -841,7 +1086,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-a-10/page-06-fluff-needs-a-pause.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-a-10-page-06-f000993014.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -855,7 +1100,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-01-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-01-2049da1e66.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -869,7 +1114,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-02-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-02-76d08aa147.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -883,7 +1128,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-03-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-03-35097ee28f.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -897,7 +1142,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-04-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-04-49fa9aad5a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -911,7 +1156,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-05-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-05-77fa463916.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -925,7 +1170,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-06-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-06-277e5761dc.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -939,7 +1184,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-07-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-07-11e13a2178.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -953,7 +1198,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-01/page-08-muddy-and-the-muddy-mitt.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-01-page-08-4a701b5cb0.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -964,10 +1209,10 @@
       "pageNumber": 1,
       "exactText": "Wren draws a straight path.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: Wren marks a line on Burrow's map.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-01-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-01-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-01-2fec8b7065.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -978,10 +1223,10 @@
       "pageNumber": 2,
       "exactText": "The branch blocks the path.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: A large branch lies across the tunnel mouth.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-02-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-02-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-02-ad1df6313e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -992,10 +1237,10 @@
       "pageNumber": 3,
       "exactText": "Wren pulls the branch.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: Wren strains while Pip pushes beside her.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-03-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-03-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-03-f69740ed61.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1006,10 +1251,10 @@
       "pageNumber": 4,
       "exactText": "The branch will not move.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: The branch stays lodged between the roots.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-04-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-04-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-04-39eab12b89.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1020,10 +1265,10 @@
       "pageNumber": 5,
       "exactText": "Burrow finds a side tunnel.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: Burrow points to a small tunnel on the map.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-05-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-05-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-05-fad0d5527e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1034,10 +1279,10 @@
       "pageNumber": 6,
       "exactText": "Wren changes the plan.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: Wren draws a curved line around the branch.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-06-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-06-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-06-01b6e33c68.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1048,10 +1293,10 @@
       "pageNumber": 7,
       "exactText": "Pip carries the lantern.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: Pip lights the side tunnel while Wren leads.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-07-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-07-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-07-bad3bec82d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1062,10 +1307,10 @@
       "pageNumber": 8,
       "exactText": "The new path reaches the cave.",
       "illustrationPrompt": "Wren's Plan Has Two Paths: The three friends arrive at the Glow Cave together.. Preserve the canon characters MOON-WREN, MOON-PIP, MOON-BURROW, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-08-wren-s-plan-has-two-paths.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-02/page-08-wrens-plan-has-two-paths.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-02-page-08-db5ee2b476.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1079,7 +1324,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-01-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-01-400eeab9a4.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1093,7 +1338,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-02-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-02-f078ea595e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1107,7 +1352,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-03-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-03-6856208f59.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1121,7 +1366,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-04-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-04-1f95a1a91e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1135,7 +1380,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-05-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-05-7118cd0ac7.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1149,7 +1394,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-06-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-06-53091c8910.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1163,7 +1408,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-07-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-07-98de49c486.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1177,7 +1422,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-03/page-08-james-anna-and-the-unheard-idea.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-03-page-08-8e86b84cce.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1191,7 +1436,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-01-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-01-e2100b3d2d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1205,7 +1450,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-02-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-02-2d8f8a6621.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1219,7 +1464,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-03-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-03-2f8119765e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1233,7 +1478,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-04-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-04-28fd61284d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1247,7 +1492,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-05-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-05-d92d5f86b9.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1261,7 +1506,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-06-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-06-5b6b181eb3.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1275,7 +1520,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-07-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-07-cc42229b1e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1289,7 +1534,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-04/page-08-glimmer-shares-the-glow.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-04-page-08-d963edc4ab.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1303,7 +1548,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-01-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-01-343fcdd1e3.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1317,7 +1562,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-02-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-02-7d87b968e8.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1331,7 +1576,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-03-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-03-f3a4562adf.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1345,7 +1590,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-04-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-04-705be07a0a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1359,7 +1604,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-05-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-05-370a00e564.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1373,7 +1618,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-06-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-06-3f87ffccce.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1387,7 +1632,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-07-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-07-b1c6a128ee.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1401,7 +1646,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-05/page-08-chips-and-the-open-gate.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-05-page-08-d659756eb6.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1415,7 +1660,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-01-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-01-03dacda9af.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1429,7 +1674,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-02-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-02-71d2c5aa78.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1443,7 +1688,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-03-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-03-4de5310e74.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1457,7 +1702,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-04-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-04-37d7c9cd81.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1471,7 +1716,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-05-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-05-70c379fffc.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1485,7 +1730,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-06-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-06-5b86483487.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1499,7 +1744,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-07-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-07-aad8aab638.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1513,7 +1758,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-06/page-08-stone-and-the-small-bridge.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-06-page-08-3c319b78c7.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1524,10 +1769,10 @@
       "pageNumber": 1,
       "exactText": "Bob builds a fast track.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: Bob lays a long track across the floor.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-01-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-01-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-01-e2e038eff0.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1538,10 +1783,10 @@
       "pageNumber": 2,
       "exactText": "Nan covers her ears.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: Nan watches the noisy train roll by.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-02-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-02-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-02-7641e4b8ac.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1552,10 +1797,10 @@
       "pageNumber": 3,
       "exactText": "Nan builds a quiet track.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: Nan makes a short track beside the rug.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-03-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-03-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-03-1016863cd1.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1566,10 +1811,10 @@
       "pageNumber": 4,
       "exactText": "Bob says, You want quiet.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: Bob points to Nan's small track.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-04-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-04-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-04-63ab5afb19.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1580,10 +1825,10 @@
       "pageNumber": 5,
       "exactText": "Nan says, You want speed.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: Nan points to Bob's long track.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-05-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-05-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-05-4af95b8fb8.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1594,10 +1839,10 @@
       "pageNumber": 6,
       "exactText": "They join the tracks.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: Bob and Nan connect the two tracks.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-06-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-06-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-06-38094c4ec5.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1608,10 +1853,10 @@
       "pageNumber": 7,
       "exactText": "The train slows by Nan.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: The train rolls slowly around Nan's track.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-07-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-07-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-07-72de60ab93.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1622,10 +1867,10 @@
       "pageNumber": 8,
       "exactText": "The train speeds by Bob.",
       "illustrationPrompt": "Bob and Nan's Two Listening Ears: The train travels fast along Bob's long track.. Preserve the canon characters HUMAN-BOB, HUMAN-NAN, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-08-bob-and-nan-s-two-listening-ears.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-07/page-08-bob-and-nans-two-listening-ears.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-07-page-08-a0b9089370.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1639,7 +1884,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-01-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-01-2f3e7c7322.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1653,7 +1898,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-02-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-02-0703716614.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1667,7 +1912,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-03-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-03-43c5ac8341.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1681,7 +1926,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-04-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-04-e25d4c5805.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1695,7 +1940,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-05-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-05-94fb36c129.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1709,7 +1954,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-06-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-06-9bc9613e2a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1723,7 +1968,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-07-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-07-590729fb46.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1737,7 +1982,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-08/page-08-luna-and-the-wrong-nest.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-08-page-08-8a6b9da8fd.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1748,10 +1993,10 @@
       "pageNumber": 1,
       "exactText": "Fern starts a loud song.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: Fern sings while leaves shake around the garden.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-01-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-01-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-01-d9b6d70ae5.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1762,10 +2007,10 @@
       "pageNumber": 2,
       "exactText": "Glimmer covers his ears.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: Glimmer folds his wings over his ears.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-02-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-02-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-02-ac32b8271f.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1776,10 +2021,10 @@
       "pageNumber": 3,
       "exactText": "Wren stops the song.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: Wren lifts her wand but does not cast.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-03-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-03-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-03-24f0053d35.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1790,10 +2035,10 @@
       "pageNumber": 4,
       "exactText": "Fern asks what helps.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: Fern kneels beside Glimmer.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-04-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-04-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-04-4b4973c874.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1804,10 +2049,10 @@
       "pageNumber": 5,
       "exactText": "Glimmer taps one leaf.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: Glimmer taps a broad leaf softly.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-05-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-05-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-05-add6038bf9.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1818,10 +2063,10 @@
       "pageNumber": 6,
       "exactText": "Fern makes a soft beat.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: Fern brushes the leaf in a slow rhythm.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-06-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-06-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-06-edb2e741f0.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1832,10 +2077,10 @@
       "pageNumber": 7,
       "exactText": "Wren adds one bright note.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: Wren adds a single clear chime.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-07-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-07-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-07-9898dc8193.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1846,10 +2091,10 @@
       "pageNumber": 8,
       "exactText": "The garden sings together.",
       "illustrationPrompt": "Fern's Song for the Whole Garden: The song moves from soft leaves to one bright chime.. Preserve the canon characters MOON-FERN, MOON-WREN, MOON-GLIMMER, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-08-fern-s-song-for-the-whole-garden.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-b-09/page-08-ferns-song-for-the-whole-garden.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-09-page-08-70e41aac29.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1863,7 +2108,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-01-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-01-0431f7010e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1877,7 +2122,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-02-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-02-cb7d97bf3d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1891,7 +2136,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-03-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-03-8512c03684.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1905,7 +2150,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-04-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-04-65e9845076.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1919,7 +2164,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-05-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-05-92e66bd9cf.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1933,7 +2178,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-06-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-06-d6a8777c65.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1947,7 +2192,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-07-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-07-7d411490c2.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1961,7 +2206,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-b-10/page-08-fluff-finds-the-lost-bell.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-b-10-page-08-b487477aab.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1975,7 +2220,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-01-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-01-04b6a7b5d2.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -1989,7 +2234,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-02-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-02-caf37d27ab.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2003,7 +2248,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-03-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-03-4d109fe6c1.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2017,7 +2262,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-04-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-04-43b9ee13ba.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2031,7 +2276,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-05-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-05-1f514db7e5.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2045,7 +2290,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-06-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-06-0521c67f20.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2059,7 +2304,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-07-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-07-56b37c0efb.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2073,7 +2318,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-08-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-08-2741055922.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2087,7 +2332,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-09-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-09-90c97fb9c7.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2101,7 +2346,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-01/page-10-the-lantern-that-needed-listening.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-01-page-10-3f9b29c47e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2112,10 +2357,10 @@
       "pageNumber": 1,
       "exactText": "Anna finds a red thread tied to the garden fence. She thinks it marks the quickest way to the gate.",
       "illustrationPrompt": "Anna's Red Thread: Anna lifts the red thread beside the fence while James studies the beds.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-01-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-01-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-01-957ae17ae7.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2126,10 +2371,10 @@
       "pageNumber": 2,
       "exactText": "She follows it between the beds, stepping over small shoots and pulling the thread behind her.",
       "illustrationPrompt": "Anna's Red Thread: Anna walks between vegetable beds with the thread trailing behind.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-02-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-02-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-02-8af0b15981.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2140,10 +2385,10 @@
       "pageNumber": 3,
       "exactText": "James calls her back. The thread is tight around a post, and one seedling has bent beneath it.",
       "illustrationPrompt": "Anna's Red Thread: James points to the taut thread and the bent seedling.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-03-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-03-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-03-cbf8dc3978.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2154,10 +2399,10 @@
       "pageNumber": 4,
       "exactText": "Anna wants to keep going, but she notices Chips watching the gate from the other side of the fence.",
       "illustrationPrompt": "Anna's Red Thread: Anna looks from the seedling toward Chips beyond the gate.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-04-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-04-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-04-783bd6b318.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2168,10 +2413,10 @@
       "pageNumber": 5,
       "exactText": "James explains what he sees. The red thread marks the watering boundary, so crossing it would pull the beds apart.",
       "illustrationPrompt": "Anna's Red Thread: James traces the thread's boundary with one careful finger.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-05-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-05-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-05-0f67b7e3ff.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2182,10 +2427,10 @@
       "pageNumber": 6,
       "exactText": "Anna asks Chips what he needs. Chips points to the latch, not the path, and waits beside it.",
       "illustrationPrompt": "Anna's Red Thread: Anna kneels near Chips while James holds the thread safely.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-06-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-06-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-06-e560422959.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2196,10 +2441,10 @@
       "pageNumber": 7,
       "exactText": "Together they lift the thread from the seedling, coil it on the fence and check the latch.",
       "illustrationPrompt": "Anna's Red Thread: Anna frees the seedling, James coils the thread and Chips watches the latch.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-07-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-07-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-07-5d3b4445cd.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2210,10 +2455,10 @@
       "pageNumber": 8,
       "exactText": "The gate opens without tugging the beds. Anna follows the stone path while James carries the coil.",
       "illustrationPrompt": "Anna's Red Thread: The group leaves through the gate on the clear stone path.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-08-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-08-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-08-105e302264.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2224,10 +2469,10 @@
       "pageNumber": 9,
       "exactText": "Anna keeps the red thread where it belongs. This time, the boundary helps everyone find the way.",
       "illustrationPrompt": "Anna's Red Thread: The red thread rests neatly on the fence as the garden settles.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-09-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-09-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-09-31124cadef.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2238,10 +2483,10 @@
       "pageNumber": 10,
       "exactText": "James and Anna walk on either side of Chips. They agree to ask what a marker means before following it.",
       "illustrationPrompt": "Anna's Red Thread: James, Anna and Chips walk together beyond the garden.. Preserve the canon characters HUMAN-ANNA, HUMAN-JAMES, HUMAN-CHIPS, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-10-anna-s-red-thread.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-02/page-10-annas-red-thread.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-02-page-10-fd68c1ae09.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2255,7 +2500,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-01-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-01-c28cece208.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2269,7 +2514,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-02-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-02-0952df087e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2283,7 +2528,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-03-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-03-f1c5e0fed2.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2297,7 +2542,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-04-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-04-93ebf52c31.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2311,7 +2556,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-05-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-05-e83127a228.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2325,7 +2570,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-06-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-06-fc35987092.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2339,7 +2584,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-07-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-07-0c0fdc4de1.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2353,7 +2598,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-08-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-08-69db142a49.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2367,7 +2612,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-09-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-09-6a68be6024.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2381,7 +2626,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-03/page-10-stone-carries-the-quiet.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-03-page-10-173dda1daf.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2395,7 +2640,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-01-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-01-80b364ae78.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2409,7 +2654,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-02-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-02-888d87e201.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2423,7 +2668,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-03-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-03-0796825181.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2437,7 +2682,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-04-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-04-d14f68edbe.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2451,7 +2696,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-05-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-05-3f6ef4d57a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2465,7 +2710,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-06-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-06-4a78362684.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2479,7 +2724,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-07-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-07-35a9664e97.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2493,7 +2738,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-08-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-08-957c5a386d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2507,7 +2752,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-09-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-09-ac59a359c3.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2521,7 +2766,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-04/page-10-the-garden-with-two-entrances.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-04-page-10-ad9ca0f501.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2532,10 +2777,10 @@
       "pageNumber": 1,
       "exactText": "Glimmer discovers a gold spark between two stones. He holds it behind his wing and plans a surprise for Wren.",
       "illustrationPrompt": "Glimmer's Safe Spark: Glimmer hides a tiny gold spark behind his wing in the Star Room.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-01-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-01-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-01-0cc14703ee.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2546,10 +2791,10 @@
       "pageNumber": 2,
       "exactText": "Wren enters carrying a book. Glimmer releases the spark too close to her face, and she drops the book.",
       "illustrationPrompt": "Glimmer's Safe Spark: The spark flashes near Wren; her book lies open on the floor.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-02-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-02-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-02-3a46a122c5.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2560,10 +2805,10 @@
       "pageNumber": 3,
       "exactText": "Wren steps back. Glimmer reaches toward her, but Luna's calm wing signals him to stop and give space.",
       "illustrationPrompt": "Glimmer's Safe Spark: Luna extends one wing between Glimmer and Wren while Wren steps back.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-03-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-03-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-03-ebd1c8973a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2574,10 +2819,10 @@
       "pageNumber": 4,
       "exactText": "Glimmer lets the spark fade. He looks at the dropped book, then at Wren's tight shoulders.",
       "illustrationPrompt": "Glimmer's Safe Spark: Glimmer lowers his head as the spark dims above his paw.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-04-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-04-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-04-8a0b8aac52.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2588,10 +2833,10 @@
       "pageNumber": 5,
       "exactText": "Wren says she likes light when she knows it is coming. She does not want a flash near her face.",
       "illustrationPrompt": "Glimmer's Safe Spark: Wren points first to the safe lamp, then to the space near her face.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-05-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-05-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-05-59940b4a6e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2602,10 +2847,10 @@
       "pageNumber": 6,
       "exactText": "Glimmer asks before lighting the spark. Wren chooses the far wall, and Luna checks the clear space.",
       "illustrationPrompt": "Glimmer's Safe Spark: Wren points to the far wall while Luna surveys the room.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-06-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-06-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-06-ce20b3f69f.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2616,10 +2861,10 @@
       "pageNumber": 7,
       "exactText": "The spark travels across the room and blooms like a small star. Wren watches without covering her eyes.",
       "illustrationPrompt": "Glimmer's Safe Spark: The gold spark glows on the far wall with Wren at a comfortable distance.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-07-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-07-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-07-d8b23c185d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2630,10 +2875,10 @@
       "pageNumber": 8,
       "exactText": "Glimmer helps lift the book. Wren turns the page, and the spark follows the picture instead of interrupting it.",
       "illustrationPrompt": "Glimmer's Safe Spark: Glimmer steadies the book while Wren reads beside the soft spark.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-08-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-08-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-08-9f6fd6817a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2644,10 +2889,10 @@
       "pageNumber": 9,
       "exactText": "The surprise is gone, but the trust is clearer. Glimmer asks, Wren answers and Luna keeps the room safe.",
       "illustrationPrompt": "Glimmer's Safe Spark: The three friends sit with the book and the spark between them.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-09-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-09-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-09-c75e649536.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2658,10 +2903,10 @@
       "pageNumber": 10,
       "exactText": "Glimmer saves one small spark for later. This time, he carries a question with it.",
       "illustrationPrompt": "Glimmer's Safe Spark: Glimmer cups the spark safely while Wren and Luna smile beside him.. Preserve the canon characters MOON-GLIMMER, MOON-WREN, MOON-LUNA, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-10-glimmer-s-safe-spark.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-05/page-10-glimmers-safe-spark.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-05-page-10-26ff2d60d1.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2675,7 +2920,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-01-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-01-a09576c493.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2689,7 +2934,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-02-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-02-9b4d1e6003.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2703,7 +2948,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-03-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-03-2d157633c4.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2717,7 +2962,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-04-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-04-da1025fdcf.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2731,7 +2976,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-05-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-05-45e1ae15bc.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2745,7 +2990,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-06-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-06-5b5310a758.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2759,7 +3004,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-07-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-07-ccf0df69a1.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2773,7 +3018,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-08-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-08-863a69ee3b.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2787,7 +3032,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-09-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-09-ab48b5d87c.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2801,7 +3046,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-06/page-10-the-listening-bench.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-06-page-10-9a2f82a15c.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2815,7 +3060,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-01-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-01-cd89e78dd8.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2829,7 +3074,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-02-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-02-15c6ea2d45.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2843,7 +3088,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-03-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-03-62a2c90f3d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2857,7 +3102,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-04-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-04-195b0496b4.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2871,7 +3116,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-05-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-05-71174295e0.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2885,7 +3130,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-06-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-06-ca009ef0c9.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2899,7 +3144,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-07-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-07-5da90bce02.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2913,7 +3158,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-08-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-08-899d94dcf9.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2927,7 +3172,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-09-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-09-7af30b341f.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2941,7 +3186,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-07/page-10-james-and-anna-repair-the-kite.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-07-page-10-6067b6418e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2955,7 +3200,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-01-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-01-95fc384373.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2969,7 +3214,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-02-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-02-2e4ee93322.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2983,7 +3228,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-03-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-03-433231d517.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -2997,7 +3242,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-04-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-04-3c08e6a443.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3011,7 +3256,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-05-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-05-85f0660000.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3025,7 +3270,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-06-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-06-5a3024fef3.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3039,7 +3284,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-07-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-07-5fd1da6497.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3053,7 +3298,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-08-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-08-1411d0e83d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3067,7 +3312,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-09-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-09-373cbe62b2.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3081,7 +3326,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-08/page-10-the-map-that-changed-its-mind.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-08-page-10-3c98dcbf1c.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3092,10 +3337,10 @@
       "pageNumber": 1,
       "exactText": "Bob starts a fast scarf game. Nan reaches for the red scarf, but the cold makes her fingers stiff.",
       "illustrationPrompt": "Nan's Red Scarf: Bob swings the red scarf in a circle while Nan rubs her hands.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-01-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-01-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-01-112b2da128.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3106,10 +3351,10 @@
       "pageNumber": 2,
       "exactText": "The scarf passes twice before Nan can catch it. Fluff picks it up and drops it at her feet.",
       "illustrationPrompt": "Nan's Red Scarf: The scarf lies near Nan while Fluff nudges it toward her.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-02-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-02-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-02-c889ad91d6.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3120,10 +3365,10 @@
       "pageNumber": 3,
       "exactText": "Nan says she wants to play but needs a warm start. Bob hears the words, yet the game keeps moving.",
       "illustrationPrompt": "Nan's Red Scarf: Nan holds the scarf and speaks while Bob looks toward the next player.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-03-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-03-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-03-b06e802557.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3134,10 +3379,10 @@
       "pageNumber": 4,
       "exactText": "Nan steps out of the circle. The game becomes faster, but the empty place makes the circle uneven.",
       "illustrationPrompt": "Nan's Red Scarf: Nan stands beside the circle while the scarf passes between Bob and Fluff.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-04-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-04-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-04-f2c04c633a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3148,10 +3393,10 @@
       "pageNumber": 5,
       "exactText": "Bob stops the game. Nan explains that a warm turn and a slower first pass would let her join.",
       "illustrationPrompt": "Nan's Red Scarf: Bob holds the scarf still while Nan shows a slower hand movement.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-05-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-05-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-05-e98694ec18.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3162,10 +3407,10 @@
       "pageNumber": 6,
       "exactText": "They wrap the scarf around Nan's hands for one breath, then place the first pass close to her.",
       "illustrationPrompt": "Nan's Red Scarf: Nan warms her hands inside the scarf while Bob prepares a gentle pass.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-06-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-06-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-06-945024306e.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3176,10 +3421,10 @@
       "pageNumber": 7,
       "exactText": "Fluff learns the new rule too. He waits until Nan's hands are ready before nudging the scarf.",
       "illustrationPrompt": "Nan's Red Scarf: Fluff waits beside Nan as Bob holds the scarf within easy reach.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-07-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-07-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-07-11b850ecf0.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3190,10 +3435,10 @@
       "pageNumber": 8,
       "exactText": "The game begins again. Nan catches the first pass, then sends it to Bob with a clear turn.",
       "illustrationPrompt": "Nan's Red Scarf: Nan catches the scarf and passes it to Bob.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-08-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-08-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-08-2191e203e8.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3204,10 +3449,10 @@
       "pageNumber": 9,
       "exactText": "The new routine is slower at the start and faster later. Everyone stays in the circle.",
       "illustrationPrompt": "Nan's Red Scarf: The whole group plays with Nan inside the circle.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-09-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-09-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-09-8c8faf8d31.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3218,10 +3463,10 @@
       "pageNumber": 10,
       "exactText": "Nan keeps the red scarf nearby. It is part of the game now.",
       "illustrationPrompt": "Nan's Red Scarf: Nan holds the scarf at the center of the warm, even circle.. Preserve the canon characters HUMAN-NAN, HUMAN-BOB, HUMAN-FLUFF, the declared reading-band scene, continuity and safe-area rules. No embedded text, captions, watermarks or extra characters.",
-      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-10-nan-s-red-scarf.webp",
+      "imagePath": "/images/guided-reading/sel-books/llg-sel-c-09/page-10-nans-red-scarf.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-09-page-10-57b0264c2d.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3235,7 +3480,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-01-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-01-b371ad6833.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3249,7 +3494,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-02-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-02-6e16fe0c13.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3263,7 +3508,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-03-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-03-dfa1265145.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3277,7 +3522,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-04-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-04-259a7a0ea3.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3291,7 +3536,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-05-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-05-083187ca7a.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3305,7 +3550,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-06-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-06-9d50764575.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3319,7 +3564,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-07-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-07-4c864a18fe.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3333,7 +3578,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-08-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-08-25ca99f21c.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3347,7 +3592,7 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-09-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-09-88ef0d7825.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     },
     {
@@ -3361,9 +3606,8 @@
       "imagePath": "/images/guided-reading/sel-books/llg-sel-c-10/page-10-the-door-wren-built.webp",
       "audioPath": "/audio/production/en-US/guided_page/sel-llg-sel-c-10-page-10-f0c5e43fd6.mp3",
       "audioStatus": "generated-awaiting-listening-review",
-      "imageStatus": "not-generated",
+      "imageStatus": "generated-direct-visual-review-complete",
       "audioVoice": "en-US-Chirp3-HD-Leda"
     }
-  ],
-  "audioVoice": "en-US-Chirp3-HD-Leda"
+  ]
 }
