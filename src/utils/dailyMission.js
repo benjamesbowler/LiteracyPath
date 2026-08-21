@@ -208,15 +208,14 @@ function currentQuestCycle(scope) {
 }
 
 /**
- * `approvedBookIds` is the fail-closed publication allowlist. It has to be
- * applied here as well as on the shelf because the mission tile deep-links to
- * a book by id.
+ * `quarantinedBookIds` is the reported-defect blocklist. It has to be applied
+ * here as well as on the shelf because the mission tile deep-links to a book.
  */
-function nextBook(scope, approvedBookIds) {
+function nextBook(scope, quarantinedBookIds) {
   const records = readJson(`literacyPath.guidedReadingRecords.${encodeURIComponent(scope)}`, {});
   const ordered = filterPublishedGuidedReadingBooks(
     [...GUIDED_READING_BOOK_INDEX],
-    approvedBookIds
+    quarantinedBookIds
   ).sort((a, b) =>
     String(a.level).localeCompare(String(b.level)) || String(a.id).localeCompare(String(b.id))
   );
@@ -243,9 +242,9 @@ function todaysGame(scope, cycle) {
   return { game, why: letters ? `Practise your ${letters} sounds while you play.` : "A fresh game for today." };
 }
 
-export function buildDailyMission(scope, approvedBookIds) {
+export function buildDailyMission(scope, quarantinedBookIds) {
   const cycle = currentQuestCycle(scope) || {};
-  const book = nextBook(scope, approvedBookIds);
+  const book = nextBook(scope, quarantinedBookIds);
   const gamePick = todaysGame(scope, cycle) || {};
   const game = gamePick.game || {};
 

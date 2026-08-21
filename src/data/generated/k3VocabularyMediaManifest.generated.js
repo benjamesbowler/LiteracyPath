@@ -1997,12 +1997,6 @@ export const k3VocabularyMedia = {
     textSpoken: "mash",
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
-  "math": {
-    image: "/media/vocabulary/images/math.webp",
-    audio: "/media/vocabulary/audio/math.mp3",
-    textSpoken: "math",
-    source: "kimi_k3_vocab_media_import_2026_06_04"
-  },
   "maybe": {
     image: "/media/vocabulary/images/maybe.webp",
     textSpoken: "maybe",
@@ -4001,4 +3995,3 @@ export const k3VocabularyMedia = {
     source: "kimi_k3_vocab_media_import_2026_06_04"
   },
 };
-

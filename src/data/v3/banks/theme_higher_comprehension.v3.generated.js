@@ -6286,7 +6286,7 @@ export const questions = [
   "prompt": "Which lesson fits best?",
   "question": "Which lesson fits best?",
   "spokenPrompt": "Which lesson fits best?",
-  "passage": "The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over the maths, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did.",
+  "passage": "The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over a story, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did.",
   "cell": "theme_among_rivals",
   "choices": [
    "libraries need cushions",

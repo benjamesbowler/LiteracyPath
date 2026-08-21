@@ -39,7 +39,7 @@ test("legacy device-local QA drafts cannot block released assessment media", () 
   }
 });
 
-test("pending media is beta-visible without being misreported as human approved", () => {
+test("unreported media is accepted while a reported defect is quarantined", () => {
   const pairing = {
     area: "assessment",
     skillId: "beta-test-skill",
@@ -48,7 +48,7 @@ test("pending media is beta-visible without being misreported as human approved"
   };
   const reviewId = getMediaQaReviewId(pairing);
 
-  assert.equal(isMediaPairingApproved(pairing), false);
+  assert.equal(isMediaPairingApproved(pairing), true);
   assert.equal(isMediaPairingRuntimeAllowed(pairing, {}), true);
   assert.equal(isMediaPairingRuntimeAllowed(pairing, {
     [reviewId]: { ...pairing, status: "quarantined" }

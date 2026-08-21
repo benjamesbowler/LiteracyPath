@@ -22,7 +22,7 @@ const EXPECTED_DECODING_WORDS = Object.freeze({
   middle_pre: ["an", "if", "in", "it", "on", "up", "sat", "mat"],
   early_partial: ["man", "rag", "ten", "web", "lip", "nod", "run", "mud"],
   middle_partial: ["back", "bell", "kiss", "sock", "duck", "wax", "buzz", "quit"],
-  late_partial: ["shed", "chin", "math", "whip", "crab", "grip", "lamp", "desk"],
+  late_partial: ["shed", "chin", "bath", "whip", "crab", "grip", "lamp", "desk"],
   early_full: ["shelf", "chest", "thank", "whisk", "scrap", "twist", "blend", "crust"],
   middle_full: ["gate", "kite", "rope", "mule", "mail", "feet", "coat", "tray"],
   late_full: ["storm", "fern", "shirt", "burn", "join", "boy", "pouch", "room"],

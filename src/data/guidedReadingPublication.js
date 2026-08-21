@@ -14,12 +14,11 @@ export {
 /**
  * Guided Reading publication.
  *
- * Child publication is fail-closed. A book is visible only after an app admin
- * records an explicit approval. Missing rows, an unreadable review service, and
- * newly authored books remain off child and teacher-assignment surfaces until
- * their content and media have been reviewed.
+ * Child publication follows continuous review. New and unreported books are
+ * accepted; a recorded quarantine removes a book immediately. The public read
+ * uses a projection containing book ids only, so repair notes remain private.
  */
-export async function loadGuidedReadingBookReviews({ client } = {}) {
+export async function loadGuidedReadingBookReviews({ client, includeAll = false } = {}) {
   if (!client?.table) {
     return {
       complete: false,
@@ -29,10 +28,16 @@ export async function loadGuidedReadingBookReviews({ client } = {}) {
     };
   }
 
-  const { data, error } = await client
-    .table("guided_reading_book_reviews")
-    .select("book_id,status,review_note,reviewed_by,reviewed_at")
-    .order("reviewed_at", { ascending: false });
+  const query = includeAll
+    ? client
+      .table("guided_reading_book_reviews")
+      .select("book_id,status,review_note,reviewed_by,reviewed_at")
+      .order("reviewed_at", { ascending: false })
+    : client
+      .table("guided_reading_quarantines")
+      .select("book_id,status")
+      .order("book_id", { ascending: true });
+  const { data, error } = await query;
 
   if (error) {
     return { complete: false, error, rows: [], status: "error" };
@@ -61,7 +66,7 @@ export async function saveGuidedReadingBookReview({
     return { ok: false, error: new Error("Admin review details are incomplete.") };
   }
   if (!["approved", "quarantined"].includes(normalizedStatus)) {
-    return { ok: false, error: new Error("Choose Pass or Fail.") };
+    return { ok: false, error: new Error("Choose Keep accepted or Report defect.") };
   }
   if (normalizedStatus === "quarantined" && !normalizedNote) {
     return { ok: false, error: new Error("Describe what needs fixing before quarantining this book.") };

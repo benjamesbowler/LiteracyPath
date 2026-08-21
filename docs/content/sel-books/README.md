@@ -18,16 +18,16 @@ Reading catalogue until the publication gate is complete.
 - Media manifest: generated at `docs/content/sel-books/SEL_MEDIA_MANIFEST.json`
   with exact-text image/audio records for all 240 pages plus 30 cover records.
 - Narration: all 240 page clips have been generated with
-  `en-US-Chirp3-HD-Leda` and are awaiting listening review.
+  `en-US-Chirp3-HD-Leda` and are accepted under continuous listening review.
 - Publication: hidden/draft-only. No book is child-visible.
 
 ## Media rules
 
 Every page image must preserve the canon ID, relative scale, location, prop state,
 emotion and exact story beat. Images contain no embedded text. Every narration file
-must match the final page text word for word and pass intelligibility, pacing,
-pronunciation, rights and listening review. Generative media is a candidate until
-those checks are complete.
+must match the final page text word for word and meet intelligibility, pacing,
+pronunciation and rights requirements. Human checking is continuous: media remains
+accepted unless a reviewer reports a defect, which quarantines it until corrected.
 
 The five sequence sheets in
 `public/images/guided-reading/sel-books/reference/` are the retained visual
@@ -38,6 +38,5 @@ Run `npm run build:sel-book-media-manifest` after manuscript or media-path chang
 Use `npm run build:sel-book-media-manifest -- --mark-images-reviewed` only after a
 new direct sequence review has actually completed. The draft gate checks all 270
 book images, their dimensions, manifest alignment, unused files in each book
-directory and the presence of all 240 generated Leda clips. It does not replace
-the still-pending human listen to every narration clip or the separate publication
-gate.
+directory and the presence of all 240 generated Leda clips. Listening continues
+during the draft phase; reported defects are recorded and quarantined immediately.

@@ -137,7 +137,7 @@ export function pickDistractors(answer, {
   ];
   // Every new question receives a newly selected set. Prefer options that were
   // not on the previous question, while preserving the useful weak-sound bias.
-  // A four-sound first lesson cannot mathematically show three wholly new
+  // A four-sound first lesson cannot show three wholly new
   // labels every round, but no old answer object is retained by the runtime.
   const ordered = [...weakFirst(novel), ...weakFirst(reused)];
   return ordered.slice(0, count);
@@ -651,4 +651,3 @@ export function buildStop(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     }
   };
 }
-

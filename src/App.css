@@ -2096,6 +2096,26 @@ html[data-lp-simplified-backgrounds="true"] .hs-main::after {
   color: var(--lp-color-primary);
 }
 
+.auth-legal-acceptance {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 10px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.auth-legal-acceptance input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+}
+
+.auth-legal-acceptance a {
+  color: var(--lp-action, #3f4fc4);
+  text-underline-offset: 2px;
+}
+
 @media (max-height: 760px) and (min-width: 821px) {
   .auth-shell {
     padding-block: 10px;

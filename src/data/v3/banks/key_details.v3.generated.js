@@ -2448,7 +2448,7 @@ export const questions = [
   "prompt": "When did Mr. Reed change the battery?",
   "question": "When did Mr. Reed change the battery?",
   "spokenPrompt": "When did Mr. Reed change the battery?",
-  "passage": "The classroom clock stopped during maths. Ella noticed that both hands stayed on twelve. Mr. Reed changed the battery after lunch. The clock began ticking again before home time.",
+  "passage": "The classroom clock stopped during reading. Ella noticed that both hands stayed on twelve. Mr. Reed changed the battery after lunch. The clock began ticking again before home time.",
   "cell": "number_detail",
   "choices": [
    "during assembly",

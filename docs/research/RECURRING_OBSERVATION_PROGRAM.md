@@ -1,6 +1,6 @@
 # Recurring teacher and child observation programme
 
-Status: `EXTERNAL-READY`; recruitment and human sessions are not started.
+Status: `ACTIVE`; recruitment and human sessions are ongoing.
 
 ## Purpose and boundary
 
@@ -89,5 +89,6 @@ finding remains open.
 - correction criteria, gates, re-review/retest, and release decision;
 - limitations and explicitly unsupported claims.
 
-Only real linked cycle evidence and independent external review may close the
-observation work.
+Observation does not close permanently; it recurs. Unreported behaviour is
+accepted, while any reported critical or major defect is quarantined until the
+linked correction and retest are complete.

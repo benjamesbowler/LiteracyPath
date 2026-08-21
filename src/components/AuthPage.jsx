@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { PRODUCT_NAME } from "../data/teacherBrand.js";
+import { LEGAL_POLICY } from "../policy/legalPolicy.js";
 
 export function AuthPage({
   authMode = "login",
@@ -28,6 +29,7 @@ export function AuthPage({
   resendEmailConfirmation
 }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [legalAccepted, setLegalAccepted] = useState(false);
   const isForgotPassword = authMode === "forgotPassword";
   const isResetPassword = authMode === "resetPassword";
   const isSignup = authMode === "signup";
@@ -36,7 +38,11 @@ export function AuthPage({
     if (authLoading) return;
     if (isForgotPassword) requestPasswordReset();
     else if (isResetPassword) completePasswordReset();
-    else if (isSignup) signUpTeacher();
+    else if (isSignup) signUpTeacher({
+      accepted: legalAccepted,
+      termsVersion: LEGAL_POLICY.termsVersion,
+      privacyVersion: LEGAL_POLICY.privacyVersion
+    });
     else logInTeacher();
   };
 
@@ -124,6 +130,23 @@ export function AuthPage({
           </div>
         )}
 
+        {isSignup && (
+          <label className="auth-legal-acceptance">
+            <input
+              checked={legalAccepted}
+              onChange={event => setLegalAccepted(event.target.checked)}
+              required
+              type="checkbox"
+            />
+            <span>
+              I am authorised to request access for my school and agree to the{" "}
+              <a href="/terms.html" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+              {" "}and acknowledge the{" "}
+              <a href="/privacy.html" target="_blank" rel="noopener noreferrer">Privacy Notice</a>.
+            </span>
+          </label>
+        )}
+
         <div className="button-row auth-actions">
           <button className="main-button" disabled={authLoading} type="submit">
             {isForgotPassword
@@ -191,7 +214,11 @@ export function AuthPage({
       )}
 
       <p className="auth-privacy-note">
-        <a href="/privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="/legal.html" target="_blank" rel="noopener noreferrer">Legal</a>
+        {" · "}
+        <a href="/privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a>
+        {" · "}
+        <a href="/terms.html" target="_blank" rel="noopener noreferrer">Terms</a>
       </p>
     </div>
   );

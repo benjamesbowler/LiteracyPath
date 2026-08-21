@@ -148,7 +148,7 @@ export function StudentBooksPage({
   // screen that draws an empty library because nobody passed it a list is the
   // "load failure rendered as empty data" mistake with extra steps.
   books = null,
-  approvedBookIds = null,
+  quarantinedBookIds = null,
   // The sample plan's book ids, or null for an account that sees everything.
   allowedBookIds = null,
   // Shown where the shelf stops. Null for a full-content account, which is why
@@ -187,11 +187,12 @@ export function StudentBooksPage({
   // memo below on every render.
   const library = useMemo(() => {
     const runtimeBooks = books || getRuntimeGuidedReadingBooks();
-    // Publication and entitlement both fail closed. Approval is applied first,
-    // so a paid entitlement can never make an unchecked book visible.
-    const live = filterPublishedGuidedReadingBooks(runtimeBooks, approvedBookIds);
+    // Quarantine is applied before entitlement, so no plan can restore a book
+    // with a reported defect. A missing blocklist caused by a real service
+    // failure remains fail-closed.
+    const live = filterPublishedGuidedReadingBooks(runtimeBooks, quarantinedBookIds);
     return filterToEntitlement(live, allowedBookIds, { hasFullContent: !allowedBookIds });
-  }, [approvedBookIds, allowedBookIds, books]);
+  }, [allowedBookIds, books, quarantinedBookIds]);
 
   // The app's existing answer to "what level is this child on": a teacher-set
   // level, else the level of the last book they actually read, else A. It is

@@ -1,4 +1,4 @@
--- Re-assert the complete callable-function boundary after the Maths v4 evidence-integrity pass.
+-- Re-assert the complete callable-function boundary after the final teacher-access pass.
 -- Every SECURITY DEFINER function is private first, then only the reviewed
 -- anonymous and authenticated RPC surface is granted back.
 
@@ -42,17 +42,6 @@ grant select on table public.teacher_interventions to authenticated;
 revoke all on table public.teacher_account_decision_events
   from public, anon, authenticated;
 grant select on table public.teacher_account_decision_events to authenticated;
-revoke all on table public.maths_evidence_events
-  from public, anon, authenticated;
-revoke all on table public.maths_assignments
-  from public, anon, authenticated;
-revoke all on table public.maths_assignment_students
-  from public, anon, authenticated;
-revoke all on table public.maths_media_issue_reports
-  from public, anon, authenticated;
-revoke all on table public.maths_evidence_sync_health
-  from public, anon, authenticated;
-
 create or replace function public.assert_current_actor_teacher_access()
 returns void
 language plpgsql volatile
@@ -95,18 +84,6 @@ grant execute on function public.student_submit_book_revision(text, uuid, uuid)
   to anon, authenticated;
 grant execute on function public.student_read_class_press_library(text)
   to anon, authenticated;
-grant execute on function public.student_record_maths_evidence(
-  text, text, text, text, jsonb, timestamptz, text
-) to anon, authenticated;
-grant execute on function public.student_list_maths_assignments(text)
-  to anon, authenticated;
-grant execute on function public.student_complete_maths_assignment(text, uuid)
-  to anon, authenticated;
-grant execute on function public.student_report_maths_media_issue(text, text, text)
-  to anon, authenticated;
-grant execute on function public.student_report_maths_evidence_sync_health(
-  text, bigint, bigint, bigint
-) to anon, authenticated;
 grant execute on function public.get_game_leaderboard(text, integer) to anon, authenticated;
 grant execute on function public.report_app_error(
   uuid, text, text, text, text, text, text, text[], numeric
@@ -192,36 +169,6 @@ grant execute on function public.teacher_update_draft_lesson_plan(
 grant execute on function public.teacher_record_lesson_delivery(
   uuid, text, uuid[], text, text, jsonb
 ) to authenticated;
-grant execute on function public.teacher_record_maths_evidence(
-  uuid, uuid, text, text, text, jsonb, timestamptz, text
-) to authenticated;
-grant execute on function public.teacher_read_maths_evidence(uuid, uuid, integer)
-  to authenticated;
-grant execute on function public.teacher_read_maths_evidence_page(
-  uuid, uuid, integer, timestamptz, uuid
-) to authenticated;
-grant execute on function public.teacher_read_maths_sync_health(uuid)
-  to authenticated;
-grant execute on function public.teacher_create_maths_assignment(
-  uuid, text, text, text, text, uuid[], timestamptz
-) to authenticated;
-grant execute on function public.teacher_list_maths_assignments(uuid, boolean)
-  to authenticated;
-grant execute on function public.teacher_archive_maths_assignment(uuid, uuid)
-  to authenticated;
-grant execute on function public.teacher_update_maths_assignment_due_at(uuid, uuid, timestamptz)
-  to authenticated;
-grant execute on function public.teacher_duplicate_maths_assignment(uuid, uuid, timestamptz)
-  to authenticated;
-grant execute on function public.teacher_list_maths_media_issues(uuid, boolean)
-  to authenticated;
-grant execute on function public.teacher_resolve_maths_media_issue(uuid, text)
-  to authenticated;
-grant execute on function public.teacher_read_maths_evidence_filtered_page(
-  uuid, uuid, timestamptz, text, integer, timestamptz, uuid
-) to authenticated;
-grant execute on function public.teacher_report_maths_media_issue(text, text)
-  to authenticated;
 grant execute on function public.admin_recent_error_events(integer) to authenticated;
 grant execute on function public.admin_error_monitor_summary() to authenticated;
 grant execute on function public.admin_purge_expired_error_events() to authenticated;
@@ -247,7 +194,6 @@ grant execute on function public.admin_run_school_retention(uuid, text) to authe
 do $guard_teacher_rpcs$
 declare
   v_expected constant text[] := array[
-    'teacher_archive_maths_assignment(uuid,uuid)',
     'teacher_assign_instructional_group_follow_up(uuid,text,text,date)',
     'teacher_cancel_intervention(uuid,text)',
     'teacher_class_access_log(uuid,integer)',
@@ -258,11 +204,9 @@ declare
     'teacher_create_intervention_follow_up(uuid,text,text,uuid[],text,text,date)',
     'teacher_create_intervention_plan(uuid,text,text,uuid[],text,text,date)',
     'teacher_create_lesson_plan(uuid,uuid,uuid[],jsonb,jsonb,timestamp with time zone)',
-    'teacher_create_maths_assignment(uuid,text,text,text,text,uuid[],timestamp with time zone)',
     'teacher_create_press_project(uuid,uuid[],jsonb)',
     'teacher_create_worksheet_instance(uuid,uuid[],jsonb)',
     'teacher_delete_empty_class(uuid)',
-    'teacher_duplicate_maths_assignment(uuid,uuid,timestamp with time zone)',
     'teacher_delete_learner_data_staged(uuid,uuid,text,text)',
     'teacher_delete_planned_intervention(uuid)',
     'teacher_delete_saved_assessment_report(text)',
@@ -274,26 +218,17 @@ declare
     'teacher_get_live_lesson_snapshot(uuid)',
     'teacher_get_reading_session_presence(uuid)',
     'teacher_list_learner_data_rights(uuid)',
-    'teacher_list_maths_assignments(uuid,boolean)',
-    'teacher_list_maths_media_issues(uuid,boolean)',
     'teacher_list_press_work(uuid)',
     'teacher_mark_intervention_delivered(uuid)',
     'teacher_prepare_learner_deletion(uuid,text,text)',
     'teacher_read_lesson_plan(uuid)',
-    'teacher_read_maths_evidence(uuid,uuid,integer)',
-    'teacher_read_maths_evidence_page(uuid,uuid,integer,timestamp with time zone,uuid)',
-    'teacher_read_maths_evidence_filtered_page(uuid,uuid,timestamp with time zone,text,integer,timestamp with time zone,uuid)',
-    'teacher_read_maths_sync_health(uuid)',
     'teacher_read_worksheet_history(uuid)',
     'teacher_record_insight_observation(uuid,jsonb,uuid[],text,text,text,date)',
     'teacher_record_intervention_outcome(uuid,text,text)',
     'teacher_record_lesson_delivery(uuid,text,uuid[],text,text,jsonb)',
-    'teacher_record_maths_evidence(uuid,uuid,text,text,text,jsonb,timestamp with time zone,text)',
     'teacher_record_worksheet_observation(uuid,text,jsonb,text,uuid)',
     'teacher_regenerate_class_code(uuid)',
-    'teacher_report_maths_media_issue(text,text)',
     'teacher_reset_student_progress(uuid,timestamp with time zone)',
-    'teacher_resolve_maths_media_issue(uuid,text)',
     'teacher_resolve_worksheet_code(text)',
     'teacher_review_book_revision(uuid,uuid,text,jsonb)',
     'teacher_review_instructional_group(uuid,uuid[],jsonb)',
@@ -311,7 +246,6 @@ declare
     'teacher_start_reading_session(uuid,text,integer[],uuid[],text)',
     'teacher_transfer_student(uuid,uuid,uuid)',
     'teacher_update_draft_lesson_plan(uuid,integer,uuid[],jsonb,timestamp with time zone)',
-    'teacher_update_maths_assignment_due_at(uuid,uuid,timestamp with time zone)',
     'teacher_update_planned_intervention(uuid,text,text,uuid[],text,text,date)'
   ];
   v_expected_sorted text[];

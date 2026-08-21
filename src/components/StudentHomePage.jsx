@@ -332,7 +332,7 @@ export function StudentHomePage({
   onOpenGuidedReading,
   // The approval allowlist. The mission deep-links by id, so it must use the
   // same fail-closed publication set as the library shelf.
-  approvedBookIds,
+  quarantinedBookIds,
   taughtTargetKeys = [],
   onOpenRewards,
   onLogout,
@@ -343,8 +343,8 @@ export function StudentHomePage({
   // the mission state fresh after each activity.
   const [status] = useState(() => getMissionStatus(progressScopeKey));
   const mission = useMemo(
-    () => buildDailyMission(progressScopeKey, approvedBookIds),
-    [progressScopeKey, approvedBookIds]
+    () => buildDailyMission(progressScopeKey, quarantinedBookIds),
+    [progressScopeKey, quarantinedBookIds]
   );
   const [celebration, setCelebration] = useState(null);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));

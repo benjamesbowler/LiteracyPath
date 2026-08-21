@@ -680,7 +680,7 @@ export function lintBank(items, blueprint, {
       const maxShare = Math.max(...positions) / bucket.length;
       // Four answer positions cannot satisfy a literal 35% ceiling in small
       // buckets such as five retention items (the best possible split is
-      // 2/1/1/1 = 40%). Require the mathematically best attainable ceiling.
+      // 2/1/1/1 = 40%). Require the best attainable ceiling.
       const attainableCeiling = Math.max(0.35, Math.ceil(bucket.length / 4) / bucket.length);
       if (maxShare > attainableCeiling) {
         issues.push({

@@ -197,7 +197,7 @@ The current assessment corpus is fully mapped to production audio.
 - Runtime resolution: `src/data/ledaProductionAudio.js` consults the generated assessment gap map before declaring a clip missing.
 - Corpus coverage test: pass, with no current assessment text falling through to browser speech as release evidence.
 
-These new files are mechanically verified and provenance-bound. They are marked generated-awaiting-listening-review; this audit does not pretend that decoding a file is the same as a human listening to its pronunciation, prosody, and naturalness.
+These new files are mechanically verified, provenance-bound and accepted under continuous listening review. Decoding is not treated as listening evidence: any reported pronunciation, prosody or naturalness defect is quarantined and corrected.
 
 ## 8. Release gates
 

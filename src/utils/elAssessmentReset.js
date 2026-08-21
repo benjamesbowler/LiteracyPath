@@ -24,12 +24,6 @@ const GUIDED_READING_RECORDS_PREFIX = "literacyPath.guidedReadingRecords.";
 const MANUAL_ASSESSMENT_DRAFT_PREFIX =
   "literacy-guide:manual-assessment-draft:v1:";
 const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
-// Privacy cleanup must outlive a retired feature. Existing devices may still
-// contain queued evidence or lesson state created before the numeracy surface
-// was removed, so learner deletion continues to erase those legacy keys even
-// though no runtime can create new ones.
-const RETIRED_EVIDENCE_QUEUE_PREFIX = "lp-maths-evidence-queue:v1:";
-const RETIRED_LESSON_STORAGE_PREFIX = "lp-maths-lesson:";
 export const LEARNER_EVIDENCE_CLEANUP_STORES = Object.freeze([
   "assessment_attempts",
   "assessment_write_queue",
@@ -37,7 +31,6 @@ export const LEARNER_EVIDENCE_CLEANUP_STORES = Object.freeze([
   "el_benchmark_drafts",
   "guided_reading_assessment",
   "manual_assessment_drafts",
-  "maths_evidence_queue",
   "student_session",
   "teacher_profile"
 ]);
@@ -74,38 +67,6 @@ function listStorageKeys(storage) {
     if (key) keys.push(key);
   }
   return keys;
-}
-
-function retiredSubjectKeyBelongsToStudent(storage, key, studentId) {
-  if (key.startsWith(RETIRED_EVIDENCE_QUEUE_PREFIX)) {
-    try {
-      return String(JSON.parse(storage.getItem(key) || "null")?.studentId || "") === String(studentId);
-    } catch {
-      return false;
-    }
-  }
-  if (!key.startsWith(RETIRED_LESSON_STORAGE_PREFIX)) return false;
-  const suffix = key.slice(RETIRED_LESSON_STORAGE_PREFIX.length);
-  const separator = suffix.indexOf(":");
-  return /^v\d+$/.test(suffix.slice(0, separator))
-    && suffix.slice(separator + 1).startsWith(`${studentId}:`);
-}
-
-function clearAndVerifyRetiredSubjectData({ storage, studentId }) {
-  let removed = 0;
-  for (const key of listStorageKeys(storage)) {
-    if (!retiredSubjectKeyBelongsToStudent(storage, key, studentId)) continue;
-    storage.removeItem(key);
-    if (storage.getItem(key) === null) removed += 1;
-  }
-  const residuals = listStorageKeys(storage)
-    .filter(key => retiredSubjectKeyBelongsToStudent(storage, key, studentId));
-  if (residuals.length) {
-    const error = new Error("Retired-subject data remains after learner cleanup.");
-    error.code = "LP_LOCAL_CLEANUP_INCOMPLETE";
-    throw error;
-  }
-  return { removed };
 }
 
 function teacherIdFromScopedKey(key, prefix) {
@@ -285,11 +246,6 @@ export async function clearLocalElAssessmentDataForStudent({
   let guidedReadingAssessmentsDeleted = 0;
   let manualAssessmentDraftsDeleted = 0;
 
-  const retiredSubjectCleanup = clearAndVerifyRetiredSubjectData({
-    studentId,
-    storage
-  });
-
   for (const candidateTeacherId of teacherIds) {
     await blockAndWaitForElAssessmentReportOperations({
       teacherId: candidateTeacherId,
@@ -444,7 +400,6 @@ export async function clearLocalElAssessmentDataForStudent({
     malformedProfilesRemoved,
     guidedReadingAssessmentsDeleted,
     manualAssessmentDraftsDeleted,
-    retiredSubjectWritesDeleted: retiredSubjectCleanup.removed,
     storageAvailable: true,
     residualCount: 0,
     storesChecked: [...LEARNER_EVIDENCE_CLEANUP_STORES]

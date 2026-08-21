@@ -40937,7 +40937,7 @@ export const vocabularyMediaLexicon = [
       "concrete_vocabulary",
       "initial-blend",
       "other",
-      "shapes_and_math"
+      "shapes"
     ],
     "phonics": {
       "initialSound": "t",
@@ -41000,7 +41000,7 @@ export const vocabularyMediaLexicon = [
       "vocabulary": {
         "eligible": true,
         "minLevel": 2,
-        "category": "shapes_and_math"
+        "category": "shapes"
       }
     },
     "notes": "Approved exact media pair held as reserve for Level 2+ or vocabulary expansion."

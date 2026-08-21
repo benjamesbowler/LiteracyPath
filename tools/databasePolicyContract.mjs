@@ -20,11 +20,6 @@ export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "student_log_activity_v2(text, text, text, text, text, jsonb, timestamp with time zone, integer)",
   "student_login(uuid, text, text, text)",
   "student_report_activity_sync_health(text, text, bigint, bigint, bigint, bigint, bigint, bigint, timestamp with time zone)",
-  "student_report_maths_evidence_sync_health(text, bigint, bigint, bigint)",
-  "student_report_maths_media_issue(text, text, text)",
-  "student_record_maths_evidence(text, text, text, text, jsonb, timestamp with time zone, text)",
-  "student_list_maths_assignments(text)",
-  "student_complete_maths_assignment(text, uuid)",
   "student_save_progress(text, text, text, jsonb)",
   "student_save_book_revision(text, uuid, uuid, text, jsonb, jsonb)",
   "student_submit_book_revision(text, uuid, uuid)",
@@ -48,7 +43,6 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "is_app_admin(uuid)",
   "set_app_config(text, jsonb)",
   "teacher_assign_instructional_group_follow_up(uuid, text, text, date)",
-  "teacher_archive_maths_assignment(uuid, uuid)",
   "teacher_class_access_log(uuid, integer)",
   "teacher_class_access_summary(uuid)",
   "teacher_close_worksheet_instance(uuid)",
@@ -57,11 +51,9 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date)",
   "teacher_create_intervention_plan(uuid, text, text, uuid[], text, text, date)",
   "teacher_create_lesson_plan(uuid, uuid, uuid[], jsonb, jsonb, timestamp with time zone)",
-  "teacher_create_maths_assignment(uuid, text, text, text, text, uuid[], timestamp with time zone)",
   "teacher_create_press_project(uuid, uuid[], jsonb)",
   "teacher_create_worksheet_instance(uuid, uuid[], jsonb)",
   "teacher_delete_empty_class(uuid)",
-  "teacher_duplicate_maths_assignment(uuid, uuid, timestamp with time zone)",
   "teacher_delete_learner_data_staged(uuid, uuid, text, text)",
   "teacher_delete_planned_intervention(uuid)",
   "teacher_delete_saved_assessment_report(text)",
@@ -73,26 +65,17 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_get_reading_session_presence(uuid)",
   "teacher_get_live_lesson_snapshot(uuid)",
   "teacher_list_learner_data_rights(uuid)",
-  "teacher_list_maths_assignments(uuid, boolean)",
-  "teacher_list_maths_media_issues(uuid, boolean)",
   "teacher_list_press_work(uuid)",
   "teacher_mark_intervention_delivered(uuid)",
   "teacher_prepare_learner_deletion(uuid, text, text)",
   "teacher_read_lesson_plan(uuid)",
-  "teacher_read_maths_evidence(uuid, uuid, integer)",
-  "teacher_read_maths_evidence_filtered_page(uuid, uuid, timestamp with time zone, text, integer, timestamp with time zone, uuid)",
-  "teacher_read_maths_evidence_page(uuid, uuid, integer, timestamp with time zone, uuid)",
-  "teacher_read_maths_sync_health(uuid)",
   "teacher_read_worksheet_history(uuid)",
   "teacher_record_insight_observation(uuid, jsonb, uuid[], text, text, text, date)",
   "teacher_record_intervention_outcome(uuid, text, text)",
   "teacher_record_lesson_delivery(uuid, text, uuid[], text, text, jsonb)",
-  "teacher_record_maths_evidence(uuid, uuid, text, text, text, jsonb, timestamp with time zone, text)",
-  "teacher_report_maths_media_issue(text, text)",
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)",
   "teacher_regenerate_class_code(uuid)",
   "teacher_reset_student_progress(uuid, timestamp with time zone)",
-  "teacher_resolve_maths_media_issue(uuid, text)",
   "teacher_resolve_worksheet_code(text)",
   "teacher_review_instructional_group(uuid, uuid[], jsonb)",
   "teacher_review_book_revision(uuid, uuid, text, jsonb)",
@@ -111,7 +94,6 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_transfer_student(uuid, uuid, uuid)",
   "teacher_set_school(text)",
   "teacher_update_draft_lesson_plan(uuid, integer, uuid[], jsonb, timestamp with time zone)",
-  "teacher_update_maths_assignment_due_at(uuid, uuid, timestamp with time zone)",
   "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)"
 ]);
 
@@ -188,17 +170,20 @@ export function auditSecurityBoundarySource({
   }
   const laterSecurityDefiners = files
     .filter(file => file > SECURITY_BOUNDARY_MIGRATION)
-    .filter(file => /security\s+definer/i.test(
-      // Comments stripped first. The guard is about a later migration DEFINING
-      // a SECURITY DEFINER function without re-running the boundary. A
-      // migration that only mentions the phrase while explaining why it did not
-      // add one is not a violation, and failing on prose teaches people to stop
-      // writing the explanation rather than to stop writing the function.
-      withoutSqlComments(fs.readFileSync(path.join(migrationDir, file), "utf8"))
-    ));
+    .filter(file => {
+      const laterSource = withoutSqlComments(fs.readFileSync(path.join(migrationDir, file), "utf8"));
+      if (!/security\s+definer/i.test(laterSource)) return false;
+      const privateDefinitions = [...laterSource.matchAll(
+        /create\s+or\s+replace\s+function\s+public\.([a-z0-9_]+)\s*\([^)]*\)[\s\S]*?security\s+definer/gi
+      )];
+      return privateDefinitions.length === 0 || privateDefinitions.some(([, functionName]) => (
+        !new RegExp(`revoke\\s+all\\s+on\\s+function\\s+public\\.${functionName}\\s*\\(`, "i")
+          .test(laterSource)
+      ));
+    });
   if (laterSecurityDefiners.length) {
     failures.push(
-      `SECURITY DEFINER functions were added after the boundary migration: ${laterSecurityDefiners.join(", ")}`
+      `Exposed SECURITY DEFINER functions were added after the boundary migration: ${laterSecurityDefiners.join(", ")}`
     );
   }
   for (const required of [

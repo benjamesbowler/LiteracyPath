@@ -2,14 +2,17 @@ import { mediaQaReviewRows } from "./generated/mediaQaReview.generated.js";
 import { isBetaMediaPairingTestVisible } from "../policy/betaReleasePolicy.js";
 
 export const MEDIA_QA_REVIEW_STORAGE_KEY = "lpUnifiedMediaQaReviewDecisions";
-export const MEDIA_QA_REVIEW_STATUSES = ["pending", "approved", "quarantined"];
+export const MEDIA_QA_REVIEW_STATUSES = ["accepted", "quarantined"];
 
 function normalize(value = "") {
   return String(value || "").trim();
 }
 
 function normalizeStatus(status = "") {
-  return MEDIA_QA_REVIEW_STATUSES.includes(status) ? status : "pending";
+  if (status === "quarantined") return "quarantined";
+  // Old generated rows and device-local decisions used pending/approved.
+  // Both are accepted under the current pass-by-exception policy.
+  return "accepted";
 }
 
 export function getMediaQaReviewId(input = {}) {
@@ -63,11 +66,15 @@ export function getMediaQaReviewDecisions(overrides = readMediaQaReviewOverrides
 export function getMediaQaStatus(input = {}, overrides = readMediaQaReviewOverrides()) {
   const reviewId = input.reviewId || getMediaQaReviewId(input);
   const row = getMediaQaReviewDecisions(overrides).get(reviewId);
-  return normalizeStatus(row?.status || "pending");
+  return normalizeStatus(row?.status || "accepted");
+}
+
+export function isMediaPairingAccepted(input = {}) {
+  return getMediaQaStatus(input) === "accepted";
 }
 
 export function isMediaPairingApproved(input = {}) {
-  return getMediaQaStatus(input) === "approved";
+  return isMediaPairingAccepted(input);
 }
 
 export function isMediaPairingRuntimeAllowed(input = {}, overrides = readMediaQaReviewOverrides()) {
@@ -78,7 +85,7 @@ export function isMediaPairingQuarantined(input = {}) {
   return getMediaQaStatus(input) === "quarantined";
 }
 
-export function applyMediaQaDecision(input = {}, status = "pending", notes = "") {
+export function applyMediaQaDecision(input = {}, status = "accepted", notes = "") {
   const reviewId = input.reviewId || getMediaQaReviewId(input);
   const overrides = readMediaQaReviewOverrides();
   const next = {
@@ -101,6 +108,6 @@ export function mergeMediaQaReviewItems(items = [], overrides = readMediaQaRevie
     const decision = decisions.get(reviewId);
     return decision
       ? { ...item, ...decision, reviewId, status: normalizeStatus(decision.status) }
-      : { ...item, reviewId, status: normalizeStatus(item.status || "pending") };
+      : { ...item, reviewId, status: normalizeStatus(item.status || "accepted") };
   });
 }

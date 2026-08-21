@@ -39,7 +39,7 @@ WCAG 2.2 requires at least 4.5:1 contrast for ordinary text and 3:1 for large te
 
 ### 4. Images must do instructional work
 
-Representational images can support a task when they carry necessary meaning, while irrelevant decorative images can compete for attention. Research on test items found that the multimedia and coherence principles transfer to educational testing, and experimental work has found a small detrimental comprehension effect from irrelevant decorative pictures in some contexts. LiteracyPath therefore uses images to identify an object, action, sequence, relationship or context—not to fill empty space. [Lindner et al., *Learning and Instruction*](https://www.leibniz-ipn.de/en/research/publications/representational-and-decorative-pictures-in-science-and-mathematics-tests) and [González et al., *Australasian Journal of Educational Technology*](https://ajet.org.au/index.php/AJET/article/view/4577)
+Representational images can support a task when they carry necessary meaning, while irrelevant decorative images can compete for attention. Research on educational test items found that the multimedia and coherence principles transfer to testing, and experimental work has found a small detrimental comprehension effect from irrelevant decorative pictures in some contexts. LiteracyPath therefore uses images to identify an object, action, sequence, relationship or context—not to fill empty space. [González et al., *Australasian Journal of Educational Technology*](https://ajet.org.au/index.php/AJET/article/view/4577)
 
 ### 5. Closed questions still need measurement quality
 

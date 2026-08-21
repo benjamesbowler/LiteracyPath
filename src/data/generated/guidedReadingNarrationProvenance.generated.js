@@ -10,8 +10,8 @@ export const GUIDED_READING_NARRATION_PROVENANCE = Object.freeze({
   "liveBookCount": 206,
   "livePageCount": 1861,
   "narrationRebuildClearanceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "productionManifestPageCount": 1605,
-  "productionManifestSha256": "91efa52e53cd59849e1de2f8a314e11d0a55727f1505b05b3d471c816db0260c",
+  "productionManifestPageCount": 1603,
+  "productionManifestSha256": "8f073c32ac2c9d6c66639ac89501a3146858976e52f29711f94ee94fae3c08f1",
   "resolvedNormalizedCollisionCount": 0,
   "schemaVersion": 2,
   "voice": "en-US-Chirp3-HD-Leda"

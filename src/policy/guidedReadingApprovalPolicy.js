@@ -1,11 +1,11 @@
-/** Child publication is fail-closed: only an explicit approval is live. */
+/** Child publication is continuous-review: only an explicit quarantine is hidden. */
 export const GUIDED_READING_REVIEW_STATUSES = Object.freeze({
   APPROVED: "approved",
   PENDING: "pending",
   QUARANTINED: "quarantined"
 });
 
-export const GUIDED_READING_PUBLICATION_MODEL = "approved_only";
+export const GUIDED_READING_PUBLICATION_MODEL = "accepted_unless_quarantined";
 
 export function normalizeGuidedReadingReview(row = {}) {
   const status = String(row.status || "").toLowerCase();
@@ -43,12 +43,12 @@ export function quarantinedGuidedReadingBookIds(rows = []) {
     .map(review => review.bookId);
 }
 
-export function filterPublishedGuidedReadingBooks(books = [], approvedBookIds = []) {
-  const approved = approvedBookIds instanceof Set
-    ? approvedBookIds
-    : new Set(approvedBookIds || []);
-  if (!approved.size) return [];
-  return books.filter(book => approved.has(book?.id));
+export function filterPublishedGuidedReadingBooks(books = [], quarantinedBookIds) {
+  if (quarantinedBookIds === null || quarantinedBookIds === undefined) return [];
+  const quarantined = quarantinedBookIds instanceof Set
+    ? quarantinedBookIds
+    : new Set(quarantinedBookIds || []);
+  return books.filter(book => !quarantined.has(book?.id));
 }
 
 export function filterApprovedGuidedReadingBooks(books = [], approvedBookIds = []) {

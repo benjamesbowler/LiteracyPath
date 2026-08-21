@@ -570,7 +570,6 @@ export function gradeClusterForGrade(grade) {
 export const MLL_STANDARDS = Object.freeze([
   Object.freeze({ code: "SI", number: 1, label: "Social and Instructional Language", statement: "English language learners communicate for Social and Instructional purposes within the school setting" }),
   Object.freeze({ code: "LA", number: 2, label: "Language for Language Arts", statement: "English language learners communicate information, ideas, and concepts necessary for academic success in the content area of Language Arts" }),
-  Object.freeze({ code: "MA", number: 3, label: "Language for Mathematics", statement: "English language learners communicate information, ideas, and concepts necessary for academic success in the content area of Mathematics" }),
   Object.freeze({ code: "SC", number: 4, label: "Language for Science", statement: "English language learners communicate information, ideas, and concepts necessary for academic success in the content area of Science" }),
   Object.freeze({ code: "SS", number: 5, label: "Language for Social Studies", statement: "English language learners communicate information, ideas, and concepts necessary for academic success in the content area of Social Studies" })
 ]);

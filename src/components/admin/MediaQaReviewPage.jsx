@@ -10,9 +10,8 @@ import {
 import { summarizeMediaQaWorkload } from "../../utils/mediaQaWorkload.js";
 
 function statusLabel(status = "") {
-  if (status === "approved") return "Approved";
+  if (["accepted", "approved", "pending"].includes(status)) return "Accepted / ongoing review";
   if (status === "quarantined") return "Quarantined";
-  if (status === "pending") return "Pending";
   return String(status || "").replaceAll("_", " ");
 }
 
@@ -89,7 +88,7 @@ function buildAreaOptions(items = []) {
 export function MediaQaReviewPage({ onBack }) {
   const [overrides, setOverrides] = useState(() => readMediaQaReviewOverrides());
   const [areaFilter, setAreaFilter] = useState("all");
-  const [statusFilter, setStatusFilter] = useState("pending");
+  const [statusFilter, setStatusFilter] = useState("accepted");
   const [guidedBookFilter, setGuidedBookFilter] = useState("all");
   const [search, setSearch] = useState("");
   const rows = useMemo(() => mergeMediaQaReviewItems(mediaQaReviewItems, overrides), [overrides]);
@@ -140,7 +139,7 @@ export function MediaQaReviewPage({ onBack }) {
           <div>
             <h2>Media QA Review</h2>
             <p className="muted-text">
-              Pending media is visible for beta testing. Check each image against the exact question or page text; choose YES to retain a human approval or NO to remove it from runtime immediately.
+              Content is accepted while human checking continues. Keep accepted items available, or report a defect to quarantine it from runtime immediately.
             </p>
           </div>
           <div className="button-row admin-controls">
@@ -149,9 +148,9 @@ export function MediaQaReviewPage({ onBack }) {
           </div>
         </div>
         <div className="media-qa-rules">
-          <span>YES = exact pairing approved</span>
-          <span>NO = quarantined from runtime</span>
-          <span>Pending = beta-visible and still awaiting review</span>
+          <span>KEEP = accepted and available</span>
+          <span>REPORT ISSUE = quarantined from runtime</span>
+          <span>Human checking is continuous and pass-by-exception</span>
           <span>No image currently used is OK for HFW</span>
           <span>No file deletion</span>
         </div>
@@ -187,7 +186,7 @@ export function MediaQaReviewPage({ onBack }) {
           </label>
         </div>
         <div className="media-qa-status-tabs" role="tablist" aria-label="Media QA status filters">
-          {["pending", "approved", "quarantined", "all"].map(status => (
+          {["accepted", "quarantined", "all"].map(status => (
             <button
               className={statusFilter === status ? "active" : ""}
               key={status}
@@ -227,11 +226,11 @@ export function MediaQaReviewPage({ onBack }) {
               <small><strong>Image path:</strong> {row.imagePath || "none"}</small>
             </div>
             <div className="media-qa-card-actions">
-              <button disabled={!row.imagePath && row.area !== "assessment"} onClick={() => decide(row, "approved")} type="button">
-                YES
+              <button onClick={() => decide(row, "accepted")} type="button">
+                KEEP
               </button>
-              <button disabled={!row.imagePath} onClick={() => decide(row, "quarantined")} type="button">
-                NO
+              <button onClick={() => decide(row, "quarantined")} type="button">
+                REPORT ISSUE
               </button>
             </div>
           </article>

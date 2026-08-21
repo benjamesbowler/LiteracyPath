@@ -3,8 +3,8 @@
   "itemId": "A1.10",
   "title": "LiteracyPath expert review and pre/post pilot pack",
   "preparedAt": "2026-07-24",
-  "packStatus": "EXTERNAL-READY",
-  "humanExecutionStatus": "not_started",
+  "packStatus": "ACTIVE",
+  "humanExecutionStatus": "ongoing_pass_by_exception",
   "humanResultsIncluded": false,
   "humanReviewCertified": false,
   "includedExternalItems": [

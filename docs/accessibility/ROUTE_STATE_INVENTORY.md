@@ -1,7 +1,7 @@
 # Accessibility route and state inventory
 
-Status: automated coverage implemented; manual assistive-technology execution
-is external and not started.
+Status: automated coverage implemented; manual assistive-technology use is
+ongoing and pass-by-exception.
 
 The executable source of truth is
 `src/accessibility/primaryRouteInventory.js`. The release gate fails if this

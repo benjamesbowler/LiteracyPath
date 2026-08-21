@@ -148,7 +148,7 @@ export default defineConfig({
             id.includes('/node_modules/phaser/src/math/') ||
             id.includes('/node_modules/phaser/src/input/')
           ) {
-            return 'vendor-phaser-input-math'
+            return 'vendor-phaser-input-numeric'
           }
           if (id.includes('/node_modules/phaser/src/gameobjects/components/')) {
             return 'vendor-phaser-gameobject-components'

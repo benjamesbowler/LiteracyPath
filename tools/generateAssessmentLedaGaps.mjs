@@ -141,6 +141,6 @@ await fs.writeFile(generatedPath, generatedSource);
 await fs.mkdir(path.join(root, ".artifacts", "assessment-rebuild"), { recursive: true });
 await fs.writeFile(
   path.join(root, ".artifacts", "assessment-rebuild", "assessment-leda-gaps.json"),
-  `${JSON.stringify({ voice, status: "generated-awaiting-listening-review", generated }, null, 2)}\n`
+  `${JSON.stringify({ voice, status: "accepted-continuous-review", generated }, null, 2)}\n`
 );
 console.log(`Generated ${generated.length} assessment Leda clips and ${path.relative(root, generatedPath)}.`);

@@ -4,6 +4,7 @@ export const CONTENT_TABLES = new Set([
   "app_config",
   "entitlements",
   "guided_reading_book_reviews",
+  "guided_reading_quarantines",
   "worksheet_bank"
 ]);
 

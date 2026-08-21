@@ -57,11 +57,11 @@ function inspectManifest(failures) {
   if (manifest.seedDatasetVersion !== CALIBRATION_SEED_VERSION) {
     failures.push("Calibration manifest seedDatasetVersion is stale.");
   }
-  if (manifest.packStatus !== "EXTERNAL-READY") {
-    failures.push("Calibration packStatus must be EXTERNAL-READY.");
+  if (manifest.packStatus !== "ACTIVE") {
+    failures.push("Calibration packStatus must be ACTIVE.");
   }
-  if (manifest.humanExecutionStatus !== "not_started") {
-    failures.push("Calibration human execution must remain not_started without real evidence.");
+  if (manifest.humanExecutionStatus !== "ongoing_pass_by_exception") {
+    failures.push("Calibration human execution must remain ongoing_pass_by_exception.");
   }
   if (
     manifest.humanResultsIncluded !== false
@@ -181,8 +181,8 @@ if (result.failures.length) {
   console.error(result.failures.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log("Calibration external-readiness check passed.");
+  console.log("Calibration continuous-observation check passed.");
   console.log(`Seeded preview: ${result.summary.participants} participants, ${result.summary.itemEvents} events, ${result.summary.items} items.`);
   console.log(`Review queues: ${result.summary.reteachReviewCandidates} reteach, ${result.summary.differentialReviewCandidates} differential item.`);
-  console.log("Human execution: not started; seeded preview is not child evidence.");
+  console.log("Human execution: ongoing pass-by-exception; seeded preview is not child evidence.");
 }

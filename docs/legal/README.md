@@ -1,93 +1,79 @@
-# LiteracyPath legal and procurement pack
+# Literacy Guide UK legal and procurement pack
 
-> **Pack status:** EXTERNAL-READY DRAFT — QUALIFIED LEGAL REVIEW REQUIRED
-> **Pack version:** 2026-08-08
-> **Product scope:** the school-managed LiteracyPath web application, and the anonymous try-out that collects nothing
-> **Approval status:** not legally approved, not executed, and not a certification of compliance
+> **Operating version:** 21 August 2026
+> **Current service:** UK-first free beta
+> **Public terms:** `2026-08-21-uk-beta-v1`
+> **Public privacy notice:** `2026-08-21-uk-v1`
 
-This directory is the single review pack for counsel, school privacy teams,
-security reviewers, and accessibility reviewers. It describes the product as it
-exists in the repository and separates verified implementation facts from legal
-decisions that only the operator, a school, or qualified counsel can make.
+The in-force public pages for the current free beta are:
 
-## Pack contents
+- `/legal.html`
+- `/privacy.html`
+- `/terms.html`
+- `/cookies.html`
+- `/accessibility.html`
+- `/data-processing.html`
 
-| Document | Purpose | Status |
-|---|---|---|
-| `PRIVACY_POLICY.md` | Current public-policy source and data-practice summary | Existing draft; counsel review required |
-| `TERMS_OF_SERVICE_DRAFT.md` | School and teacher service terms | Draft for counsel |
-| `DATA_PROCESSING_ADDENDUM_DRAFT.md` | Controller/processor terms and processing schedule | Draft for counsel |
-| `SUBPROCESSORS.md` | Providers, purposes, data classes, locations, transfers, and change process | Deployment facts outstanding |
-| `SECURITY_SUMMARY.md` | Technical and organisational controls, limitations, and evidence | Implementation summary; not a certification |
-| `ACCESSIBILITY_STATEMENT_DRAFT.md` | Accessibility target, known limits, feedback, and review cadence | Draft; independent audit outstanding |
-| `INCIDENT_RESPONSE.md` | Operational detection, containment, notification, recovery, and review process | Operational draft; exercise required |
-| `SCHOOL_PARENT_CONSENT_MATERIALS.md` | School authorisation, direct notice, parent notice/consent, assent, and rights request templates | Draft for local adaptation |
-| `REGION_MATRIX.md` | COPPA, FERPA/PPRA, UK GDPR, EU GDPR, and deployment gates | Counsel decision matrix |
-| `LEGAL_DEPLOYMENT_FACTS.md` | Confirmed facts and unresolved launch decisions | Owner action register |
-| `COUNSEL_REVIEW_CHECKLIST.md` | Clause-by-clause external review and sign-off record | Unexecuted |
-| `LEADERBOARD_PRIVACY.md` | Child-facing leaderboard privacy design and evidence boundary | External privacy review outstanding |
+The remaining documents in this directory support school procurement, security,
+incident response, rights handling and a future written school agreement. Draft
+contract schedules do not become binding merely because they are in the
+repository or because an individual teacher accepts the site terms.
 
-## Product boundary used by this pack
+## Current operating position
 
-The deployed application is an early-literacy service for young learners, and it
-is reached by two routes that a reviewer must keep apart.
+Literacy Guide is operated by Benjamin Bowler, trading as Literacy Guide. The
+public service is a free beta and does not take payments or paid online orders.
+Its two routes are the school-authorised service and a collection-minimised
+anonymous try-out. There is no direct family account that retains child work.
 
-The **school-authorised service** is the product this pack mostly describes: an
-adult creates and manages learner access, progress is stored, and reports are
-produced. The **anonymous try-out** is open to anyone from the front page, uses
-a sample of the content, and is built to collect nothing — no account, nothing
-written to the device, nothing sent to the database. Because every regime in
-`REGION_MATRIX.md` is triggered by collecting or using personal information,
-almost none of them are reached on that route; that is a finding counsel should
-make explicitly rather than one to be inferred. Section H of
-`SCHOOL_PARENT_CONSENT_MATERIALS.md` states the design and the open questions.
+Human quality checking is continuous and pass-by-exception. Current content and
+media are treated as accepted unless a reviewer reports a defect. A reported
+defect is quarantined from learner use until corrected. This is a product release
+rule; it does not replace a school's safeguarding, procurement, lawful-basis,
+accessibility, DPIA or Article 28 decisions.
 
-A **direct family route**, in which an adult outside a school could keep a
-child's work, is planned and not built. Nothing in the deployed application
-implements it, and the privacy policy says so in terms.
+## UK role and data position
 
-Vercel serves the web application. Supabase provides authentication, database
-storage, database functions, and first-party operational error records. The
-deployed browser is not configured to send learner prompts, answers, or profiles
-to an AI model.
+For school-directed learner processing, the school normally determines the
+purpose and is controller; Literacy Guide normally acts as processor on its
+documented instructions. Actual conduct decides the role. Literacy Guide is a
+controller for its own account security, service protection, legal records and
+direct website request logs.
 
-Repository tools can call OpenAI, BytePlus, Wikimedia Commons, or dictionary
-services to create or import product media during authoring. Those tools are
-outside the hosted learner runtime and must never be given school or learner
-personal data. If any such tool is later exposed in production, the processing
-inventory, privacy policy, DPIA, DPA, and subprocessor list must be reviewed
-before release.
+The linked Supabase project is in Sydney, Australia. Vercel's published DPA says
+its primary processing facilities are in the United States. Before real learner
+data from a UK school is onboarded, the actual account contracts, provider chain,
+restricted-transfer safeguard and current ICO data-protection test must be
+recorded, and a written school data-processing agreement must be completed.
 
-Printable and exported documents previously requested Google Fonts when opened
-in a connected browser, which disclosed ordinary network metadata such as an IP
-address and user agent to Google. The fonts are now self-hosted from the
-application's own origin and the content security policy no longer permits the
-request, so this is recorded in `SUBPROCESSORS.md` as resolved with the
-verification method rather than as an open decision.
+## Release and commercial boundaries
 
-## Review and release rule
+The free beta pages are published and usable now. Human checking continues; the
+release is not placed in an approval queue merely because a reviewer has not
+looked at a particular item again.
 
-Automated verification proves that the complete pack is present, consistently
-marked as draft, and covers the required subjects. It does not decide governing
-law, establish a lawful basis, execute a DPA, approve international transfers,
-replace a DPIA, or certify COPPA, FERPA, GDPR, accessibility, or security
-compliance.
+Before a paid service or real UK school learner-data onboarding, the owner must:
 
-Before a paid, public, or school-scale launch, the owner must:
+1. confirm the contracting legal form and geographic/business service address;
+2. complete the ICO data-protection fee self-assessment and record any
+   registration or exemption;
+3. verify the applicable Supabase and Vercel account terms, DPA coverage,
+   subprocessors, logs, regions and transfer mechanism;
+4. complete the UK restricted-transfer data-protection test;
+5. execute an Article 28 agreement with the school;
+6. record the school's Article 6 basis, any Article 9/DPA 2018 condition,
+   retention, DPIA and Children's Code assessment; and
+7. add paid-order, price, tax, cancellation/refund and commercial liability
+   information before taking money.
 
-1. resolve every owner-required fact in `LEGAL_DEPLOYMENT_FACTS.md`;
-2. obtain qualified legal review for each target region;
-3. execute the approved commercial terms and DPA with each school or authority;
-4. verify provider contracts, regions, transfer mechanisms, and retention;
-5. publish only counsel-approved public text;
-6. complete the independent accessibility and live security reviews; and
-7. record dated approval evidence in `COUNSEL_REVIEW_CHECKLIST.md` and
-   the current release issue.
+Qualified UK legal review remains prudent, especially before contracting or a
+material processing change, but it is professional risk control rather than a
+fictional product-content approval state.
 
 ## Maintenance
 
-Review the pack at least annually and before any material change to data
-categories, purposes, child access, analytics, advertising, AI processing,
-providers, hosting regions, international transfers, retention, or rights
-handling. Product, security, and legal owners must all approve a material
-change before the public documents are updated.
+Review this pack before any material change to personal-data categories,
+purposes, child access, providers, AI use, analytics, advertising, payments,
+locations, retention, rights handling or safeguarding. The automated legal gate
+checks page presence, version sync, UK subjects, the free-beta boundary and the
+absence of false compliance or waiting-for-approval claims.

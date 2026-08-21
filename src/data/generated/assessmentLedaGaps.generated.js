@@ -278,5 +278,9 @@ export const ASSESSMENT_LEDA_GAP_AUDIO_BY_ROLE = Object.freeze({
     "why would auntie meg receive the award": "/audio/production/en-US/assessment_prompt/why-would-auntie-meg-receive-the-award-82847aa26f.mp3",
     "zara carries her friend's heavy bag. which word describes zara": "/audio/production/en-US/assessment_prompt/zara-carries-her-friend-s-heavy-bag-which-word-describes-zara-11f1d16abf.mp3",
     "what is the exact antonym for 'freezing'": "/audio/production/en-US/assessment_prompt/what-is-the-exact-antonym-for-freezing-daeec9cc50.mp3"
+  },
+  "assessment_passage": {
+    "the classroom clock stopped during reading. ella noticed that both hands stayed on twelve. mr. reed changed the battery after lunch. the clock began ticking again before home time": "/audio/production/en-US/assessment_passage/the-classroom-clock-stopped-during-reading-ella-noticed-that-both-hands-st-121f8bb5fe.mp3",
+    "the sponsored silence raised money for the library, and chatterbox vin was everyone's favourite joke entry. he lasted the whole day - but the surprise was what he heard in his own silence: priw's chair squeaking for a cushion, quiet lom's brilliant mutterings over a story, the lonely hum of the boy by the window. vin never became a quiet boy. but he became a boy who sometimes chose to listen, and three people's days got better when he did": "/audio/production/en-US/assessment_passage/the-sponsored-silence-raised-money-for-the-library-and-chatterbox-vin-was--214c13f421.mp3"
   }
 });

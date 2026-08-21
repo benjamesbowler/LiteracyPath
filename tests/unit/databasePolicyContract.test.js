@@ -34,20 +34,19 @@ function validCatalog() {
   exposed.push(row("create_pending_teacher_account_for_new_user()"));
   exposed.push(row("capture_teacher_intervention_event()"));
   exposed.push(row("reject_teacher_account_decision_event_mutation()"));
-  exposed.push(row("teacher_record_maths_evidence_unrestricted_v1(uuid, uuid, text, text, text, jsonb, timestamp with time zone, text)"));
   return exposed;
 }
 
 test("security boundary grants only the explicit RPC surface and guards every teacher RPC", () => {
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 22);
-  assert.equal(report.authenticatedRpcCount, 102);
+  assert.equal(report.anonymousRpcCount, 17);
+  assert.equal(report.authenticatedRpcCount, 84);
   // 9, not 8: list_school_names() joined the legacy list on 2026-08-07 when it
   // was replaced by search_school_names(text). The old no-argument form returned
   // every school name to anon in one unbounded call.
   assert.equal(report.legacyRpcCount, 9);
-  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 66);
+  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 53);
 });
 
 test("database lint repairs preserve the final boundary and honest volatility", () => {
@@ -58,19 +57,9 @@ test("database lint repairs preserve the final boundary and honest volatility", 
     ),
     "utf8"
   );
-  const mathsV4 = fs.readFileSync(
-    new URL(
-      "../../supabase/migrations/20260814170000_maths_assessment_interaction_integrity_v4.sql",
-      import.meta.url
-    ),
-    "utf8"
-  );
-
   assert.match(migration, /alter function public\.teacher_class_access_summary\(uuid\) volatile/i);
-  assert.match(migration, /alter function public\.maths_validate_student_evidence_v4\(text, text, jsonb\) stable/i);
   assert.doesNotMatch(migration, /\bv_i\s+(?:int|integer)\b/i);
   assert.doesNotMatch(migration, /\bv_index\s+(?:int|integer)\b/i);
-  assert.match(mathsV4, /returns jsonb[\s\S]*language plpgsql stable/i);
 });
 
 test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
@@ -78,33 +67,6 @@ test("every authenticated-only RPC has a safe anonymous-denial probe", () => {
     Object.keys(AUTH_ONLY_PROBE_ARGS).sort(),
     [...AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS].sort()
   );
-  assert.deepEqual(
-    AUTH_ONLY_PROBE_ARGS["teacher_list_maths_media_issues(uuid, boolean)"],
-    {
-      p_class_id: "30000000-0000-4000-8000-000000000001",
-      p_include_reviewed: false
-    }
-  );
-});
-
-test("live Maths policy probe uses the released server-validated evidence contract", () => {
-  const probe = fs.readFileSync(
-    new URL("../../tools/verifyDatabasePoliciesLive.mjs", import.meta.url),
-    "utf8"
-  );
-  const validator = fs.readFileSync(
-    new URL(
-      "../../supabase/migrations/20260812120000_maths_release_integrity.sql",
-      import.meta.url
-    ),
-    "utf8"
-  );
-
-  assert.match(validator, /p_content_version <> 'maths-foundation-number-v1'/i);
-  assert.match(probe, /p_content_version: "maths-foundation-number-v1"/);
-  assert.match(probe, /source: "lesson_player"/);
-  assert.match(probe, /outcome: "completed_formative_check"/);
-  assert.doesNotMatch(probe, /p_content_version: "maths-foundation-v1"/);
 });
 
 test("security boundary rejects a teacher RPC missing from the account-status inventory", () => {
@@ -128,9 +90,9 @@ test("security boundary rejects a teacher RPC missing from the account-status in
 test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 22);
-  assert.equal(report.authenticatedRpcCount, 102);
-  assert.equal(report.privateHelperCount, 5);
+  assert.equal(report.anonymousRpcCount, 17);
+  assert.equal(report.authenticatedRpcCount, 84);
+  assert.equal(report.privateHelperCount, 4);
 });
 
 test("the signed-out school lookup cannot export the whole directory", () => {
@@ -270,6 +232,7 @@ test("teacher signup creates its bounded school inside the auth trigger", () => 
   assert.match(migration, /revoke insert, update, delete on public\.schools from authenticated/);
   assert.match(migration, /invalid_teacher_signup_metadata/);
   assert.match(app, /school_name: schoolName/);
+  assert.match(app, /legal_terms_accepted: true/);
   assert.doesNotMatch(
     app.slice(app.indexOf("async function signUpTeacher"), app.indexOf("async function logInTeacher")),
     /rpc\("find_or_create_school"/

@@ -84,6 +84,13 @@ test("signup asks only for teacher-facing identity and clearly labels email", ()
   assert.doesNotMatch(html, />Username</);
   assert.match(controllerSource, /createInternalTeacherUsername\(email\)/);
   assert.match(controllerSource, /username_unavailable[\s\S]*createInternalTeacherUsername\(email\)/);
+  assert.match(html, /I am authorised to request access for my school/);
+  assert.match(html, /href="\/terms\.html"/);
+  assert.match(html, /href="\/privacy\.html"/);
+  assert.match(html, /type="checkbox"/);
+  assert.match(controllerSource, /legal_terms_accepted: true/);
+  assert.match(controllerSource, /legal_terms_version: legalAcceptance\.termsVersion/);
+  assert.match(controllerSource, /privacy_notice_version: legalAcceptance\.privacyVersion/);
 });
 
 test("signup creates a valid unique internal handle without teacher input", () => {

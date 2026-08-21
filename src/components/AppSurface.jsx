@@ -67,8 +67,8 @@ import { useLiveLessonFollower } from "../hooks/useLiveLessonFollower.js";
 import { endReadingSession } from "../data/readingSessionCore.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import {
-  approvedGuidedReadingBookIds,
-  filterPublishedGuidedReadingBooks
+  filterPublishedGuidedReadingBooks,
+  quarantinedGuidedReadingBookIds
 } from "../policy/guidedReadingApprovalPolicy.js";
 
 function lazyAppPage(exportName) {
@@ -209,7 +209,8 @@ export function AppSurface({ surface }) {
     setGuidedReadingReviewState({ error: null, rows: [], status: "loading" });
     const { loadGuidedReadingBookReviews } = await import("../data/guidedReadingPublication.js");
     const result = await loadGuidedReadingBookReviews({
-      client: isSupabaseConfigured ? supabase : null
+      client: isSupabaseConfigured ? supabase : null,
+      includeAll: isAdmin
     });
     setGuidedReadingReviewState({
       error: result.error || null,
@@ -217,7 +218,7 @@ export function AppSurface({ surface }) {
       status: result.status
     });
     return result;
-  }, []);
+  }, [isAdmin]);
 
   useEffect(() => {
     // THE TRY-OUT HAS NO NETWORK, SO IT MUST NOT ASK.
@@ -230,8 +231,8 @@ export function AppSurface({ surface }) {
     //
     // Skipping the read is not a workaround for the refusal, it is the correct
     // behaviour. The anonymous try-out stores and sends nothing, so it cannot
-    // fetch publication approvals. Fail closed and tell the shelf the approval
-    // service is unavailable rather than publishing unchecked books.
+    // fetch the quarantine blocklist. Try mode uses its static, entitled sample
+    // and has no saved child data.
     if (trySession) return undefined;
     // AND NOBODY WITH NO SESSION ASKS EITHER.
     //
@@ -253,11 +254,16 @@ export function AppSurface({ surface }) {
     return () => window.clearTimeout(timer);
   }, [authReady, isAdmin, refreshGuidedReadingReviews, sessionMode, studentSession?.token, teacherId, trySession]);
 
-  // One explicit approval is required before a book reaches any child-facing
-  // entry path or the teacher's synchronized-reading picker.
-  const approvedReadingBookIds = useMemo(
-    () => approvedGuidedReadingBookIds(trySession ? [] : guidedReadingReviewState.rows),
-    [guidedReadingReviewState.rows, trySession]
+  // Missing review rows are accepted. A recorded quarantine removes the book.
+  // A real service error still fails closed because the app cannot know which
+  // previously reported defects must remain contained.
+  const quarantinedReadingBookIds = useMemo(
+    () => trySession
+      ? []
+      : guidedReadingReviewState.status === "ready"
+        ? quarantinedGuidedReadingBookIds(guidedReadingReviewState.rows)
+        : null,
+    [guidedReadingReviewState.rows, guidedReadingReviewState.status, trySession]
   );
   const guidedReadingPublicationStatus = trySession
     ? "unavailable"
@@ -304,12 +310,12 @@ export function AppSurface({ surface }) {
       if (active) {
         setReadingFollowerBooks(filterPublishedGuidedReadingBooks(
           module.getRuntimeGuidedReadingBooks(),
-          approvedReadingBookIds
+          quarantinedReadingBookIds
         ));
       }
     });
     return () => { active = false; };
-  }, [approvedReadingBookIds, sessionMode, studentSession?.token]);
+  }, [quarantinedReadingBookIds, sessionMode, studentSession?.token]);
 
   const handleReadingSessionEnded = useCallback(() => {
     setActiveReadingSession(null);
@@ -1305,7 +1311,7 @@ export function AppSurface({ surface }) {
           <StudentHomePage
             studentName={studentName}
             progressScopeKey={childProgressScopeKey}
-            approvedBookIds={approvedReadingBookIds}
+            quarantinedBookIds={quarantinedReadingBookIds}
             taughtTargetKeys={Object.entries(mastery).filter(([,record])=>Number(record?.attempts||0)>0).map(([skillId])=>skillId)}
             onOpenPhonicsLearn={() => {
               setStudentArcadeOpen(false);
@@ -1764,7 +1770,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
             <StudentBooksPage
-              approvedBookIds={approvedReadingBookIds}
+              quarantinedBookIds={quarantinedReadingBookIds}
               allowedBookIds={sampleBookIdSet}
               sampleLimitCopy={trySession ? SAMPLE_LIMIT_COPY : null}
               studentName={studentName}
@@ -2177,7 +2183,7 @@ export function AppSurface({ surface }) {
       /></Suspense>}
 
       {readingSetupOpen && <Suspense fallback={null}><ReadingSessionSetup
-        approvedBookIds={approvedReadingBookIds}
+        quarantinedBookIds={quarantinedReadingBookIds}
         classId={selectedClassId}
         client={isSupabaseConfigured ? supabase : null}
         onClose={() => setReadingSetupOpen(false)}

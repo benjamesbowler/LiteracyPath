@@ -36,11 +36,11 @@ export function inspectResearchPilotPack() {
 
   if (manifest.schemaVersion !== 1) failures.push("manifest schemaVersion must be 1");
   if (manifest.itemId !== "A1.10") failures.push("manifest itemId must be A1.10");
-  if (manifest.packStatus !== "EXTERNAL-READY") {
-    failures.push("manifest packStatus must be EXTERNAL-READY");
+  if (manifest.packStatus !== "ACTIVE") {
+    failures.push("manifest packStatus must be ACTIVE");
   }
-  if (manifest.humanExecutionStatus !== "not_started") {
-    failures.push("human execution must remain not_started until real work is supplied");
+  if (manifest.humanExecutionStatus !== "ongoing_pass_by_exception") {
+    failures.push("human execution must remain ongoing_pass_by_exception");
   }
   if (manifest.humanResultsIncluded !== false || manifest.humanReviewCertified !== false) {
     failures.push("manifest must not claim human results or certification");
@@ -167,15 +167,15 @@ export function inspectResearchPilotPack() {
   }
 
   const traceability = fs.existsSync(traceabilityPath) ? read(traceabilityPath) : "";
-  if (!/\| A1\.10 \| 1 \| P1 EXTERNAL \| EXTERNAL-READY \|/.test(traceability)) {
-    failures.push("TRACEABILITY.md must list A1.10 as EXTERNAL-READY");
+  if (!/\| A1\.10 \| 1 \| P1 EXTERNAL \| ACTIVE \|/.test(traceability)) {
+    failures.push("TRACEABILITY.md must list A1.10 as ACTIVE");
   }
   const external = fs.existsSync(externalPath) ? read(externalPath) : "";
-  if (!/\| A1\.10 \|[^|]+\| EXTERNAL-READY \|/.test(external)) {
-    failures.push("EXTERNAL.md must list A1.10 as EXTERNAL-READY");
+  if (!/\| A1\.10 \|[^|]+\| ACTIVE \|/.test(external)) {
+    failures.push("EXTERNAL.md must list A1.10 as ACTIVE");
   }
-  if (!/human execution not started/i.test(external)) {
-    failures.push("EXTERNAL.md must state that A1.10 human execution has not started");
+  if (!/ongoing pass-by-exception/i.test(external)) {
+    failures.push("EXTERNAL.md must state that A1.10 human execution is ongoing pass-by-exception");
   }
 
   return {
@@ -194,5 +194,5 @@ if (result.failures.length) {
 } else {
   console.log(`Research pilot pack passed: ${result.fileCount} complete artifacts`);
   console.log(`Required outcomes covered: ${result.metrics.join(", ")}`);
-  console.log("Pack status: EXTERNAL-READY; human execution not started");
+  console.log("Pack status: ACTIVE; human execution is ongoing pass-by-exception");
 }

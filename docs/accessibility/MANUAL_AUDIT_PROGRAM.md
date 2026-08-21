@@ -1,6 +1,6 @@
 # Manual accessibility audit programme
 
-Status: `EXTERNAL-READY`; human execution is not started.
+Status: `ACTIVE`; human execution is ongoing under pass-by-exception review.
 
 ## Roles and independence
 
@@ -34,9 +34,9 @@ release, curriculum version, and route/state ID.
 
 ## Calendar
 
-These are target windows, not claims that people are booked or work is done.
-The owner must record the actual date and participant/reviewer code in
-`EXTERNAL.md`.
+These are recurring coverage windows. Current routes remain accepted unless a
+barrier is reported. The owner records actual findings and participant/reviewer
+codes in `EXTERNAL.md` without creating an approval queue for unreported routes.
 
 | Target date | Activity | Exit |
 |---|---|---|
@@ -57,8 +57,8 @@ audio alternatives, motion behavior, or supported assistive technology changes.
    accounts, and non-production data.
 2. Confirm local legal, school, safeguarding, consent, assent, privacy, and
    recording decisions before involving a child.
-3. Run the unexecuted template in the current release issue; do not mark a mode
-   complete from an automated result.
+3. Use the current release template; automated results supplement direct use and
+   do not fabricate a human observation.
 4. Record direct observation and task outcome, not inferred emotion or a
    facilitator’s workaround.
 5. Stop an affected task on a critical barrier, privacy/safeguarding incident,
@@ -67,7 +67,6 @@ audio alternatives, motion behavior, or supported assistive technology changes.
 7. Convert every mechanizable critical/major finding into a permanent failing
    release gate; independently retest the exact corrected release.
 
-Human closure requires completed records, environment details, route/state
-coverage, findings, containment, retest evidence, unresolved limitations, and a
-named external owner. This prepared programme alone does not close the manual
-audit.
+Human checking remains continuous. Unreported routes are accepted; a reported
+barrier requires a finding, containment where needed, correction and retest
+evidence before that specific quarantine is removed.

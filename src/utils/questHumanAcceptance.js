@@ -175,9 +175,9 @@ export function evaluateQuestHumanAcceptance(records = []) {
       aggregateCheck("sample-size", first.length >= 8, `${first.length}/8 sessions`),
       aggregateCheck("distinct-participants", new Set(first.map(record => record.participant.anonymousId)).size >= 8, `${new Set(first.map(record => record.participant.anonymousId)).size}/8 children`),
       aggregateCheck("independent-comprehension", ratio(firstIndependent, firstTasks) >= 0.85, `${Math.round(ratio(firstIndependent, firstTasks) * 100)}%`),
-      aggregateCheck("adult-prompts", first.length > 0 && average(first.map(record => record.measures.adultPrompts)) <= 2, first.length ? `${average(first.map(record => record.measures.adultPrompts)).toFixed(1)} average` : "awaiting evidence"),
-      aggregateCheck("blocked-sessions", first.length > 0 && first.filter(record => record.measures.blocked === true).length <= 1, first.length ? `${first.filter(record => record.measures.blocked === true).length} blocked` : "awaiting evidence"),
-      aggregateCheck("frustration", first.length > 0 && first.reduce((total, record) => total + finite(record.measures.severeFrustrationIncidents), 0) === 0, first.length ? "no severe incidents" : "awaiting evidence"),
+      aggregateCheck("adult-prompts", first.length > 0 && average(first.map(record => record.measures.adultPrompts)) <= 2, first.length ? `${average(first.map(record => record.measures.adultPrompts)).toFixed(1)} average` : "no observation recorded"),
+      aggregateCheck("blocked-sessions", first.length > 0 && first.filter(record => record.measures.blocked === true).length <= 1, first.length ? `${first.filter(record => record.measures.blocked === true).length} blocked` : "no observation recorded"),
+      aggregateCheck("frustration", first.length > 0 && first.reduce((total, record) => total + finite(record.measures.severeFrustrationIncidents), 0) === 0, first.length ? "no severe incidents" : "no observation recorded"),
       aggregateCheck("enjoyment", average(first.map(record => record.measures.enjoymentRating)) >= 3.5, `${average(first.map(record => record.measures.enjoymentRating)).toFixed(1)}/5`)
     ],
     "child-repeat-play": [
@@ -185,7 +185,7 @@ export function evaluateQuestHumanAcceptance(records = []) {
       aggregateCheck("distinct-participants", new Set(repeat.map(record => record.participant.anonymousId)).size >= 6, `${new Set(repeat.map(record => record.participant.anonymousId)).size}/6 children`),
       aggregateCheck("independent-comprehension", ratio(repeatIndependent, repeatTasks) >= 0.9, `${Math.round(ratio(repeatIndependent, repeatTasks) * 100)}%`),
       aggregateCheck("voluntary-replay", ratio(repeat.filter(record => record.measures.voluntaryReplay === true).length, repeat.length) >= 0.8, `${repeat.filter(record => record.measures.voluntaryReplay === true).length}/${repeat.length}`),
-      aggregateCheck("boredom", repeat.length > 0 && average(repeat.map(record => record.measures.boredomIncidents)) <= 1, repeat.length ? `${average(repeat.map(record => record.measures.boredomIncidents)).toFixed(1)} average` : "awaiting evidence"),
+      aggregateCheck("boredom", repeat.length > 0 && average(repeat.map(record => record.measures.boredomIncidents)) <= 1, repeat.length ? `${average(repeat.map(record => record.measures.boredomIncidents)).toFixed(1)} average` : "no observation recorded"),
       aggregateCheck("enjoyment", average(repeat.map(record => record.measures.enjoymentRating)) >= 3.5, `${average(repeat.map(record => record.measures.enjoymentRating)).toFixed(1)}/5`)
     ],
     "reward-choice": [
@@ -207,8 +207,8 @@ export function evaluateQuestHumanAcceptance(records = []) {
       aggregateCheck("sample-size", audio.length >= 3, `${audio.length}/3 rooms`),
       aggregateCheck("distinct-rooms", new Set(audio.map(record => record.measures.roomProfile)).size >= 3, `${new Set(audio.map(record => record.measures.roomProfile)).size}/3 profiles`),
       aggregateCheck("intelligibility", ratio(promptsUnderstood, promptsPlayed) >= 0.95, `${Math.round(ratio(promptsUnderstood, promptsPlayed) * 100)}%`),
-      aggregateCheck("masking", audio.length > 0 && audio.reduce((total, record) => total + finite(record.measures.maskingIncidents), 0) === 0, audio.length ? `${audio.reduce((total, record) => total + finite(record.measures.maskingIncidents), 0)} incidents` : "awaiting evidence"),
-      aggregateCheck("comfort", audio.length > 0 && audio.reduce((total, record) => total + finite(record.measures.discomfortIncidents), 0) === 0, audio.length ? `${audio.reduce((total, record) => total + finite(record.measures.discomfortIncidents), 0)} incidents` : "awaiting evidence")
+      aggregateCheck("masking", audio.length > 0 && audio.reduce((total, record) => total + finite(record.measures.maskingIncidents), 0) === 0, audio.length ? `${audio.reduce((total, record) => total + finite(record.measures.maskingIncidents), 0)} incidents` : "no observation recorded"),
+      aggregateCheck("comfort", audio.length > 0 && audio.reduce((total, record) => total + finite(record.measures.discomfortIncidents), 0) === 0, audio.length ? `${audio.reduce((total, record) => total + finite(record.measures.discomfortIncidents), 0)} incidents` : "no observation recorded")
     ]
   };
   const categoryStatus = Object.fromEntries(Object.entries(categories).map(([profile, checks]) => [profile, checks.every(check => check.pass) ? "pass" : "incomplete"]));

@@ -56,6 +56,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
     "dependency-audit",
     "repo-hygiene",
     "audit-read-only",
+    "literacy-only-domain",
     "database-bootstrap-schema",
     "retention-policy",
     "audit-school-seed",
@@ -72,10 +73,10 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
   }
 });
 
-test("the beta release gate exposes pending media without claiming human review", () => {
+test("the release gate applies continuous pass-by-exception media review", () => {
   const mediaGate = RELEASE_GATES.find(gate => gate.id === "media-review-release");
   assert.deepEqual(mediaGate?.command, ["npm", "run", "check:media-review-beta"]);
-  assert.match(mediaGate?.label || "", /Beta media is test-visible/);
+  assert.match(mediaGate?.label || "", /accepted under continuous review/);
 });
 
 test("the permanent integrity gate runs the one current v3 assessment gate", () => {

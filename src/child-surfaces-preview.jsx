@@ -99,7 +99,7 @@ function ReadingLibrarySurface() {
       studentName="Aaron"
       progressScopeKey={PREVIEW_SCOPE}
       studentId={PREVIEW_SCOPE}
-      approvedBookIds={GUIDED_READING_BOOK_INDEX.map(book => book.id)}
+      quarantinedBookIds={[]}
       publicationStatus="ready"
       guidedReadingRecords={records}
       renderReader={({ bookId, onExit }) => (

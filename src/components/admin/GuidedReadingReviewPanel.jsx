@@ -5,14 +5,13 @@ import { getRuntimeGuidedReadingBooks } from "../../utils/guidedReading/runtimeB
 import { GuidedReadingPage } from "../guided-reading/GuidedReadingPage.jsx";
 
 const FILTERS = Object.freeze([
-  { id: "pending", label: "Awaiting review" },
+  { id: "accepted", label: "Accepted" },
   { id: "quarantined", label: "Quarantine" },
-  { id: "approved", label: "Live" },
   { id: "all", label: "All books" }
 ]);
 
 function reviewStatusFor(bookId, reviewByBookId) {
-  return reviewByBookId[bookId]?.status || "pending";
+  return reviewByBookId[bookId]?.status === "quarantined" ? "quarantined" : "accepted";
 }
 
 export function GuidedReadingReviewPanel({
@@ -24,7 +23,7 @@ export function GuidedReadingReviewPanel({
 }) {
   const books = useMemo(() => getRuntimeGuidedReadingBooks(), []);
   const reviewByBookId = useMemo(() => guidedReadingReviewMap(reviews), [reviews]);
-  const [filter, setFilter] = useState("pending");
+  const [filter, setFilter] = useState("accepted");
   const [selectedBookId, setSelectedBookId] = useState("");
 
   const counts = useMemo(() => books.reduce((result, book) => {
@@ -32,7 +31,7 @@ export function GuidedReadingReviewPanel({
     result[status] += 1;
     result.all += 1;
     return result;
-  }, { pending: 0, quarantined: 0, approved: 0, all: 0 }), [books, reviewByBookId]);
+  }, { accepted: 0, quarantined: 0, all: 0 }), [books, reviewByBookId]);
 
   const filteredBooks = useMemo(() => books.filter(book => (
     filter === "all" || reviewStatusFor(book.id, reviewByBookId) === filter
@@ -46,7 +45,7 @@ export function GuidedReadingReviewPanel({
           <p className="panel-label">Child publication</p>
           <h3>Guided Reading review</h3>
           <p className="muted-text">
-            A book reaches children only after it is passed here. Failing it keeps it quarantined until it is fixed and passed again.
+            Books are accepted during continuous review. Report a defect to quarantine one immediately; keep it accepted after the repair is verified.
           </p>
         </div>
         <button className="lp-button lp-button-secondary" disabled={reviewStatus === "loading"} onClick={onRefresh} type="button">
@@ -56,7 +55,7 @@ export function GuidedReadingReviewPanel({
 
       {reviewError && (
         <div className="admin-section-warning" role="alert">
-          Reviews could not be loaded. Child libraries fail closed, so unchecked books remain hidden until the approval list loads again.
+          The quarantine list could not be loaded. Child libraries are temporarily contained until reported defects can be checked safely.
         </div>
       )}
 
@@ -84,7 +83,7 @@ export function GuidedReadingReviewPanel({
             <p className="admin-guided-review-empty">No books in this queue.</p>
           ) : filteredBooks.map(book => {
             const review = reviewByBookId[book.id];
-            const status = review?.status || "pending";
+            const status = review?.status === "quarantined" ? "quarantined" : "accepted";
             return (
               <button
                 className="admin-guided-review-book"
@@ -98,7 +97,7 @@ export function GuidedReadingReviewPanel({
                   <small>Level {book.level} · {book.pages.length} pages</small>
                   <strong>{book.title}</strong>
                   <em>
-                    {status === "approved" ? "Live for children" : status === "quarantined" ? "Quarantined" : "Awaiting review"}
+                    {status === "quarantined" ? "Quarantined" : "Accepted under continuous review"}
                   </em>
                   {status === "quarantined" && review.reviewNote && <b>{review.reviewNote}</b>}
                 </span>

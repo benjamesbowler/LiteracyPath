@@ -164,7 +164,7 @@ Outputs:
 
 A1.10 may become `EXTERNAL-CLOSED` only when the human closure package listed in
 `README.md` is committed or linked from the current release issue. A prepared
-pack remains `EXTERNAL-READY`, even when all automated pack gates pass.
+pack remains `ACTIVE`, even when all automated pack gates pass.
 
 ## 11. Recurrence
 

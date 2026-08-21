@@ -9,7 +9,7 @@ and disconnected tools have been removed.
 
 ## Literacy-only release update — 16 August 2026
 
-The running product is now literacy-only. The former Maths learner and teacher routes,
+The running product is now literacy-only. The former non-literacy learner and teacher routes,
 navigation, application modules, previews, styles, tests, generation tools, release
 checks, documentation, music, narration and story artwork have been removed. Historical
 Supabase migrations remain as immutable database rebuild history, and the live database

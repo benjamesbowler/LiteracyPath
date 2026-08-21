@@ -1175,8 +1175,8 @@ export function GuidedReadingPage({
         return;
       }
       setReviewMessage(status === "approved"
-        ? "Passed and activated in every child's reading library."
-        : "Failed and moved to quarantine.");
+        ? "Kept accepted in every child's reading library."
+        : "Defect reported and the book moved to quarantine.");
       if (status === "approved") setReviewNoteDraft("");
     } catch (error) {
       console.error("Guided Reading review failed.", error);
@@ -2325,10 +2325,10 @@ export function GuidedReadingPage({
                       data-review-status={selectedReview.status}
                     >
                       {selectedReview.status === "approved"
-                        ? "Live for children"
+                        ? "Accepted under continuous review"
                         : selectedReview.status === "quarantined"
                           ? "Quarantined"
-                          : "Awaiting review"}
+                          : "Accepted under continuous review"}
                     </span>
                   )}
                   {isStudentMode && (
@@ -2726,7 +2726,7 @@ export function GuidedReadingPage({
                   </p>
                 )}
                 <label>
-                  What needs fixing if this book fails?
+                  What needs fixing if you report a defect?
                   <textarea
                     disabled={reviewBusy}
                     onChange={event => setReviewNoteDraft(event.target.value)}
@@ -2743,7 +2743,7 @@ export function GuidedReadingPage({
                     onClick={() => submitPublicationReview("approved")}
                     type="button"
                   >
-                    {reviewBusy ? "Saving…" : "Pass and publish"}
+                    {reviewBusy ? "Saving…" : "Keep accepted"}
                   </button>
                   <button
                     className="lp-button lp-button-danger"
@@ -2751,7 +2751,7 @@ export function GuidedReadingPage({
                     onClick={() => submitPublicationReview("quarantined")}
                     type="button"
                   >
-                    {reviewBusy ? "Saving…" : "Fail to quarantine"}
+                    {reviewBusy ? "Saving…" : "Report defect"}
                   </button>
                 </div>
               </section>

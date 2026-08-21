@@ -571,21 +571,15 @@ def answer_profile(data: dict) -> tuple:
     """Grade-banded writing-space defaults:
     (height pt, ruled line gap pt, table-row pt, ruled by default).
 
-    Math work space is open by default; a block's explicit `ruled: true`
-    still gets the band's gap, so a grade-1 sentence answer gets K-2 pitch."""
+    A block's explicit `ruled: true` gets the band's gap, so a grade-1
+    sentence answer gets K-2 pitch."""
     n = grade_number(data)
     if n is None:
         return 120.0, 22.0, 96.0, False
-    shared = data.get("shared")
-    shared = shared if isinstance(shared, dict) else {}
-    # smps (Standards for Mathematical Practice) is the most reliable math signal — it is
-    # math-only and the math reference mandates it, whereas shared.subject is often omitted.
-    is_math = bool(shared.get("smps")) or "math" in " ".join(str(x or "") for x in (
-        shared.get("subject"), data.get("eyebrow"), data.get("title"))).lower()
     if n <= 2:
-        return 200.0, 40.0, 160.0, not is_math
+        return 200.0, 40.0, 160.0, True
     if n <= 5:
-        return 150.0, 28.0, 126.0, not is_math
+        return 150.0, 28.0, 126.0, True
     if n <= 8:
         return 130.0, 24.0, 108.0, False
     return 116.0, 22.0, 96.0, False
@@ -741,9 +735,6 @@ def preamble_blocks(data: dict) -> list[dict]:
     if data.get("prerequisite_standard"):
         blocks.append({"type": "labeled", "label": "Builds on",
                        "text": data["prerequisite_standard"]})
-    if data.get("smps"):
-        blocks.append({"type": "labeled", "label": "Mathematical practices",
-                       "text": "; ".join(data["smps"])})
     return blocks
 
 

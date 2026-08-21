@@ -170,7 +170,7 @@ export default {
       choices: [K("two"), P("four", "D-PLAUSIBLE-UNSUPPORTED"), P("six", "D-PLAUSIBLE-UNSUPPORTED"), P("one", "D-PLAUSIBLE-UNSUPPORTED")],
       note: "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p1_073)" },
     { u: "number_detail", lvl: 1, ph: 1, v: 4, fmt: "COMPREHENSION", cell: "number_detail", media: "text",
-      passage: "The classroom clock stopped during maths. Ella noticed that both hands stayed on twelve. Mr. Reed changed the battery after lunch. The clock began ticking again before home time.",
+      passage: "The classroom clock stopped during reading. Ella noticed that both hands stayed on twelve. Mr. Reed changed the battery after lunch. The clock began ticking again before home time.",
       prompt: "When did Mr. Reed change the battery?",
       choices: [K("after lunch"), P("before breakfast", "D-PLAUSIBLE-UNSUPPORTED"), P("during assembly", "D-PLAUSIBLE-UNSUPPORTED"), P("after home time", "D-PLAUSIBLE-UNSUPPORTED")],
       note: "salvaged verbatim from highQualityComprehensionReplacements (hq_key_details_l1_p2_074)" },

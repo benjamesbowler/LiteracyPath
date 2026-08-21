@@ -477,7 +477,7 @@ export default {
        P("Ojas dries his own boots by the radiator and leaves everyone else's dripping", "D-OPPOSITE"),
        P("Ojas buys new boots for himself", "D-TOPIC-ADJACENT")], { retention: true }),
     it("theme_among_rivals", 2, 1, 11,
-      "The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over the maths, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did.",
+      "The sponsored silence raised money for the library, and chatterbox Vin was everyone's favourite joke entry. He lasted the whole day — but the surprise was what he heard in his own silence: Priw's chair squeaking for a cushion, quiet Lom's brilliant mutterings over a story, the lonely hum of the boy by the window. Vin never became a quiet boy. But he became a boy who sometimes chose to listen, and three people's days got better when he did.",
       "Which lesson fits best?",
       [K("listening shows you what talking drowns out"),
        P("a sponsored silence raised money", "D-DETAIL-AS-MAIN"),

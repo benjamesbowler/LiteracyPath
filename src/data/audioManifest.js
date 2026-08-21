@@ -27235,15 +27235,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "b8ddaa9d6ab37838": {
-    "text": "To do well on his math test",
-    "normalizedText": "to do well on his math test",
-    "path": "/audio/b8ddaa9d6ab37838.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "b8e5a39cbfe0deab": {
     "text": "What can you infer about what Lucy was doing?",
     "normalizedText": "what can you infer about what lucy was doing?",
@@ -41011,7 +41002,6 @@ export const audioTextIndex = {
   "the playground is closed permanently.": "b8a7f00354199eb1",
   "what does replay mean?": "b8be07ad632bc807",
   "once a week": "b8cfcd4adb5abc30",
-  "to do well on his math test": "b8ddaa9d6ab37838",
   "what can you infer about what lucy was doing?": "b8e5a39cbfe0deab",
   "she is staying inside all day.": "b8eb6a7108c6b436",
   "she studied the loose roof": "b8f52381a09a8977",

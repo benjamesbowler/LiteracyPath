@@ -1,11 +1,15 @@
 ---
 type: decision
-status: active
+status: superseded
 date: 2026-08-15
 authority: release-policy
 ---
 
 # Beta media test visibility
+
+> Superseded on 21 August 2026 by
+> `2026-08-21-continuous-qa-pass-by-exception.md`. Legacy `pending` and
+> `approved` rows now normalize to accepted; only quarantine blocks runtime.
 
 ## Decision
 

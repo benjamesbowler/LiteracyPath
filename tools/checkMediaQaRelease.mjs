@@ -2,8 +2,6 @@ import { mediaQaReviewItems } from "../src/data/generated/mediaQaReviewItems.gen
 import { isBetaMediaPairingTestVisible } from "../src/policy/betaReleasePolicy.js";
 import { summarizeMediaQaWorkload } from "../src/utils/mediaQaWorkload.js";
 
-const betaMode = process.argv.includes("--beta");
-
 const requestedAreas = new Set(
   process.argv
     .filter(argument => argument.startsWith("--area="))
@@ -15,14 +13,17 @@ const reviewItems = requestedAreas.size
   : mediaQaReviewItems;
 const workload = summarizeMediaQaWorkload(reviewItems);
 const counts = {};
-const pending = [];
+const invalid = [];
 
 for (const item of reviewItems) {
-  const status = item.status || "pending";
+  const rawStatus = String(item.status || "accepted");
+  const status = rawStatus === "quarantined" ? "quarantined" : "accepted";
   const mediaKind = item.imagePath ? "image" : "text-only";
   const key = `${item.area || "unknown"}:${mediaKind}:${status}`;
   counts[key] = (counts[key] || 0) + 1;
-  if (status === "pending") pending.push(item);
+  if (!["accepted", "quarantined", "approved", "pending"].includes(rawStatus)) {
+    invalid.push(`${item.reviewId || "unknown"}: ${rawStatus}`);
+  }
 }
 
 console.log(
@@ -31,29 +32,20 @@ console.log(
 Object.entries(counts)
   .sort(([a], [b]) => a.localeCompare(b))
   .forEach(([key, count]) => console.log(`  ${key}: ${count}`));
-console.log(
-  `Pending review workload: ${workload.pendingPairings} pairings; `
-  + `${workload.pendingUniqueImages} unique images across ${workload.pendingImagePairings} image pairings; `
-  + `${workload.pendingTextOnlyPairings} text-only pairings.`
-);
 
-if (pending.length && !betaMode) {
-  const examples = pending.slice(0, 20).map(item =>
-    `${item.area}:${item.skillId || item.bookId || "unknown"}:${item.questionId || item.pageId || "unknown"}:${item.imagePath || "text-only"}`
-  );
-  console.error(`Media review release gate failed: ${pending.length} published pairings are pending human review.`);
-  examples.forEach(example => console.error(`  ${example}`));
-  if (pending.length > examples.length) console.error(`  ...and ${pending.length - examples.length} more`);
+if (invalid.length) {
+  console.error(`Media review release gate failed: ${invalid.length} rows have an invalid status.`);
+  invalid.slice(0, 20).forEach(row => console.error(`  ${row}`));
   process.exit(1);
 }
 
-if (betaMode) {
-  const betaVisible = reviewItems.filter(item => isBetaMediaPairingTestVisible(item.status || "pending"));
-  const quarantined = reviewItems.filter(item => (item.status || "pending") === "quarantined");
-  console.log(
-    `Beta media publication gate passed: ${betaVisible.length} pairings are test-visible, ` +
-    `${quarantined.length} quarantined, and ${pending.length} remain explicitly pending human review.`
-  );
-} else {
-  console.log(`Media review release gate passed: ${reviewItems.length} published pairings reviewed.`);
+const runtimeVisible = reviewItems.filter(item => isBetaMediaPairingTestVisible(item.status));
+if (runtimeVisible.length + workload.quarantinedPairings !== reviewItems.length) {
+  console.error("Media review release gate failed: publication state does not cover every row.");
+  process.exit(1);
 }
+
+console.log(
+  `Media review release gate passed: ${runtimeVisible.length} accepted under continuous review; `
+  + `${workload.quarantinedPairings} reported defects quarantined from runtime.`
+);

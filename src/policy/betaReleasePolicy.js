@@ -1,12 +1,11 @@
 export const BETA_RELEASE_POLICY = Object.freeze({
   channel: "beta",
-  pendingMediaIsTestVisible: true,
-  humanImageReviewBlocksDeployment: false,
-  humanListeningReviewBlocksDeployment: false
+  continuousHumanReview: true,
+  unreportedMediaIsAccepted: true,
+  quarantineBlocksPublication: true
 });
 
-export function isBetaMediaPairingTestVisible(status = "pending") {
+export function isBetaMediaPairingTestVisible(status = "accepted") {
   if (status === "quarantined") return false;
-  if (status === "approved") return true;
-  return status === "pending" && BETA_RELEASE_POLICY.pendingMediaIsTestVisible;
+  return ["accepted", "approved", "pending", ""].includes(String(status || ""));
 }

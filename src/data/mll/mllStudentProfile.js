@@ -43,7 +43,7 @@ export const MLL_PROGRAM_MODELS = Object.freeze([
 
 export const MLL_SUPPORT_TYPES = Object.freeze([
   "Paraprofessional in-class support", "Title I", "Literacy support",
-  "Tutoring", "Title III", "Math support", "Other"
+  "Tutoring", "Title III", "Other"
 ]);
 
 export const MLL_PARENT_CONTACT_METHODS = Object.freeze([

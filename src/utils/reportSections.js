@@ -1,7 +1,7 @@
 // Pure helpers behind the teacher's individual student report
 // (src/components/FinishedReportPage.jsx). Plain data in, plain data out —
 // no React, no localStorage, no browser APIs — so tests/unit/reportSections.test.js
-// can exercise the report's math directly under node.
+// can exercise the report calculations directly under node.
 //
 // Contract highlights (enforced by tests):
 // - Percentages are always 0-100 and always use real denominators; a zero

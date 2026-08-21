@@ -3427,7 +3427,7 @@ export const guidedReadingRegenBooks = [
     "qaStatus": "approved",
     "targetSkills": [
       "shape vocabulary",
-      "math concepts",
+      "descriptive vocabulary",
       "environmental print"
     ],
     "coverImage": "/guided-reading/regen/covers/gr-c-39-cover.png",

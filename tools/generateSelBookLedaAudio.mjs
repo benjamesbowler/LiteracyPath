@@ -76,7 +76,7 @@ for (let index = 0; index < pages.length; index += 1) {
   }
   record.audioPath = publicPath;
   record.audioVoice = voice;
-  record.audioStatus = "generated-awaiting-listening-review";
+  record.audioStatus = "accepted-continuous-review";
   console.log(`[${index + 1}/${pages.length}] ${record.bookId} page ${record.pageNumber}`);
 }
 

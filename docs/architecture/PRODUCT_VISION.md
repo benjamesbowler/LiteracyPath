@@ -7,7 +7,6 @@ LiteracyPath is a gamified adaptive learning adventure platform for kindergarten
 The platform combines:
 - literacy
 - phonics
-- math
 - world discovery
 - assessment
 - adaptive mastery

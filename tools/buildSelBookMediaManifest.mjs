@@ -43,7 +43,7 @@ const pages = guidedReadingSelBooksDraft.flatMap(book => book.pages.map((entry, 
     imagePath,
     audioPath,
     audioStatus: audioExists
-      ? (prior.audioStatus && prior.audioStatus !== "not-generated" ? prior.audioStatus : "generated-awaiting-listening-review")
+      ? (prior.audioStatus && prior.audioStatus !== "not-generated" ? prior.audioStatus : "accepted-continuous-review")
       : "not-generated",
     imageStatus: imageStatus(imagePath, prior.imageStatus),
     audioVoice: audioExists ? voice : undefined

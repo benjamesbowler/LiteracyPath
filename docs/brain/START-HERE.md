@@ -1,7 +1,7 @@
 ---
 type: context-brief
 status: active
-updated: 2026-08-03
+updated: 2026-08-21
 authority: orientation-only
 ---
 
@@ -40,6 +40,12 @@ If these layers disagree, correct or supersede the lower-authority note.
   another task must see.
 - Do not store chat transcripts, private credentials, generated QA output, or
   speculative findings as project truth.
+
+## Current product-owner decision
+
+- [Continuous QA is pass-by-exception](decisions/2026-08-21-continuous-qa-pass-by-exception.md):
+  unreported content and routes are accepted; only reported defects are
+  quarantined. Do not describe ongoing human checking as waiting for approval.
 
 ## Retrieval rule
 

@@ -8,7 +8,7 @@ import { filterPublishedGuidedReadingBooks } from "../../policy/guidedReadingApp
 
 export function ReadingSessionSetup({
   open,
-  approvedBookIds = [],
+  quarantinedBookIds = [],
   client,
   classId,
   students = [],
@@ -30,11 +30,11 @@ export function ReadingSessionSetup({
       if (!active) return;
       setBooks(filterPublishedGuidedReadingBooks(
         module.getRuntimeGuidedReadingBooks(),
-        approvedBookIds
+        quarantinedBookIds
       ));
     });
     return () => { active = false; };
-  }, [approvedBookIds, open]);
+  }, [open, quarantinedBookIds]);
 
   useEffect(() => {
     if (step === 2) secondStepRef.current?.focus();

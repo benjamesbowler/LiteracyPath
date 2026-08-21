@@ -420,7 +420,7 @@ const ENCODING_FORMS = Object.freeze({
   "1-BOY": [
     encodingItem("enc-1-boy-01", "shop", "We went to the shop.", ["digraph", "short_o"]),
     encodingItem("enc-1-boy-02", "much", "That is too much.", ["digraph", "short_u"]),
-    encodingItem("enc-1-boy-03", "bath", "The bath is full.", ["digraph", "short_a"]),
+    encodingItem("enc-1-boy-03", "path", "The path is wet.", ["digraph", "short_a"]),
     encodingItem("enc-1-boy-04", "flag", "The flag moved.", ["initial_blend", "short_a"]),
     encodingItem("enc-1-boy-05", "stop", "Stop at the gate.", ["initial_blend", "short_o"]),
     encodingItem("enc-1-boy-06", "hand", "Raise your hand.", ["final_blend", "short_a"]),
@@ -483,7 +483,7 @@ const DECODING_WORDS = Object.freeze({
   middle_pre: [["an", ["vc", "short_a"]], ["if", ["vc", "short_i"]], ["in", ["vc", "short_i"]], ["it", ["vc", "short_i"]], ["on", ["vc", "short_o"]], ["up", ["vc", "short_u"]], ["sat", ["cvc", "short_a", "one_to_one_cvc"]], ["mat", ["cvc", "short_a", "one_to_one_cvc"]]],
   early_partial: [["man", ["cvc", "short_a", "one_to_one_cvc"]], ["rag", ["cvc", "short_a", "one_to_one_cvc"]], ["ten", ["cvc", "short_e", "one_to_one_cvc"]], ["web", ["cvc", "short_e", "one_to_one_cvc"]], ["lip", ["cvc", "short_i", "one_to_one_cvc"]], ["nod", ["cvc", "short_o", "one_to_one_cvc"]], ["run", ["cvc", "short_u", "one_to_one_cvc"]], ["mud", ["cvc", "short_u", "one_to_one_cvc"]]],
   middle_partial: [["back", ["closed_syllable", "short_a", "final_ck"]], ["bell", ["closed_syllable", "short_e", "final_double"]], ["kiss", ["closed_syllable", "short_i", "final_double"]], ["sock", ["closed_syllable", "short_o", "final_ck"]], ["duck", ["closed_syllable", "short_u", "final_ck"]], ["wax", ["closed_syllable", "short_a", "final_x"]], ["buzz", ["closed_syllable", "short_u", "final_double"]], ["quit", ["closed_syllable", "short_i", "initial_qu"]]],
-  late_partial: [["shed", ["digraph", "initial_sh"]], ["chin", ["digraph", "initial_ch"]], ["math", ["digraph", "final_th"]], ["whip", ["digraph", "initial_wh"]], ["crab", ["initial_blend"]], ["grip", ["initial_blend"]], ["lamp", ["final_blend"]], ["desk", ["final_blend"]]],
+  late_partial: [["shed", ["digraph", "initial_sh"]], ["chin", ["digraph", "initial_ch"]], ["bath", ["digraph", "final_th"]], ["whip", ["digraph", "initial_wh"]], ["crab", ["initial_blend"]], ["grip", ["initial_blend"]], ["lamp", ["final_blend"]], ["desk", ["final_blend"]]],
   early_full: [["shelf", ["digraph", "final_blend"]], ["chest", ["digraph", "final_blend"]], ["thank", ["digraph", "final_blend"]], ["whisk", ["digraph", "final_blend"]], ["scrap", ["three_consonant_cluster"]], ["twist", ["initial_blend", "final_blend"]], ["blend", ["initial_blend", "final_blend"]], ["crust", ["initial_blend", "final_blend"]]],
   middle_full: [["gate", ["silent_e", "long_a"]], ["kite", ["silent_e", "long_i"]], ["rope", ["silent_e", "long_o"]], ["mule", ["silent_e", "long_u"]], ["mail", ["vowel_team", "long_a"]], ["feet", ["vowel_team", "long_e"]], ["coat", ["vowel_team", "long_o"]], ["tray", ["vowel_team", "long_a"]]],
   late_full: [["storm", ["r_controlled", "or"]], ["fern", ["r_controlled", "er"]], ["shirt", ["r_controlled", "ir"]], ["burn", ["r_controlled", "ur"]], ["join", ["diphthong", "oi"]], ["boy", ["diphthong", "oy"]], ["pouch", ["diphthong", "ou"]], ["room", ["vowel_team", "oo"]]],

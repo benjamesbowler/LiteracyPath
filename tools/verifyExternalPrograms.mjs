@@ -23,10 +23,7 @@ const packageJson = JSON.parse(source("package.json"));
 const releaseGate = source("tools/releaseGate.mjs");
 
 assert.equal(validateA11yInventory(), true);
-assert.ok(
-  A11Y_PRIMARY_ROUTES.length >= 24,
-  "The manual programme must not lose an established primary route."
-);
+assert.equal(A11Y_PRIMARY_ROUTES.length, 18, "The current literacy-only route inventory must stay exact.");
 assert.equal(A11Y_KEY_MODAL_STATES.length, 7);
 assert.deepEqual(
   A11Y_VIEWPORTS.map(row => `${row.id}:${row.width}x${row.height}`),
@@ -49,7 +46,8 @@ for (const required of [
   "Child usability",
   "2026-08-03",
   "2026-11-16",
-  "human execution is not started"
+  "human execution is ongoing",
+  "pass-by-exception"
 ]) {
   assert.match(manual, flexibleText(required));
 }
@@ -65,7 +63,7 @@ for (const required of [
   "assistive technology",
   "Finding-to-release-criteria pipeline",
   "release issue",
-  "external review"
+  "Unreported behaviour is accepted"
 ]) {
   assert.match(recurring, flexibleText(required));
 }
@@ -77,6 +75,6 @@ assert.match(releaseGate, /id: "external-program-readiness"/);
 console.log(
   `External programmes: PASS — ${A11Y_PRIMARY_ROUTES.length} routes, `
   + `${A11Y_KEY_MODAL_STATES.length} key states, ${A11Y_VIEWPORTS.length} viewports, `
-  + "6 manual accessibility modes, an unexecuted first-run record, and a "
-  + "recurring representative observation-to-release-criteria pipeline."
+  + "6 active manual accessibility modes and a recurring pass-by-exception "
+  + "representative observation-to-release-criteria pipeline."
 );

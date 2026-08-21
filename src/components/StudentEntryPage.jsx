@@ -322,6 +322,13 @@ export function StudentEntryPage({ onStudent, onTeacher, onTry }) {
         <span className="lp-landing-footer-note">
           © 2026 literacy.guide · {CHILD_BRAND.name}
         </span>
+        <nav className="lp-landing-legal-links" aria-label="Legal information">
+          <a href="/legal.html">Legal</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/cookies.html">Cookies</a>
+          <a href="/accessibility.html">Accessibility</a>
+        </nav>
       </footer>
     </main>
   );

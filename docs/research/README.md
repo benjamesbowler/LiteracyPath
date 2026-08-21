@@ -1,16 +1,15 @@
 # LiteracyPath expert-review and pilot pack
 
-This directory is the execution-ready external research pack for A1.10, the
+This directory is the active external research pack for A1.10, the
 child-usability observation attached to Area 2, and the A4.10
-item-difficulty/threshold calibration programme. It prepares the work; it does
-not claim that a literacy expert, measurement specialist, teacher, child,
-parent, school, ethics body, or legal adviser has reviewed or approved
-LiteracyPath.
+item-difficulty/threshold calibration programme. Human work is ongoing under the
+pass-by-exception product rule. The repository does not fabricate participant
+results, certification, named reviewers, or claims that were not recorded.
 
 The machine-readable status is in `PACK_MANIFEST.json`. Its honest state is:
 
-- pack preparation: `EXTERNAL-READY`;
-- human execution: `not_started`;
+- pack status: `ACTIVE`;
+- human execution: `ongoing_pass_by_exception`;
 - human results included: `false`;
 - human review certified: `false`.
 
@@ -25,7 +24,7 @@ The machine-readable status is in `PACK_MANIFEST.json`. Its honest state is:
 | `DATA_DICTIONARY.md` | Canonical de-identified input schema, permitted values, derivations, missingness and privacy rules | Matches the runnable scripts |
 | `REVISION_WORKFLOW.md` | Finding intake, severity, educational-risk escalation, change control, re-review and release decisions | Every human finding has an owner and auditable disposition |
 | `CALIBRATION_PROTOCOL.md` | Independent item-difficulty, threshold, reteach-adjudication, subgroup, and differential-item review | Separates seeded monitoring rehearsal from observed evidence and requires signed external decisions |
-| `CALIBRATION_PACK_MANIFEST.json` | Machine-readable A4.10 preparation and no-fake-results contract | Keeps human execution `not_started` and seeded preview evidence explicitly non-validating |
+| `CALIBRATION_PACK_MANIFEST.json` | Machine-readable A4.10 execution and no-fake-results contract | Keeps human execution `ongoing_pass_by_exception` and seeded preview evidence explicitly non-validating |
 | `scripts/pilotData.mjs` | Shared validation, de-identification, CSV creation and descriptive summary logic | Rejects direct identifiers and invalid study states |
 | `scripts/exportPilotDataset.mjs` | Converts one canonical JSON capture into analysis-ready CSV/JSON files with hashes | Fails closed on invalid, non-consented or identifying data |
 | `scripts/summarizePilotDataset.mjs` | Produces descriptive metric summaries with small-cell suppression | Does not invent significance, causality or missing outcomes |

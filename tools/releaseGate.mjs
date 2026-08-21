@@ -457,6 +457,12 @@ export const RELEASE_GATES = Object.freeze([
     areas: [4, 8, 9, 10]
   },
   {
+    id: "literacy-only-domain",
+    label: "No retired domain feature, copy, media path, or database object remains",
+    command: ["npm", "run", "check:literacy-only-domain"],
+    areas: [1, 2, 4, 8, 10]
+  },
+  {
     id: "app-decomposition",
     label: "App controller session and rendering boundaries",
     command: ["npm", "run", "check:app-decomposition"],
@@ -561,7 +567,7 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "external-program-readiness",
-    label: "Manual accessibility and recurring observation programmes ready for human execution",
+    label: "Active pass-by-exception accessibility and recurring observation programmes",
     command: ["npm", "run", "check:external-program-readiness"],
     areas: [1, 2, 3, 10]
   },
@@ -655,10 +661,9 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "legal-pack",
-    label: "Complete counsel-ready legal, privacy, consent, region, security, and accessibility pack",
+    label: "Published UK free-beta legal pages, versioned acceptance, and explicit onboarding gaps",
     command: ["npm", "run", "check:legal-pack"],
-    areas: [8, 10],
-    planned: true
+    areas: [8, 10]
   },
   {
     id: "e2e-teacher",
@@ -709,7 +714,7 @@ export const RELEASE_GATES = Object.freeze([
   },
   {
     id: "media-review-release",
-    label: "Beta media is test-visible while quarantines remain enforced and human-review state stays explicit",
+    label: "Media is accepted under continuous review while reported defects remain quarantined",
     command: ["npm", "run", "check:media-review-beta"],
     areas: [1, 3, 4, 10]
   },

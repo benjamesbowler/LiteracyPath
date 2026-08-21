@@ -13,15 +13,6 @@ alter function public.teacher_get_active_live_lesson() volatile;
 alter function public.teacher_list_press_work(uuid) volatile;
 alter function public.teacher_resolve_worksheet_code(text) volatile;
 alter function public.teacher_read_worksheet_history(uuid) volatile;
-alter function public.teacher_read_maths_sync_health(uuid) volatile;
-alter function public.teacher_list_maths_assignments(uuid, boolean) volatile;
-alter function public.teacher_read_maths_evidence_page(
-  uuid, uuid, integer, timestamptz, uuid
-) volatile;
-alter function public.teacher_read_maths_evidence_filtered_page(
-  uuid, uuid, timestamptz, text, integer, timestamptz, uuid
-) volatile;
-alter function public.teacher_list_maths_media_issues(uuid, boolean) volatile;
 alter function public.teacher_read_lesson_plan(uuid) volatile;
 
 -- These JSON transforms call PostgreSQL routines classified as STABLE. They
@@ -36,12 +27,6 @@ alter function public.lp_merge_phonics_quest(jsonb, jsonb) stable;
 alter function public.lp_merge_reading_passport(jsonb, jsonb) stable;
 alter function public.redact_learner_jsonb(jsonb, uuid, text) stable;
 alter function public.jsonb_strip_student_entries(jsonb, text) stable;
-alter function public.maths_validate_student_evidence_v1(text, text, text, jsonb) stable;
-alter function public.maths_validate_student_evidence_v2(text, text, jsonb) stable;
-alter function public.maths_validate_student_evidence_v3(text, text, jsonb) stable;
-alter function public.maths_validate_student_evidence_v4(text, text, jsonb) stable;
-alter function public.maths_validate_student_evidence(text, text, text, jsonb) stable;
-
 -- PL/pgSQL creates integer FOR-loop variables itself. Removing duplicate
 -- declarations clears shadowed/unused-variable warnings without changing either
 -- algorithm.

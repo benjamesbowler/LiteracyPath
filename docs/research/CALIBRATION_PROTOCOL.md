@@ -2,7 +2,7 @@
 
 Version: `2026.07.25-a4.10`
 Traceability item: `A4.10`
-Status: `EXTERNAL-READY — human execution not started`
+Status: `ACTIVE — human execution ongoing pass-by-exception`
 
 ## 1. Purpose and limits
 
@@ -356,7 +356,7 @@ normal revision workflow.
 
 ## 13. Closure criteria
 
-`A4.10` may move from `EXTERNAL-READY` to `EXTERNAL-CLOSED` only when:
+`A4.10` may move from `ACTIVE` to `EXTERNAL-CLOSED` only when:
 
 - required reviewers and conflicts are documented;
 - a consented, de-identified observed dataset has passed validation;

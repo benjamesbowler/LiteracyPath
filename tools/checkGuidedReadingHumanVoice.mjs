@@ -59,7 +59,6 @@ const NON_US_SPELLING_PATTERNS = Object.freeze([
   { preferred: "license", pattern: /\blicences?\b/i },
   { preferred: "liter", pattern: /\blitres?\b/i },
   { preferred: "marvelous", pattern: /\bmarvellous\b/i },
-  { preferred: "math", pattern: /\bmaths\b/i },
   { preferred: "meter", pattern: /\bmetres?\b/i },
   { preferred: "modeled", pattern: /\bmodelled\b/i },
   { preferred: "Mom", pattern: /\bmums?\b|\bmummy\b/i },

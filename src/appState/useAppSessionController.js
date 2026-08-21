@@ -16,6 +16,7 @@ import { selectAllRows } from "../data/pagedSelect.js";
 import { setEphemeralNetworkMode } from "../data/boundaries/facade.js";
 import { setSampleContentScope } from "../policy/freeTierContent.js";
 import { beginTryModeSession } from "../policy/tryModeSession.js";
+import { LEGAL_POLICY } from "../policy/legalPolicy.js";
 import {
   isUnconfirmedEmailError,
   teacherAuthErrorMessage,
@@ -2019,12 +2020,20 @@ export function useAppSessionController(context) {
     };
   }
 
-  async function signUpTeacher() {
+  async function signUpTeacher(legalAcceptance = {}) {
     const email = authEmail.trim();
     const displayName = authDisplayName.trim();
     const schoolName = authSchoolName.trim();
     if (!email || !authPassword) {
       setAuthMessage("Enter an email and password.");
+      return;
+    }
+    if (
+      legalAcceptance.accepted !== true
+      || legalAcceptance.termsVersion !== LEGAL_POLICY.termsVersion
+      || legalAcceptance.privacyVersion !== LEGAL_POLICY.privacyVersion
+    ) {
+      setAuthMessage("Agree to the Terms of Use and acknowledge the Privacy Notice to continue.");
       return;
     }
     // Matches Supabase's own minimum. Without this the app submits, GoTrue
@@ -2062,7 +2071,10 @@ export function useAppSessionController(context) {
           account_status: "pending",
           username,
           display_name: visibleDisplayName,
-          school_name: schoolName
+          school_name: schoolName,
+          legal_terms_accepted: true,
+          legal_terms_version: legalAcceptance.termsVersion,
+          privacy_notice_version: legalAcceptance.privacyVersion
         }
       }
     });
