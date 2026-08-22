@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.0",
-  "auditDate": "2026-08-14",
+  "auditDate": "2026-08-22",
   "status": "complete",
   "gateSemantics": {
     "mode": "fail-closed",
@@ -36,7 +36,8 @@
     "On 2026-08-12, Level A was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-08-12, Level B was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
     "On 2026-08-12, Level C was re-audited against the current runtime text and every reviewed page image was hash-locked after full-book sequence, cover, character-continuity, anatomy, object-count, factual-safety, style and resolution checks.",
-    "On 2026-08-14, all 1,861 Guided Reading pages and all 340 Story Quest scenes were directly re-viewed across 220 complete sequence sheets; three Moonwood count/action defects were repaired, inspected at original resolution, re-viewed in sequence and hash-locked."
+    "On 2026-08-14, all 1,861 Guided Reading pages and all 340 Story Quest scenes were directly re-viewed across 220 complete sequence sheets; three Moonwood count/action defects were repaired, inspected at original resolution, re-viewed in sequence and hash-locked.",
+    "On 2026-08-22, all 1,861 Guided Reading pages and all 340 Story Quest scenes were directly scanned again across 220 complete sequence sheets. Guided Reading required no replacements. Story Quest p05_bouncy_wet, p05_big_tree and Sam/Pam page-09 were replaced for rendering-style continuity and exact visible route-state truth, then inspected at original resolution and re-viewed in sequence."
   ],
   "issueCodeCounts": {
     "animal_welfare": 2,

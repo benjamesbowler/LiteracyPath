@@ -6,9 +6,9 @@ export const guidedReadingPolicyBaseline = Object.freeze({
   sourceFingerprint: "25950ed56950b1cae250fcd91092baa4675886e3969ecd90450251565d4ab62b",
   status: "approved",
   policyVersion: STORY_CONTENT_POLICY_VERSION,
-  reviewedAt: "2026-08-14",
+  reviewedAt: "2026-08-22",
   reviewer: "Codex authorised editorial and media audit",
-  claim: "All 206 books and 1,861 active pages completed the current manuscript, level, complete-book visual, exact-current-text Leda narration, isolated-word and spelling-audio checks. All observed defects were repaired before the 2026-08-14 policy baseline refresh."
+  claim: "All 206 books and 1,861 active pages completed the current manuscript, level, complete-book visual, exact-current-text Leda narration, isolated-word and spelling-audio checks. A fresh 2026-08-22 complete-sequence visual scan found no remaining Guided Reading illustration defects."
 });
 
 const historicalStoryQuestPolicyReviews = Object.freeze([
@@ -534,7 +534,7 @@ export const storyQuestPolicyReviews = Object.freeze(
       ...review,
       sourceFingerprint: current.fingerprint,
       status: audioReady ? "approved" : "audited-fail",
-      reviewedAt: "2026-08-12",
+      reviewedAt: "2026-08-22",
       scores: Object.freeze({
         ...review.scores,
         audio: audioReady ? 4 : 0
@@ -556,7 +556,7 @@ export const storyQuestPolicyReviews = Object.freeze(
         pages: current.pages,
         images: current.pages,
         imageTextMatches: current.pages,
-        method: "Every current page image was included in the 2026-08-05 strict text, route-state, anatomy, continuity, and visual-style audit."
+        method: "Every current page image was directly scanned in complete-quest sequence on 2026-08-22 for text truth, route state, anatomy, continuity, canon, and visual style. Three confirmed defects across the 340-scene set were replaced and rechecked at 1536 by 864."
       }),
       audioEvidence: Object.freeze({
         pages: current.pages,
