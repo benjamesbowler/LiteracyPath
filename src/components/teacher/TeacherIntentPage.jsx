@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { TeacherLessonComposerPage } from "./lessons/TeacherLessonComposerPage.jsx";
-import { PressReviewQueuePage } from "./decodablePress/PressReviewQueuePage.jsx";
 import { FamilyBridgePage } from "./family/FamilyBridgePage.jsx";
 import { TEACHER_COPY } from "../../copy/teacherCopy.js";
 import { getClassListReadView } from "../../appState/classListReadState.js";
@@ -128,15 +127,12 @@ export function TeacherIntentPage({
   onOpenWorksheets,
   onOpenPresent,
   onOpenGuidedReading,
-  onOpenReports,
-  onOpenStudents,
   onOpenToday,
   lessonComposerRequest = 0,
   onLessonComposerRequestHandled,
   studentList = []
 }) {
   const [lessonComposerOpen, setLessonComposerOpen] = useState(Boolean(lessonComposerRequest));
-  const [pressOpen, setPressOpen] = useState(false);
   const [familyBridgeOpen, setFamilyBridgeOpen] = useState(false);
   const copy = INTENT_COPY[intent];
   if (!copy) return null;
@@ -170,28 +166,15 @@ export function TeacherIntentPage({
     onOpenGuidedReading
   });
   const featureDirectory = [
-    { id: "class-quest-live", title: "Class Quest Live", location: "Present", body: "Send private response prompts to signed-in student devices while you control the class slides.", action: "Open Present", onOpen: onOpenPresent },
-    { id: "paper-to-progress", title: "Paper-to-Progress", location: "Worksheets", body: "Create a worksheet code, record quick teacher observations and use paper work to plan the next lesson.", action: "Open Worksheets", onOpen: onOpenWorksheets },
-    { id: "observed-change", title: "Observed Change", location: "Reports", body: "Compare equal assessment windows without overstating small or unmatched cohorts.", action: "Open Reports", onOpen: onOpenReports },
     { id: "misconception-detective", title: "Misconception Detective", location: "Dashboard", body: "See repeated error patterns that may be worth checking, without automatically diagnosing a student.", action: "Open Dashboard", onOpen: onOpenToday },
-    { id: "reading-passport", title: "Reading Passport", location: "Students and Books", body: "Students collect completed-book stamps and make a private text-choice reflection; teachers see it in the student panel.", action: "Open Students", onOpen: onOpenStudents },
     { id: "buddy-reading", title: "Buddy Reading", location: "Guided Reading", body: "Alternates a child reading turn with LEDA narration. It records turn completion, never the child’s voice.", action: "Open Guided Reading", onOpen: onOpenGuidedReading ? () => onOpenGuidedReading("") : null },
-    { id: "transfer-missions", title: "Transfer Missions", location: "Student Home", body: "Offers a short context-transfer mission after enough taught-code results. It stays separate from mastery." },
-    { id: "story-crew", title: "Story Crew", location: "Child Story Quests", body: "A shared-device comprehension activity with three discussion roles. No names, voices or images are collected." }
+    { id: "transfer-missions", title: "Transfer Missions", location: "Student Home", body: "Offers a short context-transfer mission after enough taught-code results. It stays separate from mastery." }
   ];
 
   if (lessonComposerOpen) {
     return (
       <TeacherPageShell className="teacher-intent-page teacher-resources-page" intent={intent}>
         <TeacherLessonComposerPage client={client} classId={selectedClassId} cycleId={cycleId} students={studentList} onClose={() => { setLessonComposerOpen(false); onLessonComposerRequestHandled?.(); }} />
-      </TeacherPageShell>
-    );
-  }
-
-  if (pressOpen) {
-    return (
-      <TeacherPageShell className="teacher-intent-page teacher-resources-page" intent={intent}>
-        <PressReviewQueuePage client={client} classId={selectedClassId} cycleId={cycleId} students={studentList} onClose={() => setPressOpen(false)} />
       </TeacherPageShell>
     );
   }
@@ -255,13 +238,6 @@ export function TeacherIntentPage({
                   <ul className="teacher-resource-points"><li>No family account or child upload</li><li>No voice, photo, camera or completion tracking</li><li>English sounds and words stay unchanged</li></ul>
                   <button className="lp-button lp-button-primary teacher-resource-action" disabled={!cycle?.cycleNumber} onClick={() => setFamilyBridgeOpen(true)} type="button">{cycle?.cycleNumber ? "Make a family plan" : "Choose a teaching cycle first"}</button>
                 </article>
-                <article className="teacher-resource-card teacher-resource-card-featured">
-                  <p className="teacher-resource-kind" data-resource-kind="decodable-press">Writing project</p>
-                  <h3>Class Decodable Press</h3>
-                  <p className="teacher-resource-body">Assign a four-page decodable story, review the exact submitted revision and optionally approve it for the private class library.</p>
-                  <ul className="teacher-resource-points"><li>Frozen taught-code word bank</li><li>Approved local scenes only</li><li>No child voice, photo, camera or image upload</li></ul>
-                  <button className="lp-button lp-button-primary teacher-resource-action" onClick={() => setPressOpen(true)} type="button">Open Decodable Press</button>
-                </article>
                 {tools.map(tool => (
                   <article className="teacher-resource-card" key={tool.id}>
                     <p className="teacher-resource-kind" data-resource-kind={tool.id}>
@@ -290,7 +266,7 @@ export function TeacherIntentPage({
                 <LevelCShelf copy={copy} onOpenReader={onOpenGuidedReading} />
               </section>
               <section className="teacher-feature-directory" aria-labelledby="teacher-feature-directory-title">
-                <header><p className="teacher-resource-kind">Feature directory</p><h3 id="teacher-feature-directory-title">Where the other new features live</h3><p>Some tools belong in reporting or student experiences rather than the resource shelf. This directory links every teacher-facing destination and names each student-facing location.</p></header>
+                <header><p className="teacher-resource-kind">Feature directory</p><h3 id="teacher-feature-directory-title">Where supporting features live</h3><p>Some tools belong in the dashboard or student experiences rather than the resource shelf. This directory links every teacher-facing destination and names each student-facing location.</p></header>
                 <div>
                   {featureDirectory.map(feature => <article key={feature.id}><span>{feature.location}</span><h4>{feature.title}</h4><p>{feature.body}</p>{feature.onOpen ? <button className="lp-button lp-button-secondary" type="button" onClick={feature.onOpen}>{feature.action}</button> : <small>Available in the signed-in student experience</small>}</article>)}
                 </div>

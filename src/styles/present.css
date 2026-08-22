@@ -309,22 +309,3 @@
     max-height: none;
   }
 }
-.pr-live-start { white-space: nowrap; }
-.pr-live-error { margin: 0 0 1rem; padding: .85rem 1rem; border: 1px solid #c96d50; border-radius: 12px; background: #fff1ec; color: #793522; font-weight: 650; }
-.pr-live-setup, .pr-live-panel { margin: 0 0 1.25rem; padding: 1.25rem; border: 1px solid rgba(49,94,80,.24); border-radius: 18px; background: #fffdf8; box-shadow: 0 12px 30px rgba(35,72,61,.08); }
-.pr-live-setup h2, .pr-live-panel h2 { margin: .15rem 0 .35rem; color: #23483d; }
-.pr-live-setup p, .pr-live-panel p { max-width: 72ch; }
-.pr-live-kicker { margin: 0; color: #a65139; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.pr-live-roster { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .65rem; margin: 1rem 0; }
-.pr-live-roster label { display: flex; align-items: center; gap: .6rem; min-height: 46px; padding: .65rem .8rem; border: 1px solid #d8d0c3; border-radius: 12px; background: white; cursor: pointer; font-weight: 650; }
-.pr-live-roster label.selected { border-color: #315e50; background: #eef6f2; }
-.pr-live-roster input { width: 1.1rem; height: 1.1rem; accent-color: #315e50; }
-.pr-live-setup-actions, .pr-live-panel-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; }
-.pr-live-setup-actions { justify-content: flex-end; }
-.pr-live-status-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .6rem; margin: 1rem 0; }
-.pr-live-status { display: grid; gap: .15rem; padding: .7rem .8rem; border-left: 4px solid #b9b1a4; border-radius: 9px; background: #f5f2ed; }
-.pr-live-status.correct { border-color: #3f7b63; background: #edf7f0; }
-.pr-live-status.check { border-color: #c47a3a; background: #fff5e9; }
-.pr-live-status span { color: #617168; font-size: .86rem; font-weight: 650; }
-.pr-live-note { margin: 0; color: #617168; font-size: .9rem; }
-@media (max-width: 700px) { .pr-live-setup-actions > *, .pr-live-panel-head > button { width: 100%; } }

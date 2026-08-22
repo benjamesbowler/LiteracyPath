@@ -1,7 +1,15 @@
 import { supabase } from "../supabaseClient.js";
 import { selectAllRows } from "../data/pagedSelect.js";
 import { computeHydratedValue, sanitizeCloudProgressPayload } from "./progressMerge.js";
-import { localProgressStorageKey, localProgressKeysForStudent, RESET_AREA, shouldApplyReset } from "./progressKeys.js";
+import {
+  PROGRESS_AREAS,
+  RETIRED_PROGRESS_AREAS,
+  localProgressStorageKey,
+  localProgressKeysForStudent,
+  retiredLocalProgressStorageKey,
+  RESET_AREA,
+  shouldApplyReset
+} from "./progressKeys.js";
 import {
   clearProgressQueueForStudent,
   enqueueProgressQueueEntry,
@@ -379,8 +387,29 @@ function handleProgressOnline() {
   void flushQueuedEngagementEvents(activeSession, { force: true });
 }
 
+function discardRetiredProgressForStudent(studentId) {
+  if (!isBrowser() || !studentId) return;
+  for (const area of RETIRED_PROGRESS_AREAS) {
+    try { window.localStorage.removeItem(retiredLocalProgressStorageKey(area, studentId)); } catch { /* best effort */ }
+  }
+  try {
+    const retiredRecords = readProgressQueueRecords(window.localStorage)
+      .filter(record => (
+        record.entry.studentId === studentId
+        && RETIRED_PROGRESS_AREAS.includes(record.entry.area)
+      ));
+    removeProgressQueueRecords(window.localStorage, retiredRecords);
+  } catch { /* best effort */ }
+  for (const [identity, entry] of volatileEntries) {
+    if (entry.studentId === studentId && RETIRED_PROGRESS_AREAS.includes(entry.area)) {
+      volatileEntries.delete(identity);
+    }
+  }
+}
+
 export function configureProgressSync(session = null) {
   activeSession = session?.studentId ? session : null;
+  if (activeSession) discardRetiredProgressForStudent(activeSession.studentId);
   if (isBrowser() && !onlineListenerInstalled) {
     window.addEventListener("online", handleProgressOnline);
     onlineListenerInstalled = true;
@@ -411,6 +440,7 @@ function enqueueWrite(entry, { deferred = false } = {}) {
 
 async function saveCloudProgress(entry) {
   if (!entry?.studentId) return;
+  if (!PROGRESS_AREAS.includes(entry.area)) return;
   // Defence in depth for old queued rows and future callers: privacy-bound
   // fields must not leave the device even if they predate queue sanitisation.
   const uploadPayload = sanitizeCloudProgressPayload(entry.area, entry.payload);
@@ -517,6 +547,7 @@ async function flushQueuedKey(identity, session = activeSession) {
 }
 
 export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
+  if (!PROGRESS_AREAS.includes(area)) return false;
   if (activeSession?.mode === "preview") {
     if (isBrowser()) {
       window.dispatchEvent(new CustomEvent("lp-preview-write-blocked", {
@@ -626,7 +657,10 @@ async function applyResetTombstone(session, rows) {
 }
 
 export async function hydrateCloudProgress(session) {
-  const rows = await fetchStudentCloudProgress(session);
+  discardRetiredProgressForStudent(session?.studentId);
+  const rows = (await fetchStudentCloudProgress(session)).filter(row => (
+    row.area === RESET_AREA || PROGRESS_AREAS.includes(row.area)
+  ));
   const resetApplied = await applyResetTombstone(session, rows);
   cacheCloudRows(session.studentId, rows);
   rows.forEach(row => {

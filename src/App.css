@@ -21829,16 +21829,6 @@ select:focus {
 .teacher-feature-directory article small { color:#536d64; font-weight:700; }
 .teacher-feature-directory .lp-button { min-height:var(--teacher-ui-target-min) !important; }
 
-.press-asset-packs { display:grid; gap:12px; padding:16px; border:1px solid #cbd9d4; border-radius:14px; background:#f6faf8; }
-.press-asset-packs h3, .press-asset-packs h4, .press-asset-packs p { margin:0; }
-.press-asset-packs > div:first-child p { margin-top:4px; color:#5a6d66; }
-.press-asset-pack-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
-.press-asset-pack-grid > article { display:grid; gap:8px; padding:10px; border:1px solid #d5e1dd; border-radius:12px; background:#fff; }
-.press-asset-pack-grid > article > div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
-.press-asset-pack-grid figure { min-width:0; margin:0; }
-.press-asset-pack-grid img { width:100%; height:74px; object-fit:contain; border-radius:8px; background:#edf4f0; }
-.press-asset-pack-grid figcaption { margin-top:3px; font-size:.68rem; line-height:1.2; color:#4f665e; }
-@media(max-width:760px) { .press-asset-pack-grid { grid-template-columns:1fr; } }
 
 /* The Level C shelf. */
 .teacher-resource-shelf {

@@ -6,6 +6,8 @@ import {
   ANON_SECURITY_DEFINER_RPCS,
   AUTHENTICATED_SECURITY_DEFINER_RPCS,
   AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS,
+  RETIRED_FEATURES_MIGRATION,
+  RETIRED_FEATURE_RPC_SIGNATURES,
   SECURITY_BOUNDARY_MIGRATION,
   TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS,
   auditSecurityBoundarySource,
@@ -40,13 +42,21 @@ function validCatalog() {
 test("security boundary grants only the explicit RPC surface and guards every teacher RPC", () => {
   const report = auditSecurityBoundarySource();
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 18);
-  assert.equal(report.authenticatedRpcCount, 95);
+  assert.equal(report.anonymousRpcCount, 12);
+  assert.equal(report.authenticatedRpcCount, 76);
   // 9, not 8: list_school_names() joined the legacy list on 2026-08-07 when it
   // was replaced by search_school_names(text). The old no-argument form returned
   // every school name to anon in one unbounded call.
   assert.equal(report.legacyRpcCount, 9);
-  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 59);
+  assert.equal(TEACHER_ACCOUNT_GUARDED_SECURITY_DEFINER_RPCS.length, 46);
+  const retirement = fs.readFileSync(
+    new URL(`../../supabase/migrations/${RETIRED_FEATURES_MIGRATION}`, import.meta.url),
+    "utf8"
+  );
+  for (const signature of RETIRED_FEATURE_RPC_SIGNATURES) {
+    assert.match(retirement, new RegExp(`drop function if exists public\\.${signature.split("(")[0]}\\s*\\(`, "i"));
+  }
+  assert.doesNotMatch(retirement, /drop\s+table/i);
 });
 
 test("database lint repairs preserve the final boundary and honest volatility", () => {
@@ -90,8 +100,8 @@ test("security boundary rejects a teacher RPC missing from the account-status in
 test("catalog audit accepts exact API grants and private helpers", () => {
   const report = auditSecurityDefinerCatalog(validCatalog());
   assert.deepEqual(report.failures, []);
-  assert.equal(report.anonymousRpcCount, 18);
-  assert.equal(report.authenticatedRpcCount, 95);
+  assert.equal(report.anonymousRpcCount, 12);
+  assert.equal(report.authenticatedRpcCount, 76);
   assert.equal(report.privateHelperCount, 4);
 });
 

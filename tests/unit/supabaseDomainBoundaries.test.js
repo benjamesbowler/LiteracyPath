@@ -50,8 +50,8 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 }
 
 test("all domain registries expose the complete reviewed backend surface", () => {
-  assert.equal(BOUNDARY_TABLES.length, 38);
-  assert.equal(BOUNDARY_RPCS.length, 94);
+  assert.equal(BOUNDARY_TABLES.length, 29);
+  assert.equal(BOUNDARY_RPCS.length, 75);
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("reading_sessions"));
   assert.ok(BOUNDARY_TABLES.includes("assessment_attempts"));
@@ -95,15 +95,12 @@ test("all domain registries expose the complete reviewed backend surface", () =>
     "teacher_set_reading_session_page",
     "teacher_start_reading_session"
   ]) assert.ok(BOUNDARY_RPCS.includes(readingRpc));
-  for (const liveLessonRpc of [
+  for (const retiredRpc of [
     "student_get_live_lesson",
-    "student_submit_live_response",
-    "teacher_end_live_lesson",
-    "teacher_get_live_lesson_snapshot",
-    "teacher_get_active_live_lesson",
-    "teacher_set_live_lesson_slide",
-    "teacher_start_live_lesson"
-  ]) assert.ok(BOUNDARY_RPCS.includes(liveLessonRpc));
+    "student_list_press_projects",
+    "teacher_create_press_project",
+    "teacher_create_worksheet_instance"
+  ]) assert.ok(!BOUNDARY_RPCS.includes(retiredRpc));
   assert.ok(!BOUNDARY_RPCS.includes("teacher_cancel_planned_intervention"));
   assert.deepEqual(FACADE_TABLES, BOUNDARY_TABLES);
   assert.deepEqual(FACADE_RPCS, BOUNDARY_RPCS);

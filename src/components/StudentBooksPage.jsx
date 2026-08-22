@@ -42,8 +42,6 @@ import {
   knowledgeJourneyBooks
 } from "../data/knowledgeJourneys.js";
 import { classifyBookReadingPurpose } from "../policy/literacyExperiencePolicy.js";
-import { DecodablePressHomePage } from "./decodablePress/DecodablePressHomePage.jsx";
-import { ReadingPassportPage } from "./reading-passport/ReadingPassportPage.jsx";
 import {
   BOOK_SHELF_SLOTS,
   bookCollectionId,
@@ -141,8 +139,6 @@ export function StudentBooksPage({
   progressScopeKey = "default",
   teacherId = "",
   studentId = "",
-  client = null,
-  studentSessionToken = "",
   // The runtime library, injectable so a harness can shelve four books instead
   // of 176. `null` means "use the real one" rather than "there are none": a
   // screen that draws an empty library because nobody passed it a list is the
@@ -174,8 +170,6 @@ export function StudentBooksPage({
   const [knowledgeJourneyId, setKnowledgeJourneyId] = useState(KNOWLEDGE_JOURNEYS[0]?.id || "");
   const [showKnowledge, setShowKnowledge] = useState(false);
   const [collectionId, setCollectionId] = useState("all");
-  const [pressOpen, setPressOpen] = useState(false);
-  const [passportOpen, setPassportOpen] = useState(false);
 
   const recordsOk = useMemo(
     () => readGuidedRecordsState({ teacherId, studentId }),
@@ -326,14 +320,6 @@ export function StudentBooksPage({
     );
   }
 
-  if (pressOpen && client && studentSessionToken) {
-    return <DecodablePressHomePage client={client} token={studentSessionToken} onClose={() => setPressOpen(false)} />;
-  }
-
-  if (passportOpen) {
-    return <ReadingPassportPage books={library} records={guidedReadingRecords} scopeKey={progressScopeKey} onClose={() => setPassportOpen(false)} />;
-  }
-
   return (
     <StudentGlassShell
       studentName={studentName}
@@ -437,22 +423,6 @@ export function StudentBooksPage({
             Story Quests
             <ChevronGlyph />
           </button>
-          <button
-            type="button"
-            className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
-            onClick={() => setPassportOpen(true)}
-          >
-            Reading Passport
-            <ChevronGlyph />
-          </button>
-          {client && studentSessionToken && <button
-            type="button"
-            className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
-            onClick={() => setPressOpen(true)}
-          >
-            Make a book
-            <ChevronGlyph />
-          </button>}
         </div>
 
         {!showKnowledge && (panelBook

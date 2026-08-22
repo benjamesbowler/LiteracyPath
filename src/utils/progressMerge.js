@@ -382,25 +382,6 @@ export function computeHydratedValue(area, key, existing, payload) {
     };
   }
 
-  if (area === "reading_passport") {
-    const cloud = payload && typeof payload === "object" ? payload : {};
-    const reflections = { ...(cloud.reflections || {}) };
-    for (const [bookId, localReflection] of Object.entries(base.reflections || {})) {
-      const cloudReflection = reflections[bookId];
-      if (!cloudReflection || String(localReflection.updatedAt || "") >= String(cloudReflection.updatedAt || "")) {
-        reflections[bookId] = localReflection;
-      }
-    }
-    return { schemaVersion: 1, reflections };
-  }
-
-  if (area === "cooperative_story_quest") {
-    const cloud = payload && typeof payload === "object" ? payload : {};
-    const evidence = new Map();
-    for (const row of [...(cloud.evidence || []), ...(base.evidence || [])]) if (row?.questId) evidence.set(`${row.questId}:${row.contentVersion}`, row);
-    return { schemaVersion: 1, completed: [...new Set([...(base.completed || []), ...(cloud.completed || [])])], evidence: [...evidence.values()] };
-  }
-
   // Per-letter mastery status: never downgrade.
   if (area === "phonics_letters" || area === "cvc") {
     if (key === "__all__") {

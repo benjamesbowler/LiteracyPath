@@ -355,9 +355,7 @@
   }
 
   .family-bridge .lp-button,
-  .impact-dashboard button,
   .lesson-composer button,
-  .press-teacher button,
   .misconception-detective button {
     min-height: 44px !important;
   }

@@ -5,8 +5,18 @@
 export const PROGRESS_AREAS = [
   "story_quests", "phonics_letters", "cvc", "learn_games",
   "el_quest", "daily_mission", "profile", "guided_reading", "hollow",
-  "phonics_quest", "transfer_missions", "reading_passport", "cooperative_story_quest"
+  "phonics_quest", "transfer_missions"
 ];
+
+// These surfaces are retired, but their old browser keys remain part of local
+// privacy cleanup so removing a learner also removes data made by older builds.
+export const RETIRED_PROGRESS_AREAS = ["reading_passport", "cooperative_story_quest"];
+
+export function retiredLocalProgressStorageKey(area, scopeKey) {
+  if (area === "reading_passport") return `lp-reading-passport:${scopeKey || "default"}`;
+  if (area === "cooperative_story_quest") return `lp-cooperative-story-quest:${scopeKey || "default"}`;
+  return "";
+}
 
 export function localProgressStorageKey(area, scopeKey) {
   const scope = encodeURIComponent(scopeKey || "default");
@@ -21,14 +31,15 @@ export function localProgressStorageKey(area, scopeKey) {
   if (area === "hollow") return `lp-hollow:${scopeKey || "default"}`;
   if (area === "phonics_quest") return `lp-quest:${scopeKey || "default"}`;
   if (area === "transfer_missions") return `lp-transfer-missions:${scopeKey || "default"}`;
-  if (area === "reading_passport") return `lp-reading-passport:${scopeKey || "default"}`;
-  if (area === "cooperative_story_quest") return `lp-cooperative-story-quest:${scopeKey || "default"}`;
   return "";
 }
 
 // Every localStorage key that holds progress for one student.
 export function localProgressKeysForStudent(studentId) {
-  return PROGRESS_AREAS.map(area => localProgressStorageKey(area, studentId)).filter(Boolean);
+  return [
+    ...PROGRESS_AREAS.map(area => localProgressStorageKey(area, studentId)),
+    ...RETIRED_PROGRESS_AREAS.map(area => retiredLocalProgressStorageKey(area, studentId))
+  ].filter(Boolean);
 }
 
 // Sentinel "tombstone" row a teacher reset leaves in the cloud so every device

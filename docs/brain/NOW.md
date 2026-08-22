@@ -40,8 +40,17 @@ installed, reviewed, and trusted on 2026-08-03.
 - The school-linked parent area is implemented at `/parent`. Teachers explicitly
   invite a guardian, release family-safe report snapshots, and can revoke access;
   guardians cannot read teacher evidence or another family's records directly.
+- The lean release source retires six optional product surfaces: Class Decodable
+  Press, Class Quest Live, Observed Change, Paper-to-Progress, Story Crew, and
+  Reading Passport. Their routes, buttons, runtime modules, feature tests, and
+  callable feature RPCs are removed. Historical database rows and immutable
+  migrations remain solely so existing learner data can still be exported or
+  erased; new writes to the two retired progress areas are rejected.
 - The linked Supabase project was verified on 2026-08-22 with migrations applied
-  through `20260822123000` and all 94 current browser RPCs visible to PostgREST.
+  through `20260822123000` and the pre-retirement 94 browser RPCs visible to
+  PostgREST. Source now defines 75 browser RPCs after
+  `20260822130000_retire_lean_release_features.sql`; that migration has not yet
+  been verified on the hosted project.
   The two remaining database-lint warnings are older volatility declarations in
   `lp_quest_merge_mastery` and `lp_merge_transfer_missions`; neither is part of
   the guardian portal. Recheck hosted state before relying on this dated

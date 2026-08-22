@@ -12,8 +12,6 @@ import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
-import { ImpactDashboardPage } from "./teacher/impact/ImpactDashboardPage.jsx";
-import { supabase } from "../supabaseClient.js";
 
 // ── THE SAME SHAPE AS CHECKS ────────────────────────────────────────────────
 //
@@ -93,8 +91,7 @@ export function TeacherReportsHubPage({
   // The hash this funnel was opened with. Left undefined the page reads the
   // live URL; tests and previews pass one in so a mid-funnel state can be set
   // up the same way a reload would produce it.
-  routeHash = undefined,
-  impactAnswersSeed = null
+  routeHash = undefined
 }) {
   const params = readTeacherFunnelParams(routeHash);
   const [who, setWho] = useState(() => {
@@ -107,7 +104,6 @@ export function TeacherReportsHubPage({
   const [editingStep, setEditingStep] = useState(0);
   const [studentSearch, setStudentSearch] = useState("");
   const [studentPage, setStudentPage] = useState(1);
-  const [impactOpen, setImpactOpen] = useState(false);
 
   const classHeadingRef = useRef(null);
   const whoHeadingRef = useRef(null);
@@ -305,9 +301,6 @@ export function TeacherReportsHubPage({
   const styleAnswer = wholeClass
     ? "Class summary"
     : currentStyle ? currentStyle.label : "";
-  if (impactOpen) {
-    return <ImpactDashboardPage client={supabase} className={verifiedClassName} students={rows} answersSeed={impactAnswersSeed} onClose={() => setImpactOpen(false)} />;
-  }
   // StudentReportShell owns the main landmark once an individual report is
   // open. The funnel owns it in every other state, including class reports.
   // This keeps exactly one, non-nested main landmark throughout the route.
@@ -327,7 +320,6 @@ export function TeacherReportsHubPage({
             detailed reading and practice reports stay one tap away.
           </p>
         </div>
-        <button className="lp-button lp-button-secondary" disabled={!hasClass || !rosterRead.complete} type="button" onClick={() => setImpactOpen(true)}>Open Impact Dashboard</button>
       </section>
 
       <div className="teacher-funnel">

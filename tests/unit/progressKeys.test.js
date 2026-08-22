@@ -2,8 +2,10 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   PROGRESS_AREAS,
+  RETIRED_PROGRESS_AREAS,
   localProgressStorageKey,
   localProgressKeysForStudent,
+  retiredLocalProgressStorageKey,
   RESET_AREA,
   shouldApplyReset
 } from "../../src/utils/progressKeys.js";
@@ -17,10 +19,17 @@ test("every progress area maps to a non-empty, student-scoped key", () => {
   }
 });
 
-test("localProgressKeysForStudent returns one key per area", () => {
+test("localProgressKeysForStudent includes active and retired keys for privacy cleanup", () => {
   const keys = localProgressKeysForStudent("stu-123");
-  assert.equal(keys.length, PROGRESS_AREAS.length);
+  assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length);
   assert.equal(new Set(keys).size, keys.length, "keys should be unique");
+});
+
+test("retired progress areas cannot be hydrated but retain cleanup keys", () => {
+  for (const area of RETIRED_PROGRESS_AREAS) {
+    assert.equal(localProgressStorageKey(area, "stu-123"), "");
+    assert.ok(retiredLocalProgressStorageKey(area, "stu-123"));
+  }
 });
 
 test("keys for different students never collide (reset is isolated)", () => {

@@ -23,8 +23,6 @@ import {
 } from "../data/teacherRosterOperations.js";
 import { TeacherActivitySyncHealth } from "./teacher/TeacherActivitySyncHealth.jsx";
 import { TransferEvidencePanel } from "./teacher/transfer/TransferEvidencePanel.jsx";
-import { ReadingPassportEvidencePanel } from "./teacher/ReadingPassportEvidencePanel.jsx";
-import { CooperativeStoryEvidencePanel } from "./teacher/CooperativeStoryEvidencePanel.jsx";
 import { LearnerDataRightsDialog } from "./teacher/LearnerDataRightsDialog.jsx";
 import { TeacherRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { ActionFeedback } from "./ActionFeedback.jsx";
@@ -657,9 +655,7 @@ export function TeacherStudentsPage({
   const [transferEvidenceRead, setTransferEvidenceRead] = useState({
     studentId: null,
     state: "idle",
-    evidence: [],
-    reflections: {},
-    cooperativeEvidence: []
+    evidence: []
   });
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
@@ -681,9 +677,7 @@ export function TeacherStudentsPage({
         setTransferEvidenceRead({
           studentId: selectedStudentId,
           state: "ready",
-          evidence: [],
-          reflections: {},
-          cooperativeEvidence: []
+          evidence: []
         });
       });
       return () => { live = false; };
@@ -692,24 +686,20 @@ export function TeacherStudentsPage({
       .table("student_progress")
       .select("area,payload,updated_at")
       .eq("student_id", selectedStudentId)
-      .in("area", ["transfer_missions", "reading_passport", "cooperative_story_quest"])
+      .eq("area", "transfer_missions")
       .eq("key", "__all__")
       .then(({ data, error }) => {
         if (!live) return;
         if (error) {
-          setTransferEvidenceRead({ studentId: selectedStudentId, state: "error", evidence: [], reflections: {}, cooperativeEvidence: [] });
+          setTransferEvidenceRead({ studentId: selectedStudentId, state: "error", evidence: [] });
           return;
         }
         const rows = Array.isArray(data) ? data : [];
         const transfer = rows.find(row => row.area === "transfer_missions")?.payload;
-        const passport = rows.find(row => row.area === "reading_passport")?.payload;
-        const cooperative = rows.find(row => row.area === "cooperative_story_quest")?.payload;
         setTransferEvidenceRead({
           studentId: selectedStudentId,
           state: "ready",
-          evidence: Array.isArray(transfer?.evidence) ? transfer.evidence : [],
-          reflections: passport?.reflections && typeof passport.reflections === "object" ? passport.reflections : {},
-          cooperativeEvidence: Array.isArray(cooperative?.evidence) ? cooperative.evidence : []
+          evidence: Array.isArray(transfer?.evidence) ? transfer.evidence : []
         });
       });
     return () => { live = false; };
@@ -2620,15 +2610,6 @@ export function TeacherStudentsPage({
                 <TransferEvidencePanel evidence={transferEvidenceRead.evidence} />
               )}
             </section>
-
-            {transferEvidenceRead.studentId === selectedStudentId && transferEvidenceRead.state === "ready" && (
-              <section className="teacher-student-panel-section">
-                <ReadingPassportEvidencePanel reflections={transferEvidenceRead.reflections} />
-              </section>
-            )}
-            {transferEvidenceRead.studentId === selectedStudentId && transferEvidenceRead.state === "ready" && (
-              <section className="teacher-student-panel-section"><CooperativeStoryEvidencePanel evidence={transferEvidenceRead.cooperativeEvidence} /></section>
-            )}
 
             <details className="teacher-student-panel-more">
               <summary>More for {selectedStudentRow.name}</summary>

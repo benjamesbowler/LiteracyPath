@@ -461,11 +461,7 @@ function letterSoundSlide(card, cycle, world) {
     section: "Sounds",
     audio: phoneme,
     teacher: tip,
-    char: "wave",
-    attrs: {
-      "data-live-kind": "grapheme_choice",
-      "data-live-target": card.spelling
-    }
+    char: "wave"
   });
 }
 
@@ -547,11 +543,7 @@ function sightWordSlide(word, cycle, world) {
     cls: "p-sight-slide",
     section: "Words",
     audio: wordAudio(word),
-    char: "read",
-    attrs: {
-      "data-live-kind": "word_choice",
-      "data-live-target": word
-    }
+    char: "read"
   });
 }
 
@@ -567,11 +559,7 @@ function blendSlides(cycle, world) {
       cls: "p-blend",
       section: "Blending",
       audio: wordAudio(word),
-      char: "wave",
-      attrs: {
-        "data-live-kind": "arrange_tiles",
-        "data-live-target": word
-      }
+      char: "wave"
     });
   });
 }
@@ -1039,17 +1027,10 @@ export function presentationSlideIndex(cycleId, { day = "" } = {}) {
     const cls = match[1].trim();
     const attrs = match[2] || "";
     const section = /data-section="([^"]*)"/.exec(attrs)?.[1] || "";
-    const liveKind = /data-live-kind="([^"]*)"/.exec(attrs)?.[1] || "";
-    const liveTarget = /data-live-target="([^"]*)"/.exec(attrs)?.[1] || "";
     out.push({
       index: out.length,
       cls,
-      section,
-      liveKind,
-      liveTarget,
-      livePromptId: liveKind && liveTarget
-        ? `slide-${out.length}-${liveKind}-${liveTarget}`
-        : ""
+      section
     });
     match = re.exec(html);
   }

@@ -63,7 +63,6 @@ import { resolveConfirmedElPlacement } from "../policy/elPlacementPolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
 import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
-import { useLiveLessonFollower } from "../hooks/useLiveLessonFollower.js";
 import { endReadingSession } from "../data/readingSessionCore.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
 import {
@@ -110,11 +109,6 @@ const StudentHomePage = lazyWithRetry(() =>
 );
 const StudentReadingFollower = lazyWithRetry(() =>
   import("./StudentReadingFollower.jsx").then(module => ({ default: module.StudentReadingFollower }))
-);
-const StudentLiveLessonOverlay = lazyWithRetry(() =>
-  import("./live-lessons/StudentLiveLessonOverlay.jsx").then(module => ({
-    default: module.StudentLiveLessonOverlay
-  }))
 );
 const StudentSoundTrailPage = lazyWithRetry(() =>
   import("./StudentSoundTrailPage.jsx").then(module => ({ default: module.StudentSoundTrailPage }))
@@ -335,12 +329,6 @@ export function AppSurface({ surface }) {
     books: readingFollowerBooks,
     enabled: sessionMode === "student" && readingFollowerBooks.length > 0
   });
-  const liveLessonFollower = useLiveLessonFollower({
-    client: isSupabaseConfigured ? supabase : null,
-    token: studentSession?.token || "",
-    enabled: sessionMode === "student" && Boolean(studentSession?.token)
-  });
-
   useEffect(() => {
     if (
       !isSupabaseConfigured
@@ -1153,19 +1141,6 @@ export function AppSurface({ surface }) {
     );
   };
 
-  if (isStudentMode && liveLessonFollower.session) {
-    return (
-      <ErrorBoundary
-        resetKey={`live-lesson-${liveLessonFollower.session.id}`}
-        fallback={<PageErrorFallback />}
-      >
-        <Suspense fallback={<LazyPageFallback label="Joining the class lesson…" />}>
-          <StudentLiveLessonOverlay follower={liveLessonFollower} />
-        </Suspense>
-      </ErrorBoundary>
-    );
-  }
-
   return (
     <ErrorBoundary
       resetKey={`app-shell-${appView}-${isStudentMode ? studentSessionId || "none" : "teacher"}`}
@@ -1624,8 +1599,6 @@ export function AppSurface({ surface }) {
               lessonComposerRequest={lessonComposerRequest}
               onLessonComposerRequestHandled={() => setLessonComposerRequest(0)}
               onOpenPresent={() => goToTeacherIntent(APP_VIEWS.PRESENT)}
-              onOpenReports={() => goToTeacherIntent(APP_VIEWS.REPORTS)}
-              onOpenStudents={() => goToTeacherIntent(APP_VIEWS.TEACHER_CLASSES)}
               onOpenToday={() => goToTeacherIntent(APP_VIEWS.TEACHER_DASHBOARD)}
               onOpenGuidedReading={bookId => {
                 // GUIDED_READING is the per-student conference and only renders
@@ -1783,8 +1756,6 @@ export function AppSurface({ surface }) {
               progressScopeKey={childProgressScopeKey}
               teacherId={teacherId}
               studentId={studentId}
-              client={supabase}
-              studentSessionToken={studentSession?.token || ""}
               guidedReadingRecords={guidedReadingRecords}
               studentProgress={guidedReadingStudentProgress}
               recommendationEvidenceReady={selectedStudentEvidenceReady}
@@ -2006,16 +1977,8 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey="worksheets">
           <Suspense fallback={<LazyPageFallback label="Loading worksheets..." />}>
             <WorksheetGeneratorPage
-              client={isSupabaseConfigured ? supabase : null}
-              teacherId={teacherId}
-              classId={selectedClassId}
               className={getSelectedClassName(classList, selectedClassId)}
-              studentList={studentList}
               onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
-              onPlanLesson={() => {
-                setLessonComposerRequest(request => request + 1);
-                goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES);
-              }}
             />
           </Suspense>
         </PageBoundary>
@@ -2026,10 +1989,7 @@ export function AppSurface({ surface }) {
           <Suspense fallback={<LazyPageFallback label="Loading Present mode..." />}>
             <PresentPage
               className={getSelectedClassName(classList, selectedClassId)}
-              classId={selectedClassId}
               currentCycleId={teacherCycleId}
-              students={studentList}
-              client={isSupabaseConfigured ? supabase : null}
               onBack={() => goToTeacherIntent(APP_VIEWS.TEACHER_RESOURCES)}
             />
           </Suspense>

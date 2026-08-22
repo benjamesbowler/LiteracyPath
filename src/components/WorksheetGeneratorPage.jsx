@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import QRCode from "qrcode";
 import {
   WORKSHEET_TYPES,
   WORKSHEET_CATEGORIES,
@@ -8,14 +7,8 @@ import {
   getWorksheetCycle,
   availableWorksheetTypes,
   buildWorksheetDocument,
-  printWorksheet,
-  printTrackedWorksheet
+  printWorksheet
 } from "../utils/worksheets/worksheetBuilder.js";
-import { buildWorksheetInstanceRecipe } from "../utils/worksheets/buildWorksheetInstance.js";
-import { buildWorksheetQrPayload } from "../utils/worksheets/buildWorksheetQrPayload.js";
-import { createWorksheetInstance, resolveWorksheetCode } from "../data/worksheets/worksheetEvidence.js";
-import { TrackedWorksheetDialog } from "./teacher/worksheets/TrackedWorksheetDialog.jsx";
-import { WorksheetMarkingPage } from "./teacher/worksheets/WorksheetMarkingPage.jsx";
 import {
   listWorksheetRecipes,
   saveWorksheetRecipe,
@@ -39,7 +32,7 @@ function describeWorksheetBankLoadError(error) {
   return "Your saved worksheet bank could not be loaded. Try again. You can still build and print a new worksheet.";
 }
 
-export function WorksheetGeneratorPage({ client = null, classId = "", className = "", studentList = [], onBack, onPlanLesson }) {
+export function WorksheetGeneratorPage({ className = "", onBack }) {
   const cycleOptions = useMemo(() => worksheetCycleOptions(), []);
   const [cycleId, setCycleId] = useState(() => {
     // Default to the cycle the teacher used last time.
@@ -61,10 +54,6 @@ export function WorksheetGeneratorPage({ client = null, classId = "", className 
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState("");
   const [deleteCandidate, setDeleteCandidate] = useState("");
-  const [trackOpen, setTrackOpen] = useState(false);
-  const [trackedLearnerIds, setTrackedLearnerIds] = useState([]);
-  const [markingInstance, setMarkingInstance] = useState(null);
-  const [lookupCode, setLookupCode] = useState("");
 
   const cycle = useMemo(() => getWorksheetCycle(cycleId), [cycleId]);
   const availableTypes = useMemo(() => availableWorksheetTypes(cycle), [cycle]);
@@ -119,13 +108,6 @@ export function WorksheetGeneratorPage({ client = null, classId = "", className 
     return () => { alive = false; };
   }, []);
 
-  useEffect(() => {
-    if (!client) return;
-    const code = new URLSearchParams(window.location.hash.split("?")[1] || "").get("worksheet");
-    if (!code) return;
-    resolveWorksheetCode(client, code).then(setMarkingInstance).catch(error => setNote(error?.message || "That tracked worksheet could not be opened."));
-  }, [client]);
-
   const recipe = { cycleId, type: effectiveType, pages };
 
   function rememberCycle(nextCycleId) {
@@ -148,29 +130,6 @@ export function WorksheetGeneratorPage({ client = null, classId = "", className 
     } catch {
       setNote("We couldn't open that worksheet. Nothing was saved or changed. Try again.");
     }
-  }
-
-  async function handleCreateTracked() {
-    setBusy(true); setNote("");
-    try {
-      const frozen = buildWorksheetInstanceRecipe(recipe);
-      const created = await createWorksheetInstance(client, { classId, learnerIds: trackedLearnerIds, recipe: frozen });
-      const qrPayload = buildWorksheetQrPayload({ origin: window.location.origin, lookupToken: created.lookup_token });
-      const qrDataUrl = await QRCode.toDataURL(qrPayload, { errorCorrectionLevel: "M", margin: 1, width: 220 });
-      const result = printTrackedWorksheet(recipe, { qrDataUrl, shortCode: created.short_code });
-      if (!result.ok) throw new Error("Please allow pop-ups so the tracked worksheet can open.");
-      result.ready.catch(() => setNote("The tracked instance was saved, but its printable pictures could not be prepared."));
-      const instance = await resolveWorksheetCode(client, created.lookup_token);
-      setTrackOpen(false); setMarkingInstance(instance); setNote("Tracked worksheet created. Its QR requires a signed-in teacher; the short code is printed as a camera-free fallback.");
-    } catch (error) { setNote(error?.message || "The tracked worksheet could not be created."); }
-    finally { setBusy(false); }
-  }
-
-  async function handleResolveCode(event) {
-    event.preventDefault(); setBusy(true); setNote("");
-    try { setMarkingInstance(await resolveWorksheetCode(client, lookupCode)); }
-    catch (error) { setNote(error?.message || "That worksheet code was not found."); }
-    finally { setBusy(false); }
   }
 
   async function handleSave() {
@@ -235,8 +194,6 @@ export function WorksheetGeneratorPage({ client = null, classId = "", className 
       setNote("We couldn't open that worksheet. Nothing was changed. Try again.");
     }
   }
-
-  if (markingInstance) return <WorksheetMarkingPage client={client} instance={markingInstance} students={studentList} onClose={() => setMarkingInstance(null)} onPlanLesson={onPlanLesson} />;
 
   return (
     <main className="ws-page" data-teacher-route="worksheets">
@@ -342,10 +299,7 @@ export function WorksheetGeneratorPage({ client = null, classId = "", className 
           <button type="button" className="ws-ghost" onClick={handleSave} disabled={!effectiveType || busy}>
             Save to bank
           </button>
-          {client && classId && <button type="button" className="ws-ghost" onClick={() => { setTrackedLearnerIds(studentList.filter(row=>!row.archived_at&&!row.archivedAt).map(row=>row.id)); setTrackOpen(true); }} disabled={!effectiveType || busy}>Track and print</button>}
         </div>
-        {trackOpen && <TrackedWorksheetDialog students={studentList} selectedIds={trackedLearnerIds} onToggle={id=>setTrackedLearnerIds(current=>current.includes(id)?current.filter(value=>value!==id):[...current,id])} onCancel={()=>setTrackOpen(false)} onCreate={handleCreateTracked} busy={busy} />}
-        {client && <form className="ws-code-entry" onSubmit={handleResolveCode}><label><span>Open a tracked worksheet</span><input value={lookupCode} onChange={event=>setLookupCode(event.target.value.toUpperCase())} maxLength="64" placeholder="Enter 8-character code" /></label><button type="submit" disabled={busy||lookupCode.length<8}>Open marking</button></form>}
         {note && <p className="ws-note" role="status">{note}</p>}
       </section>
 

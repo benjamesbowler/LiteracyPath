@@ -21,6 +21,22 @@ before loading the optional route-restoration module. Deep-link hydration reuses
 read rather than starting a competing request. A malformed saved profile or a teacher
 route can therefore no longer leave the class list at its initial loading state.
 
+## Lean release retirement — 22 August 2026
+
+The current release no longer includes Class Decodable Press, Class Quest Live,
+Observed Change, Paper-to-Progress, Story Crew, or Reading Passport. Their learner
+and teacher entry points, runtime components, feature-only content and policies,
+styles, tests, verification tools, and unused QR-code dependency have been removed.
+The ordinary worksheet library, presentation decks, Guided Reading, Story Quests,
+reports, learner exports, and the retained supporting-feature directory remain.
+
+Historical Supabase migrations are immutable rebuild history, and historical rows
+from the retired surfaces are preserved for learner export and verified erasure.
+The final retirement migration removes 19 feature RPCs, revokes direct access to
+the retired feature tables, excludes retired progress from child hydration, and
+rejects new Reading Passport or Story Crew progress writes. This source migration
+is a pending hosted operation until the linked project is explicitly rechecked.
+
 ## Current authoritative sources
 
 ### Skills assessment
@@ -143,6 +159,8 @@ restore any named-person approval rule.
 
 ## Permanently retired — do not restore
 
+- Class Decodable Press, Class Quest Live, Observed Change, Paper-to-Progress,
+  Story Crew, and Reading Passport
 - pre-v3 Skills assessment banks, shards, manifests, and release boards
 - personal approval fields such as `signedOffBy`, `reviewedBy`, “Ben approved,”
   or “pending Ben”
