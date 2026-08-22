@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
-import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import { getRuntimeGuidedReadingBooks } from "../src/utils/guidedReading/runtimeBooks.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = path.join(repoRoot, "public");
@@ -17,6 +17,7 @@ const CARD_HEIGHT = 450;
 const IMAGE_WIDTH = 380;
 const IMAGE_HEIGHT = 300;
 const COLUMNS = 3;
+const guidedReadingBooks = getRuntimeGuidedReadingBooks();
 
 function escapeXml(value = "") {
   return String(value).replace(/[&<>"']/g, character => ({

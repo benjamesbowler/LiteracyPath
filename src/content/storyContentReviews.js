@@ -444,7 +444,7 @@ const historicalStoryQuestPolicyReviews = Object.freeze([
       "Every ending confirms that Tiny made the map; no manuscript repair remains open, and future changes must invalidate this fingerprint."
     ],
     illustrationActions: [
-      "Preserve the approved Meadow Pals models: yellow woolly Bouncy with four coil-spring legs, black-and-white Speedy with one tail and very small grey Tiny.",
+      "Preserve the approved Meadow Pals models: yellow woolly Bouncy with exactly two woolly arms and exactly two coil-spring legs (four limbs total), black-and-white Speedy with one tail and very small grey Tiny.",
       "Preserve the readable map state, tiny mouse tracks, muddy-map action, mouse signature and open-map ending in future media revisions."
     ],
     routeEvidence: Object.freeze({
