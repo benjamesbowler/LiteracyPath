@@ -55,6 +55,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product design
 
+- [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian portal product model, privacy boundary, release scope and working seeded preview
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Game design bible](design/GAME_DESIGN_BIBLE.md)
 - [Meadow Pals animation production bible](design/ANIMATION_PRODUCTION_BIBLE.md)
