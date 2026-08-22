@@ -11,15 +11,16 @@ export const PUBLIC_LEGAL_RULES = Object.freeze({
     "does not take payments", "continuous", "reported defect", "data-processing.html"
   ],
   "privacy.html": [
-    "2026-08-21-uk-v1", "school normally", "controller", "processor", "Article 6",
+    "2026-08-22-uk-v2", "school normally", "controller", "processor", "Article 6",
     "Article 9", "Sydney, Australia", "Vercel", "restricted transfer", "data-protection test",
     "365 days", "90 days", "rights requests", "acknowledge it within 30 days",
-    "No advertising", "No use of identifiable learner data to train an AI model"
+    "No advertising", "No use of identifiable learner data to train an AI model",
+    "Parents and guardians", "matching confirmed email", "revocable link"
   ],
   "terms.html": [
-    "2026-08-21-uk-beta-v1", "free beta", "does not currently take payment", "authorised",
+    "2026-08-22-uk-beta-v2", "free beta", "does not currently take payment", "authorised",
     "lawful basis", "DPIA", "data-processing.html", "mandatory rights", "England and Wales",
-    "geographic service address is not created"
+    "geographic service address is not created", "Parent and guardian accounts", "revoke the link"
   ],
   "cookies.html": [
     "No consent banner", "no advertising", "optional analytics", "local storage", "IndexedDB",
@@ -107,7 +108,7 @@ export function validateLegalImplementation(root = repoRoot) {
     if (!content) issues.push(`${file}: missing`);
   }
 
-  for (const term of ["2026-08-21-uk-beta-v1", "2026-08-21-uk-v1", "England and Wales"]) {
+  for (const term of ["2026-08-22-uk-beta-v2", "2026-08-22-uk-v2", "England and Wales"]) {
     if (!mentions(policy, term)) issues.push(`src/policy/legalPolicy.js: missing "${term}"`);
   }
   for (const term of ["required", "/terms.html", "/privacy.html", "legalAccepted"]) {

@@ -1,6 +1,7 @@
-# LiteracyPath school-linked parent area
+# Literacy Guide school-linked parent area
 
-Status: proposed product specification with a working seeded UI preview
+Status: implemented 22 August 2026. Hosted Supabase schema applied and verified;
+frontend release follows the normal application deployment.
 
 Preview: `/preview/parent-area.html`
 
@@ -23,7 +24,7 @@ A busy parent should be able to answer three questions in under a minute:
 2. What is the school working on next?
 3. What useful, low-pressure thing can we do at home?
 
-The parent area is therefore not a smaller teacher dashboard. It is the final part of the LiteracyPath loop:
+The parent area is therefore not a smaller teacher dashboard. It is the final part of the Literacy Guide loop:
 
 `school evidence -> teacher decision -> family explanation -> short home support -> later school evidence`
 
@@ -37,7 +38,7 @@ A verified adult invited by a school. A guardian can:
 - switch between linked learners;
 - view family-ready updates and reports released by the school;
 - print home activities and reports;
-- change family language and notification preferences;
+- save a preferred family language and future report-email preference;
 - contact the school using the route the school provides; and
 - see the family privacy notice and how to make a data-rights request.
 
@@ -58,8 +59,8 @@ An authorised teacher or school administrator can:
 - link one or more guardians to a learner;
 - revoke a link immediately;
 - release or withdraw a family report;
-- choose a Family Bridge plan and family language; and
-- define the school contact shown to the family.
+- release the current family-safe report and Family Bridge plan; and
+- withdraw a released report.
 
 The school remains responsible for confirming that the invited adult is entitled to see the learner's record.
 
@@ -107,7 +108,7 @@ Reuse and extend the current Family Bridge system:
 
 ### Reports
 
-Show only explicitly released family reports, newest first. Each report supports opening, printing and downloading. Withdrawing a report removes it from future access but must create an audit event.
+Show only explicitly released family reports, newest first. Each report supports opening and browser print/save. Withdrawing a report removes it from future access and creates an audit event. The product does not label an HTML print action as a PDF download.
 
 ### Account
 
@@ -123,7 +124,7 @@ Recommended server-side records:
 | `guardian_invites` | Single-use, expiring school invitation | Store inviter, school, learner, intended email, expiry and revocation |
 | `guardian_learner_links` | Authoritative guardian-to-learner relationship | School-scoped, auditable and immediately revocable |
 | `family_report_releases` | A released snapshot or immutable release reference | Draft reports never satisfy a parent read policy |
-| `guardian_notification_preferences` | Email and language choices | No marketing consent inferred from service notifications |
+| fields on `guardian_profiles` | Future email preference and preferred language | No marketing consent inferred from a service preference |
 | `guardian_access_audit` | Invitation, link, view, download, withdrawal and revocation events | Append-only with limited staff visibility |
 
 ### Row-level access policy
@@ -134,41 +135,47 @@ Every family read must prove all of the following in the database, not only in t
 2. the guardian-to-learner link is active;
 3. the learner belongs to the same school as the link;
 4. the requested report is released to families; and
-5. neither the invitation nor the link has expired or been revoked.
+5. the learner is still active and the link has not been revoked.
+
+The invitation is checked for expiry and revocation when it is consumed. After
+acceptance, the active learner link is the authority; the expired one-use
+invitation is not treated as a continuing session lease.
 
 Never accept a learner id from the browser as sufficient authority. Direct object-reference tests must attempt access across children, guardians and schools.
 
 ## Invitation and recovery flow
 
 1. School staff enter the guardian's email against a learner.
-2. LiteracyPath sends a single-use link with a clear expiry.
+2. The product creates a single-use link with a seven-day expiry. During beta,
+   the teacher copies and sends it through the school's normal communication route.
 3. The guardian verifies the same email address and sets up or signs into an adult account.
 4. The server consumes the invitation and creates the learner link atomically.
 5. The guardian sees the family home page.
-6. The school can resend, cancel or revoke from the learner record.
+6. The school can create a fresh link, cancel a pending link or revoke accepted access from the learner report.
 
 Recovery must never reveal whether an unverified email is linked to a child. Support staff must not create family links from an email request alone.
 
 ## Release scope
 
-### P0: useful and safe
+### Implemented P0
 
 - Guardian authentication with email verification and password recovery
-- School-created invitation, resend, expiry, cancellation and revocation
+- School-created invitation, fresh-link replacement, expiry, cancellation and revocation
 - One guardian linked to multiple children and multiple guardians linked to one child
 - Home, Progress, At home, Reports and Account pages
 - Teacher release control for family reports
 - Family Bridge delivery and printing
-- Family-language choice
+- Stored preferred family language and language-labelled released home plan
 - Parent-specific row-level policies and cross-tenant security tests
 - Access audit, privacy notice and school-routed data-rights instructions
 - Empty, loading, error, no-report and revoked-access states
-- Mobile phone, tablet, keyboard, screen-reader and print checks
+- Mobile phone, keyboard, automated accessibility and print checks
 
-### P1: makes it operationally strong
+### Still P1
 
 - Report-ready email notifications
-- School guardian-access screen with last-used and revoked states
+- Automated invitation delivery and bounce handling
+- School guardian-access screen with last-used and revoked-history states
 - Branded school contact and optional school logo
 - Report withdrawal notice and audit history
 - Translation review workflow and per-report language fallback
@@ -193,7 +200,60 @@ Recovery must never reveal whether an unverified email is linked to a child. Sup
 
 ## Notification rules
 
-Service emails are limited to invitations, security events, report releases and access changes. Marketing is separate and opt-in. Notification content should not include detailed child learning information; the email should ask the verified guardian to sign in.
+Automated family email is not operating in the beta. The product records a
+future report-email preference but states that no report emails are currently
+sent. When notifications are introduced, they must be limited to invitations,
+security events, report releases and access changes. Marketing remains separate
+and opt-in. Notification content must not include detailed child learning
+information; it should ask the verified guardian to sign in.
+
+## Implemented service design
+
+### Components
+
+- `/parent` is a separate guardian application root, so teacher approval state
+  and teacher navigation never mount in the family route.
+- Supabase Auth confirms the adult email. `account_type=guardian` prevents the
+  auth trigger from creating a pending teacher, but grants no learner access.
+- The browser can call 11 reviewed guardian/family RPCs through the validated
+  Supabase facade. Direct reads of the guardian tables remain revoked.
+- Teachers create invitations and releases inside the learner's Whole Child
+  report. Parents receive immutable, plain-language snapshots rather than live
+  teacher records.
+
+### API boundary
+
+| Operation | Audience | Rule |
+|---|---|---|
+| `guardian_invite_preview` | Signed out or signed in | Valid token reveals school name and expiry, never learner identity |
+| `guardian_accept_invite` | Confirmed guardian | Token email must equal the confirmed auth email; link creation is atomic |
+| `guardian_get_portal` | Linked guardian | Returns only active linked learners and non-withdrawn releases |
+| `guardian_update_preferences` | Guardian | Updates the guardian's own bounded settings |
+| `guardian_record_report_event` | Linked guardian | Report must belong to an actively linked learner |
+| six `teacher_*guardian*` or family-report functions | Approved teacher or admin | Existing approved-teacher assertion runs first and ownership is rechecked |
+
+### Reliability and scale
+
+- Invitation tokens contain 256 random bits; only their SHA-256 digests are stored.
+- Active invitation, guardian-link, report and audit lookup paths are indexed.
+- A released snapshot is limited to 64 KiB, six progress rows, five home
+  activities and a strict top-level key allowlist.
+- Release, acceptance, cancellation, withdrawal and revocation are
+  transactional database functions and write audit events with the change.
+- Revocation is evaluated on each portal request, so it does not depend on a
+  browser refresh token expiring.
+- These bounded rows and indexes are suitable for the planned 10,000-user beta;
+  notification delivery and audit-retention operations need their own capacity
+  plan before a materially larger rollout.
+
+### Trade-offs
+
+- Immutable releases prevent an internal edit from silently changing what a
+  family previously read, at the cost of storing a small snapshot per release.
+- Manual invitation delivery avoids pretending an email service exists, at the
+  cost of more teacher effort and no bounce telemetry.
+- Database RPCs make the authority checks central and testable, at the cost of
+  a deliberately small API that must be versioned when family needs expand.
 
 ## Accessibility and content rules
 
@@ -237,4 +297,17 @@ The feature is not production-ready until all of these pass:
 
 ## Current implementation boundary
 
-The preview implements the proposed page design, interactions, responsive behaviour and display-model rules with seeded sample content. It deliberately does not add a production guardian role, database tables, authentication, invitations, notifications or report-download service. Those are the security-critical implementation phase and must be built together rather than simulated in a live beta.
+Production authentication, invitations, links, released snapshots, audit,
+teacher controls, revocation, password recovery and parent routes are built.
+The seeded preview remains a stable design and accessibility fixture.
+
+The hosted database has passed a temporary two-family isolation test: the wrong
+email could not consume an invitation, one guardian could not read or record an
+event for the other learner's report, direct learner-table reads were denied,
+teacher RPCs were denied to guardians, and revocation removed access on the next
+request. The temporary users, school, learners and audit rows were removed.
+
+Not yet implemented: automated invitation or report emails, bounce handling,
+school branding, translated family-report prose, physical-device acceptance,
+and an administrator export of guardian access. Those remain launch decisions,
+not simulated controls.

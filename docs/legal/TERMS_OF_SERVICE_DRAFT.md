@@ -1,7 +1,7 @@
 # Future paid-school terms working draft
 
 > **Not the current beta terms.** The in-force free-beta terms are
-> `/terms.html`, version `2026-08-21-uk-beta-v1`.
+> `/terms.html`, version `2026-08-22-uk-beta-v2`.
 
 This file is reserved for a future negotiated or paid school service. It must not
 be published or treated as accepted until the contracting identity, geographic

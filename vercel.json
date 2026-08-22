@@ -4,6 +4,10 @@
     {
       "source": "/soundkeys/:path*",
       "destination": "/"
+    },
+    {
+      "source": "/parent/:path*",
+      "destination": "/"
     }
   ],
   "headers": [

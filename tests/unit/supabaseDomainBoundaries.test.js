@@ -51,7 +51,7 @@ function fakeRawClient({ authResponse, rpcResponses = {}, tableResponses = {} } 
 
 test("all domain registries expose the complete reviewed backend surface", () => {
   assert.equal(BOUNDARY_TABLES.length, 38);
-  assert.equal(BOUNDARY_RPCS.length, 83);
+  assert.equal(BOUNDARY_RPCS.length, 94);
   assert.ok(BOUNDARY_TABLES.includes("classes"));
   assert.ok(BOUNDARY_TABLES.includes("reading_sessions"));
   assert.ok(BOUNDARY_TABLES.includes("assessment_attempts"));
@@ -71,6 +71,8 @@ test("all domain registries expose the complete reviewed backend surface", () =>
   assert.ok(BOUNDARY_RPCS.includes("report_assessment_question"));
   assert.ok(BOUNDARY_RPCS.includes("admin_review_assessment_question_report"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_export_learner_data"));
+  assert.ok(BOUNDARY_RPCS.includes("guardian_get_portal"));
+  assert.ok(BOUNDARY_RPCS.includes("teacher_release_family_report"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_create_lesson_plan"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_record_lesson_delivery"));
   assert.ok(BOUNDARY_RPCS.includes("teacher_delete_learner_data_staged"));
@@ -305,4 +307,38 @@ test("backend errors pass through without misclassifying their empty data", asyn
   }));
   const result = await client.table("classes").select("*");
   assert.equal(result.error, expectedError);
+});
+
+test("guardian portal responses validate nested learner and report identities", async () => {
+  const valid = createValidatedSupabaseClient(fakeRawClient({
+    rpcResponses: {
+      guardian_get_portal: {
+        data: {
+          ok: true,
+          profile: { user_id: "guardian-1", email: "family@example.invalid" },
+          children: [{
+            learner: { id: "student-1", name: "Aarav", classLabel: "Willow" },
+            latest_snapshot: null,
+            reports: [{ id: "report-1", title: "Family update", snapshot: {
+              schemaVersion: 1,
+              learner: { id: "student-1", name: "Aarav" },
+              strengths: [], canDo: [], nextFocus: [], progress: [], atHome: { activities: [] }
+            } }]
+          }]
+        },
+        error: null
+      }
+    }
+  }));
+  assert.equal((await valid.call("guardian_get_portal")).data.children[0].learner.id, "student-1");
+
+  const malformed = createValidatedSupabaseClient(fakeRawClient({
+    rpcResponses: {
+      guardian_get_portal: {
+        data: { ok: true, children: [{ learner: { id: 42, name: "Aarav" }, reports: [] }] },
+        error: null
+      }
+    }
+  }));
+  await assert.rejects(async () => await malformed.call("guardian_get_portal"), DomainBoundaryError);
 });

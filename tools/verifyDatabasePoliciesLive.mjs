@@ -72,6 +72,21 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_confirmation: "DO NOT VERIFY"
   },
   "find_or_create_school(text)": { p_name: "Audit forbidden school" },
+  "guardian_accept_invite(text, text, text, text)": {
+    p_token: "0".repeat(64),
+    p_display_name: "Audit guardian",
+    p_terms_version: "2026-08-22-uk-beta-v2",
+    p_privacy_version: "2026-08-22-uk-v2"
+  },
+  "guardian_get_portal()": {},
+  "guardian_record_report_event(uuid, text)": {
+    p_report_id: "00000000-0000-0000-0000-000000000000",
+    p_event_type: "report_viewed"
+  },
+  "guardian_update_preferences(text, boolean)": {
+    p_preferred_language: "en",
+    p_report_notifications: false
+  },
   "is_app_admin(uuid)": { check_user_id: EXPECTED.teacherA.studentId },
   "set_app_config(text, jsonb)": { p_key: "audit-forbidden", p_value: {} },
   "teacher_assign_instructional_group_follow_up(uuid, text, text, date)": {
@@ -79,6 +94,9 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_owner_label: "Audit",
     p_activity: "Audit",
     p_planned_for: "2026-07-25"
+  },
+  "teacher_cancel_guardian_invite(uuid)": {
+    p_invite_id: "00000000-0000-0000-0000-000000000000"
   },
   "teacher_class_access_log(uuid, integer)": { p_class_id: EXPECTED.teacherA.classId, p_limit: 1 },
   "teacher_class_access_summary(uuid)": { p_class_id: EXPECTED.teacherA.classId },
@@ -92,6 +110,11 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_owner_label: "Audit",
     p_activity: "Audit",
     p_planned_for: "2026-07-25"
+  },
+  "teacher_create_guardian_invite(uuid, text, integer)": {
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_guardian_email: "audit-guardian@literacypath.invalid",
+    p_expires_days: 7
   },
   "teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date)": {
     p_parent_intervention_id: "00000000-0000-0000-0000-000000000000",
@@ -164,6 +187,7 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_session_id: "00000000-0000-0000-0000-000000000000"
   },
   "teacher_list_learner_data_rights(uuid)": { p_student_id: EXPECTED.teacherA.studentId },
+  "teacher_list_guardian_access(uuid)": { p_student_id: EXPECTED.teacherA.studentId },
   "teacher_list_press_work(uuid)": { p_class_id: EXPECTED.teacherA.classId },
   "teacher_mark_intervention_delivered(uuid)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000"
@@ -201,6 +225,11 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   },
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)": { p_instance_id: "00000000-0000-0000-0000-000000000000", p_client_event_id: "anonymous-access-probe", p_marks: [], p_note: "", p_supersedes_batch_id: null },
   "teacher_regenerate_class_code(uuid)": { p_class_id: EXPECTED.teacherA.classId },
+  "teacher_release_family_report(uuid, text, jsonb)": {
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_title: "Anonymous access probe",
+    p_snapshot: {}
+  },
   "teacher_reset_student_progress(uuid, timestamp with time zone)": {
     p_student_id: EXPECTED.teacherA.studentId,
     p_reset_at: "2026-07-27T00:00:00.000Z"
@@ -215,6 +244,10 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
   "teacher_review_intervention(uuid, date)": {
     p_intervention_id: "00000000-0000-0000-0000-000000000000",
     p_next_review_on: "2026-07-25"
+  },
+  "teacher_revoke_guardian_access(uuid, uuid)": {
+    p_student_id: EXPECTED.teacherA.studentId,
+    p_guardian_user_id: "00000000-0000-0000-0000-000000000000"
   },
   "teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)": {
     p_class_id: EXPECTED.teacherA.classId,
@@ -299,6 +332,9 @@ export const AUTH_ONLY_PROBE_ARGS = Object.freeze({
     p_focus: "Audit",
     p_activity: "Audit",
     p_planned_for: "2026-07-25"
+  },
+  "teacher_withdraw_family_report(uuid)": {
+    p_report_id: "00000000-0000-0000-0000-000000000000"
   }
 });
 

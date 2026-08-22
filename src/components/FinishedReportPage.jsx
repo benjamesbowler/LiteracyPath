@@ -50,8 +50,10 @@ import {
   SimpleOverviewReportView,
   SimpleSkillsReportView
 } from "./reports/SimpleStudentReportViews.jsx";
+import { FamilySharingPanel } from "./teacher/family/FamilySharingPanel.jsx";
 
 const EMPTY_REPORT_ROWS = [];
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 function formatClassLabel(value = "") {
   return value || "Class not linked";
@@ -832,6 +834,12 @@ export function FinishedReportPage({
   // Optional; wired in App.jsx (pass progressScopeKey={studentId || studentName}).
   progressScopeKey = "",
   reportStatusMessage = "",
+  familySharingClient = null,
+  teacherId = "",
+  schoolName = "",
+  teacherName = "Class teacher",
+  teacherEmail = "",
+  cycleNumber = 1,
   // Called whenever the report navigation changes which report is showing. The Reports
   // funnel embeds this page under its own step 3, and without this the step
   // would keep saying "Overview" after the teacher moved to Skills.
@@ -1297,11 +1305,26 @@ export function FinishedReportPage({
       {evidenceReady && (
         <>
           {activeReportView === "whole-child" && (
-            <SimpleOverviewReportView
-              workspace={reportingWorkspace}
-              studentName={studentName}
-              onStartAssessment={openChecks}
-            />
+            <>
+              <SimpleOverviewReportView
+                workspace={reportingWorkspace}
+                studentName={studentName}
+                onStartAssessment={openChecks}
+              />
+              {familySharingClient && UUID_PATTERN.test(teacherId) && UUID_PATTERN.test(progressScopeKey) ? (
+                <FamilySharingPanel
+                  client={familySharingClient}
+                  workspace={reportingWorkspace}
+                  studentId={progressScopeKey}
+                  studentName={studentName}
+                  className={className}
+                  schoolName={schoolName}
+                  teacherName={teacherName}
+                  teacherEmail={teacherEmail}
+                  cycleNumber={cycleNumber}
+                />
+              ) : null}
+            </>
           )}
 
           {activeReportView === "el-assessments" && (

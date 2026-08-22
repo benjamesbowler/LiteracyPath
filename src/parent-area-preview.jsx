@@ -44,7 +44,7 @@ const PARENT_AREA_PREVIEW_MODELS = [
       introduction: "Say a short word slowly. Ask Aarav what sound they hear at the very end. Keep it playful and stop after a few words.",
       durationLabel: "5 to 10 minutes",
       language: "English",
-      privacyText: "LiteracyPath does not record your child’s voice, image or home activity. Home practice does not change the school’s progress decisions.",
+      privacyText: "Literacy Guide does not record your child’s voice, image or home activity. Home practice does not change the school’s progress decisions.",
       activities: [
         { moment: "On the way home", title: "Listen at the end", direction: "Say sun, map and fish slowly. Take turns naming the last sound you hear." },
         { moment: "At the table", title: "Sort the sounds", direction: "Find three small objects. Group any objects whose names end with the same sound." },

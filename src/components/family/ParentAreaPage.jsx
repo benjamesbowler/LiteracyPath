@@ -5,7 +5,6 @@ import {
   CaretDown,
   CheckCircle,
   Clock,
-  DownloadSimple,
   FileText,
   House,
   Info,
@@ -38,24 +37,25 @@ function ParentAreaLoading() {
   );
 }
 
-function ParentAreaError({ onRetry }) {
+function ParentAreaError({ onRetry, onSignOut }) {
   return (
     <main className="parent-area-state" role="alert">
       <span className="parent-area-state-icon"><WarningCircle size={30} aria-hidden="true" /></span>
       <h1>We could not load this update</h1>
       <p>Your child’s information has not been changed. Please try again.</p>
-      <button type="button" className="pa-button pa-button-primary" onClick={onRetry}>Try again</button>
+      <div className="parent-area-state-actions"><button type="button" className="pa-button pa-button-primary" onClick={onRetry}>Try again</button><button type="button" className="pa-button pa-button-secondary" onClick={onSignOut}>Sign out</button></div>
     </main>
   );
 }
 
-function ParentAreaEmpty() {
+function ParentAreaEmpty({ onSignOut }) {
   return (
     <main className="parent-area-state">
       <span className="parent-area-state-icon"><UserCircle size={30} aria-hidden="true" /></span>
       <h1>No child is linked yet</h1>
       <p>Your school needs to invite you before a child’s information can appear here.</p>
       <p className="parent-area-state-note">Ask the school office or class teacher to check your family access.</p>
+      <button type="button" className="pa-button pa-button-secondary" onClick={onSignOut}>Sign out</button>
     </main>
   );
 }
@@ -196,20 +196,19 @@ function Progress({ model }) {
   );
 }
 
-function Practice({ model }) {
+function Practice({ model, onPrintPlan }) {
+  const languageLabels = { en: "English", es: "Español", "zh-Hans": "简体中文" };
   return (
     <div className="pa-page" data-parent-section="practice">
       <SectionHeading
         eyebrow="Family Bridge"
         title="Small things that help at home"
         description={`These activities match what ${model.learner.name} is learning in class. Choose one at a time and keep it relaxed.`}
-        action={
-          <label className="pa-language-select">Family language<select defaultValue="English" aria-label="Family language"><option>English</option><option>Español</option><option>简体中文</option></select><CaretDown size={16} aria-hidden="true" /></label>
-        }
+        action={<span className="pa-plan-language">Plan language: {languageLabels[model.atHome.language] || model.atHome.language || "English"}</span>}
       />
       <section className="pa-practice-intro" aria-labelledby="practice-plan-title">
         <div><span>{model.atHome.durationLabel}</span><h2 id="practice-plan-title">{model.atHome.title}</h2><p>{model.atHome.introduction}</p></div>
-        <button type="button" className="pa-button pa-button-secondary"><Printer size={18} aria-hidden="true" />Print plan</button>
+        <button type="button" className="pa-button pa-button-secondary" onClick={() => onPrintPlan(model)}><Printer size={18} aria-hidden="true" />Print plan</button>
       </section>
       <ol className="pa-activity-list">
         {model.atHome.activities.map((activity, index) => (
@@ -227,7 +226,7 @@ function Practice({ model }) {
   );
 }
 
-function Reports({ model }) {
+function Reports({ model, onOpenReport, onPrintReport }) {
   return (
     <div className="pa-page" data-parent-section="reports">
       <SectionHeading
@@ -246,8 +245,8 @@ function Reports({ model }) {
                 <p>{report.summary}</p>
               </div>
               <div className="pa-report-actions">
-                <button type="button" className="pa-button pa-button-secondary"><FileText size={18} aria-hidden="true" />Open</button>
-                <a className="pa-icon-button" href={report.downloadUrl} aria-label={`Download ${report.title}`}><DownloadSimple size={20} aria-hidden="true" /></a>
+                <button type="button" className="pa-button pa-button-secondary" onClick={() => onOpenReport(report, model)}><FileText size={18} aria-hidden="true" />Open</button>
+                <button type="button" className="pa-icon-button" onClick={() => onPrintReport(report, model)} aria-label={`Print or save ${report.title}`}><Printer size={20} aria-hidden="true" /></button>
               </div>
             </article>
           ))}
@@ -263,7 +262,7 @@ function Reports({ model }) {
   );
 }
 
-function Account({ models, model }) {
+function Account({ models, model, preferredLanguage, reportNotifications, accountMessage, onUpdatePreferences, onSignOut }) {
   return (
     <div className="pa-page" data-parent-section="account">
       <SectionHeading eyebrow="Family account" title="Access and preferences" description="Manage how school updates reach you and see which children your school has linked." />
@@ -275,27 +274,42 @@ function Account({ models, model }) {
         </section>
         <section className="pa-panel">
           <h2>Updates</h2>
-          <label className="pa-setting-row"><span><strong>Email when a report is ready</strong><small>Receive a message when the school releases a report.</small></span><input type="checkbox" defaultChecked /></label>
-          <label className="pa-setting-row"><span><strong>Family language</strong><small>Used for home activities and family guidance.</small></span><select defaultValue="English"><option>English</option><option>Español</option><option>简体中文</option></select></label>
+          <label className="pa-setting-row"><span><strong>Allow report emails when available</strong><small>No report emails are sent during the beta. Your choice is saved for later.</small></span><input type="checkbox" checked={reportNotifications} onChange={event => onUpdatePreferences({ preferredLanguage, reportNotifications: event.target.checked })} /></label>
+          <label className="pa-setting-row"><span><strong>Preferred family language</strong><small>Saved for future updates. A released report keeps the language chosen when the school shared it.</small></span><select value={preferredLanguage} onChange={event => onUpdatePreferences({ preferredLanguage: event.target.value, reportNotifications })}><option value="en">English</option><option value="es">Español</option><option value="zh-Hans">简体中文</option></select></label>
+          {accountMessage ? <p className="pa-account-message" role="status">{accountMessage}</p> : null}
         </section>
         <section className="pa-panel pa-data-panel">
           <ShieldCheck size={25} aria-hidden="true" />
-          <div><h2>Privacy and data rights</h2><p>Your school decides why your child’s learning information is used. LiteracyPath only shows information for children the school has securely linked to you.</p><button type="button" className="pa-text-button">Read the family privacy notice <ArrowRight size={17} aria-hidden="true" /></button></div>
+          <div><h2>Privacy and data rights</h2><p>Your school decides why your child’s learning information is used. Literacy Guide only shows information for children the school has securely linked to you.</p><a className="pa-text-button" href="/privacy.html" target="_blank" rel="noreferrer">Read the family privacy notice <ArrowRight size={17} aria-hidden="true" /></a></div>
         </section>
       </div>
-      <button type="button" className="pa-sign-out"><SignOut size={19} aria-hidden="true" />Sign out</button>
+      <button type="button" className="pa-sign-out" onClick={onSignOut}><SignOut size={19} aria-hidden="true" />Sign out</button>
     </div>
   );
 }
 
-export function ParentAreaPage({ models = [], initialLearnerId, initialSection = "overview", state = "ready", onRetry = () => {} }) {
+export function ParentAreaPage({
+  models = [],
+  initialLearnerId,
+  initialSection = "overview",
+  state = "ready",
+  preferredLanguage = "en",
+  reportNotifications = false,
+  accountMessage = "",
+  onRetry = () => {},
+  onOpenReport = () => {},
+  onPrintPlan = () => {},
+  onPrintReport = () => {},
+  onSignOut = () => {},
+  onUpdatePreferences = () => {}
+}) {
   const [learnerId, setLearnerId] = useState(initialLearnerId || models[0]?.learner.id || "");
   const [section, setSection] = useState(initialSection);
   const model = useMemo(() => models.find(item => item.learner.id === learnerId) || models[0], [learnerId, models]);
 
   if (state === "loading") return <ParentAreaLoading />;
-  if (state === "error") return <ParentAreaError onRetry={onRetry} />;
-  if (!model) return <ParentAreaEmpty />;
+  if (state === "error") return <ParentAreaError onRetry={onRetry} onSignOut={onSignOut} />;
+  if (!model) return <ParentAreaEmpty onSignOut={onSignOut} />;
 
   return (
     <div className="parent-area-shell">
@@ -320,9 +334,9 @@ export function ParentAreaPage({ models = [], initialLearnerId, initialSection =
       <main id="parent-main" className="pa-main" tabIndex="-1">
         {section === "overview" ? <Overview model={model} onChangeSection={setSection} /> : null}
         {section === "progress" ? <Progress model={model} /> : null}
-        {section === "practice" ? <Practice model={model} /> : null}
-        {section === "reports" ? <Reports model={model} /> : null}
-        {section === "account" ? <Account models={models} model={model} /> : null}
+        {section === "practice" ? <Practice model={model} onPrintPlan={onPrintPlan} /> : null}
+        {section === "reports" ? <Reports model={model} onOpenReport={onOpenReport} onPrintReport={onPrintReport} /> : null}
+        {section === "account" ? <Account models={models} model={model} preferredLanguage={preferredLanguage} reportNotifications={reportNotifications} accountMessage={accountMessage} onUpdatePreferences={onUpdatePreferences} onSignOut={onSignOut} /> : null}
       </main>
       <footer className="pa-footer"><span>Family information shared by {model.learner.schoolName}</span><span>Secure family access</span></footer>
     </div>

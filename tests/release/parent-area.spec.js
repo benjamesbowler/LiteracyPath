@@ -31,7 +31,7 @@ test("parent area switches linked children and shows family account boundaries",
   await page.getByRole("button", { name: "Account" }).click();
   const main = page.locator("#parent-main");
   await expect(main).toContainText("The school controls family links");
-  await expect(main).toContainText("LiteracyPath only shows information for children the school has securely linked to you");
+  await expect(main).toContainText("Literacy Guide only shows information for children the school has securely linked to you");
 });
 
 test("parent area includes safe empty, loading and retryable error states", async ({ page }) => {
@@ -65,4 +65,15 @@ test("parent area has no serious or critical automated accessibility violations"
     help: violation.help,
     targets: violation.nodes.map(node => node.target.join(" "))
   }))).toEqual([]);
+});
+
+test("production family route opens a real secure sign-in surface", async ({ page }) => {
+  await page.goto("/parent");
+  await expect(page.getByRole("heading", { name: "Family sign in" })).toBeVisible();
+  await expect(page.getByLabel("Email address")).toBeVisible();
+  await expect(page.getByText("A school invitation and confirmed email are required")).toBeVisible();
+
+  const result = await new AxeBuilder({ page }).include(".parent-auth-shell").analyze();
+  const blocking = result.violations.filter(violation => ["serious", "critical"].includes(violation.impact));
+  expect(blocking.map(violation => violation.id)).toEqual([]);
 });

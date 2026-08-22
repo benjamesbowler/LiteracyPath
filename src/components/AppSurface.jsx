@@ -1054,6 +1054,12 @@ export function AppSurface({ surface }) {
         startTargetedReview={startTargetedReview}
         studentName={studentName}
         className={getSelectedClassName(classList, selectedClassId)}
+        familySharingClient={isSupabaseConfigured ? supabase : null}
+        teacherId={teacherId || ""}
+        schoolName={teacherSchoolName || ""}
+        teacherName={teacherUser?.user_metadata?.display_name || "Class teacher"}
+        teacherEmail=""
+        cycleNumber={Number(String(teacherCycleId).match(/\d+/)?.[0] || 1)}
         totalAnswered={totalAnswered}
         accuracy={accuracy}
         currentStage={currentStage}

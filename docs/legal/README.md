@@ -1,9 +1,9 @@
 # Literacy Guide UK legal and procurement pack
 
-> **Operating version:** 21 August 2026
+> **Operating version:** 22 August 2026
 > **Current service:** UK-first free beta
-> **Public terms:** `2026-08-21-uk-beta-v1`
-> **Public privacy notice:** `2026-08-21-uk-v1`
+> **Public terms:** `2026-08-22-uk-beta-v2`
+> **Public privacy notice:** `2026-08-22-uk-v2`
 
 The in-force public pages for the current free beta are:
 
@@ -24,7 +24,10 @@ repository or because an individual teacher accepts the site terms.
 Literacy Guide is operated by Benjamin Bowler, trading as Literacy Guide. The
 public service is a free beta and does not take payments or paid online orders.
 Its two routes are the school-authorised service and a collection-minimised
-anonymous try-out. There is no direct family account that retains child work.
+anonymous try-out. The school-authorised route includes revocable guardian
+accounts. A guardian sees a linked child and immutable family-ready report
+snapshots only after a matching confirmed email consumes a school invitation.
+Draft teacher records remain unavailable to guardians.
 
 Human quality checking is continuous and pass-by-exception. Current content and
 media are treated as accepted unless a reviewer reports a defect. A reported

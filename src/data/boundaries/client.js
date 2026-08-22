@@ -7,6 +7,7 @@ import {
 } from "./classes.js";
 import { CONTENT_RPCS, CONTENT_TABLES, validateContentRow } from "./content.js";
 import { EVIDENCE_RPCS, EVIDENCE_TABLES, validateEvidenceRow } from "./evidence.js";
+import { GUARDIAN_RPCS, validateGuardianRpcData } from "./guardians.js";
 import { REPORT_RPCS, REPORT_TABLES, validateReportRow } from "./reports.js";
 import {
   assertOptionalFields,
@@ -27,6 +28,7 @@ const RPC_NAMES = new Set([
   ...CLASS_RPCS,
   ...EVIDENCE_RPCS,
   ...REPORT_RPCS,
+  ...GUARDIAN_RPCS,
   ...CONTENT_RPCS
 ]);
 
@@ -54,6 +56,7 @@ function validateRpcData(name, data) {
     const validated = validateClassRpcData(name, data);
     if (validated !== null) return validated;
   }
+  if (GUARDIAN_RPCS.has(name)) return validateGuardianRpcData(name, data);
   if (
     name === "report_assessment_question"
     || name === "admin_review_assessment_question_report"

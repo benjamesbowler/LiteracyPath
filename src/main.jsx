@@ -5,6 +5,7 @@ import './styles/fonts.js'
 import './index.css'
 import App from './App.jsx'
 import { SoundKeysApp } from './features/soundkeys/SoundKeysApp.jsx'
+import { ParentApp } from './components/family/ParentApp.jsx'
 import './features/soundkeys/home.css'
 // Imported AFTER App so these rules land last in the cascade: the child-facing
 // wide-layout + vibrant reskin layer always wins.
@@ -63,7 +64,12 @@ window.addEventListener('vite:preloadError', event => {
   }
 })
 
-const Root = window.location.pathname.replace(/\/$/, '') === '/soundkeys' ? SoundKeysApp : App
+const rootPath = window.location.pathname.replace(/\/$/, '')
+const Root = rootPath === '/soundkeys'
+  ? SoundKeysApp
+  : rootPath === '/parent'
+    ? ParentApp
+    : App
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

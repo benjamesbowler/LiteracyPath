@@ -4,11 +4,12 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const migrationDir = path.join(repoRoot, "supabase", "migrations");
-export const SECURITY_BOUNDARY_MIGRATION = "20260814172000_security_definer_boundary.sql";
+export const SECURITY_BOUNDARY_MIGRATION = "20260822121000_guardian_security_definer_boundary.sql";
 export const TEACHER_ACCOUNT_STATUS_MIGRATION = SECURITY_BOUNDARY_MIGRATION;
 
 export const ANON_SECURITY_DEFINER_RPCS = Object.freeze([
   "get_game_leaderboard(text, integer)",
+  "guardian_invite_preview(text)",
   "search_school_names(text)",
   "report_app_error(uuid, text, text, text, text, text, text, text[], numeric)",
   "report_assessment_question(text, uuid, text, uuid, jsonb)",
@@ -40,14 +41,20 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "admin_set_teacher_account_status(uuid, text, text)",
   "admin_verify_deletion_propagation(uuid, text, text)",
   "find_or_create_school(text)",
+  "guardian_accept_invite(text, text, text, text)",
+  "guardian_get_portal()",
+  "guardian_record_report_event(uuid, text)",
+  "guardian_update_preferences(text, boolean)",
   "is_app_admin(uuid)",
   "set_app_config(text, jsonb)",
   "teacher_assign_instructional_group_follow_up(uuid, text, text, date)",
+  "teacher_cancel_guardian_invite(uuid)",
   "teacher_class_access_log(uuid, integer)",
   "teacher_class_access_summary(uuid)",
   "teacher_close_worksheet_instance(uuid)",
   "teacher_complete_learner_deletion(uuid, text, jsonb)",
   "teacher_create_insight_intervention(text, uuid, jsonb, uuid[], text[], text, text, date)",
+  "teacher_create_guardian_invite(uuid, text, integer)",
   "teacher_create_intervention_follow_up(uuid, text, text, uuid[], text, text, date)",
   "teacher_create_intervention_plan(uuid, text, text, uuid[], text, text, date)",
   "teacher_create_lesson_plan(uuid, uuid, uuid[], jsonb, jsonb, timestamp with time zone)",
@@ -65,6 +72,7 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_get_reading_session_presence(uuid)",
   "teacher_get_live_lesson_snapshot(uuid)",
   "teacher_list_learner_data_rights(uuid)",
+  "teacher_list_guardian_access(uuid)",
   "teacher_list_press_work(uuid)",
   "teacher_mark_intervention_delivered(uuid)",
   "teacher_prepare_learner_deletion(uuid, text, text)",
@@ -75,11 +83,13 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_record_lesson_delivery(uuid, text, uuid[], text, text, jsonb)",
   "teacher_record_worksheet_observation(uuid, text, jsonb, text, uuid)",
   "teacher_regenerate_class_code(uuid)",
+  "teacher_release_family_report(uuid, text, jsonb)",
   "teacher_reset_student_progress(uuid, timestamp with time zone)",
   "teacher_resolve_worksheet_code(text)",
   "teacher_review_instructional_group(uuid, uuid[], jsonb)",
   "teacher_review_book_revision(uuid, uuid, text, jsonb)",
   "teacher_review_intervention(uuid, date)",
+  "teacher_revoke_guardian_access(uuid, uuid)",
   "teacher_save_instructional_group(uuid, text, jsonb, uuid[], jsonb)",
   "teacher_save_reading_marks(uuid, uuid, integer, jsonb, text)",
   "teacher_cancel_intervention(uuid, text)",
@@ -94,7 +104,8 @@ export const AUTHENTICATED_ONLY_SECURITY_DEFINER_RPCS = Object.freeze([
   "teacher_transfer_student(uuid, uuid, uuid)",
   "teacher_set_school(text)",
   "teacher_update_draft_lesson_plan(uuid, integer, uuid[], jsonb, timestamp with time zone)",
-  "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)"
+  "teacher_update_planned_intervention(uuid, text, text, uuid[], text, text, date)",
+  "teacher_withdraw_family_report(uuid)"
 ]);
 
 export const AUTHENTICATED_SECURITY_DEFINER_RPCS = Object.freeze([

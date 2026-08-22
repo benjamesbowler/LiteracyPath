@@ -56,7 +56,7 @@ function normaliseReport(report = {}, index) {
     publishedLabel: report.publishedLabel || "Date not provided",
     publishedAt: report.publishedAt || "",
     summary: report.summary || "A family-friendly update from school.",
-    downloadUrl: report.downloadUrl || "#"
+    snapshot: report.snapshot || null
   };
 }
 
