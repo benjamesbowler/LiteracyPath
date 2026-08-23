@@ -16735,6 +16735,58 @@ select:focus {
   padding: 12px;
 }
 
+.el-batch-report-picker {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 0 14px;
+}
+
+.el-batch-report-picker > summary {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  color: var(--lp-color-text-strong);
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.el-batch-report-picker[open] {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 14px;
+}
+
+.el-batch-report-picker > p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+}
+
+.el-batch-report-students {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.el-batch-report-students label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 9px 11px;
+  color: var(--lp-color-text-strong);
+  font-weight: 750;
+}
+
+.el-batch-report-students input {
+  width: 18px;
+  height: 18px;
+  accent-color: #0f766e;
+}
+
 .el-report-retention-note {
   background: #f8fafc;
   border-left: 4px solid #0f766e;

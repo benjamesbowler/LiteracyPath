@@ -2685,6 +2685,104 @@ export async function exportStudentElAssessmentExcel(options = {}) {
   return report;
 }
 
+function uniqueBatchFileName(baseName, usedNames) {
+  if (!usedNames.has(baseName)) {
+    usedNames.add(baseName);
+    return baseName;
+  }
+  const extension = baseName.toLowerCase().endsWith(".xlsx") ? ".xlsx" : "";
+  const stem = extension ? baseName.slice(0, -extension.length) : baseName;
+  let suffix = 2;
+  while (usedNames.has(`${stem}-${suffix}${extension}`)) suffix += 1;
+  const unique = `${stem}-${suffix}${extension}`;
+  usedNames.add(unique);
+  return unique;
+}
+
+function downloadGeneratedBlob(blob, fileName) {
+  if (typeof document === "undefined" || typeof URL?.createObjectURL !== "function") return blob;
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = fileName;
+  anchor.hidden = true;
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  globalThis.setTimeout(() => URL.revokeObjectURL(url), 1_000);
+  return blob;
+}
+
+export async function exportStudentElAssessmentBatch(options = {}) {
+  const studentIds = [...new Set((options.studentIds || []).map(String).filter(Boolean))];
+  if (!studentIds.length) {
+    throw new Error("Select at least one student report to download.");
+  }
+
+  const previousReports = await hydrateElAssessmentReports({
+    teacherId: options.teacherId || "local",
+    supabase: options.supabase || null,
+    reportType: "individual",
+    classId: options.classId || ""
+  });
+  const [{ default: JSZip }, simpleExport] = await Promise.all([
+    import("jszip"),
+    import("./exportElAssessmentSimple.js")
+  ]);
+  const zip = new JSZip();
+  const usedNames = new Set();
+  const reports = [];
+
+  for (const studentId of studentIds) {
+    const report = buildStudentElAssessmentExportReport({
+      ...options,
+      studentId,
+      previousReports
+    });
+    assertResolvedElExportScope(report);
+    const generatedAt = report.generatedAt instanceof Date
+      ? report.generatedAt
+      : new Date(report.generatedAt || Date.now());
+    const workbook = await simpleExport.createSimpleElAssessmentWorkbook(report, {
+      studentName: report.studentName || "Student",
+      className: report.className || "",
+      scopeLabel: report.benchmarkScope?.label || "",
+      generatedAt
+    });
+    const buffer = await workbook.xlsx.writeBuffer();
+    const fileName = uniqueBatchFileName(
+      simpleExport.fileNameFor(report.studentName || "Student", generatedAt),
+      usedNames
+    );
+    zip.file(fileName, buffer);
+    reports.push(report);
+  }
+
+  const blob = await zip.generateAsync({
+    type: "blob",
+    compression: "DEFLATE",
+    compressionOptions: { level: 6 }
+  });
+  const className = reports[0]?.className || "class";
+  const classSlug = String(className)
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "class";
+  const date = new Date().toISOString().slice(0, 10);
+  const batchFileName = `${classSlug}-student-letter-reports-${date}.zip`;
+  downloadGeneratedBlob(blob, batchFileName);
+
+  const persistence = await Promise.all(reports.map(report => (
+    saveElAssessmentReport(report, options)
+  )));
+  reports.forEach((report, index) => {
+    report.persistence = persistence[index];
+  });
+  return { reports, persistence, fileName: batchFileName, blob };
+}
+
 export async function exportClassElAssessmentExcel(options = {}) {
   const previousReports = await hydrateElAssessmentReports({
     teacherId: options.teacherId || "local",

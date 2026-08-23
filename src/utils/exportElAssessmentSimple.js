@@ -47,6 +47,7 @@ import {
   writeCell
 } from "./excel/reportWorkbookKit.js";
 import { WORKBOOK_COLORS, WORKBOOK_FONTS } from "./excel/reportWorkbookTheme.js";
+import { summariseElLetterKnowledge } from "./elLetterKnowledgeSummary.js";
 
 /**
  * The six assessments, in the order a teacher meets them, with the plain name
@@ -318,6 +319,7 @@ export async function createSimpleElAssessmentWorkbook(report = {}, {
 
   const formal = report.formalAssessments || {};
   const letters = summariseLetters(formal.individualLetterMatrix || []);
+  const letterKnowledge = summariseElLetterKnowledge(formal.individualLetterMatrix || []);
   const overview = buildAssessmentOverview(report);
   const teachNext = buildTeachNext(report, studentName);
   const assessedAreas = overview.filter(row => row.status !== REPORT_STATUS_IDS.NOT_CHECKED).length;
@@ -340,10 +342,10 @@ export async function createSimpleElAssessmentWorkbook(report = {}, {
       tone: "brand"
     },
     {
-      label: "Letters known",
-      value: letters.assessedCount ? `${letters.known.length} of ${letters.assessedCount}` : null,
-      note: letters.assessedCount ? "Of the letters assessed so far" : "No letters assessed yet",
-      tone: letters.working.length ? REPORT_STATUS_IDS.DEVELOPING : REPORT_STATUS_IDS.SECURE
+      label: "Letter detail",
+      value: "Shown below",
+      note: "Uppercase and lowercase names and sounds",
+      tone: "brand"
     },
     {
       label: "Still to reteach",
@@ -352,6 +354,30 @@ export async function createSimpleElAssessmentWorkbook(report = {}, {
       tone: letters.working.length ? REPORT_STATUS_IDS.NEEDS_SUPPORT : REPORT_STATUS_IDS.SECURE
     }
   ]);
+
+  const knowledgeCards = letterKnowledge.map(group => ({
+    label: `${group.label} known`,
+    value: `${group.knownCount}/26`,
+    note: `Known: ${group.knownLetters.length ? group.knownLetters.join(", ") : "None recorded"}. `
+      + (group.notCheckedCount ? `${group.notCheckedCount} not checked.` : "All 26 checked."),
+    tone: group.knownCount === 26
+      ? REPORT_STATUS_IDS.SECURE
+      : group.assessedCount
+        ? REPORT_STATUS_IDS.DEVELOPING
+        : REPORT_STATUS_IDS.NOT_CHECKED
+  }));
+  const firstKnowledgeRow = row;
+  row = addKpiBand(sheet, row, knowledgeCards.slice(0, 2), {
+    columnsPerCard: 3,
+    startColumn: 2
+  });
+  sheet.getRow(firstKnowledgeRow + 2).height = 46;
+  const secondKnowledgeRow = row;
+  row = addKpiBand(sheet, row, knowledgeCards.slice(2), {
+    columnsPerCard: 3,
+    startColumn: 2
+  });
+  sheet.getRow(secondKnowledgeRow + 2).height = 46;
 
   row = addSectionHeading(
     sheet,
@@ -456,7 +482,7 @@ export async function createSimpleElAssessmentWorkbook(report = {}, {
   return workbook;
 }
 
-function fileNameFor(studentName, generatedAt) {
+export function fileNameFor(studentName, generatedAt) {
   const slug = String(studentName || "student")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")

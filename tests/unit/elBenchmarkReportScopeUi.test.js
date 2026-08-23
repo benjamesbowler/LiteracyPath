@@ -141,9 +141,52 @@ test("Assessment 1 item details come from the latest completed attempt, not live
 
   const html = renderToStaticMarkup(React.createElement(FinishedReportPage, props));
 
+  assert.match(html, /Letters and sounds known/);
+  assert.match(html, /Uppercase letter names known/);
+  assert.match(html, /Uppercase letter sounds known/);
+  assert.match(html, /Lowercase letter names known/);
+  assert.match(html, /Lowercase letter sounds known/);
+  assert.match(html, />1\/26</);
+  assert.match(html, />25 not checked</);
   assert.match(html, /View answers from the latest assessments/);
   assert.match(html, /✓ (?:Lowercase )?A: letter name/);
   assert.doesNotMatch(html, /Z: letter name/);
+});
+
+test("multiple-report picker includes only students with saved formal EL results", async t => {
+  const vite = await createServer({
+    appType: "custom",
+    logLevel: "silent",
+    server: { middlewareMode: true }
+  });
+  t.after(() => vite.close());
+  const { ElFormalAssessmentsPanel } = await vite.ssrLoadModule(
+    "/src/components/reports/ElFormalAssessmentsPanel.jsx"
+  );
+  const html = renderToStaticMarkup(React.createElement(ElFormalAssessmentsPanel, {
+    assessmentHistory: [
+      {
+        assessmentType: "el_letter_assessment",
+        classId: "class-1",
+        studentId: "student-el"
+      },
+      {
+        assessmentType: "skills_check",
+        classId: "class-1",
+        studentId: "student-other"
+      }
+    ],
+    classes: [{ id: "class-1", name: "Class One" }],
+    selectedClassId: "class-1",
+    students: [
+      { id: "student-el", name: "Ada EL" },
+      { id: "student-other", name: "Sam Other" }
+    ]
+  }));
+
+  assert.match(html, /Download multiple student reports/);
+  assert.match(html, />Ada EL</);
+  assert.doesNotMatch(html, />Sam Other</);
 });
 
 test("Overview keeps descriptive EL assessments separate from learning-status totals", async t => {

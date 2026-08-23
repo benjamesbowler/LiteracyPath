@@ -24,6 +24,7 @@ import {
   normalizeElExportScope
 } from "../utils/elAssessmentExportPolicy.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
+import { summariseElLetterKnowledge } from "../utils/elLetterKnowledgeSummary.js";
 import { readTeacherReportRouteView } from "../appState/routes.js";
 import { buildQuestMasteryReport } from "../utils/questReport.js";
 import { MetricFigure } from "./MetricDefinition.jsx";
@@ -54,6 +55,28 @@ import { FamilySharingPanel } from "./teacher/family/FamilySharingPanel.jsx";
 
 const EMPTY_REPORT_ROWS = [];
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function ElLetterKnowledgeSummary({ letterRows = [] }) {
+  const groups = summariseElLetterKnowledge(letterRows);
+  return (
+    <section className="lg-report-letter-knowledge" aria-labelledby="lg-report-letter-knowledge-title">
+      <header>
+        <h3 id="lg-report-letter-knowledge-title">Letters and sounds known</h3>
+        <p>Each measure is shown separately. Not checked remains separate from a result that needs support.</p>
+      </header>
+      <div>
+        {groups.map(group => (
+          <article key={group.key}>
+            <span>{group.label} known</span>
+            <strong>{group.knownCount}/26</strong>
+            <p><b>Known:</b> {group.knownLetters.length ? group.knownLetters.join(", ") : "None recorded"}</p>
+            <small>{group.notCheckedCount ? `${group.notCheckedCount} not checked` : "All 26 checked"}</small>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function formatClassLabel(value = "") {
   return value || "Class not linked";
@@ -1339,6 +1362,7 @@ export function FinishedReportPage({
                 description="Letter and advanced-sound assessments keep their original scoring."
                 title="Letter and sound assessments"
               >
+                <ElLetterKnowledgeSummary letterRows={elReport?.letterMatrix || []} />
                 <div className="lg-report-assessment-grid two-up">
                   {elAssessments.slice(0, 2).map(assessment => (
                     <article className="lg-report-assessment-card" key={assessment.assessmentId}>

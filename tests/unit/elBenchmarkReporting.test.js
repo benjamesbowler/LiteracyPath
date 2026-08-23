@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import JSZip from "jszip";
 
 import {
   buildClassElFormalAssessmentReport,
@@ -24,6 +25,7 @@ import {
   buildStudentElAssessmentExportReport,
   createClassElAssessmentWorkbook,
   createStudentElAssessmentWorkbook,
+  exportStudentElAssessmentBatch,
   EL_CLASS_BENCHMARK_SHEETS,
   EL_STUDENT_BENCHMARK_SHEETS
 } from "../../src/utils/exportElAssessmentExcel.js";
@@ -1277,6 +1279,31 @@ test("student Excel export preserves all four benchmark domains as descriptive e
   const paAccuracyColumn = profileSheet.getRow(1).values.indexOf("PA accuracy");
   assert.equal(profileSheet.getRow(2).getCell(paAccuracyColumn).numFmt, "0%");
   assert.notEqual(profileSheet.getRow(2).getCell(paAccuracyColumn).fill?.pattern, "solid", "descriptive rates do not receive threshold colours");
+});
+
+test("selected student EL reports download together as separate workbooks in one ZIP", async () => {
+  const result = await exportStudentElAssessmentBatch({
+    assessmentHistory,
+    students: [student, classmate],
+    classes: [{ id: "class-1", name: "Class One" }],
+    classId: "class-1",
+    studentIds: [student.id, classmate.id],
+    teacherId: "local-batch-test",
+    benchmarkScope: {
+      grade: "1",
+      benchmarkWindow: "MOY",
+      label: "Grade 1 · Middle of year"
+    },
+    now: new Date("2026-08-24T00:00:00.000Z")
+  });
+
+  assert.equal(result.reports.length, 2);
+  assert.match(result.fileName, /^class-one-student-letter-reports-\d{4}-\d{2}-\d{2}\.zip$/);
+  const zip = await JSZip.loadAsync(await result.blob.arrayBuffer());
+  const files = Object.keys(zip.files).sort();
+  assert.equal(files.length, 2);
+  assert.ok(files.some(name => /^ada-letters-and-sounds-2026-08-24\.xlsx$/.test(name)));
+  assert.ok(files.some(name => /^leo-letters-and-sounds-2026-08-24\.xlsx$/.test(name)));
 });
 
 test("class Excel export includes the benchmark matrix, domain summaries, and item evidence", async () => {
