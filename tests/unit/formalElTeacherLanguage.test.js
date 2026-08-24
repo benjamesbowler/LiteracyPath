@@ -20,12 +20,12 @@ test("formal EL panel and PDF do not contain system-facing route or microphase c
 });
 
 test("formal EL reporting offers one-action downloads for selected student reports", () => {
-  const panel = source("../../src/components/reports/ElFormalAssessmentsPanel.jsx");
+  const picker = source("../../src/components/reports/ElStudentBatchReportPicker.jsx");
   const exporter = source("../../src/utils/exportElAssessmentExcel.js");
 
-  assert.match(panel, /Download multiple student reports/);
-  assert.match(panel, /Download selected reports/);
-  assert.match(panel, /exportStudentElAssessmentBatch/);
+  assert.match(picker, /Download student EL reports/);
+  assert.match(picker, /Download selected reports/);
+  assert.match(picker, /exportStudentElAssessmentBatch/);
   assert.match(exporter, /new JSZip\(\)/);
   assert.match(exporter, /student-letter-reports/);
 });

@@ -160,10 +160,10 @@ test("multiple-report picker includes only students with saved formal EL results
     server: { middlewareMode: true }
   });
   t.after(() => vite.close());
-  const { ElFormalAssessmentsPanel } = await vite.ssrLoadModule(
-    "/src/components/reports/ElFormalAssessmentsPanel.jsx"
+  const { ElStudentBatchReportPicker } = await vite.ssrLoadModule(
+    "/src/components/reports/ElStudentBatchReportPicker.jsx"
   );
-  const html = renderToStaticMarkup(React.createElement(ElFormalAssessmentsPanel, {
+  const html = renderToStaticMarkup(React.createElement(ElStudentBatchReportPicker, {
     assessmentHistory: [
       {
         assessmentType: "el_letter_assessment",
@@ -177,14 +177,15 @@ test("multiple-report picker includes only students with saved formal EL results
       }
     ],
     classes: [{ id: "class-1", name: "Class One" }],
-    selectedClassId: "class-1",
+    classId: "class-1",
     students: [
       { id: "student-el", name: "Ada EL" },
       { id: "student-other", name: "Sam Other" }
     ]
   }));
 
-  assert.match(html, /Download multiple student reports/);
+  assert.match(html, /Download student EL reports/);
+  assert.match(html, /Select all with saved results/);
   assert.match(html, />Ada EL</);
   assert.doesNotMatch(html, />Sam Other</);
 });

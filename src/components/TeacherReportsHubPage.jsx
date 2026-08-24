@@ -9,6 +9,7 @@ import { STUDENT_REPORT_VIEWS } from "./reports/studentReportUiUtils.js";
 import { TeacherFunnelStep } from "./TeacherFunnelStep.jsx";
 import { TeacherFunnelStudentPicker } from "./teacher/TeacherFunnelStudentPicker.jsx";
 import { TeacherSurfaceState } from "./teacher/ui/TeacherSurfaceState.jsx";
+import { ElStudentBatchReportPicker } from "./reports/ElStudentBatchReportPicker.jsx";
 import { getClassListReadView } from "../appState/classListReadState.js";
 import { getStudentRosterReadView } from "../appState/studentRosterReadState.js";
 import { getClassDashboardReadView } from "../appState/classDashboardReadState.js";
@@ -53,6 +54,9 @@ function studentDisplayRows(rows = [], fallback = []) {
 }
 
 export function TeacherReportsHubPage({
+  assessmentHistory = [],
+  batchReportEvidenceLoading = false,
+  batchReportEvidenceReady = true,
   classList = [],
   classListReadState = null,
   teacherId,
@@ -83,6 +87,7 @@ export function TeacherReportsHubPage({
   onSelectReportView,
   renderStudentReport,
   renderClassReport,
+  supabase = null,
   // A Dashboard sound-map tile opens Reports scoped to one skill. The tile
   // sends no skill today (TeacherTodayPage calls `onOpenReports()` with no
   // argument), so this is the receiving end waiting for it: when a skill does
@@ -104,6 +109,7 @@ export function TeacherReportsHubPage({
   const [editingStep, setEditingStep] = useState(0);
   const [studentSearch, setStudentSearch] = useState("");
   const [studentPage, setStudentPage] = useState(1);
+  const [batchMode, setBatchMode] = useState(false);
 
   const classHeadingRef = useRef(null);
   const whoHeadingRef = useRef(null);
@@ -208,6 +214,7 @@ export function TeacherReportsHubPage({
       setEditingStep(0);
       setStudentSearch("");
       setStudentPage(1);
+      setBatchMode(false);
       onSelectReportView?.(REPORT_VIEW_IDS.has(nextReport) ? nextReport : "");
     }
 
@@ -273,11 +280,13 @@ export function TeacherReportsHubPage({
     setEditingStep(0);
     setStudentSearch("");
     setStudentPage(1);
+    setBatchMode(false);
     onSelectReportView?.("");
     onSelectClass?.(nextClassId || null);
   }
 
   function chooseWholeClass() {
+    setBatchMode(false);
     setWho(WHOLE_CLASS);
     setShowing(false);
     setEditingStep(0);
@@ -286,12 +295,24 @@ export function TeacherReportsHubPage({
   }
 
   function chooseStudent(row) {
+    setBatchMode(false);
     setWho("student");
     setShowing(false);
     setEditingStep(0);
     setStudentPage(1);
     onSelectReportView?.("");
     onSelectStudent?.(row.id, row.name);
+  }
+
+  function chooseMultipleStudents() {
+    setBatchMode(true);
+    setWho("");
+    setShowing(false);
+    setEditingStep(0);
+    setStudentSearch("");
+    setStudentPage(1);
+    onSelectReportView?.("");
+    onClearStudent?.();
   }
 
   const classAnswer = hasClass ? (verifiedClassName || "Class chosen") : "";
@@ -370,8 +391,8 @@ export function TeacherReportsHubPage({
           </TeacherFunnelStep>
 
           <TeacherFunnelStep
-            answer={whoAnswer}
-            help="The whole class, or one student."
+            answer={batchMode ? "Multiple student EL reports" : whoAnswer}
+            help="The whole class, one student, or several student EL reports."
             lockedReason={hasClass ? "" : "Choose a class first."}
             number={2}
             onChange={() => {
@@ -380,9 +401,9 @@ export function TeacherReportsHubPage({
             }}
             open={openStep === 2}
             ref={whoHeadingRef}
-            title="Whole class, or one student?"
+            title="Who are the reports for?"
           >
-            <ul className="teacher-funnel-options" aria-label="Whole class or one student">
+            <ul className="teacher-funnel-options" aria-label="Choose who the reports are for">
               <li>
                 <button
                   aria-pressed={wholeClass}
@@ -395,7 +416,33 @@ export function TeacherReportsHubPage({
                   <span>Skill coverage across {verifiedClassName || "this class"}, who needs support, and a printable copy.</span>
                 </button>
               </li>
-              {rosterRead.loading ? (
+              <li>
+                <button
+                  aria-pressed={batchMode}
+                  className="teacher-funnel-option"
+                  disabled={!rosterRead.complete}
+                  onClick={chooseMultipleStudents}
+                  type="button"
+                >
+                  <strong>Multiple student EL reports</strong>
+                  <span>Select several students and download their individual EL reports together in one ZIP.</span>
+                </button>
+              </li>
+              {batchMode ? (
+                <li className="teacher-funnel-student-picker">
+                  <ElStudentBatchReportPicker
+                    assessmentHistory={assessmentHistory}
+                    classId={selectedClassId}
+                    classes={visibleClassList}
+                    evidenceLoading={batchReportEvidenceLoading}
+                    evidenceReady={batchReportEvidenceReady && rosterRead.complete}
+                    key={selectedClassId}
+                    students={rows}
+                    supabase={supabase}
+                    teacherId={teacherId}
+                  />
+                </li>
+              ) : rosterRead.loading ? (
                 <li><p className="teacher-funnel-step-help">Getting the class list…</p></li>
               ) : rosterRead.incomplete ? (
                 <li>
@@ -458,57 +505,33 @@ export function TeacherReportsHubPage({
             )}
           </TeacherFunnelStep>
 
-          <TeacherFunnelStep
-            /* 2026-07-27: was `answer={styleAnswer}` unconditionally. `reportView`
-               carries a persisted default ("whole-child"), so step 3 rendered as
-               ANSWERED — "Overview", with a Change link — while still locked and
-               greyed out, before step 2 had been touched. Observed live. A locked
-               step shows no answer. */
-            answer={whoChosen ? styleAnswer : ""}
-            help="Each one answers a different question."
-            lockedReason={whoChosen ? "" : "Choose the whole class or one student first."}
-            number={3}
-            onChange={() => {
-              setEditingStep(3);
-              setShowing(false);
-            }}
-            open={openStep === 3}
-            ref={styleHeadingRef}
-            title="Choose a report"
-          >
-            {wholeClass ? (
-              <p className="teacher-funnel-step-help">
-                The class report has one form. Open it below.
-              </p>
-            ) : (
-              <div className="teacher-report-choice-groups">
-              <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Main reports">
-                {primaryReportViews.map(view => (
-                  <li key={view.id}>
-                    <button
-                      aria-pressed={view.id === reportView}
-                      className="teacher-funnel-option"
-                      onClick={() => {
-                        setShowing(false);
-                        setEditingStep(0);
-                        onSelectReportView?.(view.id);
-                      }}
-                      type="button"
-                    >
-                      <strong>{view.label}</strong>
-                      <span>{STYLE_QUESTIONS[view.id] || view.description}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              {additionalReportViews.length > 0 && (
-                <details
-                  className="teacher-report-more-views"
-                  open={additionalReportViews.some(view => view.id === reportView) || undefined}
-                >
-                  <summary>Reading and practice detail</summary>
-                  <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Detailed reports">
-                    {additionalReportViews.map(view => (
+          {!batchMode && (
+            <TeacherFunnelStep
+              /* 2026-07-27: was `answer={styleAnswer}` unconditionally. `reportView`
+                 carries a persisted default ("whole-child"), so step 3 rendered as
+                 ANSWERED — "Overview", with a Change link — while still locked and
+                 greyed out, before step 2 had been touched. Observed live. A locked
+                 step shows no answer. */
+              answer={whoChosen ? styleAnswer : ""}
+              help="Each one answers a different question."
+              lockedReason={whoChosen ? "" : "Choose the whole class or one student first."}
+              number={3}
+              onChange={() => {
+                setEditingStep(3);
+                setShowing(false);
+              }}
+              open={openStep === 3}
+              ref={styleHeadingRef}
+              title="Choose a report"
+            >
+              {wholeClass ? (
+                <p className="teacher-funnel-step-help">
+                  The class report has one form. Open it below.
+                </p>
+              ) : (
+                <div className="teacher-report-choice-groups">
+                  <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Main reports">
+                    {primaryReportViews.map(view => (
                       <li key={view.id}>
                         <button
                           aria-pressed={view.id === reportView}
@@ -526,11 +549,37 @@ export function TeacherReportsHubPage({
                       </li>
                     ))}
                   </ul>
-                </details>
+                  {additionalReportViews.length > 0 && (
+                    <details
+                      className="teacher-report-more-views"
+                      open={additionalReportViews.some(view => view.id === reportView) || undefined}
+                    >
+                      <summary>Reading and practice detail</summary>
+                      <ul className="teacher-funnel-options teacher-funnel-cards" aria-label="Detailed reports">
+                        {additionalReportViews.map(view => (
+                          <li key={view.id}>
+                            <button
+                              aria-pressed={view.id === reportView}
+                              className="teacher-funnel-option"
+                              onClick={() => {
+                                setShowing(false);
+                                setEditingStep(0);
+                                onSelectReportView?.(view.id);
+                              }}
+                              type="button"
+                            >
+                              <strong>{view.label}</strong>
+                              <span>{STYLE_QUESTIONS[view.id] || view.description}</span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  )}
+                </div>
               )}
-              </div>
-            )}
-          </TeacherFunnelStep>
+            </TeacherFunnelStep>
+          )}
 
           {/* readyToShow, not styleChosen. `styleChosen` is true from the persisted
               default report view alone, so "Show the report" was live — and clickable —

@@ -115,9 +115,10 @@ test("@teacher-six-intention-ia @teacher-assessment-hub @teacher-contextual-help
 
   await primaryNav.getByRole("button", { name: "Reports", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
-  for (const step of ["Choose a class", "Whole class, or one student?", "Choose a report"]) {
+  for (const step of ["Choose a class", "Who are the reports for?", "Choose a report"]) {
     await expect(page.getByRole("heading", { name: step, exact: true })).toBeVisible();
   }
+  await expect(page.getByRole("button", { name: /Multiple student EL reports/ })).toBeVisible();
 
   await primaryNav.getByRole("button", { name: "Resources", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Teach, print, project", exact: true })).toBeVisible();
@@ -194,7 +195,7 @@ test("@teacher-reports-route-recovery preserves valid context and recovers from 
   await expect(page.getByRole("heading", { name: "Open a report", exact: true })).toBeVisible();
   await expect(reportFunnel).toContainText("Audit Class A");
   await expect(page.getByRole("heading", {
-    name: "Whole class, or one student?",
+    name: "Who are the reports for?",
     exact: true
   })).toBeVisible();
   await expect(page.getByText(

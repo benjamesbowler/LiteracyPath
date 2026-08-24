@@ -68,6 +68,13 @@ test("the whole class is the first answer to step 2, not a second destination", 
   assert.doesNotMatch(html, /Open class report/);
 });
 
+test("batch EL report downloads are offered directly in the who step", () => {
+  const html = render("#teacher/reports?class=class-a");
+  assert.match(html, /Who are the reports for\?/);
+  assert.match(html, /Multiple student EL reports/);
+  assert.match(html, /one ZIP/);
+});
+
 test("choosing the whole class leads to the class report on the same page", () => {
   const html = render("#teacher/reports?class=class-a&who=class&show=1");
   assert.match(html, />Whole class<\/p>|Whole class<\/p>/);
@@ -129,7 +136,7 @@ test("a bare Reports route still renders the class and student recovery steps", 
     reportView: "whole-child"
   });
   assert.match(html, /Choose a class/);
-  assert.match(html, /Whole class, or one student/);
+  assert.match(html, /Who are the reports for\?/);
   assert.match(html, /Choose the whole class or one student first\./);
   assert.doesNotMatch(html, /student report: whole-child/);
   assert.doesNotMatch(html, /No progress results yet/);
@@ -144,7 +151,7 @@ test("stale student route state never renders an empty student report", () => {
       reportView: "whole-child"
     }
   );
-  assert.match(html, /Whole class, or one student/);
+  assert.match(html, /Who are the reports for\?/);
   assert.doesNotMatch(html, /student report: whole-child/);
   assert.doesNotMatch(html, /· Summary/);
 });

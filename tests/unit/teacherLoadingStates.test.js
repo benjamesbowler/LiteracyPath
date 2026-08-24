@@ -129,7 +129,7 @@ test("the reports funnel always keeps its class and student recovery steps avail
   }));
   assert.match(loading, /Choose a class/);
   assert.match(loading, /Getting your classes/);
-  assert.match(loading, /Whole class, or one student/);
+  assert.match(loading, /Who are the reports for\?/);
   assert.doesNotMatch(loading, /No progress results yet/);
 
   const settled = renderToStaticMarkup(React.createElement(TeacherReportsHubPage, {

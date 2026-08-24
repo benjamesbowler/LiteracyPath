@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   displayBenchmarkScopeLabel,
-  isElBenchmarkAssessmentRecord,
   resolveElBenchmarkReportScope
 } from "../../data/elBenchmarkReportScope.js";
 import { filterSavedElAssessmentReportsForClassRoster } from "../../data/elAssessmentReportStore.js";
@@ -17,18 +16,6 @@ import { ElClassReportDocument } from "./ElClassReportDocument.jsx";
 
 function getScopeKey(scope = {}) {
   return `${scope.grade || ""}::${scope.benchmarkWindow || scope.window || ""}`;
-}
-
-const EL_OBSERVATION_ASSESSMENT_IDS = new Set([
-  "el_letter_assessment",
-  "advanced_phonics_patterns"
-]);
-
-function isElAssessmentRecord(record = {}) {
-  if (isElBenchmarkAssessmentRecord(record)) return true;
-  return [record.assessmentType, record.assessmentId, record.skillId]
-    .map(value => String(value || "").trim().toLowerCase().replace(/[\s-]+/g, "_"))
-    .some(value => EL_OBSERVATION_ASSESSMENT_IDS.has(value));
 }
 
 function getSavedReportLabel(report = {}, students = [], classes = []) {
@@ -58,7 +45,6 @@ export function ElFormalAssessmentsPanel({
   const [actionNotice, setActionNotice] = useState(null);
   const [busyAction, setBusyAction] = useState("");
   const [deleteTarget, setDeleteTarget] = useState(null);
-  const [selectedStudentIds, setSelectedStudentIds] = useState([]);
   const teacherStorageId = teacherId || "local";
 
   const classAttempts = useMemo(() => assessmentHistory.filter(record => (
@@ -71,23 +57,6 @@ export function ElFormalAssessmentsPanel({
   const activeScope = scopeOptions.find(scope => getScopeKey(scope) === selectedScopeKey)
     || scopeOptions[0]
     || null;
-  const batchCandidates = useMemo(() => {
-    const studentsWithResults = new Set(classAttempts
-      .filter(isElAssessmentRecord)
-      .map(record => String(record.studentId || record.student_id || ""))
-      .filter(Boolean));
-    return students
-      .filter(student => studentsWithResults.has(String(student.id || "")))
-      .slice()
-      .sort((left, right) => String(left.name || "").localeCompare(String(right.name || "")));
-  }, [classAttempts, students]);
-  const batchCandidateIds = useMemo(
-    () => new Set(batchCandidates.map(student => String(student.id))),
-    [batchCandidates]
-  );
-  const selectedBatchStudentIds = selectedStudentIds
-    .map(String)
-    .filter(studentId => batchCandidateIds.has(studentId));
   const classPrintReport = useMemo(() => (
     evidenceReady && selectedClassId && activeScope
       ? buildClassElAssessmentReportData({
@@ -252,49 +221,6 @@ export function ElFormalAssessmentsPanel({
     }
   }
 
-  async function exportSelectedStudentReports() {
-    if (!evidenceReady) {
-      setActionNotice({
-        kind: "error",
-        message: evidenceStatusMessage || "All saved assessment results must finish loading before creating reports."
-      });
-      return;
-    }
-    if (!selectedBatchStudentIds.length || !selectedClassId || !activeScope) return;
-    setBusyAction("batch-export");
-    setActionNotice({ kind: "pending", message: "Creating the selected student reports..." });
-    try {
-      const { exportStudentElAssessmentBatch } = await importWithRetry(() => import("../../utils/exportElAssessmentExcel.js"));
-      const result = await exportStudentElAssessmentBatch({
-        assessmentHistory,
-        students,
-        classes,
-        classId: selectedClassId,
-        studentIds: selectedBatchStudentIds,
-        teacherId: teacherStorageId,
-        benchmarkScope: activeScope,
-        reportPeriod,
-        supabase
-      });
-      await refreshSavedReports();
-      const durable = result.persistence.every(entry => entry?.durable !== false);
-      setActionNotice({
-        kind: durable ? "success" : "error",
-        message: durable
-          ? `${result.reports.length} student reports downloaded together in one ZIP and saved to report history.`
-          : `${result.reports.length} student reports downloaded together, but one or more saved-report copies could not be retained. Keep the ZIP.`
-      });
-    } catch (error) {
-      console.error("Batch EL student report export failed:", error);
-      setActionNotice({
-        kind: "error",
-        message: "The selected student reports could not be created. No report was deleted."
-      });
-    } finally {
-      setBusyAction("");
-    }
-  }
-
   function printClassReport() {
     if (!evidenceReady) {
       setActionNotice({
@@ -446,60 +372,6 @@ export function ElFormalAssessmentsPanel({
           {busyAction === "export" ? "Creating EL Excel…" : "Export EL Excel"}
         </button>
       </div>
-
-      <details className="el-batch-report-picker screen-only">
-        <summary>Download multiple student reports</summary>
-        <p>Select students with saved EL results. One ZIP download will contain a separate Excel report for each student.</p>
-        {batchCandidates.length ? (
-          <>
-            <div className="el-batch-report-students" role="group" aria-label="Choose student reports to download">
-              {batchCandidates.map(student => {
-                const studentId = String(student.id);
-                return (
-                  <label key={studentId}>
-                    <input
-                      checked={selectedBatchStudentIds.includes(studentId)}
-                      onChange={event => setSelectedStudentIds(current => (
-                        event.target.checked
-                          ? [...new Set([...current.map(String), studentId])]
-                          : current.map(String).filter(value => value !== studentId)
-                      ))}
-                      type="checkbox"
-                    />
-                    <span>{student.name || "Unnamed student"}</span>
-                  </label>
-                );
-              })}
-            </div>
-            <div className="button-row">
-              <button
-                className="report-button"
-                disabled={busyAction === "batch-export"}
-                onClick={() => setSelectedStudentIds(
-                  selectedBatchStudentIds.length === batchCandidates.length
-                    ? []
-                    : batchCandidates.map(student => String(student.id))
-                )}
-                type="button"
-              >
-                {selectedBatchStudentIds.length === batchCandidates.length ? "Clear selection" : "Select all"}
-              </button>
-              <button
-                className="lp-button lp-button-primary"
-                disabled={!evidenceReady || !activeScope || !selectedBatchStudentIds.length || busyAction === "batch-export"}
-                onClick={exportSelectedStudentReports}
-                type="button"
-              >
-                {busyAction === "batch-export"
-                  ? "Creating student reports..."
-                  : `Download selected reports (${selectedBatchStudentIds.length})`}
-              </button>
-            </div>
-          </>
-        ) : (
-          <p className="muted-text">No students in this class have saved EL results yet.</p>
-        )}
-      </details>
 
       {!evidenceReady && (
         <ActionFeedback

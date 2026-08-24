@@ -16735,58 +16735,6 @@ select:focus {
   padding: 12px;
 }
 
-.el-batch-report-picker {
-  border: 1px solid var(--color-border-soft);
-  border-radius: 12px;
-  background: #f8fafc;
-  padding: 0 14px;
-}
-
-.el-batch-report-picker > summary {
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  color: var(--lp-color-text-strong);
-  cursor: pointer;
-  font-weight: 850;
-}
-
-.el-batch-report-picker[open] {
-  display: grid;
-  gap: 12px;
-  padding-bottom: 14px;
-}
-
-.el-batch-report-picker > p {
-  margin: 0;
-  color: var(--lp-color-text-muted);
-}
-
-.el-batch-report-students {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 8px;
-}
-
-.el-batch-report-students label {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 42px;
-  border: 1px solid var(--color-border-soft);
-  border-radius: 10px;
-  background: #ffffff;
-  padding: 9px 11px;
-  color: var(--lp-color-text-strong);
-  font-weight: 750;
-}
-
-.el-batch-report-students input {
-  width: 18px;
-  height: 18px;
-  accent-color: #0f766e;
-}
-
 .el-report-retention-note {
   background: #f8fafc;
   border-left: 4px solid #0f766e;
@@ -25675,6 +25623,153 @@ body {
 
 .teacher-funnel-student-picker-panel > .teacher-funnel-options {
   margin-top: 2px;
+}
+
+.teacher-batch-el-report {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--lp-color-primary) 30%, var(--lp-color-border-subtle));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--lp-color-primary) 4%, var(--lp-color-surface));
+}
+
+.teacher-batch-el-report > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.teacher-batch-el-report > header > div {
+  display: grid;
+  gap: 5px;
+}
+
+.teacher-batch-el-report > header h4,
+.teacher-batch-el-report > header p {
+  margin: 0;
+}
+
+.teacher-batch-el-report > header h4 {
+  color: var(--lp-color-text-strong);
+  font-size: 1.1rem;
+}
+
+.teacher-batch-el-report > header p:not(.panel-label),
+.teacher-batch-el-report-note,
+.teacher-batch-el-report-actions small {
+  color: var(--lp-color-text-muted);
+  line-height: 1.45;
+}
+
+.teacher-batch-el-report > header > span {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary-strong);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.teacher-batch-el-report-scope {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.teacher-batch-el-report-scope-field {
+  min-width: min(100%, 340px);
+  display: grid;
+  flex: 1 1 340px;
+  gap: 6px;
+  color: var(--lp-color-text-strong);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.teacher-batch-el-report-scope select {
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: 9px;
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-strong);
+  font: inherit;
+}
+
+.teacher-batch-el-report-manual-scope {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.teacher-batch-el-report-students {
+  max-height: 320px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  padding: 2px;
+}
+
+.teacher-batch-el-report-students label {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 11px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 9px;
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-strong);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.teacher-batch-el-report-students label:has(input:checked) {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+}
+
+.teacher-batch-el-report-students input {
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  accent-color: var(--lp-color-primary);
+}
+
+.teacher-batch-el-report-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.teacher-batch-el-report-note {
+  margin: 0;
+  padding: 12px;
+  border-radius: 9px;
+  background: var(--lp-color-surface-subtle);
+}
+
+@media (max-width: 720px) {
+  .teacher-batch-el-report > header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .teacher-batch-el-report > header > span {
+    align-self: flex-start;
+  }
+
+  .teacher-batch-el-report-manual-scope {
+    grid-template-columns: 1fr;
+  }
 }
 
 .teacher-funnel-student-count {

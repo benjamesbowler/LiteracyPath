@@ -1880,6 +1880,9 @@ export function AppSurface({ surface }) {
           {funnelFeedback}
           <Suspense fallback={<LazyPageFallback label="Loading reports..." />}>
             <TeacherReportsHubPage
+              assessmentHistory={assessmentHistory}
+              batchReportEvidenceLoading={assessmentArchiveLoading}
+              batchReportEvidenceReady={assessmentArchiveReady}
               classList={classList}
               classListReadState={classListReadState}
               teacherId={teacherId}
@@ -1907,6 +1910,7 @@ export function AppSurface({ surface }) {
               selectedStudentName={nameSaved ? studentName : ""}
               studentEvidenceReady={selectedStudentEvidenceReady}
               studentEvidenceStatus={selectedStudentEvidenceReadState?.syncStatus || "loading"}
+              supabase={isSupabaseConfigured ? supabase : null}
               onRetryStudentEvidence={() => loadSelectedClassStudent(studentId, studentName)}
               onSelectStudent={loadSelectedClassStudent}
               onClearStudent={clearSelectedLearner}
