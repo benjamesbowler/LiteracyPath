@@ -173,6 +173,39 @@
   cursor: pointer;
 }
 
+.q-surface-music-toggle {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  min-height: 56px;
+  padding: 0;
+}
+
+.q-surface-music-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.q-surface-music-toggle.enabled {
+  border-color: #f7d978;
+  background: #f7d978;
+  color: #1a281f;
+}
+
+.q-creator-music-toggle {
+  position: absolute;
+  z-index: 40;
+  top: max(12px, env(safe-area-inset-top));
+  left: max(12px, env(safe-area-inset-left));
+}
+
 /* The always-there door out of a live 3D encounter (QuestHub hides its full
    HUD mid-task; the door must not go with it). */
 .qh-leave-floating {
@@ -612,6 +645,8 @@
   width: min(100%, 1080px);
   margin: 0 auto;
 }
+
+.q-post-head-actions { display: flex; align-items: center; gap: 10px; }
 
 .q-post-kicker {
   display: block;

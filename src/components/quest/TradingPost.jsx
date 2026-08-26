@@ -12,6 +12,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
+import { MusicToggle } from "../audio/MusicToggle.jsx";
 import {
   BOOK_CHARACTER_BODY_IDS,
   BOOK_CHARACTER_LOOKS,
@@ -61,7 +62,14 @@ function visibleShopState(nextState, piece) {
   };
 }
 
-export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBack }) {
+export default function TradingPost({
+  state,
+  isSoundEnabled = true,
+  isMusicEnabled = true,
+  onMusicEnabledChange,
+  onBuy,
+  onBack
+}) {
   const [tab, setTab] = useState("outfit");
   const [selectedId, setSelectedId] = useState(null);
   const [flash, setFlash] = useState(null);
@@ -201,7 +209,14 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
           <span className="q-post-kicker">Bramble's wagon</span>
           <h1 className="q-title">Trading Post</h1>
         </div>
-        <span className="q-sparks" title="Sparks"><strong>{sparks}</strong><small>Sparks</small></span>
+        <div className="q-post-head-actions">
+          <MusicToggle
+            className="q-ghost q-surface-music-toggle"
+            enabled={isMusicEnabled}
+            onToggle={() => onMusicEnabledChange?.(!isMusicEnabled)}
+          />
+          <span className="q-sparks" title="Sparks"><strong>{sparks}</strong><small>Sparks</small></span>
+        </div>
       </div>
 
       <div className="q-tabs q-post-tabs" role="tablist" aria-label="Try-on shelves">

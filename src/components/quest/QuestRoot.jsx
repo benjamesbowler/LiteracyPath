@@ -14,6 +14,7 @@ import { createPortal } from "react-dom";
 import { ErrorBoundary } from "../ErrorBoundary.jsx";
 import CreatureCreator from "./CreatureCreator.jsx";
 import QuestSettingsDialog from "./QuestSettingsDialog.jsx";
+import { MusicToggle } from "../audio/MusicToggle.jsx";
 import RewardScreen from "./RewardScreen.jsx";
 import TrailMap from "./TrailMap.jsx";
 import QuestTrail2D from "./world/QuestTrail2D.jsx";
@@ -940,6 +941,14 @@ export default function QuestRoot({
       )}
 
       {view === VIEW.CREATOR && (
+        <MusicToggle
+          className="q-ghost q-surface-music-toggle q-creator-music-toggle"
+          enabled={isMusicEnabled}
+          onToggle={() => updateQuestSetting("musicEnabled", !isMusicEnabled)}
+        />
+      )}
+
+      {view === VIEW.CREATOR && (
         <CreatureCreator
           creature={state.creature}
           owned={owned}
@@ -973,6 +982,8 @@ export default function QuestRoot({
           onSettings={() => setSettingsOpen(true)}
           settingsTriggerRef={settingsTriggerRef}
           isSoundEnabled={isSoundEnabled}
+          isMusicEnabled={isMusicEnabled}
+          onMusicEnabledChange={value => updateQuestSetting("musicEnabled", value)}
         />
       )}
 
@@ -980,6 +991,8 @@ export default function QuestRoot({
         <TradingPost
           state={state}
           isSoundEnabled={isSoundEnabled}
+          isMusicEnabled={isMusicEnabled}
+          onMusicEnabledChange={value => updateQuestSetting("musicEnabled", value)}
           onBuy={next => commit(next)}
           onBack={() => setView(VIEW.MAP)}
         />

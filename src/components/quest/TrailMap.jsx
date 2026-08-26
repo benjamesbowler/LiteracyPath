@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { MusicToggle } from "../audio/MusicToggle.jsx";
 import BookCharacterAvatar from "./BookCharacterAvatar.jsx";
 import { QUEST_CHAPTERS } from "../../data/questChapters.js";
 import { getStop } from "../../data/questSequence.js";
@@ -71,7 +72,9 @@ export default function TrailMap({
   onTradingPost,
   onSettings,
   settingsTriggerRef,
-  isSoundEnabled = true
+  isSoundEnabled = true,
+  isMusicEnabled = true,
+  onMusicEnabledChange
 }) {
   const chapter = QUEST_CHAPTERS[Math.max(0, Math.min(QUEST_CHAPTERS.length - 1, act - 1))];
   const stops = useMemo(() => chapter.stopIds.map(getStop).filter(Boolean), [chapter]);
@@ -151,6 +154,11 @@ export default function TrailMap({
           <p>{journeyComplete && chapter.id === "star-reach" ? "Every sound is home. The First Reading Star is shining." : chapter.objective}</p>
         </div>
         <div className="q-map-v2-actions">
+          <MusicToggle
+            className="q-ghost q-surface-music-toggle"
+            enabled={isMusicEnabled}
+            onToggle={() => onMusicEnabledChange?.(!isMusicEnabled)}
+          />
           <button type="button" className="q-ghost" onClick={onEditCharacter}>Character</button>
           <button type="button" className="q-ghost" onClick={onTradingPost}>Shop</button>
           <button

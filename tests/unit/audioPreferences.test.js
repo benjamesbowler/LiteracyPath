@@ -42,6 +42,8 @@ test("every music-playing child surface exposes music separately from spoken aud
   const soundBeat = fs.readFileSync("src/components/learn/games/games/Ps1ArcadeGame.jsx", "utf8");
   const quest = fs.readFileSync("src/components/quest/QuestRoot.jsx", "utf8");
   const questSettings = fs.readFileSync("src/components/quest/QuestSettingsDialog.jsx", "utf8");
+  const questMap = fs.readFileSync("src/components/quest/TrailMap.jsx", "utf8");
+  const questShop = fs.readFileSync("src/components/quest/TradingPost.jsx", "utf8");
   const renderers = [
     "src/components/quest/world/QuestHub.jsx",
     "src/components/quest/world/QuestPixelWorld.jsx",
@@ -60,6 +62,9 @@ test("every music-playing child surface exposes music separately from spoken aud
   assert.match(quest, /if \(isMusicEnabled && musicChapter\?\.id\)/);
   assert.match(questSettings, /Music on \(spoken audio stays on\)/);
   assert.match(questSettings, /Spoken audio and game sounds on/);
+  assert.match(quest, /view === VIEW\.CREATOR[\s\S]*?<MusicToggle/);
+  assert.match(questMap, /<MusicToggle/);
+  assert.match(questShop, /<MusicToggle/);
   for (const renderer of renderers) {
     assert.match(renderer, /<MusicToggle/);
     assert.match(renderer, /onMusicEnabledChange/);

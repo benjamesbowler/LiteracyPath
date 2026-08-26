@@ -1282,9 +1282,13 @@ test("the customised Beastie has a distinct authored pose for every quest action
 
 test("the mobile release map keeps settings child-reachable", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`${PREVIEW}&view=map&done=20`);
+  await page.goto(`${PREVIEW.replace("sound=0", "sound=1")}&view=map&done=20`);
 
   await expect(page.locator(".q-map-v2 h1")).toBeVisible();
+  const music = page.getByRole("button", { name: "Turn music off; spoken audio stays on", exact: true });
+  await expect(music).toBeVisible();
+  await music.click();
+  await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toBeVisible();
   await expectVisibleButtonsReachable(page);
   await page.getByRole("button", { name: "Open settings" }).click();
   const settings = page.getByRole("dialog", { name: "Display, sound and access" });
@@ -1305,6 +1309,7 @@ test("the mobile release surface keeps creature creation child-reachable", async
   await page.goto(`${PREVIEW}&view=creator&done=20`);
 
   await expect(page.getByRole("heading", { name: "Change your book character" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toBeVisible();
   await expect(page.getByRole("tab", { name: "Character" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Done" })).toBeVisible();
   await expectVisibleButtonsReachable(page);
@@ -1331,6 +1336,7 @@ test("the mobile release surface keeps the Trading Post child-reachable", async 
   await page.goto(`${PREVIEW}&view=post&done=20`);
 
   await expect(page.getByRole("heading", { name: "Trading Post" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toBeVisible();
   await expect(page.getByRole("tabpanel")).toBeVisible();
   await expect(page.getByRole("button", { name: "Back to map" })).toBeVisible();
   await expectVisibleButtonsReachable(page);
