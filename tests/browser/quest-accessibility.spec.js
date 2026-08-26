@@ -1292,8 +1292,8 @@ test("the mobile release map keeps settings child-reachable", async ({ page }) =
   await expect(settings.getByLabel("Picture style")).toHaveCount(0);
   await expect(settings.getByLabel("Reduce motion")).toBeVisible();
   await expect(settings.getByLabel("High contrast")).toBeVisible();
-  await expect(settings.getByLabel("Quiet soundscape (spoken sounds stay on)")).toBeVisible();
-  await expect(settings.getByLabel("Sound on")).toBeVisible();
+  await expect(settings.getByLabel("Music on (spoken audio stays on)")).toBeVisible();
+  await expect(settings.getByLabel("Spoken audio and game sounds on")).toBeVisible();
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);

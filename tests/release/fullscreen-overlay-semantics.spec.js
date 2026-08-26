@@ -77,3 +77,22 @@ test("A2.10 resume prompt also derives its name from the active game", async ({ 
   await expect(page.getByRole("dialog", { name: game.title, exact: true })).toBeVisible();
   await expect(page.getByRole("alertdialog", { name: `Resume ${game.title}`, exact: true })).toBeVisible();
 });
+
+test("game music can be muted without disabling spoken audio", async ({ page }) => {
+  const game = GAME_LIST.find(candidate => candidate.id === "sound-racer") || GAME_LIST[0];
+  await page.goto(`/preview/game-overlay.html?game=${encodeURIComponent(game.id)}&sound=1&music=1`);
+  await dismissActiveGameOnboarding(page);
+
+  const spokenAudio = page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true });
+  const music = page.getByRole("button", { name: "Turn music off; spoken audio stays on", exact: true });
+  await expect(spokenAudio).toHaveAttribute("aria-pressed", "true");
+  await expect(music).toHaveAttribute("aria-pressed", "true");
+
+  await music.click();
+  await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toHaveAttribute("aria-pressed", "false");
+  await expect(spokenAudio).toHaveAttribute("aria-pressed", "true");
+
+  await spokenAudio.click();
+  await expect(page.getByRole("button", { name: "Turn spoken audio and game sounds on", exact: true })).toHaveAttribute("aria-pressed", "false");
+  await expect(page.getByRole("button", { name: "Turn music on", exact: true })).toHaveAttribute("aria-pressed", "false");
+});

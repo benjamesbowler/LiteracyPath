@@ -12,7 +12,7 @@ test("A2.9 Sound Racer renders the current target example apart from steering he
   await page.addInitScript(() => {
     window.localStorage.removeItem("lp-arcade-onboarded-v1:sound-racer");
   });
-  await page.goto(`/preview/sound-racer-preview.html?difficulty=${difficulty}&level=${level}&sound=0`);
+  await page.goto(`/preview/sound-racer-preview.html?difficulty=${difficulty}&level=${level}&sound=0&music=0`);
 
   const overlay = page.locator('[data-sr="overlay"]');
   const phonics = overlay.getByRole("region", { name: "Sound example" });

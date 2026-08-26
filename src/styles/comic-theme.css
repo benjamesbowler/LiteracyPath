@@ -996,7 +996,7 @@
   letter-spacing: 0.04em; text-transform: uppercase; color: #ffd84d;
   text-shadow: 2px 2px 0 var(--comic-magenta), 4px 4px 0 rgba(0,0,0,0.4);
 }
-.lg-arcade-comic .lg-arcade-topband-controls { display: flex; align-items: center; gap: 12px; }
+.lg-arcade-comic .lg-arcade-topband-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 12px; }
 
 /* Arcade / Phonics Practice tabs */
 .lg-arcade-comic .lg-arcade-tabs {

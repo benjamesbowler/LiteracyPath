@@ -27,6 +27,7 @@ if (params.get("resume") === "1") {
 export function GameOverlayPreview() {
   const [open, setOpen] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(params.get("sound") === "1");
+  const [musicEnabled, setMusicEnabled] = useState(params.get("music") !== "0");
 
   if (!open) return <p role="status">Closed {game.title}</p>;
 
@@ -35,9 +36,11 @@ export function GameOverlayPreview() {
       game={game}
       difficulty="easy"
       soundEnabled={soundEnabled}
+      musicEnabled={musicEnabled}
       progressScopeKey={PREVIEW_SCOPE}
       onClose={() => setOpen(false)}
       onSoundEnabledChange={setSoundEnabled}
+      onMusicEnabledChange={setMusicEnabled}
       onProgressChange={() => {}}
     />
   );

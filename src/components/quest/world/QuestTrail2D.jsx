@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CreatureFigure from "../CreatureFigure.jsx";
 import BookCharacterAvatar from "../BookCharacterAvatar.jsx";
+import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { buildTrailSection } from "../../../utils/questHub.js";
 import {
   buildPhysicalTask,
@@ -118,6 +119,7 @@ export default function QuestTrail2D({
   state,
   resume = null,
   isSoundEnabled = true,
+  isMusicEnabled = true,
   mode = "journey",
   routeLabel = null,
   targetsOverride = null,
@@ -126,6 +128,7 @@ export default function QuestTrail2D({
   onCheckpoint,
   onFinish,
   onAudioState,
+  onMusicEnabledChange,
   onQuit
 }) {
   const stop = getStop(stopId);
@@ -615,15 +618,22 @@ export default function QuestTrail2D({
       data-reduced-motion={state.settings?.reducedMotion ? "true" : undefined}
     >
       <header className="q2d-header">
-        <button type="button" className="q-ghost" onClick={() => { checkpoint(); onQuit?.(); }}>Back to the map</button>
-        <div>
+        <button type="button" className="q-ghost q2d-back" onClick={() => { checkpoint(); onQuit?.(); }}>Back to the map</button>
+        <div className="q2d-title">
           <span>{routeLabel || (mode === "review" ? "Sound practice" : section.chapter?.title)}</span>
           <strong>{stop?.name}</strong>
         </div>
-        <span className="q2d-progress" data-live-sparks={liveSparks}>
-          {displayedEncounterProgress} / {section.encounters.length}
-          <small>{liveSparks} Sparks</small>
-        </span>
+        <div className="q2d-header-actions">
+          <MusicToggle
+            className="q-ghost q2d-music-toggle"
+            enabled={isMusicEnabled}
+            onToggle={() => onMusicEnabledChange?.(!isMusicEnabled)}
+          />
+          <span className="q2d-progress" data-live-sparks={liveSparks}>
+            {displayedEncounterProgress} / {section.encounters.length}
+            <small>{liveSparks} Sparks</small>
+          </span>
+        </div>
       </header>
 
       <section

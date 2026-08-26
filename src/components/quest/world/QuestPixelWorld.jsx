@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { buildTrailSection, routePointAt } from "../../../utils/questHub.js";
 import {
   buildPhysicalTask,
@@ -104,6 +105,7 @@ export default function QuestPixelWorld({
   state,
   resume = null,
   isSoundEnabled = true,
+  isMusicEnabled = true,
   isInteractive = true,
   ceremony = false,
   mode = "journey",
@@ -114,6 +116,7 @@ export default function QuestPixelWorld({
   onCheckpoint,
   onFinish,
   onAudioState,
+  onMusicEnabledChange,
   onQuit,
   onSceneReady,
   onSceneError,
@@ -828,6 +831,11 @@ export default function QuestPixelWorld({
           <span>{routeLabel || (mode === "review" ? "Sound practice" : section.chapter?.title)}</span>
           <strong>{stop?.name}</strong>
         </div>
+        <MusicToggle
+          className="qp-icon-button qp-music-toggle"
+          enabled={isMusicEnabled}
+          onToggle={() => onMusicEnabledChange?.(!isMusicEnabled)}
+        />
         <div
           className="qp-tally"
           data-live-sparks={liveSparks}

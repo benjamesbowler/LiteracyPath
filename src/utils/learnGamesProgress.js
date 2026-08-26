@@ -1,5 +1,6 @@
 import { queueProgressSave } from "./progressSync.js";
 import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpoints.js";
+import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
 
 const STORAGE_PREFIX = "literacy-guide-learn-games";
 const DEFAULT_SCOPE = "default";
@@ -13,7 +14,7 @@ function storageKey(progressScopeKey = DEFAULT_SCOPE) {
 function baseState() {
   return {
     difficulty: "easy",
-    soundEnabled: true,
+    ...normalizeAudioPreferences(),
     games: {}
   };
 }
@@ -23,9 +24,11 @@ export function loadLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE) {
 
   try {
     const parsed = JSON.parse(window.localStorage.getItem(storageKey(progressScopeKey)) || "null");
+    const source = parsed && typeof parsed === "object" ? parsed : {};
     return {
       ...baseState(),
-      ...(parsed && typeof parsed === "object" ? parsed : {}),
+      ...source,
+      ...normalizeAudioPreferences(source),
       games: parsed?.games && typeof parsed.games === "object" ? parsed.games : {}
     };
   } catch {
@@ -38,6 +41,7 @@ export function saveLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE, progres
   const next = {
     ...baseState(),
     ...progress,
+    ...normalizeAudioPreferences(progress),
     games: progress.games || {}
   };
   window.localStorage.setItem(storageKey(progressScopeKey), JSON.stringify(next));

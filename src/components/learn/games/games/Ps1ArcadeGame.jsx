@@ -623,6 +623,7 @@ function startPs1ArcadeGame(mount, options) {
   const { canvas, ctx } = createGameCanvas(mount);
   const reduceMotion = prefersReducedMotion();
   const { soundAllowed, sfx } = createSoundGate(options);
+  const musicAllowed = () => options.getMusic ? options.getMusic() : options.isMusicEnabled !== false;
 
   let music = null;
   let musicBpm = 0;
@@ -630,9 +631,10 @@ function startPs1ArcadeGame(mount, options) {
 
   // The synth track is the game's metronome: it always runs at the round's BPM
   // so what the child hears IS the timing they tap against. It follows the
-  // engine lifecycle (countdown end, pause/resume, destroy) and the sound flag.
+  // engine lifecycle (countdown end, pause/resume, destroy) and the independent
+  // music flag. Spoken cues and game effects continue to use soundAllowed().
   function ensureMusic() {
-    if (state.paused || state.ended || state.countdown > 0 || !soundAllowed() || musicUnsupported) {
+    if (state.paused || state.ended || state.countdown > 0 || !musicAllowed() || musicUnsupported) {
       stopMusic();
       return;
     }
@@ -685,6 +687,7 @@ function startPs1ArcadeGame(mount, options) {
     judgementT: 0,
     beatPulse: 0,
     soundEnabled: soundAllowed(),
+    musicEnabled: musicAllowed(),
     hitBursts: [],
     pointer: { x: 0, y: 0 }
   };
@@ -922,6 +925,7 @@ function startPs1ArcadeGame(mount, options) {
   function tickFrame(now, dt) {
     if (!state.paused && !state.ended) {
       state.soundEnabled = soundAllowed();
+      state.musicEnabled = musicAllowed();
       state.time += reduceMotion ? dt * 0.35 : dt;
       state.beatPulse = Math.max(0, state.beatPulse - dt * 2.8);
       state.judgementT = Math.max(0, state.judgementT - dt);
@@ -1013,6 +1017,7 @@ function startPs1ArcadeGame(mount, options) {
         taskIndex: state.taskIndex,
         countdown: state.countdown,
         soundEnabled: state.soundEnabled,
+        musicEnabled: state.musicEnabled,
         musicActive: Boolean(music),
         backgroundSrc: image.src,
         judgement: state.judgement,
@@ -1033,10 +1038,12 @@ export default function Ps1ArcadeGame({
   onComplete,
   onCheckpoint,
   onEngineReady,
-  isSoundEnabled = true
+  isSoundEnabled = true,
+  isMusicEnabled = true
 }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
+  const musicRef = useRef(isMusicEnabled);
   const handlersRef = useRef({
     onScoreUpdate,
     onProgressUpdate,
@@ -1048,6 +1055,10 @@ export default function Ps1ArcadeGame({
   useEffect(() => {
     soundRef.current = isSoundEnabled;
   }, [isSoundEnabled]);
+
+  useEffect(() => {
+    musicRef.current = isMusicEnabled;
+  }, [isMusicEnabled]);
 
   useEffect(() => {
     handlersRef.current = {
@@ -1075,7 +1086,8 @@ export default function Ps1ArcadeGame({
       onComplete: (stars, finalScore, total) => handlersRef.current.onComplete?.(stars, finalScore, total),
       onCheckpoint: (level, total) => handlersRef.current.onCheckpoint?.(level, total),
       onEngineReady: api => handlersRef.current.onEngineReady?.(api),
-      getSound: () => soundRef.current
+      getSound: () => soundRef.current,
+      getMusic: () => musicRef.current
     });
     return () => engine.destroy();
   }, [kind, difficulty, startLevel]);

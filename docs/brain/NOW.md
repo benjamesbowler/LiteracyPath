@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-08-22
+updated: 2026-08-26
 authority: orientation-only
 ---
 
@@ -34,6 +34,10 @@ installed, reviewed, and trusted on 2026-08-03.
 
 ## Current beta release state
 
+- Child-facing background music is independently controllable from spoken
+  teaching audio and game sounds across Home, Arcade/full-screen games, Sound
+  Beat, and Sound Seekers. Existing whole-sound or quiet-soundscape preferences
+  migrate without unexpectedly turning music back on.
 - Pending media is test-visible during beta without being labelled human
   approved. Quarantined pairings remain excluded immediately. The governing
   decision is `decisions/2026-08-15-beta-media-test-visibility.md`.

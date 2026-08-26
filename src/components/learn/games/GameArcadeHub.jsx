@@ -10,6 +10,7 @@ import {
 } from "../../../utils/learnGamesProgress";
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
+import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
 import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
 import "../../../styles/learn-games.css";
@@ -171,6 +172,10 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
     setProgress(saveLearnGamesSettings(progressScopeKey, { soundEnabled }));
   }
 
+  function setMusicEnabled(musicEnabled) {
+    setProgress(saveLearnGamesSettings(progressScopeKey, { musicEnabled }));
+  }
+
   const world = worldForDifficulty(progress.difficulty);
   // Recomputed each render so a try session's sample takes effect; the scope is
   // set at session start, after this module was evaluated.
@@ -219,7 +224,17 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
               </button>
             ))}
           </div>
-          <SoundToggle enabled={progress.soundEnabled} onToggle={() => setSoundEnabled(!progress.soundEnabled)} />
+          <SoundToggle
+            enabled={progress.soundEnabled}
+            onToggle={() => setSoundEnabled(!progress.soundEnabled)}
+            showLabel
+          />
+          <MusicToggle
+            className="lg-sound-toggle lg-audio-toggle-labelled"
+            enabled={progress.musicEnabled}
+            onToggle={() => setMusicEnabled(!progress.musicEnabled)}
+            showLabel
+          />
         </div>
       </div>
 
@@ -311,12 +326,14 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
           game={activeGame}
           difficulty={progress.difficulty}
           soundEnabled={progress.soundEnabled}
+          musicEnabled={progress.musicEnabled}
           progressScopeKey={progressScopeKey}
           onClose={() => {
             setActiveGame(null);
             setLeaderboardRefresh(value => value + 1);
           }}
           onSoundEnabledChange={setSoundEnabled}
+          onMusicEnabledChange={setMusicEnabled}
           onProgressChange={setProgress}
         />
       )}

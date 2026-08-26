@@ -22,7 +22,12 @@ const ONBOARDING_HINTS = [
   "Finish with GO to say the whole word."
 ];
 
-export default function SoundBeatGame({ onEngineReady, isSoundEnabled = true, ...props }) {
+export default function SoundBeatGame({
+  onEngineReady,
+  isSoundEnabled = true,
+  isMusicEnabled = true,
+  ...props
+}) {
   const [showOnboarding, setShowOnboarding] = useState(() => !readOnboarded());
   const showOnboardingRef = useRef(showOnboarding);
   const engineRef = useRef(null);
@@ -82,7 +87,13 @@ export default function SoundBeatGame({ onEngineReady, isSoundEnabled = true, ..
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "100dvh" }}>
-      <Ps1ArcadeGame kind="sound-beat" {...props} isSoundEnabled={isSoundEnabled} onEngineReady={handleEngineReady} />
+      <Ps1ArcadeGame
+        kind="sound-beat"
+        {...props}
+        isSoundEnabled={isSoundEnabled}
+        isMusicEnabled={isMusicEnabled}
+        onEngineReady={handleEngineReady}
+      />
       {showOnboarding && (
         <div
           role="dialog"

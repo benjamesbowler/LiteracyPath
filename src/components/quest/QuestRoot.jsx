@@ -256,10 +256,11 @@ export default function QuestRoot({
     : baseMusicTrack;
   const musicMode = view === VIEW.CEREMONY ? "ceremony" : musicState;
   const musicFallback = musicChapter?.worldKit || "meadow";
-  // The quest finally has its own mute: the host prop AND the child's Den
-  // setting must both agree before anything plays.
+  // Spoken teaching audio and background music are independent. The host prop
+  // remains an all-audio QA kill switch; the two child settings are otherwise
+  // free to differ.
   const isSoundEnabled = isSoundEnabledProp && state.settings?.soundEnabled !== false;
-  const soundscapeEnabled = isSoundEnabled && !state.settings?.quietSoundscape;
+  const isMusicEnabled = isSoundEnabledProp && state.settings?.musicEnabled !== false;
   const ceremonyWorldReady = worldLayers.some(layer => layer.status === "active" && layer.ready);
 
   useEffect(() => {
@@ -501,17 +502,17 @@ export default function QuestRoot({
   }, [commit, view]);
 
   useEffect(() => {
-    if (soundscapeEnabled) startGameMusic(musicTrack, { fallbackWorldId: musicFallback, mode: musicMode });
+    if (isMusicEnabled) startGameMusic(musicTrack, { fallbackWorldId: musicFallback, mode: musicMode });
     else stopGameMusic();
-  }, [musicFallback, musicMode, musicTrack, soundscapeEnabled]);
+  }, [isMusicEnabled, musicFallback, musicMode, musicTrack]);
 
   useEffect(() => {
-    if (soundscapeEnabled && musicChapter?.id) {
+    if (isMusicEnabled && musicChapter?.id) {
       startGameAmbience(musicChapter.id, {
         mode: musicMode
       });
     } else stopGameAmbience();
-  }, [musicChapter?.id, musicMode, soundscapeEnabled]);
+  }, [isMusicEnabled, musicChapter?.id, musicMode]);
 
   useEffect(() => {
     if (!import.meta.env.PROD || ![VIEW.MAP, VIEW.WORLD, VIEW.CEREMONY].includes(view)) return undefined;
@@ -999,6 +1000,8 @@ export default function QuestRoot({
               state: layerState,
               resume: layerResume,
               isSoundEnabled,
+              isMusicEnabled,
+              onMusicEnabledChange: value => updateQuestSetting("musicEnabled", value),
               extendedResponse: learnerAccessibility.extendedResponse,
               isInteractive: interactive,
               journeyStatus: layer.status,

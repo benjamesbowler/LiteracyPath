@@ -14,6 +14,7 @@ import {
 } from "../../../utils/learnGamesProgress";
 import { announceMissionReturn, notifyMissionTaskDone } from "../../../utils/dailyMission.js";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
+import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { premiumProfileForGame } from "./shared/arcadePremiumProfiles.js";
 import { worldForDifficulty, worldStyle, sceneForKey } from "../../../utils/palWorlds.js";
@@ -81,9 +82,11 @@ export function GamePlayer({
   game,
   difficulty,
   soundEnabled,
+  musicEnabled = true,
   progressScopeKey,
   onClose,
   onSoundEnabledChange,
+  onMusicEnabledChange,
   onProgressChange
 }) {
   const [score, setScore] = useState(0);
@@ -137,10 +140,10 @@ export function GamePlayer({
   useEffect(() => {
     // Sound Beat runs its own BPM-synced music engine; the fixed-tempo loop
     // would play on top of it, so the generic track is skipped for that game.
-    if (soundEnabled && game.id !== "sound-beat") startGameMusic(game.id, { fallbackWorldId: world.id });
+    if (musicEnabled && game.id !== "sound-beat") startGameMusic(game.id, { fallbackWorldId: world.id });
     else stopGameMusic();
     return () => stopGameMusic();
-  }, [soundEnabled, world.id, game.id]);
+  }, [musicEnabled, world.id, game.id]);
 
   // Freeze the running game while the quit dialog is open or the tab is
   // backgrounded, so a child never loses hearts/words they can't see.
@@ -309,6 +312,11 @@ export function GamePlayer({
             </button>
           )}
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
+          <MusicToggle
+            className="lg-sound-toggle"
+            enabled={musicEnabled}
+            onToggle={() => onMusicEnabledChange?.(!musicEnabled)}
+          />
           <button
             type="button"
             className="lg-game-close"
@@ -342,6 +350,7 @@ export function GamePlayer({
                 onEngineReady={api => { engineRef.current = api; }}
                 onExit={closePlayer}
                 isSoundEnabled={soundEnabled}
+                isMusicEnabled={musicEnabled}
               />
             )}
           </Suspense>

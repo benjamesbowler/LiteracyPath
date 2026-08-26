@@ -12,12 +12,13 @@ function Preview() {
   const previewDifficulty = params.get("difficulty") || "medium";
   const previewLevel = Number(params.get("level") || 0);
   const soundEnabled = params.get("sound") !== "0";
+  const musicEnabled = params.get("music") !== "0";
 
   useEffect(() => {
-    if (soundEnabled) startGameMusic("sound-racer");
+    if (musicEnabled) startGameMusic("sound-racer");
     else stopGameMusic();
     return () => stopGameMusic();
-  }, [soundEnabled]);
+  }, [musicEnabled]);
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>

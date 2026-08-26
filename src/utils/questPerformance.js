@@ -10,6 +10,8 @@
 // the device, never offered as a question. Keeping the ids here (rather than
 // deleting them) means an old saved setting, or a cloud row written by a
 // previous build, still resolves to something real instead of falling over.
+import { normalizeAudioPreferences } from "./audio/audioPreferences.js";
+
 export const QUEST_DISPLAY_MODES = Object.freeze([
   { id: "auto", label: "Automatic" },
   { id: "pixel", label: "Pixel adventure" }
@@ -121,11 +123,7 @@ export function normalizeQuestSettings(raw = {}) {
     displayMode,
     reducedMotion: Boolean(raw?.reducedMotion),
     highContrast: Boolean(raw?.highContrast),
-    quietSoundscape: Boolean(raw?.quietSoundscape),
-    // Sound on/off for the whole mode (speech AND sfx) — the quest was the
-    // one surface in the app a child could not mute. Default ON: sound is
-    // the lesson.
-    soundEnabled: raw?.soundEnabled !== false
+    ...normalizeAudioPreferences(raw)
   };
 }
 

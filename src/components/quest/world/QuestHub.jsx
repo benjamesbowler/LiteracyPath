@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import Guide from "./Guide.jsx";
 import { ENCOUNTER_VIEWS } from "./encounterViews.js";
 import { budgetPhysicalSection } from "../../../utils/questPhysicalPlan.js";
@@ -3169,6 +3170,7 @@ export default function QuestHub({
   state,
   resume = null,
   isSoundEnabled = true,
+  isMusicEnabled = true,
   extendedResponse = false,
   isInteractive = true,
   journeyStatus = "active",
@@ -3184,6 +3186,7 @@ export default function QuestHub({
   onSceneError,
   onRuntimeSignal,
   onAudioState,
+  onMusicEnabledChange,
   onQuit
 }) {
   const stop = getStop(stopId);
@@ -5009,6 +5012,13 @@ export default function QuestHub({
           &#8592; Den
         </button>
       )}
+      {active && !activeFieldStage && (
+        <MusicToggle
+          className="q-ghost qh-music-toggle qh-music-toggle-floating"
+          enabled={isMusicEnabled}
+          onToggle={() => onMusicEnabledChange?.(!isMusicEnabled)}
+        />
+      )}
       {!active && <header className="qh-hud">
         <button type="button" className="q-ghost qh-leave" onClick={leaveWorld}>Back to the map</button>
         <div className="qh-land-title">
@@ -5016,6 +5026,11 @@ export default function QuestHub({
           <strong>{mode === "review" ? "Sound practice" : `Trail ${sectionNumber} of ${QUEST_STOPS.length}`}</strong>
         </div>
         <div className="qh-economy">
+          <MusicToggle
+            className="q-ghost qh-music-toggle"
+            enabled={isMusicEnabled}
+            onToggle={() => onMusicEnabledChange?.(!isMusicEnabled)}
+          />
           {seedwakeSpec && (
             <div className="qh-satchel" aria-label={`${satchel.total} chapter finds, including ${currentPocket?.count || 0} ${seedwakeSpec.collectible.plural}`}>
               <span className="qh-satchel-mark" aria-hidden="true" />
@@ -5048,14 +5063,21 @@ export default function QuestHub({
             <span aria-hidden="true" />
             <strong>{encounterHud[0]?.label}</strong>
           </button>
-          <div
-            className="qh-encounter-reward"
-            data-quest-hud-node="reward"
-            aria-label={`${encounterHud[1]?.count || 0} ${encounterHud[1]?.label || "finds"}; ${encounterHud[1]?.progress || "1 of 1"}`}
-          >
-            <span className="qh-satchel-mark" aria-hidden="true" />
-            <strong>{encounterHud[1]?.count || 0}</strong>
-            <small>{encounterHud[1]?.progress}</small>
+          <div className="qh-encounter-actions">
+            <MusicToggle
+              className="q-ghost qh-music-toggle"
+              enabled={isMusicEnabled}
+              onToggle={() => onMusicEnabledChange?.(!isMusicEnabled)}
+            />
+            <div
+              className="qh-encounter-reward"
+              data-quest-hud-node="reward"
+              aria-label={`${encounterHud[1]?.count || 0} ${encounterHud[1]?.label || "finds"}; ${encounterHud[1]?.progress || "1 of 1"}`}
+            >
+              <span className="qh-satchel-mark" aria-hidden="true" />
+              <strong>{encounterHud[1]?.count || 0}</strong>
+              <small>{encounterHud[1]?.progress}</small>
+            </div>
           </div>
         </header>
       )}

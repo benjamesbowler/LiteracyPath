@@ -59,12 +59,24 @@ test("comfort and sound settings survive normalisation", () => {
   });
   assert.equal(settings.reducedMotion, true);
   assert.equal(settings.highContrast, true);
-  assert.equal(settings.quietSoundscape, true);
+  assert.equal(settings.musicEnabled, false);
   assert.equal(settings.soundEnabled, false);
+  assert.equal("quietSoundscape" in settings, false);
 });
 
-test("sound defaults ON, because the sound IS the lesson", () => {
+test("spoken audio and music default on independently", () => {
   assert.equal(normalizeQuestSettings({}).soundEnabled, true);
+  assert.equal(normalizeQuestSettings({}).musicEnabled, true);
+  assert.deepEqual(
+    normalizeQuestSettings({ musicEnabled: false, soundEnabled: true }),
+    {
+      displayMode: "auto",
+      reducedMotion: false,
+      highContrast: false,
+      soundEnabled: true,
+      musicEnabled: false
+    }
+  );
 });
 
 // ── Starting again ──────────────────────────────────────────────────────────
