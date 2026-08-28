@@ -215,7 +215,6 @@ export function StudentSessionSetup({
             </div>
             <button
               className="lp-button lp-button-primary"
-              data-autofocus
               disabled={!studentIds.length || busy || (target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT && !skillsEvidenceReady)}
               onClick={start}
               type="button"

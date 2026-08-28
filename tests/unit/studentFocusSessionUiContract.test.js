@@ -22,6 +22,14 @@ const assessmentController = fs.readFileSync(
   new URL("../../src/appState/assessmentRoundController.js", import.meta.url),
   "utf8"
 );
+const sessionSetup = fs.readFileSync(
+  new URL("../../src/components/student-sessions/StudentSessionSetup.jsx", import.meta.url),
+  "utf8"
+);
+const sessionStyles = fs.readFileSync(
+  new URL("../../src/styles/student-sessions.css", import.meta.url),
+  "utf8"
+);
 
 test("teacher pages expose the unified Student Sessions launcher and live controls", () => {
   assert.match(appSurface, /<StudentSessionSetup/);
@@ -47,4 +55,11 @@ test("independent assessment saves neutral feedback without revealing correctnes
 test("letters-only mode hides Words and rejects non-letter island changes", () => {
   assert.match(letters, /if \(lockedToLetters && island !== "letters"\) return/);
   assert.match(letters, /\{!lockedToLetters && \([\s\S]*aria-label=\{wordsUnlocked \? "Words"/);
+});
+
+test("student session setup stays compact and opens at the top", () => {
+  assert.match(sessionStyles, /\.student-session-setup\s*\{[\s\S]*font-size: 13px/);
+  assert.match(sessionStyles, /input\[type="checkbox"\][\s\S]*width: 18px[\s\S]*height: 18px/);
+  assert.match(sessionStyles, /\.student-session-student-list strong\s*\{[\s\S]*font-size: 14px/);
+  assert.doesNotMatch(sessionSetup, /data-autofocus/);
 });

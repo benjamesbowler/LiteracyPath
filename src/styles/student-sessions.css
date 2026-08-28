@@ -4,15 +4,24 @@
   z-index: 1200;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 16px;
   background: rgba(22, 38, 35, 0.58);
   backdrop-filter: blur(8px);
 }
 
 .student-session-setup {
   width: min(940px, calc(100vw - 32px));
-  max-height: min(860px, calc(100dvh - 32px));
+  max-height: calc(100dvh - 32px);
+  box-sizing: border-box;
+  padding: 22px;
   overflow: auto;
+  color: var(--lp-color-text, #263b36);
+  font-size: 13px;
+  line-height: 1.4;
+  background: var(--lp-color-surface, #ffffff);
+  border: 1px solid rgba(49, 88, 78, 0.16);
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(22, 58, 49, 0.24);
 }
 
 .student-session-setup-header,
@@ -29,13 +38,27 @@
   margin: 0;
 }
 
+.student-session-setup-header h2 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.student-session-setup-header p {
+  font-size: 13px;
+}
+
+.student-session-section h3 {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
 .student-session-setup-header p:last-child {
   margin-bottom: 0;
 }
 
 .student-session-section {
-  margin-top: 22px;
-  padding-top: 20px;
+  margin-top: 16px;
+  padding-top: 16px;
   border-top: 1px solid rgba(49, 88, 78, 0.16);
 }
 
@@ -46,17 +69,22 @@
   margin-top: 14px;
 }
 
-.student-session-targets > button {
+.student-session-setup .student-session-targets > button {
   display: grid;
-  gap: 6px;
-  min-height: 98px;
-  padding: 16px;
+  gap: 4px;
+  min-height: 78px;
+  padding: 12px 14px;
   text-align: left;
   color: #25473e;
   background: #f7fbf7;
   border: 1px solid rgba(49, 88, 78, 0.18);
   border-radius: 16px;
   cursor: pointer;
+}
+
+.student-session-targets > button strong {
+  font-size: 14px;
+  line-height: 1.25;
 }
 
 .student-session-targets > button.selected {
@@ -68,6 +96,8 @@
 .student-session-targets span,
 .student-session-student-list small {
   color: #5b716b;
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .student-session-student-list {
@@ -83,16 +113,39 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  min-height: 62px;
-  padding: 10px 12px;
+  min-height: 52px;
+  padding: 8px 10px;
   background: #fbfcfa;
   border: 1px solid rgba(49, 88, 78, 0.14);
   border-radius: 12px;
 }
 
+.student-session-student-list input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  max-width: none;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+}
+
 .student-session-student-list label > span {
   display: grid;
+  flex: 1;
   gap: 2px;
+  min-width: 0;
+}
+
+.student-session-student-list strong {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.student-session-section-heading .text-button {
+  min-height: 36px;
+  padding: 4px 8px;
+  font-size: 13px;
 }
 
 .student-session-start {
@@ -103,10 +156,14 @@
   display: grid;
   gap: 6px;
   margin-top: 10px;
+  font-size: 13px;
 }
 
 .student-session-start select {
   min-width: 180px;
+  height: 42px;
+  margin: 6px 0 0;
+  font-size: 13px;
 }
 
 .student-session-guided-start,
@@ -246,6 +303,12 @@
 }
 
 @media (max-width: 720px) {
+  .student-session-setup {
+    width: min(100%, calc(100vw - 20px));
+    max-height: calc(100dvh - 20px);
+    padding: 16px;
+  }
+
   .student-session-targets,
   .student-session-student-list {
     grid-template-columns: 1fr;
