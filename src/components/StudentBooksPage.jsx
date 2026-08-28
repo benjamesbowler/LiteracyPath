@@ -155,6 +155,7 @@ export function StudentBooksPage({
   studentProgress = null,
   recommendationEvidenceReady = true,
   initialBookId = "",
+  focusLocked = false,
   onNavigate,
   onHome,
   onGrownUps,
@@ -298,8 +299,12 @@ export function StudentBooksPage({
         scopeKey={progressScopeKey}
         active="books"
         onNavigate={onNavigate}
-        onHome={onHome}
-        onGrownUps={onGrownUps}
+        onHome={focusLocked ? undefined : onHome}
+        onGrownUps={focusLocked ? undefined : onGrownUps}
+        profileInteractive={!focusLocked}
+        showGrownUps={!focusLocked}
+        showWallet={!focusLocked}
+        tabs={focusLocked ? [] : undefined}
       >
         <div className="kg-screen kg-books kg-books-empty" data-child-surface="reading-library" data-library-empty="true">
           <div className="kg-books-head">
@@ -326,8 +331,12 @@ export function StudentBooksPage({
       scopeKey={progressScopeKey}
       active="books"
       onNavigate={onNavigate}
-      onHome={onHome}
-      onGrownUps={onGrownUps}
+      onHome={focusLocked ? undefined : onHome}
+      onGrownUps={focusLocked ? undefined : onGrownUps}
+      profileInteractive={!focusLocked}
+      showGrownUps={!focusLocked}
+      showWallet={!focusLocked}
+      tabs={focusLocked ? [] : undefined}
     >
       <div
         className="kg-screen kg-books"
@@ -415,14 +424,16 @@ export function StudentBooksPage({
             {showKnowledge ? "All books" : "Explore ideas"}
           </button>
 
-          <button
-            type="button"
-            className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
-            onClick={onOpenStoryQuests}
-          >
-            Story Quests
-            <ChevronGlyph />
-          </button>
+          {!focusLocked && (
+            <button
+              type="button"
+              className="kg-button kg-button--sm kg-glass kg-glass--strong kg-books-stories"
+              onClick={onOpenStoryQuests}
+            >
+              Story Quests
+              <ChevronGlyph />
+            </button>
+          )}
         </div>
 
         {!showKnowledge && (panelBook

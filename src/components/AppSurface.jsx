@@ -63,12 +63,18 @@ import { resolveConfirmedElPlacement } from "../policy/elPlacementPolicy.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { useReadingSessionFollower } from "../hooks/useReadingSessionFollower.js";
 import { useReadingSessionHost } from "../hooks/useReadingSessionHost.js";
+import { useStudentFocusSessionHost } from "../hooks/useStudentFocusSessionHost.js";
 import { endReadingSession } from "../data/readingSessionCore.js";
 import { lazyWithRetry } from "../utils/lazyWithRetry.js";
+import { STUDENT_FOCUS_TARGETS } from "../policy/studentFocusTargets.js";
+import { StudentSessionSetup } from "./student-sessions/StudentSessionSetup.jsx";
+import { StudentSessionBar } from "./student-sessions/StudentSessionBar.jsx";
+import { StudentSessionNotice } from "./student-sessions/StudentSessionNotice.jsx";
 import {
   filterPublishedGuidedReadingBooks,
   quarantinedGuidedReadingBookIds
 } from "../policy/guidedReadingApprovalPolicy.js";
+import "../styles/student-sessions.css";
 
 function lazyAppPage(exportName) {
   return lazyWithRetry(() => import("./AppPages.jsx").then(module => ({
@@ -152,7 +158,7 @@ export function AppSurface({ surface }) {
     setStudentReducedChoiceMode, setStudentReportView, setTeacherGroupId, setTeacherStudentContext,
     shouldShowImage, showConfetti, showSkillsQuestPrototype, signUpTeacher, speakText,
     startAdvancedPhonicsAssessment, startAssessment, startElBenchmarkAssessment, startLetterAssessment, startTargetedReview, studentArcadeOpen,
-    studentId, studentList, studentListReadState, studentName, studentPreview, studentPreviewStatus, studentReportView,
+    studentFocus, studentFocusCompletedSessionId, studentId, studentList, studentListReadState, studentName, studentPreview, studentPreviewStatus, studentReportView,
     studentSession, studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
     teacherId, teacherSchoolName, teacherSchoolNameReadState, teacherUser, toggleAssessmentFullscreen,
     totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
@@ -183,6 +189,8 @@ export function AppSurface({ surface }) {
     setEntryMode("try-ended");
   }
   const [readingSetupOpen, setReadingSetupOpen] = useState(false);
+  const [studentSessionSetupOpen, setStudentSessionSetupOpen] = useState(false);
+  const [studentSessionInitialIds, setStudentSessionInitialIds] = useState([]);
   const [activeReadingSession, setActiveReadingSession] = useState(null);
   const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
   const abandonedSessionCheckedForRef = useRef("");
@@ -328,6 +336,14 @@ export function AppSurface({ surface }) {
     token: studentSession?.token || "",
     books: readingFollowerBooks,
     enabled: sessionMode === "student" && readingFollowerBooks.length > 0
+  });
+  const studentFocusHost = useStudentFocusSessionHost({
+    client: isSupabaseConfigured ? supabase : null,
+    teacherId,
+    enabled: isSupabaseConfigured
+      && sessionMode !== "student"
+      && Boolean(teacherId)
+      && isTeacherAccountApproved()
   });
   useEffect(() => {
     if (
@@ -957,6 +973,16 @@ export function AppSurface({ surface }) {
             : "student-surface-shell-phonics"
     ].join(" ")
     : "";
+  const activeStudentFocus = studentFocus?.session || null;
+  const isStudentFocusLocked = isStudentMode && Boolean(activeStudentFocus);
+  const studentFocusUnavailable = isStudentFocusLocked && activeStudentFocus.content_ok === false;
+  const isIndependentSkillsAssessment = isStudentFocusLocked
+    && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT;
+
+  const openStudentSessionSetup = (initialStudentIds = []) => {
+    setStudentSessionInitialIds(Array.isArray(initialStudentIds) ? initialStudentIds.filter(Boolean) : []);
+    setStudentSessionSetupOpen(true);
+  };
 
   // ── THE RAIL ON MENU SUB-PAGES ──────────────────────────────────────────
   //
@@ -1134,6 +1160,10 @@ export function AppSurface({ surface }) {
         // page. Sending a grown-up there is deliberate: a one-tap sign-out in
         // the header of every screen is a button a five-year-old will press.
         onGrownUps={goStudentHome}
+        profileInteractive={!isStudentFocusLocked}
+        showGrownUps={!isStudentFocusLocked}
+        showWallet={!isStudentFocusLocked}
+        tabs={isStudentFocusLocked ? [] : STUDENT_TAB_BAR}
         contentScrolls={contentScrolls}
       >
         {content}
@@ -1239,6 +1269,15 @@ export function AppSurface({ surface }) {
           onAssess={() => goToTeacherIntent(APP_VIEWS.ASSESSMENTS)}
         />
       )}
+      {!isStudentMode && (
+        <StudentSessionBar
+          connection={studentFocusHost.connection}
+          members={studentFocusHost.members}
+          onEnd={studentFocusHost.end}
+          session={studentFocusHost.session}
+          students={studentList}
+        />
+      )}
       <div className={appShellClassName}>
       {!isSupabaseConfigured && !isStudentMode && (
         <div className="supabase-config-banner" role="alert">
@@ -1263,7 +1302,14 @@ export function AppSurface({ surface }) {
         </aside>
       )}
 
-      {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && (
+      {isStudentFocusLocked && (
+        <StudentSessionNotice
+          connection={studentFocus.connection}
+          session={activeStudentFocus}
+        />
+      )}
+
+      {isStudentMode && !isStudentFocusLocked && appView !== APP_VIEWS.STUDENT_HOME && (
         <button
           className="student-home-float"
           onClick={returnToStudentHome}
@@ -1276,6 +1322,15 @@ export function AppSurface({ surface }) {
           </svg>
           Back
         </button>
+      )}
+
+      {studentFocusUnavailable && (
+        <main className="student-focus-complete" role="alert">
+          <div>
+            <h1>This activity needs an update</h1>
+            <p>Stay on this screen and ask your teacher for help.</p>
+          </div>
+        </main>
       )}
 
       {appView === APP_VIEWS.STUDENT_LOGIN && (
@@ -1475,7 +1530,9 @@ export function AppSurface({ surface }) {
               createDemoClass={createDemoClass}
               teacherId={teacherId}
               message={message}
-              onStartReadingSession={() => setReadingSetupOpen(true)}
+              onStartStudentSession={() => openStudentSessionSetup(
+                studentList.filter(student => !student.archived_at).map(student => student.id)
+              )}
             />
           </Suspense>
         </PageBoundary>
@@ -1565,7 +1622,7 @@ export function AppSurface({ surface }) {
               updateStudentSymbolPassword={updateStudentSymbolPassword}
               assignMissingSymbolPasswords={assignMissingSymbolPasswords}
               resetStudentSymbolPassword={resetStudentSymbolPassword}
-              onStartReadingSession={() => setReadingSetupOpen(true)}
+              onStartStudentSession={openStudentSessionSetup}
               startStudentLogin={() => {
                 setSessionMode("teacher");
                 setEntryMode("student");
@@ -1745,7 +1802,7 @@ export function AppSurface({ surface }) {
           TEACHER session keeps the guided-reading tool it has always had here,
           with its notes and running records, so this branch is a child branch
           only. */}
-      {appView === APP_VIEWS.GUIDED_READING && nameSaved && isStudentMode && (
+      {appView === APP_VIEWS.GUIDED_READING && nameSaved && isStudentMode && !studentFocusUnavailable && (
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
             <StudentBooksPage
@@ -1754,7 +1811,7 @@ export function AppSurface({ surface }) {
               sampleLimitCopy={trySession ? SAMPLE_LIMIT_COPY : null}
               studentName={studentName}
               progressScopeKey={childProgressScopeKey}
-              teacherId={teacherId}
+              teacherId={teacherId || activeStudentFocus?.teacher_id || studentSession?.teacherId || ""}
               studentId={studentId}
               guidedReadingRecords={guidedReadingRecords}
               studentProgress={guidedReadingStudentProgress}
@@ -1763,6 +1820,7 @@ export function AppSurface({ surface }) {
               onNavigate={goToStudentTab}
               onHome={goStudentHome}
               onGrownUps={goStudentHome}
+              focusLocked={isStudentFocusLocked}
               onOpenStoryQuests={() => {
                 setStudentArcadeOpen(false);
                 setAppView(APP_VIEWS.LEARN);
@@ -1859,7 +1917,7 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && (
+      {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && !studentFocusUnavailable && (
         <PageBoundary resetKey={`phonics-learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Learn..." />}>
             {withStudentRail(studentArcadeOpen ? "arcade" : "phonics", (
@@ -1867,6 +1925,7 @@ export function AppSurface({ surface }) {
                 {renderLearnFullscreenButton()}
                 <PhonicsLearnPage
                   initialIsland={studentArcadeOpen ? "games" : "letters"}
+                  lockedToLetters={activeStudentFocus?.target === STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE}
                   progressScopeKey={childProgressScopeKey}
                 />
               </div>
@@ -2045,7 +2104,7 @@ export function AppSurface({ surface }) {
         </PageBoundary>
       )}
 
-      {appView === APP_VIEWS.ASSESSMENT && (
+      {appView === APP_VIEWS.ASSESSMENT && !studentFocusUnavailable && (
         <AssessmentErrorBoundary
           resetKey={`${
             currentQuestion?.id
@@ -2087,11 +2146,23 @@ export function AppSurface({ surface }) {
             studentId={studentId}
             studentSessionToken={sessionMode === "student" ? studentSession?.token || "" : ""}
             supabase={isSupabaseConfigured ? supabase : null}
+            independentAssessment={isIndependentSkillsAssessment}
           />
         </AssessmentErrorBoundary>
       )}
 
-      {appView === APP_VIEWS.CHECKPOINT && (
+      {appView === APP_VIEWS.CHECKPOINT && !studentFocusUnavailable && isIndependentSkillsAssessment && studentFocusCompletedSessionId === activeStudentFocus?.id && (
+        <PageBoundary resetKey={`student-focus-complete-${activeStudentFocus.id}`}>
+          <main className="student-focus-complete">
+            <div>
+              <h1>All done!</h1>
+              <p>Your teacher has your results. Stay here until your teacher ends the session.</p>
+            </div>
+          </main>
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.CHECKPOINT && !studentFocusUnavailable && (!isIndependentSkillsAssessment || studentFocusCompletedSessionId !== activeStudentFocus?.id) && (
         <PageBoundary resetKey={`checkpoint-${studentId}-${currentSkillIndex}`}>
           <CheckpointDecisionPage
             checkpoint={checkpointDecision}
@@ -2151,6 +2222,25 @@ export function AppSurface({ surface }) {
         onReset={resetSelectedStudentProgress}
         onCancel={() => setResetProgressDialogOpen(false)}
       /></Suspense>}
+
+      {studentSessionSetupOpen && sessionMode !== "student" && (
+        <StudentSessionSetup
+          assessmentHistory={assessmentHistory}
+          classDashboard={classDashboard}
+          classId={selectedClassId}
+          className={getSelectedClassName(classList, selectedClassId)}
+          client={isSupabaseConfigured ? supabase : null}
+          initialStudentIds={studentSessionInitialIds}
+          onClose={() => setStudentSessionSetupOpen(false)}
+          onStartGuidedReading={() => setReadingSetupOpen(true)}
+          onStarted={session => {
+            setStudentSessionSetupOpen(false);
+            studentFocusHost.adoptSession(session);
+          }}
+          skillTree={skillTree}
+          students={studentList}
+        />
+      )}
 
       {readingSetupOpen && <Suspense fallback={null}><ReadingSessionSetup
         quarantinedBookIds={quarantinedReadingBookIds}

@@ -27,6 +27,12 @@ import {
   computeSkillStatus,
   SKILL_STATUS_IDS
 } from "../policy/skillStatusPolicy.js";
+import {
+  saveStudentFocusAssessmentAnswer,
+  saveStudentFocusAssessmentAttempt,
+  saveStudentFocusItemMastery
+} from "../data/studentFocusSessionCore.js";
+import { STUDENT_FOCUS_TARGETS } from "../policy/studentFocusTargets.js";
 
 export function createAssessmentRoundController(context) {
   const {
@@ -43,7 +49,18 @@ export function createAssessmentRoundController(context) {
     setMessage, setRoundAnswers, setRoundItemKeys, setRoundQuestionIds,
     setShowConfetti, setTotalAnswered, setUsedByStage, studentId,
     studentName, teacherId, usedByStage, weaknessSnapshot,
+    studentFocusSession = null, studentSessionToken = "", studentSessionTeacherId = "",
+    onStudentFocusAssessmentComplete = null,
   } = context;
+  const independentFocusAssessment = Boolean(
+    studentFocusSession?.id
+    && studentFocusSession.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
+    && studentSessionToken
+  );
+  const evidenceTeacherId = teacherId
+    || studentFocusSession?.teacher_id
+    || studentSessionTeacherId
+    || "local";
 
   function makeEvidenceEventId(prefix = "evidence") {
     if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
@@ -99,6 +116,15 @@ export function createAssessmentRoundController(context) {
   }
 
   function getNextAssessmentPathStep(stage) {
+    const assigned = studentFocusSession?.resolved_config || {};
+    if (
+      independentFocusAssessment
+      && stage?.id === assigned.skill_id
+      && [1, 2].includes(Number(assigned.level))
+      && [1, 2].includes(Number(assigned.phase))
+    ) {
+      return { level: Number(assigned.level), phase: Number(assigned.phase) };
+    }
     const passedKeys = getPassedAssessmentPathKeys(stage);
     const nextUnpassed = ASSESSMENT_PATH_STEPS.find(step =>
       !passedKeys.has(getAssessmentPathKey(step)) &&
@@ -1079,7 +1105,30 @@ export function createAssessmentRoundController(context) {
   }
 
   async function saveItemMasteryToSupabase(row) {
-    if (!studentId || !teacherId || !row?.itemKey || !row?.itemType) return;
+    if (!studentId || !row?.itemKey || !row?.itemType) return;
+    if (independentFocusAssessment) {
+      try {
+        const data = await saveStudentFocusItemMastery({
+          client: supabase,
+          token: studentSessionToken,
+          sessionId: studentFocusSession.id,
+          itemMastery: {
+            skill_id: row.skillId,
+            item_key: row.itemKey,
+            item_type: row.itemType,
+            attempts: row.attempts,
+            correct: row.correct,
+            last_result: row.lastResult,
+            sessions_seen: row.sessionsSeen,
+            mastered: row.mastered
+          }
+        });
+        return { error: data?.ok === false ? new Error(data.error || "student_focus_item_mastery_failed") : null, row };
+      } catch (error) {
+        return { error, row };
+      }
+    }
+    if (!teacherId) return { error: new Error("A teacher is required before item mastery can be saved."), row };
 
     const { error } = await supabase
       .table("item_mastery")
@@ -1192,10 +1241,44 @@ export function createAssessmentRoundController(context) {
         };
 
     try {
-      const savePromise = saveAssessmentAttempt(enrichedAttempt, { teacherId, supabase });
+      if (independentFocusAssessment) {
+        const independentAttempt = {
+          ...enrichedAttempt,
+          teacherId: evidenceTeacherId,
+          classId: studentFocusSession.class_id || enrichedAttempt.classId,
+          administrationMode: "student_independent",
+          focusSessionId: studentFocusSession.id,
+          assignedByTeacher: true
+        };
+        const data = await saveStudentFocusAssessmentAttempt({
+          client: supabase,
+          token: studentSessionToken,
+          sessionId: studentFocusSession.id,
+          attempt: independentAttempt
+        });
+        if (data?.ok === false) {
+          console.warn("Independent assessment archive was rejected.", data);
+          return null;
+        }
+        setAssessmentHistory(previous => mergeAssessmentAttemptRecords(previous, [independentAttempt]));
+        onStudentFocusAssessmentComplete?.(studentFocusSession.id);
+        return {
+          attempt: independentAttempt,
+          saveResult: {
+            records: [independentAttempt],
+            localSaved: false,
+            cloudSaved: true,
+            durable: true,
+            syncQueued: false,
+            pendingSyncCount: 0
+          }
+        };
+      }
+
+      const savePromise = saveAssessmentAttempt(enrichedAttempt, { teacherId: evidenceTeacherId, supabase });
       setAssessmentHistory(previous => mergeAssessmentAttemptRecords(
         previous,
-        loadAssessmentAttempts({ teacherId })
+        loadAssessmentAttempts({ teacherId: evidenceTeacherId })
       ));
       const saveResult = await savePromise;
       if (!saveResult.durable) {
@@ -1280,10 +1363,42 @@ export function createAssessmentRoundController(context) {
   }
 
   async function saveAnswerToSupabase(record) {
-    if (!studentId || !teacherId) {
+    if (!studentId) {
       return { durable: false, error: new Error("A teacher and student are required before an answer can be saved.") };
     }
     const normalizedRecord = normalizeAnswerRecordShape(record);
+
+    if (independentFocusAssessment) {
+      try {
+        const data = await saveStudentFocusAssessmentAnswer({
+          client: supabase,
+          token: studentSessionToken,
+          sessionId: studentFocusSession.id,
+          answer: {
+            answer_event_id: record.answerEventId,
+            skill_id: normalizedRecord.skillId,
+            skill_label: normalizedRecord.skill,
+            stage: normalizedRecord.stage,
+            diagnostic_target: normalizedRecord.diagnosticTarget,
+            question: normalizedRecord.question,
+            passage: normalizedRecord.passage,
+            chosen: normalizedRecord.chosen,
+            correct: normalizedRecord.correct,
+            is_correct: normalizedRecord.isCorrect,
+            level: normalizedRecord.itemLevel,
+            phase: normalizedRecord.itemPhase
+          }
+        });
+        return data?.ok === false
+          ? { durable: false, error: new Error(data.error || "student_focus_answer_failed") }
+          : { durable: true, duplicate: Boolean(data?.duplicate), error: null };
+      } catch (error) {
+        return { durable: false, error };
+      }
+    }
+    if (!teacherId) {
+      return { durable: false, error: new Error("A teacher and student are required before an answer can be saved.") };
+    }
 
     // insertWithRetry queues the row on failure and retries on reconnect, so a
     // flaky network no longer silently drops a teacher's assessment record.
@@ -1306,6 +1421,9 @@ export function createAssessmentRoundController(context) {
   }
 
   async function saveMasteryToSupabase(stage, score, total, mastered, checkpointId) {
+    if (independentFocusAssessment) {
+      return { durable: true, cloudSaved: true, handledByAssessmentArchive: true };
+    }
     if (!studentId || !teacherId) {
       return { durable: false, error: new Error("A teacher and student are required before mastery can be saved.") };
     }
@@ -1688,7 +1806,7 @@ export function createAssessmentRoundController(context) {
     roundItemKeysRef.current = nextRoundItemKeys;
     setRoundItemKeys(nextRoundItemKeys);
 
-    if (isCorrect && !isTargetedReview) {
+    if (isCorrect && !isTargetedReview && !independentFocusAssessment) {
       setCorrectAnswered(n => n + 1);
       setShowConfetti(true);
     }
@@ -1759,7 +1877,7 @@ export function createAssessmentRoundController(context) {
         studentId,
         studentName,
         classId: selectedClassId,
-        teacherId,
+        teacherId: evidenceTeacherId,
         stage,
         checkpoint: preliminaryCheckpoint,
         questionRecords: roundRecords,
@@ -1773,7 +1891,11 @@ export function createAssessmentRoundController(context) {
           phase: preliminaryCheckpoint?.pathStatus?.phase ?? null
         }
       });
-      const archivedAttempts = loadAssessmentAttempts({ teacherId });
+      const archivedAttempts = independentFocusAssessment
+        ? Array.isArray(studentFocusSession?.prior_attempts)
+          ? studentFocusSession.prior_attempts
+          : []
+        : loadAssessmentAttempts({ teacherId: evidenceTeacherId });
       const skillStatus = computeSkillStatus(
         assessmentAttemptsToSkillLedger([...archivedAttempts, attemptRecord], stage.id),
         stage.id
@@ -1813,7 +1935,7 @@ export function createAssessmentRoundController(context) {
         studentId,
         studentName,
         classId: selectedClassId,
-        teacherId,
+        teacherId: evidenceTeacherId,
         stage,
         checkpoint,
         questionRecords: roundRecords,

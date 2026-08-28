@@ -30,7 +30,12 @@ export const STUDENT_ALLOWED_VIEWS = new Set([
   APP_VIEWS.GUIDED_READING
 ]);
 
-export function isStudentAllowedView(appView) {
+export function isStudentAllowedView(appView, focusSession = null) {
+  if (
+    focusSession?.status === "active"
+    && focusSession?.target === "skills_assessment"
+    && [APP_VIEWS.ASSESSMENT, APP_VIEWS.CHECKPOINT].includes(appView)
+  ) return true;
   return STUDENT_ALLOWED_VIEWS.has(appView);
 }
 

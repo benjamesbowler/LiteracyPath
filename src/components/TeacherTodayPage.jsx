@@ -584,7 +584,7 @@ export function TeacherTodayPage({
   createDemoClass,
   teacherId,
   message,
-  onStartReadingSession,
+  onStartStudentSession,
   misconceptionAnswersSeed = null,
   misconceptionSeedState = "ready"
 }) {
@@ -780,10 +780,10 @@ export function TeacherTodayPage({
           <button
             className="lp-button lp-button-primary"
             disabled={!rosterRead.complete || !studentRows.length}
-            onClick={onStartReadingSession}
+            onClick={onStartStudentSession}
             type="button"
           >
-            Start reading together
+            Start student session
           </button>
         </TeacherPageHeader>
       )}

@@ -55,6 +55,7 @@ immediately. Missing review metadata is not a publication queue.
 
 ## Product design
 
+- [Teacher-controlled Student Sessions](product/STUDENT_SESSIONS.md) — teacher-launched iPad focus sessions for Skills Assessment, Reading Library, Letters Practice, and existing synchronized Guided Reading
 - [School-linked parent area](product/PARENT_AREA_SPEC.md) — guardian portal product model, privacy boundary, release scope and working seeded preview
 - [Child surface rules](design/CHILD_SURFACE_RULES.md)
 - [Game design bible](design/GAME_DESIGN_BIBLE.md)

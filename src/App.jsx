@@ -57,6 +57,12 @@ import {
   stopAllChildAudio
 } from "./utils/audio/childAudioLifecycle.js";
 import { PRODUCT_NAME } from "./data/teacherBrand.js";
+import { useStudentFocusSession } from "./hooks/useStudentFocusSession.js";
+import {
+  enforceStudentFocusView,
+  STUDENT_FOCUS_TARGETS,
+  studentFocusTargetView
+} from "./policy/studentFocusTargets.js";
 
 const STUDENT_PREVIEW_VIEWS = new Set([
   APP_VIEWS.STUDENT_HOME,
@@ -82,6 +88,7 @@ export default function App() {
   });
   const [teacherGroupId, setTeacherGroupId] = useState("all");
   const [sessionMode, setSessionMode] = useState("teacher");
+  const [studentSession, setStudentSession] = useState(null);
   const studentName = sessionMode === "student"
     ? studentSessionName
     : teacherStudentContext.studentName;
@@ -141,6 +148,7 @@ export default function App() {
   const [appView, rawSetAppView] = useState(APP_VIEWS.SELECT);
   const activeAppViewRef = useRef(appView);
   activeAppViewRef.current = appView;
+  const activeStudentFocusRef = useRef(null);
   const appViewNavigationRevisionRef = useRef(0);
   const [studentPreview, setStudentPreview] = useState(null);
   const [studentPreviewStatus, setStudentPreviewStatus] = useState("");
@@ -158,7 +166,10 @@ export default function App() {
   // who ask for reduced motion — get exactly the instant swap they get today:
   // the wrapper is pure progressive enhancement around the raw setter.
   const setAppView = useCallback(next => {
-    if (activeAppViewRef.current !== next) {
+    const resolvedNext = sessionMode === "student"
+      ? enforceStudentFocusView(next, activeStudentFocusRef.current)
+      : next;
+    if (activeAppViewRef.current !== resolvedNext) {
       stopAllChildAudio("route-change");
     }
     if (
@@ -186,7 +197,7 @@ export default function App() {
     ) {
       try {
         const transition = document.startViewTransition(() => {
-          flushSync(() => rawSetAppView(next));
+          flushSync(() => rawSetAppView(resolvedNext));
         });
         for (const transitionPhase of [
           transition.ready,
@@ -201,12 +212,22 @@ export default function App() {
         }
       } catch (error) {
         console.warn("Page view transition could not start; using an immediate route change.", error);
-        rawSetAppView(next);
+        rawSetAppView(resolvedNext);
       }
       return;
     }
-    rawSetAppView(next);
+    rawSetAppView(resolvedNext);
   }, [learnerAccessibility.reducedEffects, sessionMode]);
+  const studentFocus = useStudentFocusSession({
+    client: isSupabaseConfigured ? supabase : null,
+    token: studentSession?.token || "",
+    currentView: appView,
+    enabled: isSupabaseConfigured && sessionMode === "student" && Boolean(studentSession?.token)
+  });
+  activeStudentFocusRef.current = studentFocus.session;
+  const [studentFocusCompletedSessionId, setStudentFocusCompletedSessionId] = useState("");
+  const appliedStudentFocusSessionRef = useRef("");
+  const previousStudentFocusSessionRef = useRef(null);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [nameSaved, setNameSaved] = useState(false);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -220,7 +241,6 @@ export default function App() {
   const [assessmentTransitioning, setAssessmentTransitioning] = useState(false);
   const [message, setMessage] = useState("");
   const [teacherUser, setTeacherUser] = useState(null);
-  const [studentSession, setStudentSession] = useState(null);
   const [entryMode, setEntryMode] = useState("entry");
   // The public role gateway is safe to show while a stored teacher session is
   // restored. A valid session replaces it as soon as auth resolves, avoiding a
@@ -874,6 +894,10 @@ export default function App() {
     setMessage, setRoundAnswers, setRoundItemKeys, setRoundQuestionIds,
     setShowConfetti, setTotalAnswered, setUsedByStage, studentId,
     studentName, teacherId, usedByStage, weaknessSnapshot,
+    studentFocusSession: studentFocus.session,
+    studentSessionToken: studentSession?.token || "",
+    studentSessionTeacherId: studentSession?.teacherId || "",
+    onStudentFocusAssessmentComplete: sessionId => setStudentFocusCompletedSessionId(sessionId)
   });
 
   const {
@@ -906,7 +930,8 @@ export default function App() {
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
     hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
-    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isSameTeacherRoute, isStudentAllowedView,
+    isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isSameTeacherRoute,
+    isStudentAllowedView: view => isStudentAllowedView(view, activeStudentFocusRef.current),
     isSupabaseConfigured, itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
     letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft, loadManualAssessmentDrafts,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
@@ -2601,6 +2626,100 @@ export default function App() {
     pickQuestion("mastery", nextStageIndex);
   }
 
+  const startStudentFocusAssessment = useEffectEvent(startAssessment);
+
+  useEffect(() => {
+    const session = studentFocus.session;
+    const previousSession = previousStudentFocusSessionRef.current;
+    previousStudentFocusSessionRef.current = session;
+
+    if (sessionMode !== "student") return;
+    if (!session) {
+      if (previousSession) {
+        appliedStudentFocusSessionRef.current = "";
+        setStudentFocusCompletedSessionId("");
+        assessmentActiveRef.current = false;
+        answerInFlightRef.current = false;
+        setCurrentQuestion(null);
+        setFeedback(null);
+        setCheckpointDecision(null);
+        setRoundAnswers([]);
+        setRoundItemKeys([]);
+        setRoundQuestionIds([]);
+        roundItemKeysRef.current = [];
+        roundQuestionIdsRef.current = [];
+        setMessage("");
+        setAppView(APP_VIEWS.STUDENT_HOME);
+      }
+      return;
+    }
+
+    const targetView = studentFocusTargetView(session.target);
+    if (session.content_ok === false) {
+      setMessage("This activity needs the latest version of Literacy Guide. Ask your teacher for help.");
+      setAppView(targetView);
+      return;
+    }
+
+    if (session.member_status === "completed") {
+      setStudentFocusCompletedSessionId(session.id);
+      if (session.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT) {
+        setAppView(APP_VIEWS.CHECKPOINT);
+      }
+      return;
+    }
+
+    setStudentFocusCompletedSessionId("");
+    if (session.target !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT) {
+      setAppView(targetView);
+      return;
+    }
+    if (appliedStudentFocusSessionRef.current === session.id) return;
+
+    const assignment = session.resolved_config || {};
+    const skillIndex = Number(assignment.skill_index);
+    if (
+      !Number.isInteger(skillIndex)
+      || skillIndex < 0
+      || skillIndex >= skillTree.length
+      || skillTree[skillIndex]?.id !== assignment.skill_id
+    ) {
+      setMessage("This assessment assignment could not be opened. Ask your teacher to end it and start a new session.");
+      return;
+    }
+
+    const evidenceAttempts = Array.isArray(session.prior_attempts) ? session.prior_attempts : [];
+    const hydratedAnswers = evidenceAttempts.flatMap(attempt => (
+      Array.isArray(attempt.questionRecords)
+        ? attempt.questionRecords.map(question => ({
+            ...question,
+            answerEventId: question.answerEventId || "",
+            questionId: question.questionId || "",
+            skillId: question.skillId || attempt.skillId,
+            skill: attempt.skillName,
+            stage: attempt.skillName,
+            isCorrect: question.isCorrect,
+            itemLevel: question.level || attempt.skillLevel,
+            itemPhase: question.phase || attempt.skillPhase,
+            timestamp: question.timestamp || attempt.completedAt
+          }))
+        : []
+    ));
+    answerHistoryRef.current = hydratedAnswers;
+    setAnswerHistory(hydratedAnswers);
+    appliedStudentFocusSessionRef.current = session.id;
+    void startStudentFocusAssessment(skillIndex, {
+      verifiedEvidenceSyncStatus: "complete",
+      studentFocusSessionId: session.id
+    });
+  }, [
+    sessionMode,
+    setAppView,
+    studentFocus.connection,
+    studentFocus.session,
+    studentId,
+  ]);
+
   function keepPracticingSkill(stageIndex) {
     const stage = skillTree[stageIndex] || currentStage;
     debugAssessmentCoverage("Keep Practicing clicked", {
@@ -2965,7 +3084,7 @@ export default function App() {
       shouldShowImage, showConfetti, showSkillsQuestPrototype, signUpTeacher, speakText,
       startAdvancedPhonicsAssessment, startAssessment, startElBenchmarkAssessment, startLetterAssessment, startTargetedReview, studentArcadeOpen,
       studentId, studentList, studentListReadState, studentName, studentPreview, studentPreviewStatus, studentReportView,
-      studentSession, studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
+      studentFocus, studentFocusCompletedSessionId, studentSession, studentSessionId, switchStudent, teacherAccountRecord, teacherAccountStatus, teacherGroupId,
       teacherId, teacherSchoolName, teacherSchoolNameReadState, teacherUser, toggleAssessmentFullscreen,
       totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
       assignMissingSymbolPasswords

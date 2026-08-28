@@ -2658,7 +2658,8 @@ export function AssessmentPage({
   onChangeSkillLevel = null,
   studentId = "",
   studentSessionToken = "",
-  supabase = null
+  supabase = null,
+  independentAssessment = false
 }) {
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
@@ -2679,14 +2680,14 @@ export function AssessmentPage({
 
   useEffect(() => {
     if (!feedback) return undefined;
-    const delay = feedback.isCorrect ? 1800 : 3200;
+    const delay = independentAssessment ? 900 : feedback.isCorrect ? 1800 : 3200;
     const timer = window.setTimeout(() => {
       const actions = feedbackAdvanceRef.current;
       actions.setFeedback(null);
       actions.pickQuestion();
     }, delay);
     return () => window.clearTimeout(timer);
-  }, [feedback]);
+  }, [feedback, independentAssessment]);
 
   const isListenAndFindWord =
     hasCurrentQuestion && (
@@ -2716,14 +2717,17 @@ export function AssessmentPage({
   const isHfwSkillItem = hasCurrentQuestion && String(safeSkillId || "").toLowerCase().startsWith("hfw_");
   const assessmentShellClassName = [
     "assessment-shell",
-    assessmentFullscreen ? "fullscreen" : ""
+    assessmentFullscreen ? "fullscreen" : "",
+    independentAssessment ? "student-independent-assessment" : ""
   ].filter(Boolean).join(" ");
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
         <span>{studentName || "Unnamed student"}</span>
         <strong>
-          {assessmentMode === "targetedReview"
+          {independentAssessment
+            ? `Skills Assessment · ${safeCurrentStage.label}`
+            : assessmentMode === "targetedReview"
             ? "Targeted Review"
             : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
         </strong>
@@ -2774,7 +2778,7 @@ export function AssessmentPage({
         {/* The level picker used to live on a separate screen the teacher had to
             back out to. It belongs where the check is: choosing a level here
             restarts the round at that level. */}
-        {onChangeSkillLevel && skillTree.length > 0 && assessmentMode !== "targetedReview" && (
+        {!independentAssessment && onChangeSkillLevel && skillTree.length > 0 && assessmentMode !== "targetedReview" && (
           <label className="assessment-skill-level">
             <span>Skill</span>
             <select
@@ -2791,7 +2795,7 @@ export function AssessmentPage({
           </label>
         )}
 
-        {toggleAssessmentFullscreen && (
+        {!independentAssessment && toggleAssessmentFullscreen && (
           <button
             className={[
               "report-button",
@@ -2820,9 +2824,11 @@ export function AssessmentPage({
           </button>
         )}
 
-        <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
-          End assessment
-        </button>
+        {!independentAssessment && (
+          <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
+            End assessment
+          </button>
+        )}
       </div>
     </div>
   );
@@ -2840,9 +2846,11 @@ export function AssessmentPage({
           <button className="main-button" onClick={pickQuestion} type="button">
             {actionLabel}
           </button>
-          <button className="report-button" onClick={assessmentExit} type="button">
-            Return to student overview
-          </button>
+          {!independentAssessment && (
+            <button className="report-button" onClick={assessmentExit} type="button">
+              Return to student overview
+            </button>
+          )}
         </div>
       )}
     </div>
@@ -2851,7 +2859,7 @@ export function AssessmentPage({
     <motion.div
       className={[
         "feedback-card assessment-feedback",
-        feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
+        independentAssessment ? "neutral-feedback" : feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
         feedback.skillId === "final_sounds" ? "final-sounds-feedback" : ""
       ].filter(Boolean).join(" ")}
       role="status"
@@ -2859,8 +2867,8 @@ export function AssessmentPage({
       initial={{ scale: 0.96, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
     >
-      <h2>{feedback.isCorrect ? "Correct" : "Incorrect"}</h2>
-      <p>{feedback.explanation}</p>
+      <h2>{independentAssessment ? "Answer saved" : feedback.isCorrect ? "Correct" : "Incorrect"}</h2>
+      {!independentAssessment && <p>{feedback.explanation}</p>}
       <p className="feedback-auto-advance">Next question…</p>
     </motion.div>
   ) : null;
@@ -2875,7 +2883,9 @@ export function AssessmentPage({
     return (
       <main className={assessmentShellClassName}>
         {renderAssessmentLoadingCard({
-          actionLabel: roundAnswers.length === 0 ? "Start Skill Round" : "Next Question"
+          actionLabel: roundAnswers.length === 0
+            ? independentAssessment ? "Start" : "Start Skill Round"
+            : "Next Question"
         })}
       </main>
     );
@@ -2909,10 +2919,14 @@ export function AssessmentPage({
       <main className={assessmentShellClassName}>
         <div className="card assessment-card">
           <h2>This assessment needs a quick fix.</h2>
-          <p>Please return and try again.</p>
-          <button className="main-button" onClick={assessmentExit} type="button">
-            Return to student overview
-          </button>
+          <p>{independentAssessment
+            ? "Stay on this screen and ask your teacher for help."
+            : "Please return and try again."}</p>
+          {!independentAssessment && (
+            <button className="main-button" onClick={assessmentExit} type="button">
+              Return to student overview
+            </button>
+          )}
         </div>
       </main>
     );

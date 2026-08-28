@@ -590,7 +590,7 @@ export function TeacherStudentsPage({
   schoolName = "",
   hasSchool = false,
   message,
-  onStartReadingSession,
+  onStartStudentSession,
   setupFocus = "",
   onSetupFocusHandled,
   activitySyncHealthSeedRows = null,
@@ -1914,9 +1914,13 @@ export function TeacherStudentsPage({
             className="lp-button lp-button-secondary"
             type="button"
             disabled={!selectedClass || !rosterRead.complete || !studentRows.length}
-            onClick={onStartReadingSession}
+            onClick={() => onStartStudentSession?.(
+              selectedRosterGroup.id === "all"
+                ? studentRows.map(student => student.id)
+                : selectedRosterGroup.studentIds
+            )}
           >
-            Start reading together
+            Start student session
           </button>
           <button
             className="lp-button lp-button-secondary"

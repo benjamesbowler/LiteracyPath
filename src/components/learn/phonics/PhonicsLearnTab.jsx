@@ -64,6 +64,7 @@ function IslandLockIcon() {
 export function PhonicsLearnTab({
   initialIsland = "",
   initialStep = 1,
+  lockedToLetters = false,
   progressScopeKey = "default"
 }) {
   const [activeLetter, setActiveLetter] = useState(null);
@@ -131,6 +132,7 @@ export function PhonicsLearnTab({
   }
 
   function handleIslandClick(island) {
+    if (lockedToLetters && island !== "letters") return;
     if (island === "words" && !wordsUnlocked) {
       playCue("", "Learn 6 letters first!");
       return;
@@ -175,12 +177,12 @@ export function PhonicsLearnTab({
       <section className="phonics-practice-overview" aria-label="Phonics practice progress">
         <div>
           <span className="phonics-practice-kicker">Phonics</span>
-          <h2>Letters, Sounds, Words</h2>
-          <p>{nextStepText}</p>
+          <h2>{lockedToLetters ? "Letters and Sounds" : "Letters, Sounds, Words"}</h2>
+          <p>{lockedToLetters ? "Choose a letter and practise its sound." : nextStepText}</p>
         </div>
         <div className="phonics-practice-stats" aria-label="Quest totals">
           <span><strong>{completedLettersCount} of 26</strong> letters</span>
-          <span><strong>{completedWordFamiliesCount} of {cvcWordFamilies.length}</strong> word nests</span>
+          {!lockedToLetters && <span><strong>{completedWordFamiliesCount} of {cvcWordFamilies.length}</strong> word nests</span>}
         </div>
       </section>
 
@@ -197,19 +199,21 @@ export function PhonicsLearnTab({
             <small>{completedLettersCount} of 26 complete</small>
           </span>
         </button>
-        <button
-          className={`phonics-island-card ${activeIsland === "words" ? "active" : ""} ${wordsUnlocked ? "" : "locked"}`}
-          onClick={() => handleIslandClick("words")}
-          type="button"
-          aria-label={wordsUnlocked ? "Words" : "Words locked. Learn 6 letters first."}
-        >
-          <IslandIcon type="words" />
-          <span className="phonics-island-label">
-            <span>Words</span>
-            <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : `${lettersToUnlockWords} ${lettersToUnlockWords === 1 ? "letter" : "letters"} to unlock`}</small>
-          </span>
-          {!wordsUnlocked && <IslandLockIcon />}
-        </button>
+        {!lockedToLetters && (
+          <button
+            className={`phonics-island-card ${activeIsland === "words" ? "active" : ""} ${wordsUnlocked ? "" : "locked"}`}
+            onClick={() => handleIslandClick("words")}
+            type="button"
+            aria-label={wordsUnlocked ? "Words" : "Words locked. Learn 6 letters first."}
+          >
+            <IslandIcon type="words" />
+            <span className="phonics-island-label">
+              <span>Words</span>
+              <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : `${lettersToUnlockWords} ${lettersToUnlockWords === 1 ? "letter" : "letters"} to unlock`}</small>
+            </span>
+            {!wordsUnlocked && <IslandLockIcon />}
+          </button>
+        )}
       </div>
 
       {activeIsland === "words" && wordsUnlocked ? (

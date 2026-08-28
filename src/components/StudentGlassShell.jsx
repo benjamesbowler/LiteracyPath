@@ -157,6 +157,7 @@ export default function StudentGlassShell({
   onHome,
   onGrownUps,
   showGrownUps = true,
+  profileInteractive = true,
   headerActions = null,
   tabs = STUDENT_TAB_BAR,
   showWallet = true,
@@ -226,11 +227,20 @@ export default function StudentGlassShell({
         <div className="kg-ambient" aria-hidden="true" />
 
         <header className="kg-glass-chrome kg-header">
-          <button
-            type="button"
-            className="kg-profile"
-            onClick={onHome}
-            aria-label="Go to your home page"
+          <div
+            className={`kg-profile${profileInteractive ? " kg-profile--interactive" : ""}`}
+            {...(profileInteractive ? {
+              role: "button",
+              tabIndex: 0,
+              onClick: onHome,
+              onKeyDown: event => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  onHome?.();
+                }
+              },
+              "aria-label": "Go to your home page"
+            } : {})}
           >
             <span className="kg-avatar" aria-hidden="true">
               {companion?.image
@@ -249,7 +259,7 @@ export default function StudentGlassShell({
                 <span className="kg-identity-pal">with {companion.name}</span>
               )}
             </span>
-          </button>
+          </div>
 
           <span className="kg-spacer" />
 

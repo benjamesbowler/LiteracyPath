@@ -19,14 +19,21 @@ export const CLASS_TABLES = new Set([
 export const CLASS_RPCS = new Set([
   "admin_set_teacher_account_status",
   "student_class_by_code",
+  "student_complete_focus_assessment",
+  "student_complete_focus_session",
+  "student_get_focus_session",
   "student_get_reading_session",
   "student_login",
+  "student_save_focus_assessment_answer",
+  "student_save_focus_item_mastery",
   "teacher_class_access_log",
   "teacher_class_access_summary",
   "teacher_create_demo_class",
   "teacher_delete_empty_class",
   "teacher_end_reading_session",
+  "teacher_end_student_focus_session",
   "teacher_get_reading_session_presence",
+  "teacher_get_student_focus_session",
   "teacher_regenerate_class_code",
   "teacher_set_class_code_expiry",
   "teacher_set_class_leaderboard_scope",
@@ -35,6 +42,7 @@ export const CLASS_RPCS = new Set([
   "teacher_set_student_symbol_password",
   "teacher_save_reading_marks",
   "teacher_start_reading_session",
+  "teacher_start_student_focus_session",
   "teacher_transfer_student"
 ]);
 
@@ -45,6 +53,17 @@ const READING_SESSION_RPCS = new Set([
   "teacher_save_reading_marks",
   "teacher_set_reading_session_page",
   "teacher_start_reading_session"
+]);
+
+const STUDENT_FOCUS_RPCS = new Set([
+  "student_complete_focus_assessment",
+  "student_complete_focus_session",
+  "student_get_focus_session",
+  "student_save_focus_assessment_answer",
+  "student_save_focus_item_mastery",
+  "teacher_end_student_focus_session",
+  "teacher_get_student_focus_session",
+  "teacher_start_student_focus_session"
 ]);
 
 function validateReadingSession(value, label) {
@@ -82,6 +101,49 @@ function validateReadingPresence(value, label) {
   }, label);
 }
 
+function validateStudentFocusSession(value, label) {
+  if (value === null || value === undefined) return value;
+  assertPlainRecord(value, label);
+  assertOptionalFields(value, {
+    id: "string",
+    teacher_id: "string",
+    class_id: "string",
+    target: "string",
+    content_version: "string",
+    status: "string",
+    started_at: "string",
+    expires_at: "string",
+    updated_at: "string",
+    resolved_config: "object",
+    member_status: "string",
+    content_ok: "boolean",
+    prior_attempts: "array",
+    members: "array"
+  }, label);
+  if (value.prior_attempts) {
+    validateRows(value.prior_attempts, `${label}.prior_attempts`, (attempt, attemptLabel) => {
+      assertPlainRecord(attempt, attemptLabel);
+      return attempt;
+    });
+  }
+  if (value.members) validateRows(value.members, `${label}.members`, validateStudentFocusMember);
+  return value;
+}
+
+function validateStudentFocusMember(value, label) {
+  assertPlainRecord(value, label);
+  return assertOptionalFields(value, {
+    student_id: "string",
+    status: "string",
+    current_view: "string",
+    content_ok: "boolean",
+    last_seen_at: "string",
+    completed_at: "string",
+    connected: "boolean",
+    resolved_config: "object"
+  }, label);
+}
+
 export function validateClassRow(row, label) {
   validateCommonRow(row, label);
   assertOptionalFields(row, {
@@ -99,6 +161,8 @@ export function validateClassRow(row, label) {
     decision_status: "string",
     reason: "string",
     school_name: "string",
+    target: "string",
+    content_version: "string",
     decided_by: "string",
     decided_at: "string"
   }, label);
@@ -126,6 +190,25 @@ function validateNamedIdentity(value, label) {
  */
 export function validateClassRpcData(name, data) {
   if (data === null || data === undefined) return data;
+  if (STUDENT_FOCUS_RPCS.has(name)) {
+    assertPlainRecord(data, `rpc.${name}`);
+    assertOptionalFields(data, {
+      ok: "boolean",
+      error: "string",
+      student_id: "string",
+      session: "object",
+      members: "array",
+      status: "string",
+      updated_at: "string",
+      completed_at: "string",
+      ended_at: "string",
+      attempt_id: "string",
+      duplicate: "boolean"
+    }, `rpc.${name}`);
+    validateStudentFocusSession(data.session, `rpc.${name}.session`);
+    if (data.members) validateRows(data.members, `rpc.${name}.members`, validateStudentFocusMember);
+    return data;
+  }
   if (READING_SESSION_RPCS.has(name)) {
     assertPlainRecord(data, `rpc.${name}`);
     assertOptionalFields(data, {
