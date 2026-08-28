@@ -181,7 +181,7 @@
     "check:first-load-network": "node tools/checkFirstLoadNetwork.mjs",
     "check:legal-pack": "node tools/checkLegalPack.mjs && node --test tests/unit/legalPack.test.js",
     "check:no-document-write": "node tools/checkNoDocumentWrite.mjs",
-    "check:teacher-login-cards": "npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",
+    "check:teacher-login-cards": "node --test tests/unit/teacherPrintAndResourceRoutes.test.js && playwright test tests/release/teacher-login-card-print-layout.spec.js --project=desktop && npm run test:release-teacher -- --grep @teacher-login-card-print && npm run check:no-document-write",
     "check:teacher-student-preview": "npm run test:release-teacher -- --grep @teacher-student-preview",
     "check:teacher-interventions": "npm run test:release-teacher -- --grep @teacher-intervention-loop && node tools/verifyTeacherInterventionBackend.mjs",
     "check:a11y-teacher": "playwright test tests/release/teacher-accessibility.spec.js --project=desktop",

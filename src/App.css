@@ -8742,7 +8742,10 @@ body:has(.kg-viewport) .student-home-float { display: none; }
   body:has([data-teacher-route="login-cards"]) .lg-content-area,
   body:has([data-teacher-route="login-cards"]) .lg-content-area > .app {
     display: block !important;
+    height: auto !important;
+    max-height: none !important;
     min-height: 0 !important;
+    overflow: visible !important;
     padding: 0 !important;
     width: 100% !important;
   }

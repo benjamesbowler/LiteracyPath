@@ -13,6 +13,7 @@ test("teacher report and sign-in-card print jobs use isolated paper rules", () =
   assert.match(css, /@page teacher-login-cards\s*\{[\s\S]*?size:\s*A4 portrait;[\s\S]*?margin:\s*0;/);
   assert.match(css, /body:has\(\[data-teacher-route="login-cards"\]\) \.teacher-login-card-route\s*\{[\s\S]*?page:\s*teacher-login-cards;/);
   assert.match(css, /body:has\(\[data-teacher-route="login-cards"\]\) \.lg-sidebar,[\s\S]*?display:\s*none !important;/);
+  assert.match(css, /body:has\(\[data-teacher-route="login-cards"\]\) \.lg-app-shell,[\s\S]*?height:\s*auto !important;[\s\S]*?overflow:\s*visible !important;/);
   assert.match(css, /\.teacher-login-card-page\s*\{[\s\S]*?page:\s*teacher-login-cards;/);
   assert.match(css, /@page\s*\{[\s\S]*?margin:\s*0\.45in;[\s\S]*?size:\s*letter portrait;/);
   assert.match(css, /@page teacher-report\s*\{[\s\S]*?margin:\s*0\.45in;[\s\S]*?size:\s*letter portrait;/);
