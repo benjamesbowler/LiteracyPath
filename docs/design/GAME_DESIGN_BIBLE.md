@@ -190,27 +190,35 @@ Letter Leap 2.0 is the reference brief. It records the real 0.12-second coyote w
 
 ### Flagship arcade records
 
-The ten records below are version 2.0 premium passes. They share these verified product decisions: progress contains only the existing score, stars, completed-item count and resumable checkpoint; no new identifier or network service is introduced; sound-off leaves the essential goal and current literacy unit printed; reduced motion removes or slows decorative intensity without changing the answer rule; and a completed run ends with a scored debrief and an explicit **Back to Arcade** action. Their shared automated coverage is `premiumGameStandard.test.js`, `gameSurfaces.test.js`, `gameCheckpoints.test.js`, `gameAudioLifecycle.test.js` and the all-games activity-viewport browser check. Physical-device result remains unknown until each changed build is exercised on a real supported iPad.
+The twelve records below are version 2.0 premium passes. They share these verified product decisions: progress contains only the existing score, stars, completed-item count and resumable checkpoint; no new identifier or network service is introduced; sound-off preserves a non-audio goal, choice and feedback path without accidentally leaking a hidden answer; any game that intentionally changes to model-supported reconstruction labels that support mode; reduced motion removes or slows decorative intensity without changing the answer rule; and a completed run ends with a scored debrief and an explicit **Back to Arcade** action. Their shared automated coverage is `premiumGameStandard.test.js`, `gameSurfaces.test.js`, `gameCheckpoints.test.js`, `gameAudioLifecycle.test.js` and the all-games activity-viewport browser check. Physical-device result remains unknown until each changed build is exercised on a real supported iPad.
+
+#### Rocket Run 2.0
+
+- **Age/reading band and construct:** early readers decide whether a word begins with the shown and spoken target sound. Lane steering and flight scenery are non-target demands.
+- **Controls:** Left/Right or A/D, tap-side steering and swipe share one cancellation-safe release rule; focused chrome controls keep their native keyboard behaviour.
+- **Level ladder and prompt/audio:** ten curriculum-ramped targets retain a visible grapheme, an approved phoneme cue and a replay action throughout each run.
+- **Generator and ambiguity:** exact target-sound pools handle short vowels, hard c/g and unvoiced th; distractors use the shared phonetic-onset classifier so alternate spellings cannot become false negatives.
+- **Feedback and reward:** correct catches reinforce the target sound, wrong catches name the word's real onset, and missed targets return without turning vehicle handling into literacy evidence.
 
 #### Letter Leap 2.0
 
 - **Age/reading band and construct:** early readers encode spoken words by collecting their graphemes in order; later levels extend to words within sentences. Platform movement is the non-target demand.
 - **Controls:** Left/Right or A/D moves; Up/W/Space jumps; held touch controls use pointer cancellation and lost-capture release.
-- **Level ladder and prompt/audio:** ten difficulty-led stages move from short taught words to longer words and sentence legs. The persistent slots show the completed spelling and next letter; the spoken target can be replayed.
+- **Level ladder and prompt/audio:** ten difficulty-led stages move from short taught words to longer words and sentence legs. A reviewed picture or recorded cue identifies the word; when neither is available, a labelled model-supported target replaces ambiguous context. Persistent slots show completed spelling and the next empty position.
 - **Generator and ambiguity:** `curriculumLadder.js` supplies the ordered targets; only the next required grapheme advances the word. `curriculumLadder.test.js` exercises ladder depth and determinism.
-- **Feedback and reward:** a wrong collision leaves the next slot visible; difficult stages re-enter the catch-up queue. Score, coins, stars and completion reflect ordered spelling rather than survival time.
+- **Feedback and reward:** a wrong collision leaves the next slot visible; difficult stages re-enter the catch-up queue without removing completed-word evidence. Literacy stars reflect ordered spelling rather than falls or survival time.
 
 #### Sound Racer 2.0
 
 - **Age/reading band and construct:** early readers discriminate whether a word begins with the target grapheme/phoneme. Lane steering and light hazards are non-target demands.
 - **Controls:** Left/Right or A/D, tap-side steering and swipe have parity; keyboard input accepts either letter case.
 - **Level ladder and prompt/audio:** ten tracks change the onset demand and world before raising track pressure. The tutorial names the target, shows an example and keeps a 56-pixel replay action.
-- **Generator and ambiguity:** `soundRacerTracks.js` rebuilds each gate set with sound-distinct distractors; `soundRacerTracks.test.js` covers the track and tutorial rules.
-- **Feedback and reward:** wrong gates name the mismatch; the target remains recoverable. Boost, score and stars follow correct sound gates, not vehicle speed.
+- **Generator and ambiguity:** `soundRacerTracks.js` rebuilds each gate set with exact-sound correct pools and sound-distinct distractors; the shared phonetic-onset classifier covers soft c, silent letters and other live alternate spellings. `soundRacerTracks.test.js` covers multiple seeds, track bands and tutorial rules.
+- **Feedback and reward:** wrong gates name the mismatch and missed correct gates return. Obstacles affect the ship and race score only; sound accuracy and stars follow caught word choices, not vehicle speed or collisions.
 
 #### Word Bridge 2.0
 
-- **Age/reading band and construct:** early readers encode words and ordered sentence parts. Horizontal movement, carrying and placement are non-target demands.
+- **Age/reading band and construct:** early readers practise supported grapheme matching and ordered sentence reconstruction from a visible model. This is not recorded as independent encoding; horizontal movement, carrying and placement are non-target demands.
 - **Controls:** Left/Right or A/D moves; Space/Enter/E/Up picks, drops or rings; touch controls and the replay control meet the 56-pixel floor.
 - **Level ladder and prompt/audio:** ten levels progress from word building to longer ordered constructions. Persistent bridge slots show completed parts and the next empty position.
 - **Generator and ambiguity:** `wordBridgeLevels.js` supplies a complete fresh tile bank per target; `wordBridgeLevels.test.js` verifies the ordered solution and distractors.
@@ -218,11 +226,11 @@ The ten records below are version 2.0 premium passes. They share these verified 
 
 #### Sound Beat 2.0
 
-- **Age/reading band and construct:** early readers segment a word into phonemes and blend the ordered sequence. Beat timing supports the action but does not replace the sound decision.
-- **Controls:** Space/Enter/Up or a stage tap activates the current sound; the same action blends on GO.
-- **Level ladder and prompt/audio:** `soundBeatTracks.js` changes phoneme complexity before BPM and presents every sound visually as well as aurally.
-- **Generator and ambiguity:** every beat belongs to one ordered target sequence; `soundBeatTracks.test.js` verifies the tracks and mercy policy.
-- **Feedback and reward:** misses widen the timing window while leaving the sound visible. Score and stars reflect completed segmentation/blending sequences.
+- **Age/reading band and construct:** early readers identify and order taught phoneme, syllable and sentence-word units. Beat timing supports the action but does not replace the literacy decision.
+- **Controls:** Left/Right selects among equivalent pads; Space/Enter/Up activates the selected pad, number keys choose directly, and touch commits on release. GO models the completed target.
+- **Level ladder and prompt/audio:** `soundBeatTracks.js` changes the literacy unit from phonemes to syllables and sentence words before BPM. With sound on, unreached units remain masked; sound off is a labelled model-supported reconstruction mode. Approved recordings cover every live listening state.
+- **Generator and ambiguity:** each beat rebuilds four deterministic but freshly positioned choices; an audited live-unit equivalence table keeps c/k/ck, ch/tch, ee/ea and w/wh out of one-right/one-wrong choices, and every hidden unit uses one fixed marker so label length cannot leak the answer. `soundBeatTracks.test.js` verifies runtime seeds, choice uniqueness, position variation, cue coverage and the ladder.
+- **Feedback and reward:** a correct unit fills the next slot; a wrong choice names the selected and required units and stays available. Rhythm precision adds optional score and visual flourish but never changes literacy credit or stars.
 
 #### Rhyme Pop 2.0
 
@@ -271,3 +279,11 @@ The ten records below are version 2.0 premium passes. They share these verified 
 - **Level ladder and prompt/audio:** ten levels per difficulty introduce single-letter spellings, digraphs, vowel teams and split digraphs before increasing movement pressure.
 - **Generator and ambiguity:** `grammarGrindLevels.js` rebuilds three unique grapheme choices at every step and one correct final gate; `gameSurfaces.test.js` exercises every difficulty and repeated-error rule.
 - **Feedback and reward:** the first miss teaches the contrast; a repeated miss points to the correct spelling. Score, combo and stars reflect completed word builds and recoveries.
+
+#### SoundKeys 2.0
+
+- **Age/reading band and construct:** developing readers map taught sounds and graphemes into ordered word-building actions while the musical layer provides expression rather than evidence.
+- **Controls:** computer keyboard, on-screen keys and supported MIDI input share the same token/control contract; focused app controls are isolated from global game keys.
+- **Level ladder and prompt/audio:** curriculum-led targets keep the current build state, next action and available recorded cue visible; device input never changes the answer rule.
+- **Generator and ambiguity:** the existing authored target sequence and shared input providers reject unsupported tokens and keep equivalent input sources behaviourally aligned.
+- **Feedback and reward:** accepted units appear in order, specific correction preserves the target for retry, and music or animation rewards do not create literacy credit by themselves.

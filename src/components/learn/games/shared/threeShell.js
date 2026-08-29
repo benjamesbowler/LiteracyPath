@@ -286,27 +286,87 @@ export function markOnboardingSeen(gameId) {
 }
 
 // ── Touch steer zones ────────────────────────────────────────────────────────
+export function resolveSteerRelease({
+  startX,
+  startY,
+  endX,
+  endY,
+  rect,
+  tapDirection,
+  threshold = 40
+}) {
+  const dx = endX - startX;
+  const dy = endY - startY;
+  if (Math.abs(dx) >= threshold && Math.abs(dx) > Math.abs(dy)) return dx > 0 ? 1 : -1;
+  if (Math.hypot(dx, dy) >= threshold) return 0;
+  const releasedInside = endX >= rect.left && endX <= rect.right
+    && endY >= rect.top && endY <= rect.bottom;
+  return releasedInside ? tapDirection : 0;
+}
+
 // The invisible left/right screen-half buttons the lane games overlay for
-// touch steering. With keyboardClick, Enter/Space activation (which fires a
-// click with detail 0) also steers; pointer taps already steered on
-// pointerdown, so only detail 0 clicks may steer there. Returns a detach
-// function for teardown.
-export function attachSteerZones({ left, right, onLeft, onRight, keyboardClick = false }) {
-  const onLeftClick = event => { if (event.detail === 0) onLeft(); };
-  const onRightClick = event => { if (event.detail === 0) onRight(); };
-  if (left) left.addEventListener("pointerdown", onLeft);
-  if (right) right.addEventListener("pointerdown", onRight);
-  if (keyboardClick) {
-    if (left) left.addEventListener("click", onLeftClick);
-    if (right) right.addEventListener("click", onRightClick);
+// touch steering. A short release inside commits the tapped side; a horizontal
+// swipe that begins over either zone commits its actual direction. Cancel and
+// lost-capture clear the pending move. Native keyboard clicks (detail 0) retain
+// Enter/Space parity. Returns a detach function for teardown.
+export function attachSteerZones({ left, right, onLeft, onRight, swipeThreshold = 40 }) {
+  const activateDirection = direction => {
+    if (direction < 0) onLeft();
+    else if (direction > 0) onRight();
+  };
+  function bindZone(element, tapDirection) {
+    if (!element) return () => {};
+    let pendingPointer = null;
+    const clear = event => {
+      if (!pendingPointer) return;
+      if (event?.pointerId != null && event.pointerId !== pendingPointer.pointerId) return;
+      pendingPointer = null;
+    };
+    const onDown = event => {
+      if (event.button != null && event.button !== 0) return;
+      pendingPointer = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY
+      };
+      element.setPointerCapture?.(event.pointerId);
+    };
+    const onUp = event => {
+      if (!pendingPointer || pendingPointer.pointerId !== event.pointerId) return;
+      const start = pendingPointer;
+      const rect = element.getBoundingClientRect();
+      const direction = resolveSteerRelease({
+        startX: start.startX,
+        startY: start.startY,
+        endX: event.clientX,
+        endY: event.clientY,
+        rect,
+        tapDirection,
+        threshold: swipeThreshold
+      });
+      clear(event);
+      element.releasePointerCapture?.(event.pointerId);
+      activateDirection(direction);
+    };
+    const onClick = event => { if (event.detail === 0) activateDirection(tapDirection); };
+    element.addEventListener("pointerdown", onDown);
+    element.addEventListener("pointerup", onUp);
+    element.addEventListener("pointercancel", clear);
+    element.addEventListener("lostpointercapture", clear);
+    element.addEventListener("click", onClick);
+    return () => {
+      element.removeEventListener("pointerdown", onDown);
+      element.removeEventListener("pointerup", onUp);
+      element.removeEventListener("pointercancel", clear);
+      element.removeEventListener("lostpointercapture", clear);
+      element.removeEventListener("click", onClick);
+    };
   }
+  const detachLeft = bindZone(left, -1);
+  const detachRight = bindZone(right, 1);
   return () => {
-    if (left) left.removeEventListener("pointerdown", onLeft);
-    if (right) right.removeEventListener("pointerdown", onRight);
-    if (keyboardClick) {
-      if (left) left.removeEventListener("click", onLeftClick);
-      if (right) right.removeEventListener("click", onRightClick);
-    }
+    detachLeft();
+    detachRight();
   };
 }
 
@@ -314,17 +374,33 @@ export function attachSteerZones({ left, right, onLeft, onRight, keyboardClick =
 // pixels steers one lane in that direction. Returns a detach function.
 export function attachSwipeSteer(element, { threshold = 40, onSteer }) {
   let dragX = null;
-  const onDown = event => { dragX = event.clientX; };
-  const onUp = event => {
-    if (dragX == null) return;
-    const dx = event.clientX - dragX;
-    if (Math.abs(dx) > threshold) onSteer(dx > 0 ? 1 : -1);
+  let dragPointerId = null;
+  const clear = event => {
+    if (dragPointerId == null) return;
+    if (event?.pointerId != null && event.pointerId !== dragPointerId) return;
     dragX = null;
+    dragPointerId = null;
+  };
+  const onDown = event => {
+    dragX = event.clientX;
+    dragPointerId = event.pointerId;
+    element.setPointerCapture?.(event.pointerId);
+  };
+  const onUp = event => {
+    if (dragX == null || dragPointerId !== event.pointerId) return;
+    const dx = event.clientX - dragX;
+    clear(event);
+    element.releasePointerCapture?.(event.pointerId);
+    if (Math.abs(dx) > threshold) onSteer(dx > 0 ? 1 : -1);
   };
   element.addEventListener("pointerdown", onDown);
   element.addEventListener("pointerup", onUp);
+  element.addEventListener("pointercancel", clear);
+  element.addEventListener("lostpointercapture", clear);
   return () => {
     element.removeEventListener("pointerdown", onDown);
     element.removeEventListener("pointerup", onUp);
+    element.removeEventListener("pointercancel", clear);
+    element.removeEventListener("lostpointercapture", clear);
   };
 }

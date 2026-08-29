@@ -108,6 +108,15 @@ test("onsetGrapheme applies phonetic onsets before spelling rules", () => {
   assert.equal(onsetGrapheme("ship"), "sh");
   assert.equal(onsetGrapheme("cat"), "c");
   assert.equal(onsetGrapheme("octopus"), "o");
+  for (const [word, onset] of Object.entries({
+    cell: "s", cells: "s", cent: "s", center: "s", cents: "s", circle: "s", city: "s",
+    europe: "y", unit: "y",
+    knew: "n", know: "n", known: "n",
+    once: "w", phrase: "f", whose: "h",
+    write: "r", wrong: "r", wrote: "r"
+  })) {
+    assert.equal(onsetGrapheme(word), onset, `${word} should begin with /${onset}/`);
+  }
 });
 
 test("shuffleItems keeps the same elements", () => {

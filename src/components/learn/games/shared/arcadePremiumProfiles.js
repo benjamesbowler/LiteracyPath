@@ -17,10 +17,10 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   "letter-leap": Object.freeze({
     version: "2.0",
     mission: "Grab each letter in order to spell the word.",
-    objective: "Encode a spoken word by selecting its graphemes in order.",
+    objective: "Encode a spoken or picture-cued word by selecting its graphemes in order.",
     action: "Run and jump through the next needed letter.",
     controls: Object.freeze(["Move: Left / Right or A / D", "Jump: Up, W, or Space"]),
-    retry: "The next slot keeps glowing and the word returns after a difficult stage.",
+    retry: "Words already spelled stay saved when a difficult stage returns later.",
     completionTitle: "Trail complete",
     rewardLabel: "words spelled"
   }),
@@ -36,8 +36,8 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   }),
   "word-bridge": Object.freeze({
     version: "2.0",
-    mission: "Carry letters in order to build the word.",
-    objective: "Encode a word or sentence by placing its parts in order.",
+    mission: "Match and carry each shown part to rebuild the target.",
+    objective: "Practise supported grapheme matching and ordered word or sentence reconstruction.",
     action: "Pick up the next tile and place it on the bridge.",
     controls: Object.freeze(["Move: Left / Right or A / D", "Pick or drop: Space, Enter, E, or Up"]),
     retry: "A wrong tile stays available while the next required slot remains visible.",
@@ -46,11 +46,11 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
   }),
   "sound-beat": Object.freeze({
     version: "2.0",
-    mission: "Tap each sound on the beat, then blend.",
-    objective: "Segment a word into phonemes and blend the sequence.",
-    action: "Tap for each shown sound, then tap GO to blend.",
-    controls: Object.freeze(["Tap: Space, Enter, or Up", "Touch: tap anywhere on the stage"]),
-    retry: "The beat window widens after a miss and the sound remains visible.",
+    mission: "Choose each matching sound or word part, then blend.",
+    objective: "Identify and order the taught units that rebuild a word or sentence.",
+    action: "Choose the next matching pad, then choose GO to blend or read the result.",
+    controls: Object.freeze(["Choose: Left/Right, then Space or Enter", "Touch: tap a sound pad"]),
+    retry: "A wrong pad names the contrast and stays available; beat timing only adds bonus feedback.",
     completionTitle: "Set complete",
     rewardLabel: "words blended"
   }),

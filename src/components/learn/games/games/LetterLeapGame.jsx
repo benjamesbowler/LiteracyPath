@@ -16,6 +16,8 @@ import {
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { hasRecordedSpeech, speak, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
+import { getChildWordAsset } from "../../../../data/childAssets.js";
 import { laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
 
 // Letter Leap — a real side-scrolling platformer (ported from the approved
@@ -44,6 +46,86 @@ const SEG = 440, WORD_GAP = 560, MAXH = 5;
 // First-run onboarding dismissal is remembered once per device; a denied
 // storage (private mode) simply shows the card again next session.
 const ONBOARD_KEY = "lp-arcade-onboarded-v1:letter-leap";
+
+function recordWordEvidence(completedKeys, stageIndex, sentenceLegIndex, wordIndex) {
+  const evidenceKey = [stageIndex, sentenceLegIndex, wordIndex].join(":");
+  const added = !completedKeys.has(evidenceKey);
+  if (added) completedKeys.add(evidenceKey);
+  return { added, count: completedKeys.size };
+}
+
+function buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex, random = Math.random) {
+  const words = levelWords.map(value => String(value).toUpperCase());
+  const requiredLetters = new Set(words.join("").split(""));
+  const stageLetters = [...requiredLetters];
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const offsets = [-84, 0, 84];
+  const hard = worldKey !== "meadow";
+
+  return words.map((up, wordIndex) => Array.from(up, (target, order) => {
+    const shuffle = values => {
+      const pool = [...values];
+      for (let i = pool.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      return pool;
+    };
+    // At least one distractor is another live stage letter. This prevents the
+    // old exploitable rule where every useful stage letter was always safe and
+    // only a stable set of rare, never-used letters could be wrong.
+    const plausible = shuffle(stageLetters.filter(letter => letter !== target));
+    const firstDecoy = plausible[0]
+      || shuffle(alphabet.filter(letter => letter !== target))[0];
+    const secondPool = shuffle(alphabet.filter(letter => (
+      letter !== target && letter !== firstDecoy
+    )));
+    const secondDecoy = plausible[1] && random() < 0.55
+      ? plausible[1]
+      : secondPool[0];
+    const decoys = [firstDecoy, secondDecoy];
+    const choices = [
+      { ch: target, word: wordIndex, order },
+      ...decoys.map(ch => ({ ch, word: -1, order: -1 }))
+    ];
+    for (let i = choices.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(random() * (i + 1));
+      [choices[i], choices[j]] = [choices[j], choices[i]];
+    }
+    return {
+      choiceId: wordIndex + ":" + order,
+      raised: hard && levelIndex >= 1 && order > 0 && (wordIndex + order) % 3 === 2,
+      choices: choices.map((choice, slot) => ({ ...choice, slot, offsetX: offsets[slot] }))
+    };
+  }));
+}
+
+function letterLeapDecorativeTime(reduceMotion, nowMs) {
+  return reduceMotion ? 0 : nowMs * 0.001;
+}
+
+function findLetterLeapRecoveryCenter(level, choiceId, requestedCenterX, segmentWidth = 440) {
+  let centerX = requestedCenterX;
+  for (let attempts = 0; attempts < level.bubbles.length + 4; attempts += 1) {
+    const overlapsPit = level.pits.some(pit => centerX + 118 > pit[0] && centerX - 118 < pit[1]);
+    const overlapsChoice = level.bubbles.some(bubble => (
+      !bubble.taken &&
+      bubble.choiceId !== choiceId &&
+      Math.abs(bubble.x - centerX) < 220
+    ));
+    const overlapsBlock = level.blocks.some(block => (
+      !block.broken &&
+      centerX + 118 > block.x &&
+      centerX - 118 < block.x + block.w
+    ));
+    const overlapsFoe = level.foes.some(foe => (
+      centerX + 118 > foe.x0 && centerX - 118 < foe.x1
+    ));
+    if (!overlapsPit && !overlapsChoice && !overlapsBlock && !overlapsFoe) return centerX;
+    centerX += segmentWidth;
+  }
+  return centerX;
+}
 
 function startGame(mount, opts) {
   const world = worldForGameDifficulty(opts.difficulty);
@@ -84,9 +166,10 @@ function startGame(mount, opts) {
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;z-index:4";
   hud.innerHTML =
     '<div style="position:absolute;inset:0;opacity:.16;background:repeating-linear-gradient(180deg,rgba(255,255,255,.22) 0 1px,transparent 1px 4px),radial-gradient(92% 86% at 50% 52%,transparent 58%,rgba(0,0,0,.56));mix-blend-mode:screen"></div>' +
-    '<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:linear-gradient(92deg,rgba(7,12,32,.92),rgba(22,39,83,.76));padding:9px 20px 11px;border:1px solid rgba(126,232,255,.42);clip-path:polygon(14px 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,14px 100%,0 50%);box-shadow:0 10px 28px rgba(0,0,0,.36),inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(6px)">' +
-      '<span data-ll="lab" style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#8ff6ff;opacity:.86">Spell the word</span>' +
-      '<div data-ll="word" style="display:flex;gap:7px"></div></div>' +
+    '<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:linear-gradient(92deg,rgba(7,12,32,.92),rgba(22,39,83,.76));padding:9px 20px 11px;border:1px solid rgba(126,232,255,.42);clip-path:polygon(14px 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,14px 100%,0 50%);box-shadow:0 10px 28px rgba(0,0,0,.36),inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(6px)">' +
+      '<img data-ll="picture" alt="" style="display:none;width:54px;height:54px;object-fit:contain;border-radius:9px;background:rgba(255,255,255,.9);padding:3px;box-shadow:0 4px 12px rgba(0,0,0,.28)">' +
+      '<div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span data-ll="lab" style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#8ff6ff;opacity:.86">Spell the picture word</span>' +
+      '<div data-ll="word" style="display:flex;gap:7px"></div></div></div>' +
     '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:900;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:7px 14px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.26)">Coins x0</div>' +
     '<div data-ll="hearts" style="position:absolute;top:14px;right:16px;font-size:1.5rem;letter-spacing:2px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))">❤❤❤</div>' +
     '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8ff6ff;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:5px 12px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)">Meadow</div>' +
@@ -98,6 +181,7 @@ function startGame(mount, opts) {
   const elWorld = hud.querySelector('[data-ll="world"]');
   const elCoins = hud.querySelector('[data-ll="coins"]');
   const elHear = hud.querySelector('[data-ll="hear"]');
+  const elPicture = hud.querySelector('[data-ll="picture"]');
   function updateCoins() { if (elCoins) elCoins.textContent = "Coins x" + coins + (starTokens ? "  Stars x" + starTokens : ""); }
 
   const padWrap = document.createElement("div");
@@ -202,8 +286,8 @@ function startGame(mount, opts) {
   const keys = { left: false, right: false, jump: false };
   let player, level, words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, invuln = 0;
   let particles = [], spores = [], floats = [];
-  let score = 0, wrongHits = 0, deaths = 0, wordsDoneGlobal = 0;
-  let wordsDoneAtStageStart = 0; // rollback point: a requeued stage replays, so its words must not double-count
+  let score = 0, wrongHits = 0, wordsDoneGlobal = 0;
+  const completedWordEvidence = new Set(); // stage/leg/word keys survive catch-up replays without double-counting
   // Modern game-feel state (Mission 1)
   const COYOTE = 0.12, JUMP_BUFFER = 0.14;
   let coyoteT = 0, jumpBufT = 0, runDustT = 0, shakeT = 0;
@@ -242,20 +326,35 @@ function startGame(mount, opts) {
     const pits = [], foes = [];
     const bump = { meadow: 0, dino: 2, moonwood: 4 }[worldKey] || 0;
     const hard = worldKey !== "meadow";
+    const choicePlan = buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex);
 
     let cx = 320;
     levelWords.forEach((up, wi) => {
       for (let i = 0; i < up.length; i += 1) {
-        // Mid/hard worlds: every 3rd letter sits on a RAISED platform the child
-        // must jump up to (a brick sits before it as a step/visual cue).
-        const raised = hard && levelIndex >= 1 && i > 0 && (wi + i) % 3 === 2;
-        if (raised) {
+        // Every grapheme is one freshly shuffled three-choice decision. All
+        // three bubbles share the same height, spacing and route geometry, so
+        // the letter itself — never a regular platform/offset pattern — is the
+        // only way to identify the next answer.
+        const decision = choicePlan[wi][i];
+        let bubbleY = groundY() - 46;
+        if (decision.raised) {
           const py = groundY() - 118;
-          plats.push({ x: cx - 66, y: py, w: 132 });
-          blocks.push({ x: cx - 150, y: groundY() - 60, w: 44, h: 40, type: "brick", broken: false, used: false });
-          bubbles.push({ x: cx, y: py - 44, ch: up[i], word: wi, order: i, taken: false });
-        } else {
-          bubbles.push({ x: cx, y: groundY() - 46, ch: up[i], word: wi, order: i, taken: false });
+          plats.push({ x: cx - 126, y: py, w: 252 });
+          blocks.push({ x: cx - 194, y: groundY() - 60, w: 44, h: 40, type: "brick", broken: false, used: false });
+          bubbleY = py - 44;
+        }
+        for (const choice of decision.choices) {
+          bubbles.push({
+            x: cx + choice.offsetX,
+            y: bubbleY,
+            ch: choice.ch,
+            word: choice.word,
+            order: choice.order,
+            decisionWord: wi,
+            decisionOrder: i,
+            choiceId: decision.choiceId,
+            taken: false
+          });
         }
         letterX.push(cx); cx += SEG;
       }
@@ -280,11 +379,8 @@ function startGame(mount, opts) {
     });
     const flag = cx + 200, L = cx + 360;
 
-    // SEPARATE slot budgets: hazards (foes/blocks/hearts/small pits) use gap
-    // midpoints; decoys get their OWN offset slots so they can no longer be
-    // starved by the hazard budget — this is why levels felt empty of wrong
-    // letters before.
-    const hazardSlots = [], decoySlots = [];
+    // Hazards use the open midpoint between complete choice clusters.
+    const hazardSlots = [];
     for (let i = 0; i < letterX.length - 1; i += 1) {
       const a = letterX[i], b = letterX[i + 1];
       if (b - a < 220) continue;
@@ -292,22 +388,12 @@ function startGame(mount, opts) {
       if (mid < 520 || mid > flag - 220) continue;
       if (pits.some(q => mid > q[0] - 80 && mid < q[1] + 80)) continue;
       hazardSlots.push(mid);
-      decoySlots.push(mid - 92, mid + 92);
     }
-    shuffleArr(hazardSlots); shuffleArr(decoySlots);
+    shuffleArr(hazardSlots);
 
     const foeCount = 4 + Math.round(levelIndex * 0.9) + bump;
-    const decoyCount = 5 + Math.round(levelIndex * 1.0) + bump;
     const blockCount = 2 + Math.round(levelIndex * 0.4);
     const heartCount = 1 + Math.round(levelIndex * 0.2);
-
-    const inWords = new Set(levelWords.join("").toUpperCase().split(""));
-    const decoyPool = "BDFGJKMPQVXZ".split("").filter(c => !inWords.has(c));
-
-    for (let k = 0; k < decoyCount && decoyPool.length && decoySlots.length; k += 1) {
-      const c = decoySlots.pop();
-      bubbles.push({ x: c, y: groundY() - 46, ch: decoyPool[Math.floor(Math.random() * decoyPool.length)], word: -1, order: -1, taken: false });
-    }
     for (let k = 0; k < foeCount && hazardSlots.length; k += 1) {
       const c = hazardSlots.pop();
       foes.push({
@@ -350,11 +436,34 @@ function startGame(mount, opts) {
     return { L, pits, plats, blocks, pickups, bubbles, foes, flag, coins: coinsArr, stars: starsArr, springs: springsArr };
   }
   function inPit(x) { return level.pits.some(p => x > p[0] && x < p[1]); }
+  function refreshChoiceGroup(choiceId, requestedCenterX) {
+    const choices = level.bubbles.filter(bubble => bubble.choiceId === choiceId);
+    if (!choices.length) return;
+    const centerX = findLetterLeapRecoveryCenter(level, choiceId, requestedCenterX);
+    // A recovery cluster must not merge visually with a later decision or sit
+    // over a hazard. Scan forward by one full segment until the three choices
+    // have their own readable space. Later decisions remain in their original
+    // order and will use the same catch-up rule if the child has passed them.
+    if (centerX + 150 >= level.flag) {
+      level.flag = centerX + 260;
+      level.L = Math.max(level.L, level.flag + 160);
+    }
+    const offsets = [-84, 0, 84];
+    shuffleArr(choices.slice()).forEach((choice, slot) => {
+      choice.x = centerX + offsets[slot];
+      choice.y = groundY() - 46;
+      choice.taken = false;
+    });
+  }
+  function clearChoiceGroup(choiceId) {
+    for (const choice of level.bubbles) {
+      if (choice.choiceId === choiceId) choice.taken = true;
+    }
+  }
 
   function startStage() {
     stageIdx = stageQueue.peek();
     if (stageIdx == null) { finishGame(); return; }
-    wordsDoneAtStageStart = wordsDoneGlobal; // if this stage is requeued, progress rolls back to here
     const plan = ladder[stageIdx];
     legs = allStageSentences[stageIdx]; legIx = 0;
     words = (legs ? legs[0] : allStageWords[stageIdx]).slice();
@@ -383,12 +492,32 @@ function startGame(mount, opts) {
           : isNext
             ? "background:rgba(7,12,32,.42);color:#fff;border:1px solid #ffe879;box-shadow:0 0 18px rgba(255,232,121,.58),inset 0 0 0 2px rgba(255,255,255,.1)"
             : "background:rgba(7,12,32,.38);color:rgba(255,255,255,.38);border:1px solid rgba(126,232,255,.22);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)");
-      s.textContent = word[i];
+      s.textContent = done ? word[i] : "";
+      s.setAttribute("aria-label", done
+        ? `Completed letter ${word[i]}`
+        : isNext ? "Next empty letter slot" : "Empty letter slot");
       elWord.appendChild(s);
     }
-    elLab.textContent = elLab.dataset.sentence === "1"
-      ? (elLab.dataset.goal || "Build the sentence")
-      : "Word " + (wIx + 1) + " of " + words.length + " · spell it";
+    const pictureAsset = getChildWordAsset(word.toLowerCase());
+    const picturePath = pictureAsset?.image || pictureAsset?.fallbackImage || "";
+    if (elPicture) {
+      elPicture.style.display = picturePath ? "block" : "none";
+      if (picturePath) elPicture.src = picturePath;
+      else elPicture.removeAttribute("src");
+      elPicture.alt = picturePath ? "Picture clue for the word to spell" : "";
+    }
+    const needsModelSupport = !picturePath && !canHearTarget();
+    elLab.dataset.supportMode = needsModelSupport ? "model" : "independent-cue";
+    if (needsModelSupport) {
+      elLab.textContent = `MODEL · SPELL ${word}`;
+    } else if (elLab.dataset.sentence === "1") {
+      const sentenceWords = legs?.[legIx] || [];
+      elLab.textContent = sentenceWords.map((part, index) => (
+        index === wIx ? "_".repeat(Math.max(2, String(part).length)) : part
+      )).join(" ") || "Build the sentence";
+    } else {
+      elLab.textContent = "Word " + (wIx + 1) + " of " + words.length + " · spell the picture";
+    }
     syncHearControl();
   }
   function updateHearts() { elHearts.textContent = "❤".repeat(Math.max(0, hearts)) + "♡".repeat(Math.max(0, 3 - hearts)); }
@@ -401,19 +530,25 @@ function startGame(mount, opts) {
     if (invuln > 0) return;
     hearts -= 1; updateHearts(); sfx(playSoftBuzz); invuln = 1.3; burst(player.x, player.y, "#ff7a66");
     if (hearts <= 0) {
-      running = false; deaths += 1;
+      running = false;
       stageQueue.miss(); // this stage comes back later (catch-up)
-      wordsDoneGlobal = wordsDoneAtStageStart; // the stage replays — don't double-count its words
       opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
-      showOverlay("Catch up later!", "The grumpers got you — this stage will come back around. Keep going!", "Keep going", () => { player = null; startStage(); });
+      showOverlay("Catch up later!", "The grumpers got you, but every word you spelled is saved. This stage will come back around.", "Keep going", () => { player = null; startStage(); });
     } else {
       player.x = player.spawnX; player.y = groundY() - 46; player.vx = 0; player.vy = 0; cam = Math.max(0, player.x - W * 0.35);
     }
   }
   function wordDone() {
     burst(player.x, player.y - 16, "#7cf0b6"); sfx(playCorrectChime);
-    wordsDoneGlobal += 1; addScore(50); addFloat(player.x, player.y - 34, "+50");
-    opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
+    const evidence = recordWordEvidence(completedWordEvidence, stageIdx, legIx, wIx);
+    if (evidence.added) {
+      wordsDoneGlobal = evidence.count;
+      addScore(50);
+      addFloat(player.x, player.y - 34, "+50 · saved");
+      opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
+    } else {
+      addFloat(player.x, player.y - 34, "✓ saved");
+    }
     if (wIx < words.length - 1) { wIx += 1; word = words[wIx]; nextIx = 0; }
     renderWord();
   }
@@ -437,7 +572,7 @@ function startGame(mount, opts) {
   }
   function finishGame() {
     running = false; sfx(playStarChime);
-    const stars = starRubric({ correct: wordsDoneGlobal, total: totalWords, mistakes: wrongHits, deaths });
+    const stars = starRubric({ correct: wordsDoneGlobal, total: totalWords, mistakes: wrongHits, deaths: 0 });
     showTally("You did it", "Done", () => {});
     opts.onComplete && opts.onComplete(stars, score, wordsDoneGlobal);
   }
@@ -491,7 +626,7 @@ function startGame(mount, opts) {
       '<ul style="text-align:left;opacity:.9;margin:0 auto 22px;max-width:400px;line-height:1.55;padding-left:20px">' +
         '<li><b>Desktop:</b> Arrow keys to run, Space or Up arrow to jump.</li>' +
         '<li><b>Touch:</b> hold &#9664; &#9654; to move, tap JUMP to leap.</li>' +
-        '<li>Catch the glowing next letter — steer clear of wrong letters and grumpers.</li></ul>' +
+        '<li>Read or listen, then choose the next letter — steer clear of wrong letters and grumpers.</li></ul>' +
       '<button data-ll="cta" style="' + ctaStyle + '">Tap to play</button></div>';
     overlay.style.display = "grid";
     const btn = overlay.querySelector('[data-ll="cta"]');
@@ -517,6 +652,7 @@ function startGame(mount, opts) {
   // ── input ─────────────────────────────────────────────────────────────────
   const isJumpKey = key => key === " " || verticalDirectionForKey(key) === -1;
   const onKeyDown = e => {
+    if (isInteractiveKeyTarget(e.target)) return;
     const direction = laneDirectionForKey(e.key);
     if (direction < 0) { keys.left = true; e.preventDefault(); }
     else if (direction > 0) { keys.right = true; e.preventDefault(); }
@@ -594,28 +730,31 @@ function startGame(mount, opts) {
     idleT = (p.vx === 0 && p.onGround) ? idleT + dt : 0;
     p.squash *= 0.8;
     if (p.x < 18) p.x = 18;
-    // Catch-up: if the letter they still need is now behind them (walked or jumped
-    // past it), slide it back in front — a skipped letter never softlocks the word.
+    // Catch-up: if the decision they still need is now behind them, rebuild and
+    // reshuffle the whole equivalent choice group ahead. Moving only the answer
+    // would turn recovery into a spatial giveaway.
     const need = level.bubbles.find(b => !b.taken && b.word === wIx && b.order === nextIx);
     if (need && need.x < p.x - 40) {
-      let nx = p.x + 320;
-      const pit = level.pits.find(q => nx > q[0] - 40 && nx < q[1] + 40);
-      if (pit) nx = pit[1] + 80;
-      need.x = nx; need.y = groundY() - 46;
+      refreshChoiceGroup(need.choiceId, p.x + 320);
     }
     for (const b of level.bubbles) {
       if (b.taken) continue;
       if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
+        if (b.decisionWord !== wIx || b.decisionOrder !== nextIx) continue;
         if (b.word === -1) {
           if (invuln > 0) continue; // i-frames: never consume a decoy for free
-          b.taken = true; wrongHits += 1; // literacy mistakes — the ONLY mistakes the star rubric sees
+          wrongHits += 1; // literacy mistakes — the ONLY mistakes the star rubric sees
           burst(b.x, b.y, "#ff7a66"); sfx(playSoftBuzz);
           const tip = "That's " + b.ch + " — you need " + word[Math.min(nextIx, word.length - 1)] + "!";
           addFloat(b.x, b.y - 26, tip); // teach, don't punish: no heart lost
           sfx(() => speak(tip));
+          refreshChoiceGroup(b.choiceId, p.x + 320);
         }
         else if (b.word === wIx && b.order === nextIx) {
-          b.taken = true; nextIx += 1; sfx(playPopSound); addScore(10); burst(b.x, b.y, "#ffd34e"); addFloat(b.x, b.y - 22, "+10");
+          const alreadySaved = completedWordEvidence.has([stageIdx, legIx, wIx].join(":"));
+          clearChoiceGroup(b.choiceId); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
+          if (alreadySaved) addFloat(b.x, b.y - 22, "✓ saved");
+          else { addScore(10); addFloat(b.x, b.y - 22, "+10"); }
           if (nextIx >= word.length) wordDone(); else renderWord();
         }
       }
@@ -848,7 +987,7 @@ function startGame(mount, opts) {
   }
   function drawPlayer() {
     const p = player; if (invuln > 0 && Math.floor(invuln * 12) % 2 === 0) return;
-    const sq = p.squash, sx = 1 - sq, sy = 1 + sq, bob = p.onGround ? Math.sin(p.anim) * 1.5 : 0;
+    const sq = p.squash, sx = 1 - sq, sy = 1 + sq, bob = !reduceMotion && p.onGround ? Math.sin(p.anim) * 1.5 : 0;
     ctx.save();
     ctx.fillStyle = "rgba(0,0,0,.34)"; ctx.beginPath(); ctx.ellipse(p.x, groundY() - 2 > p.y + 22 ? p.y + 24 : groundY() - 2, 23, 6, 0, 0, 7); ctx.fill();
     ctx.translate(p.x, p.y + bob); ctx.scale(p.face * sx, sy);
@@ -870,13 +1009,13 @@ function startGame(mount, opts) {
     const lk = p.onGround ? Math.sin(p.anim) * 5 : 5; ctx.fillStyle = "#2f7a4b"; rr(-10, 12, 8, 11 + lk, 3); ctx.fill(); rr(2, 12, 8, 11 - lk, 3); ctx.fill();
     const bg = ctx.createLinearGradient(0, -18, 0, 16); bg.addColorStop(0, "#7cf0b6"); bg.addColorStop(1, "#34c589"); ctx.fillStyle = bg; rr(-15, -18, 30, 34, 13); ctx.fill(); ctx.strokeStyle = "#0f6b48"; ctx.lineWidth = 2; rr(-15, -18, 30, 34, 13); ctx.stroke();
     ctx.fillStyle = "#d6fbe8"; rr(-9, -2, 18, 14, 8); ctx.fill();
-    const blink = idleT > 2 && Math.floor(idleT * 2.5) % 5 === 0; // idle blink (Mission 5)
+    const blink = !reduceMotion && idleT > 2 && Math.floor(idleT * 2.5) % 5 === 0; // idle blink (Mission 5)
     ctx.fillStyle = "#0a1a12";
     if (blink) { ctx.fillRect(-6, -9, 5, 1.6); ctx.fillRect(4, -9, 5, 1.6); }
     else { ctx.beginPath(); ctx.arc(-4, -8, 3.2, 0, 7); ctx.arc(7, -8, 3.2, 0, 7); ctx.fill(); }
     ctx.restore();
   }
-  function drawBgImage() {
+  function drawBgImage(time) {
     const im = BGIMG[world];
     if (!im || !im.width) return false;
     const scale = H / im.height, iw = im.width * scale, shift = cam * 0.35;
@@ -886,20 +1025,22 @@ function startGame(mount, opts) {
       else ctx.drawImage(im, x, 0, iw, H);
       ctx.restore();
     }
-    drawDepthScenery(Date.now() * 0.001);
+    drawDepthScenery(time);
     const sh = ctx.createLinearGradient(0, H - GROUND_H - 70, 0, H - GROUND_H); sh.addColorStop(0, "rgba(6,10,20,0)"); sh.addColorStop(1, "rgba(6,10,20,.28)"); ctx.fillStyle = sh; ctx.fillRect(0, H - GROUND_H - 70, W, 70);
     return true;
   }
   function draw() {
     if (!level) return;
-    const t = Date.now() * 0.001;
-    if (!drawBgImage()) {
+    // One frozen decorative clock gates every continuous ambient animation:
+    // depth drift, spores, pickups, pennant waves, bubbles, coins and stars.
+    const t = letterLeapDecorativeTime(reduceMotion, Date.now());
+    if (!drawBgImage(t)) {
       const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, theme.sky[0]); g.addColorStop(0.55, theme.sky[1]); g.addColorStop(1, theme.sky[2]); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
       const gx = W * 0.8, gy = H * 0.2; const cg = ctx.createRadialGradient(gx, gy, 10, gx, gy, 180); cg.addColorStop(0, theme.sun); cg.addColorStop(1, "rgba(255,255,255,0)"); ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H);
       drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, H - GROUND_H + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, H - GROUND_H + 14, 220, 140, 0.6);
     }
-    for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
+    for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     ctx.save(); ctx.translate(-cam + shx, shy);
@@ -908,20 +1049,24 @@ function startGame(mount, opts) {
     for (const pl of level.plats) platform(pl);
     for (const sp of level.springs) drawSpring(sp);
     for (const bl of level.blocks) drawBlock(bl);
-    for (const hp of level.pickups) { if (!hp.taken) drawHeart(hp.x, hp.y + Math.sin(t * 3 + hp.x) * 4); }
+    for (const hp of level.pickups) { if (!hp.taken) drawHeart(hp.x, reduceMotion ? hp.y : hp.y + Math.sin(t * 3 + hp.x) * 4); }
     ctx.strokeStyle = "#d8f5ff"; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(level.flag, groundY()); ctx.lineTo(level.flag, groundY() - 138); ctx.stroke();
     ctx.strokeStyle = "rgba(47,131,255,.65)"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(level.flag + 9, groundY() - 8); ctx.lineTo(level.flag + 9, groundY() - 132); ctx.stroke();
     { // Mission 5: waving 3-segment pennant; glows gold once the stage is completable.
       const fx = level.flag, fy = groundY() - 130; const canFinish = wIx >= words.length - 1 && nextIx >= word.length;
       ctx.save(); if (canFinish) { ctx.shadowColor = "rgba(255,214,90,.9)"; ctx.shadowBlur = 16; }
       ctx.fillStyle = canFinish ? "#ffe879" : "#8ff6ff"; ctx.beginPath(); ctx.moveTo(fx, fy);
-      for (let s = 0; s <= 3; s += 1) { const u = s / 3; ctx.lineTo(fx + u * 56, fy + 6 + Math.sin(t * 6 + s) * 4); }
-      for (let s = 3; s >= 0; s -= 1) { const u = s / 3; ctx.lineTo(fx + u * 56 - 9, fy + 28 + Math.sin(t * 6 + s) * 4); }
+      for (let s = 0; s <= 3; s += 1) { const u = s / 3; const wave = reduceMotion ? 0 : Math.sin(t * 6 + s) * 4; ctx.lineTo(fx + u * 56, fy + 6 + wave); }
+      for (let s = 3; s >= 0; s -= 1) { const u = s / 3; const wave = reduceMotion ? 0 : Math.sin(t * 6 + s) * 4; ctx.lineTo(fx + u * 56 - 9, fy + 28 + wave); }
       ctx.closePath(); ctx.fill(); ctx.restore();
     }
-    for (const b of level.bubbles) { if (b.taken) continue; const bob = Math.sin(t * 2.4 + b.x) * 4; bubble(b.x, b.y + bob, b.ch); }
-    for (const cn of level.coins) { if (cn.taken) continue; const wob = Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + Math.sin(t * 3 + cn.x) * 3, 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
-    for (const st of level.stars) { if (!st.taken) drawStarToken(st.x, st.y + Math.sin(t * 2 + st.x) * 4, t); }
+    for (const b of level.bubbles) {
+      if (b.taken) continue;
+      const bob = reduceMotion ? 0 : Math.sin(t * 2.4 + b.x) * 4;
+      bubble(b.x, b.y + bob, b.ch);
+    }
+    for (const cn of level.coins) { if (cn.taken) continue; const wob = reduceMotion ? 1 : Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + (reduceMotion ? 0 : Math.sin(t * 3 + cn.x) * 3), 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
+    for (const st of level.stars) { if (!st.taken) drawStarToken(st.x, reduceMotion ? st.y : st.y + Math.sin(t * 2 + st.x) * 4, reduceMotion ? 0 : t); }
     for (const f of level.foes) drawFoe(f);
     if (player) drawPlayer();
     for (const pt of particles) { ctx.globalAlpha = Math.max(0, pt.life / 0.6); ctx.fillStyle = pt.c; ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
@@ -1006,14 +1151,16 @@ function startGame(mount, opts) {
     ro.disconnect();
     [cv, hud, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
   }
-  return { teardown, pause, resume };
+  return { teardown, pause, resume, refreshSoundState: renderWord };
 }
 
 export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
+  const engineRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
   useEffect(() => {
     soundRef.current = isSoundEnabled;
+    engineRef.current?.refreshSoundState?.();
     const hear = mountRef.current?.querySelector?.('[data-ll="hear"]');
     if (!hear) return;
     const enabled = isSoundEnabled && hear.dataset.audioAvailable === "true";
@@ -1031,8 +1178,12 @@ export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, on
       onCheckpoint,
       getSound: () => soundRef.current
     });
+    engineRef.current = api;
     if (onEngineReady) onEngineReady(api);
-    return () => { try { api.teardown(); } catch { /* ignore */ } };
+    return () => {
+      if (engineRef.current === api) engineRef.current = null;
+      try { api.teardown(); } catch { /* ignore */ }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficulty]);
   return (

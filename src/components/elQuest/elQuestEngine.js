@@ -36,13 +36,20 @@ export function sharesSound(a, b) {
 // cued sound - LETTER_EXAMPLES lists words that CONTAIN a grapheme (e.g. "teeth"
 // for th, "six" for x), which is not the same as starting with it.
 const ONSET_DIGRAPHS = ["sh", "ch", "th", "wh"];
-// Irregular taught words whose first SOUND differs from their first letters:
-// "one" begins /w/, "who" and "whole" begin /h/, "use" begins /y/. Spelling
-// rules alone would offer them as correct answers for the wrong sound and as
+// Irregular taught words whose first SOUND differs from their first letters.
+// Spelling rules alone would score these as correct for the wrong cue, or as
 // fair distractors for the sound they actually start with, so check this
-// table before the spelling rules. (Scanned LETTER_EXAMPLES, CVC_WORDS,
-// SIGHT_WORDS and SOUND_RACER_EXTRA_WORDS - these are the only such words.)
-const PHONETIC_ONSETS = { one: "w", whole: "h", use: "y", who: "h" };
+// audited table before the spelling rules. Keep singular forms alongside the
+// current live pools so future authored variants inherit the same boundary.
+const PHONETIC_ONSETS = {
+  cell: "s", cells: "s", cent: "s", center: "s", cents: "s", circle: "s", city: "s",
+  europe: "y", unit: "y", use: "y",
+  knew: "n", know: "n", known: "n",
+  one: "w", once: "w",
+  phrase: "f",
+  whole: "h", who: "h", whose: "h",
+  write: "r", wrong: "r", wrote: "r"
+};
 export function onsetGrapheme(word) {
   const w = String(word || "").toLowerCase();
   if (PHONETIC_ONSETS[w]) return PHONETIC_ONSETS[w];

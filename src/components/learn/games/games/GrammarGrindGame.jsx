@@ -17,6 +17,7 @@ import {
   grammarGrindStars
 } from "../../../../utils/grammarGrindLevels.js";
 import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import {
   createRenderer,
   createScene,
@@ -1806,6 +1807,7 @@ function startGame(mount, opts) {
   }
 
   function onKeyDown(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     if (["ArrowLeft", "a", "A"].includes(event.key)) setKey("left", true);
     else if (["ArrowRight", "d", "D"].includes(event.key)) setKey("right", true);
     else if (["ArrowUp", "w", "W"].includes(event.key)) setKey("push", true);
@@ -1824,7 +1826,7 @@ function startGame(mount, opts) {
     else if (event.key === "Shift" || event.key === "b" || event.key === "B") setKey("boost", false);
     else if (event.key === " " || event.key === "Enter") setKey("jump", false);
     else return;
-    event.preventDefault();
+    if (!isInteractiveKeyTarget(event.target)) event.preventDefault();
   }
 
   function bindButton(name, key) {
@@ -1883,6 +1885,7 @@ function startGame(mount, opts) {
     paused = false;
   }
   function onIntroKey(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     event.preventDefault();
     dismissIntro();
   }

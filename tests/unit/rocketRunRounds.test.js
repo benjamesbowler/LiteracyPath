@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   wordsStartingWith,
+  wordsStartingWithTargetSound,
+  wordStartsWithTargetSound,
   rocketRunTargets,
   buildRocketRunRound,
   rocketRunStars,
@@ -20,7 +22,7 @@ test("rocketRunTargets are all onset-able and exclude final-only graphemes", () 
   }
 });
 
-test("every correct word truly starts with the target sound", () => {
+test("every spelling pool starts with the target grapheme", () => {
   for (const g of rocketRunTargets()) {
     for (const word of wordsStartingWith(g)) {
       assert.equal(onsetGrapheme(word), g, `"${word}" listed for "${g}" but its onset is "${onsetGrapheme(word)}"`);
@@ -28,10 +30,34 @@ test("every correct word truly starts with the target sound", () => {
   }
 });
 
+test("every listening pool matches the exact production target sound", () => {
+  for (const g of rocketRunTargets()) {
+    for (const word of wordsStartingWithTargetSound(g)) {
+      assert.equal(wordStartsWithTargetSound(word, g), true, `${word} does not model the ${g} cue`);
+    }
+  }
+  for (const [target, word] of [["c", "city"], ["g", "gem"], ["a", "apron"], ["i", "item"], ["th", "them"]]) {
+    assert.equal(wordStartsWithTargetSound(word, target), false, `${word} must not earn ${target} sound credit`);
+  }
+});
+
 test("every target has a deep word pool (12+) so rounds don't recycle the same words", () => {
   for (const g of rocketRunTargets()) {
-    const pool = wordsStartingWith(g);
+    const pool = wordsStartingWithTargetSound(g);
     assert.ok(pool.length >= 12, `${g}: only ${pool.length} onset words — rounds would recycle`);
+  }
+});
+
+test("hard short-vowel and z rounds keep six words inside the 4-6 letter band", () => {
+  for (const target of ["a", "e", "i", "o", "z"]) {
+    for (let attempt = 0; attempt < 12; attempt += 1) {
+      const round = buildRocketRunRound(target, { count: 6, difficulty: "hard" });
+      assert.equal(round.correct.length, 6, `${target} hard round starved`);
+      assert.ok(
+        round.correct.every(word => word.length >= 4 && word.length <= 6),
+        `${target} hard round left its length band: ${round.correct.join(", ")}`
+      );
+    }
   }
 });
 
@@ -45,7 +71,8 @@ test("every round is winnable and every distractor is sound-distinct from the ta
       // Fair: no distractor shares the target's onset sound (would be a false miss).
       for (const item of round.sequence) {
         if (item.correct) {
-          assert.equal(onsetGrapheme(item.word), g, `${g}: correct word "${item.word}" is not onset-${g}`);
+          assert.equal(wordStartsWithTargetSound(item.word, g), true,
+            `${g}: correct word "${item.word}" does not match the production cue`);
         } else {
           assert.ok(!sharesSound(onsetGrapheme(item.word), g),
             `${g}: distractor "${item.word}" shares the target sound`);

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Ps1ArcadeGame from "./Ps1ArcadeGame.jsx";
 import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { getLedaWordAudioPath } from "../../../../data/ledaProductionAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 
 // First-run onboarding: one intro card per device, dismissed forever after.
 // Storage may be denied (private mode) — then the card shows again next
@@ -17,9 +18,10 @@ function readOnboarded() {
 }
 
 const ONBOARDING_HINTS = [
-  "Listen for each sound, then tap on the beat.",
-  "Tap the screen, or press Space on a keyboard.",
-  "Finish with GO to say the whole word."
+  "Listen, then choose the matching sound pad; with sound off, match the shown model.",
+  "Beat timing adds bonus points; only the sound choice affects learning progress.",
+  "Tap a pad, or use Left/Right and Space on a keyboard.",
+  "Finish with GO to blend the whole word."
 ];
 
 export default function SoundBeatGame({
@@ -63,6 +65,7 @@ export default function SoundBeatGame({
   useEffect(() => {
     if (!showOnboarding) return undefined;
     const onKeyDown = event => {
+      if (isInteractiveKeyTarget(event.target)) return;
       const activates = event.key === " " || event.key === "Enter" || event.key === "ArrowUp";
       if (!activates) return;
       event.preventDefault();
@@ -94,6 +97,34 @@ export default function SoundBeatGame({
         isMusicEnabled={isMusicEnabled}
         onEngineReady={handleEngineReady}
       />
+      {!showOnboarding && isSoundEnabled && (
+        <button
+          type="button"
+          aria-label="Hear the current sound again"
+          onPointerDown={event => event.stopPropagation()}
+          onKeyDown={event => event.stopPropagation()}
+          onClick={() => engineRef.current?.replayPrompt?.()}
+          style={{
+            position: "absolute",
+            top: 86,
+            right: 16,
+            zIndex: 2,
+            minWidth: 56,
+            minHeight: 56,
+            border: "2px solid rgba(184,255,61,.72)",
+            borderRadius: 12,
+            background: "rgba(4,9,20,.9)",
+            color: "#eaffc8",
+            boxShadow: "0 8px 22px rgba(0,0,0,.38)",
+            fontSize: 13,
+            fontWeight: 900,
+            lineHeight: 1.05,
+            cursor: "pointer"
+          }}
+        >
+          Hear<br />sound
+        </button>
+      )}
       {showOnboarding && (
         <div
           role="dialog"
@@ -126,7 +157,7 @@ export default function SoundBeatGame({
           >
             <div style={{ fontSize: 34, fontWeight: 900, color: "#b8ff3d" }}>Sound Beat</div>
             <p style={{ fontSize: 19, fontWeight: 800, color: "#fff", margin: "10px 0 14px" }}>
-              Tap each sound on the beat.
+              Choose each sound in order, then GO to blend.
             </p>
             <div
               aria-hidden="true"

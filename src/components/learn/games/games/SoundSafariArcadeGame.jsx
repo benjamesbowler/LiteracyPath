@@ -8,6 +8,7 @@ import {
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
 import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import {
   selectSafariCapture,
   soundSafariLadder,
@@ -1555,6 +1556,7 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function onKeyDown(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     // Only game activation keys dismiss the card. Tab and assistive-tech or
     // browser shortcuts must continue to work while onboarding is visible.
     if (state.onboarding) {

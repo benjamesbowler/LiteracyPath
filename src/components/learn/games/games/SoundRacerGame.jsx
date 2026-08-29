@@ -15,11 +15,12 @@ import {
   soundRacerLadder,
   buildTrack,
   buildSoundRacerTutorial,
+  buildSoundRacerEvidenceResult,
   worldObstacles
 } from "../../../../utils/soundRacerTracks.js";
 import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils/curriculumLadder.js";
-import { starRubric } from "../../../../utils/starRubric.js";
 import { hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import { getLedaInstructionAudioPath } from "../../../../data/ledaProductionAudio.js";
@@ -412,7 +413,8 @@ function startGame(THREE, mount, opts) {
     '<div data-sr-panel="target" style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:12px;background:rgba(7,10,22,.72);border:1px solid rgba(255,255,255,.18);box-shadow:0 10px 24px rgba(0,0,0,.25);padding:8px 14px 8px 8px;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)">' +
       '<div data-sr="target" style="width:54px;height:54px;display:grid;place-items:center;font-size:1.85rem;font-weight:900;color:#071033;background:#ffd34e;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22)"></div>' +
       '<div><div data-sr="mission" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.76">Catch the sound</div>' +
-      '<div data-sr="map" style="font-size:1.02rem;font-weight:800;white-space:nowrap">Track 1</div></div></div>' +
+      '<div data-sr="map" style="font-size:1.02rem;font-weight:800;white-space:nowrap">Track 1</div></div>' +
+      '<button data-sr="hear-target" type="button" aria-label="Hear the target sound again" style="min-width:56px;min-height:56px;padding:6px 10px;border:2px solid rgba(255,255,255,.68);background:#7cf0b6;color:#071033;font:900 .78rem/1.05 var(--kid-font-display,Fredoka,sans-serif);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2);pointer-events:auto;cursor:pointer">Hear<br>sound</button></div>' +
     '<div data-sr-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.62);border:1px solid rgba(255,255,255,.16);padding:9px 12px;min-width:160px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-sr="timer" style="font-size:1.15rem;font-weight:900;font-variant-numeric:tabular-nums">0:00.00</div>' +
       '<div data-sr="words" style="font-size:.98rem;opacity:.9">0 / 0 words</div>' +
@@ -423,7 +425,7 @@ function startGame(THREE, mount, opts) {
     '<div style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:12px;pointer-events:none">' +
       '<div style="width:58px;height:50px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px);font-size:1.4rem">◀</div>' +
       '<div style="width:58px;height:50px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px);font-size:1.4rem">▶</div></div>' +
-    '<div data-sr="banner" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:900;font-size:clamp(1.25rem,5vw,2.5rem);letter-spacing:.12em;text-transform:uppercase;color:#f5fbff;text-shadow:0 3px 18px rgba(0,0,0,.7);opacity:0;transition:opacity .25s ease,transform .25s ease;transform:translateX(-36px)"></div>' +
+    '<div data-sr="banner" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:900;font-size:clamp(1.25rem,5vw,2.5rem);letter-spacing:.12em;text-transform:uppercase;color:#f5fbff;text-shadow:0 3px 18px rgba(0,0,0,.7);opacity:0;transition:opacity .25s ease,transform .25s ease;transform:translateX(-36px)"></div>' +
     '<div data-sr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(9,12,30,.62),rgba(5,7,18,.24));z-index:12"></div>' +
     '<div style="position:absolute;inset:0;pointer-events:none;z-index:14;opacity:.16;background:repeating-linear-gradient(0deg,rgba(255,255,255,.16) 0,rgba(255,255,255,.16) 1px,rgba(0,0,0,0) 1px,rgba(0,0,0,0) 4px);mix-blend-mode:overlay"></div>' +
     '<div data-sr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 24%,rgba(25,34,72,.76),rgba(5,7,18,.95));pointer-events:auto;z-index:20"></div>';
@@ -2703,20 +2705,15 @@ function startGame(THREE, mount, opts) {
     running = false;
     hideOverlay();
     showCountdown(target);
-    // Speak the target sound at countdown (single letters get the pure phoneme
-    // clip; digraphs get an example word from the track, since speakPhoneme
-    // only handles one letter).
-    if (/^[a-z]$/.test(target)) {
-      sfx(() => speakPhoneme(target));
-    } else {
-      const example = track.gates.find(gate => gate.correct)?.word;
-      if (example) sfx(() => speakWord(example));
-    }
+    // Replay the exact target phoneme at countdown. The approved phoneme bank
+    // includes both single letters and the digraphs used by this ladder.
+    sfx(() => speakPhoneme(target));
     showBanner(`Track ${levelIdx + 1} — ${currentMap.name}`);
 
     el("target").textContent = target;
     el("mission").textContent = instructionFor(difficulty);
     el("map").textContent = currentMap.name;
+    el("hear-target")?.setAttribute("aria-label", `Hear ${String(target).toUpperCase()} sound again`);
     updateHud();
 
     opts.onCheckpoint?.(levelIdx, levelCount);
@@ -2759,9 +2756,15 @@ function startGame(THREE, mount, opts) {
     const wordsEl = el("words");
     const shieldEl = el("shield");
     const speedEl = el("speed");
+    const hearTargetEl = el("hear-target");
+    const replayAvailable = opts.getSound ? opts.getSound() : opts.isSoundEnabled !== false;
     if (timerEl) timerEl.textContent = formatTime(timeMs);
     if (wordsEl) wordsEl.textContent = `${wordsCorrect} / ${track.needed} words`;
     if (shieldEl) shieldEl.textContent = "◆".repeat(Math.max(0, shield)) + "◇".repeat(Math.max(0, 3 - shield));
+    if (hearTargetEl) {
+      hearTargetEl.hidden = !replayAvailable;
+      hearTargetEl.disabled = !replayAvailable;
+    }
     if (speedEl) {
       const maxSpeed = 11.2;
       speedEl.style.background = "#" + currentMap.gate.toString(16).padStart(6, "0");
@@ -2825,7 +2828,11 @@ function startGame(THREE, mount, opts) {
         addScore(100 + Math.max(0, shield - 1) * 15);
         sfx(playCorrectChime);
         sfx(playWhoosh);
-        sfx(() => speakWord(obj.word));
+        // The exact target phoneme is recorded for every live track. Some gate
+        // words do not yet have an approved whole-word clip, so reinforce the
+        // caught onset instead of allowing apparently random silent successes.
+        sfx(() => speakPhoneme(track.target));
+        showBanner(`${obj.word} starts with ${String(track.target).toUpperCase()} ✓`);
         addBurst(LANES[obj.lane], 1.1, CATCH_Z, currentMap.gate, 20);
       }
     } else if (obj.kind === "obstacle" && hit) {
@@ -2851,11 +2858,14 @@ function startGame(THREE, mount, opts) {
   }
 
   function levelResult() {
-    const mistakes = wordsWrong + missedCorrect + obstaclesHit;
-    const total = wordsCorrect + mistakes;
-    const stars = starRubric({ correct: wordsCorrect, total, mistakes, deaths: 0 });
-    const accuracy = total > 0 ? Math.round((wordsCorrect / total) * 100) : 0;
-    return { correct: wordsCorrect, total, mistakes, stars, accuracy, score, timeMs };
+    return buildSoundRacerEvidenceResult({
+      wordsCorrect,
+      wordsWrong,
+      missedCorrect,
+      obstaclesHit,
+      score,
+      timeMs
+    });
   }
 
   function completeLevel() {
@@ -2890,7 +2900,7 @@ function startGame(THREE, mount, opts) {
         '<div aria-hidden="true" style="width:68px;height:68px;display:grid;place-items:center;border-radius:50%;background:#7cf0b6;color:#071033;font-size:2.6rem;font-weight:950">✓</div>' +
         `<div style="font-size:2rem;font-weight:900">Track cleared</div>` +
         (isNewBest ? '<div style="font-size:1rem;font-weight:900;color:#071033;background:#ffd34e;padding:6px 18px">New best split</div>' : "") +
-        `<div style="font-size:1.08rem;line-height:1.9;text-align:left;min-width:230px">Time <b>${formatTime(result.timeMs)}</b><br>Words <b>${result.correct} / ${track.needed}</b><br>Accuracy <b>${result.accuracy}%</b><br>Stars <b>${"★".repeat(result.stars)}${"✩".repeat(3 - result.stars)}</b></div>` +
+        `<div style="font-size:1.08rem;line-height:1.9;text-align:left;min-width:230px">Time <b>${formatTime(result.timeMs)}</b><br>Words <b>${result.correct} / ${track.needed}</b><br>Sound accuracy <b>${result.accuracy}%</b><br>Stars <b>${"★".repeat(result.stars)}${"✩".repeat(3 - result.stars)}</b></div>` +
         '<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">' +
           '<button data-sr="retry" aria-label="Retry this track" style="min-height:56px;font-family:inherit;font-weight:900;font-size:1.05rem;color:#f8fbff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:13px 22px;cursor:pointer">↻ Retry track</button>' +
           '<button data-sr="next" aria-label="Go to the next map" style="min-height:56px;font-family:inherit;font-weight:900;font-size:1.05rem;color:#071033;background:#ffd34e;border:0;padding:13px 24px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Next map</button>' +
@@ -2916,9 +2926,11 @@ function startGame(THREE, mount, opts) {
   function finishRun() {
     const results = levelResults.filter(Boolean);
     const correct = results.reduce((sum, item) => sum + item.correct, 0);
-    const total = results.reduce((sum, item) => sum + item.total, 0);
     const mistakes = results.reduce((sum, item) => sum + item.mistakes, 0);
-    const stars = starRubric({ correct, total, mistakes, deaths: 0 });
+    const stars = buildSoundRacerEvidenceResult({
+      wordsCorrect: correct,
+      wordsWrong: mistakes
+    }).stars;
     sfx(playCelebrationFanfare);
     overlayCueTimer = queueRecordedCue(getLedaInstructionAudioPath("Great job"), 1100);
     opts.onProgressUpdate?.(levelCount, levelCount);
@@ -2954,13 +2966,25 @@ function startGame(THREE, mount, opts) {
 
   const onLeft = () => moveLane(-1);
   const onRight = () => moveLane(1);
-  // Keyboard activation (Enter/Space) fires click with detail 0; pointer taps
-  // already steered on pointerdown, so the steer zones only forward detail 0
-  // clicks to steering (handled inside attachSteerZones).
-  const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight, keyboardClick: true });
+  // Pointer steering commits on release; native Enter/Space clicks keep the
+  // same action reachable without creating a second pointer activation.
+  const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight });
   opts.registerCleanup?.(detachSteerZones);
 
+  const hearTargetButton = el("hear-target");
+  const replayTargetSound = event => {
+    event?.preventDefault();
+    event?.stopPropagation();
+    const target = String(track?.target || "").toLowerCase();
+    if (!target) return;
+    sfx(playTapSound);
+    sfx(() => speakPhoneme(target));
+  };
+  hearTargetButton?.addEventListener("click", replayTargetSound);
+  opts.registerCleanup?.(() => hearTargetButton?.removeEventListener("click", replayTargetSound));
+
   const onKey = event => {
+    if (isInteractiveKeyTarget(event.target)) return;
     const direction = laneDirectionForKey(event.key);
     if (!direction) return;
     event.preventDefault();
@@ -3047,7 +3071,9 @@ function startGame(THREE, mount, opts) {
         // gets a lane callout instead of the word landing in their lap.
         obj.hintShown = true;
         showBanner(`${obj.word} — ${LANE_NAMES[obj.lane]} lane!`);
-        sfx(() => speakWord(obj.word));
+        sfx(() => hasRecordedSpeech(obj.word)
+          ? speakWord(obj.word)
+          : speakPhoneme(track.target));
       }
       if (distance <= CATCH_WINDOW) resolveGate(obj);
     }
@@ -3203,6 +3229,7 @@ function startGame(THREE, mount, opts) {
     resume();
   }
   function onIntroKey(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     const key = String(event.key || "").toLowerCase();
     const activates = key === " " || key === "enter" || key === "arrowleft" || key === "arrowright" || key === "a" || key === "d";
     if (!activates) return;

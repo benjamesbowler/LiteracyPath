@@ -9,6 +9,7 @@ import {
 } from "../../../../utils/audio/gameSfx.js";
 import { cancelSpeech, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { rhymePopLadder, rhymePopStars } from "../../../../utils/rhymePopLevels.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import {
   TWO_PI,
   clamp,
@@ -1160,6 +1161,7 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function onKeyDown(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     // Any key starts play from the intro card (Esc stays with the chrome).
     if (state.onboarding) {
       if (event.key === "Escape") return;

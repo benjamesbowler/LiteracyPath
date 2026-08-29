@@ -25,9 +25,9 @@ test("Letter Leap production-word replay is reachable, sized for children, and f
   expect(box?.height).toBeGreaterThanOrEqual(56);
   await hear.click();
 
-  await page.getByRole("button", { name: "Turn game sound off", exact: true }).click();
+  await page.getByRole("button", { name: "Turn spoken audio and game sounds off", exact: true }).click();
   await expect(hear).toBeHidden();
-  await page.getByRole("button", { name: "Turn game sound on", exact: true }).click();
+  await page.getByRole("button", { name: "Turn spoken audio and game sounds on", exact: true }).click();
   await expect(hear).toBeVisible();
   expect(pageErrors).toEqual([]);
 });

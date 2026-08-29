@@ -5,6 +5,7 @@ import * as THREE from "three";
 import {
   QUALITY_TIERS,
   loadThree,
+  resolveSteerRelease,
   setTextureSrgb
 } from "../../src/components/learn/games/shared/threeShell.js";
 import {
@@ -74,4 +75,23 @@ test("pausing a 3D arcade surface clears every held keyboard and pointer input",
     boost: false
   });
   assert.deepEqual(pointer, { active: false, steer: 0, throttle: 0 });
+});
+
+test("shared lane steering resolves taps, cross-zone swipes and drag-away cancellation", () => {
+  const rect = { left: 0, right: 120, top: 0, bottom: 200 };
+  assert.equal(resolveSteerRelease({ startX: 50, startY: 80, endX: 53, endY: 82, rect, tapDirection: -1 }), -1);
+  assert.equal(resolveSteerRelease({ startX: 50, startY: 80, endX: 150, endY: 84, rect, tapDirection: -1 }), 1);
+  assert.equal(resolveSteerRelease({ startX: 50, startY: 80, endX: -8, endY: 150, rect, tapDirection: -1 }), 0);
+});
+
+test("shared lane steering commits on release and clears every cancellation path", () => {
+  const sharedSource = fs.readFileSync(
+    "src/components/learn/games/shared/threeShell.js",
+    "utf8"
+  );
+  assert.match(sharedSource, /element\.addEventListener\("pointerup", onUp\)/);
+  assert.match(sharedSource, /element\.addEventListener\("pointercancel", clear\)/);
+  assert.match(sharedSource, /element\.addEventListener\("lostpointercapture", clear\)/);
+  assert.match(sharedSource, /activateDirection\(direction\)/);
+  assert.doesNotMatch(sharedSource, /addEventListener\("pointerdown", onLeft\)/);
 });

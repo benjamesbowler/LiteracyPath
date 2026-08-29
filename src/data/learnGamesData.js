@@ -348,11 +348,11 @@ export const GAME_LIST = [
   {
     id: "sound-beat",
     title: "Sound Beat",
-    skill: "Tap and blend sounds to the beat",
+    skill: "Choose and blend sounds in order",
     category: "Phonics",
     ...GAME_ACCENTS.violet,
     icon: "/images/learn-games/icon-sound-slide.png",
-    description: "Tap each sound on the beat, then blend it into the word.",
+    description: "Choose each matching sound, then use GO to blend the word.",
     fullBleed: true,
     surfaces: ["arcade"]
   },

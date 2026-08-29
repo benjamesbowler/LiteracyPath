@@ -1,8 +1,9 @@
 import { normalizeSoundKeyEvent } from "./engine.js";
+import { isInteractiveKeyTarget } from "../../utils/interactiveEventTarget.js";
 
 export function createComputerKeyboardProvider(onEvent) {
   const handler = event => {
-    if (event.repeat) return;
+    if (event.repeat || isInteractiveKeyTarget(event.target)) return;
     const key = String(event.key || "").toLowerCase();
     if (/^[a-z]$/.test(key)) onEvent({ type: "token", token: key, source: "computer" });
     if (key === "backspace") onEvent({ type: "control", action: "clear" });

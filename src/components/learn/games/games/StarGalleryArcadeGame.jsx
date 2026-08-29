@@ -9,6 +9,7 @@ import {
 } from "../../../../utils/audio/gameSfx.js";
 import { starGalleryLadder, starGalleryStars } from "../../../../utils/starGalleryRounds.js";
 import { cancelSpeech, speak } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import {
   createRenderer,
   createScene,
@@ -1954,6 +1955,7 @@ function createStarGalleryEngine(mount, options) {
   const loop = createFrameLoop(animate);
 
   function onKeyDown(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     if (state.ended || state.paused) return;
     const horizontal = laneDirectionForKey(event.key);
     const vertical = verticalDirectionForKey(event.key);
@@ -2089,6 +2091,7 @@ function createStarGalleryEngine(mount, options) {
     frameTimer.resume(); // discard the time spent reading, so the countdown doesn't lurch
   }
   function onIntroKey(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
     dismissIntro();

@@ -4,10 +4,15 @@ import {
   soundRacerLadder,
   buildTrack,
   buildSoundRacerTutorial,
+  buildSoundRacerEvidenceResult,
   worldObstacles
 } from "../../src/utils/soundRacerTracks.js";
 import { AUDIO_FILE_PATHS } from "../../src/data/generated/audioFilePaths.generated.js";
-import { rocketRunTargets } from "../../src/utils/rocketRunRounds.js";
+import { getPreferredPhonemeAudioPath } from "../../src/data/phonemeAudioBank.js";
+import {
+  rocketRunTargets,
+  wordStartsWithTargetSound
+} from "../../src/utils/rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
 import { getLedaWordAudioPath } from "../../src/data/ledaProductionAudio.js";
 
@@ -100,20 +105,56 @@ test("every track starts with 10 unique correct words and no repeated word gates
   }
 });
 
+test("every correct word stays inside its difficulty length band", () => {
+  const ranges = { easy: [2, 4], medium: [3, 5], hard: [4, 6] };
+  for (const [difficulty, [min, max]] of Object.entries(ranges)) {
+    for (const g of soundRacerLadder(difficulty)) {
+      for (const seed of [0, 7, 42]) {
+        const correctWords = buildTrack(g, { difficulty, seed }).gates
+          .filter(gate => gate.correct)
+          .map(gate => gate.word);
+        assert.equal(correctWords.length, 10, `${g}/${difficulty}/${seed} must have ten targets`);
+        assert.ok(
+          correctWords.every(word => word.length >= min && word.length <= max),
+          `${g}/${difficulty}/${seed} left the ${min}-${max} letter band: ${correctWords.join(", ")}`
+        );
+      }
+    }
+  }
+});
+
 // 3. Every "word" gate marked correct:false is sound-distinct from the target
 test("every distractor is sound-distinct from the target", () => {
   for (const g of TEST_TARGETS) {
     for (const d of ["easy", "medium", "hard"]) {
-      const track = buildTrack(g, { difficulty: d, seed: 1 });
-      for (const gate of track.gates) {
-        if (gate.kind === "word" && !gate.correct) {
-          assert.ok(
-            !sharesSound(onsetGrapheme(gate.word), g),
-            `${g}: distractor "${gate.word}" shares sound with target`
-          );
+      for (const seed of [1, 2, 3, 9, 27, 57]) {
+        const track = buildTrack(g, { difficulty: d, seed });
+        for (const gate of track.gates) {
+          if (gate.kind === "word" && !gate.correct) {
+            assert.ok(
+              !sharesSound(onsetGrapheme(gate.word), g),
+              `${g}/${d}/${seed}: distractor "${gate.word}" shares sound with target`
+            );
+          }
         }
       }
     }
+  }
+});
+
+test("alternate onset spellings never become false-negative gates", () => {
+  for (const [target, difficulty, seed, forbidden] of [
+    ["n", "medium", 2, "known"],
+    ["r", "medium", 1, "wrote"],
+    ["s", "medium", 9, "city"],
+    ["y", "hard", 3, "europe"],
+    ["y", "hard", 27, "unit"],
+    ["wh", "hard", 57, "once"]
+  ]) {
+    const distractors = buildTrack(target, { difficulty, seed }).gates
+      .filter(gate => gate.kind === "word" && !gate.correct)
+      .map(gate => gate.word);
+    assert.ok(!distractors.includes(forbidden), `${forbidden} must not be a /${target}/ distractor`);
   }
 });
 
@@ -148,9 +189,9 @@ test("tutorial example always matches the current level target and has recorded 
         assert.equal(tutorial.target, target, `${difficulty}/${level}/${seed}: tutorial target drifted`);
         assert.equal(tutorial.targetLabel, target.toUpperCase());
         assert.equal(
-          onsetGrapheme(tutorial.exampleWord),
-          target,
-          `${difficulty}/${level}/${seed}: "${tutorial.exampleWord}" does not model ${target}`
+          wordStartsWithTargetSound(tutorial.exampleWord, target),
+          true,
+          `${difficulty}/${level}/${seed}: "${tutorial.exampleWord}" does not model the ${target} cue`
         );
         assert.equal(
           hasRecordedWordAudio(tutorial.exampleWord),
@@ -174,19 +215,32 @@ test("hard ladder includes digraphs, easy ladder does not", () => {
 });
 
 // 6. Every correct word truly begins with the target
-test("every correct word truly begins with the target", () => {
+test("every correct word begins with the exact target sound, not only its spelling", () => {
   for (const g of TEST_TARGETS) {
     for (const d of ["easy", "medium", "hard"]) {
       const track = buildTrack(g, { difficulty: d, seed: 1 });
       for (const gate of track.gates) {
         if (gate.correct) {
-          assert.equal(
-            onsetGrapheme(gate.word),
-            g,
-            `${g}: correct word "${gate.word}" does not begin with ${g}`
-          );
+          assert.equal(wordStartsWithTargetSound(gate.word, g), true,
+            `${g}: correct word "${gate.word}" does not begin with the production cue`);
         }
       }
+    }
+  }
+});
+
+test("ambiguous spellings never earn target-sound credit", () => {
+  for (const [target, rejected] of Object.entries({
+    c: ["city", "cent"],
+    g: ["gem", "giant"],
+    a: ["apron", "angle"],
+    e: ["each", "even", "europe"],
+    i: ["iron", "item", "invite"],
+    o: ["only", "over", "ocean"],
+    th: ["the", "them", "though", "that"]
+  })) {
+    for (const word of rejected) {
+      assert.equal(wordStartsWithTargetSound(word, target), false, `${word} must not model ${target}`);
     }
   }
 });
@@ -255,4 +309,58 @@ test("worldObstacles maps worlds correctly", () => {
   assert.equal(worldObstacles("moonwood"), "cloudbank");
   assert.equal(worldObstacles("unknown"), "rock");
   assert.equal(worldObstacles("MEADOW"), "haybale");
+});
+
+test("every Sound Racer target has an exact approved replay phoneme", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    for (const target of soundRacerLadder(difficulty)) {
+      assert.ok(
+        getPreferredPhonemeAudioPath(target),
+        `${difficulty} target ${target} has no approved phoneme replay`
+      );
+    }
+  }
+});
+
+test("race pressure never lowers Sound Racer literacy evidence", () => {
+  const cleanRun = buildSoundRacerEvidenceResult({
+    wordsCorrect: 10,
+    wordsWrong: 0,
+    missedCorrect: 0,
+    obstaclesHit: 0,
+    score: 1000,
+    timeMs: 95_000
+  });
+  const recoveredRun = buildSoundRacerEvidenceResult({
+    wordsCorrect: 10,
+    wordsWrong: 0,
+    missedCorrect: 7,
+    obstaclesHit: 12,
+    score: 740,
+    timeMs: 130_000
+  });
+
+  assert.equal(cleanRun.accuracy, 100);
+  assert.equal(recoveredRun.accuracy, cleanRun.accuracy);
+  assert.equal(recoveredRun.stars, cleanRun.stars);
+  assert.equal(recoveredRun.mistakes, 0);
+  assert.deepEqual(recoveredRun.raceEvents, {
+    missedTargetEvents: 7,
+    obstacleHits: 12
+  });
+});
+
+test("only a caught wrong word lowers Sound Racer literacy evidence", () => {
+  const result = buildSoundRacerEvidenceResult({
+    wordsCorrect: 9,
+    wordsWrong: 1,
+    missedCorrect: 4,
+    obstaclesHit: 3
+  });
+
+  assert.equal(result.correct, 9);
+  assert.equal(result.total, 10);
+  assert.equal(result.mistakes, 1);
+  assert.equal(result.accuracy, 90);
+  assert.equal(result.stars, 2);
 });

@@ -15,6 +15,7 @@ import {
   reelReadStars
 } from "../../../../utils/reelReadLevels.js";
 import { speakWord } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
 
 const THEMES = {
@@ -1106,6 +1107,7 @@ function startGame(mount, opts) {
   }
 
   function onKeyDown(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
     if (introOpen) {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
@@ -1130,17 +1132,18 @@ function startGame(mount, opts) {
 
   function onKeyUp(event) {
     if (introOpen) return;
+    const interactiveTarget = isInteractiveKeyTarget(event.target);
     const direction = laneDirectionForKey(event.key);
     if (direction < 0) {
-      event.preventDefault();
+      if (!interactiveTarget) event.preventDefault();
       keys.left = false;
     }
     if (direction > 0) {
-      event.preventDefault();
+      if (!interactiveTarget) event.preventDefault();
       keys.right = false;
     }
     if (isActionKey(event.key)) {
-      event.preventDefault();
+      if (!interactiveTarget) event.preventDefault();
       keys.cast = false;
     }
   }

@@ -1,10 +1,12 @@
 import {
   rocketRunLadder,
-  wordsStartingWith
+  wordStartsWithTargetSound,
+  wordsStartingWithTargetSound
 } from "./rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../components/elQuest/elQuestEngine.js";
 import { LETTER_EXAMPLES } from "../data/elSkillsBlockCycles.js";
 import { CVC_WORDS, SIGHT_WORDS } from "../data/learnGamesData.js";
+import { starRubric } from "./starRubric.js";
 
 const SOUND_RACER_EXTRA_WORDS = {
   a: ["ask", "after", "again", "along", "away", "animal", "answer", "angle", "ankle", "apron", "artist", "always"],
@@ -127,13 +129,9 @@ function buildDeterministicRound(target, { count, difficulty, rng }) {
   const range = LEN_RANGE[String(difficulty || "").toLowerCase()];
   const inRange = w => !range || (w.length >= range[0] && w.length <= range[1]);
 
-  // Correct pool: words that truly start with the target grapheme.
-  const correctPool = [
-    ...new Set([
-      ...wordsStartingWith(g),
-      ...ALL_WORDS.filter(word => onsetGrapheme(word) === g)
-    ])
-  ];
+  // Correct pool: words that match the exact production phoneme cue. Spelling
+  // alone is insufficient for short vowels, hard c/g and voiced/unvoiced th.
+  const correctPool = wordsStartingWithTargetSound(g);
   let cp = correctPool.filter(inRange);
   if (cp.length < count) cp = correctPool;
   const correct = shuffleSeeded([...new Set(cp)], rng).slice(0, Math.max(0, count));
@@ -170,7 +168,7 @@ export function buildSoundRacerTutorial(track, { hasRecordedAudio = () => true }
   const matchingGates = (track?.gates || []).filter(gate => (
     gate?.kind === "word"
     && gate.correct === true
-    && onsetGrapheme(gate.word) === target
+    && wordStartsWithTargetSound(gate.word, target)
   ));
   const exampleGate = matchingGates.find(gate => hasRecordedAudio(gate.word));
   if (!exampleGate?.word) {
@@ -183,6 +181,40 @@ export function buildSoundRacerTutorial(track, { hasRecordedAudio = () => true }
     exampleWord,
     phonicsInstruction: `Listen: ${target.toUpperCase()} starts ${exampleWord}.`,
     motorInstruction: "Steer left or right to catch matching words. Dodge everything else."
+  });
+}
+
+/**
+ * Build the learning result separately from the race-pressure telemetry.
+ * Steering past a correct gate queues another opportunity and hitting scenery
+ * affects the ship, but neither action demonstrates an incorrect sound choice.
+ */
+export function buildSoundRacerEvidenceResult({
+  wordsCorrect = 0,
+  wordsWrong = 0,
+  missedCorrect = 0,
+  obstaclesHit = 0,
+  score = 0,
+  timeMs = 0
+} = {}) {
+  const correct = Math.max(0, Number(wordsCorrect) || 0);
+  const mistakes = Math.max(0, Number(wordsWrong) || 0);
+  const total = correct + mistakes;
+  const stars = starRubric({ correct, total, mistakes, deaths: 0 });
+  const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+  return Object.freeze({
+    correct,
+    total,
+    mistakes,
+    stars,
+    accuracy,
+    score: Math.max(0, Number(score) || 0),
+    timeMs: Math.max(0, Number(timeMs) || 0),
+    raceEvents: Object.freeze({
+      missedTargetEvents: Math.max(0, Number(missedCorrect) || 0),
+      obstacleHits: Math.max(0, Number(obstaclesHit) || 0)
+    })
   });
 }
 

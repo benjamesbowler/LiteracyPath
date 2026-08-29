@@ -18,15 +18,15 @@ const ALL_WORDS = [...new Set(Object.values(LETTER_EXAMPLES).flat())].filter(CLE
 // Keys intentionally match the existing rocketRunTargets() set exactly, so no
 // new grapheme (u, qu, x) is promoted into a target by accident.
 const EXTRA_WORDS = {
-  a: ["add", "am", "an", "and", "as", "ask", "at", "act", "ash", "alley", "ankle", "arrow", "actor", "after", "angry", "animal", "answer"],
+  a: ["add", "am", "an", "and", "as", "ask", "at", "act", "ash", "alley", "ankle", "arrow", "actor", "after", "angry", "animal", "answer", "apple", "attic", "action", "adder", "album", "anchor"],
   m: ["mad", "man", "men", "milk", "mop", "mud", "mug", "mom", "mitt", "moss", "melon", "muffin"],
   t: ["tag", "tan", "ten", "tin", "tip", "toe", "toy", "tub", "tug", "tall", "tick", "toast"],
   s: ["sad", "sap", "set", "six", "sob", "sand", "seed", "sick", "sing", "soap", "soft", "sour"],
   n: ["nag", "new", "nod", "not", "nut", "nail", "near", "neck", "need", "nine", "noon", "note"],
-  i: ["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor"],
+  i: ["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant"],
   f: ["fat", "fed", "fin", "fit", "fog", "fun", "fur", "fall", "fast", "feet", "five", "flag"],
   d: ["dad", "dam", "day", "den", "did", "dim", "dip", "dot", "dark", "dish", "doll", "down"],
-  o: ["odd", "off", "old", "olive", "omelet", "opera", "orbit", "onset", "often", "orange", "oxygen"],
+  o: ["odd", "off", "old", "olive", "omelet", "opera", "orbit", "onset", "often", "orange", "oxygen", "onto", "oxen", "offer", "oddly"],
   l: ["lab", "lad", "leg", "lid", "lip", "lit", "lot", "luck", "lamb", "lake", "list", "lock"],
   r: ["rag", "rat", "ray", "rib", "rip", "rob", "rod", "row", "rain", "rest", "ring", "rock"],
   h: ["had", "ham", "hay", "hid", "hit", "hot", "hug", "hut", "hand", "hard", "help", "hill"],
@@ -40,12 +40,27 @@ const EXTRA_WORDS = {
   v: ["vat", "vow", "vast", "veil", "vent", "verb", "very", "veto", "void", "vote"],
   k: ["keg", "key", "kin", "keen", "keep", "kelp", "kept", "kick", "kind", "king", "kiss"],
   j: ["jab", "jar", "jaw", "jig", "job", "jog", "joy", "jail", "jazz", "jeep", "joke", "just"],
-  z: ["zag", "zen", "zig", "zit", "zany", "zest", "zinc", "zone", "zoom", "zebra", "zipper"],
+  z: ["zag", "zen", "zig", "zit", "zany", "zest", "zinc", "zone", "zoom", "zebra", "zipper", "zero", "zigzag", "zesty", "zippy", "zombie"],
   sh: ["she", "shy", "shed", "shoe", "shot", "show", "shade", "shake", "share", "sharp", "sheet", "shine", "shirt", "short"],
   ch: ["chew", "chain", "chalk", "champ", "chase", "check", "cheek", "cheer", "chest", "chick", "child", "chill", "chime", "chunk"],
   th: ["than", "the", "them", "then", "they", "this", "thud", "thank", "thick", "thief", "thorn", "those", "throw", "thump"],
   wh: ["why", "whip", "whiz", "whale", "wheat", "wheel", "where", "which", "while", "white"]
 };
+
+// Targets whose spelling does not guarantee one initial phoneme need an
+// explicit, dialect-conscious pool. These lists match the production cue used
+// by the listening games: short a/e/i/o, hard c/g and unvoiced th. Without this
+// boundary, words such as city, item or them can be scored against a different
+// sound even though their first printed grapheme matches.
+const TARGET_SOUND_OVERRIDES = Object.freeze({
+  a: Object.freeze(["add", "am", "an", "and", "as", "at", "act", "ash", "alley", "ankle", "actor", "angry", "animal", "apple", "attic", "action", "adder", "album", "anchor"]),
+  e: Object.freeze(["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "engine", "empty", "echo", "ember"]),
+  i: Object.freeze(["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant"]),
+  o: Object.freeze(["odd", "off", "on", "ox", "olive", "omelet", "opera", "onset", "otter", "option", "object", "optic", "onto", "oxen", "offer", "oddly"]),
+  c: Object.freeze(["cab", "cat", "can", "cap", "car", "cod", "cop", "cow", "cub", "cut", "cake", "call", "camp", "card", "coat", "cold", "cook", "cool", "corn"]),
+  g: Object.freeze(["gas", "get", "got", "guy", "game", "gate", "girl", "give", "glad", "goal", "gold", "golf", "good", "grin", "green", "grow", "grab", "glow", "grape", "grass"]),
+  th: Object.freeze(["thin", "thud", "thank", "thick", "thief", "thorn", "throw", "thump", "thumb", "three", "thread", "thrill", "throat", "thing"])
+});
 
 function shuffle(items) {
   const copy = [...items];
@@ -67,13 +82,29 @@ export function wordsStartingWith(grapheme) {
     .filter(word => onsetGrapheme(word) === g);
 }
 
+export function wordStartsWithTargetSound(word, grapheme) {
+  const g = String(grapheme || "").toLowerCase();
+  const normalizedWord = String(word || "").toLowerCase();
+  const override = TARGET_SOUND_OVERRIDES[g];
+  return override
+    ? override.includes(normalizedWord)
+    : onsetGrapheme(normalizedWord) === g;
+}
+
+export function wordsStartingWithTargetSound(grapheme) {
+  const g = String(grapheme || "").toLowerCase();
+  const override = TARGET_SOUND_OVERRIDES[g];
+  const source = override || wordsStartingWith(g);
+  return [...new Set(source)].filter(CLEAN).filter(word => wordStartsWithTargetSound(word, g));
+}
+
 // Graphemes that make a valid "which starts with this sound?" target: at least a
 // few decodable words genuinely begin with them. Naturally excludes final-only
 // graphemes (x, all, ng, nk) and multi-letter pattern rows.
 export function rocketRunTargets(minCorrect = 3) {
   return Object.keys(LETTER_EXAMPLES)
     .filter(g => /^[a-z]{1,2}$/.test(g) && g !== "qu")
-    .filter(g => wordsStartingWith(g).length >= minCorrect);
+    .filter(g => wordsStartingWithTargetSound(g).length >= minCorrect);
 }
 
 function uniqueSample(pool, n) {
@@ -90,7 +121,7 @@ export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty } = 
   const range = LEN_RANGE[String(difficulty || "").toLowerCase()];
   const inRange = w => !range || (w.length >= range[0] && w.length <= range[1]);
 
-  const correctPool = wordsStartingWith(g);
+  const correctPool = wordsStartingWithTargetSound(g);
   let cp = correctPool.filter(inRange);
   if (cp.length < 3) cp = correctPool;                 // never starve a small sound
   const correct = uniqueSample(cp, count);             // distinct, no cycling/repeats

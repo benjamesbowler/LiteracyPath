@@ -15,6 +15,7 @@ import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { wordBridgeLadder } from "../../../../utils/wordBridgeLevels.js";
 import { speak, speakWord, cancelSpeech, hasRecordedSpeech } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { isPrimaryActionKey, laneDirectionForKey } from "../shared/premiumGameStandard.js";
 
 const WORLD_THEME = {
@@ -107,6 +108,14 @@ function clamp(value, min, max) {
 
 function normalizeGlyph(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function mismatchFeedback(selected, needed, belongsLater = false) {
+  const selectedLabel = String(selected || "this tile");
+  const neededLabel = String(needed || "the shown tile");
+  return belongsLater
+    ? `${selectedLabel} belongs later. This space needs ${neededLabel}.`
+    : `You chose ${selectedLabel}. This space needs ${neededLabel}. Try again.`;
 }
 
 function roundRect(ctx, x, y, w, h, r) {
@@ -313,7 +322,7 @@ function startGame(mount, opts) {
       '<div data-wb="stars" style="font-size:1.22rem;letter-spacing:2px;color:#ffd34e;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))">☆☆☆</div>' +
       '<div data-wb="world" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.84;margin-top:2px">Meadow</div>' +
       '<div style="height:8px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:7px"><i data-wb="patience" style="display:block;height:100%;width:100%;background:#ffd34e;transition:width .18s ease"></i></div></div>' +
-    '<div data-wb="banner" style="position:absolute;top:31%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:950;font-size:clamp(1.3rem,5vw,2.65rem);letter-spacing:.11em;text-transform:uppercase;color:#f8fbff;text-shadow:0 4px 20px rgba(0,0,0,.76);opacity:0;transform:translateY(16px);transition:opacity .22s ease,transform .22s ease"></div>';
+    '<div data-wb="banner" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;top:31%;left:0;right:0;padding:0 18px;text-align:center;pointer-events:none;font-style:italic;font-weight:950;font-size:clamp(1.1rem,4.2vw,2.35rem);letter-spacing:.07em;text-transform:uppercase;color:#f8fbff;text-shadow:0 4px 20px rgba(0,0,0,.76);opacity:0;transform:translateY(16px);transition:opacity .22s ease,transform .22s ease"></div>';
   mount.appendChild(hud);
 
   const elTarget = hud.querySelector('[data-wb="target"]');
@@ -324,6 +333,7 @@ function startGame(mount, opts) {
   const elPatience = hud.querySelector('[data-wb="patience"]');
   const elBanner = hud.querySelector('[data-wb="banner"]');
   const elHear = hud.querySelector('[data-wb="hear"]');
+  if (reduceMotion) elBanner.style.transition = "none";
 
   function targetSpeechText() {
     if (!currentLevel) return "";
@@ -486,6 +496,7 @@ function startGame(mount, opts) {
 
   function onKeyDown(e) {
     if (!keysActive()) return;
+    if (isInteractiveKeyTarget(e.target)) return;
     const direction = laneDirectionForKey(e.key);
     if (direction < 0) {
       e.preventDefault();
@@ -511,17 +522,18 @@ function startGame(mount, opts) {
     // Always release key state (the phase may have changed mid-press), but
     // only swallow the event while the game is interactive.
     const active = keysActive();
+    const interactiveTarget = isInteractiveKeyTarget(e.target);
     const direction = laneDirectionForKey(e.key);
     if (direction < 0) {
-      if (active) e.preventDefault();
+      if (active && !interactiveTarget) e.preventDefault();
       keys.left = false;
     }
     if (direction > 0) {
-      if (active) e.preventDefault();
+      if (active && !interactiveTarget) e.preventDefault();
       keys.right = false;
     }
     if (isActionKey(e.key)) {
-      if (active) e.preventDefault();
+      if (active && !interactiveTarget) e.preventDefault();
       keys.action = false;
       actionConsumed = false;
     }
@@ -543,11 +555,12 @@ function startGame(mount, opts) {
   }
 
   function setTouch(btn, key) {
+    let armedPointerId = null;
     btn.addEventListener("pointerdown", e => {
       e.preventDefault();
       btn.setPointerCapture?.(e.pointerId);
-      keys[key] = true;
-      if (key === "action") actionQueued = true;
+      armedPointerId = e.pointerId;
+      if (key !== "action") keys[key] = true;
       actionConsumed = false;
       moveTargetX = null;
       pendingTapAction = null;
@@ -555,16 +568,26 @@ function startGame(mount, opts) {
     });
     btn.addEventListener("pointerup", e => {
       e.preventDefault();
-      keys[key] = false;
+      if (armedPointerId !== e.pointerId) return;
+      const rect = btn.getBoundingClientRect();
+      const releasedInside = (
+        e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom
+      );
+      if (key === "action" && releasedInside) actionQueued = true;
+      else keys[key] = false;
+      armedPointerId = null;
       actionConsumed = false;
       btn.style.transform = "";
     });
     btn.addEventListener("pointercancel", () => {
       keys[key] = false;
+      armedPointerId = null;
       btn.style.transform = "";
     });
     btn.addEventListener("lostpointercapture", () => {
       keys[key] = false;
+      armedPointerId = null;
       btn.style.transform = "";
     });
   }
@@ -573,7 +596,9 @@ function startGame(mount, opts) {
   setTouch(btnRight, "right");
   setTouch(btnAction, "action");
 
-  cv.addEventListener("pointerdown", event => {
+  let canvasPointerIntent = null;
+
+  function canvasIntentAt(event) {
     if (!(phase === "PLAYING" || phase === "BELL_READY") || !builder) return;
     const rect = cv.getBoundingClientRect();
     const x = event.clientX - rect.left;
@@ -581,30 +606,54 @@ function startGame(mount, opts) {
     const tileIx = hitTestTile(x, y);
     const slot = hitTestSlot(x, y);
     const bellHit = Math.hypot(x - bell.x, y - bell.y) < bell.r + 18;
+    let targetX;
+    let action = null;
     if (tileIx >= 0) {
-      moveTargetX = clamp(tiles[tileIx].x, 18, W - 18);
-      pendingTapAction = { type: "tile", x: moveTargetX };
+      targetX = clamp(tiles[tileIx].x, 18, W - 18);
+      action = { type: "tile", x: targetX };
     } else if (slot) {
-      moveTargetX = clamp(slot.x + slot.w / 2, 18, W - 18);
-      pendingTapAction = { type: "slot", x: moveTargetX };
+      targetX = clamp(slot.x + slot.w / 2, 18, W - 18);
+      action = { type: "slot", x: targetX };
     } else if (bellHit) {
-      moveTargetX = clamp(bell.x, 18, W - 18);
-      pendingTapAction = { type: "bell", x: moveTargetX };
+      targetX = clamp(bell.x, 18, W - 18);
+      action = { type: "bell", x: targetX };
     } else {
-      moveTargetX = clamp(x, 18, W - 18);
-      pendingTapAction = null;
+      targetX = clamp(x, 18, W - 18);
     }
-    if (Math.abs(builder.x - moveTargetX) < 34 && pendingTapAction) {
-      keys.action = true;
-      actionQueued = true;
-      actionConsumed = false;
-    }
+    return { pointerId: event.pointerId, startX: x, startY: y, targetX, action };
+  }
+
+  cv.addEventListener("pointerdown", event => {
+    const intent = canvasIntentAt(event);
+    if (!intent) return;
+    event.preventDefault();
+    canvasPointerIntent = intent;
+    cv.setPointerCapture?.(event.pointerId);
   });
 
-  cv.addEventListener("pointerup", () => {
-    keys.action = false;
-    actionConsumed = false;
+  cv.addEventListener("pointerup", event => {
+    if (!canvasPointerIntent || canvasPointerIntent.pointerId !== event.pointerId) return;
+    event.preventDefault();
+    const rect = cv.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const intent = canvasPointerIntent;
+    canvasPointerIntent = null;
+    if (Math.hypot(x - intent.startX, y - intent.startY) > 32) return;
+    if (intent.action && Math.abs(builder.x - intent.targetX) < 34) {
+      moveTargetX = null;
+      pendingTapAction = null;
+      actionQueued = true;
+      actionConsumed = false;
+      return;
+    }
+    moveTargetX = intent.targetX;
+    pendingTapAction = intent.action;
   });
+
+  const clearCanvasPointerIntent = () => { canvasPointerIntent = null; };
+  cv.addEventListener("pointercancel", clearCanvasPointerIntent);
+  cv.addEventListener("lostpointercapture", clearCanvasPointerIntent);
 
   function renderTargetHUD() {
     elTarget.innerHTML = "";
@@ -712,6 +761,7 @@ function startGame(mount, opts) {
           h: KEY_HEIGHT,
           placed: false,
           lost: false,
+          returnT: 0,
           bob: Math.random() * Math.PI * 2,
           homeX: x,
           bankSide: side,
@@ -881,14 +931,6 @@ function startGame(mount, opts) {
     opts.onComplete?.(runStars, score, wordsDone);
   }
 
-  function tryAgain(reason = "The bridge needs another try.") {
-    phase = "TRY_AGAIN";
-    showOverlay("Try again", reason, "Retry bridge", () => {
-      overlay.style.display = "none";
-      startStage();
-    });
-  }
-
   function levelComplete() {
     if (phase === "LEVEL_COMPLETE") return;
     phase = "LEVEL_COMPLETE";
@@ -977,17 +1019,48 @@ function startGame(mount, opts) {
       y: GROUND_Y - 29,
       placed: false,
       lost: false,
+      returnT: 0,
       bob: Math.random() * Math.PI * 2
     });
     builder.carrying = null;
     sfx(playTapSound);
   }
 
-  function checkOutOfTiles() {
-    const remaining = tiles.filter(t => !t.placed && !t.lost && t.correct).length + (builder?.carrying?.correct ? 1 : 0);
-    if (remaining === 0 && !slots.every(s => s.filled)) {
-      tryAgain("The bridge ran out of the right tiles.");
+  function returnCarriedTileToBank() {
+    if (!builder?.carrying) return null;
+    const carried = builder.carrying;
+    const sourceTile = Number.isInteger(carried.sourceIndex)
+      ? tiles[carried.sourceIndex]
+      : null;
+    let returnedTile = sourceTile;
+
+    if (sourceTile) {
+      sourceTile.placed = false;
+      sourceTile.lost = false;
+      sourceTile.x = clamp(
+        sourceTile.homeX ?? sourceTile.x,
+        38 + sourceTile.w / 2,
+        W - 38 - sourceTile.w / 2
+      );
+      sourceTile.y = GROUND_Y - 29 - (sourceTile.bankRow || 0) * 5;
+      sourceTile.returnT = 0.9;
+    } else {
+      const looseTile = { ...carried };
+      delete looseTile.sourceIndex;
+      returnedTile = {
+        ...looseTile,
+        x: looseTile.homeX ?? clamp(builder.x, 36 + looseTile.w / 2, W - 36 - looseTile.w / 2),
+        y: GROUND_Y - 29 - (looseTile.bankRow || 0) * 5,
+        placed: false,
+        lost: false,
+        returnT: 0.9,
+        bob: Math.random() * Math.PI * 2
+      };
+      tiles.push(returnedTile);
     }
+
+    builder.carrying = null;
+    return returnedTile;
   }
 
   function handleAction() {
@@ -1041,16 +1114,19 @@ function startGame(mount, opts) {
         wobbleT = 0.48;
         levelMistakes += 1;
         sfx(playSoftBuzz);
-        addFloat(slot.x + slot.w / 2, slot.y - 10, "later", "#fff4bf");
+        setBanner(mismatchFeedback(carried.glyph, slot.needed, true), 1.8);
+        addFloat(slot.x + slot.w / 2, slot.y - 10, `needs ${slot.needed}`, "#fff4bf");
       } else {
-        builder.carrying = null;
         levelMistakes += 1;
         wobbleSlot = slot.order;
         wobbleT = 0.48;
         sfx(playSoftBuzz);
-        emitBurst(slot.x + slot.w / 2, GROUND_Y + 8, theme.hazard, 16, 1.1);
-        addFloat(slot.x + slot.w / 2, slot.y - 10, "try", "#ffd6c7");
-        checkOutOfTiles();
+        setBanner(mismatchFeedback(carried.glyph, slot.needed), 1.9);
+        const returnedTile = returnCarriedTileToBank();
+        if (returnedTile) {
+          emitBurst(returnedTile.x, returnedTile.y - 8, theme.light, 7, 0.55);
+          addFloat(returnedTile.x, returnedTile.y - 18, "try again", "#fff4bf");
+        }
       }
     } else {
       const idx = nearestLooseTile();
@@ -1157,6 +1233,9 @@ function startGame(mount, opts) {
 
     for (const slot of slots) {
       slot.snap = Math.max(0, slot.snap - dt);
+    }
+    for (const tile of tiles) {
+      tile.returnT = Math.max(0, (tile.returnT || 0) - dt);
     }
     bridgeGlow = Math.max(0, bridgeGlow - dt * 0.8);
     if (wobbleT > 0) wobbleT -= dt;
@@ -1789,11 +1868,11 @@ function startGame(mount, opts) {
   }
 
   function drawTile(t, now, carried = false) {
-    const bob = carried ? 0 : Math.sin(now * 2 + t.bob) * 1.5;
+    const bob = carried || reduceMotion ? 0 : Math.sin(now * 2 + t.bob) * 1.5;
     const x = carried ? t.x : t.x - t.w / 2;
     const y = carried ? t.y : t.y - t.h / 2 + bob;
     ctx.save();
-    ctx.translate(0, carried ? Math.sin(now * 8) * 1.5 : 0);
+    ctx.translate(0, carried && !reduceMotion ? Math.sin(now * 8) * 1.5 : 0);
     ctx.fillStyle = "rgba(0,0,0,.24)";
     ctx.beginPath();
     ctx.ellipse(x + t.w / 2, y + t.h + 7, t.w * 0.42, 7, 0, 0, Math.PI * 2);
@@ -1826,6 +1905,19 @@ function startGame(mount, opts) {
     ctx.strokeStyle = "rgba(255,247,196,.68)";
     ctx.strokeText(glyph, x + t.w / 2, y + t.h / 2 + 1, t.w - 8);
     ctx.fillText(glyph, x + t.w / 2, y + t.h / 2 + 1, t.w - 8);
+    if (!carried && t.returnT > 0) {
+      const pulse = reduceMotion ? 1 : 0.78 + Math.sin(now * 12) * 0.16;
+      ctx.globalAlpha = pulse;
+      strokeChamfer(ctx, x - 3, y - 3, t.w + 6, t.h + 6, 12, "#fff8ca", 3.4);
+      ctx.fillStyle = "#fff8ca";
+      ctx.beginPath();
+      ctx.arc(x + t.w - 1, y + 2, 11, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#3f2a12";
+      ctx.font = "950 15px Fredoka, Arial, sans-serif";
+      ctx.fillText("↺", x + t.w - 1, y + 2);
+      ctx.globalAlpha = 1;
+    }
     ctx.restore();
   }
 

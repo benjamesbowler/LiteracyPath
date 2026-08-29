@@ -15,7 +15,8 @@ import {
   rocketRunLadder
 } from "../../../../utils/rocketRunRounds.js";
 import { starRubric } from "../../../../utils/starRubric.js";
-import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { isInteractiveKeyTarget } from "../../../../utils/interactiveEventTarget.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import {
   loadThree,
@@ -268,7 +269,7 @@ function startGame(THREE, mount, opts) {
   hud.innerHTML =
     '<div data-rr="crt" style="position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(180deg,rgba(255,255,255,.18) 0 1px,transparent 1px 4px),radial-gradient(90% 80% at 50% 50%,transparent 58%,rgba(0,0,0,.48));mix-blend-mode:screen"></div>' +
     '<div style="position:absolute;top:12px;left:14px;display:flex;align-items:stretch;gap:10px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.32))">' +
-    '<div data-rr="letter" style="width:62px;height:56px;display:grid;place-items:center;font-size:2rem;font-weight:900;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22)"></div>' +
+    '<button type="button" data-rr="hear-target" aria-label="Hear the target sound again" title="Hear target sound" style="position:relative;width:62px;height:56px;display:grid;place-items:center;padding:0;font:inherit;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;outline-offset:3px"><span data-rr="letter" style="font-size:2rem;font-weight:900;line-height:1"></span><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" style="position:absolute;right:8px;bottom:5px;opacity:.72"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg></button>' +
     '<div style="min-width:210px;padding:7px 18px 8px 14px;background:linear-gradient(90deg,rgba(7,12,32,.9),rgba(15,35,78,.72));border:1px solid rgba(126,232,255,.46);clip-path:polygon(0 0,94% 0,100% 50%,94% 100%,0 100%)">' +
     '<div style="font-size:.62rem;font-weight:900;letter-spacing:.18em;color:#7ff0ff;text-transform:uppercase">Beginning sound</div>' +
     '<div data-rr="copy" style="font-size:1.05rem;font-weight:800;line-height:1.1"></div>' +
@@ -313,11 +314,9 @@ function startGame(THREE, mount, opts) {
       '</div>';
     cd.style.display = "grid";
     countdownT = 3.4;
-    // Hear the target sound as the round is introduced. speakPhoneme only
-    // takes single letters; digraph targets route through speak() and stay
-    // silent if the word bank has no clip — never the wrong sound.
-    if (target.length === 1) say(() => speakPhoneme(target));
-    else say(() => speak(target));
+    // The approved phoneme route handles both single letters and digraphs, so
+    // every round introduction uses the exact same cue as the replay control.
+    say(() => speakPhoneme(target));
   }
 
   const ambient = new THREE.AmbientLight(0x8899ff, 0.7);
@@ -968,6 +967,27 @@ function startGame(THREE, mount, opts) {
   let steeringHintShown = false;                   // one-time "how to steer" countdown hint
   // (speedLines is declared up in the scene-setup section, before it's populated)
 
+  const hearTargetButton = el("hear-target");
+  function replayTarget() {
+    if (roundTarget) say(() => speakPhoneme(roundTarget));
+  }
+  function syncHearTargetControl() {
+    if (!hearTargetButton) return;
+    const soundEnabled = Boolean(opts.getSound ? opts.getSound() : opts.isSoundEnabled);
+    hearTargetButton.disabled = !soundEnabled;
+    hearTargetButton.style.cursor = soundEnabled ? "pointer" : "default";
+    hearTargetButton.style.opacity = soundEnabled ? "1" : ".84";
+    hearTargetButton.setAttribute(
+      "aria-label",
+      soundEnabled
+        ? `Hear the ${roundTarget || "target"} sound again`
+        : `Target ${roundTarget || "sound"}; sound is off`
+    );
+  }
+  const onHearTargetPointerDown = event => event.stopPropagation();
+  hearTargetButton?.addEventListener("pointerdown", onHearTargetPointerDown);
+  hearTargetButton?.addEventListener("click", replayTarget);
+
   function setFuel() { el("fuel").style.width = Math.round(needed ? (100 * caught) / needed : 0) + "%"; }
   function addScore(n) { score += n; if (opts.onScoreUpdate) opts.onScoreUpdate(score); }
   function bumpCombo() {
@@ -1065,6 +1085,7 @@ function startGame(THREE, mount, opts) {
     const round = buildRocketRunRound(target, { count, difficulty: opts.difficulty });
     el("letter").textContent = target;
     el("copy").innerHTML = "Catch the <b>" + target + "</b> words!";
+    syncHearTargetControl();
     const seq = round.sequence.map(item => ({ word: item.word, correct: item.correct }));
     // Interleave meteors to dodge — more the deeper you get, scaled by the sector.
     // Meteor pressure grows gently and is CAPPED — the sector meteorMul used to
@@ -1145,7 +1166,11 @@ function startGame(THREE, mount, opts) {
       setFuel();
       sfx(playCorrectChime);
       sfx(playPopSound);
-      say(() => speakWord(bubble.userData.word)); // hear the word you caught
+      showBanner("'" + bubble.userData.word + "' starts with '" + roundTarget + "' ✓", 2.0);
+      say(async () => {
+        try { await speakWord(bubble.userData.word); } catch { /* word clip optional */ }
+        try { await speakPhoneme(roundTarget); } catch { /* phoneme cue optional */ }
+      });
       burst(bubble.position, 0x8affc0);
     } else if (hit && !bubble.userData.correct) {
       // Wrong word = SOFT penalty (hearts are for meteors only): the bubble
@@ -1157,9 +1182,9 @@ function startGame(THREE, mount, opts) {
       sfx(playSoftBuzz);
       const onset = onsetGrapheme(bubble.userData.word);
       showBanner("'" + bubble.userData.word + "' starts with '" + onset + "'", 2.4);
-      say(() => {
-        const said = speakWord(bubble.userData.word);
-        if (onset.length === 1) said.then(() => speakPhoneme(onset)).catch(() => {});
+      say(async () => {
+        try { await speakWord(bubble.userData.word); } catch { /* word clip optional */ }
+        try { await speakPhoneme(onset); } catch { /* phoneme cue optional */ }
       });
       burst(bubble.position, 0xffd34e);
     }
@@ -1293,6 +1318,7 @@ function startGame(THREE, mount, opts) {
   const onRight = () => moveLane(1);
   const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight });
   const onKey = event => {
+    if (isInteractiveKeyTarget(event.target)) return;
     const direction = laneDirectionForKey(event.key);
     if (direction) {
       event.preventDefault();
@@ -1313,6 +1339,7 @@ function startGame(THREE, mount, opts) {
 
   // ── Loop ─────────────────────────────────────────────────────────────────
   function tick(now) {
+    syncHearTargetControl();
     const dt = Math.min(0.05, ((now - last) || 16) / 1000);
     last = now;
     elapsed += dt;
@@ -1527,11 +1554,13 @@ function startGame(THREE, mount, opts) {
     // This is the first guaranteed user gesture on iPad. Replay the target here
     // so Safari's audio lock cannot swallow the round's essential cue.
     sfx(playTapSound);
-    if (roundTarget.length === 1) say(() => speakPhoneme(roundTarget));
-    else say(() => speak(roundTarget));
+    replayTarget();
     resume();
   }
   function onIntroKey(event) {
+    if (isInteractiveKeyTarget(event.target)) return;
+    const key = String(event.key || "").toLowerCase();
+    if (!(key === " " || key === "enter" || laneDirectionForKey(event.key))) return;
     event.preventDefault();
     dismissIntro();
   }
@@ -1561,6 +1590,8 @@ function startGame(THREE, mount, opts) {
     motionQuery?.removeEventListener?.("change", syncMotionPreference);
     window.removeEventListener("keydown", onKey);
     window.removeEventListener("keydown", onIntroKey, true);
+    hearTargetButton?.removeEventListener("pointerdown", onHearTargetPointerDown);
+    hearTargetButton?.removeEventListener("click", replayTarget);
     detachResize();
     for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
     scene.remove(ship); disposeGroup(ship);

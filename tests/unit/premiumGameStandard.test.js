@@ -70,16 +70,22 @@ test("every live arcade game has an individual premium mission and recovery prof
   assert.equal(new Set(arcadeGames.map(game => ARCADE_PREMIUM_PROFILES[game.id].mission)).size, arcadeGames.length);
 });
 
-test("the reference vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
-  const brief = ARCADE_VERTICAL_SLICE_BRIEFS["letter-leap"];
-  assert.ok(brief);
-  assert.deepEqual(validateGameVerticalSliceBrief(brief), []);
-  assert.equal(brief.version, ARCADE_PREMIUM_PROFILES[brief.gameId].version);
-  for (const file of [...brief.validation.unit, ...brief.validation.browser]) {
-    assert.equal(existsSync(file), true, `${file} is named by the brief but does not exist`);
+test("every substantial vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
+  assert.deepEqual(
+    Object.keys(ARCADE_VERTICAL_SLICE_BRIEFS).sort(),
+    ["letter-leap", "sound-beat", "sound-racer", "word-bridge"]
+  );
+  for (const [gameId, brief] of Object.entries(ARCADE_VERTICAL_SLICE_BRIEFS)) {
+    assert.equal(brief.gameId, gameId);
+    assert.deepEqual(validateGameVerticalSliceBrief(brief), [], `${gameId} brief is incomplete`);
+    assert.equal(brief.version, ARCADE_PREMIUM_PROFILES[brief.gameId].version);
+    for (const file of [...brief.validation.unit, ...brief.validation.browser]) {
+      assert.equal(existsSync(file), true, `${file} is named by ${gameId} but does not exist`);
+    }
+    assert.equal(brief.validation.physicalDevice.status, "unknown");
   }
-  assert.equal(brief.validation.physicalDevice.status, "unknown");
 
+  const brief = ARCADE_VERTICAL_SLICE_BRIEFS["letter-leap"];
   const implementation = readFileSync("src/components/learn/games/games/LetterLeapGame.jsx", "utf8");
   assert.match(implementation, /data-ll="hear"/);
   assert.match(implementation, /hasRecordedSpeech\(word/);
@@ -89,6 +95,38 @@ test("the reference vertical slice is complete, traceable to checks, and honest 
   for (const windowSeconds of ["0.12", "0.14"]) {
     assert.match(implementation, new RegExp(windowSeconds.replace(".", "\\.")));
   }
+
+  const bridgeImplementation = readFileSync("src/components/learn/games/games/WordBridgeGame.jsx", "utf8");
+  assert.match(bridgeImplementation, /function returnCarriedTileToBank\(\)/);
+  assert.match(bridgeImplementation, /role="status" aria-live="polite"/);
+  assert.match(bridgeImplementation, /if \(isInteractiveKeyTarget\(e\.target\)\) return/);
+
+  const beatImplementation = readFileSync("src/components/learn/games/games/Ps1ArcadeGame.jsx", "utf8");
+  assert.match(beatImplementation, /safeChoiceIndex !== choiceSet\.answerIndex/);
+  assert.match(beatImplementation, /soundBeatChoiceSet\(item, state\.beatIndex/);
+  assert.match(beatImplementation, /soundBeatVisiblePrompt\(item, state\.beatIndex/);
+  assert.match(beatImplementation, /SOUND OFF · MATCH THE MODEL/);
+  assert.match(beatImplementation, /addEventListener\("pointercancel", onPointerCancel\)/);
+  assert.match(beatImplementation, /liveStatus\.setAttribute\("aria-live", "polite"\)/);
+
+  const racerImplementation = readFileSync("src/components/learn/games/games/SoundRacerGame.jsx", "utf8");
+  assert.match(racerImplementation, /buildSoundRacerEvidenceResult\(\{/);
+  assert.match(racerImplementation, /data-sr="banner" role="status" aria-live="polite"/);
+  assert.match(racerImplementation, /hearTargetEl\.hidden = !replayAvailable/);
+  assert.match(racerImplementation, /sfx\(\(\) => speakPhoneme\(target\)\)/);
+});
+
+test("Rocket Run keeps the exact target cue replayable and reinforces it after every catch", () => {
+  const implementation = readFileSync("src/components/learn/games/games/RocketRunGame.jsx", "utf8");
+
+  assert.match(implementation, /data-rr="hear-target"/);
+  assert.match(implementation, /width:62px;height:56px/);
+  assert.match(implementation, /function replayTarget\(\)/);
+  assert.match(implementation, /say\(\(\) => speakPhoneme\(target\)\)/);
+  assert.match(implementation, /await speakWord\(bubble\.userData\.word\)/);
+  assert.match(implementation, /await speakPhoneme\(roundTarget\)/);
+  assert.match(implementation, /starts with '" \+ roundTarget \+ "' ✓/);
+  assert.doesNotMatch(implementation, /\belse say\(\(\) => speak\(/);
 });
 
 test("the vertical-slice gate rejects unsafe controls, evidence and privacy claims", () => {
