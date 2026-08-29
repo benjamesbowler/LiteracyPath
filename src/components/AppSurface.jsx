@@ -191,6 +191,7 @@ export function AppSurface({ surface }) {
   const [readingSetupOpen, setReadingSetupOpen] = useState(false);
   const [studentSessionSetupOpen, setStudentSessionSetupOpen] = useState(false);
   const [studentSessionInitialIds, setStudentSessionInitialIds] = useState([]);
+  const [studentGuideRequested, setStudentGuideRequested] = useState(false);
   const [activeReadingSession, setActiveReadingSession] = useState(null);
   const [abandonedReadingSession, setAbandonedReadingSession] = useState(null);
   const abandonedSessionCheckedForRef = useRef("");
@@ -975,6 +976,9 @@ export function AppSurface({ surface }) {
     : "";
   const activeStudentFocus = studentFocus?.session || null;
   const isStudentFocusLocked = isStudentMode && Boolean(activeStudentFocus);
+  const studentSessionStartedAt = Number(studentSession?.expiresAt) - (12 * 60 * 60 * 1000);
+  const studentFocusCheckedForCurrentLogin = Number.isFinite(studentSessionStartedAt)
+    && Date.parse(studentFocus?.lastContactAt || "") >= studentSessionStartedAt;
   const studentFocusUnavailable = isStudentFocusLocked && activeStudentFocus.content_ok === false;
   const isIndependentSkillsAssessment = isStudentFocusLocked
     && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT;
@@ -1144,6 +1148,11 @@ export function AppSurface({ surface }) {
     if (!STUDENT_TAB_BAR.some(tab => tab.id === tabId)) return;
     studentTabActions[tabId]?.();
   };
+  const openStudentGuide = () => {
+    setStudentGuideRequested(true);
+    setStudentArcadeOpen(false);
+    setAppView(APP_VIEWS.STUDENT_HOME);
+  };
   // Child routes share one fluid, viewport-sized stage. Scrolling is an
   // explicit exception rather than the legacy default: the child experience
   // must fit the screen at laptop and tablet sizes.
@@ -1156,6 +1165,7 @@ export function AppSurface({ surface }) {
         active={activeId}
         onNavigate={goToStudentTab}
         onHome={goStudentHome}
+        onHelp={isStudentFocusLocked ? undefined : openStudentGuide}
         // The grown-ups menu (change companion, sign out) lives on the home
         // page. Sending a grown-up there is deliberate: a one-tap sign-out in
         // the header of every screen is a button a five-year-old will press.
@@ -1378,6 +1388,12 @@ export function AppSurface({ surface }) {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.STUDENT_REWARDS);
             }}
+            speakText={speakText}
+            studentGuideEnabled={isStudentMode && !isStudentFocusLocked}
+            studentGuideAutoEnabled={isStudentMode && !isStudentFocusLocked && !trySession && Boolean(studentSession?.token) && studentFocusCheckedForCurrentLogin}
+            studentGuideRequested={studentGuideRequested}
+            studentGuideVisitKey={studentSession?.expiresAt ? String(studentSession.expiresAt) : ""}
+            onStudentGuideRequestHandled={() => setStudentGuideRequested(false)}
             onLogout={trySession ? finishTrySession : isStudentMode ? logOutStudent : returnToTeacherDashboard}
             logoutLabel={trySession ? "Finish" : isStudentMode ? "Sign out" : "Teacher dashboard"}
             logoutAriaLabel={trySession ? "Finish the try-out" : isStudentMode ? "Log out" : "Return to teacher dashboard"}

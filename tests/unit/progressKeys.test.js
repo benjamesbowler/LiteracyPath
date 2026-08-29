@@ -1,10 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
+  LOCAL_STUDENT_PREFERENCE_AREAS,
   PROGRESS_AREAS,
   RETIRED_PROGRESS_AREAS,
+  localLearnerDataKeysForStudent,
   localProgressStorageKey,
   localProgressKeysForStudent,
+  localStudentPreferenceStorageKey,
   retiredLocalProgressStorageKey,
   RESET_AREA,
   shouldApplyReset
@@ -23,6 +26,16 @@ test("localProgressKeysForStudent includes active and retired keys for privacy c
   const keys = localProgressKeysForStudent("stu-123");
   assert.equal(keys.length, PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length);
   assert.equal(new Set(keys).size, keys.length, "keys should be unique");
+});
+
+test("local learner cleanup includes device-only onboarding preferences without syncing them", () => {
+  const keys = localLearnerDataKeysForStudent("stu-123");
+  assert.equal(
+    keys.length,
+    PROGRESS_AREAS.length + RETIRED_PROGRESS_AREAS.length + LOCAL_STUDENT_PREFERENCE_AREAS.length
+  );
+  assert.ok(keys.includes(localStudentPreferenceStorageKey("welcome_guide", "stu-123")));
+  assert.equal(PROGRESS_AREAS.includes("welcome_guide"), false);
 });
 
 test("retired progress areas cannot be hydrated but retain cleanup keys", () => {

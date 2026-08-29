@@ -16,7 +16,8 @@ import {
   readProgressQueueRecords
 } from "../../src/utils/progressQueue.js";
 import {
-  localProgressStorageKey
+  localProgressStorageKey,
+  localStudentPreferenceStorageKey
 } from "../../src/utils/progressKeys.js";
 
 function memoryStorage() {
@@ -59,6 +60,10 @@ test("verified learner cleanup removes progress, retry, engagement, and cloud ca
   storage.setItem(
     localProgressStorageKey("phonics_letters", studentId),
     JSON.stringify({ a: "complete" })
+  );
+  storage.setItem(
+    localStudentPreferenceStorageKey("welcome_guide", studentId),
+    JSON.stringify({ visitCount: 2 })
   );
   enqueueProgressQueueEntry(storage, {
     studentId,
@@ -140,6 +145,10 @@ test("practice reset retains profile, Guided Reading, Story Quest, and unsynced 
     localProgressStorageKey("story_quests", studentId),
     JSON.stringify({ "story-1": { completed: true } })
   );
+  storage.setItem(
+    localStudentPreferenceStorageKey("welcome_guide", studentId),
+    JSON.stringify({ visitCount: 3 })
+  );
   enqueueProgressQueueEntry(storage, {
     studentId,
     area: "profile",
@@ -206,6 +215,11 @@ test("practice reset retains profile, Guided Reading, Story Quest, and unsynced 
   assert.deepEqual(
     JSON.parse(storage.getItem(localProgressStorageKey("story_quests", studentId))),
     { "story-1": { completed: true } }
+  );
+  assert.deepEqual(
+    JSON.parse(storage.getItem(localStudentPreferenceStorageKey("welcome_guide", studentId))),
+    { visitCount: 3 },
+    "practice reset must retain device navigation and onboarding preferences"
   );
   assert.deepEqual(
     readProgressQueueRecords(storage).map(record => record.entry.area).sort(),

@@ -130,6 +130,7 @@
     "check:student-daily-mission": "node --test tests/unit/dailyMissionState.test.js tests/unit/studentHomeRecommendationPolicy.test.js && playwright test tests/release/student-daily-mission.spec.js --project=desktop",
     "check:student-home-card-states": "node --test tests/unit/studentHomeRecommendationPolicy.test.js && playwright test tests/release/student-home-card-states.spec.js --project=desktop",
     "check:student-home-music": "node --test tests/unit/childHomeMusic.test.js && playwright test tests/release/student-home-music.spec.js --project=desktop",
+    "check:student-welcome-guide": "node --test tests/unit/studentWelcomeGuide.test.js tests/unit/studentWelcomeGuideWiring.test.js tests/unit/progressKeys.test.js tests/unit/localLearnerCleanup.test.js && playwright test tests/release/student-welcome-guide.spec.js --project=desktop",
     "check:student-rail-accessibility": "node --test tests/unit/studentRailPolicy.test.js tests/unit/progressMerge.test.js && playwright test tests/release/student-rail-accessibility.spec.js --project=desktop",
     "check:student-login-recovery": "node --test tests/unit/studentLoginRecovery.test.js tests/unit/studentLoginPolicy.test.js && playwright test tests/release/student-login-recovery.spec.js --project=desktop",
     "check:student-login-panel": "playwright test tests/release/student-login-panel.spec.js --project=desktop",

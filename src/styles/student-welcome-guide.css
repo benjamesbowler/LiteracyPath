@@ -1,0 +1,326 @@
+/* Student first-use help. It lives inside the scaled child stage, so every
+   control inherits the same physical 44px floor as the rest of the app. */
+
+.kg-stage .kg-student-help-control {
+  --kg-self-border: rgba(255, 255, 255, 0.86);
+  --kg-self-shadow:
+    0 8px 20px -12px rgba(30, 60, 50, 0.34),
+    inset 0 1px 1px rgba(255, 255, 255, 0.92);
+  height: 48px;
+  min-width: 92px;
+  padding: 0 15px 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--kg-self-border);
+  border-radius: var(--kg-radius-pill);
+  background: rgba(255, 255, 255, 0.54);
+  box-shadow: var(--kg-self-shadow);
+  color: var(--kg-sage);
+  font-family: var(--kg-font-display);
+  font-size: 15.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kg-stage .kg-student-help-control svg {
+  width: 22px;
+  height: 22px;
+}
+
+.kg-stage .kg-welcome-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(24, 50, 43, 0.52);
+  backdrop-filter: blur(10px) saturate(1.15);
+  -webkit-backdrop-filter: blur(10px) saturate(1.15);
+}
+
+.kg-stage .kg-welcome-card {
+  width: min(760px, calc(100% - 40px));
+  min-height: 470px;
+  padding: 22px 24px 24px;
+  border-radius: var(--kg-radius-modal);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 18px;
+  background: rgba(251, 247, 239, 0.96);
+}
+
+.kg-stage .kg-welcome-card-head,
+.kg-stage .kg-welcome-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.kg-stage .kg-welcome-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kg-stage .kg-welcome-progress > span {
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  background: #C7D8D2;
+}
+
+.kg-stage .kg-welcome-progress > span.is-current {
+  width: 34px;
+  background: var(--kg-sage);
+}
+
+.kg-stage .kg-welcome-skip,
+.kg-stage .kg-welcome-back,
+.kg-stage .kg-welcome-hear {
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(62, 119, 107, 0.28);
+  border-radius: var(--kg-radius-market);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--kg-ink-mid);
+  font-family: var(--kg-font-display);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kg-stage .kg-welcome-card-body {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.9fr) minmax(300px, 1.1fr);
+  align-items: center;
+  gap: 28px;
+}
+
+.kg-stage .kg-welcome-picture {
+  position: relative;
+  min-height: 292px;
+  border-radius: 26px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.9), transparent 38%),
+    linear-gradient(145deg, #DDF0E8, #FCEBCB);
+}
+
+.kg-stage .kg-welcome-companion {
+  position: absolute;
+  right: 12px;
+  bottom: -4px;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+}
+
+.kg-stage .kg-welcome-play-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--kg-sage);
+  color: white;
+  box-shadow: 0 22px 36px -24px rgba(30, 60, 50, 0.7);
+}
+
+.kg-stage .kg-welcome-play-picture svg {
+  width: 54px;
+  height: 54px;
+}
+
+.kg-stage .kg-welcome-place-pictures {
+  width: 230px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.kg-stage .kg-welcome-place-pictures > span,
+.kg-stage .kg-welcome-help-pictures > span {
+  height: 88px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--kg-sage);
+}
+
+.kg-stage .kg-welcome-place-pictures .kg-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.kg-stage .kg-welcome-help-pictures {
+  width: 224px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.kg-stage .kg-welcome-help-pictures svg {
+  width: 42px;
+  height: 42px;
+}
+
+.kg-stage .kg-welcome-copy {
+  display: grid;
+  justify-items: start;
+  gap: 13px;
+}
+
+.kg-stage .kg-welcome-kicker {
+  margin: 0;
+  color: var(--kg-sage);
+  font-family: var(--kg-font-body);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.kg-stage .kg-welcome-copy h2 {
+  margin: 0;
+  color: var(--kg-ink-deep);
+  font-family: var(--kg-font-display);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.kg-stage .kg-welcome-copy p:not(.kg-welcome-kicker) {
+  max-width: 390px;
+  margin: 0;
+  color: var(--kg-ink-mid);
+  font-family: var(--kg-font-body);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.kg-stage .kg-welcome-hear {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--kg-sage);
+}
+
+.kg-stage .kg-welcome-hear svg {
+  width: 22px;
+  height: 22px;
+}
+
+.kg-stage .kg-welcome-back:disabled {
+  visibility: hidden;
+}
+
+.kg-stage .kg-welcome-next {
+  min-width: 150px;
+  min-height: 56px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: var(--kg-radius-card);
+  background: var(--kg-sage);
+  color: white;
+  font-family: var(--kg-font-display);
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kg-stage .kg-help-reminder {
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  z-index: 30;
+  width: 440px;
+  min-height: 96px;
+  padding: 13px;
+  border-radius: var(--kg-radius-secondary);
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  background: rgba(251, 247, 239, 0.97);
+}
+
+.kg-stage .kg-help-reminder-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 17px;
+  display: grid;
+  place-items: center;
+  background: #DDF0E8;
+  color: var(--kg-sage);
+}
+
+.kg-stage .kg-help-reminder-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.kg-stage .kg-help-reminder > div {
+  display: grid;
+  gap: 2px;
+}
+
+.kg-stage .kg-help-reminder strong {
+  font-family: var(--kg-font-display);
+  font-size: 18px;
+  color: var(--kg-ink-deep);
+}
+
+.kg-stage .kg-help-reminder div > span {
+  font-family: var(--kg-font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--kg-ink-muted);
+}
+
+.kg-stage .kg-help-reminder button {
+  min-height: 48px;
+  padding: 0 13px;
+  border-radius: var(--kg-radius-market);
+  font-family: var(--kg-font-display);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kg-stage .kg-help-reminder-show {
+  border: 1px solid var(--kg-sage);
+  background: var(--kg-sage);
+  color: white;
+}
+
+.kg-stage .kg-help-reminder-dismiss {
+  border: 1px solid rgba(62, 119, 107, 0.25);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--kg-ink-mid);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .kg-stage .kg-student-help-control:hover,
+  .kg-stage .kg-welcome-skip:hover,
+  .kg-stage .kg-welcome-back:hover,
+  .kg-stage .kg-welcome-hear:hover,
+  .kg-stage .kg-help-reminder-dismiss:hover {
+    background: white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-stage .kg-welcome-progress > span {
+    transition: none;
+  }
+}

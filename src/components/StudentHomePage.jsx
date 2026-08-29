@@ -76,8 +76,16 @@ import {
 } from "../policy/studentRailPolicy.js";
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import ChildHomeMusicControl from "./ChildHomeMusicControl.jsx";
+import {
+  StudentHelpReminder,
+  StudentWelcomeGuide
+} from "./StudentWelcomeGuide.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { localProgressStorageKey } from "../utils/progressKeys.js";
+import {
+  beginStudentWelcomeVisit,
+  dismissStudentWelcomePrompt
+} from "../utils/studentWelcomeGuide.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
 // Branded placeholder for card/tile artwork: a sage-sky rounded tile with a
@@ -336,6 +344,12 @@ export function StudentHomePage({
   taughtTargetKeys = [],
   onOpenRewards,
   onLogout,
+  speakText,
+  studentGuideEnabled = false,
+  studentGuideAutoEnabled = studentGuideEnabled,
+  studentGuideRequested = false,
+  studentGuideVisitKey = "",
+  onStudentGuideRequestHandled,
   logoutLabel = "Sign out",
   logoutAriaLabel = "Log out"
 }) {
@@ -365,6 +379,9 @@ export function StudentHomePage({
     );
   });
   const [accountOpen, setAccountOpen] = useState(false);
+  const [welcomeMode, setWelcomeMode] = useState(() => (
+    studentGuideRequested ? "tour" : "none"
+  ));
   const [heroMediaState, setHeroMediaState] = useState("loading");
   const [transferProgress,setTransferProgress]=useState(()=>readTransferMissionProgress(progressScopeKey));
   const [openTransferMission,setOpenTransferMission]=useState(null);
@@ -384,6 +401,35 @@ export function StudentHomePage({
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
   }, [progressScopeKey]);
+
+  useEffect(() => {
+    if (!studentGuideRequested) return undefined;
+    const timer = window.setTimeout(() => onStudentGuideRequestHandled?.(), 0);
+    return () => window.clearTimeout(timer);
+  }, [onStudentGuideRequestHandled, studentGuideRequested]);
+
+  // Wait until the focus-session poll has confirmed that this is an ordinary
+  // student login. That keeps onboarding from flashing over, or consuming a
+  // visit during, a teacher-controlled locked session. The timer keeps state
+  // changes outside the effect body and the storage helper makes StrictMode's
+  // effect rehearsal idempotent.
+  useEffect(() => {
+    if (!studentGuideAutoEnabled || studentGuideRequested) return undefined;
+    const timer = window.setTimeout(() => {
+      const prompt = beginStudentWelcomeVisit({
+        enabled: true,
+        loginKey: studentGuideVisitKey,
+        scopeKey: progressScopeKey
+      });
+      setWelcomeMode(current => current === "none" ? prompt.kind : current);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [
+    progressScopeKey,
+    studentGuideAutoEnabled,
+    studentGuideRequested,
+    studentGuideVisitKey
+  ]);
 
   // When cloud progress finishes hydrating, recompute the screen so the counts
   // are correct from the first Home view (not just after opening Market).
@@ -460,6 +506,30 @@ export function StudentHomePage({
   function hear(lines) {
     const spoken = speakStudentRailLabel(lines, window);
     setSpeechStatus(spoken ? "Reading it out." : "Speech is unavailable.");
+  }
+
+  function hearWelcomeGuide(text) {
+    if (!speakText) return;
+    setSpeechStatus("Reading it out.");
+    try {
+      Promise.resolve(speakText(text, "", { allowBrowserFallback: true }))
+        .catch(() => setSpeechStatus("Speech is unavailable."));
+    } catch {
+      setSpeechStatus("Speech is unavailable.");
+    }
+  }
+
+  function openWelcomeGuide() {
+    setAccountOpen(false);
+    setWelcomeMode("tour");
+  }
+
+  function closeWelcomePrompt() {
+    dismissStudentWelcomePrompt({
+      loginKey: studentGuideVisitKey,
+      scopeKey: progressScopeKey
+    });
+    setWelcomeMode("none");
   }
 
   const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
@@ -715,6 +785,22 @@ export function StudentHomePage({
           </div>
         </div>
       )}
+
+      {studentGuideEnabled && companion && !celebration && welcomeMode === "reminder" && (
+        <StudentHelpReminder
+          onDismiss={closeWelcomePrompt}
+          onShowGuide={() => setWelcomeMode("tour")}
+        />
+      )}
+
+      {studentGuideEnabled && companion && !celebration && welcomeMode === "tour" && (
+        <StudentWelcomeGuide
+          companion={companion}
+          onClose={closeWelcomePrompt}
+          onHear={speakText ? hearWelcomeGuide : undefined}
+          studentName={studentName}
+        />
+      )}
     </>
   );
 
@@ -725,6 +811,7 @@ export function StudentHomePage({
       active="home"
       onNavigate={goToTab}
       onHome={() => setAccountOpen(false)}
+      onHelp={studentGuideEnabled ? openWelcomeGuide : undefined}
       onGrownUps={() => setAccountOpen(open => !open)}
       headerActions={<ChildHomeMusicControl key={progressScopeKey} scopeKey={progressScopeKey} />}
     >

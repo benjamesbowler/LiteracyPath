@@ -35,6 +35,7 @@ import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger } from "../utils/hollowState.js";
 import { localProgressKeysForStudent } from "../utils/progressKeys.js";
+import "../styles/student-welcome-guide.css";
 
 let studentProfileRevision = 0;
 
@@ -99,6 +100,15 @@ function GlassIcon({ name }) {
   );
 }
 
+function HelpGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M9.4 8.4a3 3 0 1 1 4.2 2.75c-1.25.62-1.6 1.15-1.6 2.35" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+      <circle cx="12" cy="17.4" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
+
 // A wallet that cannot be read must NOT render as "0" — that is a claim the
 // child has nothing, which is a different statement from "we could not load
 // it". `ok: false` renders a neutral placeholder and says so to a screen
@@ -155,6 +165,7 @@ export default function StudentGlassShell({
   active = "home",
   onNavigate,
   onHome,
+  onHelp,
   onGrownUps,
   showGrownUps = true,
   profileInteractive = true,
@@ -285,6 +296,19 @@ export default function StudentGlassShell({
                 onClick={() => goTo("hollow")}
               />
             </>
+          )}
+
+          {onHelp && (
+            <button
+              type="button"
+              className="kg-student-help-control"
+              onClick={onHelp}
+              aria-label="Help: show me around"
+              data-student-help-button=""
+            >
+              <HelpGlyph />
+              <span>Help</span>
+            </button>
           )}
 
           {headerActions}

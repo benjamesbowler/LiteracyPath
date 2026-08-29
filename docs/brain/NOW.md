@@ -34,6 +34,14 @@ installed, reviewed, and trusted on 2026-08-03.
 
 ## Current beta release state
 
+- A child-friendly student welcome tour now opens on a learner's first real
+  sign-in on a device. The second and third sign-ins show a small optional
+  reminder, and a persistent Help control reopens the tour from any unlocked
+  page that shows the shared student header. The tour supports tap-to-hear,
+  keyboard focus containment, and per-learner local cleanup; it is suppressed
+  during teacher-controlled Student Sessions. Automated Chromium coverage is
+  complete, while physical-iPad and observed first-use testing with children
+  remain release evidence gaps.
 - Teacher-controlled Student Sessions are implemented in source for Skills
   Assessment, Reading Library, and Letters Practice, with the existing
   synchronized Guided Reading setup available from the same launcher. Sessions

@@ -26,7 +26,8 @@ import { localProgressStorageKey } from "./utils/progressKeys.js";
 import { markMissionDone } from "./utils/dailyMission.js";
 
 const PREVIEW_SCOPE = "student-home-preview";
-const PREVIEW_SCENARIO = new URLSearchParams(window.location.search).get("scenario");
+const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
+const PREVIEW_SCENARIO = PREVIEW_PARAMS.get("scenario");
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
 
@@ -128,6 +129,13 @@ export function StudentHomePreview() {
         onOpenStoryQuests={() => openDestination("story-quests")}
         onOpenGuidedReading={() => openDestination("reading-library")}
         onOpenRewards={() => openDestination("my-hollow")}
+        speakText={text => {
+          document.documentElement.dataset.studentGuideSpoken = text;
+        }}
+        studentGuideEnabled={PREVIEW_SCENARIO === "onboarding"}
+        studentGuideAutoEnabled={PREVIEW_SCENARIO === "onboarding"}
+        studentGuideRequested={PREVIEW_PARAMS.get("guide") === "requested"}
+        studentGuideVisitKey={PREVIEW_PARAMS.get("login") || "preview-login-1"}
         onLogout={() => openDestination("logout")}
       />
     </div>

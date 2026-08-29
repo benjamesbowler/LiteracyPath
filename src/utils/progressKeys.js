@@ -12,6 +12,17 @@ export const PROGRESS_AREAS = [
 // privacy cleanup so removing a learner also removes data made by older builds.
 export const RETIRED_PROGRESS_AREAS = ["reading_passport", "cooperative_story_quest"];
 
+// Device-local learner preferences are deliberately not cloud progress. They
+// still belong to one learner and must therefore participate in the same local
+// privacy cleanup as progress when that learner is removed.
+export const LOCAL_STUDENT_PREFERENCE_AREAS = ["welcome_guide"];
+
+export function localStudentPreferenceStorageKey(area, scopeKey) {
+  const scope = encodeURIComponent(scopeKey || "default");
+  if (area === "welcome_guide") return `lp-student-welcome-guide-v1:${scope}`;
+  return "";
+}
+
 export function retiredLocalProgressStorageKey(area, scopeKey) {
   if (area === "reading_passport") return `lp-reading-passport:${scopeKey || "default"}`;
   if (area === "cooperative_story_quest") return `lp-cooperative-story-quest:${scopeKey || "default"}`;
@@ -39,6 +50,17 @@ export function localProgressKeysForStudent(studentId) {
   return [
     ...PROGRESS_AREAS.map(area => localProgressStorageKey(area, studentId)),
     ...RETIRED_PROGRESS_AREAS.map(area => retiredLocalProgressStorageKey(area, studentId))
+  ].filter(Boolean);
+}
+
+// Every local key that can identify or describe one learner, including
+// navigation/onboarding preferences that are intentionally not synced.
+export function localLearnerDataKeysForStudent(studentId) {
+  return [
+    ...localProgressKeysForStudent(studentId),
+    ...LOCAL_STUDENT_PREFERENCE_AREAS.map(area => (
+      localStudentPreferenceStorageKey(area, studentId)
+    ))
   ].filter(Boolean);
 }
 

@@ -4,8 +4,9 @@ import { computeHydratedValue, sanitizeCloudProgressPayload } from "./progressMe
 import {
   PROGRESS_AREAS,
   RETIRED_PROGRESS_AREAS,
-  localProgressStorageKey,
+  localLearnerDataKeysForStudent,
   localProgressKeysForStudent,
+  localProgressStorageKey,
   retiredLocalProgressStorageKey,
   RESET_AREA,
   shouldApplyReset
@@ -145,7 +146,10 @@ export function inspectLocalProgressForStudent(studentId, {
         .map(area => localProgressStorageKey(area, scopedStudentId))
         .filter(Boolean)
     );
-    for (const key of localProgressKeysForStudent(scopedStudentId)) {
+    const inspectedKeys = retainedAreas.size > 0
+      ? localProgressKeysForStudent(scopedStudentId)
+      : localLearnerDataKeysForStudent(scopedStudentId);
+    for (const key of inspectedKeys) {
       if (retainedStorageKeys.has(key)) continue;
       if (localStorage.getItem(key) !== null) residuals.push(`progress:${key}`);
     }
@@ -228,7 +232,12 @@ export function clearLocalProgressForStudent(studentId, {
       .map(area => localProgressStorageKey(area, scopedStudentId))
       .filter(Boolean)
   );
-  for (const key of localProgressKeysForStudent(studentId)) {
+  // A practice reset retains device navigation preferences. A full privacy
+  // cleanup has no retained progress areas and removes every learner-local key.
+  const clearedKeys = retainedAreas.size > 0
+    ? localProgressKeysForStudent(studentId)
+    : localLearnerDataKeysForStudent(studentId);
+  for (const key of clearedKeys) {
     if (retainedStorageKeys.has(key)) continue;
     try { localStorage.removeItem(key); } catch { /* verified below */ }
   }
