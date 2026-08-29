@@ -35,6 +35,7 @@ import {
   disposeRenderer,
   disposeObject
 } from "../shared/threeShell.js";
+import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 const THEMES = {
   easy: {
@@ -141,7 +142,9 @@ function makeMat(color, options = {}) {
     roughness: options.roughness ?? 0.68,
     metalness: options.metalness ?? 0.08,
     emissive: options.emissive ?? "#000000",
-    emissiveIntensity: options.emissiveIntensity ?? 0
+    emissiveIntensity: options.emissiveIntensity ?? 0,
+    envMapIntensity: options.envMapIntensity ?? 0.86,
+    dithering: true
   });
 }
 
@@ -353,7 +356,9 @@ function makeGroundTexture(theme) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(9, 9);
-  texture.magFilter = THREE.NearestFilter;
+  texture.magFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearMipmapLinearFilter;
+  texture.generateMipmaps = true;
   return texture;
 }
 
@@ -475,7 +480,8 @@ function startGame(mount, opts) {
     powerPreference: "high-performance",
     retryWithoutAntialias: false,
     pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
-    srgbOutput: false,
+    srgbOutput: true,
+    toneMappingExposure: 0.76,
     shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
   applyQualityTier(renderer, qualityTier);
@@ -486,9 +492,9 @@ function startGame(mount, opts) {
   scene.background = new THREE.Color(theme.sky);
   const camera = createPerspectiveCamera(THREE, { fov: 60, aspect: 1, near: 0.1, far: 360 });
 
-  const hemi = new THREE.HemisphereLight("#ffffff", theme.ground, 1.9);
+  const hemi = new THREE.HemisphereLight("#ffffff", theme.ground, 0.7);
   scene.add(hemi);
-  const sun = new THREE.DirectionalLight("#ffffff", 2.1);
+  const sun = new THREE.DirectionalLight("#fff7e2", 1.1);
   sun.position.set(-44, 82, 38);
   sun.castShadow = qualityTier !== "low";
   sun.shadow.mapSize.set(1024, 1024);
@@ -498,11 +504,37 @@ function startGame(mount, opts) {
   sun.shadow.camera.bottom = -90;
   scene.add(sun);
 
+  const rim = new THREE.DirectionalLight(theme.accent2, difficulty === "hard" ? 0.42 : 0.28);
+  rim.position.set(46, 28, -58);
+  scene.add(rim);
+
+  const premiumRender = createArcadePremiumRenderPipeline({
+    THREE,
+    renderer,
+    scene,
+    camera,
+    tier: qualityTier,
+    shadowLights: [sun],
+    mood: {
+      bloomIntensity: difficulty === "hard" ? 0.072 : 0.045,
+      bloomThreshold: difficulty === "hard" ? 0.9 : 0.95,
+      environmentIntensity: 0.36,
+      vignetteDarkness: 0.09,
+      aoIntensity: 0.78,
+      aoRadius: 0.09
+    }
+  });
+  qualityTier = premiumRender.effectiveTier;
+  particleScale = QUALITY_TIERS[qualityTier].particleScale;
+  applyQualityTier(renderer, qualityTier);
+  premiumRender.setTier(qualityTier);
+
   function reassessQualityTier() {
-    qualityTier = detectQualityTier();
+    premiumRender.setTier(detectQualityTier());
+    qualityTier = premiumRender.effectiveTier;
     particleScale = QUALITY_TIERS[qualityTier].particleScale;
     applyQualityTier(renderer, qualityTier);
-    sun.castShadow = qualityTier !== "low";
+    premiumRender.resize(mount.clientWidth || 960, mount.clientHeight || 560);
   }
   const syncMotionPreference = () => reassessQualityTier();
   motionQuery?.addEventListener?.("change", syncMotionPreference);
@@ -1321,6 +1353,9 @@ function startGame(mount, opts) {
     opts.onProgressUpdate?.(levelIndex, ladder.length);
     opts.onCheckpoint?.(levelIndex, ladder.length);
     updateHud();
+    // Level labels, gates and pickups are replaced here, so refresh the
+    // premium material/bloom selection after the new live objects exist.
+    premiumRender.prepareObject(scene);
     speakLevelAloud();
   }
 
@@ -1792,12 +1827,19 @@ function startGame(mount, opts) {
     updateHud();
   }
 
+  premiumRender.resize(mount.clientWidth || 960, mount.clientHeight || 560);
+
   function render(now) {
     const time = now * 0.001;
     const dt = Math.min(0.04, (now - lastTime || 16) / 1000);
     lastTime = now;
     update(dt, time);
-    renderer.render(scene, camera);
+    const renderedTier = premiumRender.render(dt);
+    if (renderedTier !== qualityTier) {
+      qualityTier = renderedTier;
+      particleScale = QUALITY_TIERS[qualityTier].particleScale;
+      applyQualityTier(renderer, qualityTier);
+    }
   }
   const loop = createFrameLoop(render);
 
@@ -1947,11 +1989,18 @@ function startGame(mount, opts) {
         trailsRoot.remove(child);
         disposeObject(child);
       });
+      premiumRender.destroy();
       disposeRenderer(renderer);
       overlay.remove();
     }
   };
-  const detachContextGuard = attachContextLossGuard(renderer, { onLost: () => api.pause(), onRestored: () => api.resume() });
+  const detachContextGuard = attachContextLossGuard(renderer, {
+    onLost: () => api.pause(),
+    onRestored: () => {
+      premiumRender.restoreContext();
+      api.resume();
+    }
+  });
   return api;
 }
 

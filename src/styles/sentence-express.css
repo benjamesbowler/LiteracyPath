@@ -1,7 +1,7 @@
 /* SENTENCE EXPRESS - flagship game styling.
-   PS1-era railway: low-poly silhouette landscapes, chunky SVG rolling stock
+   Late-console railway: layered silhouette landscapes, lit SVG rolling stock
    with spinning spoked wheels, semaphore signal, analog station clock,
-   wooden HUD, scrolling depart run with chimney smoke, EXPRESS stamp.
+   tactile HUD, scrolling depart run with chimney smoke, EXPRESS stamp.
    Three world skins: meadow (day), dino (dusk canyon), moonwood (night). */
 
 .sx-stage {
@@ -15,16 +15,49 @@
   min-height: 520px;
   overflow: hidden;
   border-radius: 14px;
+  isolation: isolate;
+  background: #101824;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), inset 0 -42px 70px rgba(4, 8, 14, 0.26);
   font-family: "Fredoka", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   color: var(--sx-ink);
   user-select: none;
 }
 
 /* ── Skies ─────────────────────────────────────────────────────────────── */
-.sx-sky { position: absolute; inset: 0; }
-.sx-meadow .sx-sky { background: linear-gradient(#8ecae6 0%, #cde8b0 24%, #79a35f 26%, #52793e 100%); }
-.sx-dino .sx-sky { background: linear-gradient(#f4b26b 0%, #e8935a 22%, #a9653a 26%, #6f4226 100%); }
-.sx-moonwood .sx-sky { background: linear-gradient(#0b1030 0%, #1b2350 22%, #233b2e 27%, #14231a 100%); }
+.sx-sky { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.sx-meadow .sx-sky {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(255, 245, 188, 0.48), transparent 28%),
+    linear-gradient(180deg, #73b7dc 0%, #b8d9c7 24%, #789a70 34%, #334d37 100%);
+}
+.sx-dino .sx-sky {
+  background:
+    radial-gradient(circle at 80% 9%, rgba(255, 214, 144, 0.48), transparent 30%),
+    linear-gradient(180deg, #e89a63 0%, #c76e50 25%, #824d39 38%, #3e2a23 100%);
+}
+.sx-moonwood .sx-sky {
+  background:
+    radial-gradient(circle at 12% 9%, rgba(174, 207, 255, 0.24), transparent 27%),
+    linear-gradient(180deg, #080e2c 0%, #182649 25%, #1d3a37 38%, #0b1714 100%);
+}
+.sx-sky::before,
+.sx-sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.sx-sky::before {
+  background:
+    radial-gradient(ellipse at 76% 12%, rgba(255, 244, 199, 0.22), transparent 42%),
+    linear-gradient(105deg, rgba(255, 255, 255, 0.1), transparent 42%);
+  mix-blend-mode: screen;
+}
+.sx-sky::after {
+  background: linear-gradient(180deg, transparent 14%, rgba(225, 239, 235, 0.16) 28%, rgba(18, 30, 31, 0.06) 42%, rgba(4, 9, 14, 0.24) 100%);
+}
+.sx-dino .sx-sky::after { background: linear-gradient(180deg, transparent 12%, rgba(255, 207, 158, 0.15) 27%, rgba(68, 36, 28, 0.12) 45%, rgba(17, 12, 11, 0.28) 100%); }
+.sx-moonwood .sx-sky::after { background: linear-gradient(180deg, transparent 10%, rgba(116, 163, 193, 0.12) 27%, rgba(8, 18, 31, 0.1) 45%, rgba(2, 7, 12, 0.34) 100%); }
 .sx-moonwood { color: #eef2f9; }
 
 .sx-sun {
@@ -75,33 +108,40 @@
 }
 
 /* ── Low-poly silhouettes ──────────────────────────────────────────────── */
-.sx-far, .sx-mid { position: absolute; left: 0; right: 0; pointer-events: none; }
-.sx-far { top: 5%; height: 21%; }
-.sx-mid { top: 12%; height: 15%; }
+.sx-far, .sx-mid {
+  position: absolute; left: -2%; right: -2%; pointer-events: none;
+  transform-origin: 50% 100%;
+}
+.sx-far { top: 5%; height: 21%; z-index: 1; opacity: 0.82; filter: saturate(0.82) blur(0.35px); }
+.sx-mid { top: 12%; height: 15%; z-index: 2; filter: drop-shadow(0 12px 16px rgba(9, 17, 19, 0.22)); }
 .sx-meadow .sx-far {
-  background: #9dbf7d;
+  background: linear-gradient(180deg, #a9c894, #789b67);
   clip-path: polygon(0 100%, 5% 55%, 13% 80%, 22% 35%, 33% 75%, 43% 45%, 54% 85%, 65% 40%, 76% 72%, 87% 48%, 100% 100%);
 }
 .sx-meadow .sx-mid {
-  background: #6f9757;
+  background: linear-gradient(180deg, #789f62, #4a6f46);
   clip-path: polygon(0 100%, 8% 60%, 18% 90%, 30% 50%, 42% 85%, 55% 55%, 68% 92%, 80% 58%, 92% 88%, 100% 100%);
 }
 .sx-dino .sx-far {
-  background: #b3543a;
+  background: linear-gradient(180deg, #b86550, #864538);
   clip-path: polygon(0 100%, 4% 40%, 16% 40%, 20% 75%, 30% 30%, 44% 30%, 49% 70%, 58% 45%, 72% 45%, 78% 85%, 88% 38%, 97% 38%, 100% 100%);
 }
 .sx-dino .sx-mid {
-  background: #8a3f28;
+  background: linear-gradient(180deg, #8f4b39, #5c3028);
   clip-path: polygon(0 100%, 7% 55%, 20% 55%, 26% 90%, 38% 48%, 52% 48%, 58% 88%, 70% 52%, 84% 52%, 90% 92%, 100% 100%);
 }
 .sx-moonwood .sx-far {
-  background: #101c3a;
+  background: linear-gradient(180deg, #1b3152, #101d35);
   clip-path: polygon(0 100%, 4% 30%, 9% 75%, 15% 20%, 22% 70%, 28% 35%, 36% 85%, 44% 25%, 52% 65%, 60% 30%, 68% 80%, 77% 28%, 85% 70%, 93% 38%, 100% 100%);
 }
 .sx-moonwood .sx-mid {
-  background: #14301f;
+  background: linear-gradient(180deg, #1a3b2c, #0d211b);
   clip-path: polygon(0 100%, 6% 40%, 14% 90%, 23% 30%, 31% 75%, 40% 45%, 49% 95%, 58% 35%, 66% 80%, 75% 50%, 84% 90%, 100% 100%);
 }
+.sx-scroll .sx-far { animation: sx-parallax-far 9s ease-in-out infinite alternate; }
+.sx-scroll .sx-mid { animation: sx-parallax-mid 5.5s ease-in-out infinite alternate; }
+@keyframes sx-parallax-far { from { transform: translate3d(-8px, 0, 0) scale(1.015); } to { transform: translate3d(8px, 0, 0) scale(1.015); } }
+@keyframes sx-parallax-mid { from { transform: translate3d(-18px, 0, 0) scale(1.025); } to { transform: translate3d(18px, 0, 0) scale(1.025); } }
 
 /* ── Feedback: jolt shake, coupling bump, red flash ────────────────────── */
 .sx-jolt { animation: sx-shake 0.46s ease; }
@@ -126,9 +166,11 @@
   display: flex; align-items: center; gap: 10px;
   padding: 9px 14px;
   background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), transparent 38%),
     repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0 3px, transparent 3px 26px),
     linear-gradient(#5b4226, #3c2b17);
   border-bottom: 3px solid var(--sx-ink);
+  box-shadow: inset 0 -1px 0 rgba(255, 214, 133, 0.16), 0 10px 28px rgba(5, 9, 14, 0.28);
   color: #f4ead2;
   font-size: 14px;
 }
@@ -196,6 +238,7 @@
     repeating-linear-gradient(90deg, #7a5a3a 0 30px, #8a6845 30px 60px);
   border-top: 6px solid #5b4226;
   border-bottom: 5px solid #5b4226;
+  box-shadow: inset 0 10px 12px rgba(255, 255, 255, 0.08), inset 0 -12px 16px rgba(8, 10, 12, 0.24), 0 14px 24px rgba(5, 9, 12, 0.26);
 }
 .sx-moonwood .sx-trackbed {
   background:
@@ -232,7 +275,8 @@
   position: relative; flex: 0 0 auto;
   width: var(--carw); height: calc(var(--carw) * 0.78);
   background: none; border: none; padding: 0; cursor: default;
-  filter: drop-shadow(4px 5px 0 rgba(10, 15, 24, 0.35));
+  filter: drop-shadow(0 10px 7px rgba(7, 12, 18, 0.42)) drop-shadow(-1px 1px 0 rgba(255, 255, 255, 0.18));
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.25, 1), filter 0.18s ease;
 }
 .sx-carbox.sx-kind-engine { width: calc(var(--carw) * 1.12); }
 button.sx-carbox { cursor: pointer; }
@@ -293,8 +337,11 @@ button.sx-carbox:active { transform: translateY(2px); }
   top: calc(24% + var(--carw) * 0.78 + 96px);
   display: flex; flex-direction: column; justify-content: center; gap: 22px;
   padding: 12px 16px 14px;
-  background: linear-gradient(rgba(22, 32, 46, 0.1), rgba(22, 32, 46, 0.3));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 24%),
+    linear-gradient(rgba(22, 32, 46, 0.12), rgba(12, 20, 31, 0.42));
   border-top: 4px solid rgba(91, 66, 38, 0.8);
+  box-shadow: inset 0 14px 26px rgba(6, 11, 18, 0.14);
   overflow-y: auto;
 }
 .sx-spur { position: relative; padding-bottom: 24px; }
@@ -348,6 +395,7 @@ button.sx-carbox:active { transform: translateY(2px); }
   border: 3px solid var(--sx-ink); border-radius: 8px;
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.14), 3px 4px 0 rgba(10, 15, 24, 0.35);
   cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.25, 1), filter 0.18s ease, box-shadow 0.18s ease;
 }
 .sx-crate {
   min-width: 70px; min-height: 56px; padding: 14px 12px;
@@ -359,6 +407,7 @@ button.sx-carbox:active { transform: translateY(2px); }
   box-shadow: inset 0 0 0 3px rgba(91, 66, 38, 0.8), 3px 4px 0 rgba(10, 15, 24, 0.35);
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.25, 1), filter 0.18s ease, box-shadow 0.18s ease;
 }
 .sx-disc {
   width: 58px; height: 58px; border-radius: 50%;
@@ -367,8 +416,15 @@ button.sx-carbox:active { transform: translateY(2px); }
   border: 3px solid var(--sx-ink);
   box-shadow: 3px 4px 0 rgba(10, 15, 24, 0.35);
   cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.25, 1), filter 0.18s ease, box-shadow 0.18s ease;
 }
 .sx-plate:active, .sx-crate:active, .sx-disc:active { transform: translateY(2px); }
+@media (hover: hover) and (pointer: fine) {
+  .sx-plate:hover, .sx-crate:hover, .sx-disc:hover, .sx-golden:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08) saturate(1.04);
+  }
+}
 
 /* Station master */
 .sx-master {
@@ -628,8 +684,10 @@ button.sx-carbox:active { transform: translateY(2px); }
 
 /* ── Cinematic vignette ────────────────────────────────────────────────── */
 .sx-stage::after {
-  content: ""; position: absolute; inset: 0; z-index: 25; pointer-events: none;
-  background: radial-gradient(ellipse at 50% 42%, transparent 58%, rgba(6, 10, 18, 0.16));
+  content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background:
+    linear-gradient(102deg, rgba(255, 255, 255, 0.035), transparent 42%),
+    radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(4, 9, 16, 0.24));
 }
 
 /* ── Accessibility + small screens ─────────────────────────────────────── */
@@ -637,8 +695,15 @@ button.sx-carbox:active { transform: translateY(2px); }
   .sx-rolling, .sx-rolling .sx-wheel, .sx-scroll .sx-trackbed, .sx-cloud, .sx-ptero,
   .sx-glowbug, .sx-lever.sx-ready, .sx-rustwisp, .sx-smoke, .sx-jolt, .sx-bump,
   .sx-butterfly, .sx-ember, .sx-dust, .sx-confetti, .sx-word-lit, .sx-scroll .sx-fore,
-  .sx-route i.sx-here { animation: none; }
+  .sx-route i.sx-here, .sx-scroll .sx-far, .sx-scroll .sx-mid { animation: none; }
   .sx-train, .sx-motion-out .sx-train { transition: none; }
+  .sx-plate, .sx-crate, .sx-disc, .sx-golden, .sx-carbox { transition: none; }
+}
+@media (update: slow) {
+  .sx-sky::before { display: none; }
+  .sx-far { filter: none; }
+  .sx-mid { filter: drop-shadow(0 8px 10px rgba(9, 17, 19, 0.16)); }
+  .sx-scroll .sx-far, .sx-scroll .sx-mid { animation: none; }
 }
 @media (max-width: 700px) {
   .sx-stage { --carw: clamp(64px, 13vw, 92px); }

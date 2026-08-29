@@ -32,12 +32,12 @@ import {
   neutralizeArcadeInput
 } from "../shared/frameTiming.js";
 import { isPrimaryActionKey, laneDirectionForKey, verticalDirectionForKey } from "../shared/premiumGameStandard.js";
+import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
-// PS2-style architecture note for future learners:
-// The browser is standing in for the PS2 hardware here. The JS update loop acts like the EE core
-// (game rules, collision, input), Three/WebGL acts like the GS renderer, and the small pooled meshes
-// below mimic the kind of batching you would do before sending work through DMA/VU paths on real PS2
-// hardware. Keep meshes low-poly, reuse objects, and avoid per-frame allocation where possible.
+// Scalable console-style architecture note for future learners: pooled meshes
+// and allocation-free frame updates preserve responsive input, while the
+// quality-tiered renderer supplies modern surface response and image quality.
+// Silhouette economy is intentional; visibly flat lighting is not.
 
 const CONFIG = {
   "star-gallery": {
@@ -182,9 +182,10 @@ function playSfx(options, fn) {
 function material(color, extra = {}) {
   return new THREE.MeshStandardMaterial({
     color,
-    roughness: 0.86,
-    metalness: 0.03,
-    flatShading: true,
+    roughness: 0.78,
+    metalness: 0.04,
+    envMapIntensity: 0.82,
+    dithering: true,
     ...extra
   });
 }
@@ -196,7 +197,8 @@ function emissiveMaterial(color, intensity = 0.7) {
     emissiveIntensity: intensity,
     roughness: 0.62,
     metalness: 0.08,
-    flatShading: true
+    envMapIntensity: 0.88,
+    dithering: true
   });
 }
 
@@ -1212,7 +1214,7 @@ function createStarGalleryEngine(mount, options) {
   let qualityTier = detectQualityTier();
 
   const renderer = createRenderer(THREE, {
-    antialias: false,
+    antialias: qualityTier !== "low",
     powerPreference: "high-performance",
     retryWithoutAntialias: false,
     pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
@@ -1229,6 +1231,24 @@ function createStarGalleryEngine(mount, options) {
 
   const scene = createScene(THREE);
   const camera = createPerspectiveCamera(THREE, { fov: 56, aspect: 16 / 9, near: 0.1, far: 220 });
+  const premiumRender = createArcadePremiumRenderPipeline({
+    THREE,
+    renderer,
+    scene,
+    camera,
+    tier: qualityTier,
+    mood: {
+      bloomIntensity: 0.072,
+      bloomThreshold: 0.87,
+      environmentIntensity: 0.9,
+      vignetteDarkness: 0.1,
+      aoIntensity: 0.82,
+      aoRadius: 0.095
+    }
+  });
+  qualityTier = premiumRender.effectiveTier;
+  applyQualityTier(renderer, qualityTier, { floor: 1 });
+  premiumRender.setTier(qualityTier);
   const frameTimer = createPausableFrameTimer();
   let elapsedTime = 0;
   function readFrameDelta(now) {
@@ -1299,6 +1319,7 @@ function createStarGalleryEngine(mount, options) {
   };
   const handleResize = () => {
     reassessQualityTier();
+    premiumRender.resize(mountWidth(), mountHeight());
     // Collapse the fixed side panels on narrow screens so they stop overlapping the center prompt.
     const narrowHud = mountWidth() < 650;
     nodes.panelLeft.style.display = narrowHud ? "none" : "";
@@ -1306,13 +1327,16 @@ function createStarGalleryEngine(mount, options) {
   };
 
   function reassessQualityTier() {
-    qualityTier = detectQualityTier();
+    premiumRender.setTier(detectQualityTier());
+    qualityTier = premiumRender.effectiveTier;
     applyQualityTier(renderer, qualityTier, { floor: 1 });
     if (renderer.shadowMap) {
       renderer.shadowMap.type = THREE.PCFShadowMap;
     }
     state.levelRoot?.traverse?.(node => {
-      if (node.isDirectionalLight) node.castShadow = qualityTier !== "low";
+      if (node.isDirectionalLight && node.userData.arcadePremiumShadow) {
+        premiumRender.configureShadowLight(node);
+      }
     });
   }
   const syncMotionPreference = () => reassessQualityTier();
@@ -1362,6 +1386,11 @@ function createStarGalleryEngine(mount, options) {
 
   function clearLevel() {
     if (state.levelRoot) {
+      state.levelRoot.traverse(node => {
+        if (node.isDirectionalLight && node.userData.arcadePremiumShadow) {
+          premiumRender.unregisterShadowLight(node);
+        }
+      });
       scene.remove(state.levelRoot);
       disposeObject(state.levelRoot);
     }
@@ -1390,8 +1419,12 @@ function createStarGalleryEngine(mount, options) {
     state.levelRoot = root;
     scene.add(root);
 
-    const hemi = new THREE.HemisphereLight(theme.sky, theme.ground, 1.25);
-    root.add(hemi);
+    const ambient = new THREE.AmbientLight(
+      new THREE.Color(theme.sky).lerp(new THREE.Color("#fff4dc"), 0.18),
+      world === "moonwood" ? 0.24 : 0.34
+    );
+    const hemi = new THREE.HemisphereLight(theme.sky, theme.ground2, 1.42);
+    root.add(ambient, hemi);
     const sun = new THREE.DirectionalLight("#fff3cc", world === "moonwood" ? 2.0 : 2.45);
     sun.position.set(-18, 24, 18);
     sun.castShadow = qualityTier !== "low";
@@ -1403,6 +1436,11 @@ function createStarGalleryEngine(mount, options) {
     sun.shadow.camera.top = 110;
     sun.shadow.camera.bottom = -110;
     root.add(sun);
+    premiumRender.registerShadowLight(sun);
+
+    const rim = new THREE.DirectionalLight(theme.accent2, world === "moonwood" ? 0.52 : 0.34);
+    rim.position.set(32, 15, -36);
+    root.add(rim);
 
     const worldRoot = new THREE.Group();
     state.worldRoot = worldRoot;
@@ -1438,6 +1476,7 @@ function createStarGalleryEngine(mount, options) {
     });
     state.tokenRoot = new THREE.Group();
     worldRoot.add(state.tokenRoot);
+    premiumRender.prepareObject(scene);
   }
 
   function clearTokens() {
@@ -1480,6 +1519,7 @@ function createStarGalleryEngine(mount, options) {
       state.tokenRoot.add(token.group);
       return token;
     });
+    premiumRender.prepareObject(scene);
     if (feedback) {
       setFeedback(respawn ? "SEARCH AGAIN" : "FORESTER BRIEF", "Find and cut the tree with the missing part", respawn ? "bad" : "good", 1.05);
       speakItem();
@@ -1949,8 +1989,13 @@ function createStarGalleryEngine(mount, options) {
   }
 
   function animate(now) {
-    update(readFrameDelta(now));
-    renderer.render(scene, camera);
+    const dt = readFrameDelta(now);
+    update(dt);
+    const renderedTier = premiumRender.render(dt);
+    if (renderedTier !== qualityTier) {
+      qualityTier = renderedTier;
+      applyQualityTier(renderer, qualityTier, { floor: 1 });
+    }
   }
   const loop = createFrameLoop(animate);
 
@@ -2146,6 +2191,7 @@ function createStarGalleryEngine(mount, options) {
       renderer.domElement.removeEventListener("pointerup", onPointerUp);
       renderer.domElement.removeEventListener("pointercancel", onPointerUp);
       clearLevel();
+      premiumRender.destroy();
       disposeRenderer(renderer);
       if (overlay.parentNode === mount) mount.removeChild(overlay);
       if (options.debugGlobalName && window[options.debugGlobalName] === api) delete window[options.debugGlobalName];
@@ -2205,7 +2251,13 @@ function createStarGalleryEngine(mount, options) {
       return api.debugSnapshot();
     }
   };
-  const detachContextGuard = attachContextLossGuard(renderer, { onLost: () => api.pause(), onRestored: () => api.resume() });
+  const detachContextGuard = attachContextLossGuard(renderer, {
+    onLost: () => api.pause(),
+    onRestored: () => {
+      premiumRender.restoreContext();
+      api.resume();
+    }
+  });
   if (options.debugGlobalName) window[options.debugGlobalName] = api;
   options.onEngineReady?.(api);
   loop.start(true); // immediate first tick preserves the old synchronous animate() call

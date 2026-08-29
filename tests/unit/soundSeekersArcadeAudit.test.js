@@ -112,7 +112,7 @@ test("Sound Racer retains its one-shot, cleanup, cache, static-overlay, and redu
 test("Sound Safari reduces actual critter travel and follows live OS motion changes", async () => {
   const safari = await source("src/components/learn/games/games/SoundSafariArcadeGame.jsx");
   assert.match(safari, /let reduceMotion = motionQuery\?\.matches \?\? prefersReducedMotion\(\)/);
-  assert.match(safari, /const syncReducedMotion = event => \{ reduceMotion = Boolean\(event\.matches\); \}/);
+  assert.match(safari, /const syncReducedMotion = event => \{[\s\S]*reduceMotion = Boolean\(event\.matches\);[\s\S]*renderProfile = detectSafariRenderProfile\(reduceMotion\);[\s\S]*resize\(\);[\s\S]*\};/);
   assert.match(safari, /motionQuery\?\.addEventListener\?\.\("change", syncReducedMotion\)/);
   assert.match(safari, /motionQuery\?\.removeEventListener\?\.\("change", syncReducedMotion\)/);
   assert.match(safari, /const motionDt = reduceMotion \? dt \* 0\.35 : dt/);
@@ -120,6 +120,30 @@ test("Sound Safari reduces actual critter travel and follows live OS motion chan
   assert.match(safari, /critter\.y \+= critter\.vy \* motionDt/);
   assert.match(safari, /function onPointerDown\(event\)[\s\S]*captureAt\(point\.x, point\.y\)/);
   assert.match(safari, /drawNet\(ctx, state, theme, w, h, images\.net\)/);
+});
+
+test("Sound Safari keeps cinematic grading behind crisp literacy surfaces and tiers decorative work", async () => {
+  const safari = await source("src/components/learn/games/games/SoundSafariArcadeGame.jsx");
+  assert.match(safari, /const SAFARI_RENDER_PROFILES = \{[\s\S]*pixelRatioCap: 1,[\s\S]*pixelRatioCap: 1\.5,[\s\S]*pixelRatioCap: 2/);
+  assert.match(safari, /const cappedDpr = Math\.min\(size\.dpr, renderProfile\.pixelRatioCap\)/);
+  assert.match(safari, /ctx\.imageSmoothingEnabled = true/);
+  assert.doesNotMatch(safari, /ctx\.imageSmoothingEnabled = false/);
+  assert.doesNotMatch(safari, /function drawScreenGrade/);
+  assert.doesNotMatch(safari, /for \(let y = 0; y < h; y \+= (?:4|8)\)/);
+  assert.match(safari, /drawSceneLighting\(ctx, w, h, activeTheme, renderProfile\);\s*drawSafari\(ctx, state, config, activeTheme, images, w, h\);\s*drawHud/);
+});
+
+test("Sentence Express layers its world without grading over literacy controls", async () => {
+  const css = await source("src/styles/sentence-express.css");
+  assert.match(css, /\.sx-sky::before,[\s\S]*\.sx-sky::after/);
+  assert.match(css, /\.sx-scroll \.sx-far \{ animation: sx-parallax-far/);
+  assert.match(css, /\.sx-scroll \.sx-mid \{ animation: sx-parallax-mid/);
+  assert.match(css, /\.sx-stage::after \{[\s\S]*z-index: 5/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*\.sx-scroll \.sx-far, \.sx-scroll \.sx-mid \{ animation: none; \}/);
+  assert.match(css, /@media \(update: slow\)/);
+  for (const minimum of ["min-height: 56px", "width: 58px; height: 58px"]) {
+    assert.match(css, new RegExp(minimum.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
 });
 
 test("Sentence Grove offers named hold-safe movement buttons as an alternative to drag steering", async () => {

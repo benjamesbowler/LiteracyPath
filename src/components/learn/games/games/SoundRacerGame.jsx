@@ -47,6 +47,7 @@ import {
   setTextureSrgb
 } from "../shared/threeShell.js";
 import { laneDirectionForKey } from "../shared/premiumGameStandard.js";
+import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 const LANES = [-3.15, 0, 3.15];
 const LANE_NAMES = ["left", "middle", "right"];
@@ -356,7 +357,7 @@ function startGame(THREE, mount, opts) {
   });
 
   const renderer = createRenderer(THREE, {
-    antialias: false,
+    antialias: qualityTier !== "low",
     powerPreference: "default",
     pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
     srgbOutput: true,
@@ -390,13 +391,37 @@ function startGame(THREE, mount, opts) {
   const fillLight = new THREE.HemisphereLight(0xffffff, 0x101020, 0.6);
   scene.add(fillLight);
 
+  const rimLight = new THREE.DirectionalLight(0x8de8ff, 0.42);
+  rimLight.position.set(-6, 5, -10);
+  scene.add(rimLight);
+
+  const premiumRender = createArcadePremiumRenderPipeline({
+    THREE,
+    renderer,
+    scene,
+    camera,
+    tier: qualityTier,
+    shadowLights: [keyLight],
+    mood: {
+      bloomIntensity: 0.085,
+      bloomThreshold: 0.86,
+      environmentIntensity: 0.92,
+      vignetteDarkness: 0.1,
+      aoIntensity: 0.72
+    }
+  });
+  qualityTier = premiumRender.effectiveTier;
+  applyQualityTier(renderer, qualityTier);
+  premiumRender.setTier(qualityTier);
+  premiumRender.resize(width(), height());
+
   function reassessQualityTier() {
     const nextTier = detectQualityTier();
-    if (nextTier === qualityTier) return;
-    qualityTier = nextTier;
+    premiumRender.setTier(nextTier);
+    qualityTier = premiumRender.effectiveTier;
     applyQualityTier(renderer, qualityTier);
-    keyLight.castShadow = qualityTier !== "low";
     renderer.setSize(width(), height(), false);
+    premiumRender.resize(width(), height());
   }
 
   const syncMotionPreference = event => {
@@ -427,7 +452,7 @@ function startGame(THREE, mount, opts) {
       '<div style="width:58px;height:50px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px);font-size:1.4rem">▶</div></div>' +
     '<div data-sr="banner" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:900;font-size:clamp(1.25rem,5vw,2.5rem);letter-spacing:.12em;text-transform:uppercase;color:#f5fbff;text-shadow:0 3px 18px rgba(0,0,0,.7);opacity:0;transition:opacity .25s ease,transform .25s ease;transform:translateX(-36px)"></div>' +
     '<div data-sr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(9,12,30,.62),rgba(5,7,18,.24));z-index:12"></div>' +
-    '<div style="position:absolute;inset:0;pointer-events:none;z-index:14;opacity:.16;background:repeating-linear-gradient(0deg,rgba(255,255,255,.16) 0,rgba(255,255,255,.16) 1px,rgba(0,0,0,0) 1px,rgba(0,0,0,0) 4px);mix-blend-mode:overlay"></div>' +
+    '<div style="position:absolute;inset:0;pointer-events:none;z-index:14;opacity:.13;background:linear-gradient(180deg,rgba(145,225,255,.12),transparent 25%,transparent 76%,rgba(4,7,18,.42));mix-blend-mode:soft-light"></div>' +
     '<div data-sr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 24%,rgba(25,34,72,.76),rgba(5,7,18,.95));pointer-events:auto;z-index:20"></div>';
   mount.appendChild(hud);
   opts.registerCleanup?.(() => {
@@ -514,7 +539,9 @@ function startGame(THREE, mount, opts) {
       color,
       roughness: opts.roughness ?? 0.62,
       metalness: opts.metalness ?? 0.18,
-      flatShading: opts.flatShading ?? true,
+      flatShading: opts.flatShading ?? qualityTier === "low",
+      envMapIntensity: opts.envMapIntensity ?? 0.92,
+      dithering: true,
       emissive: opts.emissive || 0x000000,
       emissiveIntensity: opts.emissiveIntensity || 0,
       transparent: opts.transparent || false,
@@ -2719,6 +2746,10 @@ function startGame(THREE, mount, opts) {
     opts.onCheckpoint?.(levelIdx, levelCount);
     opts.onProgressUpdate?.(levelIdx, levelCount);
     prewarmMapTextures(levelIdx + 1);
+    // Track, labels, gates and the ship are rebuilt for every level. Prepare
+    // the live scene only after that rebuild so the active textures receive
+    // anisotropy and bloom never retains objects from the previous track.
+    premiumRender.prepareObject(scene);
   }
 
   function hideOverlay() {
@@ -3129,7 +3160,11 @@ function startGame(THREE, mount, opts) {
       // The scene is static behind pause/onboarding overlays. Render it once,
       // then stop submitting identical WebGL frames until state changes.
       if (!pausedFrameRendered) {
-        renderer.render(scene, camera);
+        const renderedTier = premiumRender.render(0);
+        if (renderedTier !== qualityTier) {
+          qualityTier = renderedTier;
+          applyQualityTier(renderer, qualityTier);
+        }
         pausedFrameRendered = true;
       }
       return;
@@ -3188,7 +3223,11 @@ function startGame(THREE, mount, opts) {
       camera.position.x *= 0.84;
       camera.position.y += (cameraBaseY - camera.position.y) * 0.12;
     }
-    renderer.render(scene, camera);
+    const renderedTier = premiumRender.render(dt);
+    if (renderedTier !== qualityTier) {
+      qualityTier = renderedTier;
+      applyQualityTier(renderer, qualityTier);
+    }
   }
 
   startLevel();
@@ -3289,7 +3328,13 @@ function startGame(THREE, mount, opts) {
     introCueTimer = queueRecordedAction(() => playTutorialExample(tutorial), 650);
   }
 
-  const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });
+  const detachContextGuard = attachContextLossGuard(renderer, {
+    onLost: pause,
+    onRestored: () => {
+      premiumRender.restoreContext();
+      resume();
+    }
+  });
   opts.registerCleanup?.(detachContextGuard);
 
   function teardown() {
@@ -3317,6 +3362,7 @@ function startGame(THREE, mount, opts) {
     disposeObject(railGroup);
     disposeObject(sceneryGroup);
     disposeObject(burstGroup);
+    premiumRender.destroy();
     disposeRenderer(renderer, { forceContextLoss: true });
     textureCanvasCache.clear();
     if (hud.parentNode) hud.parentNode.removeChild(hud);

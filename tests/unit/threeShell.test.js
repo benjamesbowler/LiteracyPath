@@ -42,7 +42,9 @@ test("3D arcade timing and shadow settings use supported Three.js APIs", () => {
     /new THREE\.(?:Clock|Timer)|PCFSoftShadowMap|pcfsoft/
   );
   assert.match(gallerySource, /function readFrameDelta\(now\)/);
-  assert.match(gallerySource, /update\(readFrameDelta\(now\)\)/);
+  assert.match(gallerySource, /const dt = readFrameDelta\(now\);/);
+  assert.match(gallerySource, /update\(dt\)/);
+  assert.match(gallerySource, /premiumRender\.render\(dt\)/);
   assert.match(gallerySource, /frameTimer\.(?:pause|resume)\(\)/);
 });
 

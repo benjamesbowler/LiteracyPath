@@ -49,6 +49,7 @@ import {
   laneDirectionForKey,
   premiumSetpieceBudget
 } from "../shared/premiumGameStandard.js";
+import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
 
 // Rocket Run: a real, steer-and-collect 3D game (not an animated worksheet).
 // The child flies a rocket across three lanes to catch the words that START
@@ -229,8 +230,8 @@ function startGame(THREE, mount, opts) {
     tex.wrapS = THREE.RepeatWrapping;
     tex.wrapT = THREE.RepeatWrapping;
     tex.repeat.set(1, 1);
-    tex.magFilter = THREE.NearestFilter;
-    tex.minFilter = THREE.LinearMipMapLinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
     tex.needsUpdate = true;
     return tex;
   }
@@ -260,14 +261,14 @@ function startGame(THREE, mount, opts) {
   applyQualityTier(renderer, qualityTier);
   renderer.setSize(width(), height());
   renderer.domElement.style.display = "block";
-  renderer.domElement.style.filter = "contrast(1.08) saturate(1.16)";
+  renderer.domElement.style.filter = "saturate(1.04)";
   mount.appendChild(renderer.domElement);
 
   // ── HUD (plain DOM, cleaned up on teardown) ──────────────────────────────
   const hud = document.createElement("div");
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.55)";
   hud.innerHTML =
-    '<div data-rr="crt" style="position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(180deg,rgba(255,255,255,.18) 0 1px,transparent 1px 4px),radial-gradient(90% 80% at 50% 50%,transparent 58%,rgba(0,0,0,.48));mix-blend-mode:screen"></div>' +
+    '<div data-rr="lens" style="position:absolute;inset:0;opacity:.16;background:linear-gradient(180deg,rgba(130,218,255,.12),transparent 24%,transparent 76%,rgba(5,8,24,.45));mix-blend-mode:soft-light"></div>' +
     '<div style="position:absolute;top:12px;left:14px;display:flex;align-items:stretch;gap:10px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.32))">' +
     '<button type="button" data-rr="hear-target" aria-label="Hear the target sound again" title="Hear target sound" style="position:relative;width:62px;height:56px;display:grid;place-items:center;padding:0;font:inherit;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;outline-offset:3px"><span data-rr="letter" style="font-size:2rem;font-weight:900;line-height:1"></span><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" style="position:absolute;right:8px;bottom:5px;opacity:.72"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg></button>' +
     '<div style="min-width:210px;padding:7px 18px 8px 14px;background:linear-gradient(90deg,rgba(7,12,32,.9),rgba(15,35,78,.72));border:1px solid rgba(126,232,255,.46);clip-path:polygon(0 0,94% 0,100% 50%,94% 100%,0 100%)">' +
@@ -334,11 +335,36 @@ function startGame(THREE, mount, opts) {
   key.shadow.camera.bottom = -8;
   scene.add(key);
 
+  const rim = new THREE.DirectionalLight(0x8eb8ff, 0.46);
+  rim.position.set(-5, 4.5, -8);
+  scene.add(rim);
+
+  const premiumRender = createArcadePremiumRenderPipeline({
+    THREE,
+    renderer,
+    scene,
+    camera,
+    tier: qualityTier,
+    shadowLights: [key],
+    mood: {
+      bloomIntensity: 0.105,
+      bloomThreshold: 0.82,
+      environmentIntensity: 1.02,
+      vignetteDarkness: 0.14,
+      aoIntensity: 0.76
+    }
+  });
+  qualityTier = premiumRender.effectiveTier;
+  applyQualityTier(renderer, qualityTier);
+  premiumRender.setTier(qualityTier);
+  premiumRender.resize(width(), height());
+
   function reassessQualityTier() {
     const nextTier = detectQualityTier();
-    qualityTier = nextTier;
+    premiumRender.setTier(nextTier);
+    qualityTier = premiumRender.effectiveTier;
     applyQualityTier(renderer, qualityTier);
-    key.castShadow = qualityTier !== "low";
+    premiumRender.resize(width(), height());
   }
   const syncMotionPreference = event => {
     reduceMotion = Boolean(event.matches);
@@ -378,7 +404,7 @@ function startGame(THREE, mount, opts) {
     scene.add(rail); rails.push(rail);
   });
 
-  // ── PS1 racer treatment: a real track corridor, not just dots in empty space.
+  // ── Authored racing corridor: readable lanes, grounded deck and depth cues.
   const trackSegments = [];
   const trackGroup = new THREE.Group();
   scene.add(trackGroup);
@@ -568,6 +594,7 @@ function startGame(THREE, mount, opts) {
       model.rotation.y = side < 0 ? Math.PI * 0.42 : -Math.PI * 0.42;
       model.userData.streamOffset = i * 0.17;
       ownedScenery.add(model);
+      premiumRender.prepareObject(model);
     }).catch(() => {
       // The procedural corridor is the deliberate, playable fallback.
     });
@@ -669,18 +696,20 @@ function startGame(THREE, mount, opts) {
     scene.add(q); speedLines.push(q);
   }
 
-  // ── Ship v3: chunky low-poly PS1 craft. Gold hull, cyan canopy, coral fins,
-  //    side boosters, and a readable engine plume. ──────────────────────────
+  // ── Ship v4: smooth, reflective hero craft. The silhouette stays chunky and
+  //    child-readable, while curved bodywork and layered surface response move
+  //    it out of deliberately retro low-poly presentation. ─────────────────
   const ship = new THREE.Group();
-  const hullMat = new THREE.MeshStandardMaterial({ color: 0xd9a43f, metalness: 0.62, roughness: 0.26, flatShading: true, emissive: 0x2d1900, emissiveIntensity: 0.16 });
-  const trimMat = new THREE.MeshStandardMaterial({ color: 0xff6b57, metalness: 0.35, roughness: 0.38, flatShading: true, emissive: 0x351008, emissiveIntensity: 0.12 });
-  const darkMat = new THREE.MeshStandardMaterial({ color: 0x18203a, metalness: 0.55, roughness: 0.55, flatShading: true });
-  const panelMat = new THREE.MeshStandardMaterial({ color: 0xffe28a, metalness: 0.5, roughness: 0.3, flatShading: true, emissive: 0x3a2400, emissiveIntensity: 0.1 });
+  const hullMat = new THREE.MeshPhysicalMaterial({ color: 0xd9a43f, metalness: 0.66, roughness: 0.22, clearcoat: 0.46, clearcoatRoughness: 0.2, emissive: 0x2d1900, emissiveIntensity: 0.11, envMapIntensity: 1.2, dithering: true });
+  const trimMat = new THREE.MeshPhysicalMaterial({ color: 0xff6b57, metalness: 0.38, roughness: 0.3, clearcoat: 0.38, clearcoatRoughness: 0.24, emissive: 0x351008, emissiveIntensity: 0.08, envMapIntensity: 1.08, dithering: true });
+  const darkMat = new THREE.MeshPhysicalMaterial({ color: 0x18203a, metalness: 0.58, roughness: 0.42, clearcoat: 0.22, clearcoatRoughness: 0.34, envMapIntensity: 0.94, dithering: true });
+  const panelMat = new THREE.MeshPhysicalMaterial({ color: 0xffe28a, metalness: 0.52, roughness: 0.24, clearcoat: 0.34, clearcoatRoughness: 0.2, emissive: 0x3a2400, emissiveIntensity: 0.08, envMapIntensity: 1.16, dithering: true });
   const profile = [
     [0.001, -1.65], [0.09, -1.52], [0.2, -1.18], [0.3, -0.62],
     [0.355, -0.05], [0.345, 0.42], [0.28, 0.78], [0.2, 0.95], [0.001, 0.98]
   ].map(([r, z]) => new THREE.Vector2(r, z));
-  const body = new THREE.Mesh(new THREE.LatheGeometry(profile, 18), hullMat);
+  const bodySegments = qualityTier === "high" ? 40 : qualityTier === "medium" ? 28 : 18;
+  const body = new THREE.Mesh(new THREE.LatheGeometry(profile, bodySegments), hullMat);
   body.rotation.x = Math.PI / 2; // lathe +y axis -> -z, nose forward
   body.scale.set(1.2, 1.2, 1.22);
   ship.add(body);
@@ -693,7 +722,7 @@ function startGame(THREE, mount, opts) {
   ship.add(dorsal);
   const canopy = new THREE.Mesh(
     new THREE.SphereGeometry(0.24, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2),
-    new THREE.MeshStandardMaterial({ color: 0x7ff0ff, emissive: 0x21a7c8, emissiveIntensity: 1.1, metalness: 0.12, roughness: 0.05, transparent: true, opacity: 0.92, flatShading: true })
+    new THREE.MeshPhysicalMaterial({ color: 0x7ff0ff, emissive: 0x21a7c8, emissiveIntensity: 0.76, metalness: 0.08, roughness: 0.08, transmission: qualityTier === "high" ? 0.18 : 0, thickness: 0.3, clearcoat: 0.72, clearcoatRoughness: 0.1, transparent: true, opacity: 0.94, envMapIntensity: 1.35, dithering: true })
   );
   canopy.position.set(0, 0.34, -0.52);
   canopy.rotation.x = -0.25;
@@ -864,6 +893,7 @@ function startGame(THREE, mount, opts) {
       }
     };
     scene.add(group);
+    premiumRender.prepareObject(group);
     return group;
   }
   function makeMeteor(lane) {
@@ -894,6 +924,7 @@ function startGame(THREE, mount, opts) {
     group.userData = { meteor: true, lane, rock, alive: true,
       setFade: a => { group.scale.setScalar(0.4 + 0.6 * a); trail.material.opacity = 0.45 * a; } };
     scene.add(group);
+    premiumRender.prepareObject(group);
     return group;
   }
   function makeRing(lane) {
@@ -921,6 +952,7 @@ function startGame(THREE, mount, opts) {
     group.position.set(laneX(lane), 1.05, -46);
     group.userData = { ring: true, lane, alive: true, orb: ring, inner, setFade: a => { ring.material.opacity = 0.9 * a; inner.material.opacity = 0.7 * a; } };
     scene.add(group);
+    premiumRender.prepareObject(group);
     return group;
   }
   function makeHeart(lane) {
@@ -935,6 +967,7 @@ function startGame(THREE, mount, opts) {
     group.position.set(laneX(lane), 1.05, -46);
     group.userData = { heart: true, lane, orb, alive: true, setFade: a => { orb.material.opacity = 0.9 * a; sprite.material.opacity = a; } };
     scene.add(group);
+    premiumRender.prepareObject(group);
     return group;
   }
 
@@ -1530,8 +1563,13 @@ function startGame(THREE, mount, opts) {
     for (let i = bursts.length - 1; i >= 0; i -= 1) if (bursts[i].life <= 0) bursts.splice(i, 1);
 
     if (!reduceMotion && shakeV > 0) { camera.position.x = Math.sin(now * 0.08) * shakeV; shakeV = Math.max(0, shakeV - dt * 1.2); } else { camera.position.x *= 0.8; }
-    renderer.render(scene, camera);
+    const renderedTier = premiumRender.render(dt);
+    if (renderedTier !== qualityTier) {
+      qualityTier = renderedTier;
+      applyQualityTier(renderer, qualityTier);
+    }
   }
+  premiumRender.prepareObject(scene);
   startRound();
   const loop = createFrameLoop(tick);
   loop.start();
@@ -1581,7 +1619,13 @@ function startGame(THREE, mount, opts) {
     overlay.addEventListener("pointerdown", dismissIntro);
     window.addEventListener("keydown", onIntroKey, true);
   }
-  const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });
+  const detachContextGuard = attachContextLossGuard(renderer, {
+    onLost: pause,
+    onRestored: () => {
+      premiumRender.restoreContext();
+      resume();
+    }
+  });
   function teardown() {
     loop.stop();
     detachContextGuard();
@@ -1616,6 +1660,7 @@ function startGame(THREE, mount, opts) {
     scene.remove(themeSun); disposeGroup(themeSun);
     if (sceneBackground?.dispose) sceneBackground.dispose();
     if (finaleComet) { scene.remove(finaleComet); disposeGroup(finaleComet); }
+    premiumRender.destroy();
     disposeRenderer(renderer, { forceContextLoss: true });
     if (hud.parentNode) hud.parentNode.removeChild(hud);
   }

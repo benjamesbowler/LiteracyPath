@@ -116,6 +116,53 @@ const CREATURE_COLORS = [
   ["#f7f0d0", "#63572e"]
 ];
 
+const SAFARI_RENDER_PROFILES = {
+  low: {
+    tier: "low",
+    pixelRatioCap: 1,
+    effectScale: 0.42,
+    atmosphereMotes: 4,
+    cameraMotion: 0.35,
+    ambientMotion: 0.45,
+    smoothingQuality: "medium"
+  },
+  medium: {
+    tier: "medium",
+    pixelRatioCap: 1.5,
+    effectScale: 0.72,
+    atmosphereMotes: 7,
+    cameraMotion: 0.68,
+    ambientMotion: 0.72,
+    smoothingQuality: "high"
+  },
+  high: {
+    tier: "high",
+    pixelRatioCap: 2,
+    effectScale: 1,
+    atmosphereMotes: 10,
+    cameraMotion: 1,
+    ambientMotion: 1,
+    smoothingQuality: "high"
+  }
+};
+
+function detectSafariRenderProfile(reduceMotion = false) {
+  const memory = Number(window.navigator?.deviceMemory) || 0;
+  const cores = Number(window.navigator?.hardwareConcurrency) || 0;
+  const constrained = (memory > 0 && memory <= 4) || (cores > 0 && cores <= 4);
+  const balanced = (memory > 0 && memory <= 8) || (cores > 0 && cores <= 8);
+  const profile = constrained
+    ? SAFARI_RENDER_PROFILES.low
+    : balanced
+      ? SAFARI_RENDER_PROFILES.medium
+      : SAFARI_RENDER_PROFILES.high;
+  return {
+    ...profile,
+    cameraMotion: reduceMotion ? 0 : profile.cameraMotion,
+    ambientMotion: reduceMotion ? 0 : profile.ambientMotion
+  };
+}
+
 // First-run onboarding: one intro card per device, dismissed forever after.
 // Storage may be denied (private mode) — then the card shows again next
 // session, but it must never crash the game.
@@ -273,7 +320,7 @@ function loadImage(src) {
   return image;
 }
 
-function drawPalSprite(ctx, image, frameIndex, centerX, footY, maxW, maxH) {
+function drawPalSprite(ctx, image, frameIndex, centerX, footY, maxW, maxH, smoothingQuality = "high") {
   if (!imageReady(image)) return null;
   const frameCount = 4;
   const frameW = image.naturalWidth / frameCount;
@@ -285,32 +332,36 @@ function drawPalSprite(ctx, image, frameIndex, centerX, footY, maxW, maxH) {
   const x = centerX - dw / 2;
   const y = footY - dh;
   const smoothing = ctx.imageSmoothingEnabled;
-  ctx.imageSmoothingEnabled = false;
+  const previousQuality = ctx.imageSmoothingQuality;
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = smoothingQuality;
   ctx.drawImage(image, frame * frameW, 0, frameW, frameH, x, y, dw, dh);
   ctx.imageSmoothingEnabled = smoothing;
+  ctx.imageSmoothingQuality = previousQuality;
   return { x, y, w: dw, h: dh };
 }
 
-function drawCover(ctx, image, w, h, time = 0) {
+function drawCover(ctx, image, w, h, time = 0, cameraMotion = 1) {
   if (!image?.complete || !image.naturalWidth) return false;
-  const cameraZoom = 1.035 + Math.sin(time * 0.22) * 0.006;
+  const cameraZoom = 1.025 + cameraMotion * (0.01 + Math.sin(time * 0.22) * 0.006);
   const scale = Math.max(w / image.naturalWidth, h / image.naturalHeight) * cameraZoom;
   const dw = image.naturalWidth * scale;
   const dh = image.naturalHeight * scale;
-  const driftX = Math.sin(time * 0.16) * w * 0.018;
-  const driftY = Math.cos(time * 0.12) * h * 0.012;
+  const driftX = Math.sin(time * 0.16) * w * 0.018 * cameraMotion;
+  const driftY = Math.cos(time * 0.12) * h * 0.012 * cameraMotion;
   ctx.drawImage(image, (w - dw) / 2 + driftX, (h - dh) / 2 + driftY, dw, dh);
   return true;
 }
 
-function drawFallback(ctx, w, h, theme, time) {
+function drawFallback(ctx, w, h, theme, time, effectScale = 1) {
   const g = ctx.createLinearGradient(0, 0, w, h);
   g.addColorStop(0, "#12324a");
   g.addColorStop(0.45, "#244b2f");
   g.addColorStop(1, "#06101d");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, w, h);
-  for (let i = 0; i < 44; i += 1) {
+  const moteCount = Math.max(16, Math.round(44 * effectScale));
+  for (let i = 0; i < moteCount; i += 1) {
     const x = ((i * 137 + time * 12) % (w + 160)) - 80;
     const y = h * 0.18 + ((i * 73) % Math.max(140, h * 0.62));
     ctx.fillStyle = i % 2 ? `${theme.accent}66` : `${theme.accent2}55`;
@@ -320,44 +371,45 @@ function drawFallback(ctx, w, h, theme, time) {
   }
 }
 
-function drawScreenGrade(ctx, w, h) {
-  const vignette = ctx.createRadialGradient(w * 0.5, h * 0.42, h * 0.12, w * 0.5, h * 0.48, h * 0.86);
-  vignette.addColorStop(0, "rgba(255,255,255,0)");
-  vignette.addColorStop(0.6, "rgba(2,6,18,.08)");
-  vignette.addColorStop(1, "rgba(0,0,0,.58)");
-  ctx.fillStyle = vignette;
+function drawSceneLighting(ctx, w, h, theme, renderProfile) {
+  ctx.save();
+  const keyLight = ctx.createRadialGradient(w * 0.76, h * 0.16, 0, w * 0.76, h * 0.16, h * 0.74);
+  keyLight.addColorStop(0, `${theme.accent2}38`);
+  keyLight.addColorStop(0.34, `${theme.accent2}16`);
+  keyLight.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.globalCompositeOperation = "screen";
+  ctx.globalAlpha = 0.72 + renderProfile.effectScale * 0.28;
+  ctx.fillStyle = keyLight;
   ctx.fillRect(0, 0, w, h);
 
-  ctx.fillStyle = "rgba(0,0,0,.14)";
-  for (let y = 0; y < h; y += 4) ctx.fillRect(0, y, w, 1);
-  ctx.fillStyle = "rgba(255,255,255,.035)";
-  for (let y = 2; y < h; y += 4) ctx.fillRect(0, y, w, 1);
-
-  ctx.globalAlpha = 0.14;
-  ctx.fillStyle = "#fff";
-  for (let i = 0; i < 240; i += 1) {
-    ctx.fillRect((i * 83) % w, (i * 47) % h, 1, 1);
-  }
+  ctx.globalCompositeOperation = "source-over";
   ctx.globalAlpha = 1;
+  const depthHaze = ctx.createLinearGradient(0, h * 0.22, 0, h * 0.76);
+  depthHaze.addColorStop(0, "rgba(220,238,248,0)");
+  depthHaze.addColorStop(0.52, `${theme.accent}12`);
+  depthHaze.addColorStop(0.7, "rgba(7,18,28,.08)");
+  depthHaze.addColorStop(1, "rgba(1,5,12,.26)");
+  ctx.fillStyle = depthHaze;
+  ctx.fillRect(0, 0, w, h);
 
-  ctx.save();
-  ctx.globalCompositeOperation = "multiply";
-  for (let y = 0; y < h; y += 8) {
-    for (let x = (y / 8) % 2 ? 4 : 0; x < w; x += 8) {
-      ctx.fillStyle = "rgba(0,0,0,.055)";
-      ctx.fillRect(x, y, 4, 4);
-    }
-  }
+  const vignette = ctx.createRadialGradient(w * 0.52, h * 0.42, h * 0.18, w * 0.52, h * 0.46, h * 0.9);
+  vignette.addColorStop(0, "rgba(255,255,255,0)");
+  vignette.addColorStop(0.68, "rgba(2,6,18,.035)");
+  vignette.addColorStop(1, "rgba(0,3,10,.46)");
+  ctx.fillStyle = vignette;
+  ctx.fillRect(0, 0, w, h);
   ctx.restore();
 }
 
 function drawWorldAtmosphere(ctx, state, theme, w, h) {
   const pulse = state.pulse || 0;
+  const renderProfile = state.renderProfile || SAFARI_RENDER_PROFILES.high;
+  const ambientMotion = renderProfile.ambientMotion;
   ctx.save();
   ctx.globalCompositeOperation = "screen";
-  for (let i = 0; i < 10; i += 1) {
-    const x = w * (0.12 + i * 0.085) + Math.sin(state.time * 0.55 + i) * 18;
-    const y = h * (0.22 + (i % 4) * 0.1) + Math.cos(state.time * 0.42 + i) * 14;
+  for (let i = 0; i < renderProfile.atmosphereMotes; i += 1) {
+    const x = w * (0.12 + i * 0.085) + Math.sin(state.time * 0.55 + i) * 18 * ambientMotion;
+    const y = h * (0.22 + (i % 4) * 0.1) + Math.cos(state.time * 0.42 + i) * 14 * ambientMotion;
     const r = 10 + (i % 3) * 5 + pulse * 8;
     const g = ctx.createRadialGradient(x, y, 1, x, y, r * 3.4);
     g.addColorStop(0, i % 2 ? theme.accent : theme.accent2);
@@ -390,7 +442,7 @@ function drawWorldAtmosphere(ctx, state, theme, w, h) {
 
 function drawHabitatFloor(ctx, state, theme, w, h) {
   const world = state.level?.world || "meadow";
-  const t = state.time;
+  const t = state.time * (state.renderProfile?.ambientMotion ?? 1);
   const floorY = h * 0.54;
   const worldFloor = world === "dino" ? {
     near: "rgba(37,54,31,.56)",
@@ -498,12 +550,14 @@ function drawHabitatFloor(ctx, state, theme, w, h) {
 
 function drawWorldMotion(ctx, state, theme, w, h) {
   const world = state.level?.world || "meadow";
-  const t = state.time;
+  const renderProfile = state.renderProfile || SAFARI_RENDER_PROFILES.high;
+  const t = state.time * renderProfile.ambientMotion;
+  const effectCount = (count, minimum = 4) => Math.max(minimum, Math.round(count * renderProfile.effectScale));
 
   ctx.save();
   ctx.globalCompositeOperation = "screen";
   if (world === "dino") {
-    for (let i = 0; i < 18; i += 1) {
+    for (let i = 0; i < effectCount(18); i += 1) {
       const p = (t * 0.22 + i * 0.137) % 1;
       const x = w * (0.12 + ((i * 0.29 + p * 0.18) % 0.82));
       const y = h * (0.2 + p * 0.58);
@@ -512,7 +566,7 @@ function drawWorldMotion(ctx, state, theme, w, h) {
       ctx.arc(x, y, 2 + p * 5, 0, TWO_PI);
       ctx.fill();
     }
-    for (let i = 0; i < 6; i += 1) {
+    for (let i = 0; i < effectCount(6, 2); i += 1) {
       const y = h * (0.58 + i * 0.055) + Math.sin(t * 0.8 + i) * 5;
       ctx.strokeStyle = `rgba(255,180,92,${0.08 + i * 0.015})`;
       ctx.lineWidth = 3;
@@ -522,7 +576,7 @@ function drawWorldMotion(ctx, state, theme, w, h) {
       ctx.stroke();
     }
   } else if (world === "moonwood") {
-    for (let i = 0; i < 16; i += 1) {
+    for (let i = 0; i < effectCount(16); i += 1) {
       const p = (t * 0.12 + i * 0.151) % 1;
       const x = w * (0.08 + ((i * 0.21 + Math.sin(t * 0.12 + i) * 0.04) % 0.86));
       const y = h * (0.18 + p * 0.62);
@@ -533,7 +587,7 @@ function drawWorldMotion(ctx, state, theme, w, h) {
       ctx.stroke();
     }
   } else {
-    for (let i = 0; i < 18; i += 1) {
+    for (let i = 0; i < effectCount(18); i += 1) {
       const p = (t * 0.16 + i * 0.119) % 1;
       const x = w * (0.08 + ((i * 0.31 + p * 0.11) % 0.84));
       const y = h * (0.22 + p * 0.58);
@@ -545,7 +599,7 @@ function drawWorldMotion(ctx, state, theme, w, h) {
 
 function drawWorldGeometry(ctx, state, theme, w, h, layer = "back") {
   const world = state.level?.world || "meadow";
-  const t = state.time;
+  const t = state.time * (state.renderProfile?.ambientMotion ?? 1);
   ctx.save();
   if (layer === "back") {
     ctx.globalAlpha = 0.72;
@@ -887,7 +941,7 @@ function drawNet(ctx, state, theme, w, h, image) {
   const swing = net.swingT > 0 ? easeOut(net.swingT / 0.22) : 0;
   const scale = clamp(Math.min(w, h) * 0.0005, 0.29, 0.4);
   const ring = 98 * scale;
-  const bob = Math.sin(state.time * 3.1) * 0.035;
+  const bob = Math.sin(state.time * 3.1) * 0.035 * (state.renderProfile?.ambientMotion ?? 1);
   const swingAngle = swing * (net.swingDir || 1) * 0.48;
   const angle = (net.angle || 0) + swingAngle + bob;
 
@@ -915,9 +969,12 @@ function drawNet(ctx, state, theme, w, h, image) {
     ctx.translate(net.x, net.y);
     ctx.rotate(angle);
     const smoothing = ctx.imageSmoothingEnabled;
-    ctx.imageSmoothingEnabled = false;
+    const previousQuality = ctx.imageSmoothingQuality;
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = state.renderProfile?.smoothingQuality || "high";
     ctx.drawImage(image, -308 * scale, -167 * scale, image.naturalWidth * scale, image.naturalHeight * scale);
     ctx.imageSmoothingEnabled = smoothing;
+    ctx.imageSmoothingQuality = previousQuality;
     ctx.restore();
   } else {
     ctx.strokeStyle = "#f6f0d8";
@@ -1050,7 +1107,7 @@ function drawCreatureBody(ctx, critter, world, r, bright, dark, isNeeded, theme,
   ctx.fill();
 }
 
-function drawCritter(ctx, critter, needed, theme, time, world, sprite) {
+function drawCritter(ctx, critter, needed, theme, time, world, sprite, renderProfile) {
   const center = critterCenter(critter, time);
   const spawn = easeOut(critter.spawnT ?? 1);
   const r = critter.r * (critter.scareT > 0 ? 0.94 + Math.sin(time * 36) * 0.04 : 1) * clamp(spawn, 0.24, 1);
@@ -1081,10 +1138,18 @@ function drawCritter(ctx, critter, needed, theme, time, world, sprite) {
   ctx.save();
   ctx.globalAlpha = critter.caught ? 0.28 : 1;
 
-  ctx.fillStyle = "rgba(0,0,0,.34)";
+  ctx.save();
+  ctx.translate(center.x + r * 0.1, footY - r * 0.03);
+  ctx.scale(1, 0.22);
+  const contactShadow = ctx.createRadialGradient(0, 0, 0, 0, 0, r * 1.32);
+  contactShadow.addColorStop(0, `rgba(0,0,0,${0.42 + depth * 0.12})`);
+  contactShadow.addColorStop(0.56, "rgba(0,0,0,.24)");
+  contactShadow.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.fillStyle = contactShadow;
   ctx.beginPath();
-  ctx.ellipse(center.x + r * 0.1, footY - r * 0.03, r * 1.18, r * 0.22, 0, 0, TWO_PI);
+  ctx.arc(0, 0, r * 1.32, 0, TWO_PI);
   ctx.fill();
+  ctx.restore();
 
   const spriteReady = imageReady(sprite);
   if (spriteReady) {
@@ -1105,7 +1170,16 @@ function drawCritter(ctx, critter, needed, theme, time, world, sprite) {
     ctx.translate(-center.x, -footY);
     const frame = critter.spriteFrame + Math.floor(time * (critter.scareT > 0 ? 8 : 2.25) + critter.phase);
     ctx.filter = `hue-rotate(${((critter.color % 7) - 3) * 11}deg) saturate(1.08) contrast(1.04)`;
-    drawPalSprite(ctx, sprite, frame, center.x, footY, spriteMaxW, spriteMaxH);
+    drawPalSprite(
+      ctx,
+      sprite,
+      frame,
+      center.x,
+      footY,
+      spriteMaxW,
+      spriteMaxH,
+      renderProfile?.smoothingQuality || "high"
+    );
     ctx.filter = "none";
     ctx.restore();
   } else {
@@ -1178,12 +1252,21 @@ function drawSafari(ctx, state, config, theme, images, w, h) {
   drawFieldGuide(ctx, task, theme, w, h, showHint);
   const palSprite = images.pals[state.level?.world] || images.pals.meadow;
   for (const critter of [...state.critters].sort((a, b) => (a.hitY || a.y) - (b.hitY || b.y))) {
-    drawCritter(ctx, critter, showHint ? neededSound(task) : "", theme, state.time, state.level?.world || "meadow", palSprite);
+    drawCritter(
+      ctx,
+      critter,
+      showHint ? neededSound(task) : "",
+      theme,
+      state.time,
+      state.level?.world || "meadow",
+      palSprite,
+      state.renderProfile
+    );
   }
   for (const burst of state.bursts) drawCaptureBurst(ctx, burst);
   drawSoundSlots(ctx, task, theme, w, h);
   drawWorldGeometry(ctx, state, theme, w, h, "front");
-  drawGuide(ctx, images.guide, theme, w, h, state.time);
+  drawGuide(ctx, images.guide, theme, w, h, state.time * (state.renderProfile?.ambientMotion ?? 1));
   drawNet(ctx, state, theme, w, h, images.net);
 
   if (state.judgementT > 0) {
@@ -1208,8 +1291,13 @@ function startSoundSafariArcadeGame(mount, options) {
   const { canvas, ctx } = createGameCanvas(mount);
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
   let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
-  const syncReducedMotion = event => { reduceMotion = Boolean(event.matches); };
-  motionQuery?.addEventListener?.("change", syncReducedMotion);
+  let renderProfile = detectSafariRenderProfile(reduceMotion);
+  const syncReducedMotion = event => {
+    reduceMotion = Boolean(event.matches);
+    renderProfile = detectSafariRenderProfile(reduceMotion);
+    state.renderProfile = renderProfile;
+    resize();
+  };
   const { soundAllowed, sfx } = createSoundGate(options);
 
   const state = {
@@ -1242,6 +1330,7 @@ function startSoundSafariArcadeGame(mount, options) {
     wordClearLabel: "",
     pendingAdvance: false,
     waveSeed: 0,
+    renderProfile,
     critters: [],
     bursts: [],
     pointer: { x: 0, y: 0 },
@@ -1251,6 +1340,7 @@ function startSoundSafariArcadeGame(mount, options) {
   let w = 1;
   let h = 1;
   let dpr = 1;
+  motionQuery?.addEventListener?.("change", syncReducedMotion);
 
   function theme() {
     return config.accentsByWorld[state.level?.world] || config.accentsByWorld.meadow;
@@ -1259,10 +1349,18 @@ function startSoundSafariArcadeGame(mount, options) {
   function resize() {
     const prevW = w;
     const prevH = h;
+    renderProfile = detectSafariRenderProfile(reduceMotion);
+    state.renderProfile = renderProfile;
     const size = sizeCanvasToMount(mount, canvas, ctx);
     w = size.width;
     h = size.height;
-    dpr = size.dpr;
+    const cappedDpr = Math.min(size.dpr, renderProfile.pixelRatioCap);
+    if (cappedDpr !== size.dpr) {
+      canvas.width = Math.floor(w * cappedDpr);
+      canvas.height = Math.floor(h * cappedDpr);
+      ctx.setTransform(cappedDpr, 0, 0, cappedDpr, 0, 0);
+    }
+    dpr = cappedDpr;
     const hasNetPosition = state.net.x > 0 && state.net.y > 0;
     state.net.x = clamp(hasNetPosition ? state.net.x : w * 0.86, w * 0.12, w * 0.92);
     state.net.y = clamp(hasNetPosition ? state.net.y : h * 0.76, h * 0.2, h * 0.79);
@@ -1662,9 +1760,11 @@ function startSoundSafariArcadeGame(mount, options) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const activeTheme = theme();
     const bg = images.backgrounds[state.level?.world] || images.backgrounds.meadow;
-    if (!drawCover(ctx, bg, w, h, state.time)) drawFallback(ctx, w, h, activeTheme, state.time);
+    if (!drawCover(ctx, bg, w, h, state.time, renderProfile.cameraMotion)) {
+      drawFallback(ctx, w, h, activeTheme, state.time, renderProfile.effectScale);
+    }
+    drawSceneLighting(ctx, w, h, activeTheme, renderProfile);
     drawSafari(ctx, state, config, activeTheme, images, w, h);
-    drawScreenGrade(ctx, w, h);
     drawHud(ctx, state, config, activeTheme, w, h);
     drawCountdown(ctx, state, config, activeTheme, w, h);
     drawOnboarding(ctx, state, config, activeTheme, w, h);
