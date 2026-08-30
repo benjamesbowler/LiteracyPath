@@ -18,10 +18,11 @@ export function startStudentFocusSession({
   client,
   classId,
   target,
-  studentIds,
+  studentIds = [],
   assignments = {},
   durationMinutes = 90,
-  contentVersion = STUDENT_FOCUS_CONTENT_VERSION
+  contentVersion = STUDENT_FOCUS_CONTENT_VERSION,
+  wholeClass = false
 }) {
   return callFocusRpc(client, "teacher_start_student_focus_session", {
     p_class_id: classId,
@@ -29,7 +30,8 @@ export function startStudentFocusSession({
     p_student_ids: studentIds,
     p_assignments: assignments,
     p_duration_minutes: durationMinutes,
-    p_content_version: contentVersion
+    p_content_version: contentVersion,
+    p_whole_class: Boolean(wholeClass)
   });
 }
 

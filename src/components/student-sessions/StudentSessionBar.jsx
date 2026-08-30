@@ -1,6 +1,9 @@
 import { useState } from "react";
 
-import { studentFocusLabel } from "../../policy/studentFocusTargets.js";
+import {
+  STUDENT_FOCUS_TARGETS,
+  studentFocusLabel
+} from "../../policy/studentFocusTargets.js";
 
 export function StudentSessionBar({ session, members = [], students = [], connection = "idle", onEnd }) {
   const [ending, setEnding] = useState(false);
@@ -10,6 +13,15 @@ export function StudentSessionBar({ session, members = [], students = [], connec
   const connected = members.filter(member => member.connected).length;
   const completed = members.filter(member => member.status === "completed").length;
   const attention = members.filter(member => member.content_ok === false).length;
+  const resolvedConfig = members.find(member => member?.resolved_config)?.resolved_config || {};
+  const exactTitle = session.target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK
+    ? resolvedConfig.book_title
+    : session.target === STUDENT_FOCUS_TARGETS.ARCADE_GAME
+      ? resolvedConfig.game_title
+      : "";
+  const audienceLabel = (session.selection_scope || session.audience) === "whole_class"
+    ? "Whole class"
+    : "Selected students";
 
   async function end() {
     if (ending) return;
@@ -29,8 +41,8 @@ export function StudentSessionBar({ session, members = [], students = [], connec
     <aside className="student-session-bar" aria-label="Active student session">
       <div>
         <span className="student-session-live">Live</span>
-        <strong>{studentFocusLabel(session.target)}</strong>
-        <span>{members.length} assigned · {connected} connected · {completed} finished{attention ? ` · ${attention} need help` : ""}</span>
+        <strong>{studentFocusLabel(session.target)}{exactTitle ? `: ${exactTitle}` : ""}</strong>
+        <span>{audienceLabel} · {members.length} assigned · {connected} connected · {completed} finished{attention ? ` · ${attention} need help` : ""}</span>
         {connection === "reconnecting" && <span className="student-session-reconnecting">Reconnecting…</span>}
       </div>
       <details>

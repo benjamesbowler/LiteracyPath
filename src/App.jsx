@@ -218,11 +218,23 @@ export default function App() {
     }
     rawSetAppView(resolvedNext);
   }, [learnerAccessibility.reducedEffects, sessionMode]);
+  const [studentFocusContentReport, setStudentFocusContentReport] = useState(null);
+  const reportStudentFocusContent = useCallback(({ sessionId, contentOk }) => {
+    const normalizedSessionId = String(sessionId || "").trim();
+    if (!normalizedSessionId) return;
+    setStudentFocusContentReport(previous => (
+      previous?.sessionId === normalizedSessionId
+      && previous?.contentOk === (contentOk !== false)
+        ? previous
+        : { sessionId: normalizedSessionId, contentOk: contentOk !== false }
+    ));
+  }, []);
   const studentFocus = useStudentFocusSession({
     client: isSupabaseConfigured ? supabase : null,
     token: studentSession?.token || "",
     currentView: appView,
-    enabled: isSupabaseConfigured && sessionMode === "student" && Boolean(studentSession?.token)
+    enabled: isSupabaseConfigured && sessionMode === "student" && Boolean(studentSession?.token),
+    contentReport: studentFocusContentReport
   });
   activeStudentFocusRef.current = studentFocus.session;
   const [studentFocusCompletedSessionId, setStudentFocusCompletedSessionId] = useState("");
@@ -3070,7 +3082,7 @@ export default function App() {
       message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
       openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
       prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult, goToPreviousLetter, goToPreviousPattern, reviseLastAnswer,
-      regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
+      regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportStudentFocusContent, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
       resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
       resumeElBenchmarkAssessment, retryCheckpointSkill, retryTeacherSchoolName, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
       returnFromCheck, reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,

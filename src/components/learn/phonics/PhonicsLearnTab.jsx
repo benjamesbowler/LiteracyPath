@@ -65,11 +65,16 @@ export function PhonicsLearnTab({
   initialIsland = "",
   initialStep = 1,
   lockedToLetters = false,
+  lockedGameId = null,
+  onLockedGameAvailabilityChange = null,
   progressScopeKey = "default"
 }) {
+  const exactGameLock = lockedGameId !== null;
   const [activeLetter, setActiveLetter] = useState(null);
   const [activeFamily, setActiveFamily] = useState(null);
-  const [activeIsland, setActiveIsland] = useState(() => initialIsland || getInitialIsland());
+  const [activeIsland, setActiveIsland] = useState(() => (
+    exactGameLock ? "games" : initialIsland || getInitialIsland()
+  ));
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
   const { playCue } = useCvcSoundCue();
@@ -132,6 +137,7 @@ export function PhonicsLearnTab({
   }
 
   function handleIslandClick(island) {
+    if (exactGameLock && island !== "games") return;
     if (lockedToLetters && island !== "letters") return;
     if (island === "words" && !wordsUnlocked) {
       playCue("", "Learn 6 letters first!");
@@ -166,7 +172,11 @@ export function PhonicsLearnTab({
     return (
       <div className="phonics-arcade-surface">
         <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
-          <GameArcadeHub progressScopeKey={progressScopeKey} />
+          <GameArcadeHub
+            lockedGameId={lockedGameId}
+            onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}
+            progressScopeKey={progressScopeKey}
+          />
         </Suspense>
       </div>
     );

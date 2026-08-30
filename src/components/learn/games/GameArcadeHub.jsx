@@ -12,6 +12,7 @@ import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { MusicToggle } from "../../audio/MusicToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
+import { LEARN_GAMES } from "./games/index.js";
 import { ChildRecommendationExplanation } from "../../recommendations/RecommendationExplanation.jsx";
 import "../../../styles/learn-games.css";
 import "../../../styles/arcade-dark.css";
@@ -126,9 +127,23 @@ function Leaderboard({ refreshSignal }) {
   );
 }
 
-export function GameArcadeHub({ progressScopeKey = "default" }) {
+export function GameArcadeHub({
+  progressScopeKey = "default",
+  lockedGameId = null,
+  onLockedGameAvailabilityChange = null
+}) {
+  const exactGameLock = lockedGameId !== null;
+  const normalizedLockedGameId = exactGameLock ? String(lockedGameId || "").trim() : "";
+  const lockedGame = exactGameLock
+    ? filterSample("games", GAME_LIST).find(game => (
+      !game.hidden
+      && Boolean(LEARN_GAMES[game.id])
+      && game.id === normalizedLockedGameId
+    )) || null
+    : null;
   const [progress, setProgress] = useState(() => loadLearnGamesProgress(progressScopeKey));
   const [activeGame, setActiveGame] = useState(() => {
+    if (exactGameLock) return lockedGame;
     // One-shot deep link from Today's Mission.
     try {
       const wanted = window.localStorage.getItem("lp-open-game");
@@ -153,6 +168,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   // A Today's-Mission deep link opens straight into a game; land on the tab
   // that game lives in, so closing the player returns to the right shelf.
   const [tab, setTab] = useState(() => {
+    if (exactGameLock) return "assigned";
     const homeTab = tabsFor().find(entry => entry.games.some(game => game.id === activeGame?.id));
     return homeTab ? homeTab.id : "arcade";
   });
@@ -163,6 +179,11 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
     const points = arcade.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
     return { completed, points };
   }, [progress]);
+
+  useEffect(() => {
+    if (!exactGameLock) return;
+    onLockedGameAvailabilityChange?.(Boolean(lockedGame));
+  }, [exactGameLock, lockedGame, onLockedGameAvailabilityChange]);
 
   function setDifficulty(difficulty) {
     setProgress(saveLearnGamesSettings(progressScopeKey, { difficulty }));
@@ -179,25 +200,54 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   const world = worldForDifficulty(progress.difficulty);
   // Recomputed each render so a try session's sample takes effect; the scope is
   // set at session start, after this module was evaluated.
-  const tabs = tabsFor();
-  const visibleGames = (tabs.find(entry => entry.id === tab) || tabs[0]).games;
+  const tabs = exactGameLock
+    ? [{ id: "assigned", label: "Your game", games: lockedGame ? [lockedGame] : [] }]
+    : tabsFor();
+  const visibleGames = (tabs.find(entry => entry.id === tab) || tabs[0])?.games || [];
   const recommendedGame = visibleGames.find(game => (
     (getLearnGameProgress(progress, game.id).stars || 0) === 0
   )) || visibleGames[0];
+  const displayedActiveGame = exactGameLock
+    ? activeGame?.id === lockedGame?.id ? lockedGame : null
+    : activeGame;
+
+  if (exactGameLock && !lockedGame) {
+    return (
+      <section
+        className="lg-arcade lg-arcade-comic"
+        aria-labelledby="lg-arcade-title"
+        data-assigned-content-unavailable="game"
+        data-pal-world={world.id}
+        role="alert"
+        style={worldStyle(world)}
+      >
+        <div className="lg-arcade-topband">
+          <div>
+            <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">Game unavailable</h1>
+            <p className="lg-arcade-instruction" data-child-instruction="">
+              Stay here and ask your teacher for help.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="lg-arcade lg-arcade-comic" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
       {/* Slim top band with the 8-bit title + difficulty + sound */}
       <div className="lg-arcade-topband">
         <div>
-          <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">Arcade Area</h1>
+          <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">{exactGameLock ? "Your game" : "Arcade Area"}</h1>
           {/* Eight words is the cap a child instruction has to clear
               (tests/release/app-copy-standard.spec.js); this line was nine and
               failed whenever the hub rendered before the copy scan read it.
               Same meaning, one word under. Found while shipping phase D of the
               kids-side redesign, 2026-07-29 — the Arcade's own redesign is
               phase E and this is only the copy fix. */}
-          <p className="lg-arcade-instruction" data-child-instruction="">Pick a game. The next one is marked.</p>
+          <p className="lg-arcade-instruction" data-child-instruction="">
+            {exactGameLock ? "Play the game your teacher chose." : "Pick a game. The next one is marked."}
+          </p>
           {recommendedGame && (
             <p className="lg-arcade-recommendation-reason">
               <strong>Why this one?</strong>{" "}
@@ -239,7 +289,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       </div>
 
       {/* Tabs: the arcade line-up, and the phonics practice games */}
-      <div className="lg-arcade-tabs" role="tablist" aria-label="Game sets">
+      {!exactGameLock && <div className="lg-arcade-tabs" role="tablist" aria-label="Game sets">
         {tabs.map(entry => (
           <button
             key={entry.id}
@@ -255,14 +305,14 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
             <span className="lg-arcade-tab-count">{entry.games.length}</span>
           </button>
         ))}
-      </div>
+      </div>}
 
       {/* Responsive tile grid: one authored image and a readable name per game. */}
       <div
         className="lg-game-tilegrid"
         id="lg-arcade-tabpanel"
-        role="tabpanel"
-        aria-labelledby={`lg-arcade-tab-${tab}`}
+        role={exactGameLock ? undefined : "tabpanel"}
+        aria-labelledby={exactGameLock ? undefined : `lg-arcade-tab-${tab}`}
         data-child-choices=""
         data-child-progress=""
       >
@@ -305,7 +355,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       </div>
 
       {/* Slim bottom banner: points + high-score board */}
-      <div className="lg-arcade-bottomband" data-child-progress="">
+      {!exactGameLock && <div className="lg-arcade-bottomband" data-child-progress="">
         <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
         <span className="lg-arcade-played">{totals.completed} of {arcadeGames().length} games played</span>
         <button
@@ -316,15 +366,15 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         >
           {showLeaderboard ? "Hide High Scores" : "High Scores"}
         </button>
-      </div>
+      </div>}
 
-      {showLeaderboard && (
+      {!exactGameLock && showLeaderboard && (
         <Leaderboard refreshSignal={leaderboardRefresh} />
       )}
 
-      {activeGame && (
+      {displayedActiveGame && (
         <GamePlayer
-          game={activeGame}
+          game={displayedActiveGame}
           difficulty={progress.difficulty}
           soundEnabled={progress.soundEnabled}
           musicEnabled={progress.musicEnabled}

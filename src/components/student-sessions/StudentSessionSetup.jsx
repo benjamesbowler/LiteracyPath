@@ -1,45 +1,24 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { startStudentFocusSession } from "../../data/studentFocusSessionCore.js";
+import {
+  STUDENT_FOCUS_AUDIENCES,
+  STUDENT_SKILL_ASSIGNMENT_MODES,
+  buildStudentFocusAssignments,
+  hasCompleteStudentFocusSkillsEvidence,
+  resolveStudentFocusAudience
+} from "../../policy/studentFocusAssignments.js";
 import {
   STUDENT_FOCUS_TARGET_OPTIONS,
   STUDENT_FOCUS_TARGETS
 } from "../../policy/studentFocusTargets.js";
-import {
-  assessmentAttemptsToSkillLedger,
-  computeSkillStatus
-} from "../../policy/skillStatusPolicy.js";
 import { TeacherDialog } from "../teacher/ui/TeacherDialog.jsx";
 
-function sameText(left, right) {
-  return String(left || "").trim().toLocaleLowerCase() === String(right || "").trim().toLocaleLowerCase();
-}
+const GUIDED_READING_TOGETHER = "guided_reading";
 
-function nextSkillAssignment(student, dashboardById, skillTree, assessmentHistory) {
-  const currentSkill = dashboardById.get(student.id)?.currentSkill || "";
-  const index = skillTree.findIndex(skill => sameText(skill.label, currentSkill));
-  const resolvedIndex = index >= 0 ? index : 0;
-  const skill = skillTree[resolvedIndex];
-  const studentAttempts = assessmentHistory.filter(record => (
-    String(record?.studentId || "") === String(student.id)
-    && record?.skillId === skill?.id
-  ));
-  const status = skill
-    ? computeSkillStatus(assessmentAttemptsToSkillLedger(studentAttempts, skill.id), skill.id)
-    : null;
-  const path = [
-    { level: 1, phase: 1, passed: status?.level1?.phases?.[1]?.passed },
-    { level: 1, phase: 2, passed: status?.level1?.phases?.[2]?.passed },
-    { level: 2, phase: 1, passed: status?.level2?.phases?.[1]?.passed },
-    { level: 2, phase: 2, passed: status?.level2?.phases?.[2]?.passed }
-  ].find(step => !step.passed) || { level: 2, phase: 2 };
-  return {
-    skill_id: skill?.id || "",
-    skill_label: skill?.label || "Skills Assessment",
-    skill_index: resolvedIndex,
-    level: path.level,
-    phase: path.phase
-  };
+function activityLabel(target) {
+  if (target === STUDENT_FOCUS_TARGETS.ARCADE_GAME) return "One Game";
+  return STUDENT_FOCUS_TARGET_OPTIONS.find(option => option.id === target)?.label || "Student session";
 }
 
 export function StudentSessionSetup({
@@ -49,6 +28,8 @@ export function StudentSessionSetup({
   students = [],
   classDashboard = [],
   assessmentHistory = [],
+  assessmentHistoryReady = false,
+  assessmentHistoryLoading = false,
   skillTree = [],
   initialStudentIds = [],
   onClose,
@@ -59,48 +40,207 @@ export function StudentSessionSetup({
     () => students.filter(student => student?.id && !student.archived_at),
     [students]
   );
+  const requestedStudentIds = useMemo(() => {
+    const requested = new Set(initialStudentIds.filter(Boolean).map(String));
+    return availableStudents
+      .filter(student => requested.has(String(student.id)))
+      .map(student => student.id);
+  }, [availableStudents, initialStudentIds]);
+  const hasRequestedStudentIds = initialStudentIds.some(Boolean);
+  const startsWithWholeClass = !hasRequestedStudentIds
+    || (availableStudents.length > 0 && requestedStudentIds.length === availableStudents.length);
+
   const [target, setTarget] = useState(STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT);
-  const [studentIds, setStudentIds] = useState(() => {
-    const requested = new Set(initialStudentIds.filter(Boolean));
-    const selected = availableStudents.filter(student => requested.has(student.id)).map(student => student.id);
-    return selected.length ? selected : availableStudents.map(student => student.id);
-  });
+  const [audience, setAudience] = useState(() => startsWithWholeClass
+    ? STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS
+    : STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS);
+  const [selectedStudentIds, setSelectedStudentIds] = useState(() => (
+    startsWithWholeClass ? [] : requestedStudentIds
+  ));
+  const [skillAssignmentMode, setSkillAssignmentMode] = useState(
+    STUDENT_SKILL_ASSIGNMENT_MODES.EACH_CHILD_NEXT
+  );
+  const [commonSkillId, setCommonSkillId] = useState(() => skillTree[0]?.id || "");
+  const [books, setBooks] = useState([]);
+  const [bookId, setBookId] = useState("");
+  const [bookLoadStatus, setBookLoadStatus] = useState("idle");
+  const [games, setGames] = useState([]);
+  const [gameId, setGameId] = useState("");
+  const [gameLoadStatus, setGameLoadStatus] = useState("idle");
+  const [catalogReloadKey, setCatalogReloadKey] = useState(0);
   const [durationMinutes, setDurationMinutes] = useState(60);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (target !== STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK) return undefined;
+    let active = true;
+    Promise.all([
+      import("../../utils/guidedReading/runtimeBooks.js"),
+      import("../../data/guidedReadingPublication.js")
+    ]).then(async ([runtimeModule, publicationModule]) => {
+      const reviewState = await publicationModule.loadGuidedReadingBookReviews({ client });
+      if (!active) return;
+      if (!reviewState.complete) {
+        setBooks([]);
+        setBookId("");
+        setBookLoadStatus("error");
+        return;
+      }
+      const quarantinedBookIds = publicationModule.quarantinedGuidedReadingBookIds(reviewState.rows);
+      const publishedBooks = publicationModule.filterPublishedGuidedReadingBooks(
+        runtimeModule.getRuntimeGuidedReadingBooks(),
+        quarantinedBookIds
+      );
+      setBooks(publishedBooks);
+      setBookId(current => publishedBooks.some(book => book.id === current) ? current : "");
+      setBookLoadStatus("ready");
+    }).catch(() => {
+      if (!active) return;
+      setBooks([]);
+      setBookId("");
+      setBookLoadStatus("error");
+    });
+    return () => { active = false; };
+  }, [catalogReloadKey, client, target]);
+
+  useEffect(() => {
+    if (target !== STUDENT_FOCUS_TARGETS.ARCADE_GAME) return undefined;
+    let active = true;
+    import("../../data/learnGamesData.js").then(module => {
+      if (!active) return;
+      const availableGames = module.GAME_LIST.filter(game => game?.id && !game.hidden);
+      setGames(availableGames);
+      setGameId(current => availableGames.some(game => game.id === current) ? current : "");
+      setGameLoadStatus("ready");
+    }).catch(() => {
+      if (!active) return;
+      setGames([]);
+      setGameId("");
+      setGameLoadStatus("error");
+    });
+    return () => { active = false; };
+  }, [catalogReloadKey, target]);
+
   const dashboardById = useMemo(
-    () => new Map(classDashboard.map(row => [row.id, row])),
+    () => new Map(classDashboard.map(row => [String(row.id), row])),
     [classDashboard]
   );
-  const skillsEvidenceReady = studentIds.every(studentId => (
-    dashboardById.get(studentId)?.evidenceReadStatus === "complete"
-  ));
+  const audienceSelection = useMemo(() => resolveStudentFocusAudience({
+    audience,
+    students: availableStudents,
+    selectedStudentIds
+  }), [audience, availableStudents, selectedStudentIds]);
+  const validSelectedStudentCount = useMemo(() => {
+    const selected = new Set(selectedStudentIds.map(String));
+    return availableStudents.filter(student => selected.has(String(student.id))).length;
+  }, [availableStudents, selectedStudentIds]);
+  const selectedBook = useMemo(
+    () => books.find(book => book.id === bookId) || null,
+    [bookId, books]
+  );
+  const selectedGame = useMemo(
+    () => games.find(game => game.id === gameId) || null,
+    [gameId, games]
+  );
+  const resolvedCommonSkillId = skillTree.some(skill => skill.id === commonSkillId)
+    ? commonSkillId
+    : skillTree[0]?.id || "";
+  const assignments = useMemo(() => buildStudentFocusAssignments({
+    target,
+    students: audienceSelection.students,
+    classDashboard,
+    skillTree,
+    assessmentHistory,
+    skillAssignmentMode,
+    commonSkillId: resolvedCommonSkillId,
+    selectedBook,
+    selectedGame
+  }), [
+    assessmentHistory,
+    audienceSelection.students,
+    classDashboard,
+    resolvedCommonSkillId,
+    selectedBook,
+    selectedGame,
+    skillAssignmentMode,
+    skillTree,
+    target
+  ]);
+  const skillsEvidenceReady = hasCompleteStudentFocusSkillsEvidence({
+    assessmentHistoryReady,
+    students: audienceSelection.students,
+    classDashboard
+  });
+  const skillsAssignmentsReady = target !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
+    || audienceSelection.students.every(student => assignments[student.id]?.skill_id);
+  const exactChoiceReady = target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK
+    ? bookLoadStatus === "ready" && Boolean(selectedBook)
+    : target === STUDENT_FOCUS_TARGETS.ARCADE_GAME
+      ? gameLoadStatus === "ready" && Boolean(selectedGame)
+      : true;
+  const canStart = audienceSelection.students.length > 0
+    && exactChoiceReady
+    && skillsAssignmentsReady
+    && (target !== STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT || skillsEvidenceReady)
+    && !busy;
+
+  function chooseTarget(nextTarget) {
+    if (nextTarget !== target && nextTarget === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK) {
+      setBookLoadStatus("loading");
+    }
+    if (nextTarget !== target && nextTarget === STUDENT_FOCUS_TARGETS.ARCADE_GAME) {
+      setGameLoadStatus("loading");
+    }
+    setTarget(nextTarget);
+    setMessage("");
+  }
+
+  function chooseAudience(nextAudience) {
+    setAudience(nextAudience);
+    setMessage("");
+  }
+
+  function retryCatalog(kind) {
+    if (kind === "book") setBookLoadStatus("loading");
+    if (kind === "game") setGameLoadStatus("loading");
+    setCatalogReloadKey(current => current + 1);
+  }
 
   function toggleStudent(studentId) {
-    setStudentIds(current => current.includes(studentId)
+    setMessage("");
+    setSelectedStudentIds(current => current.includes(studentId)
       ? current.filter(id => id !== studentId)
       : [...current, studentId]);
   }
 
   async function start() {
-    if (!studentIds.length || busy) return;
-    if (target === "guided_reading") {
+    if (busy) return;
+    if (target === GUIDED_READING_TOGETHER) {
       onClose?.();
       onStartGuidedReading?.();
       return;
     }
-    if (target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT && !skillsEvidenceReady) {
-      setMessage("The saved assessment evidence for every selected student must finish loading before this session can start.");
+    if (!audienceSelection.students.length) {
+      setMessage("Choose at least one student before starting this session.");
       return;
     }
-
-    const selectedStudents = availableStudents.filter(student => studentIds.includes(student.id));
-    const assignments = target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
-      ? Object.fromEntries(selectedStudents.map(student => [
-          student.id,
-          nextSkillAssignment(student, dashboardById, skillTree, assessmentHistory)
-        ]))
-      : {};
+    if (target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT && !skillsEvidenceReady) {
+      setMessage(assessmentHistoryLoading
+        ? "The complete saved assessment history must finish loading before this session can start."
+        : "The complete saved assessment history is unavailable. Try loading it again before starting this session.");
+      return;
+    }
+    if (!exactChoiceReady) {
+      setMessage(target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK
+        ? "Choose one available Guided Reading book before starting."
+        : "Choose one available game before starting.");
+      return;
+    }
+    if (!skillsAssignmentsReady) {
+      setMessage("Choose a valid skill before starting the assessment.");
+      return;
+    }
 
     setBusy(true);
     setMessage("");
@@ -109,7 +249,8 @@ export function StudentSessionSetup({
         client,
         classId,
         target,
-        studentIds,
+        wholeClass: audienceSelection.wholeClass,
+        studentIds: audienceSelection.studentIds,
         assignments,
         durationMinutes
       });
@@ -117,7 +258,7 @@ export function StudentSessionSetup({
         const busyStudent = availableStudents.find(student => student.id === data.student_id);
         setMessage(data.error === "student_busy"
           ? `${busyStudent?.name || "That student"} is already in another teacher-controlled session.`
-          : "The student session could not start. Check the selected students and try again.");
+          : "The student session could not start. The class roster or selected content may have changed. Check it and try again.");
         return;
       }
       onStarted?.(data.session);
@@ -128,6 +269,24 @@ export function StudentSessionSetup({
     }
   }
 
+  const selectedActivityLabel = activityLabel(target);
+  const chosenSkill = skillTree.find(skill => skill.id === resolvedCommonSkillId);
+  const chosenContentLabel = target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK
+    ? selectedBook?.title || ""
+    : target === STUDENT_FOCUS_TARGETS.ARCADE_GAME
+      ? selectedGame?.title || ""
+      : target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
+        ? skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE
+          ? chosenSkill?.label || ""
+          : "Each child's next skill"
+        : "";
+  const audienceLabel = audienceSelection.wholeClass
+    ? `Whole class, ${audienceSelection.students.length} active student${audienceSelection.students.length === 1 ? "" : "s"}`
+    : `${audienceSelection.students.length} selected student${audienceSelection.students.length === 1 ? "" : "s"}`;
+  const startButtonLabel = audienceSelection.wholeClass
+    ? "Start for whole class"
+    : `Start for ${audienceSelection.students.length} student${audienceSelection.students.length === 1 ? "" : "s"}`;
+
   return (
     <div className="student-session-modal-backdrop">
       <TeacherDialog busy={busy} className="student-session-setup" label="Start student session" onClose={onClose}>
@@ -135,7 +294,7 @@ export function StudentSessionSetup({
           <div>
             <p className="panel-label">Student sessions</p>
             <h2>Control student iPads</h2>
-            <p>{className ? `${className} · ` : ""}Choose one activity and who should use it.</p>
+            <p>{className ? `${className} · ` : ""}Choose one activity, its exact content when needed, and who should use it.</p>
           </div>
           <button className="lp-button lp-button-secondary" onClick={onClose} type="button">Close</button>
         </header>
@@ -148,64 +307,227 @@ export function StudentSessionSetup({
                 aria-pressed={target === option.id}
                 className={target === option.id ? "selected" : ""}
                 key={option.id}
-                onClick={() => setTarget(option.id)}
+                onClick={() => chooseTarget(option.id)}
                 type="button"
               >
-                <strong>{option.label}</strong>
+                <strong>{activityLabel(option.id)}</strong>
                 <span>{option.description}</span>
               </button>
             ))}
             <button
-              aria-pressed={target === "guided_reading"}
-              className={target === "guided_reading" ? "selected" : ""}
-              onClick={() => setTarget("guided_reading")}
+              aria-pressed={target === GUIDED_READING_TOGETHER}
+              className={target === GUIDED_READING_TOGETHER ? "selected" : ""}
+              onClick={() => chooseTarget(GUIDED_READING_TOGETHER)}
               type="button"
             >
               <strong>Guided Reading Together</strong>
-              <span>Open the existing shared-book session for up to six students.</span>
+              <span>Teacher-led shared reading with one book and a group of up to six students.</span>
             </button>
           </div>
-        </section>
 
-        <section className="student-session-section" aria-labelledby="student-session-students-title">
-          <div className="student-session-section-heading">
-            <h3 id="student-session-students-title">2. Choose the students</h3>
-            <div>
-              <button className="text-button" onClick={() => setStudentIds(availableStudents.map(student => student.id))} type="button">Whole class</button>
-              <button className="text-button" onClick={() => setStudentIds([])} type="button">Clear</button>
-            </div>
-          </div>
-          <div className="student-session-student-list">
-            {availableStudents.map(student => {
-              const dashboard = dashboardById.get(student.id);
-              return (
-                <label key={student.id}>
-                  <input
-                    checked={studentIds.includes(student.id)}
-                    onChange={() => toggleStudent(student.id)}
-                    type="checkbox"
-                  />
-                  <span>
-                    <strong>{student.name}</strong>
-                    <small>{target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
-                      ? dashboard?.evidenceReadStatus === "complete"
-                        ? dashboard.currentSkill || "Initial skill"
-                        : "Assessment evidence still loading"
-                      : student.symbol_password ? "Ready to sign in" : "Sign-in pictures needed"}</small>
-                  </span>
+          {target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT && (
+            <fieldset className="student-session-activity-config">
+              <legend>Skills choice</legend>
+              <div className="student-session-config-options">
+                <button
+                  aria-pressed={skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.EACH_CHILD_NEXT}
+                  className={skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.EACH_CHILD_NEXT ? "selected" : ""}
+                  onClick={() => {
+                    setSkillAssignmentMode(STUDENT_SKILL_ASSIGNMENT_MODES.EACH_CHILD_NEXT);
+                    setMessage("");
+                  }}
+                  type="button"
+                >
+                  <strong>Each child&apos;s next skill</strong>
+                  <span>Use each child&apos;s current skill and next eligible phase.</span>
+                </button>
+                <button
+                  aria-pressed={skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE}
+                  className={skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE ? "selected" : ""}
+                  onClick={() => {
+                    setSkillAssignmentMode(STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE);
+                    setMessage("");
+                  }}
+                  type="button"
+                >
+                  <strong>One skill for everyone</strong>
+                  <span>Use one skill, while keeping each child at their own next eligible phase.</span>
+                </button>
+              </div>
+              {skillAssignmentMode === STUDENT_SKILL_ASSIGNMENT_MODES.ONE_SKILL_FOR_EVERYONE && (
+                <label htmlFor="student-session-common-skill">
+                  Skill for everyone
+                  <select
+                    id="student-session-common-skill"
+                    value={resolvedCommonSkillId}
+                    onChange={event => {
+                      setCommonSkillId(event.target.value);
+                      setMessage("");
+                    }}
+                  >
+                    {skillTree.map(skill => <option key={skill.id} value={skill.id}>{skill.label}</option>)}
+                  </select>
                 </label>
-              );
-            })}
-          </div>
+              )}
+            </fieldset>
+          )}
+
+          {target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK && (
+            <div className="student-session-activity-config">
+              <label htmlFor="student-session-book">
+                Guided Reading book
+                <select
+                  disabled={bookLoadStatus !== "ready"}
+                  id="student-session-book"
+                  value={bookId}
+                  onChange={event => {
+                    setBookId(event.target.value);
+                    setMessage("");
+                  }}
+                >
+                  <option value="">Choose one available book</option>
+                  {books.map(book => (
+                    <option key={book.id} value={book.id}>
+                      {book.title} (Level {book.level}, {book.pages.length} pages)
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {bookLoadStatus === "loading" && <p role="status">Loading available books…</p>}
+              {bookLoadStatus === "error" && (
+                <div className="student-session-catalog-error">
+                  <p role="alert">Available books could not be verified. Try again when the connection is available.</p>
+                  <button className="text-button" onClick={() => retryCatalog("book")} type="button">Try loading books again</button>
+                </div>
+              )}
+              {bookLoadStatus === "ready" && books.length === 0 && <p>No available Guided Reading books were found.</p>}
+            </div>
+          )}
+
+          {target === STUDENT_FOCUS_TARGETS.ARCADE_GAME && (
+            <div className="student-session-activity-config">
+              <label htmlFor="student-session-game">
+                Game
+                <select
+                  disabled={gameLoadStatus !== "ready"}
+                  id="student-session-game"
+                  value={gameId}
+                  onChange={event => {
+                    setGameId(event.target.value);
+                    setMessage("");
+                  }}
+                >
+                  <option value="">Choose one available game</option>
+                  {games.map(game => (
+                    <option key={game.id} value={game.id}>{game.title} ({game.skill})</option>
+                  ))}
+                </select>
+              </label>
+              {gameLoadStatus === "loading" && <p role="status">Loading available games…</p>}
+              {gameLoadStatus === "error" && (
+                <div className="student-session-catalog-error">
+                  <p role="alert">The available games could not be loaded.</p>
+                  <button className="text-button" onClick={() => retryCatalog("game")} type="button">Try loading games again</button>
+                </div>
+              )}
+              {gameLoadStatus === "ready" && games.length === 0 && <p>No available games were found.</p>}
+            </div>
+          )}
         </section>
 
-        {target !== "guided_reading" && (
+        {target !== GUIDED_READING_TOGETHER && (
+          <section className="student-session-section" aria-labelledby="student-session-students-title">
+            <h3 id="student-session-students-title">2. Choose who uses it</h3>
+            <div className="student-session-audience-options" role="group" aria-labelledby="student-session-students-title">
+              <button
+                aria-pressed={audience === STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS}
+                className={audience === STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS ? "selected" : ""}
+                onClick={() => chooseAudience(STUDENT_FOCUS_AUDIENCES.WHOLE_CLASS)}
+                type="button"
+              >
+                <strong>Whole class</strong>
+                <span>Every active student in this class. The active roster is checked again when the session starts.</span>
+              </button>
+              <button
+                aria-pressed={audience === STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS}
+                className={audience === STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS ? "selected" : ""}
+                onClick={() => chooseAudience(STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS)}
+                type="button"
+              >
+                <strong>Choose students</strong>
+                <span>{validSelectedStudentCount
+                  ? `${validSelectedStudentCount} currently selected.`
+                  : "Pick one or more students from the class list."}</span>
+              </button>
+            </div>
+            {availableStudents.length === 0 && <p className="student-session-audience-note" role="status">No active students are available in this class.</p>}
+            {target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
+              && audienceSelection.students.length > 0
+              && !skillsEvidenceReady
+              && <p className="student-session-audience-note" role="status">{assessmentHistoryLoading
+                ? "Complete assessment history is still loading."
+                : "Complete assessment history is unavailable. Reload it before starting a Skills session."}</p>}
+
+            {audience === STUDENT_FOCUS_AUDIENCES.SELECTED_STUDENTS && (
+              <div className="student-session-selected-audience">
+                <div className="student-session-section-heading">
+                  <p aria-live="polite">{audienceLabel}</p>
+                  <button
+                    className="text-button"
+                    onClick={() => {
+                      setSelectedStudentIds([]);
+                      setMessage("");
+                    }}
+                    type="button"
+                  >
+                    Clear selection
+                  </button>
+                </div>
+                <div className="student-session-student-list">
+                  {availableStudents.map(student => {
+                    const dashboard = dashboardById.get(String(student.id));
+                    const assignment = assignments[student.id];
+                    return (
+                      <label key={student.id}>
+                        <input
+                          checked={selectedStudentIds.includes(student.id)}
+                          onChange={() => toggleStudent(student.id)}
+                          type="checkbox"
+                        />
+                        <span>
+                          <strong>{student.name}</strong>
+                          <small>{target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT
+                            ? dashboard?.evidenceReadStatus === "complete"
+                              ? assignment?.skill_id
+                                ? `${assignment.skill_label}, Level ${assignment.level} phase ${assignment.phase}`
+                                : "No eligible skill is available"
+                              : "Assessment evidence still loading"
+                            : student.symbol_password ? "Ready to sign in" : "Sign-in pictures needed"}</small>
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+
+        {target !== GUIDED_READING_TOGETHER && (
           <section className="student-session-section student-session-start" aria-labelledby="student-session-finish-title">
             <div>
-              <h3 id="student-session-finish-title">3. Start the session</h3>
-              <label>
+              <h3 id="student-session-finish-title">3. Check and start</h3>
+              <p className="student-session-start-summary">
+                <strong>{selectedActivityLabel}{chosenContentLabel ? `: ${chosenContentLabel}` : ""}</strong>
+                <span>{audienceLabel}</span>
+              </p>
+              <label htmlFor="student-session-expiry">
                 Safety expiry
-                <select value={durationMinutes} onChange={event => setDurationMinutes(Number(event.target.value))}>
+                <select
+                  id="student-session-expiry"
+                  value={durationMinutes}
+                  onChange={event => setDurationMinutes(Number(event.target.value))}
+                >
                   <option value={30}>30 minutes</option>
                   <option value={60}>1 hour</option>
                   <option value={90}>90 minutes</option>
@@ -215,19 +537,23 @@ export function StudentSessionSetup({
             </div>
             <button
               className="lp-button lp-button-primary"
-              disabled={!studentIds.length || busy || (target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT && !skillsEvidenceReady)}
+              disabled={!canStart}
               onClick={start}
               type="button"
             >
-              {busy ? "Starting…" : `Start for ${studentIds.length} student${studentIds.length === 1 ? "" : "s"}`}
+              {busy ? "Starting…" : startButtonLabel}
             </button>
           </section>
         )}
 
-        {target === "guided_reading" && (
-          <div className="student-session-guided-start">
-            <button className="lp-button lp-button-primary" onClick={start} type="button">Choose book and reading group</button>
-          </div>
+        {target === GUIDED_READING_TOGETHER && (
+          <section className="student-session-section student-session-guided-start" aria-labelledby="student-session-guided-title">
+            <div>
+              <h3 id="student-session-guided-title">2. Choose the book and reading group</h3>
+              <p>Guided Reading Together is a separate teacher-led session for up to six students.</p>
+            </div>
+            <button className="lp-button lp-button-primary" onClick={start} type="button">Choose book and up to six students</button>
+          </section>
         )}
         {message && <p className="student-session-message" role="alert">{message}</p>}
       </TeacherDialog>

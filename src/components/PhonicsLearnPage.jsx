@@ -5,9 +5,12 @@ export function PhonicsLearnPage({
   initialIsland = "letters",
   initialStep = 1,
   lockedToLetters = false,
+  lockedGameId = null,
+  onLockedGameAvailabilityChange = null,
   progressScopeKey = "default"
 }) {
-  const resolvedInitialIsland = lockedToLetters ? "letters" : initialIsland;
+  const exactGameLock = lockedGameId !== null;
+  const resolvedInitialIsland = exactGameLock ? "games" : lockedToLetters ? "letters" : initialIsland;
   return (
     <main
       className="learn-area-page phonics-learn-page"
@@ -16,10 +19,12 @@ export function PhonicsLearnPage({
     >
       <section className="phonics-tab-shell" aria-label="Phonics">
         <PhonicsLearnTab
-          key={`${progressScopeKey}-${resolvedInitialIsland}-${lockedToLetters ? "locked" : "open"}`}
+          key={`${progressScopeKey}-${resolvedInitialIsland}-${lockedToLetters ? "locked" : "open"}-${exactGameLock ? String(lockedGameId || "missing") : "all"}`}
           initialIsland={resolvedInitialIsland}
           initialStep={initialStep}
           lockedToLetters={lockedToLetters}
+          lockedGameId={lockedGameId}
+          onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}
           progressScopeKey={progressScopeKey}
         />
       </section>

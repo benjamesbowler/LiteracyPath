@@ -95,7 +95,7 @@ export const LIVE_DATABASE_FUNCTIONS = Object.freeze({
   teacher_set_student_archived: ["p_student_id", "p_class_id", "p_archived"],
   teacher_set_student_symbol_password: ["p_student_id", "p_sequence", "p_set_at"],
   teacher_start_reading_session: ["p_class_id", "p_book_id", "p_page_numbers", "p_student_ids", "p_content_version"],
-  teacher_start_student_focus_session: ["p_class_id", "p_target", "p_student_ids", "p_assignments", "p_duration_minutes", "p_content_version"],
+  teacher_start_student_focus_session: ["p_class_id", "p_target", "p_student_ids", "p_assignments", "p_duration_minutes", "p_content_version", "p_whole_class"],
   teacher_transfer_student: ["p_student_id", "p_source_class_id", "p_target_class_id"],
   teacher_update_draft_lesson_plan: ["p_plan_id", "p_expected_revision", "p_learner_ids", "p_recipe", "p_scheduled_for"],
   teacher_update_planned_intervention: ["p_intervention_id", "p_owner_label", "p_group_label", "p_student_ids", "p_focus", "p_activity", "p_planned_for"],

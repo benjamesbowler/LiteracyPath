@@ -18,13 +18,17 @@ const activeSession = target => ({
 });
 
 test("each teacher focus target resolves to one student destination", () => {
+  assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK), APP_VIEWS.GUIDED_READING);
+  assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.ARCADE_GAME), APP_VIEWS.PHONICS_LEARN);
   assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.READING_LIBRARY), APP_VIEWS.GUIDED_READING);
   assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE), APP_VIEWS.PHONICS_LEARN);
   assert.equal(studentFocusTargetView(STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT), APP_VIEWS.ASSESSMENT);
 });
 
-test("library and letters sessions force every navigation attempt back to the assigned area", () => {
+test("book, game, library and letters sessions force every navigation attempt back to the assigned area", () => {
   for (const [target, expected] of [
+    [STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK, APP_VIEWS.GUIDED_READING],
+    [STUDENT_FOCUS_TARGETS.ARCADE_GAME, APP_VIEWS.PHONICS_LEARN],
     [STUDENT_FOCUS_TARGETS.READING_LIBRARY, APP_VIEWS.GUIDED_READING],
     [STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE, APP_VIEWS.PHONICS_LEARN]
   ]) {

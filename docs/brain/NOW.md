@@ -1,7 +1,7 @@
 ---
 type: current-state
 status: active
-updated: 2026-08-28
+updated: 2026-08-31
 authority: orientation-only
 ---
 
@@ -42,14 +42,17 @@ installed, reviewed, and trusted on 2026-08-03.
   during teacher-controlled Student Sessions. Automated Chromium coverage is
   complete, while physical-iPad and observed first-use testing with children
   remain release evidence gaps.
-- Teacher-controlled Student Sessions are implemented in source for Skills
-  Assessment, Reading Library, and Letters Practice, with the existing
-  synchronized Guided Reading setup available from the same launcher. Sessions
-  restore from opaque student sign-in tokens, fail closed during reconnect or
-  content-version mismatch, and persist independent assessment evidence through
-  assignment-scoped RPCs. Migration `20260828120000` is locally PostgreSQL-
-  validated but has not been applied or verified on the hosted project, and the
-  in-app lock still needs physical-iPad classroom verification.
+- Teacher-controlled Student Sessions are implemented in source for whole
+  active classes or selected students. Teachers can assign each child's next
+  Skills checkpoint, one common published Skills area, one exact available
+  Guided Reading book, one exact learning game, Reading Library, or Letters
+  Practice; the existing synchronized Guided Reading setup remains available
+  separately. Whole-class membership is derived atomically by the database,
+  sessions restore from opaque student sign-in tokens, and unavailable exact
+  content fails closed without opening a shelf or chooser. Migrations
+  `20260828120000` and `20260830213034` have not been applied or verified on the
+  hosted project, and the in-app lock still needs physical-iPad classroom
+  verification.
 - Child-facing background music is independently controllable from spoken
   teaching audio and game sounds across Home, Arcade/full-screen games, Sound
   Beat, and Sound Seekers. Existing whole-sound or quiet-soundscape preferences
@@ -69,9 +72,9 @@ installed, reviewed, and trusted on 2026-08-03.
 - The linked Supabase project was verified on 2026-08-22 with migrations applied
   through `20260822123000` and the pre-retirement 94 browser RPCs visible to
   PostgREST. Source now defines 83 browser RPCs after the lean-release cleanup
-  and the eight Student Sessions RPCs in `20260828120000`; neither that new
-  Student Sessions migration nor the post-retirement hosted surface has been
-  verified on the hosted project.
+  and the Student Sessions RPCs in `20260828120000`, extended by
+  `20260830213034`; neither Student Sessions migration nor the post-retirement
+  hosted surface has been verified on the hosted project.
   The two remaining database-lint warnings are older volatility declarations in
   `lp_quest_merge_mastery` and `lp_merge_transfer_missions`; neither is part of
   the guardian portal. Recheck hosted state before relying on this dated

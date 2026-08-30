@@ -37,7 +37,43 @@ test("teacher start sends the exact class, target, membership and expiry payload
       p_student_ids: ["student-1", "student-2"],
       p_assignments: {},
       p_duration_minutes: 30,
-      p_content_version: "release-1"
+      p_content_version: "release-1",
+      p_whole_class: false
+    }
+  }]);
+});
+
+test("teacher whole-class exact target sends an empty roster and one shared assignment", async () => {
+  const client = recordingClient({ ok: true, session: { id: "focus-2" } });
+  await startStudentFocusSession({
+    client,
+    classId: "class-1",
+    target: "assigned_book",
+    studentIds: [],
+    assignments: {
+      "*": {
+        book_id: "gr-a-01",
+        book_title: "A Book for Everyone"
+      }
+    },
+    wholeClass: true,
+    contentVersion: "release-2"
+  });
+  assert.deepEqual(client.calls, [{
+    name: "teacher_start_student_focus_session",
+    args: {
+      p_class_id: "class-1",
+      p_target: "assigned_book",
+      p_student_ids: [],
+      p_assignments: {
+        "*": {
+          book_id: "gr-a-01",
+          book_title: "A Book for Everyone"
+        }
+      },
+      p_duration_minutes: 90,
+      p_content_version: "release-2",
+      p_whole_class: true
     }
   }]);
 });

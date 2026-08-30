@@ -1,9 +1,9 @@
 # Teacher-controlled Student Sessions
 
-Student Sessions let a teacher temporarily keep selected signed-in students in
-one part of Literacy Guide. The teacher starts and monitors the session from
-Today or Students. The same launcher also links into the existing synchronized
-Guided Reading flow.
+Student Sessions let a teacher temporarily keep an entire active class, or
+selected signed-in students, in one part of Literacy Guide. The teacher starts
+and monitors the session from Today or Students. The same launcher also links
+into the existing synchronized Guided Reading flow.
 
 ## Available session types
 
@@ -12,7 +12,15 @@ Guided Reading flow.
   answer independently; correctness, explanations, skill switching, exit, and
   teacher controls are not shown. Each answer, item-mastery update, and terminal
   immutable attempt is saved through the student's opaque login token and is
-  scoped to the teacher-issued assignment.
+  scoped to the teacher-issued assignment. A teacher may instead choose one
+  published Skills area for everyone; the eligible level and phase are still
+  resolved separately from each child's evidence.
+- **One Guided Reading Book** assigns the same available book to every targeted
+  learner for independent reading and page turning. The book opens directly;
+  leaving the reader returns only to that book, not the full shelf.
+- **One Learning Game** assigns the same available learning game to every
+  targeted learner. The game opens directly; finishing or leaving it permits a
+  replay but not a different Arcade choice.
 - **Reading Library** lets students choose, read, hear, and explore approved
   books while removing Home, Story Quests, profile, wallet, grown-up, and tab
   navigation.
@@ -21,10 +29,12 @@ Guided Reading flow.
 - **Guided Reading Together** opens the existing teacher-paced shared-book
   setup rather than creating a second reading-session system.
 
-The teacher may target the whole class or a selected group and chooses an
-automatic expiry of 30, 60, 90, or 120 minutes. The live teacher bar reports
-assigned, connected, completed, content-version mismatch, and reconnecting
-states and includes an explicit End session action.
+The teacher may target the whole class or selected students and chooses an
+automatic expiry of 30, 60, 90, or 120 minutes. A whole-class launch is derived
+atomically from the current active class roster by the database rather than
+trusting a possibly stale browser list. The live teacher bar reports assigned,
+connected, completed, unavailable-content, and reconnecting states and includes
+an explicit End session action.
 
 ## Control and recovery rules
 
@@ -37,6 +47,9 @@ states and includes an explicit End session action.
   unsupported or denied wake locks do not break the session.
 - Content-version mismatch fails closed on an update/help screen and is visible
   to the teacher.
+- Exact books and games are stored as bounded catalogue identifiers, never as
+  routes or URLs. Unknown, hidden, quarantined, unavailable, or outdated
+  content also fails closed and does not fall back to a chooser.
 - A student can be in only one active focus or synchronized reading session.
   A teacher can run only one active focus session. Failed replacement launches
   leave the existing session intact.
@@ -55,6 +68,8 @@ Independent assessment payloads are validated against the exact assigned
 skill, level, and phase. Server-side writes derive ownership, are idempotent,
 and permanently label immutable attempts with `administrationMode:
 student_independent`, the focus-session id, and teacher-assigned provenance.
+Teacher-observed letter, phonics-pattern, and EL benchmark checks are not
+relabelled as independent whole-class assessments.
 
 ## Device boundary
 

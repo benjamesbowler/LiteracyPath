@@ -94,10 +94,150 @@
 }
 
 .student-session-targets span,
+.student-session-config-options span,
+.student-session-audience-options span,
 .student-session-student-list small {
   color: #5b716b;
   font-size: 12px;
   line-height: 1.35;
+}
+
+.student-session-activity-config {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 14px 0 0;
+  padding: 14px;
+  background: #fbfcfa;
+  border: 1px solid rgba(49, 88, 78, 0.16);
+  border-radius: 14px;
+}
+
+.student-session-activity-config legend {
+  padding: 0 6px;
+  color: #25473e;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.student-session-activity-config label {
+  display: grid;
+  gap: 6px;
+  color: #25473e;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.student-session-activity-config select {
+  width: min(100%, 620px);
+  height: 42px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.student-session-activity-config p {
+  margin: 8px 0 0;
+  color: #5b716b;
+}
+
+.student-session-activity-config p[role="alert"],
+.student-session-catalog-error p {
+  color: #8a2d21;
+  font-weight: 700;
+}
+
+.student-session-catalog-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-top: 8px;
+}
+
+.student-session-catalog-error p {
+  margin: 0;
+}
+
+.student-session-catalog-error .text-button {
+  min-height: 36px;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+.student-session-config-options,
+.student-session-audience-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.student-session-config-options {
+  margin-bottom: 12px;
+}
+
+.student-session-setup .student-session-config-options > button,
+.student-session-setup .student-session-audience-options > button {
+  display: grid;
+  gap: 5px;
+  min-height: 82px;
+  padding: 12px 14px;
+  text-align: left;
+  color: #25473e;
+  background: #ffffff;
+  border: 1px solid rgba(49, 88, 78, 0.2);
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.student-session-setup .student-session-audience-options > button {
+  min-height: 98px;
+  padding: 16px;
+}
+
+.student-session-config-options > button strong,
+.student-session-audience-options > button strong {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.student-session-config-options > button.selected,
+.student-session-audience-options > button.selected {
+  border-color: #397f6e;
+  background: #e8f4ee;
+  box-shadow: 0 0 0 2px rgba(57, 127, 110, 0.16);
+}
+
+.student-session-targets > button:focus-visible,
+.student-session-config-options > button:focus-visible,
+.student-session-audience-options > button:focus-visible {
+  outline: 3px solid rgba(57, 127, 110, 0.42);
+  outline-offset: 2px;
+}
+
+.student-session-audience-options {
+  margin-top: 14px;
+}
+
+.student-session-audience-note {
+  margin: 10px 0 0;
+  color: #705017;
+  font-weight: 700;
+}
+
+.student-session-selected-audience {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(49, 88, 78, 0.14);
+}
+
+.student-session-selected-audience .student-session-section-heading {
+  align-items: center;
+}
+
+.student-session-selected-audience .student-session-section-heading p {
+  margin: 0;
+  color: #425e56;
+  font-weight: 700;
 }
 
 .student-session-student-list {
@@ -159,6 +299,18 @@
   font-size: 13px;
 }
 
+.student-session-start-summary {
+  display: grid;
+  gap: 2px;
+  margin: 8px 0 0;
+  color: #425e56;
+}
+
+.student-session-start-summary strong {
+  color: #25473e;
+  font-size: 14px;
+}
+
 .student-session-start select {
   min-width: 180px;
   height: 42px;
@@ -166,9 +318,20 @@
   font-size: 13px;
 }
 
-.student-session-guided-start,
 .student-session-message {
   margin-top: 18px;
+}
+
+.student-session-guided-start {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.student-session-guided-start p {
+  margin: 8px 0 0;
+  color: #5b716b;
 }
 
 .student-session-message {
@@ -310,8 +473,21 @@
   }
 
   .student-session-targets,
+  .student-session-config-options,
+  .student-session-audience-options,
   .student-session-student-list {
     grid-template-columns: 1fr;
+  }
+
+  .student-session-start,
+  .student-session-guided-start {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .student-session-start > .lp-button,
+  .student-session-guided-start > .lp-button {
+    width: 100%;
   }
 
   .student-session-bar {

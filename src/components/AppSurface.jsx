@@ -145,7 +145,7 @@ export function AppSurface({ surface }) {
     message, moveToNextCheckpointSkill, nameSaved, newClassName, normalizeApprovalStatus,
     openAdminDashboard, openStudentPreview, patternAssessment, patternIndex, patternItems, pickQuestion,
     prefersReducedMotion, profileLoaded, recordLetterResult, recordPatternResult, goToPreviousLetter, goToPreviousPattern, reviseLastAnswer,
-    regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
+    regenerateClassCode, renderLearnFullscreenButton, reportSkillMasterySummary, reportStudentFocusContent, reportsAssessmentHistory, requestPasswordReset, retryAssessmentHistoryHydration, resetLetterAssessment,
     resetPatternAssessment, resetProgressDialogOpen, resetSelectedStudentProgress, resetStudent, resetStudentSymbolPassword, resettingProgress,
     resumeElBenchmarkAssessment, retryCheckpointSkill, retryTeacherSchoolName, returnFromElBenchmarkAssessment, returnFromStudentPreview, returnToStudentHome, returnToTeacherDashboard,
     returnFromCheck, reviewInitialSoundLevelOne, roundAnswers, saveElBenchmarkPartialAndExit, saveGuidedReadingRecord, saveTeacherSchool, selectedClassId,
@@ -164,6 +164,14 @@ export function AppSurface({ surface }) {
     totalAnswered, updateElBenchmarkSession, updateStudentName, updateStudentSymbolPassword, updateTeacherAccountStatus, weaknessSnapshot,
     assignMissingSymbolPasswords
   } = surface;
+  const activeStudentFocusId = studentFocus?.session?.id || "";
+  const reportExactStudentFocusContent = useCallback(contentOk => {
+    if (!activeStudentFocusId) return;
+    reportStudentFocusContent?.({
+      sessionId: activeStudentFocusId,
+      contentOk
+    });
+  }, [activeStudentFocusId, reportStudentFocusContent]);
 
   // Which setup step the teacher pressed "Continue" on over on Today. Students
   // picks it up once, opens the right control, then clears it.
@@ -962,10 +970,23 @@ export function AppSurface({ surface }) {
     effectiveAssessmentFullscreen ? "assessment-fullscreen-app" : "",
     isStudentSurfaceView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
+  const activeStudentFocus = studentFocus?.session || null;
+  const isStudentFocusLocked = isStudentMode && Boolean(activeStudentFocus);
+  const isAssignedBook = isStudentFocusLocked
+    && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.ASSIGNED_BOOK;
+  const isAssignedArcadeGame = isStudentFocusLocked
+    && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.ARCADE_GAME;
+  const assignedBookId = isAssignedBook
+    ? String(activeStudentFocus.resolved_config?.book_id || "").trim()
+    : null;
+  const assignedGameId = isAssignedArcadeGame
+    ? String(activeStudentFocus.resolved_config?.game_id || "").trim()
+    : null;
+  const showStudentArcade = studentArcadeOpen || isAssignedArcadeGame;
   const studentSurfaceShellClass = isStudentMode && isStudentSurfaceView
     ? [
       "student-surface-shell",
-      studentArcadeOpen
+      showStudentArcade
         ? "student-surface-shell-arcade"
         : appView === APP_VIEWS.LEARN
           ? "student-surface-shell-story"
@@ -974,8 +995,6 @@ export function AppSurface({ surface }) {
             : "student-surface-shell-phonics"
     ].join(" ")
     : "";
-  const activeStudentFocus = studentFocus?.session || null;
-  const isStudentFocusLocked = isStudentMode && Boolean(activeStudentFocus);
   const studentSessionStartedAt = Number(studentSession?.expiresAt) - (12 * 60 * 60 * 1000);
   const studentFocusCheckedForCurrentLogin = Number.isFinite(studentSessionStartedAt)
     && Date.parse(studentFocus?.lastContactAt || "") >= studentSessionStartedAt;
@@ -1822,6 +1841,7 @@ export function AppSurface({ surface }) {
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading your books..." />}>
             <StudentBooksPage
+              key={`${studentId}:${isAssignedBook ? activeStudentFocus.id : "library"}`}
               quarantinedBookIds={quarantinedReadingBookIds}
               allowedBookIds={sampleBookIdSet}
               sampleLimitCopy={trySession ? SAMPLE_LIMIT_COPY : null}
@@ -1837,6 +1857,8 @@ export function AppSurface({ surface }) {
               onHome={goStudentHome}
               onGrownUps={goStudentHome}
               focusLocked={isStudentFocusLocked}
+              lockedBookId={assignedBookId}
+              onLockedBookAvailabilityChange={reportExactStudentFocusContent}
               onOpenStoryQuests={() => {
                 setStudentArcadeOpen(false);
                 setAppView(APP_VIEWS.LEARN);
@@ -1936,12 +1958,15 @@ export function AppSurface({ surface }) {
       {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && !studentFocusUnavailable && (
         <PageBoundary resetKey={`phonics-learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Learn..." />}>
-            {withStudentRail(studentArcadeOpen ? "arcade" : "phonics", (
-              <div className={`learn-fullscreen-frame student-surface-frame ${studentArcadeOpen ? "student-surface-arcade" : "student-surface-phonics"}`}>
+            {withStudentRail(showStudentArcade ? "arcade" : "phonics", (
+              <div className={`learn-fullscreen-frame student-surface-frame ${showStudentArcade ? "student-surface-arcade" : "student-surface-phonics"}`}>
                 {renderLearnFullscreenButton()}
                 <PhonicsLearnPage
-                  initialIsland={studentArcadeOpen ? "games" : "letters"}
+                  key={`${studentId}:${isAssignedArcadeGame ? activeStudentFocus.id : showStudentArcade ? "arcade" : "phonics"}`}
+                  initialIsland={showStudentArcade ? "games" : "letters"}
                   lockedToLetters={activeStudentFocus?.target === STUDENT_FOCUS_TARGETS.LETTERS_PRACTICE}
+                  lockedGameId={assignedGameId}
+                  onLockedGameAvailabilityChange={reportExactStudentFocusContent}
                   progressScopeKey={childProgressScopeKey}
                 />
               </div>
@@ -2242,6 +2267,8 @@ export function AppSurface({ surface }) {
       {studentSessionSetupOpen && sessionMode !== "student" && (
         <StudentSessionSetup
           assessmentHistory={assessmentHistory}
+          assessmentHistoryLoading={assessmentArchiveLoading}
+          assessmentHistoryReady={assessmentArchiveReady}
           classDashboard={classDashboard}
           classId={selectedClassId}
           className={getSelectedClassName(classList, selectedClassId)}

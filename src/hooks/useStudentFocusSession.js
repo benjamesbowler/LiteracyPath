@@ -16,6 +16,12 @@ export function focusSessionRetryDelay(failureCount) {
   return Math.min(8000, Math.max(1000, 1000 * (2 ** Math.max(0, failureCount - 1))));
 }
 
+export function focusSessionContentOkForPoll(session, contentReport) {
+  if (session?.content_ok === false) return false;
+  if (!session?.id || contentReport?.sessionId !== session.id) return true;
+  return contentReport.contentOk !== false;
+}
+
 export function reduceStudentFocusState(state, action) {
   switch (action.type) {
     case "session":
@@ -43,7 +49,8 @@ export function useStudentFocusSession({
   token = "",
   currentView = "",
   enabled = true,
-  contentVersion = STUDENT_FOCUS_CONTENT_VERSION
+  contentVersion = STUDENT_FOCUS_CONTENT_VERSION,
+  contentReport = null
 }) {
   const [state, dispatch] = useReducer(reduceStudentFocusState, INITIAL_STUDENT_FOCUS_STATE);
   const stateRef = useRef(state);
@@ -75,7 +82,7 @@ export function useStudentFocusSession({
         client,
         token,
         currentView,
-        contentOk: stateRef.current.session?.content_ok !== false
+        contentOk: focusSessionContentOkForPoll(stateRef.current.session, contentReport)
       });
       if (data?.ok === false) throw new Error(data.error || "student_focus_poll_failed");
       const session = data?.session && data.session.content_version === contentVersion
@@ -100,7 +107,7 @@ export function useStudentFocusSession({
     } finally {
       pollingRef.current = false;
     }
-  }, [client, contentVersion, currentView, enabled, requestWakeLock, token]);
+  }, [client, contentReport, contentVersion, currentView, enabled, requestWakeLock, token]);
 
   useEffect(() => {
     pollRef.current = poll;

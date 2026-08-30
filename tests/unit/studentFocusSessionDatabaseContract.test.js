@@ -6,6 +6,10 @@ const migration = fs.readFileSync(
   new URL("../../supabase/migrations/20260828120000_student_focus_sessions.sql", import.meta.url),
   "utf8"
 );
+const extensionMigration = fs.readFileSync(
+  new URL("../../supabase/migrations/20260830213034_extend_student_focus_sessions_whole_class_targets.sql", import.meta.url),
+  "utf8"
+);
 
 test("student sessions have bounded expiry, one active lock per student and RPC-only membership", () => {
   assert.match(migration, /expires_at <= started_at \+ interval '2 hours'/i);
@@ -74,4 +78,81 @@ test("independent skills evidence is assignment-scoped, idempotent and permanent
 test("operational session records join the existing thirty-day cleanup", () => {
   assert.match(migration, /delete from public\.student_focus_sessions[\s\S]*interval '30 days'/i);
   assert.match(migration, /notify pgrst, 'reload schema';\s*commit;/i);
+});
+
+test("whole-class and exact destinations extend the existing session schema additively", () => {
+  assert.match(extensionMigration, /add column selection_scope text not null default 'selected_students'/i);
+  assert.match(
+    extensionMigration,
+    /selection_scope in \('selected_students', 'whole_class'\)/i
+  );
+  assert.match(
+    extensionMigration,
+    /target in \([\s\S]*'assigned_book'[\s\S]*'arcade_game'[\s\S]*\)/i
+  );
+  assert.doesNotMatch(
+    migration,
+    /selection_scope|assigned_book|arcade_game/i,
+    "the historical migration must stay immutable"
+  );
+});
+
+test("the start RPC has one backward-compatible non-overloaded signature", () => {
+  assert.match(
+    extensionMigration,
+    /drop function public\.teacher_start_student_focus_session\(uuid, text, uuid\[\], jsonb, integer, text\)/i
+  );
+  assert.match(
+    extensionMigration,
+    /create function public\.teacher_start_student_focus_session\([\s\S]*p_whole_class boolean default false[\s\S]*\)\s*returns json/i
+  );
+  assert.doesNotMatch(
+    extensionMigration,
+    /create or replace function public\.teacher_start_student_focus_session/i
+  );
+  assert.match(
+    extensionMigration,
+    /grant execute on function public\.teacher_start_student_focus_session\(uuid, text, uuid\[\], jsonb, integer, text, boolean\)[\s\S]*to authenticated/i
+  );
+});
+
+test("whole-class membership is derived and locked server-side before an atomic launch", () => {
+  const startFunction = extensionMigration.slice(
+    extensionMigration.indexOf("create function public.teacher_start_student_focus_session"),
+    extensionMigration.indexOf("create or replace function public.teacher_get_student_focus_session")
+  );
+  assert.match(startFunction, /coalesce\(cardinality\(p_student_ids\), 0\) <> 0/i);
+  assert.match(startFunction, /array_agg\(student\.id order by student\.id\)/i);
+  assert.match(startFunction, /student\.class_id = p_class_id[\s\S]*student\.teacher_id = v_actor[\s\S]*student\.archived_at is null/i);
+  assert.match(startFunction, /from public\.classes class[\s\S]*for update/i);
+  assert.match(startFunction, /where student\.id = any\(v_student_ids\)[\s\S]*order by student\.id[\s\S]*for update/i);
+  assert.match(startFunction, /cardinality\(v_student_ids\) > 200[\s\S]*class_too_large/i);
+  assert.match(startFunction, /unnest\(v_student_ids\)[\s\S]*student_busy/i);
+  assert.match(startFunction, /conflict validation happens before replacement/i);
+});
+
+test("book and game assignments use one bounded wildcard config and reject routes", () => {
+  const startFunction = extensionMigration.slice(
+    extensionMigration.indexOf("create function public.teacher_start_student_focus_session"),
+    extensionMigration.indexOf("create or replace function public.teacher_get_student_focus_session")
+  );
+  assert.match(startFunction, /v_config := p_assignments -> '\*'/i);
+  assert.match(startFunction, /count\(\*\) from jsonb_object_keys\(p_assignments\)\) <> 1/i);
+  assert.match(startFunction, /book_id[\s\S]*book_title/i);
+  assert.match(startFunction, /game_id[\s\S]*game_title/i);
+  assert.match(startFunction, /v_resource_id !~ '\^\[a-z0-9\]\[a-z0-9\._-\]\{0,119\}\$'/i);
+  assert.match(startFunction, /v_resource_id like '%\.\.%'/i);
+  assert.match(startFunction, /v_resource_title[\s\S]*:\/\//i);
+  assert.match(startFunction, /guided_reading_book_reviews[\s\S]*status = 'quarantined'/i);
+  assert.match(startFunction, /when p_target in \('assigned_book', 'arcade_game'\) then v_shared_config/i);
+  assert.match(startFunction, /p_target = 'skills_assessment'[\s\S]*p_assignments \? '\*'[\s\S]*unexpected_shared_assignment/i);
+});
+
+test("teacher and student session reads include the authoritative audience", () => {
+  assert.ok(
+    [...extensionMigration.matchAll(/'audience', v_session\.selection_scope/g)].length >= 3
+  );
+  assert.ok(
+    [...extensionMigration.matchAll(/'selection_scope', v_session\.selection_scope/g)].length >= 3
+  );
 });

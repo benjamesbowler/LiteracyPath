@@ -25,7 +25,7 @@
 // shelf page's reading-goal panel ("7 of 10 books", with a bar and a target) was
 // a third one, and it does not come back here.
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
 import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
@@ -156,6 +156,8 @@ export function StudentBooksPage({
   recommendationEvidenceReady = true,
   initialBookId = "",
   focusLocked = false,
+  lockedBookId = null,
+  onLockedBookAvailabilityChange = null,
   onNavigate,
   onHome,
   onGrownUps,
@@ -165,7 +167,11 @@ export function StudentBooksPage({
   // which is where they left from.
   renderReader
 }) {
-  const [openBookId, setOpenBookId] = useState(initialBookId || "");
+  const exactBookLock = lockedBookId !== null;
+  const normalizedLockedBookId = exactBookLock ? String(lockedBookId || "").trim() : "";
+  const [openBookId, setOpenBookId] = useState(
+    exactBookLock ? normalizedLockedBookId : (initialBookId || "")
+  );
   const [speechStatus, setSpeechStatus] = useState("");
   const [shelfPages, setShelfPages] = useState({ "just-right": 0, second: 0 });
   const [knowledgeJourneyId, setKnowledgeJourneyId] = useState(KNOWLEDGE_JOURNEYS[0]?.id || "");
@@ -186,8 +192,24 @@ export function StudentBooksPage({
     // with a reported defect. A missing blocklist caused by a real service
     // failure remains fail-closed.
     const live = filterPublishedGuidedReadingBooks(runtimeBooks, quarantinedBookIds);
-    return filterToEntitlement(live, allowedBookIds, { hasFullContent: !allowedBookIds });
-  }, [allowedBookIds, books, quarantinedBookIds]);
+    const entitled = filterToEntitlement(live, allowedBookIds, { hasFullContent: !allowedBookIds });
+    return exactBookLock
+      ? entitled.filter(book => book.id === normalizedLockedBookId)
+      : entitled;
+  }, [allowedBookIds, books, exactBookLock, normalizedLockedBookId, quarantinedBookIds]);
+
+  useEffect(() => {
+    if (!exactBookLock || publicationStatus === "loading") return;
+    onLockedBookAvailabilityChange?.(
+      Boolean(normalizedLockedBookId && library.some(book => book.id === normalizedLockedBookId))
+    );
+  }, [
+    exactBookLock,
+    library,
+    normalizedLockedBookId,
+    onLockedBookAvailabilityChange,
+    publicationStatus
+  ]);
 
   // The app's existing answer to "what level is this child on": a teacher-set
   // level, else the level of the last book they actually read, else A. It is
@@ -288,7 +310,12 @@ export function StudentBooksPage({
   }
 
   if (library.length === 0) {
-    const libraryMessage = publicationStatus === "loading"
+    const assignedBookLoading = exactBookLock && publicationStatus === "loading";
+    const libraryMessage = assignedBookLoading
+      ? "Your assigned book is getting ready."
+      : exactBookLock
+        ? "This assigned book is unavailable. Stay here and ask your teacher for help."
+        : publicationStatus === "loading"
       ? "Your books are getting ready."
       : publicationStatus === "ready"
         ? "Your books are waiting for a grown-up's review."
@@ -306,19 +333,30 @@ export function StudentBooksPage({
         showWallet={!focusLocked}
         tabs={focusLocked ? [] : undefined}
       >
-        <div className="kg-screen kg-books kg-books-empty" data-child-surface="reading-library" data-library-empty="true">
+        <div
+          className="kg-screen kg-books kg-books-empty"
+          data-child-surface="reading-library"
+          data-library-empty="true"
+          data-assigned-content-unavailable={exactBookLock && !assignedBookLoading ? "book" : undefined}
+        >
           <div className="kg-books-head">
             <div>
               <h1 className="kg-title" data-child-title="">Books</h1>
               <p className="kg-body kg-books-headline" data-child-instruction="">{libraryMessage}</p>
             </div>
           </div>
-          <div className="kg-glass kg-library-preparing" role="status">
+          <div className="kg-glass kg-library-preparing" role={exactBookLock && !assignedBookLoading ? "alert" : "status"}>
             <span aria-hidden="true">📚</span>
-            <strong>{publicationStatus === "ready" ? "Books are being checked" : "Try again in a moment"}</strong>
-            <p>{publicationStatus === "ready"
-              ? "Only books a grown-up has checked can appear here."
-              : "Approved books could not be checked right now."}</p>
+            <strong>{exactBookLock
+              ? assignedBookLoading ? "Book getting ready" : "Ask your teacher for help"
+              : publicationStatus === "ready" ? "Books are being checked" : "Try again in a moment"}</strong>
+            <p>{exactBookLock
+              ? assignedBookLoading
+                ? "Stay on this screen while the book is checked."
+                : "The assigned book cannot be opened on this iPad."
+              : publicationStatus === "ready"
+                ? "Only books a grown-up has checked can appear here."
+                : "Approved books could not be checked right now."}</p>
           </div>
         </div>
       </StudentGlassShell>

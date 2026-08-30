@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  focusSessionContentOkForPoll,
   focusSessionRetryDelay,
   INITIAL_STUDENT_FOCUS_STATE,
   reduceStudentFocusState
@@ -39,6 +40,22 @@ test("focus retry delay uses the bounded one-to-eight second sequence", () => {
     [1, 2, 3, 4, 5, 8].map(focusSessionRetryDelay),
     [1000, 2000, 4000, 8000, 8000, 8000]
   );
+});
+
+test("exact-content failures are reported only for the matching focus session", () => {
+  assert.equal(focusSessionContentOkForPoll(session, null), true);
+  assert.equal(focusSessionContentOkForPoll(session, {
+    sessionId: "focus-1",
+    contentOk: false
+  }), false);
+  assert.equal(focusSessionContentOkForPoll(session, {
+    sessionId: "older-focus",
+    contentOk: false
+  }), true);
+  assert.equal(focusSessionContentOkForPoll({ ...session, content_ok: false }, {
+    sessionId: "focus-1",
+    contentOk: true
+  }), false);
 });
 
 test("student focus polling pauses while hidden and requests an iPad wake lock", async () => {
