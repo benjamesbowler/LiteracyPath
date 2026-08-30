@@ -630,6 +630,18 @@ export default function SentenceExpressGame({
   const faultList = [...new Set(level.trains.flatMap(t => t.faults))]
     .map(f => FAULT_LABELS[f]).filter(Boolean).join(" - ");
   const rolling = phase === PHASES.DEPART;
+  const targetSentence = `${solution.join(" ")}${train.endMark}`;
+  const yardInstruction = needsEngine
+    ? "Choose the capital engine."
+    : train.rusty && !rustyFixed
+      ? "Fix the rusty word."
+      : train.gap && !gapFilled
+        ? "Load the missing word."
+        : coupled.length < train.words.length
+          ? "Tap the word cars in sentence order."
+          : train.caboose && !cabooseChoice
+            ? "Choose the end mark."
+            : "Pull the whistle.";
 
   return (
     <div className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase}>
@@ -757,13 +769,13 @@ export default function SentenceExpressGame({
           <div className="sx-master">
             <span className="sx-pal" aria-hidden="true"><LanternBadge /></span>
             <div className="sx-bubble">
-              <p>Build the train that says...</p>
+              <p className="sx-objective" data-child-instruction>{yardInstruction}</p>
+              <p className="sx-target">{targetSentence}</p>
               {isSoundEnabled ? (
-                <button type="button" className="sx-bell" onClick={announce}><BellIcon /> Hear it again</button>
-              ) : (
-                // Sound off: the listen button would no-op, so read it instead.
-                <p className="sx-sayit">"{solution.join(" ")}{train.endMark}"</p>
-              )}
+                <button type="button" className="sx-bell" onClick={announce} aria-label="Hear the sentence again">
+                  <BellIcon /> Hear sentence again
+                </button>
+              ) : null}
               {hint && <p className="sx-hint" role="status">{hint}</p>}
             </div>
           </div>

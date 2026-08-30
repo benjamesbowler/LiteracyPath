@@ -159,6 +159,53 @@ test("Sentence Grove offers named hold-safe movement buttons as an alternative t
   assert.match(grove, /addEventListener\("lostpointercapture", up\)/);
 });
 
+test("reported Arcade objectives and replay controls keep child-readable hierarchy", async () => {
+  const [skate, express, expressCss, grove, soundKeys, soundKeysCss, reel, racer] = await Promise.all([
+    source("src/components/learn/games/games/GrammarGrindGame.jsx"),
+    source("src/components/learn/games/games/SentenceExpressGame.jsx"),
+    source("src/styles/sentence-express.css"),
+    source("src/components/learn/games/games/StarGalleryArcadeGame.jsx"),
+    source("src/components/learn/games/games/SoundKeysGame.jsx"),
+    source("src/features/soundkeys/soundkeys.css"),
+    source("src/components/learn/games/games/ReelReadGame.jsx"),
+    source("src/components/learn/games/games/SoundRacerGame.jsx")
+  ]);
+
+  assert.match(skate, /data-gg="prompt" data-child-instruction/);
+  assert.match(skate, /`Collect \$\{nextSegment \|\| "the next sound"\} next`/);
+  assert.match(skate, /`Build \$\{level\.audioWord\}: \$\{\(level\.segments \|\| \[\]\)\.join\(" → "\)\}`/);
+  assert.match(skate, /data-gg="hear"[\s\S]*?min-height:56px[\s\S]*?font-size:1rem/);
+  assert.match(skate, /setAttribute\("aria-label", level\.audioWord \? `Hear \$\{level\.audioWord\} again`/);
+
+  assert.match(express, /className="sx-objective" data-child-instruction/);
+  assert.match(express, /className="sx-target">\{targetSentence\}/);
+  assert.match(express, /aria-label="Hear the sentence again"/);
+  assert.match(expressCss, /\.sx-bubble \.sx-objective \{[\s\S]*?font-size: 18px/);
+  assert.match(expressCss, /\.sx-bubble \.sx-target \{[\s\S]*?font-size: clamp\(20px/);
+  assert.match(expressCss, /\.sx-bell \{[\s\S]*?font-size: 16px[\s\S]*?min-width: 210px; min-height: 60px/);
+
+  assert.match(grove, /data-role="prompt" data-child-instruction/);
+  assert.match(grove, /<button data-role="replay" type="button" aria-label="Hear the sentence again"/);
+  assert.match(grove, /data-role="replay"[\s\S]*?min-width:220px;min-height:56px[\s\S]*?font-size:16px/);
+  assert.match(grove, /nodes\.replay\.addEventListener\("click", event =>/);
+
+  assert.match(soundKeys, /className="soundkeys-listen" aria-label=\{isSoundEnabled \? `Hear \$\{target\.display\} again` : "Word replay unavailable while sound is off"\}/);
+  assert.match(soundKeys, /disabled=\{!isSoundEnabled\}/);
+  assert.match(soundKeys, /onClick=\{\(\) => \{ if \(isSoundEnabled\) playAudio\(target\.audio\); \}\}/);
+  assert.match(soundKeys, /\{isSoundEnabled \? "Hear word again" : "Sound is off"\}<\/button>/);
+  assert.match(soundKeysCss, /\.soundkeys-listen \{[\s\S]*?min-width: 168px; min-height: 56px;[\s\S]*?font-size: 16px/);
+
+  assert.match(reel, /data-rr="replay" type="button" aria-label="Hear the target word again"[\s\S]*?min-width:96px;min-height:66px[\s\S]*?font-size:1rem/);
+  assert.match(reel, /function layoutReplayControl\(\)[\s\S]*?btnReplay\.style\.width = compact && !crowded \? "96px" : "168px"/);
+  assert.match(reel, /function refreshSoundState\(\)[\s\S]*?btnReplay\.disabled = !enabled;[\s\S]*?Word replay unavailable while sound is off/);
+  assert.match(reel, /engineRef\.current\?\.refreshSoundState\?\.\(\)/);
+  assert.match(reel, /if \(!opts\.getSound\?\.\(\)\) return;/);
+  assert.match(reel, /btnReplay\.addEventListener\("click", replayTarget\)/);
+  assert.match(reel, /btnReplay\.removeEventListener\("click", replayTarget\)/);
+
+  assert.match(racer, /data-sr="hear-target"[\s\S]*?min-width:56px;min-height:56px[\s\S]*?font:900 1rem\/1\.05/);
+});
+
 test("every 3D arcade surface re-probes quality on resize and motion changes", async () => {
   const files = [
     "src/components/learn/games/games/RocketRunGame.jsx",

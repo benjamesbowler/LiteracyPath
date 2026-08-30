@@ -839,12 +839,12 @@ function startGame(mount, opts) {
       '<div data-gg="score" style="font-size:1.42rem;font-weight:950;line-height:1.08">0 pts</div>' +
       '<div data-gg="combo" style="font-size:.82rem;color:#ffe17a;font-weight:900">Combo x1</div>' +
     '</div>' +
-    '<div data-gg-panel="center" style="position:absolute;top:14px;left:50%;transform:translateX(-50%);width:min(680px,calc(100vw - 360px));min-width:330px;text-align:center;background:linear-gradient(135deg,rgba(6,10,28,.94),rgba(20,32,70,.78));border:1px solid rgba(255,255,255,.18);padding:12px 18px 14px;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,18px 100%,0 50%);box-shadow:0 12px 34px rgba(0,0,0,.34)">' +
-      '<div data-gg="prompt" style="font-size:clamp(1rem,2.4vw,1.72rem);font-weight:950;line-height:1.05"></div>' +
-      '<div data-gg="sentence" style="margin-top:5px;font-size:clamp(.84rem,1.5vw,1.08rem);font-weight:850;color:#eaf8ff"></div>' +
-      '<div data-gg="cue" style="margin-top:4px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
-      '<div data-gg="coach" style="margin:7px auto 0;max-width:560px;font-size:.82rem;line-height:1.15;color:#ffe7a3;font-weight:850"></div>' +
-      '<button data-gg="hear" type="button" aria-label="Hear the word" style="min-height:56px;margin-top:7px;padding:8px 16px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR WORD</button>' +
+    '<div data-gg-panel="center" style="position:absolute;top:14px;left:50%;transform:translateX(-50%);width:min(760px,calc(100vw - 360px));min-width:330px;text-align:center;background:linear-gradient(135deg,rgba(6,10,28,.96),rgba(20,32,70,.86));border:2px solid rgba(125,242,255,.32);padding:14px 24px 16px;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,18px 100%,0 50%);box-shadow:0 14px 38px rgba(0,0,0,.42)">' +
+      '<div data-gg="prompt" data-child-instruction style="font-size:clamp(1.38rem,2.4vw,1.78rem);font-weight:950;line-height:1.05;text-wrap:balance"></div>' +
+      '<div data-gg="sentence" style="margin-top:7px;font-size:clamp(1.1rem,1.8vw,1.42rem);font-weight:900;color:#eaf8ff;letter-spacing:.08em"></div>' +
+      '<div data-gg="cue" style="margin-top:5px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
+      '<div data-gg="coach" style="margin:8px auto 0;max-width:620px;font-size:clamp(1rem,1.45vw,1.16rem);line-height:1.22;color:#ffe7a3;font-weight:900;text-wrap:balance"></div>' +
+      '<button data-gg="hear" type="button" aria-label="Hear the word again" style="min-width:168px;min-height:56px;margin-top:10px;padding:10px 20px;border:2px solid rgba(125,242,255,.62);background:rgba(6,10,28,.82);color:#9bf4ff;font-weight:950;border-radius:10px;font-size:1rem;letter-spacing:.07em;pointer-events:auto;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.28)">HEAR WORD AGAIN</button>' +
     '</div>' +
     '<div data-gg-panel="right" style="position:absolute;top:14px;right:16px;text-align:right;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
       '<div data-gg="world" style="font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
@@ -913,22 +913,28 @@ function startGame(mount, opts) {
         font-size: .66rem !important;
       }
       [data-gg="prompt"] {
-        font-size: .98rem !important;
+        font-size: 1.38rem !important;
         line-height: 1.05 !important;
       }
       [data-gg="sentence"] {
-        font-size: .8rem !important;
-        margin-top: 3px !important;
+        font-size: 1.08rem !important;
+        margin-top: 5px !important;
       }
       [data-gg="cue"] {
-        font-size: .64rem !important;
-        margin-top: 3px !important;
+        font-size: .72rem !important;
+        margin-top: 4px !important;
       }
       [data-gg="coach"] {
         max-width: 100% !important;
-        font-size: .68rem !important;
-        line-height: 1.1 !important;
-        margin-top: 5px !important;
+        font-size: 1rem !important;
+        line-height: 1.15 !important;
+        margin-top: 6px !important;
+      }
+      [data-gg="hear"] {
+        min-height: 56px !important;
+        margin-top: 7px !important;
+        padding: 8px 14px !important;
+        font-size: 1rem !important;
       }
       [data-gg-controls="left"] {
         bottom: 10px !important;
@@ -1278,12 +1284,21 @@ function startGame(mount, opts) {
     el.level.textContent = `Level ${levelIndex + 1}/${ladder.length}`;
     el.score.textContent = `${Math.max(0, Math.round(score))} pts`;
     el.combo.textContent = `Combo x${combo}`;
-    el.prompt.textContent = level.prompt;
+    const nextSegment = difficulty === "easy" ? level.segments?.[lineStep] : null;
+    el.prompt.textContent = difficulty === "easy"
+      ? lineReady
+        ? `Choose ${level.audioWord}`
+        : `Collect ${nextSegment || "the next sound"} next`
+      : level.prompt;
     el.sentence.textContent = difficulty === "easy"
       ? level.segments.map((segment, index) => (index < lineStep ? segment : "_")).join("  ")
       : level.sentence;
     el.cue.textContent = level.focus || level.cue;
-    el.coach.textContent = coachText || level.teaching || level.cue;
+    el.coach.textContent = difficulty === "easy"
+      ? `Build ${level.audioWord}: ${(level.segments || []).join(" → ")}`
+      : coachText || level.teaching || level.cue;
+    el.hear.textContent = level.audioWord ? `HEAR ${level.audioWord.toUpperCase()} AGAIN` : "HEAR WORD AGAIN";
+    el.hear.setAttribute("aria-label", level.audioWord ? `Hear ${level.audioWord} again` : "Hear the word again");
     el.world.textContent = theme.name;
     el.speed.textContent = `${Math.round(Math.abs(player.speed) * 3.2)} kmh`;
     el.trick.textContent = player.grind > 0 ? "Grinding rail" : player.air > 0.2 ? "Air trick" : message || (lineReady ? "Choose the built word" : "Find the next sound");

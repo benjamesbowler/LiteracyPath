@@ -439,7 +439,7 @@ function startGame(THREE, mount, opts) {
       '<div data-sr="target" style="width:54px;height:54px;display:grid;place-items:center;font-size:1.85rem;font-weight:900;color:#071033;background:#ffd34e;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22)"></div>' +
       '<div><div data-sr="mission" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.76">Catch the sound</div>' +
       '<div data-sr="map" style="font-size:1.02rem;font-weight:800;white-space:nowrap">Track 1</div></div>' +
-      '<button data-sr="hear-target" type="button" aria-label="Hear the target sound again" style="min-width:56px;min-height:56px;padding:6px 10px;border:2px solid rgba(255,255,255,.68);background:#7cf0b6;color:#071033;font:900 .78rem/1.05 var(--kid-font-display,Fredoka,sans-serif);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2);pointer-events:auto;cursor:pointer">Hear<br>sound</button></div>' +
+      '<button data-sr="hear-target" type="button" aria-label="Hear the target sound again" style="min-width:56px;min-height:56px;padding:6px 10px;border:2px solid rgba(255,255,255,.68);background:#7cf0b6;color:#071033;font:900 1rem/1.05 var(--kid-font-display,Fredoka,sans-serif);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2);pointer-events:auto;cursor:pointer">Hear<br>sound</button></div>' +
     '<div data-sr-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.62);border:1px solid rgba(255,255,255,.16);padding:9px 12px;min-width:160px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-sr="timer" style="font-size:1.15rem;font-weight:900;font-variant-numeric:tabular-nums">0:00.00</div>' +
       '<div data-sr="words" style="font-size:.98rem;opacity:.9">0 / 0 words</div>' +

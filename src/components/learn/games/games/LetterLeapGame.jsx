@@ -43,6 +43,7 @@ function pickFoeType(worldKey, levelIndex, k) {
 
 const GRAV = 0.62, MOVE = 4.8, JUMP = 13.6, GROUND_H = 96;
 const SEG = 440, WORD_GAP = 560, MAXH = 5;
+const FIXED_STEP = 1 / 60;
 // First-run onboarding dismissal is remembered once per device; a denied
 // storage (private mode) simply shows the card again next session.
 const ONBOARD_KEY = "lp-arcade-onboarded-v1:letter-leap";
@@ -100,28 +101,52 @@ function buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex, random = Ma
   }));
 }
 
+function isLetterLeapCurrentChoice(choice, wordIndex, letterIndex) {
+  return choice.decisionWord === wordIndex && choice.decisionOrder === letterIndex;
+}
+
+function rebaseLetterLeapWorld(level, player, deltaY) {
+  if (!Number.isFinite(deltaY) || deltaY === 0) return;
+  const shift = (item, keys) => {
+    if (!item) return;
+    for (const key of keys) {
+      if (Number.isFinite(item[key])) item[key] += deltaY;
+    }
+  };
+
+  shift(player, ["y"]);
+  for (const platform of level?.plats || []) shift(platform, ["y", "baseY", "prevY"]);
+  for (const block of level?.blocks || []) shift(block, ["y"]);
+  for (const pickup of level?.pickups || []) shift(pickup, ["y"]);
+  for (const bubble of level?.bubbles || []) shift(bubble, ["y"]);
+  for (const foe of level?.foes || []) shift(foe, ["y", "baseY"]);
+  for (const coin of level?.coins || []) shift(coin, ["y"]);
+  for (const star of level?.stars || []) shift(star, ["y"]);
+}
+
 function letterLeapDecorativeTime(reduceMotion, nowMs) {
   return reduceMotion ? 0 : nowMs * 0.001;
 }
 
-function findLetterLeapRecoveryCenter(level, choiceId, requestedCenterX, segmentWidth = 440) {
+function findLetterLeapRecoveryCenter(level, requestedCenterX, segmentWidth = 440) {
   let centerX = requestedCenterX;
   for (let attempts = 0; attempts < level.bubbles.length + 4; attempts += 1) {
     const overlapsPit = level.pits.some(pit => centerX + 118 > pit[0] && centerX - 118 < pit[1]);
-    const overlapsChoice = level.bubbles.some(bubble => (
-      !bubble.taken &&
-      bubble.choiceId !== choiceId &&
-      Math.abs(bubble.x - centerX) < 220
-    ));
     const overlapsBlock = level.blocks.some(block => (
       !block.broken &&
       centerX + 118 > block.x &&
       centerX - 118 < block.x + block.w
     ));
+    const overlapsPlatform = level.plats.some(platform => (
+      centerX + 118 > platform.x && centerX - 118 < platform.x + platform.w
+    ));
     const overlapsFoe = level.foes.some(foe => (
       centerX + 118 > foe.x0 && centerX - 118 < foe.x1
     ));
-    if (!overlapsPit && !overlapsChoice && !overlapsBlock && !overlapsFoe) return centerX;
+    // Inactive letter decisions are deliberately hidden and non-colliding, so
+    // they do not force the current decision farther down the course. They are
+    // repositioned in turn if the player has already passed their old slot.
+    if (!overlapsPit && !overlapsBlock && !overlapsPlatform && !overlapsFoe) return centerX;
     centerX += segmentWidth;
   }
   return centerX;
@@ -148,6 +173,13 @@ function startGame(mount, opts) {
   const allStageWords = ladder.map(stageWords);
   const totalWords = allStageWords.reduce((s, w) => s + w.length, 0) || 1;
 
+  // These two objects are created after the first canvas measurement, but the
+  // ResizeObserver may run again as the fullscreen shell settles. Keeping them
+  // in scope here lets resize() translate the existing course to the new ground
+  // line instead of leaving the player and letters floating at the old height.
+  let player = null;
+  let level = null;
+
   // ── DOM: canvas + HUD + touch pad + overlay (all inside the mount) ────────
   const cv = document.createElement("canvas");
   cv.style.cssText = "position:absolute;inset:0;display:block;width:100%;height:100%";
@@ -156,7 +188,11 @@ function startGame(mount, opts) {
   let W = 0, H = 0;
   const DPR = Math.min(window.devicePixelRatio || 1, 2);
   function resize() {
+    const previousGroundY = H > 0 ? H - GROUND_H : null;
     W = mount.clientWidth || 640; H = mount.clientHeight || 460;
+    if (previousGroundY != null) {
+      rebaseLetterLeapWorld(level, player, (H - GROUND_H) - previousGroundY);
+    }
     cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
   resize();
@@ -284,7 +320,7 @@ function startGame(mount, opts) {
 
   // ── state ────────────────────────────────────────────────────────────────
   const keys = { left: false, right: false, jump: false };
-  let player, level, words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, invuln = 0;
+  let words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, frameAccumulator = 0, invuln = 0;
   let particles = [], spores = [], floats = [];
   let score = 0, wrongHits = 0, wordsDoneGlobal = 0;
   const completedWordEvidence = new Set(); // stage/leg/word keys survive catch-up replays without double-counting
@@ -338,10 +374,12 @@ function startGame(mount, opts) {
         const decision = choicePlan[wi][i];
         let bubbleY = groundY() - 46;
         if (decision.raised) {
-          const py = groundY() - 118;
+          // The platform is high enough to require a jump but low enough to
+          // reach with a short touch press after the variable-jump cut-off.
+          const py = groundY() - 96;
           plats.push({ x: cx - 126, y: py, w: 252 });
           blocks.push({ x: cx - 194, y: groundY() - 60, w: 44, h: 40, type: "brick", broken: false, used: false });
-          bubbleY = py - 44;
+          bubbleY = py - 40;
         }
         for (const choice of decision.choices) {
           bubbles.push({
@@ -439,11 +477,10 @@ function startGame(mount, opts) {
   function refreshChoiceGroup(choiceId, requestedCenterX) {
     const choices = level.bubbles.filter(bubble => bubble.choiceId === choiceId);
     if (!choices.length) return;
-    const centerX = findLetterLeapRecoveryCenter(level, choiceId, requestedCenterX);
-    // A recovery cluster must not merge visually with a later decision or sit
-    // over a hazard. Scan forward by one full segment until the three choices
-    // have their own readable space. Later decisions remain in their original
-    // order and will use the same catch-up rule if the child has passed them.
+    const centerX = findLetterLeapRecoveryCenter(level, requestedCenterX);
+    // A recovery cluster must not sit over a hazard. Only this decision is
+    // visible, so inactive later choices can safely reuse the same course space
+    // and will be placed in turn when they become current.
     if (centerX + 150 >= level.flag) {
       level.flag = centerX + 260;
       level.L = Math.max(level.L, level.flag + 160);
@@ -458,6 +495,19 @@ function startGame(mount, opts) {
   function clearChoiceGroup(choiceId) {
     for (const choice of level.bubbles) {
       if (choice.choiceId === choiceId) choice.taken = true;
+    }
+  }
+
+  function keepCurrentChoiceAhead(requestedCenterX = player?.x + 280) {
+    if (!level || !player || !Number.isFinite(requestedCenterX)) return;
+    const target = level.bubbles.find(choice => (
+      !choice.taken &&
+      choice.word === wIx &&
+      choice.order === nextIx &&
+      isLetterLeapCurrentChoice(choice, wIx, nextIx)
+    ));
+    if (target && target.x < player.x + 72) {
+      refreshChoiceGroup(target.choiceId, requestedCenterX);
     }
   }
 
@@ -739,8 +789,8 @@ function startGame(mount, opts) {
     }
     for (const b of level.bubbles) {
       if (b.taken) continue;
+      if (!isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
       if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
-        if (b.decisionWord !== wIx || b.decisionOrder !== nextIx) continue;
         if (b.word === -1) {
           if (invuln > 0) continue; // i-frames: never consume a decoy for free
           wrongHits += 1; // literacy mistakes — the ONLY mistakes the star rubric sees
@@ -756,6 +806,7 @@ function startGame(mount, opts) {
           if (alreadySaved) addFloat(b.x, b.y - 22, "✓ saved");
           else { addScore(10); addFloat(b.x, b.y - 22, "+10"); }
           if (nextIx >= word.length) wordDone(); else renderWord();
+          keepCurrentChoiceAhead();
         }
       }
     }
@@ -1062,6 +1113,7 @@ function startGame(mount, opts) {
     }
     for (const b of level.bubbles) {
       if (b.taken) continue;
+      if (!isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
       const bob = reduceMotion ? 0 : Math.sin(t * 2.4 + b.x) * 4;
       bubble(b.x, b.y + bob, b.ch);
     }
@@ -1129,13 +1181,23 @@ function startGame(mount, opts) {
   sprLoad("grumper", "enemy-grumper.webp");
   sprLoad("platform", "tile-platform.webp");
 
-  function loop(now) { rafId = requestAnimationFrame(loop); const dt = Math.min(0.05, ((now - last) || 16) / 1000); last = now; update(dt); draw(); }
+  function loop(now) {
+    rafId = requestAnimationFrame(loop);
+    const elapsed = last ? Math.min(0.05, (now - last) / 1000) : FIXED_STEP;
+    last = now;
+    frameAccumulator = Math.min(0.1, frameAccumulator + elapsed);
+    while (frameAccumulator >= FIXED_STEP) {
+      update(FIXED_STEP);
+      frameAccumulator -= FIXED_STEP;
+    }
+    draw();
+  }
   rafId = requestAnimationFrame(loop);
   startStage();
 
   let paused = false, savedRunning = false, onboarding = false;
   function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
-  function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+  function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
   maybeOnboard();
   function teardown() {
     running = false;

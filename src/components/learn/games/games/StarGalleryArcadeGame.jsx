@@ -1156,10 +1156,13 @@ function createHud() {
       <div data-role="title" style="font-size:22px;font-weight:900;color:#7fffe9;">Sentence Grove</div>
       <div data-role="room" style="margin-top:4px;font-size:13px;font-weight:800;"></div>
     </div>
-    <div data-role="prompt-panel" style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(560px,82vw);padding:12px 18px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.68);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;pointer-events:auto;cursor:pointer;">
-      <div data-role="prompt" style="font-size:clamp(14px,2.2vw,18px);font-weight:900;color:#ffe45c;text-wrap:balance;"></div>
-      <div data-role="display" style="margin-top:4px;font-size:clamp(19px,3.2vw,28px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;"></div>
-      <div style="margin-top:6px;font-size:11px;font-weight:800;color:#9fffe9;opacity:.8;">Tap to hear it again</div>
+    <div data-role="prompt-panel" style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(680px,86vw);padding:16px 22px 18px;background:rgba(3,7,18,.9);border:2px solid rgba(255,226,92,.78);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;pointer-events:auto;box-shadow:0 14px 34px rgba(0,0,0,.34);">
+      <div data-role="prompt" data-child-instruction style="font-size:clamp(18px,2.2vw,24px);font-weight:900;color:#ffe45c;line-height:1.12;text-wrap:balance;"></div>
+      <div data-role="display" style="margin-top:6px;font-size:clamp(24px,3.2vw,36px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;text-wrap:balance;"></div>
+      <button data-role="replay" type="button" aria-label="Hear the sentence again" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:220px;min-height:56px;margin-top:12px;padding:10px 18px;border:2px solid rgba(159,255,233,.78);border-radius:12px;background:linear-gradient(180deg,rgba(24,75,78,.96),rgba(8,38,48,.96));color:#d9fff7;font-family:inherit;font-size:16px;font-weight:900;line-height:1.1;letter-spacing:.02em;text-shadow:0 2px 0 rgba(0,0,0,.8);box-shadow:0 5px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:manipulation;">
+        <span aria-hidden="true" style="font-size:20px;">&#128266;</span>
+        <span data-role="replay-label">Hear sentence again</span>
+      </button>
     </div>
     <div data-role="panel-right" style="position:absolute;right:16px;top:12px;width:205px;padding:12px 16px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.6);clip-path:polygon(0 0,90% 0,100% 22%,100% 100%,8% 100%,0 78%);text-align:right;">
       <div data-role="score" style="font-size:22px;font-weight:900;">0 pts</div>
@@ -1192,6 +1195,10 @@ function createHud() {
       <div data-role="countdown-display" style="max-width:min(880px,88vw);margin-top:18px;font-size:clamp(24px,3.8vw,36px);font-weight:900;color:#ffe45c;line-height:1.12;overflow-wrap:anywhere;"></div>
       <div data-role="countdown-main" style="font-size:clamp(76px,16vw,144px);font-weight:900;color:#52ffe1;line-height:1.05;"></div>
     </div>
+    <style>
+      [data-role="replay"]:focus-visible { outline:4px solid #fff7b2;outline-offset:3px; }
+      [data-role="replay"]:active { transform:translateY(2px);box-shadow:0 3px 0 rgba(0,0,0,.45) !important; }
+    </style>
   `;
   const nodes = {};
   overlay.querySelectorAll("[data-role]").forEach(node => {
@@ -1933,6 +1940,12 @@ function createStarGalleryEngine(mount, options) {
     nodes.room.textContent = `${theme.name} ${state.stage + 1} of 10`;
     nodes.prompt.textContent = currentPrompt();
     nodes.display.textContent = currentDisplay();
+    const canReplay = soundAllowed(options);
+    nodes.replay.disabled = !canReplay;
+    nodes.replay.style.opacity = canReplay ? "1" : "0.72";
+    nodes.replay.style.cursor = canReplay ? "pointer" : "not-allowed";
+    nodes.replayLabel.textContent = canReplay ? "Hear sentence again" : "Sentence shown - sound off";
+    nodes.replay.setAttribute("aria-label", canReplay ? "Hear the sentence again" : "Sentence shown; sound is off");
     nodes.score.textContent = `${state.score} pts`;
     nodes.streak.textContent = `Streak x${Math.max(1, state.combo)}`;
     nodes.progress.style.width = `${Math.round(state.progress * 100)}%`;
@@ -2112,7 +2125,7 @@ function createStarGalleryEngine(mount, options) {
     playSfx(options, playTapSound);
     tryCutNearestTree();
   });
-  nodes.promptPanel.addEventListener("pointerdown", event => {
+  nodes.replay.addEventListener("click", event => {
     event.preventDefault();
     event.stopPropagation();
     speakItem();

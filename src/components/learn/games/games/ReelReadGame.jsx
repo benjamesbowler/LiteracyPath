@@ -181,10 +181,12 @@ export default function ReelReadGame({
   isSoundEnabled = true
 }) {
   const mountRef = useRef(null);
+  const engineRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
 
   useEffect(() => {
     soundRef.current = isSoundEnabled;
+    engineRef.current?.refreshSoundState?.();
   }, [isSoundEnabled]);
 
   useEffect(() => {
@@ -198,8 +200,12 @@ export default function ReelReadGame({
       onCheckpoint,
       getSound: () => soundRef.current
     });
+    engineRef.current = api;
     onEngineReady?.(api);
-    return () => api.teardown();
+    return () => {
+      if (engineRef.current === api) engineRef.current = null;
+      api.teardown();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficulty]);
 
@@ -238,11 +244,13 @@ function startGame(mount, opts) {
       '<button data-rr="left" aria-label="Move left" style="width:62px;height:58px;border:1px solid rgba(255,255,255,.26);background:rgba(4,11,25,.58);color:white;font-size:1.55rem;font-weight:950;backdrop-filter:blur(4px);border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 10px 24px rgba(0,0,0,.28)">&#9664;</button>' +
       '<button data-rr="right" aria-label="Move right" style="width:62px;height:58px;border:1px solid rgba(255,255,255,.26);background:rgba(4,11,25,.58);color:white;font-size:1.55rem;font-weight:950;backdrop-filter:blur(4px);border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 10px 24px rgba(0,0,0,.28)">&#9654;</button>' +
     '</div>' +
+    '<button data-rr="replay" type="button" aria-label="Hear the target word again" style="position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:168px;min-width:96px;min-height:66px;padding:10px 18px;pointer-events:auto;border:2px solid rgba(255,255,255,.62);background:rgba(4,11,25,.78);color:#ffffff;font-family:var(--kid-font-display,Fredoka,sans-serif);font-weight:950;font-size:1rem;line-height:1.15;letter-spacing:.02em;border-radius:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 24px rgba(0,0,0,.32);cursor:pointer">Hear word again</button>' +
     '<button data-rr="cast" aria-label="Cast hook" style="position:absolute;right:18px;bottom:18px;width:108px;height:66px;pointer-events:auto;border:1px solid rgba(255,255,255,.55);background:linear-gradient(160deg,#fff2a8,#ffc43d 55%,#d97a1e);color:#211606;font-family:var(--kid-font-display,Fredoka,sans-serif);font-weight:950;font-size:.95rem;letter-spacing:.04em;border-radius:8px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.24),0 14px 26px rgba(0,0,0,.28)">CAST</button>';
   mount.appendChild(controls);
 
   const btnLeft = controls.querySelector('[data-rr="left"]');
   const btnRight = controls.querySelector('[data-rr="right"]');
+  const btnReplay = controls.querySelector('[data-rr="replay"]');
   const btnCast = controls.querySelector('[data-rr="cast"]');
 
   let w = 0;
@@ -310,6 +318,27 @@ function startGame(mount, opts) {
     }
   }
 
+  function refreshSoundState() {
+    const enabled = Boolean(opts.getSound?.());
+    const compact = w > 0 && w < 560;
+    btnReplay.disabled = !enabled;
+    btnReplay.setAttribute("aria-disabled", String(!enabled));
+    btnReplay.setAttribute("aria-label", enabled ? `Hear ${level.target} again` : "Word replay unavailable while sound is off");
+    btnReplay.textContent = enabled ? (compact ? "Hear word" : "Hear word again") : (compact ? "Sound off" : "Sound is off");
+    btnReplay.style.cursor = enabled ? "pointer" : "not-allowed";
+    btnReplay.style.opacity = enabled ? "1" : ".68";
+  }
+
+  function layoutReplayControl() {
+    const compact = w < 560;
+    const crowded = w < 375;
+    btnReplay.style.width = compact && !crowded ? "96px" : "168px";
+    btnReplay.style.left = compact && !crowded ? "calc(50% + 13px)" : "50%";
+    btnReplay.style.bottom = crowded ? "96px" : "18px";
+    btnReplay.style.padding = compact ? "6px" : "10px 18px";
+    refreshSoundState();
+  }
+
   function resize() {
     w = mount.clientWidth || 800;
     h = mount.clientHeight || 520;
@@ -319,6 +348,7 @@ function startGame(mount, opts) {
     waterTop = h * theme.waterTop;
     boat.x = boat.x || w * 0.5;
     boat.x = clamp(boat.x, 78, w - 78);
+    layoutReplayControl();
     render();
   }
 
@@ -432,6 +462,7 @@ function startGame(mount, opts) {
     refillFish();
     opts.onProgressUpdate?.(levelIndex + 1, ladder.length);
     opts.onCheckpoint?.(levelIndex, ladder.length);
+    refreshSoundState();
     speakCue(level.target);
     render();
   }
@@ -1191,12 +1222,20 @@ function startGame(mount, opts) {
     keys.cast = false;
   }
 
+  function replayTarget(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!opts.getSound?.()) return;
+    speakCue(level.target);
+  }
+
   window.addEventListener("keydown", onKeyDown);
   window.addEventListener("keyup", onKeyUp);
   canvas.addEventListener("pointerdown", onPointerDown);
   canvas.addEventListener("pointermove", onPointerMove);
   canvas.addEventListener("pointerup", onPointerUp);
   canvas.addEventListener("pointercancel", onPointerUp);
+  btnReplay.addEventListener("click", replayTarget);
   setButton(btnLeft, "left");
   setButton(btnRight, "right");
   setButton(btnCast, "cast");
@@ -1219,11 +1258,13 @@ function startGame(mount, opts) {
       lastTime = performance.now();
       if (introEl) introEl.style.display = "flex";
     },
+    refreshSoundState,
     teardown() {
       running = false;
       window.cancelAnimationFrame(rafId);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
+      btnReplay.removeEventListener("click", replayTarget);
       observer.disconnect();
       mount.innerHTML = "";
     }

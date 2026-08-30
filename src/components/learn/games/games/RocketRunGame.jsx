@@ -61,6 +61,20 @@ const ROUNDS_PER_GAME = 8;
 const SHIP_BASE_SCALE = 0.74;
 const CAMERA_FOV = 66;
 const BOOST_FOV = 78;
+// Rocket Run has substantially more moving geometry than the other WebGL
+// games. Full-screen post-processing at Retina backing resolutions multiplies
+// that already-heavy fragment workload until input and animation stall. Keep
+// the cinematic path on genuinely bounded canvases and use the complete direct
+// renderer on large/high-DPR play surfaces.
+const ROCKET_PREMIUM_PIXEL_BUDGET = 1_600_000;
+
+function rocketRenderTierForViewport(requestedTier, cssWidth, cssHeight, devicePixelRatio) {
+  if (requestedTier === "low") return "low";
+  const tierDprCap = QUALITY_TIERS[requestedTier]?.pixelRatioCap || 1;
+  const renderDpr = Math.min(tierDprCap, Math.max(1, Number(devicePixelRatio) || 1));
+  const backingPixels = Math.max(1, cssWidth) * Math.max(1, cssHeight) * renderDpr * renderDpr;
+  return backingPixels <= ROCKET_PREMIUM_PIXEL_BUDGET ? requestedTier : "low";
+}
 
 // CC0 KayKit scenery already ships in the owned runtime library. Rocket Run
 // uses it as environmental storytelling rather than a collision surface, so a
@@ -118,9 +132,16 @@ function startGame(THREE, mount, opts) {
   const say = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* speech optional */ } } };
   const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
   let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
-  // Hardware quality tier: scales the DPR cap, shadow mode and particle counts
-  // so weak devices get a lighter scene instead of a stuttery one.
+  // Scene quality controls authored geometry, setpieces, particles and effects.
+  // Render quality separately caps full-screen work on large Retina surfaces,
+  // so the richer scene does not disappear just because post effects are unsafe.
   let qualityTier = detectQualityTier();
+  let renderTier = rocketRenderTierForViewport(
+    qualityTier,
+    width(),
+    height(),
+    window.devicePixelRatio
+  );
   function makeNebulaTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
@@ -253,12 +274,12 @@ function startGame(THREE, mount, opts) {
   const renderer = createRenderer(THREE, {
     antialias: true,
     powerPreference: "default",
-    pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
+    pixelRatioCap: QUALITY_TIERS[renderTier].pixelRatioCap,
     srgbOutput: true,
     toneMappingExposure: 1.12,
     shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
-  applyQualityTier(renderer, qualityTier);
+  applyQualityTier(renderer, renderTier);
   renderer.setSize(width(), height());
   renderer.domElement.style.display = "block";
   renderer.domElement.style.filter = "saturate(1.04)";
@@ -344,8 +365,7 @@ function startGame(THREE, mount, opts) {
     renderer,
     scene,
     camera,
-    tier: qualityTier,
-    shadowLights: [key],
+    tier: renderTier,
     mood: {
       bloomIntensity: 0.105,
       bloomThreshold: 0.82,
@@ -354,16 +374,28 @@ function startGame(THREE, mount, opts) {
       aoIntensity: 0.76
     }
   });
-  qualityTier = premiumRender.effectiveTier;
-  applyQualityTier(renderer, qualityTier);
-  premiumRender.setTier(qualityTier);
+  renderTier = premiumRender.effectiveTier;
+  function applyRocketQualitySettings() {
+    applyQualityTier(renderer, renderTier);
+    const useDynamicShadows = qualityTier !== "low" && renderTier !== "low";
+    if (renderer.shadowMap) renderer.shadowMap.enabled = useDynamicShadows;
+    key.castShadow = useDynamicShadows;
+    renderer.domElement.dataset.arcadeSceneQualityTier = qualityTier;
+  }
+  applyRocketQualitySettings();
   premiumRender.resize(width(), height());
 
   function reassessQualityTier() {
-    const nextTier = detectQualityTier();
-    premiumRender.setTier(nextTier);
-    qualityTier = premiumRender.effectiveTier;
-    applyQualityTier(renderer, qualityTier);
+    qualityTier = detectQualityTier();
+    const nextRenderTier = rocketRenderTierForViewport(
+      qualityTier,
+      width(),
+      height(),
+      window.devicePixelRatio
+    );
+    premiumRender.setTier(nextRenderTier);
+    renderTier = premiumRender.effectiveTier;
+    applyRocketQualitySettings();
     premiumRender.resize(width(), height());
   }
   const syncMotionPreference = event => {
@@ -572,35 +604,39 @@ function startGame(THREE, mount, opts) {
   const setpieceBudget = premiumSetpieceBudget(qualityTier);
   const setpieceSpecs = OWNED_SPACE_SETPIECES.slice(0, setpieceBudget.setpieceKinds);
   const setpieceWrap = Math.max(1, setpieceBudget.setpieceCopies) * 5.8;
-  const setpieceLoads = [];
-  for (let i = 0; i < setpieceBudget.setpieceCopies; i += 1) {
-    const spec = setpieceSpecs[i % Math.max(1, setpieceSpecs.length)];
-    if (!spec) break;
-    const load = createOwnedModelInstance(THREE, spec.url, {
-      height: spec.height,
-      castShadow: qualityTier === "high",
-      receiveShadow: qualityTier !== "low"
-    }).then(model => {
-      if (ownedSceneryDisposed) {
-        disposeOwnedModelInstance(model);
-        return;
+  const yieldSceneryFrame = () => new Promise(resolve => window.requestAnimationFrame(() => resolve()));
+  void (async () => {
+    // Loading every cached clone in one Promise microtask burst blocks steering
+    // and looks like a frozen game. Stream one decorative clone per frame; the
+    // complete procedural route stays visible throughout the load.
+    for (let i = 0; i < setpieceBudget.setpieceCopies; i += 1) {
+      const spec = setpieceSpecs[i % Math.max(1, setpieceSpecs.length)];
+      if (!spec || ownedSceneryDisposed) break;
+      try {
+        const model = await createOwnedModelInstance(THREE, spec.url, {
+          height: spec.height,
+          castShadow: qualityTier === "high",
+          receiveShadow: qualityTier !== "low"
+        });
+        if (ownedSceneryDisposed) {
+          disposeOwnedModelInstance(model);
+          break;
+        }
+        const side = i % 2 === 0 ? -1 : 1;
+        model.position.set(
+          side * (5.3 + (i % 3) * 0.85),
+          0.08,
+          -16 - i * 5.8
+        );
+        model.rotation.y = side < 0 ? Math.PI * 0.42 : -Math.PI * 0.42;
+        model.userData.streamOffset = i * 0.17;
+        ownedScenery.add(model);
+        premiumRender.prepareObject(model);
+      } catch {
+        // The procedural corridor is the deliberate, playable fallback.
       }
-      const side = i % 2 === 0 ? -1 : 1;
-      model.position.set(
-        side * (5.3 + (i % 3) * 0.85),
-        0.08,
-        -16 - i * 5.8
-      );
-      model.rotation.y = side < 0 ? Math.PI * 0.42 : -Math.PI * 0.42;
-      model.userData.streamOffset = i * 0.17;
-      ownedScenery.add(model);
-      premiumRender.prepareObject(model);
-    }).catch(() => {
-      // The procedural corridor is the deliberate, playable fallback.
-    });
-    setpieceLoads.push(load);
-  }
-  void Promise.allSettled(setpieceLoads).then(() => {
+      await yieldSceneryFrame();
+    }
     // Only replace the complete procedural skyline when every tier-budgeted
     // authored model is ready. A partially cached/offline load may still add
     // useful foreground detail, but it must never turn the dependable fallback
@@ -608,7 +644,7 @@ function startGame(THREE, mount, opts) {
     if (ownedSceneryDisposed || !hasCompletePremiumSetpieceSet(ownedScenery.children.length, setpieceBudget)) return;
     stationPieces.forEach(piece => { piece.visible = false; });
     canyonPieces.forEach(piece => { piece.visible = false; });
-  });
+  })();
 
   const nebulaPlanes = [];
   const cyanGlow = makeGlowTexture("rgba(103,232,249,0.88)", "rgba(74,144,226,0.18)");
@@ -1564,9 +1600,9 @@ function startGame(THREE, mount, opts) {
 
     if (!reduceMotion && shakeV > 0) { camera.position.x = Math.sin(now * 0.08) * shakeV; shakeV = Math.max(0, shakeV - dt * 1.2); } else { camera.position.x *= 0.8; }
     const renderedTier = premiumRender.render(dt);
-    if (renderedTier !== qualityTier) {
-      qualityTier = renderedTier;
-      applyQualityTier(renderer, qualityTier);
+    if (renderedTier !== renderTier) {
+      renderTier = renderedTier;
+      applyRocketQualitySettings();
     }
   }
   premiumRender.prepareObject(scene);

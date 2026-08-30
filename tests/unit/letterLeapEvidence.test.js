@@ -19,6 +19,8 @@ function readFunction(name) {
 
 const recordWordEvidence = readFunction("recordWordEvidence");
 const buildLetterLeapChoicePlan = readFunction("buildLetterLeapChoicePlan");
+const isLetterLeapCurrentChoice = readFunction("isLetterLeapCurrentChoice");
+const rebaseLetterLeapWorld = readFunction("rebaseLetterLeapWorld");
 const letterLeapDecorativeTime = readFunction("letterLeapDecorativeTime");
 const findLetterLeapRecoveryCenter = readFunction("findLetterLeapRecoveryCenter");
 
@@ -111,8 +113,21 @@ test("Letter Leap shuffles every grapheme into equivalent reachable choice geome
   assert.match(implementation, /refreshChoiceGroup\(need\.choiceId, p\.x \+ 320\)/);
   assert.match(implementation, /refreshChoiceGroup\(b\.choiceId, p\.x \+ 320\)/);
   assert.match(implementation, /clearChoiceGroup\(b\.choiceId\)/);
+  assert.match(implementation, /if \(!isLetterLeapCurrentChoice\(b, wIx, nextIx\)\) continue/);
+  assert.match(implementation, /keepCurrentChoiceAhead\(\)/);
   assert.match(implementation, /level\.flag = centerX \+ 260/);
   assert.doesNotMatch(implementation, /need\.x\s*=|need\.y\s*=/);
+});
+
+test("Letter Leap exposes only the fresh ordered decision that can respond", () => {
+  const current = { decisionWord: 1, decisionOrder: 2 };
+  const futureLetter = { decisionWord: 1, decisionOrder: 3 };
+  const futureWord = { decisionWord: 2, decisionOrder: 0 };
+
+  assert.equal(isLetterLeapCurrentChoice(current, 1, 2), true);
+  assert.equal(isLetterLeapCurrentChoice(futureLetter, 1, 2), false);
+  assert.equal(isLetterLeapCurrentChoice(futureWord, 1, 2), false);
+  assert.doesNotMatch(implementation, /b\.decisionWord !== wIx \|\| b\.decisionOrder !== nextIx/);
 });
 
 test("Letter Leap labels model-supported play when no picture or recording identifies the target", () => {
@@ -123,7 +138,7 @@ test("Letter Leap labels model-supported play when no picture or recording ident
   assert.doesNotMatch(implementation, /allowBlockedAssessmentImage: true/);
 });
 
-test("Letter Leap recovery choices scan past later decisions and hazards", () => {
+test("Letter Leap recovery reuses hidden decision space but scans past hazards", () => {
   const center = findLetterLeapRecoveryCenter({
     bubbles: [
       { choiceId: "current", x: 400, taken: false },
@@ -131,10 +146,48 @@ test("Letter Leap recovery choices scan past later decisions and hazards", () =>
     ],
     pits: [[850, 1030]],
     blocks: [{ x: 1300, w: 160, broken: false }],
-    foes: [{ x0: 1760, x1: 1880 }]
-  }, "current", 500);
+    plats: [{ x: 1720, w: 180 }],
+    foes: [{ x0: 2160, x1: 2280 }]
+  }, 900);
 
-  assert.equal(center, 2260);
+  assert.equal(center, 2660);
+  assert.match(implementation, /const overlapsPlatform = level\.plats\.some/);
+});
+
+test("Letter Leap rebases every grounded gameplay object when its viewport height changes", () => {
+  const player = { y: 200 };
+  const level = {
+    plats: [{ y: 170, baseY: 160, prevY: 150 }],
+    blocks: [{ y: 180 }],
+    pickups: [{ y: 140 }],
+    bubbles: [{ y: 210 }],
+    foes: [{ y: 220, baseY: 230 }],
+    coins: [{ y: 130 }],
+    stars: [{ y: 120 }]
+  };
+
+  rebaseLetterLeapWorld(level, player, 240);
+
+  assert.equal(player.y, 440);
+  assert.deepEqual(level.plats[0], { y: 410, baseY: 400, prevY: 390 });
+  assert.equal(level.blocks[0].y, 420);
+  assert.equal(level.pickups[0].y, 380);
+  assert.equal(level.bubbles[0].y, 450);
+  assert.deepEqual(level.foes[0], { y: 460, baseY: 470 });
+  assert.equal(level.coins[0].y, 370);
+  assert.equal(level.stars[0].y, 360);
+  assert.match(implementation, /rebaseLetterLeapWorld\(level, player, \(H - GROUND_H\) - previousGroundY\)/);
+  assert.match(implementation, /const py = groundY\(\) - 96/);
+  assert.match(implementation, /bubbleY = py - 40/);
+});
+
+test("Letter Leap advances gameplay on a fixed 60 Hz simulation instead of display refresh", () => {
+  assert.match(implementation, /const FIXED_STEP = 1 \/ 60/);
+  assert.match(implementation, /frameAccumulator = Math\.min\(0\.1, frameAccumulator \+ elapsed\)/);
+  assert.match(implementation, /while \(frameAccumulator >= FIXED_STEP\)/);
+  assert.match(implementation, /update\(FIXED_STEP\)/);
+  assert.doesNotMatch(implementation, /update\(elapsed\)/);
+  assert.match(implementation, /frameAccumulator = 0; if \(savedRunning\) running = true/);
 });
 
 test("Letter Leap freezes continuous decorative motion for reduced-motion players", () => {

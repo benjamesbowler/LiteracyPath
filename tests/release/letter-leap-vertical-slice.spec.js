@@ -83,3 +83,32 @@ test("Letter Leap fullscreen controls prevent selection and receive held pointer
     { control: "jump", defaultPrevented: true }
   ]);
 });
+
+test("Letter Leap keeps the active ordered letter grounded after a fullscreen height change", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  await page.addInitScript(() => {
+    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
+    // Keep the first target in the left-most slot so running into it exercises
+    // the actual canvas collision path without relying on jump timing.
+    Math.random = () => 0.999999;
+  });
+  await page.setViewportSize({ width: 1024, height: 640 });
+  await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
+
+  const completedSlots = page.locator('[data-ll="word"] [aria-label^="Completed letter"]');
+  await expect(page.getByRole("button", { name: "Jump", exact: true })).toBeVisible();
+  await expect(page.locator(".letter-leap canvas")).toBeVisible();
+  await expect(completedSlots).toHaveCount(0);
+
+  // Reproduces the reported floating-letter failure: the shell grows after the
+  // level has already stored its world coordinates.
+  await page.setViewportSize({ width: 1600, height: 1000 });
+  await page.waitForTimeout(120);
+  await page.keyboard.down("ArrowRight");
+  await page.waitForTimeout(850);
+  await page.keyboard.up("ArrowRight");
+
+  await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
+  expect(pageErrors).toEqual([]);
+});

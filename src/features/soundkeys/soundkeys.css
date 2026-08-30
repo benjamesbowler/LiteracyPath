@@ -33,7 +33,8 @@
 .soundkeys-stage h1 { min-height: 62px; margin: 14px 0 8px; color: var(--sk-lime); font-size: clamp(38px, 8vw, 74px); letter-spacing: .12em; }
 .soundkeys-prompt,.soundkeys-help { color: #9fb4d2; }
 .soundkeys-target-image,.soundkeys-missing-image img { width: 112px; height: 112px; object-fit: contain; border-radius: 22px; background: rgba(255,255,255,.08); }
-.soundkeys-listen { border: 1px solid rgba(82,255,240,.5); border-radius: 12px; background: rgba(82,255,240,.1); color: var(--sk-cyan); padding: 12px 18px; font-weight: 900; cursor: pointer; }
+.soundkeys-listen { display: inline-flex; align-items: center; justify-content: center; min-width: 168px; min-height: 56px; border: 1px solid rgba(82,255,240,.5); border-radius: 12px; background: rgba(82,255,240,.1); color: var(--sk-cyan); padding: 12px 18px; font-size: 16px; line-height: 1.2; font-weight: 900; cursor: pointer; }
+.soundkeys-listen:disabled { border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.06); color: #9fb4d2; cursor: not-allowed; opacity: .76; }
 .soundkeys-missing-image { display: flex; align-items: center; gap: 18px; }
 .soundkeys-missing-image strong { font-size: 27px; letter-spacing: .14em; }
 .soundkeys-result { display: flex; align-items: center; gap: 16px; font-size: 25px; }
