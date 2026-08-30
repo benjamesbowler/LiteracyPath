@@ -50,8 +50,9 @@ installed, reviewed, and trusted on 2026-08-03.
   separately. Whole-class membership is derived atomically by the database,
   sessions restore from opaque student sign-in tokens, and unavailable exact
   content fails closed without opening a shelf or chooser. Migrations
-  `20260828120000` and `20260830213034` have not been applied or verified on the
-  hosted project, and the in-app lock still needs physical-iPad classroom
+  `20260828120000` and `20260830213034` were applied to and structurally
+  verified on the linked hosted project on 2026-08-31; all 83 browser RPCs were
+  visible to PostgREST. The in-app lock still needs physical-iPad classroom
   verification.
 - Child-facing background music is independently controllable from spoken
   teaching audio and game sounds across Home, Arcade/full-screen games, Sound
@@ -69,13 +70,12 @@ installed, reviewed, and trusted on 2026-08-03.
   callable feature RPCs are removed. Historical database rows and immutable
   migrations remain solely so existing learner data can still be exported or
   erased; new writes to the two retired progress areas are rejected.
-- The linked Supabase project was verified on 2026-08-22 with migrations applied
-  through `20260822123000` and the pre-retirement 94 browser RPCs visible to
-  PostgREST. Source now defines 83 browser RPCs after the lean-release cleanup
-  and the Student Sessions RPCs in `20260828120000`, extended by
-  `20260830213034`; neither Student Sessions migration nor the post-retirement
-  hosted surface has been verified on the hosted project.
-  The two remaining database-lint warnings are older volatility declarations in
-  `lp_quest_merge_mastery` and `lp_merge_transfer_missions`; neither is part of
-  the guardian portal. Recheck hosted state before relying on this dated
-  observation for a later release.
+- The linked Supabase project was verified on 2026-08-31 with migrations applied
+  through `20260830213034` and all 83 current browser RPCs visible to PostgREST.
+  The Student Sessions tables are RPC-only with RLS enabled, the whole-class
+  start RPC has one seven-parameter signature, and the exact-target and audience
+  constraints are live.
+  Current advisors also retain unrelated historical findings and expected
+  notices for deliberately RPC-only tables and teacher-authorized
+  `SECURITY DEFINER` entry points. No Student Sessions table was accidentally
+  exposed to browser roles; advisor cleanup remains a separate workstream.
