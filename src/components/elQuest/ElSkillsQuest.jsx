@@ -133,6 +133,15 @@ function SpeakerIcon() {
   );
 }
 
+function StationLockIcon() {
+  return (
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="5" y="10" width="14" height="11" rx="3" />
+      <path d="M8.5 10V7.5a3.5 3.5 0 0 1 7 0V10" />
+    </svg>
+  );
+}
+
 function PictureChoice({ word }) {
   const [failed, setFailed] = useState(false);
   const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
@@ -1032,47 +1041,104 @@ export function ElSkillsQuest({
 
   // ── Station picker for the open cycle ─────────────────────────────────────
   if (!stationId) {
+    const cycleWorld = worldForCycle(activeCycle.cycleNumber);
+    const cycleStations = stationsForCycle(activeCycle);
+    const stationArt = [...cycleWorld.scenes, cycleWorld.banner, cycleWorld.backdrop].filter(Boolean);
+    const savedStations = progress.cycles?.[activeCycle.id]?.stations || {};
+    const cycleFinished = Boolean(progress.cycles?.[activeCycle.id]?.stars);
+    const stationDone = id => Boolean(sessionStations[id] || savedStations[id]);
+    const practiceDone = cycleStations.filter(station => station.id !== "check" && stationDone(station.id)).length;
+    const checkLocked = practiceDone < 4 && !cycleFinished;
+    const nextStation = cycleStations.find(station => station.id !== "check" && !stationDone(station.id))
+      || (!checkLocked ? cycleStations.find(station => station.id === "check") : null);
+    const completedCount = cycleFinished
+      ? cycleStations.length
+      : cycleStations.filter(station => station.id !== "check" && stationDone(station.id)).length;
+    const completionPercent = Math.round((completedCount / Math.max(1, cycleStations.length)) * 100);
+
     return (
-      <main className="skills-block-quest" data-learning-lane="practice_and_play" data-pal-world={worldForCycle(activeCycle.cycleNumber).id} style={worldStyle(worldForCycle(activeCycle.cycleNumber))}>
-        <header className="sbq-top">
-          <div>
-            <p className="sbq-kicker">Cycle {activeCycle.cycleNumber}</p>
-            <h1>{(activeCycle.focusLetters || []).map(item => item.grapheme).join(" and ") || "Review time"}</h1>
-            <p className="sbq-sub">{activeCycle.childFriendlyGoal}</p>
-          </div>
-          <button className="sbq-ghost-button" type="button" onClick={() => setActiveCycleId(null)}>
-            Map
-          </button>
-        </header>
-        <div className="sbq-stations" aria-label="Stations">
-          {stationsForCycle(activeCycle).map((station, index) => {
-            const savedStations = progress.cycles?.[activeCycle.id]?.stations || {};
-            const done = Boolean(sessionStations[station.id] || savedStations[station.id]);
-            const isCheck = station.id === "check";
-            // The Cycle Check is the show-what-you-know finale: it opens
-            // after at least four practice stations are done.
-            const practiceDone = stationsForCycle(activeCycle).filter(item => item.id !== "check"
-              && (sessionStations[item.id] || savedStations[item.id])).length;
-            const checkLocked = isCheck && practiceDone < 4 && !progress.cycles?.[activeCycle.id]?.stars;
-            return (
-              <button
-                key={station.id}
-                type="button"
-                className={`sbq-station${done ? " done" : ""}${isCheck ? " check" : ""}${checkLocked ? " locked" : ""}`}
-                data-station-id={station.id}
-                disabled={checkLocked}
-                onClick={() => startStation(activeCycle, station.id)}
-              >
-                <span className="sbq-station-step" aria-hidden="true">{done ? "✓" : checkLocked ? "🔒" : index + 1}</span>
-                {station.icon && <span className="sbq-station-icon" aria-hidden="true">{station.icon}</span>}
-                <span className="sbq-station-copy">
-                  <strong>{station.title}</strong>
-                  <em>{checkLocked ? `Play ${4 - practiceDone} more station${4 - practiceDone === 1 ? "" : "s"} to open` : station.subtitle}</em>
+      <main
+        className="skills-block-quest sbq-cycle-hub"
+        data-learning-lane="practice_and_play"
+        data-pal-world={cycleWorld.id}
+        data-quest-view="cycle"
+        style={{ ...worldStyle(cycleWorld), "--sbq-cycle-scene": `url("${cycleWorld.backdrop}")` }}
+      >
+        <section className="sbq-cycle-world" aria-labelledby="sbq-cycle-title">
+          <header className="sbq-top sbq-cycle-head">
+            <div className="sbq-cycle-heading">
+              <p className="sbq-kicker">Cycle {activeCycle.cycleNumber}</p>
+              <h1 id="sbq-cycle-title">{(activeCycle.focusLetters || []).map(item => item.grapheme).join(" and ") || "Review time"}</h1>
+              <p className="sbq-sub">{activeCycle.childFriendlyGoal}</p>
+            </div>
+            <div className="sbq-cycle-head-actions">
+              <div className="sbq-cycle-progress" aria-label={`${completedCount} of ${cycleStations.length} stations complete`}>
+                <span><strong>{completedCount}</strong> of {cycleStations.length} complete</span>
+                <span className="sbq-cycle-progress-track" aria-hidden="true">
+                  <span style={{ width: `${completionPercent}%` }} />
                 </span>
+              </div>
+              <button className="sbq-ghost-button" type="button" onClick={() => setActiveCycleId(null)}>
+                Map
               </button>
-            );
-          })}
-        </div>
+            </div>
+          </header>
+
+          <div className="sbq-cycle-playfield">
+            <div className="sbq-stations" aria-label="Stations">
+              {cycleStations.map((station, index) => {
+                const done = stationDone(station.id);
+                const isCheck = station.id === "check";
+                const locked = isCheck && checkLocked;
+                const isNext = !done && !locked && station.id === nextStation?.id;
+                const state = locked ? "locked" : done ? "done" : isNext ? "next" : "open";
+                const stateCopy = locked
+                  ? `Play ${4 - practiceDone} more station${4 - practiceDone === 1 ? "" : "s"} to open`
+                  : done ? "Complete, play again" : isNext ? `Start here, ${station.subtitle}` : station.subtitle;
+                return (
+                  <button
+                    key={station.id}
+                    type="button"
+                    className={`sbq-station sbq-station--${state}${isCheck ? " check" : ""}`}
+                    data-station-id={station.id}
+                    data-station-state={state}
+                    data-child-emphasis={isNext ? "primary" : "choice"}
+                    {...(isNext ? { "data-child-primary": "", "aria-current": "step" } : {})}
+                    disabled={locked}
+                    onClick={() => startStation(activeCycle, station.id)}
+                  >
+                    <span className="sbq-station-art" aria-hidden="true">
+                      <img
+                        src={stationArt[index % stationArt.length]
+                          || sceneForKey(cycleWorld, `${activeCycle.id}-${station.id}-hub`)}
+                        alt=""
+                        loading="eager"
+                        decoding="async"
+                      />
+                    </span>
+                    <span className="sbq-station-step" aria-hidden="true">
+                      {done ? "✓" : locked ? <StationLockIcon /> : index + 1}
+                    </span>
+                    <span className="sbq-station-copy">
+                      <strong>{station.title}</strong>
+                      <em>{stateCopy}</em>
+                    </span>
+                    {isNext && <span className="sbq-station-go" aria-hidden="true">&#8594;</span>}
+                  </button>
+                );
+              })}
+            </div>
+
+            <p className="sbq-cycle-scroll-hint">
+              Swipe or scroll to see every station <span aria-hidden="true">&#8594;</span>
+            </p>
+
+            <aside className="sbq-cycle-guide" aria-hidden="true">
+              <img src={cycleWorld.point} alt="" />
+              <span>{nextStation ? "The next station is glowing." : "Your pal is proud of you."}</span>
+            </aside>
+          </div>
+        </section>
       </main>
     );
   }

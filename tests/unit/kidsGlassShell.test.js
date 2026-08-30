@@ -219,7 +219,7 @@ test("the metrics are written to the DOM as custom properties, not held in React
   assert.deepEqual(metrics, { scale: 1, stageWidth: 1194 });
   assert.equal(written["--kg-scale"], "1");
   assert.equal(written["--kg-stage-width"], "1194px");
-  assert.equal(written["--kg-physical-hit"], "45px");
+  assert.equal(written["--kg-physical-hit"], "56px");
   const portraitTabletWritten = {};
   applyKidsStageMetrics(
     { style: { setProperty: (name, value) => { portraitTabletWritten[name] = value; } } },
@@ -227,7 +227,7 @@ test("the metrics are written to the DOM as custom properties, not held in React
   );
   assert.equal(
     portraitTabletWritten["--kg-physical-hit"],
-    "45px",
+    "56px",
     "the native portrait-tablet layout must not compensate for a transform it does not use"
   );
   assert.deepEqual(
@@ -454,7 +454,7 @@ test("all animation is off under reduced motion, without silencing a teaching an
   );
 });
 
-// ── Two currencies, a focus ring, and a 44px floor ──────────────────────────
+// ── Two currencies, a focus ring, and a 56px floor ──────────────────────────
 
 test("the child header shows stars and coins and nothing else countable", () => {
   assert.match(shellSource, /kg-currency kg-currency--\$\{kind\}/);
@@ -502,12 +502,12 @@ test("the shell adds the focus ring the prototype does not ship", () => {
   assert.match(focus[0], /box-shadow: var\(--kg-self-shadow, none\) !important/);
 });
 
-test("44 x 44 is enforced as a floor for everything a child taps", () => {
-  assert.match(css, /--kg-hit:\s*44px/);
+test("56 x 56 is enforced as a floor for everything a child taps", () => {
+  assert.match(css, /--kg-hit:\s*56px/);
   const floor = css.match(/\.kg-hit,[\s\S]*?\n\}/);
-  assert.ok(floor, "the 44px floor rule is gone");
+  assert.ok(floor, "the 56px floor rule is gone");
   for (const cls of [".kg-button", ".kg-speaker", ".kg-iconbutton", ".kg-tab", ".kg-chip"]) {
-    assert.ok(floor[0].includes(cls), `${cls} is not covered by the 44px floor`);
+    assert.ok(floor[0].includes(cls), `${cls} is not covered by the 56px floor`);
   }
   // App.css forces .lp-button geometry with !important; the floor has to match
   // it or a child control silently shrinks below the target size.

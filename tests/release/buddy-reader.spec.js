@@ -49,7 +49,7 @@ test("Buddy Reader remains usable on a phone without horizontal overflow", async
     buttonHeights: [...element.querySelectorAll("button")].map(button => button.getBoundingClientRect().height)
   }));
   expect(metrics.overflow).toBe(0);
-  expect(Math.min(...metrics.buttonHeights)).toBeGreaterThanOrEqual(44);
+  expect(Math.min(...metrics.buttonHeights)).toBeGreaterThanOrEqual(56);
 });
 
 test("phone landscape fullscreen gives the book page the flexible workspace", async ({ page }) => {

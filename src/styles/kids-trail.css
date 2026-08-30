@@ -510,9 +510,10 @@
 
 .kg-stage .kg-map-card {
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
+  grid-template-columns: 48px minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
+  min-height: 68px;
   padding: var(--kg-space-13) 15px 15px;
   border-radius: 22px;
   text-align: left;
@@ -525,8 +526,8 @@
 }
 
 .kg-stage .kg-map-card-chip {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
   border-radius: var(--kg-radius-market);
@@ -536,6 +537,19 @@
   font-size: 20px;
   font-weight: 700;
   color: #FFFFFF;
+}
+
+.kg-stage .kg-map-card-go {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(var(--kg-accent-rgb), 0.95);
+  color: var(--kg-ink-on-accent);
+  font-family: var(--kg-font-display);
+  font-size: 24px;
+  font-weight: 800;
 }
 
 .kg-stage .kg-map-card-text {
@@ -562,9 +576,9 @@
   color: var(--kg-ink-muted);
 }
 
-/* The stop the child is on. Tinted rather than loud: the marker on the map is
-   the tier-three call to action, and two amber shouts on one screen is the
-   competition the redesign removed. */
+/* The card is the only action that opens the next stop. The matching map
+   marker is location context, so the child gets one promoted control rather
+   than two controls that appear to do the same thing. */
 .kg-stage .kg-map-card--next {
   --kg-self-border: rgba(var(--kg-accent-rgb), 0.55);
   background: rgba(255, 250, 236, 0.62);
@@ -588,6 +602,31 @@
   color: var(--kg-ink-amber);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .kg-stage button.kg-map-card--next:hover {
+    --kg-self-border: rgba(var(--kg-accent-rgb), 0.78);
+    --kg-self-shadow:
+      0 18px 34px -20px rgba(var(--kg-accent-rgb), 0.5),
+      inset 0 1px 1px rgba(255, 255, 255, 0.92);
+    background: rgba(255, 248, 224, 0.78);
+  }
+}
+
+.kg-stage button.kg-map-card--next:active {
+  --kg-self-shadow:
+    0 7px 18px -14px rgba(var(--kg-accent-rgb), 0.55),
+    inset 0 2px 4px rgba(105, 71, 13, 0.12);
+  background: rgba(255, 244, 209, 0.84);
+}
+
+.kg-stage .kg-map-card--done {
+  background: rgba(239, 250, 238, 0.68);
+}
+
+.kg-stage .kg-map-card--done .kg-map-card-text small {
+  color: #386D4B;
+}
+
 .kg-stage .kg-map-card--locked {
   background: rgba(255, 255, 255, 0.34);
 }
@@ -603,6 +642,48 @@
 
 .kg-stage .kg-map-card--locked .kg-map-card-text small {
   color: var(--kg-ink-disabled-soft);
+}
+
+/* On a wide projector the plate and the nearby stops share one row. The plate
+   grows by roughly a third compared with the old centred 856px island, while
+   the four states become a readable vertical journey rail. At the 1024px iPad
+   design width the proven four-card row remains in force. */
+@media (min-width: 1440px) {
+  .kg-stage .kg-map {
+    grid-template-columns: minmax(0, 1fr) minmax(276px, 324px);
+    grid-template-rows: auto minmax(0, 1fr);
+    column-gap: var(--kg-space-16);
+  }
+
+  .kg-stage .kg-map > .kg-trail-head {
+    grid-column: 1 / -1;
+  }
+
+  .kg-stage .kg-map-scene {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+
+  .kg-stage .kg-map-cards {
+    grid-column: 2;
+    grid-row: 2;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(var(--kg-map-card-count, 4), minmax(0, 1fr));
+    gap: var(--kg-space-13);
+    min-height: 0;
+  }
+
+  .kg-stage .kg-map-card {
+    min-height: 0;
+    padding: 14px 16px;
+  }
+
+  .kg-stage .kg-map-card-text strong {
+    white-space: normal;
+  }
 }
 
 /* ── A read that failed ──────────────────────────────────────────────────────

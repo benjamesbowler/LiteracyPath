@@ -665,6 +665,16 @@ test("pixel choice staging clamps long answer art inside a phone camera", () => 
     { x: -62, y: 8 },
     "a clear answer is moved unnecessarily"
   );
+  const leftChoice = questPixelAvoidActorOverlap({
+    point: { x: -28, y: -50 },
+    actor: { x: 0, y: 0 },
+    right: { x: 1, y: 0 },
+    index: 1,
+    clearance: 66,
+    nudge: 42
+  });
+  assert.ok(leftChoice.x < -28, "a left-hand answer was nudged into the resident instead of away");
+  assert.ok(Math.hypot(leftChoice.x, leftChoice.y) >= 66, "a four-choice answer still crowds the resident");
 });
 
 test("pixel activity families have distinct movement, framing and performance direction", () => {

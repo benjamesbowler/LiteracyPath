@@ -5,6 +5,7 @@ import { cancelSpeech, hasRecordedSpeech, speak, speakPhoneme, speakWord } from 
 import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
+import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 
 const DISTRACTOR_LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -81,8 +82,8 @@ function WordImageCard({ word, secret = false }) {
         alt={secret ? "" : asset?.alt || `Picture for ${word}`}
         loading="lazy"
         decoding="async"
-        width="120"
-        height="120"
+        width="240"
+        height="240"
         onError={() => setFailedImageWord(word)}
       />
     </div>
@@ -381,7 +382,8 @@ export function ArcadePracticeGame({
 
   return (
     <div
-      className={`lg-game-stage-shell lg-ps2-practice${shaking ? " lg-shake" : ""}`}
+      className={`lg-game-stage-shell lg-illustrated-practice${shaking ? " lg-shake" : ""}`}
+      data-game-mode={mode}
     >
       {streak >= 2 && (
         <div className="kid-combo" data-level={streak >= 4 ? "hot" : "warm"} key={streak} aria-live="polite">
@@ -453,7 +455,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   }
 
   return (
-    <section className="lg-game-stage lg-game-build">
+    <IllustratedGameScene mode="build" stageClassName="lg-game-build">
       <p>{canHearTarget ? "Build the word you hear." : "Build this word."}</p>
       {canHearTarget && <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">♪</span> Hear word</button>}
       <WordImageCard word={targetWord} secret={canHearTarget} />
@@ -493,7 +495,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
         ))}
       </div>
       <GameMeter current={round + 1} total={totalRounds} />
-    </section>
+    </IllustratedGameScene>
   );
 }
 
@@ -529,9 +531,9 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
   }
 
   return (
-    <section className="lg-game-stage">
+    <IllustratedGameScene mode="memory">
       <p>Find the matching sight words.</p>
-      <div className="lg-card-grid memory">
+      <div className="lg-card-grid memory" data-card-count={cards.length}>
         {cards.map(card => {
           const visible = matchedIds.includes(card.id) || selected.some(item => item.id === card.id);
           return (
@@ -550,7 +552,7 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
         })}
       </div>
       <GameMeter current={correct} total={targetMatches} />
-    </section>
+    </IllustratedGameScene>
   );
 }
 
@@ -591,7 +593,7 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss
   }
 
   return (
-    <section className="lg-game-stage">
+    <IllustratedGameScene mode="family">
       <p>Pick a beginning sound to build each word family.</p>
       <div className="lg-family-tabs">
         {state.familyIds.map(familyId => (
@@ -614,7 +616,7 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss
         {built.map(word => <span key={word}>{word}</span>)}
       </div>
       <GameMeter current={correct} total={state.total} />
-    </section>
+    </IllustratedGameScene>
   );
 }
 
@@ -653,7 +655,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
   }
 
   return (
-    <section className="lg-game-stage lg-target-stage">
+    <IllustratedGameScene mode="target" stageClassName="lg-target-stage">
       <p>{canHearTarget ? "Listen, then pop the matching bubble!" : "Pop the matching bubble!"}</p>
       {canHearTarget
         ? <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}><span aria-hidden="true">♪</span> Hear word</button>
@@ -672,7 +674,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
         ))}
       </div>
       <GameMeter current={round + 1} total={totalRounds} />
-    </section>
+    </IllustratedGameScene>
   );
 }
 
@@ -709,7 +711,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   }
 
   return (
-    <section className="lg-game-stage">
+    <IllustratedGameScene mode="sentence">
       <p>Hop on the next word in the sentence.</p>
       {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}><span aria-hidden="true">♪</span> Hear sentence</button>}
       <div className="lg-sentence-path">
@@ -727,7 +729,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
         ))}
       </div>
       <GameMeter current={round + 1} total={state.sentences.length} />
-    </section>
+    </IllustratedGameScene>
   );
 }
 
@@ -766,7 +768,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   const sentenceParts = fix.display.split("___");
 
   return (
-    <section className="lg-game-stage lg-race-stage">
+    <IllustratedGameScene mode="quiz" stageClassName="lg-race-stage">
       <p>{fix.prompt}</p>
       {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}><span aria-hidden="true">♪</span> Hear sentence</button>}
       <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
@@ -783,7 +785,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
         ))}
       </div>
       <GameMeter current={round + 1} total={total} />
-    </section>
+    </IllustratedGameScene>
   );
 }
 

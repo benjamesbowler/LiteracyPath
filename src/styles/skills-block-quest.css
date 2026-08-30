@@ -1181,3 +1181,628 @@
 .sbq-trace-demo .letter-writer {
   width: auto;
 }
+
+/* ── Cycle hub: an illustrated station world ───────────────────────────────
+ * The Adventure Map opens directly into this chooser. It is one child world,
+ * not a white header followed by ten settings rows: the clean production
+ * backdrop holds the scene, book art identifies each station, and only the
+ * first unfinished station receives primary emphasis. */
+.skills-block-quest.sbq-cycle-hub {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  padding: clamp(8px, 1vw, 14px);
+  overflow: hidden;
+  background: transparent;
+}
+
+.kg-stage .kg-main > .skills-block-quest.sbq-cycle-hub {
+  display: block;
+  height: 100%;
+  padding: 8px 14px 10px;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-world {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(100%, 1440px);
+  height: 100%;
+  min-height: 0;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--pal-deep) 30%, rgba(255, 255, 255, 0.7));
+  border-radius: 28px;
+  background-image:
+    linear-gradient(180deg, rgba(18, 45, 37, 0.74) 0%, rgba(18, 45, 37, 0.42) 25%, rgba(18, 45, 37, 0.1) 62%, rgba(18, 45, 37, 0.34) 100%),
+    var(--sbq-cycle-scene);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 22px 54px color-mix(in srgb, var(--pal-deep) 28%, transparent);
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-cycle-head,
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-head {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+  padding: clamp(14px, 1.6vw, 22px) clamp(16px, 2vw, 28px) 12px;
+  align-items: center;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(180deg, rgba(18, 45, 37, 0.72), rgba(18, 45, 37, 0));
+  box-shadow: none;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-heading {
+  min-width: 0;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  margin: 0 0 4px;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--pal-deep);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-head h1 {
+  margin: 0;
+  color: #FFFFFF;
+  font-family: var(--kid-font-display, var(--lp-font-reading));
+  font-size: clamp(1.65rem, 2.3vw, 2.35rem);
+  font-weight: 750;
+  line-height: 1.02;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-sub {
+  max-width: 54ch;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(0.86rem, 1.1vw, 1rem);
+  font-weight: 700;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-head-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-progress {
+  display: grid;
+  gap: 5px;
+  min-width: 174px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 16px;
+  background: rgba(18, 45, 37, 0.7);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 800;
+  backdrop-filter: blur(8px);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-progress strong {
+  color: #FFE27A;
+  font-size: 1rem;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-progress-track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-progress-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #FFE27A;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-ghost-button,
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-ghost-button {
+  --kg-physical-hit: 56px;
+  min-width: 82px;
+  min-height: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--pal-deep);
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--pal-deep) 52%, transparent);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-playfield {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(172px, 17vw, 238px);
+  gap: clamp(10px, 1.4vw, 20px);
+  min-height: 0;
+  padding: 0 clamp(12px, 1.6vw, 22px) clamp(14px, 1.8vw, 24px);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-scroll-hint {
+  display: none;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-stations,
+.skills-block-quest.sbq-cycle-hub .sbq-stations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(68px, 1fr));
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  align-content: stretch;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station,
+.skills-block-quest.sbq-cycle-hub .sbq-station {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(82px, 8vw, 112px) 46px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 68px;
+  height: 100%;
+  padding: 6px 10px 6px 6px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--pal-deep) 30%, rgba(54, 68, 63, 0.38)), 0 10px 22px rgba(20, 45, 38, 0.14);
+  text-align: left;
+  transform: none;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station.check,
+.skills-block-quest.sbq-cycle-hub .sbq-station.check {
+  grid-column: auto;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 7px 0 color-mix(in srgb, var(--pal-deep) 38%, rgba(54, 68, 63, 0.42)), 0 14px 26px rgba(20, 45, 38, 0.2);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station:active:not(:disabled) {
+  filter: brightness(0.97);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--pal-deep) 38%, rgba(54, 68, 63, 0.42));
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station-art {
+  align-self: stretch;
+  min-height: 56px;
+  overflow: hidden;
+  border-radius: 13px;
+  background: var(--pal-accent-soft);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 220ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skills-block-quest.sbq-cycle-hub .sbq-station:hover:not(:disabled) .sbq-station-art img {
+    transform: scale(1.04);
+  }
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station-step,
+.skills-block-quest.sbq-cycle-hub .sbq-station-step {
+  width: 44px;
+  height: 44px;
+  background: color-mix(in srgb, var(--pal-accent) 16%, #FFFFFF);
+  color: var(--pal-deep);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--pal-accent) 34%, transparent);
+  font-family: var(--kid-font-display, var(--lp-font-reading));
+  font-size: 1.1rem;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station-copy {
+  min-width: 0;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station-copy strong,
+.skills-block-quest.sbq-cycle-hub .sbq-station-copy strong {
+  overflow: hidden;
+  color: #233E35;
+  font-size: clamp(0.98rem, 1.15vw, 1.14rem);
+  font-weight: 750;
+  line-height: 1.08;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station-copy em,
+.skills-block-quest.sbq-cycle-hub .sbq-station-copy em {
+  display: block;
+  margin-top: 3px;
+  overflow: hidden;
+  color: #53685F;
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station-go {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pal-accent);
+  color: #FFFFFF;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station--next,
+.skills-block-quest.sbq-cycle-hub .sbq-station--next {
+  border-color: color-mix(in srgb, var(--pal-accent) 72%, #FFFFFF);
+  background: color-mix(in srgb, var(--pal-accent-soft) 52%, rgba(255, 255, 255, 0.95));
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--pal-deep) 62%, rgba(54, 68, 63, 0.46)), 0 14px 30px rgba(20, 45, 38, 0.22);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station--next .sbq-station-copy em {
+  color: var(--pal-deep);
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station--done,
+.skills-block-quest.sbq-cycle-hub .sbq-station--done {
+  border-color: rgba(87, 153, 90, 0.54);
+  background: rgba(239, 250, 238, 0.92);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station--done .sbq-station-step {
+  background: #4E8C55;
+  color: #FFFFFF;
+}
+
+.student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station--locked,
+.skills-block-quest.sbq-cycle-hub .sbq-station--locked {
+  border-color: rgba(255, 255, 255, 0.46);
+  background: rgba(242, 245, 242, 0.7);
+  box-shadow: 0 3px 0 rgba(49, 66, 59, 0.22);
+  opacity: 0.78;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station--locked .sbq-station-art img {
+  filter: grayscale(0.72) saturate(0.45);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-station.check:not(.sbq-station--locked) {
+  border-color: rgba(214, 138, 17, 0.64);
+  background: rgba(255, 247, 226, 0.94);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-guide {
+  position: relative;
+  display: grid;
+  align-content: end;
+  justify-items: center;
+  min-height: 0;
+  padding: 16px 10px 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(18, 45, 37, 0.55));
+  backdrop-filter: blur(3px);
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-guide img {
+  width: min(100%, 220px);
+  max-height: calc(100% - 62px);
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 12px 15px rgba(18, 45, 37, 0.36));
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-guide span {
+  position: relative;
+  min-height: 42px;
+  display: grid;
+  place-items: center;
+  width: min(100%, 210px);
+  margin-top: 4px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 16px 16px 16px 6px;
+  background: rgba(255, 250, 236, 0.96);
+  color: #294B3F;
+  font-family: var(--lp-font-reading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.12;
+  text-align: center;
+}
+
+.skills-block-quest.sbq-cycle-hub .sbq-cycle-guide span::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 24px;
+  width: 13px;
+  height: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.88);
+  border-left: 1px solid rgba(255, 255, 255, 0.88);
+  background: rgba(255, 250, 236, 0.96);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1050px) {
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-playfield {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-guide {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-cycle-head,
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head {
+    padding: 10px 10px 8px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head-actions {
+    gap: 7px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-progress {
+    min-width: 0;
+    padding: 7px 8px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-progress > span:first-child {
+    font-size: 0;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-progress > span:first-child strong {
+    font-size: 0.9rem;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-progress > span:first-child strong::after {
+    content: " done";
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-ghost-button {
+    min-width: 64px;
+    padding-inline: 10px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-playfield {
+    padding: 0 8px 10px;
+  }
+
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station,
+  .skills-block-quest.sbq-cycle-hub .sbq-station {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 7px;
+    padding: 5px 7px 5px 5px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-station-step {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    border: 2px solid rgba(255, 255, 255, 0.88);
+    font-size: 0.82rem;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-station-art {
+    grid-column: 1;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-station-copy {
+    grid-column: 2;
+  }
+
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station-copy strong,
+  .skills-block-quest.sbq-cycle-hub .sbq-station-copy strong {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.88rem;
+    line-height: 1.05;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-station--next .sbq-station-copy {
+    padding-right: 22px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-station-go {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+  }
+}
+
+@media (max-height: 720px) {
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head h1 {
+    font-size: 1.45rem;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-sub {
+    margin-top: 2px;
+    font-size: 0.8rem;
+  }
+
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-stations,
+  .skills-block-quest.sbq-cycle-hub .sbq-stations {
+    grid-template-rows: repeat(5, minmax(62px, 1fr));
+    gap: 6px;
+  }
+}
+
+/* A short phone has room for one illustrated lane, not five clipped rows.
+   Keep the promoted next station in the first view, then expose every other
+   station on one native horizontal scroll path with a visible instruction and
+   scrollbar. Keyboard focus scrolls the same lane automatically. */
+@media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
+  .kg-stage .kg-main > .skills-block-quest.sbq-cycle-hub {
+    display: block;
+    padding: 4px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-world {
+    border-radius: 18px;
+  }
+
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-cycle-head,
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head {
+    min-height: 60px;
+    padding: 2px 6px;
+    gap: 6px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-kicker,
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-sub {
+    display: none;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head h1 {
+    overflow: hidden;
+    font-size: 1.15rem;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head-actions {
+    gap: 5px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-progress {
+    width: 76px;
+    padding: 4px 6px;
+    gap: 3px;
+    border-radius: 12px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-progress-track {
+    height: 5px;
+  }
+
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-ghost-button,
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-head .sbq-ghost-button {
+    min-width: 64px;
+    min-height: 56px;
+    padding-inline: 8px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-playfield {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 1px;
+    min-height: 0;
+    padding: 0 6px 3px;
+    overflow: hidden;
+  }
+
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-stations,
+  .skills-block-quest.sbq-cycle-hub .sbq-stations {
+    grid-template-columns: none;
+    grid-template-rows: minmax(0, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(210px, 42vw);
+    gap: 6px;
+    align-content: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    padding: 1px 1px 8px;
+    scrollbar-color: rgba(255, 250, 236, 0.92) rgba(18, 45, 37, 0.35);
+    scrollbar-width: auto;
+    scroll-snap-type: x proximity;
+    touch-action: pan-x;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-stations::-webkit-scrollbar {
+    height: 7px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-stations::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(18, 45, 37, 0.35);
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-stations::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(255, 250, 236, 0.92);
+  }
+
+  .student-mode-app .skills-block-quest.sbq-cycle-hub .sbq-station,
+  .skills-block-quest.sbq-cycle-hub .sbq-station {
+    grid-template-columns: 72px minmax(0, 1fr);
+    min-height: 72px;
+    padding: 5px 7px 5px 5px;
+    border-radius: 15px;
+    scroll-snap-align: start;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-station-art {
+    min-height: 60px;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-scroll-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    min-height: 14px;
+    margin: 0;
+    padding-right: 3px;
+    color: rgba(255, 255, 255, 0.96);
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .skills-block-quest.sbq-cycle-hub .sbq-cycle-guide {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-block-quest.sbq-cycle-hub .sbq-station,
+  .skills-block-quest.sbq-cycle-hub .sbq-station-art img {
+    transition: none;
+  }
+}

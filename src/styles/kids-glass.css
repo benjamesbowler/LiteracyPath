@@ -174,7 +174,7 @@
   --kg-tab-height: 68px;
 
   /* the hard floor for anything a child taps */
-  --kg-hit: 44px;
+  --kg-hit: 56px;
   --kg-physical-hit: var(--kg-hit);
 
   /* motion */
@@ -194,7 +194,7 @@
  * away ~125px of screen down each side at 1280 x 720 and ~187px at 1920 x 1080 —
  * the owner's first note on the deployed build, and a defect every later screen
  * would have inherited. Pinning the height and letting the width breathe keeps
- * ONE authoring coordinate system (44px is still 44px) while the horizontal
+ * ONE authoring coordinate system (56px is still 56px) while the horizontal
  * reflow stays ordinary CSS: `1fr` columns simply get wider. Screens therefore
  * must not assume 1194 — assume 1024 and let the extra width be a gift.
  *
@@ -337,7 +337,7 @@
    student-vibrant.css stamps `border: 3px solid #172033 !important` and
    `box-shadow: 8px 8px 0 #172033` on the story surface, which is the
    "dark-bordered box" in the owner's note; !important is the only way to answer
-   !important, and it is scoped to the hatch, the same precedent the 44px floor
+   !important, and it is scoped to the hatch, the same precedent the 56px floor
    and the focus ring already set in this file. */
 .kg-stage .kg-main--scroll :is(.card, .learn-story-quest-library, .story-quest-player) {
   border: 1px solid rgba(255, 255, 255, 0.82) !important;
@@ -636,7 +636,7 @@
 }
 
 /* ── Controls ─────────────────────────────────────────────────────────────────
- * 44 x 44 is the hard minimum for EVERY interactive element in the child area.
+ * 56 x 56 is the hard minimum for EVERY interactive element in the child area.
  * The floor carries !important because App.css forces .lp-button geometry with
  * !important and would otherwise shrink a child control below the floor —
  * the same scoped-!important precedent used there.
@@ -653,7 +653,7 @@
 
 /* The canvas is uniformly scaled on tablets and laptops. This second floor is
    written in design pixels by kidsStage.js so every enabled control still has
-   a 44px-or-larger physical box after that transform. It covers legacy child
+   a 56px-or-larger physical box after that transform. It covers legacy child
    controls that pre-date the kg component classes as well. */
 .kg-stage :is(
   button:not([disabled]),
@@ -952,7 +952,7 @@
 }
 
 /* ── Global chrome: the 92px five-tab bottom bar ──────────────────────────────
- * Five tabs across 1194px is a ~215px hit area each — far above the 44px floor,
+ * Five tabs across 1194px is a ~215px hit area each — far above the 56px floor,
  * and reachable by a thumb on a two-handed tablet, which the old left rail was
  * not. This bar REPLACES that rail; src/policy/studentRailPolicy.js holds the
  * tab registry and the sub-screen -> tab mapping.

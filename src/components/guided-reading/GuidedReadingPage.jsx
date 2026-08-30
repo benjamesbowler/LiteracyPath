@@ -2354,11 +2354,11 @@ export function GuidedReadingPage({
                 {readAloudControlsEnabled && <div className="guided-read-aloud-controls" role="group" aria-label="Read aloud controls">
                   <button
                     className={[
-                      "lp-button lp-button-primary guided-read-page-primary",
+                      "lp-button lp-button-secondary guided-read-page-audio",
                       isPageAudioPlaying ? "active audio-feedback-playing" : "",
                       isReadAloudLoading && !isWholeBookReading ? "audio-feedback-loading" : ""
                     ].filter(Boolean).join(" ")}
-                    data-control-priority="primary"
+                    data-control-priority="secondary"
                     disabled={!currentPageAudioPath || isWholeBookReading || isReadAloudLoading}
                     onClick={togglePageAudio}
                     type="button"
@@ -2576,7 +2576,7 @@ export function GuidedReadingPage({
               >
                 <div className="guided-page-image-card">
                   <GuidedReadingImage
-                    alt=""
+                    alt={page.imageAlt || page.pageDescription || `${selectedBook.title}, page ${pageIndex + 1} illustration`}
                     className="guided-page-image"
                     fetchPriority="high"
                     loading="eager"

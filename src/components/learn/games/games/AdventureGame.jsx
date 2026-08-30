@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { cancelSpeech, hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
+import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 import {
   buildAdventureRoundSet,
@@ -144,7 +145,7 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
   }, [canHearWord, round]);
 
   return (
-    <section className="lg-game-stage adv-rescue">
+    <IllustratedGameScene mode="rescue" stageClassName="adv-rescue">
       <p>{canHearWord ? "Hear the word, then tap the matching word!" : "Tap the matching word to build the bridge!"}</p>
       {canHearWord ? (
         <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>
@@ -173,7 +174,7 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
           </button>
         ))}
       </div>
-    </section>
+    </IllustratedGameScene>
   );
 }
 
@@ -187,7 +188,7 @@ function SortStage({ sort, state, isSoundEnabled }) {
   }, [isSoundEnabled, item]);
 
   return (
-    <section className="lg-game-stage adv-sort">
+    <IllustratedGameScene mode="sort" stageClassName="adv-sort">
       <p>Which bin does it belong in? Look at how it starts!</p>
       <div className="adv-belt" aria-hidden="true">
         <span key={beltKey} className="adv-belt-item">{item.word}</span>
@@ -208,7 +209,7 @@ function SortStage({ sort, state, isSoundEnabled }) {
           </button>
         ))}
       </div>
-    </section>
+    </IllustratedGameScene>
   );
 }
 
@@ -223,7 +224,7 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
   }, [canHearWord, round]);
 
   return (
-    <section className="lg-game-stage adv-garden">
+    <IllustratedGameScene mode="garden" stageClassName="adv-garden">
       <p>Build the word to grow a flower!</p>
       {canHearWord ? (
         <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>
@@ -258,7 +259,7 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
           </span>
         ))}
       </div>
-    </section>
+    </IllustratedGameScene>
   );
 }
 

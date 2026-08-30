@@ -46,6 +46,49 @@ async function renderedCharacterCountsByLine(pageText) {
   });
 }
 
+async function readerPageGeometry(reader) {
+  return reader.locator(".guided-page-layout").evaluate(layout => {
+    const image = layout.querySelector(".guided-page-image");
+    const pageText = layout.querySelector(".guided-page-text");
+    if (!(image instanceof HTMLImageElement) || !(pageText instanceof HTMLElement)) return null;
+
+    const imageRect = image.getBoundingClientRect();
+    const imageStyle = getComputedStyle(image);
+    const scale = Math.min(
+      imageRect.width / image.naturalWidth,
+      imageRect.height / image.naturalHeight
+    );
+    const renderedImageWidth = image.naturalWidth * scale;
+    const renderedImageHeight = image.naturalHeight * scale;
+    const walker = document.createTreeWalker(pageText, NodeFilter.SHOW_TEXT);
+    let firstLineTop = null;
+    let textNode = walker.nextNode();
+
+    while (textNode && firstLineTop === null) {
+      const firstVisibleCharacter = [...textNode.data].findIndex(character => !/\s/.test(character));
+      if (firstVisibleCharacter >= 0) {
+        const range = document.createRange();
+        range.setStart(textNode, firstVisibleCharacter);
+        range.setEnd(textNode, firstVisibleCharacter + 1);
+        const rect = range.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) firstLineTop = rect.top;
+      }
+      textNode = walker.nextNode();
+    }
+
+    return {
+      firstLineTop,
+      imageBoxHeight: imageRect.height,
+      imageBoxTop: imageRect.top,
+      imageBoxWidth: imageRect.width,
+      objectFit: imageStyle.objectFit,
+      objectPosition: imageStyle.objectPosition,
+      renderedImageHeight,
+      renderedImageWidth
+    };
+  });
+}
+
 for (const levelCase of LEVEL_CASES) {
   test(`A3.7 Level ${levelCase.level} constrains rendered lines and applies its image/text template`, async ({
     page
@@ -100,6 +143,24 @@ for (const levelCase of LEVEL_CASES) {
     const renderedImageFraction = imageBox.width / (imageBox.width + readingBox.width);
     expect(Math.abs(renderedImageFraction - measure.imageFraction / 100)).toBeLessThanOrEqual(0.015);
 
+    const geometry = await readerPageGeometry(reader);
+    expect(geometry).not.toBeNull();
+    expect(geometry.objectFit).toBe("contain");
+    expect(geometry.objectPosition).toMatch(/^50% 0(?:px|%)$/);
+    expect(
+      Math.abs(geometry.firstLineTop - geometry.imageBoxTop),
+      `Level ${levelCase.level} image top aligns with the first reading line`
+    ).toBeLessThanOrEqual(16);
+    expect(
+      Math.max(
+        geometry.renderedImageWidth / geometry.imageBoxWidth,
+        geometry.renderedImageHeight / geometry.imageBoxHeight
+      ),
+      `Level ${levelCase.level} image uses the largest full-image fit`
+    ).toBeGreaterThanOrEqual(0.99);
+    expect(geometry.renderedImageWidth).toBeLessThanOrEqual(geometry.imageBoxWidth + 1);
+    expect(geometry.renderedImageHeight).toBeLessThanOrEqual(geometry.imageBoxHeight + 1);
+
     const controlSizes = await viewControls.getByRole("button").evaluateAll(buttons => (
       buttons.map(button => {
         const rect = button.getBoundingClientRect();
@@ -110,7 +171,7 @@ for (const levelCase of LEVEL_CASES) {
         };
       })
     ));
-    expect(controlSizes.every(control => control.height >= 44 && control.width >= 44)).toBe(true);
+    expect(controlSizes.every(control => control.height >= 56 && control.width >= 56)).toBe(true);
 
     await page.reload();
     await page.evaluate(() => document.fonts.ready);
@@ -140,3 +201,62 @@ for (const levelCase of LEVEL_CASES) {
     expect(pageErrors).toEqual([]);
   });
 }
+
+test("Guided Reading preserves the full-image composition in portrait and landscape", async ({ page }) => {
+  const cases = [
+    { height: 1024, orientation: "portrait", width: 768 },
+    { height: 720, orientation: "landscape", width: 1180 }
+  ];
+
+  for (const viewport of cases) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.goto("/preview/guided-reading-preview.html?book=first-facts-level-a-03-big-and-little");
+    await page.evaluate(() => document.fonts.ready);
+
+    const reader = page.getByLabel("Big and Little full-screen reader");
+    const viewControls = reader.getByRole("group", { name: "Reader view controls" });
+    await viewControls.getByRole("button", { name: "Full screen", exact: true }).click();
+    await expect(reader).toHaveClass(/fullscreen/);
+    const pageText = reader.locator(".guided-page-text");
+    const image = reader.locator(".guided-page-image");
+    await expect(pageText).toHaveClass(/is-ready/);
+    await expect(image).toBeVisible();
+    await expect.poll(() => image.evaluate(element => element.complete && element.naturalWidth > 0)).toBe(true);
+
+    const geometry = await readerPageGeometry(reader);
+    expect(geometry.objectFit).toBe("contain");
+    expect(geometry.objectPosition).toMatch(/^50% 0(?:px|%)$/);
+    expect(
+      Math.max(
+        geometry.renderedImageWidth / geometry.imageBoxWidth,
+        geometry.renderedImageHeight / geometry.imageBoxHeight
+      ),
+      `${viewport.orientation} image uses the largest full-image fit`
+    ).toBeGreaterThanOrEqual(0.99);
+    expect(geometry.renderedImageWidth).toBeLessThanOrEqual(geometry.imageBoxWidth + 1);
+    expect(geometry.renderedImageHeight).toBeLessThanOrEqual(geometry.imageBoxHeight + 1);
+
+    const layout = await reader.locator(".guided-page-layout").evaluate(element => {
+      const imageCard = element.querySelector(".guided-page-image-card").getBoundingClientRect();
+      const textFrame = element.querySelector(".guided-page-text-frame").getBoundingClientRect();
+      return {
+        documentOverflow: document.documentElement.scrollWidth - window.innerWidth,
+        imageBottom: imageCard.bottom,
+        imageLeft: imageCard.left,
+        textLeft: textFrame.left,
+        textTop: textFrame.top
+      };
+    });
+    expect(layout.documentOverflow).toBeLessThanOrEqual(0);
+
+    if (viewport.orientation === "portrait") {
+      expect(layout.textTop).toBeGreaterThanOrEqual(layout.imageBottom - 1);
+    } else {
+      expect(layout.textLeft).toBeGreaterThan(layout.imageLeft);
+      expect(Math.abs(geometry.firstLineTop - geometry.imageBoxTop)).toBeLessThanOrEqual(16);
+    }
+
+    await viewControls.getByRole("button", { name: "Exit", exact: true }).click();
+    await expect(reader).not.toHaveClass(/fullscreen/);
+  }
+});

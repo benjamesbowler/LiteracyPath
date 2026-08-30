@@ -583,14 +583,27 @@ export function questPixelAvoidActorOverlap({
   if (!actor) return { x, y };
   const actorX = Number(actor.x) || 0;
   const actorY = Number(actor.y) || 0;
-  if (Math.hypot(x - actorX, y - actorY) >= Math.max(0, Number(clearance) || 0)) {
+  const safeClearance = Math.max(0, Number(clearance) || 0);
+  if (Math.hypot(x - actorX, y - actorY) >= safeClearance) {
     return { x, y };
   }
-  const side = Math.abs(Math.floor(Number(index) || 0)) % 2 ? 1 : -1;
-  const shift = Math.max(0, Number(nudge) || 0) * side;
+  const rightX = Number(right.x) || 0;
+  const rightY = Number(right.y) || 0;
+  const lateralDelta = ((x - actorX) * rightX) + ((y - actorY) * rightY);
+  const side = Math.abs(lateralDelta) > 0.5
+    ? Math.sign(lateralDelta)
+    : Math.abs(Math.floor(Number(index) || 0)) % 2 ? 1 : -1;
+  const perpendicularX = (x - actorX) - (rightX * lateralDelta);
+  const perpendicularY = (y - actorY) - (rightY * lateralDelta);
+  const perpendicularDistance = Math.hypot(perpendicularX, perpendicularY);
+  const requiredLateral = Math.sqrt(Math.max(0, (safeClearance ** 2) - (perpendicularDistance ** 2)));
+  const shift = Math.max(
+    Math.max(0, Number(nudge) || 0),
+    requiredLateral - Math.abs(lateralDelta) + 2
+  ) * side;
   return {
-    x: x + ((Number(right.x) || 0) * shift),
-    y: y + ((Number(right.y) || 0) * shift)
+    x: x + (rightX * shift),
+    y: y + (rightY * shift)
   };
 }
 

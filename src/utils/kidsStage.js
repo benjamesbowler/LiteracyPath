@@ -16,7 +16,7 @@
 //   stageWidth  = clamp(1024, viewportWidth / scale, 3200)   [design px]
 //   stageHeight = 834                                        [design px]
 //
-// The stage is still AUTHORED in design pixels — 44px is still 44px, the header
+// The stage is still AUTHORED in design pixels — 56px is still 56px, the header
 // is still 78, and a screen still lays itself out against a definite height —
 // but the canvas is now 834 design px tall and as many design px wide as the
 // viewport actually offers. Multiply stageWidth by scale and the viewport width
@@ -79,10 +79,10 @@ const MIN_SCALE = 0.4;
 
 // ui-quality-pass.css switches the child stage to an unscaled native phone
 // layout at this exact breakpoint. Above it the canvas transform is active, so
-// a 44 design-px button can become a 33 physical-px target on a portrait iPad.
+// a 56 design-px button can become a 42 physical-px target on a portrait iPad.
 const NATIVE_PHONE_MAX_WIDTH = 700;
 const NATIVE_PORTRAIT_TABLET_MAX_WIDTH = 900;
-const PHYSICAL_TARGET_PX = 45;
+const PHYSICAL_TARGET_PX = 56;
 
 function usesNativeViewportLayout(width, height) {
   return width <= NATIVE_PHONE_MAX_WIDTH
@@ -188,8 +188,8 @@ export function applyKidsStageMetrics(element, view = globalThis) {
     : metrics.scale;
   element.style.setProperty("--kg-scale", String(metrics.scale));
   element.style.setProperty("--kg-stage-width", `${metrics.stageWidth}px`);
-  // The small safety pixel prevents sub-pixel rounding from turning 44 into
-  // 43.999 in Chromium's physical bounding box.
+  // Compensate in design pixels so scaling never turns the child-facing 56px
+  // floor into a smaller physical target.
   element.style.setProperty("--kg-physical-hit", `${PHYSICAL_TARGET_PX / effectiveScale}px`);
   return metrics;
 }

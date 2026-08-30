@@ -259,7 +259,7 @@ export function StudentAdventureMapPage({
           </div>
           <button
             type="button"
-            className="kg-speaker kg-glass"
+            className="kg-speaker kg-speaker--md kg-glass"
             aria-label="Hear this"
             onClick={() => hear(`Adventure Map. ${context} ${instruction}`)}
           >
@@ -282,7 +282,7 @@ export function StudentAdventureMapPage({
           />
           <span className="kg-glass-dark kg-pill kg-map-badge">
             <img src={emblem} alt="" onError={hideOnError} />
-            {part.name} &mdash; part {part.part} of {ADVENTURE_MAP_PARTS.length}
+            {part.name}, part {part.part} of {ADVENTURE_MAP_PARTS.length}
           </span>
           <div className="kg-node-layer">
             <svg
@@ -300,15 +300,11 @@ export function StudentAdventureMapPage({
               />
             </svg>
 
-            {scene.stops.map(stop => {
-              const isNext = stop.state === "next";
-              const Tag = isNext ? "button" : "span";
-              return (
-                <Tag
+            {scene.stops.map(stop => (
+                <span
                   key={stop.id}
-                  {...(isNext
-                    ? { type: "button", onClick: () => setOpenCycleId(stop.id) }
-                    : { role: "img", "aria-disabled": "true" })}
+                  role="img"
+                  aria-disabled={stop.state === "locked" ? "true" : undefined}
                   className={`kg-node kg-node--${stop.state}${stop.state === "next" ? " kg-halo" : ""}`}
                   style={{
                     "--kg-node-x": `${stop.x}%`,
@@ -322,15 +318,14 @@ export function StudentAdventureMapPage({
                     stop.state === "done"
                       ? `${stop.name}, ${stop.stars} of 3 stars, complete`
                       : stop.state === "next"
-                        ? `${stop.name}, your pal is here. Go there.`
+                        ? `${stop.name}, your pal is here`
                         : `${stop.name}, locked`
                   }
-                  data-child-emphasis="choice"
+                  data-child-emphasis={stop.state === "next" ? "context" : "choice"}
                 >
                   {stop.state === "done" ? "✓" : String(stop.number)}
-                </Tag>
-              );
-            })}
+                </span>
+              ))}
 
             {scene.stops.filter(stop => stop.label).map(stop => (
               <span
@@ -404,6 +399,7 @@ export function StudentAdventureMapPage({
                     {read.ok ? stateLabel(stop) : "Still loading"}
                   </small>
                 </span>
+                {isNext && <span className="kg-map-card-go" aria-hidden="true">&#8594;</span>}
               </Tag>
             );
           })}

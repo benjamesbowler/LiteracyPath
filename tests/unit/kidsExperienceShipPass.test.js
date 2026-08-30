@@ -29,7 +29,6 @@ test("child hubs use the fluid one-screen shell instead of page scrolling", () =
 });
 
 test("the map is a single forward journey with only the next stop playable", () => {
-  assert.match(map, /const isNext = stop\.state === "next";[\s\S]*?const Tag = isNext \? "button" : "span"/);
   assert.match(map, /const isNext = stop\.state === "next";[\s\S]*?const Tag = isNext \? "button" : "article"/);
   assert.doesNotMatch(map, /onClick=\{[^}]*stop\.state === "done"/);
 

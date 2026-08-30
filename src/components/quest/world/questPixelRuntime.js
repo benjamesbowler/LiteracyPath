@@ -4702,7 +4702,7 @@ class QuestPixelScene extends Phaser.Scene {
       const rawX = routeAnchor?.x ?? pursuitAnchor?.x ?? sortAnchor?.x ?? steerAnchor?.x ?? signalAnchor?.x ?? climbAnchor?.x ?? turnAnchor?.x ?? rhythmAnchor?.x ?? sortLaneAnchor?.x ?? (resident.point.x + (right.x * lateral) + (forward.x * towardPlayer));
       const rawY = routeAnchor?.y ?? pursuitAnchor?.y ?? sortAnchor?.y ?? steerAnchor?.y ?? signalAnchor?.y ?? climbAnchor?.y ?? turnAnchor?.y ?? rhythmAnchor?.y ?? sortLaneAnchor?.y ?? (resident.point.y + (right.y * lateral) + (forward.y * towardPlayer));
       const anchored = routeAnchor || pursuitAnchor || sortAnchor || steerAnchor || signalAnchor || climbAnchor || turnAnchor || rhythmAnchor || sortLaneAnchor;
-      const residentSafePoint = anchored || !movingSortLane
+      const residentSafePoint = anchored
         ? { x: rawX, y: rawY }
         : questPixelAvoidActorOverlap({
             point: { x: rawX, y: rawY },
