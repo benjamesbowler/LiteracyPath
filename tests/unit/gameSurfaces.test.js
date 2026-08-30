@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { GAME_LIST } from "../../src/data/learnGamesData.js";
 import { LEARN_GAMES } from "../../src/components/learn/games/games/index.js";
 import {
@@ -33,16 +34,19 @@ test("the arcade shows the flagship playable games", () => {
     "sound-safari",
     "soundkeys",
     "star-gallery",
-    "word-bridge"
+    "word-bridge",
+    "word-climb"
   ], `arcade set changed: ${JSON.stringify(arcade)}`);
 });
 
-test("Word Climb is hidden (kept, not deleted) and shows nowhere", () => {
+test("Word Climb is published as a playable Arcade game", () => {
   const wc = GAME_LIST.find(g => g.id === "word-climb");
-  assert.ok(wc, "word-climb should still exist in GAME_LIST");
-  assert.equal(wc.hidden, true, "word-climb should be hidden");
-  assert.ok(!isArcade(wc), "hidden word-climb should not be in the arcade");
-  // No arcade game is accidentally flagged hidden.
+  assert.ok(wc, "word-climb should exist in GAME_LIST");
+  assert.notEqual(wc.hidden, true, "published word-climb should not be hidden");
+  assert.ok(isArcade(wc), "published word-climb should be in the arcade");
+  assert.equal(wc.cardArt, wc.icon, "Word Climb should register its existing authored icon as the no-404 card fallback");
+  const hub = readFileSync("src/components/learn/games/GameArcadeHub.jsx", "utf8");
+  assert.match(hub, /className=\{game\.cardArt === game\.icon \? "is-icon" : undefined\}/, "an explicit icon fallback must use contain styling instead of landscape cropping");
   for (const g of GAME_LIST.filter(isArcade)) assert.ok(!g.hidden, `${g.id} arcade game marked hidden`);
 });
 

@@ -847,14 +847,14 @@
 }
 
 .lg-game-confirm > div {
-  width: min(100%, 390px);
+  width: min(100%, 460px);
   display: grid;
-  gap: 12px;
+  gap: 16px;
   border: 1px solid var(--lg-border);
   border-radius: var(--lg-radius);
   background: var(--lg-surface);
   box-shadow: var(--lp-shadow-soft);
-  padding: 22px;
+  padding: clamp(24px, 4vw, 32px);
   text-align: center;
 }
 
@@ -865,6 +865,9 @@
 
 .lg-game-confirm p {
   color: #475569;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .lg-game-confirm div div {
@@ -875,9 +878,13 @@
 }
 
 .lg-game-confirm button {
+  min-width: 140px;
+  min-height: 56px;
   border-color: var(--lg-border);
   background: var(--lg-surface);
   color: #334155;
+  font-size: 1rem;
+  font-weight: 750;
 }
 
 .lg-game-confirm button.danger {
@@ -2117,8 +2124,8 @@
   min-height: 0;
   flex: 1 1 auto;
   display: grid;
-  grid-template-columns: minmax(132px, 0.38fr) minmax(0, 1fr);
-  align-items: stretch;
+  grid-template-columns: minmax(150px, 0.34fr) minmax(0, 1fr);
+  align-items: center;
   gap: 14px;
   border: 2px dashed color-mix(in srgb, var(--scene-accent) 42%, #64748B);
   border-radius: 18px;
@@ -2127,18 +2134,19 @@
 }
 
 .lg-game-player .lg-illustrated-game .lg-family-board .lg-game-letter-bank {
-  height: 100%;
+  height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-  grid-auto-rows: minmax(76px, 1fr);
+  grid-template-columns: repeat(4, minmax(72px, 1fr));
+  grid-auto-rows: minmax(104px, 132px);
+  align-content: center;
   align-items: stretch;
   justify-content: stretch;
 }
 
 .lg-game-player .lg-illustrated-game .lg-family-board .lg-rime-tile {
   width: 100%;
-  height: 100%;
-  min-height: 168px;
+  height: clamp(220px, 36vh, 300px);
+  min-height: 220px;
   font-size: clamp(1.8rem, 3.2vw, 2.7rem);
 }
 
@@ -2477,11 +2485,11 @@
   border-radius: 20px;
   background: #475569;
   box-shadow: inset 0 7px 0 rgba(255, 255, 255, 0.08), inset 0 -9px 0 rgba(17, 28, 39, 0.22);
-  margin-block: auto;
+  margin: clamp(30px, 6vh, 62px) 0 0;
 }
 
 .lg-game-player .lg-illustrated-game .adv-belt-item {
-  min-height: 58px;
+  min-height: 72px;
   display: inline-flex;
   align-items: center;
   border: 3px solid #E2725B;
@@ -2489,28 +2497,28 @@
   background: #ffffff;
   color: #0F172A;
   box-shadow: 0 5px 0 #E2725B;
-  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
-  padding: 10px 26px;
+  font-size: clamp(1.9rem, 3.2vw, 2.65rem);
+  padding: 12px 30px;
 }
 
 .lg-game-player .lg-illustrated-game .adv-bins {
   width: 100%;
   justify-content: center;
   gap: clamp(28px, 5vw, 70px);
-  margin-top: auto;
+  margin-top: clamp(28px, 5vh, 52px);
 }
 
 .lg-game-player .lg-illustrated-game .adv-bin {
-  min-width: 140px;
-  min-height: 112px;
+  min-width: 168px;
+  min-height: 126px;
   border-radius: 18px;
   padding: 0 10px 10px;
   transition: transform 130ms ease-out, filter 130ms ease-out;
 }
 
 .lg-game-player .lg-illustrated-game .adv-bin-label {
-  min-width: 118px;
-  min-height: 78px;
+  min-width: 144px;
+  min-height: 88px;
   display: grid;
   place-items: center;
   border: 3px solid #3B82C4;
@@ -2518,7 +2526,7 @@
   background: #EAF2FA;
   color: #0F172A;
   box-shadow: 0 7px 0 #3B82C4;
-  font-size: 2.25rem;
+  font-size: 2.55rem;
   padding: 10px 26px;
 }
 
@@ -2537,6 +2545,24 @@
 .lg-game-player .lg-illustrated-game .adv-slots {
   width: 100%;
   justify-content: center;
+}
+
+.lg-game-player .lg-illustrated-game .adv-word-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.4vw, 18px);
+}
+
+.lg-game-player .lg-illustrated-game .adv-word-cue img {
+  width: clamp(94px, 10vw, 122px);
+  height: clamp(94px, 10vw, 122px);
+  object-fit: contain;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px var(--scene-accent), 0 7px 0 var(--scene-accent-dark);
+  padding: 6px;
 }
 
 .lg-game-player .lg-illustrated-game .adv-slot {
@@ -2666,6 +2692,142 @@
    The authored scene is hidden rather than reduced to a meaningless thumbnail;
    each mechanic then reflows horizontally inside the remaining one-screen area. */
 @media (max-height: 420px) and (orientation: landscape) {
+  .lg-game-confirm {
+    overflow: hidden;
+    padding: 6px;
+  }
+
+  .lg-game-confirm > div {
+    max-height: calc(100dvh - 12px);
+    gap: 6px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 8px 10px;
+  }
+
+  .lg-premium-guide > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .lg-premium-guide :is(.lg-premium-guide-kicker, h2, dl, ul, .lg-premium-guide-actions) {
+    grid-column: 1 / -1;
+  }
+
+  .lg-premium-guide h2,
+  .lg-premium-complete h2 {
+    font-size: 1.1rem;
+    line-height: 1.16;
+  }
+
+  .lg-premium-guide dl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .lg-premium-guide dl > div {
+    align-content: start;
+    gap: 1px;
+    padding-left: 7px;
+  }
+
+  .lg-premium-guide dt {
+    font-size: 0.66rem;
+  }
+
+  .lg-premium-guide dd {
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+
+  .lg-premium-guide ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .lg-premium-guide li {
+    min-height: 56px;
+    font-size: 0.84rem;
+    padding: 6px 8px;
+  }
+
+  .lg-premium-guide .lg-premium-guide-actions,
+  .lg-premium-complete > div {
+    gap: 6px;
+  }
+
+  .lg-premium-complete .lg-progress-stars span {
+    font-size: 1.65rem;
+  }
+
+  .lg-premium-complete-stat {
+    padding: 5px 14px;
+  }
+
+  .lg-premium-complete-stat strong {
+    font-size: 1.45rem;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-player-header {
+    min-height: 64px;
+    height: 64px;
+    grid-template-columns: minmax(104px, 1fr) minmax(76px, 96px) auto;
+    grid-template-rows: 1fr;
+    gap: 4px;
+    padding: 4px 6px;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-title-chip {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-title-chip strong {
+    font-size: 0.8rem;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-title-chip span {
+    min-height: 24px;
+    font-size: 0.64rem;
+    padding: 2px 6px;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-player-center {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 2px;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-mission {
+    display: none;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-header-meter {
+    gap: 4px;
+    font-size: 0.66rem;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-header-meter > div {
+    height: 8px;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-player-actions {
+    grid-column: 3;
+    grid-row: 1;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+
+  .lg-game-player[data-fullbleed] .lg-game-score {
+    min-width: 58px;
+    min-height: 32px;
+    font-size: 0.68rem;
+    padding: 4px 6px;
+  }
+
   .lg-game-player:not([data-fullbleed]) .lg-game-player-header {
     min-height: 60px;
     grid-template-columns: minmax(140px, 1fr) minmax(80px, 100px) auto;
@@ -2872,6 +3034,7 @@
   }
 
   .lg-game-player .lg-illustrated-game .lg-family-board .lg-rime-tile {
+    height: 100%;
     min-height: 0;
     font-size: 1.6rem;
   }
@@ -3143,6 +3306,24 @@
     grid-column: 1;
     grid-row: 2;
     align-self: center;
+    min-width: 104px;
+    padding-inline: 7px;
+  }
+
+  .lg-game-player .lg-illustrated-game > .adv-garden > .adv-word-cue {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    display: grid;
+    gap: 6px;
+  }
+
+  .lg-game-player .lg-illustrated-game .adv-word-cue img {
+    width: 88px;
+    height: 88px;
+  }
+
+  .lg-game-player .lg-illustrated-game .adv-word-cue .lg-game-audio {
     min-width: 104px;
     padding-inline: 7px;
   }

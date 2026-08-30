@@ -89,7 +89,7 @@ export default function SoundBeatGame({
   }, [showOnboarding, isSoundEnabled]);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "100dvh" }}>
+    <div style={{ position: "relative", width: "100%", height: "100%", minHeight: 0 }}>
       <Ps1ArcadeGame
         kind="sound-beat"
         {...props}

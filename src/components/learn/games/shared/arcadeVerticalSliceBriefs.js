@@ -101,6 +101,87 @@ export const ARCADE_VERTICAL_SLICE_BRIEFS = deepFreeze({
       }
     }
   },
+  "word-climb": {
+    schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
+    gameId: "word-climb",
+    version: "2.0",
+    audience: "Early readers discriminating the beginning sounds of short printed words.",
+    experiencePromise: "A calm beanstalk climb where each deliberate onset match moves the reader visibly toward the canopy.",
+    learning: {
+      targetConstruct: "Identify which printed word begins with the shown and spoken target phoneme.",
+      childGoal: "Read three leaf words and choose the one that starts with the target sound.",
+      integratedAction: "Choosing the matching word completes one climb and reveals a fresh equal-position choice set.",
+      nonTargetDemands: "Scanning three equivalent leaf positions and following the climber's decorative route.",
+      evidenceEvent: "Only a deliberate correct word choice advances the recorded climb; route animation and position do not.",
+      movementCreatesEvidence: false
+    },
+    loop: {
+      onboard: "Keep one direct goal, the printed target phoneme and all three word leaves visible before the first choice.",
+      perceive: "Read the persistent target and compare the beginning sound of each equally styled word.",
+      act: "Tap a leaf or focus it and press Enter or Space.",
+      feedback: "A correct word names the matching onset and moves the climb; a wrong word names its actual onset.",
+      retry: "Leave the target and all three words in place after an error, then restore every choice for an immediate retry.",
+      complete: "Reach the canopy, show words read, score and stars, then continue or return through Arcade chrome."
+    },
+    prompt: {
+      visible: "The target phoneme, exact choose-the-word instruction, three printed words and current climb count remain visible together.",
+      spoken: "The current target phoneme and chosen word use the existing local production-audio library when available.",
+      replay: "A 56-pixel Hear sound button repeats the target cue and becomes an explicit disabled Sound off label when audio is unavailable."
+    },
+    controls: {
+      keyboard: ["Tab or Shift+Tab moves between word leaves", "Enter or Space chooses the focused word"],
+      touch: ["Tap and release a word leaf to choose", "Move away, cancel or lose capture to abort native button activation"],
+      minimumTargetCssPixels: 56,
+      pointerReleaseEvents: ["pointerup", "pointercancel", "lostpointercapture"]
+    },
+    difficulty: {
+      curriculumBeforePressure: true,
+      ladder: "Difficulty changes the reviewed onset and vocabulary set while every round retains three unhurried, equivalent choices."
+    },
+    gameFeel: {
+      movement: "A correct choice raises the climber and refreshes the next three leaves after a short, pausable transition.",
+      forgiveness: ["No timer pressure", "Wrong choices do not remove progress", "The actual onset is named", "The target remains visible", "Paused transitions resume with their remaining time"],
+      camera: "A fixed, bounded portrait-like beanstalk frame keeps the target and all choice leaves in view at desktop and short landscape sizes.",
+      successFeedback: "The chosen leaf confirms the exact word and sound, the climb meter fills and the character rises.",
+      errorFeedback: "The selected word and its actual beginning sound are printed while the requested target stays visible."
+    },
+    world: {
+      artDirection: "An authored illustrated beanstalk scene with layered SVG foliage, mist, warm highlights and high-contrast tactile leaves.",
+      route: "The six-step root-to-canopy meter and climber share one bounded responsive layout with the three choice ledges.",
+      character: "The canonical Meadow Pal remains a decorative climber and never obscures or identifies the correct answer.",
+      assetFallback: "CSS and SVG retain the complete target, word leaves, climb route and feedback if the decorative Pal image fails."
+    },
+    state: {
+      pauseResume: "Pause freezes every feedback, speech and climb-transition timer with its remaining delay; resume re-arms only pending work.",
+      checkpoint: "Each completed climb is saved through the existing Arcade checkpoint callback and restored as the next unfinished step.",
+      completion: "Existing score, stars, completed-word count and resumable climb checkpoint remain the only progress state."
+    },
+    accessibility: {
+      reducedMotion: "Decorative drift and climb movement reduce while the word, onset and progress feedback remain immediate.",
+      soundOff: "The target phoneme and every word remain printed; replay is labelled Sound off instead of disappearing.",
+      nonColourCue: "Correct and wrong feedback use explicit words, symbols, shape and persistent position in addition to colour.",
+      semanticFallback: "A labelled region, headings, status text, native word buttons, focused dialogs and Arcade mission help expose the whole loop without the illustration."
+    },
+    performance: {
+      lowPowerFallback: "A bounded DOM, CSS and SVG scene has no animation frame loop or high-density canvas backing store.",
+      inputSafety: "Native button activation commits once on completed keyboard or pointer activation, while pause-safe timers prevent hidden transitions.",
+      assetFailure: "The playable target, choice buttons, progress and feedback do not depend on decorative image loading."
+    },
+    privacy: {
+      dataWritten: ["Existing score", "Existing stars", "Completed-word count", "Existing resumable climb checkpoint"],
+      network: ["Existing app progress sync only"],
+      newIdentifier: false,
+      newExternalService: false
+    },
+    validation: {
+      unit: ["tests/unit/wordClimbLevels.test.js", "tests/unit/premiumGameStandard.test.js"],
+      browser: ["tests/release/word-climb-premium.spec.js", "tests/release/student-activity-viewport.spec.js"],
+      physicalDevice: {
+        status: "unknown",
+        note: "A real supported iPad playtest is still required; browser emulation is not recorded as a hardware pass."
+      }
+    }
+  },
   "word-bridge": {
     schemaVersion: GAME_VERTICAL_SLICE_BRIEF_SCHEMA_VERSION,
     gameId: "word-bridge",

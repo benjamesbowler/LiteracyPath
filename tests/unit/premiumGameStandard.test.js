@@ -73,7 +73,7 @@ test("every live arcade game has an individual premium mission and recovery prof
 test("every substantial vertical slice is complete, traceable to checks, and honest about hardware validation", () => {
   assert.deepEqual(
     Object.keys(ARCADE_VERTICAL_SLICE_BRIEFS).sort(),
-    ["letter-leap", "sound-beat", "sound-racer", "word-bridge"]
+    ["letter-leap", "sound-beat", "sound-racer", "word-bridge", "word-climb"]
   );
   for (const [gameId, brief] of Object.entries(ARCADE_VERTICAL_SLICE_BRIEFS)) {
     assert.equal(brief.gameId, gameId);
@@ -114,6 +114,26 @@ test("every substantial vertical slice is complete, traceable to checks, and hon
   assert.match(racerImplementation, /data-sr="banner" role="status" aria-live="polite"/);
   assert.match(racerImplementation, /hearTargetEl\.hidden = !replayAvailable/);
   assert.match(racerImplementation, /sfx\(\(\) => speakPhoneme\(target\)\)/);
+
+  const climbImplementation = readFileSync("src/components/learn/games/games/WordClimbGame.jsx", "utf8");
+  assert.match(climbImplementation, /startLevel = 0/);
+  assert.match(climbImplementation, /onCheckpoint\?\.\(Math\.min\(step, session\.summit - 1\), session\.summit\)/);
+  assert.match(climbImplementation, /onEngineReady\?\.\(\{ pause: pauseEngine, resume: resumeEngine \}\)/);
+  assert.match(climbImplementation, /entry\.remaining = Math\.max\(0, entry\.remaining - \(now - entry\.startedAt\)\)/);
+  assert.match(climbImplementation, /if \(soundEnabledRef\.current\) void speakWord\(choice\.word\)/);
+  assert.match(climbImplementation, /safeSfx\(soundEnabledRef\.current, playCelebrationFanfare\)/);
+  assert.match(climbImplementation, /timersRef\.current\.clear\(\);\n {4}cancelSpeech\(\);/);
+  assert.doesNotMatch(climbImplementation, /aria-label="Word Climb complete"/);
+
+  const playerImplementation = readFileSync("src/components/learn/games/GamePlayer.jsx", "utf8");
+  assert.match(playerImplementation, /const hasPremiumCompletionOverlay = Boolean\(completionResult && premiumProfile && game\.id !== "rocket-run"\)/);
+  assert.match(playerImplementation, /const hasBlockingOverlay = startLevel === null \|\| showQuit \|\| showGuide \|\| hasPremiumCompletionOverlay/);
+  assert.match(playerImplementation, /const hasEngineOwnedCompletion = Boolean\(completionResult && !hasPremiumCompletionOverlay\)/);
+  assert.match(playerImplementation, /querySelectorAll\("\.lg-game-player-main button:not\(\[disabled\]\)"\)/);
+  assert.match(playerImplementation, /<main className="lg-game-player-main" inert=\{hasBlockingOverlay \? true : undefined\}>/);
+  assert.match(playerImplementation, /const scope = blockingDialogRef\.current \|\| playerRef\.current/);
+  assert.match(playerImplementation, /document\.addEventListener\("keydown", onKeyDown, true\)/);
+  assert.match(playerImplementation, /if \(showGuide\) setShowGuide\(false\);\n {6}else if \(showQuit\) setShowQuit\(false\);/);
 });
 
 test("Rocket Run keeps the exact target cue replayable and reinforces it after every catch", () => {
@@ -130,6 +150,16 @@ test("Rocket Run keeps the exact target cue replayable and reinforces it after e
   assert.match(implementation, /await speakWord\(bubble\.userData\.word\)/);
   assert.match(implementation, /await speakPhoneme\(roundTarget\)/);
   assert.match(implementation, /starts with '" \+ roundTarget \+ "' ✓/);
+  assert.match(implementation, /isolateRocketRunCompletion\(hud, overlay, done\)/);
+  assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, retry, "Retry Rocket Run round"\)/);
+  assert.match(implementation, /isolateRocketRunActionOverlay\(hud, overlay, next, "Rocket Run round complete"\)/);
+  assert.match(implementation, /"min-height:56px"/);
+  assert.match(implementation, /<button type="button" data-rr="done"/);
+  const rocketCompletion = readFileSync("src/components/learn/games/shared/rocketRunCompletion.js", "utf8");
+  assert.match(rocketCompletion, /overlay\.setAttribute\("aria-modal", "true"\)/);
+  assert.match(rocketCompletion, /child\.inert = child !== overlay/);
+  assert.match(rocketCompletion, /overlay\.addEventListener\("keydown", trapFocus\)/);
+  assert.match(rocketCompletion, /child\.inert = wasInert/);
   assert.doesNotMatch(implementation, /\belse say\(\(\) => speak\(/);
 });
 

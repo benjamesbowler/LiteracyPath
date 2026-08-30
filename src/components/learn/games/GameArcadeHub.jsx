@@ -257,7 +257,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         ))}
       </div>
 
-      {/* 6-wide tile grid: large game image + name (11 arcade games = 6 + 5) */}
+      {/* Responsive tile grid: one authored image and a readable name per game. */}
       <div
         className="lg-game-tilegrid"
         id="lg-arcade-tabpanel"
@@ -281,8 +281,9 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
             >
               <span className="lg-game-tile-art" aria-hidden="true">
                 <img
-                  src={`/images/learn-games/art/${game.id}.webp`}
+                  src={game.cardArt || `/images/learn-games/art/${game.id}.webp`}
                   alt=""
+                  className={game.cardArt === game.icon ? "is-icon" : undefined}
                   onError={event => {
                     event.currentTarget.onerror = null;
                     event.currentTarget.src = game.icon;

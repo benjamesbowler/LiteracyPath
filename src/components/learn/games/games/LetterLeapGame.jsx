@@ -44,6 +44,7 @@ function pickFoeType(worldKey, levelIndex, k) {
 const GRAV = 0.62, MOVE = 4.8, JUMP = 13.6, GROUND_H = 96;
 const SEG = 440, WORD_GAP = 560, MAXH = 5;
 const FIXED_STEP = 1 / 60;
+const MAX_RETINA_BACKING_PIXELS = 1_600_000;
 // First-run onboarding dismissal is remembered once per device; a denied
 // storage (private mode) simply shows the card again next session.
 const ONBOARD_KEY = "lp-arcade-onboarded-v1:letter-leap";
@@ -128,6 +129,37 @@ function letterLeapDecorativeTime(reduceMotion, nowMs) {
   return reduceMotion ? 0 : nowMs * 0.001;
 }
 
+function letterLeapRenderScale(width, height, devicePixelRatio = 1) {
+  const requestedScale = Math.min(Math.max(Number(devicePixelRatio) || 1, 1), 2);
+  const backingPixels = Math.max(1, width) * Math.max(1, height) * requestedScale * requestedScale;
+  return backingPixels > MAX_RETINA_BACKING_PIXELS ? 1 : requestedScale;
+}
+
+function letterLeapInitialChoiceCenter(width) {
+  return Math.max(200, Math.min(320, Math.max(1, width) - 120));
+}
+
+function letterLeapChoiceAheadDistance(width) {
+  return Math.max(150, Math.min(280, Math.max(1, width) * 0.44));
+}
+
+function letterLeapChoiceSpacing(width) {
+  return Math.max(72, Math.min(84, Math.max(1, width) * 0.2));
+}
+
+function letterLeapCameraLookahead(width) {
+  return Math.min(90, Math.max(48, Math.max(1, width) * 0.16));
+}
+
+function letterLeapGroundHeight(height) {
+  // The shared arcade shell can leave only ~164 CSS px below its header on a
+  // 568x320 phone. Reserving the full desktop dirt band in that space put the
+  // player and every letter behind the top HUD. Keep the playable baseline
+  // below the compact target strip while retaining the authored 96px ground
+  // everywhere with enough vertical room.
+  return Math.min(GROUND_H, Math.max(40, Math.round(Math.max(1, height) * 0.25)));
+}
+
 function findLetterLeapRecoveryCenter(level, requestedCenterX, segmentWidth = 440) {
   let centerX = requestedCenterX;
   for (let attempts = 0; attempts < level.bubbles.length + 4; attempts += 1) {
@@ -150,6 +182,18 @@ function findLetterLeapRecoveryCenter(level, requestedCenterX, segmentWidth = 44
     centerX += segmentWidth;
   }
   return centerX;
+}
+
+function reserveLetterLeapChoiceLane(level, centerX, halfWidth = 118) {
+  const overlaps = (left, right) => centerX + halfWidth > left && centerX - halfWidth < right;
+  // A literacy retry is the primary game action. If the nearest readable retry
+  // lane is occupied, clear that small corridor instead of teleporting all
+  // three letters several screens away. The old behaviour made a single wrong
+  // choice look as though the letters had vanished.
+  level.pits = level.pits.filter(pit => !overlaps(pit[0], pit[1]));
+  level.blocks = level.blocks.filter(block => !overlaps(block.x, block.x + block.w));
+  level.plats = level.plats.filter(platform => !overlaps(platform.x, platform.x + platform.w));
+  level.foes = level.foes.filter(foe => !overlaps(foe.x0, foe.x1));
 }
 
 function startGame(mount, opts) {
@@ -186,14 +230,19 @@ function startGame(mount, opts) {
   mount.appendChild(cv);
   const ctx = cv.getContext("2d");
   let W = 0, H = 0;
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let DPR = 1;
+  let rebuildVisualOverlay = () => {};
   function resize() {
-    const previousGroundY = H > 0 ? H - GROUND_H : null;
+    const previousGroundY = H > 0 ? H - letterLeapGroundHeight(H) : null;
     W = mount.clientWidth || 640; H = mount.clientHeight || 460;
     if (previousGroundY != null) {
-      rebaseLetterLeapWorld(level, player, (H - GROUND_H) - previousGroundY);
+      rebaseLetterLeapWorld(level, player, (H - letterLeapGroundHeight(H)) - previousGroundY);
     }
-    cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    DPR = letterLeapRenderScale(W, H, window.devicePixelRatio || 1);
+    cv.width = Math.max(1, Math.round(W * DPR));
+    cv.height = Math.max(1, Math.round(H * DPR));
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    rebuildVisualOverlay();
   }
   resize();
   const ro = new ResizeObserver(resize); ro.observe(mount);
@@ -201,16 +250,42 @@ function startGame(mount, opts) {
   const hud = document.createElement("div");
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;z-index:4";
   hud.innerHTML =
-    '<div style="position:absolute;inset:0;opacity:.16;background:repeating-linear-gradient(180deg,rgba(255,255,255,.22) 0 1px,transparent 1px 4px),radial-gradient(92% 86% at 50% 52%,transparent 58%,rgba(0,0,0,.56));mix-blend-mode:screen"></div>' +
-    '<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:linear-gradient(92deg,rgba(7,12,32,.92),rgba(22,39,83,.76));padding:9px 20px 11px;border:1px solid rgba(126,232,255,.42);clip-path:polygon(14px 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,14px 100%,0 50%);box-shadow:0 10px 28px rgba(0,0,0,.36),inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(6px)">' +
-      '<img data-ll="picture" alt="" style="display:none;width:54px;height:54px;object-fit:contain;border-radius:9px;background:rgba(255,255,255,.9);padding:3px;box-shadow:0 4px 12px rgba(0,0,0,.28)">' +
-      '<div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span data-ll="lab" style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#8ff6ff;opacity:.86">Spell the picture word</span>' +
+    '<div data-ll="target-panel" style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;min-height:78px;background:linear-gradient(92deg,rgba(7,12,32,.94),rgba(22,39,83,.82));padding:10px 24px 13px;border:1px solid rgba(126,232,255,.52);clip-path:polygon(14px 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,14px 100%,0 50%);box-shadow:0 12px 30px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,255,255,.12);backdrop-filter:blur(6px)">' +
+      '<img data-ll="picture" alt="" style="display:none;width:64px;height:64px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.94);padding:4px;box-shadow:0 5px 14px rgba(0,0,0,.3)">' +
+      '<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><span data-ll="lab" style="font-size:clamp(.82rem,1.35vw,1rem);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#b7f9ff;opacity:.98;text-wrap:balance">Choose the next letter</span>' +
       '<div data-ll="word" style="display:flex;gap:7px"></div></div></div>' +
     '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:900;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:7px 14px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.26)">Coins x0</div>' +
     '<div data-ll="hearts" style="position:absolute;top:14px;right:16px;font-size:1.5rem;letter-spacing:2px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))">❤❤❤</div>' +
     '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8ff6ff;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:5px 12px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)">Meadow</div>' +
     '<button data-ll="hear" type="button" aria-label="Hear the word" style="display:none;position:absolute;top:86px;right:16px;width:56px;height:56px;pointer-events:auto;border:1px solid rgba(126,232,255,.5);background:rgba(7,12,32,.82);color:#fff;font-size:1.25rem;font-weight:900;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.3)">♪</button>';
   mount.appendChild(hud);
+  const responsiveStyle = document.createElement("style");
+  responsiveStyle.textContent =
+    '@media (max-width:600px){' +
+      '.letter-leap [data-ll="target-panel"]{top:8px!important;width:calc(100% - 24px);box-sizing:border-box;justify-content:center;gap:8px!important;min-height:72px!important;padding:7px 12px 9px!important}' +
+      '.letter-leap [data-ll="picture"]{width:52px!important;height:52px!important}' +
+      '.letter-leap [data-ll="lab"]{font-size:.8rem!important;letter-spacing:.06em!important}' +
+      '.letter-leap [data-ll="word"]>div{width:38px!important;height:46px!important;font-size:1.5rem!important}' +
+      '.letter-leap [data-ll="coins"]{top:88px!important;left:10px!important}' +
+      '.letter-leap [data-ll="hearts"]{top:88px!important;right:10px!important}' +
+      '.letter-leap [data-ll="world"]{top:124px!important;right:10px!important}' +
+      '.letter-leap [data-ll="hear"]{top:156px!important;right:10px!important}' +
+    '}' +
+    '@media (max-height:420px) and (orientation:landscape){' +
+      '.letter-leap [data-ll="target-panel"]{top:3px!important;left:50%!important;transform:translateX(-50%)!important;width:auto!important;max-width:calc(100% - 132px)!important;min-height:56px!important;gap:7px!important;padding:4px 11px 6px!important}' +
+      '.letter-leap [data-ll="picture"]{width:44px!important;height:44px!important;padding:2px!important}' +
+      '.letter-leap [data-ll="lab"]{font-size:.78rem!important;line-height:1.08!important;letter-spacing:.04em!important}' +
+      '.letter-leap [data-ll="word"]{gap:3px!important}' +
+      '.letter-leap [data-ll="word"]>div{width:34px!important;height:40px!important;font-size:1.25rem!important;border-width:1px!important}' +
+      '.letter-leap [data-ll="coins"],.letter-leap [data-ll="world"]{display:none!important}' +
+      '.letter-leap [data-ll="hearts"]{top:4px!important;right:7px!important;font-size:1.05rem!important}' +
+      '.letter-leap [data-ll="hear"]{top:30px!important;right:6px!important;width:56px!important;height:56px!important}' +
+      '.letter-leap [data-ll="move-controls"]{bottom:4px!important;left:4px!important;gap:4px!important}' +
+      '.letter-leap [data-ll="move-controls"] button{width:56px!important;height:56px!important}' +
+      '.letter-leap [data-ll="leap-controls"]{bottom:4px!important;right:4px!important}' +
+      '.letter-leap [data-ll="jump"]{width:96px!important;height:56px!important;font-size:.82rem!important;box-shadow:0 5px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.24)!important}' +
+    '}';
+  mount.appendChild(responsiveStyle);
   const elWord = hud.querySelector('[data-ll="word"]');
   const elLab = hud.querySelector('[data-ll="lab"]');
   const elHearts = hud.querySelector('[data-ll="hearts"]');
@@ -223,12 +298,13 @@ function startGame(mount, opts) {
   const padWrap = document.createElement("div");
   padWrap.style.cssText = "position:absolute;inset:0;z-index:6;pointer-events:none";
   padWrap.innerHTML =
-    '<div style="position:absolute;bottom:20px;left:20px;display:flex;gap:12px;pointer-events:auto">' +
-      '<button data-ll="left" aria-label="Move left" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(18px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">◀</button>' +
-      '<button data-ll="right" aria-label="Move right" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(10px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">▶</button></div>' +
-    '<div style="position:absolute;bottom:20px;right:20px;pointer-events:auto">' +
-      '<button data-ll="jump" aria-label="Jump" style="width:96px;height:76px;border:1px solid rgba(255,255,255,.62);background:linear-gradient(160deg,#ffe879,#ff9f24);color:#20140a;font-size:1rem;font-weight:900;letter-spacing:.04em;box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18);clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)">JUMP</button></div>';
+    '<div data-ll="move-controls" style="position:absolute;bottom:20px;left:20px;display:flex;gap:12px;pointer-events:auto">' +
+      '<button type="button" data-ll="left" aria-label="Move left" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.5);background:rgba(7,12,32,.68);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(18px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32);transition:filter .12s ease,transform .12s ease">◀</button>' +
+      '<button type="button" data-ll="right" aria-label="Move right" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.5);background:rgba(7,12,32,.68);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(10px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32);transition:filter .12s ease,transform .12s ease">▶</button></div>' +
+    '<div data-ll="leap-controls" style="position:absolute;bottom:20px;right:20px;pointer-events:auto">' +
+      '<button type="button" data-ll="jump" aria-label="Leap right" style="width:112px;height:76px;border:1px solid rgba(255,255,255,.72);background:linear-gradient(160deg,#ffe879,#ff9f24);color:#20140a;font-size:1rem;font-weight:900;letter-spacing:.04em;box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.24);clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);transition:filter .12s ease,transform .12s ease">LEAP ▶</button></div>';
   mount.appendChild(padWrap);
+  const elJump = padWrap.querySelector('[data-ll="jump"]');
 
   const overlay = document.createElement("div");
   overlay.style.cssText = "position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:24px;z-index:20;background:radial-gradient(120% 90% at 50% 25%,rgba(20,40,70,.72),rgba(6,10,22,.94))";
@@ -244,7 +320,33 @@ function startGame(mount, opts) {
       grainCtx.fillRect(x, y, 1, 1);
     }
   }
-  const grainPattern = ctx.createPattern(grainCanvas, "repeat");
+  const visualOverlay = document.createElement("canvas");
+  rebuildVisualOverlay = () => {
+    visualOverlay.width = Math.max(1, Math.round(W));
+    visualOverlay.height = Math.max(1, Math.round(H));
+    const overlayCtx = visualOverlay.getContext("2d");
+    overlayCtx.clearRect(0, 0, W, H);
+    const grainPattern = overlayCtx.createPattern(grainCanvas, "repeat");
+    if (grainPattern) {
+      overlayCtx.globalAlpha = 0.12;
+      overlayCtx.fillStyle = grainPattern;
+      overlayCtx.fillRect(0, 0, W, H);
+      overlayCtx.globalAlpha = 1;
+    }
+    const light = overlayCtx.createLinearGradient(0, 0, 0, H);
+    light.addColorStop(0, "rgba(220,248,255,.05)");
+    light.addColorStop(0.6, "rgba(255,255,255,0)");
+    light.addColorStop(1, "rgba(4,10,24,.12)");
+    overlayCtx.fillStyle = light;
+    overlayCtx.fillRect(0, 0, W, H);
+    const vignette = overlayCtx.createRadialGradient(W / 2, H / 2, H * 0.36, W / 2, H / 2, H * 0.94);
+    vignette.addColorStop(0, "rgba(0,0,0,0)");
+    vignette.addColorStop(0.76, "rgba(3,8,20,.12)");
+    vignette.addColorStop(1, "rgba(3,8,20,.48)");
+    overlayCtx.fillStyle = vignette;
+    overlayCtx.fillRect(0, 0, W, H);
+  };
+  rebuildVisualOverlay();
 
   function panelPath(x, y, w, h, cut = 10) {
     ctx.beginPath();
@@ -258,26 +360,8 @@ function startGame(mount, opts) {
     ctx.closePath();
   }
 
-  function drawPs2Overlay(time) {
-    ctx.save();
-    if (grainPattern) {
-      ctx.globalAlpha = 0.42;
-      ctx.fillStyle = grainPattern;
-      ctx.translate(Math.floor(time * 9) % 96, Math.floor(time * 5) % 96);
-      ctx.fillRect(-96, -96, W + 192, H + 192);
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    }
-    ctx.globalAlpha = 0.13;
-    ctx.fillStyle = "#ffffff";
-    for (let y = 0; y < H; y += 4) ctx.fillRect(0, y, W, 1);
-    ctx.globalAlpha = 1;
-    const vig = ctx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.92);
-    vig.addColorStop(0, "rgba(0,0,0,0)");
-    vig.addColorStop(0.72, "rgba(0,0,0,.2)");
-    vig.addColorStop(1, "rgba(0,0,0,.56)");
-    ctx.fillStyle = vig;
-    ctx.fillRect(0, 0, W, H);
-    ctx.restore();
+  function drawCinematicOverlay() {
+    ctx.drawImage(visualOverlay, 0, 0, W, H);
   }
 
   function drawDepthScenery(time) {
@@ -323,10 +407,13 @@ function startGame(mount, opts) {
   let words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, frameAccumulator = 0, invuln = 0;
   let particles = [], spores = [], floats = [];
   let score = 0, wrongHits = 0, wordsDoneGlobal = 0;
+  let wordTransitionT = 0;
   const completedWordEvidence = new Set(); // stage/leg/word keys survive catch-up replays without double-counting
   // Modern game-feel state (Mission 1)
   const COYOTE = 0.12, JUMP_BUFFER = 0.14;
   let coyoteT = 0, jumpBufT = 0, runDustT = 0, shakeT = 0;
+  let tapMoveT = 0, tapMoveDir = 0, pointerJumpHoldT = 0, autoLeapT = 0, autoLeapStopX = null;
+  let touchChoiceArmed = true;
   let coins = 0, starTokens = 0, starFlash = 0; // collectibles (Mission 2)
   let idleT = 0; // idle-animation timer (Mission 5)
   const startLevel = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
@@ -336,7 +423,7 @@ function startGame(mount, opts) {
   let rafId = 0;
 
   function addScore(n) { score += n; opts.onScoreUpdate && opts.onScoreUpdate(score); }
-  function groundY() { return H - GROUND_H; }
+  function groundY() { return H - letterLeapGroundHeight(H); }
 
   function canHearTarget() {
     return Boolean(word && opts.getSound?.() && hasRecordedSpeech(word));
@@ -364,7 +451,9 @@ function startGame(mount, opts) {
     const hard = worldKey !== "meadow";
     const choicePlan = buildLetterLeapChoicePlan(levelWords, worldKey, levelIndex);
 
-    let cx = 320;
+    // Keep all three equivalent choices inside a narrow phone viewport. The
+    // former fixed x=320 start put the right-hand option offscreen at 390px.
+    let cx = letterLeapInitialChoiceCenter(W);
     levelWords.forEach((up, wi) => {
       for (let i = 0; i < up.length; i += 1) {
         // Every grapheme is one freshly shuffled three-choice decision. All
@@ -381,9 +470,10 @@ function startGame(mount, opts) {
           blocks.push({ x: cx - 194, y: groundY() - 60, w: 44, h: 40, type: "brick", broken: false, used: false });
           bubbleY = py - 40;
         }
+        const choiceSpacing = letterLeapChoiceSpacing(W);
         for (const choice of decision.choices) {
           bubbles.push({
-            x: cx + choice.offsetX,
+            x: cx + Math.sign(choice.offsetX) * choiceSpacing,
             y: bubbleY,
             ch: choice.ch,
             word: choice.word,
@@ -477,7 +567,14 @@ function startGame(mount, opts) {
   function refreshChoiceGroup(choiceId, requestedCenterX) {
     const choices = level.bubbles.filter(bubble => bubble.choiceId === choiceId);
     if (!choices.length) return;
-    const centerX = findLetterLeapRecoveryCenter(level, requestedCenterX);
+    const scannedCenter = findLetterLeapRecoveryCenter(level, requestedCenterX);
+    // One full segment is already beyond a phone's readable choice lane. Keep
+    // the recovery close and reserve that corridor when the scan would jump a
+    // whole scene past a secondary obstacle.
+    const centerX = scannedCenter - requestedCenterX <= letterLeapChoiceSpacing(W)
+      ? scannedCenter
+      : requestedCenterX;
+    reserveLetterLeapChoiceLane(level, centerX);
     // A recovery cluster must not sit over a hazard. Only this decision is
     // visible, so inactive later choices can safely reuse the same course space
     // and will be placed in turn when they become current.
@@ -485,7 +582,8 @@ function startGame(mount, opts) {
       level.flag = centerX + 260;
       level.L = Math.max(level.L, level.flag + 160);
     }
-    const offsets = [-84, 0, 84];
+    const spacing = letterLeapChoiceSpacing(W);
+    const offsets = [-spacing, 0, spacing];
     shuffleArr(choices.slice()).forEach((choice, slot) => {
       choice.x = centerX + offsets[slot];
       choice.y = groundY() - 46;
@@ -498,7 +596,7 @@ function startGame(mount, opts) {
     }
   }
 
-  function keepCurrentChoiceAhead(requestedCenterX = player?.x + 280) {
+  function keepCurrentChoiceAhead(requestedCenterX = player?.x + letterLeapChoiceAheadDistance(W)) {
     if (!level || !player || !Number.isFinite(requestedCenterX)) return;
     const target = level.bubbles.find(choice => (
       !choice.taken &&
@@ -506,9 +604,12 @@ function startGame(mount, opts) {
       choice.order === nextIx &&
       isLetterLeapCurrentChoice(choice, wIx, nextIx)
     ));
-    if (target && target.x < player.x + 72) {
-      refreshChoiceGroup(target.choiceId, requestedCenterX);
-    }
+    // Newly activated decisions were authored a full 440px course segment
+    // apart. On phones that leaves the next group clipped at the right edge,
+    // even though the previous letter was collected correctly. Re-seat every
+    // newly active group in the same readable lane; this also fresh-shuffles
+    // the three equivalent positions without revealing the answer.
+    if (target) refreshChoiceGroup(target.choiceId, requestedCenterX);
   }
 
   function startStage() {
@@ -518,6 +619,7 @@ function startGame(mount, opts) {
     legs = allStageSentences[stageIdx]; legIx = 0;
     words = (legs ? legs[0] : allStageWords[stageIdx]).slice();
     wIx = 0; word = words[0] || ""; nextIx = 0;
+    wordTransitionT = 0;
     level = makeLevel(words, world, stageIdx);
     player = { x: 70, y: groundY() - 46, w: 32, h: 46, vx: 0, vy: 0, onGround: true, face: 1, anim: 0, spawnX: 70, squash: 0 };
     hearts = 3; cam = 0; invuln = 0; particles = [];
@@ -536,7 +638,7 @@ function startGame(mount, opts) {
     for (let i = 0; i < word.length; i += 1) {
       const s = document.createElement("div");
       const done = i < nextIx, isNext = i === nextIx;
-      s.style.cssText = "width:38px;height:46px;display:grid;place-items:center;font-size:1.58rem;font-weight:900;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);text-shadow:none;" +
+      s.style.cssText = "width:44px;height:52px;display:grid;place-items:center;font-size:1.75rem;font-weight:900;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);text-shadow:none;" +
         (done
           ? "background:linear-gradient(160deg,#ffe879,#ff9f24);color:#20140a;border:1px solid rgba(255,255,255,.66);box-shadow:0 4px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18)"
           : isNext
@@ -566,7 +668,7 @@ function startGame(mount, opts) {
         index === wIx ? "_".repeat(Math.max(2, String(part).length)) : part
       )).join(" ") || "Build the sentence";
     } else {
-      elLab.textContent = "Word " + (wIx + 1) + " of " + words.length + " · spell the picture";
+      elLab.textContent = "Choose letter " + (nextIx + 1) + " of " + word.length + " · word " + (wIx + 1) + " of " + words.length;
     }
     syncHearControl();
   }
@@ -599,8 +701,25 @@ function startGame(mount, opts) {
     } else {
       addFloat(player.x, player.y - 34, "✓ saved");
     }
-    if (wIx < words.length - 1) { wIx += 1; word = words[wIx]; nextIx = 0; }
+    // Keep the completed spelling on screen long enough to read. Previously
+    // the slots were replaced by the next word in the same collision frame,
+    // which made correct play look as if it had been discarded.
     renderWord();
+    elLab.textContent = word + " built · get ready";
+    wordTransitionT = reduceMotion ? 0.48 : 0.72;
+    releaseInputs();
+  }
+  function finishWordTransition() {
+    wordTransitionT = 0;
+    if (wIx < words.length - 1) {
+      wIx += 1;
+      word = words[wIx];
+      nextIx = 0;
+      renderWord();
+      keepCurrentChoiceAhead();
+      return;
+    }
+    elLab.textContent = word + " built · reach the finish";
   }
   // Sentence stage: after building one sentence, roll on to the next one in the
   // bucket (fresh strip of letter bubbles), so a hard level plays ALL its sentences.
@@ -608,6 +727,7 @@ function startGame(mount, opts) {
     legIx += 1;
     words = legs[legIx].slice();
     wIx = 0; word = words[0] || ""; nextIx = 0;
+    wordTransitionT = 0;
     level = makeLevel(words, world, stageIdx);
     player.x = 70; player.y = groundY() - 46; player.vx = 0; player.vy = 0; player.spawnX = 70; cam = 0;
     elLab.dataset.goal = legs[legIx].join(" ");
@@ -636,19 +756,50 @@ function startGame(mount, opts) {
     "color:#20140a",
     "background:linear-gradient(160deg,#ffe879,#ff9f24)",
     "border:1px solid rgba(255,255,255,.62)",
+    "min-width:168px",
+    "min-height:56px",
     "padding:14px 32px",
     "clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)",
     "box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18)",
     "cursor:pointer"
   ].join(";");
 
+  let overlayFocusTrap = null;
+  function closeOverlayDialog() {
+    if (overlayFocusTrap) overlay.removeEventListener("keydown", overlayFocusTrap);
+    overlayFocusTrap = null;
+    overlay.style.display = "none";
+    overlay.removeAttribute("role");
+    overlay.removeAttribute("aria-modal");
+    overlay.removeAttribute("aria-label");
+    hud.inert = false;
+    padWrap.inert = false;
+  }
+  function openOverlayDialog(label) {
+    closeOverlayDialog();
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", label);
+    hud.inert = true;
+    padWrap.inert = true;
+    overlay.style.display = "grid";
+    const cta = overlay.querySelector('[data-ll="cta"]');
+    overlayFocusTrap = event => {
+      if (event.key !== "Tab") return;
+      event.preventDefault();
+      cta?.focus();
+    };
+    overlay.addEventListener("keydown", overlayFocusTrap);
+    cta?.focus();
+  }
+
   function showOverlay(title, text, btnLabel, fn) {
     overlay.innerHTML =
       '<div style="max-width:520px;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)"><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">' + title + '</h1>' +
       '<p style="opacity:.9;margin:10px auto 22px;max-width:440px;line-height:1.4">' + text + '</p>' +
       '<button data-ll="cta" style="' + ctaStyle + '">' + btnLabel + '</button></div>';
-    overlay.style.display = "grid";
-    overlay.querySelector('[data-ll="cta"]').onclick = () => { overlay.style.display = "none"; sfx(playTapSound); fn(); };
+    openOverlayDialog(title);
+    overlay.querySelector('[data-ll="cta"]').onclick = () => { closeOverlayDialog(); sfx(playTapSound); fn(); };
   }
   // Results tally card (Mission 2/4): counts of what the child actually collected.
   function showTally(title, btnLabel, fn) {
@@ -662,8 +813,8 @@ function startGame(mount, opts) {
       'Stars this stage &nbsp;<b>' + ("★".repeat(stageStars) + "☆".repeat(3 - stageStars)) + '</b><br>' +
       'Score &nbsp;<b>' + score + '</b></div>' +
       '<button data-ll="cta" style="' + ctaStyle + ';margin-top:4px">' + btnLabel + '</button></div>';
-    overlay.style.display = "grid";
-    overlay.querySelector('[data-ll="cta"]').onclick = () => { overlay.style.display = "none"; sfx(playTapSound); fn(); };
+    openOverlayDialog(title);
+    overlay.querySelector('[data-ll="cta"]').onclick = () => { closeOverlayDialog(); sfx(playTapSound); fn(); };
   }
 
   // First-run onboarding: one goal line + the controls (desktop AND touch),
@@ -672,19 +823,17 @@ function startGame(mount, opts) {
   function showOnboarding() {
     overlay.innerHTML =
       '<div style="max-width:520px;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)"><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">Letter Leap</h1>' +
-      '<p style="opacity:.9;margin:10px auto 14px;max-width:440px;line-height:1.4">Run and jump to grab each letter in order and spell the word!</p>' +
+      '<p style="opacity:.94;margin:10px auto 14px;max-width:440px;line-height:1.4">Look at the picture. Collect each letter in order to spell the word.</p>' +
       '<ul style="text-align:left;opacity:.9;margin:0 auto 22px;max-width:400px;line-height:1.55;padding-left:20px">' +
-        '<li><b>Desktop:</b> Arrow keys to run, Space or Up arrow to jump.</li>' +
-        '<li><b>Touch:</b> hold &#9664; &#9654; to move, tap JUMP to leap.</li>' +
-        '<li>Read or listen, then choose the next letter — steer clear of wrong letters and grumpers.</li></ul>' +
-      '<button data-ll="cta" style="' + ctaStyle + '">Tap to play</button></div>';
-    overlay.style.display = "grid";
+        '<li><b>Move:</b> Arrow keys or A/D. Tap or hold &#9664; &#9654; on touch screens.</li>' +
+        '<li><b>Leap:</b> Space or Up. On touch, LEAP moves safely past letters; tap an arrow to choose.</li></ul>' +
+      '<button data-ll="cta" style="' + ctaStyle + '">Start leaping</button></div>';
+    openOverlayDialog("Letter Leap instructions");
     const btn = overlay.querySelector('[data-ll="cta"]');
-    if (btn) btn.focus(); // keyboard kids can dismiss with Enter/Space
     btn.onclick = () => {
       try { window.localStorage.setItem(ONBOARD_KEY, "1"); } catch { /* storage optional */ }
-      overlay.style.display = "none";
-      keys.left = keys.right = keys.jump = false; jumpBufT = 0; // the dismiss tap/key never leaks a buffered jump
+      closeOverlayDialog();
+      releaseInputs(); // the dismiss tap/key never leaks a buffered jump
       onboarding = false;
       sfx(playTapSound);
       resume();
@@ -700,12 +849,52 @@ function startGame(mount, opts) {
   }
 
   // ── input ─────────────────────────────────────────────────────────────────
+  function releaseInputs() {
+    keys.left = keys.right = keys.jump = false;
+    jumpBufT = 0;
+    tapMoveT = 0;
+    tapMoveDir = 0;
+    pointerJumpHoldT = 0;
+    autoLeapT = 0;
+    autoLeapStopX = null;
+    touchChoiceArmed = true;
+  }
+  function syncLeapDirection() {
+    if (!elJump) return;
+    const movingLeft = player?.face < 0;
+    elJump.setAttribute("aria-label", movingLeft ? "Leap left" : "Leap right");
+    elJump.textContent = movingLeft ? "LEAP ◀" : "LEAP ▶";
+  }
+  function nextTouchLeapStop() {
+    if (!level || !player) return null;
+    const active = level.bubbles
+      .filter(bubble => !bubble.taken && isLetterLeapCurrentChoice(bubble, wIx, nextIx))
+      .map(bubble => bubble.x)
+      .sort((a, b) => a - b);
+    if (active.length < 3) return player.x + player.face * 190;
+    const stops = [
+      (active[0] + active[1]) / 2,
+      (active[1] + active[2]) / 2,
+      active[2] + 54
+    ];
+    if (player.face < 0) {
+      stops.unshift(active[0] - 54);
+      return stops.slice().reverse().find(stop => stop < player.x - 20) ?? player.x - 190;
+    }
+    return stops.find(stop => stop > player.x + 20) ?? player.x + 190;
+  }
   const isJumpKey = key => key === " " || verticalDirectionForKey(key) === -1;
   const onKeyDown = e => {
-    if (isInteractiveKeyTarget(e.target)) return;
+    // Shared game chrome keeps native keyboard behaviour, but a touch control
+    // that still owns focus must not make the movement keys appear broken.
+    if (isInteractiveKeyTarget(e.target) && !padWrap.contains(e.target)) return;
+    // Enter and Space activate a focused movement button through its native
+    // click. Away from a button, Space keeps its game-wide leap behaviour.
+    if (padWrap.contains(e.target) && (e.key === "Enter" || e.key === " ")) return;
     const direction = laneDirectionForKey(e.key);
-    if (direction < 0) { keys.left = true; e.preventDefault(); }
-    else if (direction > 0) { keys.right = true; e.preventDefault(); }
+    if (wordTransitionT > 0 && (direction !== 0 || isJumpKey(e.key))) { e.preventDefault(); return; }
+    if (direction < 0) { touchChoiceArmed = true; keys.left = true; e.preventDefault(); }
+    else if (direction > 0) { touchChoiceArmed = true; keys.right = true; e.preventDefault(); }
     else if (isJumpKey(e.key)) {
       keys.jump = true;
       if (!e.repeat) jumpBufT = JUMP_BUFFER;
@@ -722,10 +911,59 @@ function startGame(mount, opts) {
   const holders = [];
   const hold = (sel, k) => {
     const el = padWrap.querySelector(sel);
-    const down = e => { e.preventDefault(); el.setPointerCapture?.(e.pointerId); keys[k] = true; if (k === "jump") jumpBufT = JUMP_BUFFER; };
-    const up = () => { keys[k] = false; };
-    el.addEventListener("pointerdown", down); el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up); el.addEventListener("lostpointercapture", up);
-    holders.push([el, down, up]);
+    const activateTap = () => {
+      if (wordTransitionT > 0) return;
+      if (k === "left" || k === "right") {
+        touchChoiceArmed = true;
+        autoLeapT = 0;
+        autoLeapStopX = null;
+        tapMoveDir = k === "left" ? -1 : 1;
+        tapMoveT = 0.18;
+      } else {
+        jumpBufT = JUMP_BUFFER;
+        pointerJumpHoldT = 0.3;
+        // Stop in the safe gap between the first two choices. The previous
+        // 0.78s assist carried a one-finger leap through its landing and into
+        // the middle letter, so a child could be given a wrong answer they had
+        // never chosen. From this neutral landing they can tap either arrow or
+        // leap once more to reach any of the three positions deliberately.
+        if (!keys.left && !keys.right) {
+          autoLeapT = 1.2;
+          autoLeapStopX = nextTouchLeapStop();
+          touchChoiceArmed = false;
+        }
+      }
+    };
+    const down = e => {
+      e.preventDefault();
+      if (wordTransitionT > 0) return;
+      el.setPointerCapture?.(e.pointerId);
+      el.style.filter = "brightness(1.12)";
+      el.style.transform = "translateY(2px) scale(.98)";
+      keys[k] = true;
+      activateTap();
+    };
+    const click = e => {
+      if (e.detail !== 0) return;
+      e.preventDefault();
+      activateTap();
+    };
+    const up = () => {
+      keys[k] = false;
+      el.style.filter = "";
+      el.style.transform = "";
+    };
+    const cancel = () => {
+      up();
+      if ((k === "left" && tapMoveDir < 0) || (k === "right" && tapMoveDir > 0)) tapMoveT = 0;
+      if (k === "jump") { pointerJumpHoldT = 0; autoLeapT = 0; autoLeapStopX = null; touchChoiceArmed = true; }
+    };
+    el.addEventListener("pointerdown", down);
+    el.addEventListener("pointerup", up);
+    el.addEventListener("pointercancel", cancel);
+    el.addEventListener("lostpointercapture", up);
+    el.addEventListener("click", click);
+    holders.push([el, down, up, cancel, click]);
   };
   hold('[data-ll="left"]', "left"); hold('[data-ll="right"]', "right"); hold('[data-ll="jump"]', "jump");
 
@@ -734,6 +972,16 @@ function startGame(mount, opts) {
     if (!running || !player) return;
     if (invuln > 0) invuln -= dt;
     const p = player;
+    if (wordTransitionT > 0) {
+      wordTransitionT = Math.max(0, wordTransitionT - dt);
+      p.vx = 0;
+      for (const pt of particles) { pt.x += pt.vx; pt.y += pt.vy; pt.vy += 0.3; pt.life -= dt; }
+      particles = particles.filter(pt => pt.life > 0);
+      for (const fl of floats) { fl.y -= dt * 50; fl.life -= dt; }
+      floats = floats.filter(fl => fl.life > 0);
+      if (wordTransitionT === 0) finishWordTransition();
+      return;
+    }
     // Mission 3: move platforms and carry the rider (uses LAST frame's p.stood),
     // then clear p.stood so this frame's collisions can re-establish it.
     for (const pl of level.plats) {
@@ -745,16 +993,39 @@ function startGame(mount, opts) {
       if (p.stood === pl) { p.x += pl.x - pl.prevX; p.y += pl.y - pl.prevY; }
     }
     p.stood = null;
-    p.vx = (keys.right ? MOVE : 0) - (keys.left ? MOVE : 0);
+    const heldAxis = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
+    const assistedAxis = heldAxis || (tapMoveT > 0 ? tapMoveDir : (autoLeapT > 0 ? p.face : 0));
+    p.vx = assistedAxis * MOVE;
     // Coyote time + jump buffering + variable jump height (modern platformer feel).
     coyoteT = p.onGround ? COYOTE : Math.max(0, coyoteT - dt);
     jumpBufT = Math.max(0, jumpBufT - dt);
     if (jumpBufT > 0 && (p.onGround || coyoteT > 0)) {
       p.vy = -JUMP; p.onGround = false; coyoteT = 0; jumpBufT = 0; p.squash = -0.3; sfx(playTapSound);
     }
-    if (!keys.jump && p.vy < -4) p.vy = -4; // release early = shorter hop
+    if (!keys.jump && pointerJumpHoldT <= 0 && p.vy < -4) p.vy = -4; // release early = shorter hop
+    tapMoveT = Math.max(0, tapMoveT - dt);
+    pointerJumpHoldT = Math.max(0, pointerJumpHoldT - dt);
+    autoLeapT = Math.max(0, autoLeapT - dt);
+    if (autoLeapT === 0) autoLeapStopX = null;
     p.vy += GRAV; if (p.vy > 18) p.vy = 18;
-    p.x += p.vx; if (p.vx) p.face = p.vx > 0 ? 1 : -1; p.anim += Math.abs(p.vx) * 0.07;
+    const nextPlayerX = p.x + p.vx;
+    const reachedLeapStop = autoLeapT > 0 && Number.isFinite(autoLeapStopX) && (
+      (p.face > 0 && nextPlayerX >= autoLeapStopX) ||
+      (p.face < 0 && nextPlayerX <= autoLeapStopX)
+    );
+    if (reachedLeapStop) {
+      p.x = autoLeapStopX;
+      p.vx = 0;
+      autoLeapT = 0;
+      autoLeapStopX = null;
+    } else {
+      p.x = nextPlayerX;
+    }
+    if (p.vx) {
+      const nextFace = p.vx > 0 ? 1 : -1;
+      if (nextFace !== p.face) { p.face = nextFace; syncLeapDirection(); }
+    }
+    p.anim += Math.abs(p.vx) * 0.07;
     p.y += p.vy;
     const wasAir = !p.onGround; p.onGround = false;
     const feet = p.y + p.h / 2;
@@ -785,11 +1056,12 @@ function startGame(mount, opts) {
     // would turn recovery into a spatial giveaway.
     const need = level.bubbles.find(b => !b.taken && b.word === wIx && b.order === nextIx);
     if (need && need.x < p.x - 40) {
-      refreshChoiceGroup(need.choiceId, p.x + 320);
+      refreshChoiceGroup(need.choiceId, p.x + letterLeapChoiceAheadDistance(W));
     }
     for (const b of level.bubbles) {
       if (b.taken) continue;
       if (!isLetterLeapCurrentChoice(b, wIx, nextIx)) continue;
+      if (!touchChoiceArmed) continue;
       if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
         if (b.word === -1) {
           if (invuln > 0) continue; // i-frames: never consume a decoy for free
@@ -798,14 +1070,23 @@ function startGame(mount, opts) {
           const tip = "That's " + b.ch + " — you need " + word[Math.min(nextIx, word.length - 1)] + "!";
           addFloat(b.x, b.y - 26, tip); // teach, don't punish: no heart lost
           sfx(() => speak(tip));
-          refreshChoiceGroup(b.choiceId, p.x + 320);
+          refreshChoiceGroup(b.choiceId, p.x + letterLeapChoiceAheadDistance(W));
         }
         else if (b.word === wIx && b.order === nextIx) {
           const alreadySaved = completedWordEvidence.has([stageIdx, legIx, wIx].join(":"));
           clearChoiceGroup(b.choiceId); nextIx += 1; sfx(playPopSound); burst(b.x, b.y, "#ffd34e");
           if (alreadySaved) addFloat(b.x, b.y - 22, "✓ saved");
           else { addScore(10); addFloat(b.x, b.y - 22, "+10"); }
-          if (nextIx >= word.length) wordDone(); else renderWord();
+          if (nextIx >= word.length) wordDone();
+          else {
+            // Each grapheme needs a fresh, deliberate input. Without this gate
+            // one held arrow could run through two newly compacted phone-size
+            // groups and complete multiple letters from a single decision.
+            releaseInputs();
+            touchChoiceArmed = false;
+            p.vx = 0;
+            renderWord();
+          }
           keepCurrentChoiceAhead();
         }
       }
@@ -842,7 +1123,7 @@ function startGame(mount, opts) {
       clearStage();
     } else if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
     // Camera lookahead: bias the view the way the child is facing (SMW feel).
-    const camTarget = Math.max(0, Math.min(level.L - W, p.x - W * 0.35 + p.face * 90));
+    const camTarget = Math.max(0, Math.min(level.L - W, p.x - W * 0.35 + p.face * letterLeapCameraLookahead(W)));
     cam += (camTarget - cam) * Math.min(1, dt * 4);
     for (const pt of particles) { pt.x += pt.vx; pt.y += pt.vy; pt.vy += 0.3; pt.life -= dt; }
     particles = particles.filter(pt => pt.life > 0);
@@ -929,29 +1210,29 @@ function startGame(mount, opts) {
   function bubble(x, y, ch) {
     ctx.save();
     ctx.shadowColor = "rgba(126,232,255,.7)";
-    ctx.shadowBlur = 18;
+    ctx.shadowBlur = 20;
     ctx.fillStyle = "rgba(8,18,42,.58)";
-    panelPath(x - 27, y - 22, 54, 44, 9);
+    panelPath(x - 33, y - 29, 66, 58, 10);
     ctx.fill();
-    const rg = ctx.createLinearGradient(x - 24, y - 20, x + 26, y + 24);
+    const rg = ctx.createLinearGradient(x - 30, y - 27, x + 32, y + 29);
     rg.addColorStop(0, "#eaffff");
     rg.addColorStop(0.34, "#8ff6ff");
     rg.addColorStop(1, "#2f83ff");
     ctx.fillStyle = rg;
-    panelPath(x - 24, y - 20, 48, 40, 8);
+    panelPath(x - 30, y - 27, 60, 54, 9);
     ctx.fill();
     ctx.shadowBlur = 0;
     ctx.strokeStyle = "rgba(255,255,255,.72)";
     ctx.lineWidth = 2;
-    panelPath(x - 24, y - 20, 48, 40, 8);
+    panelPath(x - 30, y - 27, 60, 54, 9);
     ctx.stroke();
     ctx.fillStyle = "#061022";
-    ctx.font = "900 28px Fredoka, sans-serif";
+    ctx.font = "900 32px Fredoka, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(ch, x, y + 2);
     ctx.fillStyle = "rgba(255,255,255,.62)";
-    ctx.fillRect(x - 14, y - 14, 16, 3);
+    ctx.fillRect(x - 17, y - 19, 20, 3);
     ctx.restore();
   }
   function drawBlock(bl) {
@@ -1040,11 +1321,44 @@ function startGame(mount, opts) {
     const p = player; if (invuln > 0 && Math.floor(invuln * 12) % 2 === 0) return;
     const sq = p.squash, sx = 1 - sq, sy = 1 + sq, bob = !reduceMotion && p.onGround ? Math.sin(p.anim) * 1.5 : 0;
     ctx.save();
+    const cueY = p.y - (H >= 220 ? 74 : 54);
+    ctx.shadowColor = "rgba(88,241,255,.84)";
+    ctx.shadowBlur = 14;
+    ctx.strokeStyle = "rgba(126,246,255,.96)";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.ellipse(p.x, groundY() - 2, 30, 9, 0, 0, 7);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    if (H >= 220) {
+      ctx.fillStyle = "rgba(7,12,32,.9)";
+      panelPath(p.x - 27, cueY - 10, 54, 22, 6);
+      ctx.fill();
+      ctx.strokeStyle = "#8ff6ff";
+      ctx.lineWidth = 2;
+      panelPath(p.x - 27, cueY - 10, 54, 22, 6);
+      ctx.stroke();
+      ctx.fillStyle = "#fff";
+      ctx.font = "900 13px Fredoka, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("YOU", p.x, cueY + 1);
+    }
+    ctx.fillStyle = "#ffe879";
+    ctx.strokeStyle = "rgba(7,12,32,.88)";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(p.x - 9, cueY + (H >= 220 ? 17 : 1));
+    ctx.lineTo(p.x + 9, cueY + (H >= 220 ? 17 : 1));
+    ctx.lineTo(p.x, cueY + (H >= 220 ? 29 : 13));
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
     ctx.fillStyle = "rgba(0,0,0,.34)"; ctx.beginPath(); ctx.ellipse(p.x, groundY() - 2 > p.y + 22 ? p.y + 24 : groundY() - 2, 23, 6, 0, 0, 7); ctx.fill();
     ctx.translate(p.x, p.y + bob); ctx.scale(p.face * sx, sy);
     const cim = currentChar();
     if (cim && cim.width) {
-      const h = 72, w = cim.width / cim.height * h;
+      const h = H < 320 ? 82 : 86, w = cim.width / cim.height * h;
       ctx.shadowColor = "rgba(126,232,255,.42)";
       ctx.shadowBlur = 14;
       ctx.drawImage(cim, -w / 2, -h / 2 - 8, w, h);
@@ -1077,7 +1391,8 @@ function startGame(mount, opts) {
       ctx.restore();
     }
     drawDepthScenery(time);
-    const sh = ctx.createLinearGradient(0, H - GROUND_H - 70, 0, H - GROUND_H); sh.addColorStop(0, "rgba(6,10,20,0)"); sh.addColorStop(1, "rgba(6,10,20,.28)"); ctx.fillStyle = sh; ctx.fillRect(0, H - GROUND_H - 70, W, 70);
+    const ground = groundY();
+    const sh = ctx.createLinearGradient(0, ground - 70, 0, ground); sh.addColorStop(0, "rgba(6,10,20,0)"); sh.addColorStop(1, "rgba(6,10,20,.28)"); ctx.fillStyle = sh; ctx.fillRect(0, ground - 70, W, 70);
     return true;
   }
   function draw() {
@@ -1089,13 +1404,13 @@ function startGame(mount, opts) {
       const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, theme.sky[0]); g.addColorStop(0.55, theme.sky[1]); g.addColorStop(1, theme.sky[2]); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
       const gx = W * 0.8, gy = H * 0.2; const cg = ctx.createRadialGradient(gx, gy, 10, gx, gy, 180); cg.addColorStop(0, theme.sun); cg.addColorStop(1, "rgba(255,255,255,0)"); ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H);
       drawDepthScenery(t);
-      treeRow(theme.treeDark, 0.2, H - GROUND_H + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, H - GROUND_H + 14, 220, 140, 0.6);
+      treeRow(theme.treeDark, 0.2, groundY() + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, groundY() + 14, 220, 140, 0.6);
     }
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = reduceMotion ? s.y : s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
     ctx.save(); ctx.translate(-cam + shx, shy);
-    let x = 0; const dg = ctx.createLinearGradient(0, groundY(), 0, H); dg.addColorStop(0, theme.dirt[0]); dg.addColorStop(1, theme.dirt[1]); ctx.fillStyle = dg; ctx.fillRect(0, groundY() + 16, level.L, GROUND_H);
+    let x = 0; const dg = ctx.createLinearGradient(0, groundY(), 0, H); dg.addColorStop(0, theme.dirt[0]); dg.addColorStop(1, theme.dirt[1]); ctx.fillStyle = dg; ctx.fillRect(0, groundY() + 16, level.L, letterLeapGroundHeight(H));
     for (const p of level.pits) { grassStrip(x, p[0] - x); x = p[1]; } grassStrip(x, level.L - x);
     for (const pl of level.plats) platform(pl);
     for (const sp of level.springs) drawSpring(sp);
@@ -1125,14 +1440,13 @@ function startGame(mount, opts) {
     ctx.font = "700 18px Fredoka, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     for (const fl of floats) { ctx.globalAlpha = Math.max(0, fl.life / 0.8); ctx.lineWidth = 4; ctx.strokeStyle = "rgba(6,10,20,.85)"; ctx.strokeText(fl.txt, fl.x, fl.y); ctx.fillStyle = "#fff"; ctx.fillText(fl.txt, fl.x, fl.y); ctx.globalAlpha = 1; }
     ctx.restore();
-    const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.4, W / 2, H / 2, H * 0.85); vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, "rgba(0,0,0,.28)"); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
     // Low-hearts tension: the vignette pulses subtly red at 1 heart.
     if (hearts <= 1 && !reduceMotion) {
       const a = (0.16 + Math.abs(Math.sin(t * 4)) * 0.16).toFixed(3);
       const rv = ctx.createRadialGradient(W / 2, H / 2, H * 0.35, W / 2, H / 2, H * 0.9); rv.addColorStop(0, "rgba(255,40,60,0)"); rv.addColorStop(1, "rgba(255,30,50," + a + ")"); ctx.fillStyle = rv; ctx.fillRect(0, 0, W, H);
     }
     if (starFlash > 0) { ctx.fillStyle = "rgba(255,214,90," + (starFlash * 0.4).toFixed(3) + ")"; ctx.fillRect(0, 0, W, H); }
-    drawPs2Overlay(t);
+    drawCinematicOverlay();
   }
 
   // ── art (committed webp). Per-world playable-character roster so different
@@ -1164,7 +1478,10 @@ function startGame(mount, opts) {
     return out;
   }
   const CHAR_ROSTER = {
-    meadow: ["char-meadow-a.webp", "char-meadow-b.webp", "char-meadow-c.webp"],
+    // Begin with the running rabbit. The former stage-one sheep had the same
+    // still, grounded silhouette as the decorative meadow animals, so children
+    // reasonably read their controllable avatar as background scenery.
+    meadow: ["char-meadow-b.webp", "char-meadow-c.webp", "char-meadow-a.webp"],
     dino: ["char-dino-a.webp", "char-dino-b.webp", "char-dino-c.webp"],
     moonwood: ["char-hero.webp", "char-moonwood-a.webp", "char-moonwood-b.webp"]
   };
@@ -1196,22 +1513,24 @@ function startGame(mount, opts) {
   startStage();
 
   let paused = false, savedRunning = false, onboarding = false;
-  function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
+  function pause() { if (paused) return; paused = true; savedRunning = running; running = false; releaseInputs(); }
   function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); frameAccumulator = 0; if (savedRunning) running = true; }
   maybeOnboard();
   function teardown() {
     running = false;
+    closeOverlayDialog();
     cancelAnimationFrame(rafId);
     window.removeEventListener("keydown", onKeyDown); window.removeEventListener("keyup", onKeyUp);
-    holders.forEach(([el, down, up]) => {
+    holders.forEach(([el, down, up, cancel, click]) => {
       el.removeEventListener("pointerdown", down);
       el.removeEventListener("pointerup", up);
-      el.removeEventListener("pointercancel", up);
+      el.removeEventListener("pointercancel", cancel);
       el.removeEventListener("lostpointercapture", up);
+      el.removeEventListener("click", click);
     });
     elHear?.removeEventListener("click", speakTarget);
     ro.disconnect();
-    [cv, hud, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
+    [cv, hud, responsiveStyle, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
   }
   return { teardown, pause, resume, refreshSoundState: renderWord };
 }
@@ -1252,7 +1571,7 @@ export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, on
     <div
       className="letter-leap"
       ref={mountRef}
-      style={{ position: "relative", width: "100%", height: "100%", minHeight: "460px", overflow: "hidden", background: "#0a1020", touchAction: "none" }}
+      style={{ position: "relative", width: "100%", height: "100%", minHeight: 0, overflow: "hidden", background: "#0a1020", touchAction: "none" }}
     />
   );
 }

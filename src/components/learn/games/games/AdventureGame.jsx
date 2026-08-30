@@ -4,6 +4,7 @@ import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } 
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { IllustratedGameScene } from "../shared/IllustratedGameScene.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
+import { getChildWordAsset } from "../../../../data/childAssets.js";
 import {
   buildAdventureRoundSet,
   adventureStars
@@ -21,27 +22,24 @@ const ONBOARD = {
     key: "lp-arcade-onboarded-v1:word-rescue",
     goal: "Build the bridge by matching each word you hear!",
     hints: [
-      'Tap "Hear word" to listen to the word again.',
-      "Click or tap the matching word to lay a plank.",
-      "A wrong pick only wobbles - try again!"
+      "Listen to the word.",
+      "Tap the matching word to lay a plank."
     ]
   },
   sort: {
     key: "lp-arcade-onboarded-v1:sound-sort-factory",
     goal: "Sort every word into the bin with the same starting sound!",
     hints: [
-      "Read the word riding the factory belt.",
-      "Click or tap the bin whose sound it starts with.",
-      "Sort them all to finish the factory line."
+      "Read the word on the belt.",
+      "Tap its starting-sound bin."
     ]
   },
   garden: {
     key: "lp-arcade-onboarded-v1:letter-garden",
     goal: "Spell each word to grow a flower!",
     hints: [
-      'Tap "Hear word" to listen to the word again.',
-      "Click or tap the letters in order.",
-      "Finish the word and the flower blooms."
+      "Look and listen to the word.",
+      "Tap its letters in order."
     ]
   }
 };
@@ -65,14 +63,28 @@ function markOnboarded(key) {
 // Static card (no animated intro) so prefers-reduced-motion is respected;
 // light panel matches the lg-game-complete card these games already use.
 function AdventureOnboarding({ title, copy, onStart }) {
+  const startRef = useRef(null);
+
   useEffect(() => {
+    const startButton = startRef.current;
+    startButton?.focus({ preventScroll: true });
+    const focusFrame = window.requestAnimationFrame(() => startButton?.focus({ preventScroll: true }));
     const onKey = event => {
+      if (event.key === "Tab") {
+        event.preventDefault();
+        startButton?.focus({ preventScroll: true });
+        return;
+      }
       if (!["Enter", " "].includes(event.key)) return;
-      if (event.target instanceof HTMLButtonElement) return;
+      if (event.target === startButton) return;
+      event.preventDefault();
       onStart();
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("keydown", onKey, true);
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", onKey, true);
+    };
   }, [onStart]);
 
   return (
@@ -108,11 +120,24 @@ function AdventureOnboarding({ title, copy, onStart }) {
       >
         <h2 style={{ margin: 0, color: "#0F172A", fontSize: "clamp(1.4rem, 3vw, 1.9rem)", fontWeight: 700 }}>{title}</h2>
         <p style={{ margin: 0, color: "#475569", fontWeight: 600, lineHeight: 1.4 }}>{copy.goal}</p>
-        <div style={{ display: "grid", gap: 8, textAlign: "left", color: "#334155", fontSize: "0.9rem", lineHeight: 1.45, fontWeight: 600 }}>
-          {copy.hints.map(hint => <span key={hint}>{hint}</span>)}
+        <div style={{ width: "100%", display: "grid", gap: 10, textAlign: "left", color: "#334155", fontSize: "1.02rem", lineHeight: 1.4, fontWeight: 650 }}>
+          {copy.hints.map((hint, index) => (
+            <span key={hint} style={{ minHeight: 44, display: "grid", gridTemplateColumns: "36px 1fr", alignItems: "center", gap: 10 }}>
+              <b aria-hidden="true" style={{ width: 34, height: 34, display: "grid", placeItems: "center", borderRadius: 12, background: "var(--game-accent-soft, #EAF7F0)", color: "#0F172A" }}>{index + 1}</b>
+              {hint}
+            </span>
+          ))}
         </div>
         <div>
-          <button type="button" className="lg-game-primary" onClick={onStart}>Tap to play</button>
+          <button
+            ref={startRef}
+            type="button"
+            className="lg-game-primary"
+            onClick={onStart}
+            style={{ minWidth: 156, minHeight: 56 }}
+          >
+            Tap to play
+          </button>
           <div style={{ marginTop: 8, fontSize: "0.74rem", fontWeight: 700, color: "#64748B" }}>or press Enter</div>
         </div>
       </div>
@@ -218,6 +243,10 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
   const { index, typed, grown, wrongLetter, pickLetter } = state;
   const round = rounds[index] || rounds[rounds.length - 1];
   const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
+  const cueAsset = getChildWordAsset(round?.word);
+  const cueImage = cueAsset?.image || cueAsset?.fallbackImage || "";
+  const [failedCueImage, setFailedCueImage] = useState("");
+  const showPictureCue = Boolean(cueImage) && failedCueImage !== cueImage;
 
   useEffect(() => {
     if (canHearWord && round) speakWord(round.word);
@@ -226,12 +255,20 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
   return (
     <IllustratedGameScene mode="garden" stageClassName="adv-garden">
       <p>Build the word to grow a flower!</p>
-      {canHearWord ? (
-        <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>
-      ) : (
-        // Sound off: the target only exists as audio, so show it as a card.
-        <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
-      )}
+      <div className="adv-word-cue">
+        {showPictureCue && (
+          <img
+            src={cueImage}
+            alt="Picture clue for the word to spell"
+            onError={() => setFailedCueImage(cueImage)}
+          />
+        )}
+        {canHearWord && <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>}
+        {!canHearWord && !showPictureCue && (
+          // No reliable picture or audio cue: show the target so the round stays possible.
+          <span className="adv-belt-item" style={{ animation: "none" }}>{round.word}</span>
+        )}
+      </div>
       <div className="adv-slots" aria-label={`Spell ${round.word}`}>
         {[...round.word].map((letter, i) => (
           <span key={i} className={`adv-slot${i < typed.length ? " filled" : ""}`}>

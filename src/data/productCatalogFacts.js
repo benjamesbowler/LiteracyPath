@@ -5,5 +5,5 @@
 export const PRODUCT_CATALOG_FACTS = Object.freeze({
   guidedReadingBooks: 206,
   skillCycles: 27,
-  learningGames: 21
+  learningGames: 22
 });

@@ -69,3 +69,38 @@ test("Sound Racer hides its target replay control when production sound is off",
   await expect(feedback).toHaveAttribute("aria-live", "polite");
   await expect(feedback).toHaveAttribute("aria-atomic", "true");
 });
+
+test("Sound Racer uses compact visible steering controls without blocking lane keys", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.localStorage.setItem("lp-arcade-onboarded-v1:sound-racer", "1");
+  });
+  await page.goto("/preview/sound-racer-preview.html?difficulty=easy&level=0&sound=0&music=0");
+
+  const hud = page.locator(".sound-racer-hud");
+  const leftZone = hud.locator('[data-sr="left-zone"]');
+  const rightZone = hud.locator('[data-sr="right-zone"]');
+  const leftControl = hud.getByRole("button", { name: "Steer left", exact: true });
+  const rightControl = hud.getByRole("button", { name: "Steer right", exact: true });
+
+  await expect(leftControl).toBeVisible();
+  await expect(rightControl).toBeVisible();
+  for (const control of [leftControl, rightControl]) {
+    const box = await control.boundingBox();
+    expect(box?.width).toBe(68);
+    expect(box?.height).toBe(68);
+  }
+  for (const zone of [leftZone, rightZone]) {
+    await expect(zone).toHaveAttribute("aria-hidden", "true");
+    await expect(zone).toHaveJSProperty("tabIndex", -1);
+  }
+
+  await page.waitForTimeout(3_800);
+  await expect(hud).toHaveAttribute("data-sound-racer-lane", "1");
+  await rightControl.click();
+  await expect(hud).toHaveAttribute("data-sound-racer-lane", "2");
+
+  await rightControl.focus();
+  await expect(rightControl).toBeFocused();
+  await page.keyboard.press("ArrowLeft");
+  await expect(hud).toHaveAttribute("data-sound-racer-lane", "1");
+});

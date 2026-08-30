@@ -106,6 +106,9 @@ export function GamePlayer({
   const engineRef = useRef(null);
   const announcedMilestoneRef = useRef(0);
   const missionReturnPendingRef = useRef(false);
+  const playerRef = useRef(null);
+  const blockingDialogRef = useRef(null);
+  const resumeActionRef = useRef(null);
   const keepPlayingRef = useRef(null);
   const closeGuideRef = useRef(null);
   const completionActionRef = useRef(null);
@@ -114,6 +117,9 @@ export function GamePlayer({
   const scene = sceneForKey(world, game.id);
   const activeGameSurfaceName = gameFullscreenSurfaceName(game);
   const premiumProfile = premiumProfileForGame(game.id);
+  const hasPremiumCompletionOverlay = Boolean(completionResult && premiumProfile && game.id !== "rocket-run");
+  const hasBlockingOverlay = startLevel === null || showQuit || showGuide || hasPremiumCompletionOverlay;
+  const hasEngineOwnedCompletion = Boolean(completionResult && !hasPremiumCompletionOverlay);
 
   useEffect(() => {
     setActiveLearnGamesProgressScope(progressScopeKey);
@@ -188,8 +194,51 @@ export function GamePlayer({
   }, [showGuide]);
 
   useEffect(() => {
-    if (completionResult && game.id !== "rocket-run") completionActionRef.current?.focus();
-  }, [completionResult, game.id]);
+    if (hasPremiumCompletionOverlay) completionActionRef.current?.focus();
+  }, [hasPremiumCompletionOverlay]);
+
+  useEffect(() => {
+    if (!hasEngineOwnedCompletion || game.id === "rocket-run") return;
+    const action = [...(playerRef.current?.querySelectorAll(".lg-game-player-main button:not([disabled])") || [])]
+      .find(element => !element.closest("[inert]") && element.getClientRects().length > 0);
+    action?.focus();
+  }, [game.id, hasEngineOwnedCompletion]);
+
+  useEffect(() => {
+    if (startLevel === null) resumeActionRef.current?.focus();
+  }, [startLevel]);
+
+  // Keep keyboard focus inside the active modal. The game player is portalled
+  // to <body>, so host-page controls remain DOM siblings and would otherwise
+  // become reachable behind the full-screen surface. When a quit, guide,
+  // resume or completion prompt is open, trap within that prompt; otherwise
+  // trap within the complete game player.
+  useEffect(() => {
+    const onKeyDown = event => {
+      if (event.key !== "Tab") return;
+      const scope = blockingDialogRef.current || playerRef.current;
+      if (!scope) return;
+      const focusable = [...scope.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )].filter(element => !element.closest("[inert]") && element.getClientRects().length > 0);
+      if (!focusable.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && (active === first || !scope.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (active === last || !scope.contains(active))) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown, true);
+    return () => document.removeEventListener("keydown", onKeyDown, true);
+  }, [completionResult, showGuide, showQuit, startLevel]);
 
   // Esc mirrors the close button: opens the quit prompt during play, closes
   // it when open, and leaves directly once the game is complete. The resume
@@ -198,13 +247,14 @@ export function GamePlayer({
     const onKeyDown = event => {
       if (event.key !== "Escape") return;
       if (startLevel === null) return;
-      if (showQuit) setShowQuit(false);
+      if (showGuide) setShowGuide(false);
+      else if (showQuit) setShowQuit(false);
       else if (completed) closePlayer();
       else setShowQuit(true);
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [showQuit, completed, startLevel, closePlayer]);
+  }, [showGuide, showQuit, completed, startLevel, closePlayer]);
 
   function handleComplete(stars, finalScore, wordsCompleted) {
     setCompleted(true);
@@ -275,6 +325,7 @@ export function GamePlayer({
   // leave the game as a small band with the page showing around it).
   return createPortal(
     <div
+      ref={playerRef}
       className="lg-game-player"
       role="dialog"
       aria-modal="true"
@@ -285,7 +336,7 @@ export function GamePlayer({
       style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, ...worldStyle(world), "--pal-scene": `url(${scene})` }}
     >
       <div className="pal-scene-backdrop" aria-hidden="true" />
-      <header className="lg-game-player-header">
+      <header className="lg-game-player-header" inert={hasBlockingOverlay || hasEngineOwnedCompletion ? true : undefined}>
         <div className="lg-game-title-chip">
           <strong>{game.title}</strong>
           <span>{difficulty}</span>
@@ -328,7 +379,7 @@ export function GamePlayer({
         </div>
       </header>
 
-      <main className="lg-game-player-main">
+      <main className="lg-game-player-main" inert={hasBlockingOverlay ? true : undefined}>
         <GameErrorBoundary onExit={closePlayer}>
           <Suspense
             fallback={
@@ -359,6 +410,7 @@ export function GamePlayer({
 
       {resumePoint && startLevel === null && (
         <div
+          ref={blockingDialogRef}
           className="lg-game-confirm"
           role="alertdialog"
           aria-modal="true"
@@ -368,7 +420,7 @@ export function GamePlayer({
             <h2>Welcome back</h2>
             <p>You reached level {resumePoint.level + 1}{resumePoint.totalLevels ? ` of ${resumePoint.totalLevels}` : ""}. Pick up where you left off?</p>
             <div>
-              <button type="button" onClick={continueGame}>Continue</button>
+              <button type="button" ref={resumeActionRef} onClick={continueGame}>Continue</button>
               <button type="button" className="danger" onClick={restartGame}>Start over</button>
             </div>
           </div>
@@ -377,6 +429,7 @@ export function GamePlayer({
 
       {showQuit && (
         <div
+          ref={blockingDialogRef}
           className="lg-game-confirm"
           role="alertdialog"
           aria-modal="true"
@@ -395,6 +448,7 @@ export function GamePlayer({
 
       {showGuide && premiumProfile && (
         <div
+          ref={blockingDialogRef}
           className="lg-game-confirm lg-premium-guide"
           role="dialog"
           aria-modal="true"
@@ -423,6 +477,7 @@ export function GamePlayer({
 
       {completionResult && premiumProfile && game.id !== "rocket-run" && (
         <div
+          ref={blockingDialogRef}
           className="lg-game-confirm lg-premium-complete"
           role="alertdialog"
           aria-modal="true"

@@ -50,6 +50,11 @@ import {
   premiumSetpieceBudget
 } from "../shared/premiumGameStandard.js";
 import { createArcadePremiumRenderPipeline } from "../shared/arcadePremiumRender.js";
+import {
+  isolateRocketRunActionOverlay,
+  isolateRocketRunCompletion,
+  restoreRocketRunHud
+} from "../shared/rocketRunCompletion.js";
 
 // Rocket Run: a real, steer-and-collect 3D game (not an animated worksheet).
 // The child flies a rocket across three lanes to catch the words that START
@@ -74,6 +79,68 @@ function rocketRenderTierForViewport(requestedTier, cssWidth, cssHeight, deviceP
   const renderDpr = Math.min(tierDprCap, Math.max(1, Number(devicePixelRatio) || 1));
   const backingPixels = Math.max(1, cssWidth) * Math.max(1, cssHeight) * renderDpr * renderDpr;
   return backingPixels <= ROCKET_PREMIUM_PIXEL_BUDGET ? requestedTier : "low";
+}
+
+// Rocket Run uses discrete lanes, so its visible steering controls can respond
+// as soon as a pointer lands instead of waiting for a later animation frame or
+// click. Holding keeps steering active (until the outer lane is reached), and
+// every release path clears the repeat timer. The wide side-tap zones retain
+// swipe-aware release handling through `attachSteerZones` below.
+function attachRocketPressControl(element, onActivate) {
+  if (!element) return () => {};
+  let pointerId = null;
+  let repeatDelay = 0;
+  let repeatTimer = 0;
+
+  const clearRepeat = () => {
+    window.clearTimeout(repeatDelay);
+    window.clearInterval(repeatTimer);
+    repeatDelay = 0;
+    repeatTimer = 0;
+  };
+  const release = event => {
+    if (pointerId == null) return;
+    if (event?.pointerId != null && event.pointerId !== pointerId) return;
+    clearRepeat();
+    element.dataset.pressed = "false";
+    pointerId = null;
+  };
+  const onPointerDown = event => {
+    if (event.button != null && event.button !== 0) return;
+    // One physical control owns one press. A second finger must not replace the
+    // active pointer and orphan its repeat timer.
+    if (pointerId != null) return;
+    // Prevent a mouse/touch press from moving keyboard focus onto the control.
+    // Keyboard users still reach these real buttons with Tab and receive the
+    // normal compact focus ring.
+    event.preventDefault();
+    pointerId = event.pointerId;
+    element.dataset.pressed = "true";
+    element.setPointerCapture?.(event.pointerId);
+    onActivate();
+    repeatDelay = window.setTimeout(() => {
+      repeatTimer = window.setInterval(onActivate, 220);
+    }, 360);
+  };
+  const onClick = event => {
+    // Enter/Space produce a zero-detail native click. Pointer movement already
+    // happened on pointerdown, so do not double-apply it on the click.
+    if (event.detail === 0) onActivate();
+  };
+
+  element.addEventListener("pointerdown", onPointerDown);
+  element.addEventListener("pointerup", release);
+  element.addEventListener("pointercancel", release);
+  element.addEventListener("lostpointercapture", release);
+  element.addEventListener("click", onClick);
+  return () => {
+    clearRepeat();
+    element.removeEventListener("pointerdown", onPointerDown);
+    element.removeEventListener("pointerup", release);
+    element.removeEventListener("pointercancel", release);
+    element.removeEventListener("lostpointercapture", release);
+    element.removeEventListener("click", onClick);
+  };
 }
 
 // CC0 KayKit scenery already ships in the owned runtime library. Rocket Run
@@ -287,8 +354,10 @@ function startGame(THREE, mount, opts) {
 
   // ── HUD (plain DOM, cleaned up on teardown) ──────────────────────────────
   const hud = document.createElement("div");
+  hud.dataset.rr = "hud";
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.55)";
   hud.innerHTML =
+    '<style>[data-rr-steer-control][data-pressed="true"]{transform:scale(.94)!important;filter:brightness(1.16)!important}</style>' +
     '<div data-rr="lens" style="position:absolute;inset:0;opacity:.16;background:linear-gradient(180deg,rgba(130,218,255,.12),transparent 24%,transparent 76%,rgba(5,8,24,.45));mix-blend-mode:soft-light"></div>' +
     '<div style="position:absolute;top:12px;left:14px;display:flex;align-items:stretch;gap:10px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.32))">' +
     '<button type="button" data-rr="hear-target" aria-label="Hear the target sound again" title="Hear target sound" style="position:relative;width:62px;height:56px;display:grid;place-items:center;padding:0;font:inherit;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;outline-offset:3px"><span data-rr="letter" style="font-size:2rem;font-weight:900;line-height:1"></span><svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" style="position:absolute;right:8px;bottom:5px;opacity:.72"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg></button>' +
@@ -304,8 +373,10 @@ function startGame(THREE, mount, opts) {
     '<div data-rr="stars" style="font-size:1.34rem;letter-spacing:2px">✩✩✩</div>' +
     '<div style="width:176px;height:14px;border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.12);overflow:hidden;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)">' +
     '<i data-rr="fuel" style="display:block;height:100%;width:0%;background:linear-gradient(90deg,#55f0ca,#f4dd57,#ff804d);transition:width .35s cubic-bezier(.2,.9,.3,1)"></i></div></div>' +
-    '<button data-rr="left" aria-label="Steer left" style="position:absolute;left:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
-    '<button data-rr="right" aria-label="Steer right" style="position:absolute;right:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
+    '<div data-rr="left-zone" aria-hidden="true" style="position:absolute;left:0;top:80px;bottom:0;width:42%;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none"></div>' +
+    '<div data-rr="right-zone" aria-hidden="true" style="position:absolute;right:0;top:80px;bottom:0;width:42%;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none"></div>' +
+    '<button type="button" data-rr="left-control" data-rr-steer-control aria-label="Steer left" style="position:absolute;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(127,240,255,.82);border-radius:18px;background:linear-gradient(160deg,rgba(13,40,72,.96),rgba(5,18,38,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8592;</button>' +
+    '<button type="button" data-rr="right-control" data-rr-steer-control aria-label="Steer right" style="position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(127,240,255,.82);border-radius:18px;background:linear-gradient(160deg,rgba(13,40,72,.96),rgba(5,18,38,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8594;</button>' +
     '<div data-rr="reticle" style="position:absolute;left:50%;top:58%;width:72px;height:28px;transform:translate(-50%,-50%);opacity:.38;border-left:2px solid #7ff0ff;border-right:2px solid #7ff0ff;border-radius:50%;box-shadow:0 0 18px rgba(127,240,255,.42)"></div>' +
     '<div data-rr="banner" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-weight:900;font-size:clamp(1.3rem,5vw,2.4rem);letter-spacing:.12em;text-transform:uppercase;color:#eaf2ff;text-shadow:0 3px 18px rgba(0,0,0,.75),0 0 22px rgba(127,240,255,.45);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
     '<div data-rr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(10,16,40,.6),rgba(6,9,24,.25))"></div>' +
@@ -1009,6 +1080,7 @@ function startGame(THREE, mount, opts) {
 
   // ── State ────────────────────────────────────────────────────────────────
   let laneIx = 1;
+  hud.dataset.rocketLane = String(laneIx);
   let bubbles = [];
   let queue = [];
   let spawnTimer = 0;
@@ -1187,9 +1259,18 @@ function startGame(THREE, mount, opts) {
   }
 
   function moveLane(dir) {
-    if (!running) return;
+    // Let the child pre-position during the short launch countdown. Steering is
+    // still locked under onboarding, pause, retry and completion overlays.
+    const canSteer = !paused && !introActive && (running || countdownT > 0);
+    if (!canSteer) return;
     const next = Math.max(0, Math.min(2, laneIx + dir));
-    if (next !== laneIx) { laneIx = next; rollT = 0.38; rollDir = dir; sfx(playTapSound); }
+    if (next !== laneIx) {
+      laneIx = next;
+      hud.dataset.rocketLane = String(laneIx);
+      rollT = 0.38;
+      rollDir = dir;
+      sfx(playTapSound);
+    }
   }
 
   function burst(position, color) {
@@ -1280,6 +1361,7 @@ function startGame(THREE, mount, opts) {
     "font-family:inherit",
     "font-weight:900",
     "font-size:1.08rem",
+    "min-height:56px",
     "letter-spacing:.05em",
     "text-transform:uppercase",
     "color:#071033",
@@ -1308,9 +1390,15 @@ function startGame(THREE, mount, opts) {
     const overlay = showOverlay(
       '<div><div style="font-size:2rem;font-weight:700;margin-bottom:8px">Out of fuel!</div>' +
       '<div style="opacity:.85;margin-bottom:14px">Catch the <b>' + roundTarget + '</b> words to reach the next planet.</div>' +
-      '<button data-rr="retry" style="' + overlayButtonStyle + '">Try again →</button></div>'
+      '<button type="button" data-rr="retry" style="' + overlayButtonStyle + '">Try again →</button></div>'
     );
-    overlay.querySelector('[data-rr="retry"]').addEventListener("click", () => { overlay.style.display = "none"; startRound(); });
+    const retry = overlay.querySelector('[data-rr="retry"]');
+    isolateRocketRunActionOverlay(hud, overlay, retry, "Retry Rocket Run round");
+    retry.addEventListener("click", () => {
+      restoreRocketRunHud(hud, overlay);
+      overlay.style.display = "none";
+      startRound();
+    });
   }
 
   function endRound() {
@@ -1330,9 +1418,12 @@ function startGame(THREE, mount, opts) {
     const overlay = showOverlay(
       '<div><div style="font-size:2rem;font-weight:700;margin-bottom:4px">Planet reached!</div>' +
       '<div style="opacity:.85;margin-bottom:12px">Entering the <b>' + nextTheme.name + '</b></div>' +
-      '<button data-rr="next" style="' + overlayButtonStyle + '">Next sound →</button></div>'
+      '<button type="button" data-rr="next" style="' + overlayButtonStyle + '">Next sound →</button></div>'
     );
-    overlay.querySelector('[data-rr="next"]').addEventListener("click", () => {
+    const next = overlay.querySelector('[data-rr="next"]');
+    isolateRocketRunActionOverlay(hud, overlay, next, "Rocket Run round complete");
+    next.addEventListener("click", () => {
+      restoreRocketRunHud(hud, overlay);
       overlay.style.display = "none";
       startRound();
     });
@@ -1352,7 +1443,7 @@ function startGame(THREE, mount, opts) {
       '<div style="font-size:2rem;font-weight:800">You caught the comet!</div>' +
       '<div data-rr="rstars" style="font-size:2.3rem;letter-spacing:8px;min-height:2.5rem">✩✩✩</div>' +
       '<div style="font-size:1.15rem;opacity:.9">Score <b data-rr="rscore">0</b></div>' +
-      '<button data-rr="done" style="' + overlayButtonStyle + ';margin-top:4px">Back to Arcade</button>' +
+      '<button type="button" data-rr="done" style="' + overlayButtonStyle + ';margin-top:4px">Back to Arcade</button>' +
       '</div>'
     );
     // Stars pop in one at a time, each with a chime; score counts up over ~800ms.
@@ -1374,9 +1465,13 @@ function startGame(THREE, mount, opts) {
     };
     requestAnimationFrame(countUp);
     const done = overlay.querySelector('[data-rr="done"]');
+    isolateRocketRunCompletion(hud, overlay, done);
     if (done) done.addEventListener("click", () => {
       if (opts.onExit) opts.onExit();
-      else overlay.style.display = "none";
+      else {
+        overlay.style.display = "none";
+        restoreRocketRunHud(hud, overlay);
+      }
     });
     if (opts.onProgressUpdate) opts.onProgressUpdate(ROUNDS_PER_GAME, ROUNDS_PER_GAME);
     if (opts.onComplete) opts.onComplete(stars, score, caughtTotal);
@@ -1385,9 +1480,12 @@ function startGame(THREE, mount, opts) {
   // ── Controls ─────────────────────────────────────────────────────────────
   const onLeft = () => moveLane(-1);
   const onRight = () => moveLane(1);
-  const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight });
+  const detachSteerZones = attachSteerZones({ left: el("left-zone"), right: el("right-zone"), onLeft, onRight });
+  const detachLeftControl = attachRocketPressControl(el("left-control"), onLeft);
+  const detachRightControl = attachRocketPressControl(el("right-control"), onRight);
   const onKey = event => {
-    if (isInteractiveKeyTarget(event.target)) return;
+    const steeringControlOwnsFocus = event.target?.matches?.('[data-rr="left-control"],[data-rr="right-control"]');
+    if (isInteractiveKeyTarget(event.target) && !steeringControlOwnsFocus) return;
     const direction = laneDirectionForKey(event.key);
     if (direction) {
       event.preventDefault();
@@ -1623,7 +1721,11 @@ function startGame(THREE, mount, opts) {
     introActive = false;
     markOnboardingSeen("rocket-run");
     const overlay = el("overlay");
-    if (overlay) overlay.style.display = "none";
+    if (overlay) {
+      restoreRocketRunHud(hud, overlay);
+      overlay.removeEventListener("pointerdown", dismissIntro);
+      overlay.style.display = "none";
+    }
     window.removeEventListener("keydown", onIntroKey, true);
     // This is the first guaranteed user gesture on iPad. Replay the target here
     // so Safari's audio lock cannot swallow the round's essential cue.
@@ -1648,10 +1750,12 @@ function startGame(THREE, mount, opts) {
       '<div aria-hidden="true" style="display:flex;align-items:center;gap:16px;font-size:2.2rem"><svg viewBox="0 0 24 24" width="38" height="38"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z"/></svg><span>→</span><svg viewBox="0 0 24 24" width="44" height="44"><path fill="currentColor" d="M14.4 3.1c2.2-.9 4.4-.8 6.5-.6.2 2.2.2 4.5-.7 6.6l-3.1 3.1-5.3-5.3 2.6-3.8ZM10.7 8l5.3 5.3-3 3-2.2-.6-2.5 2.5-2.5-2.5 2.5-2.5-.6-2.2 3-3Zm-4.2 9.3c-.9.2-2.4 1.2-2.8 3 .9-.4 2.1-.7 3.2-.5.2-1 .9-1.9 1.7-2.5l-2.1-.1Z"/></svg></div>' +
       '<div style="font-size:1rem;font-weight:750;line-height:1.45;opacity:.94">Hear the word. Fly to it if it begins with the target sound.</div>' +
       '<div style="display:flex;align-items:center;gap:12px;font-size:.92rem;font-weight:750;opacity:.82"><span>← tap left</span><span>tap right →</span></div>' +
-      '<button data-rr="intro-play" style="' + overlayButtonStyle + '">Play</button>' +
+      '<button type="button" data-rr="intro-play" style="' + overlayButtonStyle + '">Play</button>' +
       '</div>'
     );
-    overlay.querySelector('[data-rr="intro-play"]').addEventListener("click", dismissIntro);
+    const play = overlay.querySelector('[data-rr="intro-play"]');
+    isolateRocketRunActionOverlay(hud, overlay, play, "Rocket Run instructions");
+    play.addEventListener("click", dismissIntro);
     overlay.addEventListener("pointerdown", dismissIntro);
     window.addEventListener("keydown", onIntroKey, true);
   }
@@ -1666,6 +1770,8 @@ function startGame(THREE, mount, opts) {
     loop.stop();
     detachContextGuard();
     detachSteerZones();
+    detachLeftControl();
+    detachRightControl();
     detachSwipeSteer();
     motionQuery?.removeEventListener?.("change", syncMotionPreference);
     window.removeEventListener("keydown", onKey);
@@ -1696,6 +1802,7 @@ function startGame(THREE, mount, opts) {
     scene.remove(themeSun); disposeGroup(themeSun);
     if (sceneBackground?.dispose) sceneBackground.dispose();
     if (finaleComet) { scene.remove(finaleComet); disposeGroup(finaleComet); }
+    restoreRocketRunHud(hud, el("overlay"));
     premiumRender.destroy();
     disposeRenderer(renderer, { forceContextLoss: true });
     if (hud.parentNode) hud.parentNode.removeChild(hud);

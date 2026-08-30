@@ -81,8 +81,23 @@ const gameHandlerContracts = [
   ["GrammarGrindGame.jsx", ["onKeyDown", "onIntroKey"]]
 ];
 
+const focusedMovementControlExceptions = new Map([
+  [
+    "LetterLeapGame.jsx:onKeyDown",
+    /if \(isInteractiveKeyTarget\(e\.target\) && !padWrap\.contains\(e\.target\)\) return;/
+  ],
+  [
+    "RocketRunGame.jsx:onKey",
+    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-rr="left-control"\],\[data-rr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+  ],
+  [
+    "SoundRacerGame.jsx:onKey",
+    /const steeringControlOwnsFocus = event\.target\?\.matches\?\.\('\[data-sr="left-control"\],\[data-sr="right-control"\]'\);\s+if \(isInteractiveKeyTarget\(event\.target\) && !steeringControlOwnsFocus\) return;/
+  ]
+]);
+
 for (const [fileName, handlers] of gameHandlerContracts) {
-  test(`${fileName} leaves focused controls to native keyboard behaviour`, async () => {
+  test(`${fileName} leaves unrelated focused controls to native keyboard behaviour`, async () => {
     const source = await readFile(
       new URL(`../../src/components/learn/games/games/${fileName}`, import.meta.url),
       "utf8"
@@ -90,10 +105,13 @@ for (const [fileName, handlers] of gameHandlerContracts) {
 
     assert.match(source, /import \{ isInteractiveKeyTarget \} from/);
     for (const handler of handlers) {
+      const focusedMovementException = focusedMovementControlExceptions.get(`${fileName}:${handler}`);
       assert.match(
         readFunction(source, handler),
-        /if \(isInteractiveKeyTarget\((?:e|event)\.target\)\) return;/,
-        `${handler} should ignore keys owned by a focused control`
+        focusedMovementException || /if \(isInteractiveKeyTarget\((?:e|event)\.target\)\) return;/,
+        focusedMovementException
+          ? `${handler} should only exempt its own named movement controls`
+          : `${handler} should ignore keys owned by a focused control`
       );
     }
   });
@@ -125,6 +143,30 @@ test("held movement keys still release after focus moves to a control", async ()
   const groveKeyUp = readFunction(groveSource, "onKeyUp");
   assert.match(groveKeyUp, /keys\.left = false/);
   assert.doesNotMatch(groveKeyUp, /preventDefault|isInteractiveKeyTarget/);
+});
+
+test("lane press controls reject a second pointer before it can replace the repeat owner", async () => {
+  const contracts = [
+    ["RocketRunGame.jsx", "attachRocketPressControl"],
+    ["SoundRacerGame.jsx", "attachSoundRacerPressControl"]
+  ];
+
+  for (const [fileName, helperName] of contracts) {
+    const source = await readFile(
+      new URL(`../../src/components/learn/games/games/${fileName}`, import.meta.url),
+      "utf8"
+    );
+    const helper = readFunction(source, helperName);
+    const ownershipGuard = helper.indexOf("if (pointerId != null) return;");
+    const pointerAssignment = helper.indexOf("pointerId = event.pointerId;");
+    assert.ok(ownershipGuard >= 0, `${helperName} should reject an extra pointer`);
+    assert.ok(
+      ownershipGuard < pointerAssignment,
+      `${helperName} must reject an extra pointer before replacing the repeat owner`
+    );
+    assert.match(helper, /event\.pointerId !== pointerId\) return;/);
+    assert.match(helper, /element\.addEventListener\("lostpointercapture", release\)/);
+  }
 });
 
 test("SoundKeys provider keeps the interactive-target guard beside repeat filtering", async () => {

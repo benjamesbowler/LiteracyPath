@@ -9,6 +9,32 @@ async function pressPointerControl(page, control) {
   await page.mouse.up();
 }
 
+test("Letter Leap onboarding explains the goal and a one-finger leap", async ({ page }) => {
+  await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
+
+  const instructions = page.getByRole("dialog", { name: "Letter Leap instructions", exact: true });
+  await expect(instructions).toBeVisible();
+  await expect(instructions).toHaveAttribute("aria-modal", "true");
+  await expect(page.getByText("Look at the picture. Collect each letter in order to spell the word.", { exact: true })).toBeVisible();
+  await expect(page.getByText(/On touch, LEAP moves safely past letters; tap an arrow to choose/)).toBeVisible();
+  const start = page.getByRole("button", { name: "Start leaping", exact: true });
+  const startBox = await start.boundingBox();
+  expect(startBox?.width).toBeGreaterThanOrEqual(56);
+  expect(startBox?.height).toBeGreaterThanOrEqual(56);
+  await expect(start).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(start).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(start).toBeFocused();
+  expect(await page.getByRole("button", { name: "Leap right", exact: true }).evaluate(element => element.closest("[inert]") !== null)).toBe(true);
+  await page.keyboard.press("Enter");
+  await expect(instructions).toBeHidden();
+  const moveLeft = page.getByRole("button", { name: "Move left", exact: true });
+  await moveLeft.focus();
+  await page.keyboard.press("Space");
+  await expect(page.getByRole("button", { name: "Leap left", exact: true })).toBeVisible();
+});
+
 test("Letter Leap production-word replay is reachable, sized for children, and follows sound state", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
@@ -45,7 +71,7 @@ test("Letter Leap fullscreen controls prevent selection and receive held pointer
   const controls = [
     page.getByRole("button", { name: "Move left", exact: true }),
     page.getByRole("button", { name: "Move right", exact: true }),
-    page.getByRole("button", { name: "Jump", exact: true })
+    page.getByRole("button", { name: "Leap right", exact: true })
   ];
 
   for (const control of controls) {
@@ -97,7 +123,7 @@ test("Letter Leap keeps the active ordered letter grounded after a fullscreen he
   await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
 
   const completedSlots = page.locator('[data-ll="word"] [aria-label^="Completed letter"]');
-  await expect(page.getByRole("button", { name: "Jump", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Leap right", exact: true })).toBeVisible();
   await expect(page.locator(".letter-leap canvas")).toBeVisible();
   await expect(completedSlots).toHaveCount(0);
 
@@ -111,4 +137,118 @@ test("Letter Leap keeps the active ordered letter grounded after a fullscreen he
 
   await expect.poll(() => completedSlots.count()).toBeGreaterThanOrEqual(1);
   expect(pageErrors).toEqual([]);
+});
+
+test("Letter Leap keeps its target and 56px controls inside 568x320 phone landscape", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
+  });
+  await page.setViewportSize({ width: 568, height: 320 });
+  await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
+
+  const mount = page.locator(".letter-leap");
+  const mountBox = await mount.boundingBox();
+  expect(mountBox?.height).toBeGreaterThanOrEqual(240);
+  expect(await mount.evaluate(element => element.scrollHeight)).toBe(await mount.evaluate(element => element.clientHeight));
+
+  const visibleControls = [
+    page.getByRole("button", { name: "Move left", exact: true }),
+    page.getByRole("button", { name: "Move right", exact: true }),
+    page.getByRole("button", { name: "Leap right", exact: true }),
+    page.locator('[data-ll="target-panel"]')
+  ];
+  for (const control of visibleControls) {
+    const box = await control.boundingBox();
+    expect(box).not.toBeNull();
+    expect(box.y).toBeGreaterThanOrEqual(0);
+    expect(box.y + box.height).toBeLessThanOrEqual(321);
+  }
+
+  for (const control of visibleControls.slice(0, 3)) {
+    const box = await control.boundingBox();
+    expect(box.width).toBeGreaterThanOrEqual(56);
+    expect(box.height).toBeGreaterThanOrEqual(56);
+  }
+});
+
+test("Letter Leap completes a word through pointer taps and keyboard leaps", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  await page.addInitScript(() => {
+    window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
+    Math.random = () => 0.999999;
+  });
+  await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
+
+  const right = page.getByRole("button", { name: "Move right", exact: true });
+  const completedSlots = page.locator('[data-ll="word"] [aria-label^="Completed letter"]');
+  await expect(page.getByRole("button", { name: "Leap right", exact: true })).toBeVisible();
+
+  // A click used to release before an animation frame and produce no visible
+  // movement. Pointer taps plus native Enter activation now reach the first
+  // grounded choice without making a focused control swallow the keyboard.
+  for (let tap = 0; tap < 6 && await completedSlots.count() === 0; tap += 1) {
+    if (tap < 2) await right.click();
+    else {
+      await right.focus();
+      await page.keyboard.press("Enter");
+    }
+    await page.waitForTimeout(220);
+  }
+  await expect(completedSlots).toHaveCount(1);
+
+  const leapRight = async () => {
+    await page.keyboard.down("ArrowRight");
+    await page.keyboard.down("Space");
+    await page.waitForTimeout(420);
+    await page.keyboard.up("Space");
+    await page.waitForTimeout(980);
+    await page.keyboard.up("ArrowRight");
+  };
+  await leapRight();
+  await expect(completedSlots).toHaveCount(2);
+  const readableCompletion = expect(page.locator('[data-ll="lab"]')).toContainText("BAT built");
+  await leapRight();
+
+  await readableCompletion;
+  await expect(page.getByText("1 of 50", { exact: true })).toBeVisible();
+  await page.waitForTimeout(800);
+  await expect(page.locator('[data-ll="lab"]')).toContainText("word 2 of 5");
+  expect(pageErrors).toEqual([]);
+});
+
+test.describe("Letter Leap Retina rendering", () => {
+  test.use({ viewport: { width: 1467, height: 953 }, deviceScaleFactor: 2 });
+
+  test("keeps the live canvas responsive without a multi-million-pixel backing store", async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.setItem("lp-arcade-onboarded-v1:letter-leap", "1");
+    });
+    await page.goto("/preview/game-overlay.html?game=letter-leap&sound=0&music=0");
+    await expect(page.getByRole("button", { name: "Leap right", exact: true })).toBeVisible();
+
+    const dimensions = await page.locator(".letter-leap").evaluate(element => {
+      const canvas = element.querySelector("canvas");
+      return {
+        clientWidth: element.clientWidth,
+        clientHeight: element.clientHeight,
+        backingWidth: canvas?.width || 0,
+        backingHeight: canvas?.height || 0
+      };
+    });
+    expect(dimensions.backingWidth).toBeLessThanOrEqual(dimensions.clientWidth + 1);
+    expect(dimensions.backingHeight).toBeLessThanOrEqual(dimensions.clientHeight + 1);
+
+    const frameCount = await page.evaluate(() => new Promise(resolve => {
+      let frames = 0;
+      const startedAt = performance.now();
+      const sample = () => {
+        frames += 1;
+        if (performance.now() - startedAt >= 2000) resolve(frames);
+        else requestAnimationFrame(sample);
+      };
+      requestAnimationFrame(sample);
+    }));
+    expect(frameCount).toBeGreaterThanOrEqual(20);
+  });
 });

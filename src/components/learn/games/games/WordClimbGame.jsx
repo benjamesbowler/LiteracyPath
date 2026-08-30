@@ -1,190 +1,331 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import {
+  playCelebrationFanfare,
   playCorrectChime,
   playPopSound,
   playSoftBuzz,
   playStarChime,
-  playCelebrationFanfare
+  playTapSound
 } from "../../../../utils/audio/gameSfx";
-import { rocketRunTargets, buildRocketRunRound, rocketRunStars } from "../../../../utils/rocketRunRounds.js";
+import { cancelSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { rocketRunStars } from "../../../../utils/rocketRunRounds.js";
+import {
+  createWordClimbSession,
+  wordClimbChoicesForStep
+} from "../../../../utils/wordClimbLevels.js";
+import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
+import "./WordClimbGame.css";
 
-// Word Climb: a read-and-choose vertical jumper. Three leaf-platforms appear on
-// the beanstalk; the child taps the one whose word STARTS with the target sound
-// and the sprout-climber leaps up toward the canopy. Pure DOM/CSS (no WebGL),
-// reuses the tested rocketRunRounds engine so every round is fair and winnable.
-const LANES = [0.14, 0.38, 0.62]; // ledge left edges as fraction of width
-const LEDGE_W = 0.26;
+const SCORE_PER_CLIMB = 10;
 
-function summitFor(difficulty) {
-  return difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
+function safeSfx(enabled, effect) {
+  if (!enabled) return;
+  try {
+    effect();
+  } catch {
+    // Spoken teaching cues remain optional when a device blocks audio.
+  }
 }
 
-function startGame(mount, opts) {
-  const summit = summitFor(opts.difficulty);
-  const targets = rocketRunTargets();
-  const target = targets[Math.floor(Math.random() * targets.length)] || "s";
-  const round = buildRocketRunRound(target, { count: summit * 2 });
-  const correctPool = round.correct.length ? round.correct : ["sun"];
-  const distractorPool = round.distractors.length ? round.distractors : ["map", "top"];
-  const sfx = fn => { if (opts.isSoundEnabled) { try { fn(); } catch { /* audio optional */ } } };
-  const shuffle = arr => { const a = [...arr]; for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-
-  mount.innerHTML = "";
-  mount.style.cssText = "position:relative;width:100%;height:100%;min-height:460px;border-radius:20px;overflow:hidden;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;touch-action:manipulation;background:linear-gradient(180deg,#0a1430 0%,#0c2340 46%,#123a2a 100%)";
-
-  // ── Scene: glow beam, climbing guide, foliage, fireflies ─────────────────
-  mount.innerHTML =
-    '<style>' +
-    '@keyframes wcbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}' +
-    '@keyframes wcdrift{0%{transform:translate(0,0);opacity:.2}50%{opacity:.9}100%{transform:translate(14px,-26px);opacity:.2}}' +
-    '@keyframes wcglow{0%,100%{opacity:.35}50%{opacity:.6}}' +
-    '</style>' +
-    '<div style="position:absolute;left:50%;top:0;bottom:0;width:180px;transform:translateX(-50%);background:radial-gradient(60% 80% at 50% 40%,rgba(95,224,160,.16),transparent 70%);animation:wcglow 4s ease-in-out infinite;pointer-events:none"></div>' +
-    // dashed climbing guide up the centre
-    '<div style="position:absolute;left:50%;top:8%;bottom:14%;width:0;transform:translateX(-50%);border-left:3px dashed rgba(120,220,170,.35);pointer-events:none"></div>' +
-    // foliage silhouettes (framing depth)
-    '<svg viewBox="0 0 400 260" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:38%;pointer-events:none" xmlns="http://www.w3.org/2000/svg">' +
-      '<path d="M0 260 L0 150 Q60 90 110 150 Q150 100 210 150 Q270 90 330 150 Q380 110 400 150 L400 260 Z" fill="#0d2b1e"/>' +
-      '<path d="M0 260 L0 200 Q80 150 150 200 Q220 150 300 200 Q360 165 400 200 L400 260 Z" fill="#123a2a"/>' +
-    '</svg>' +
-    '<div data-wc="fireflies" style="position:absolute;inset:0;pointer-events:none"></div>' +
-    // HUD: target chip + stars
-    '<div style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:10px;background:rgba(10,18,40,.72);border:1px solid rgba(120,160,255,.28);border-radius:999px;padding:6px 16px 6px 7px;z-index:6;backdrop-filter:blur(6px)">' +
-      '<div style="width:44px;height:44px;display:grid;place-items:center;font-size:1.5rem;font-weight:700;border-radius:13px;color:#0a1a12;background:linear-gradient(150deg,#5fe0a0,#28b97a);box-shadow:0 4px 0 #1c7f56">' + target + '</div>' +
-      '<div style="font-size:1rem;font-weight:600">Climb the <b>' + target + '</b> words!</div></div>' +
-    '<div data-wc="stars" style="position:absolute;top:18px;right:18px;font-size:1.5rem;letter-spacing:3px;z-index:6;text-shadow:0 2px 6px rgba(0,0,0,.5)">✩✩✩</div>' +
-    '<div data-wc="ledges" style="position:absolute;inset:0;z-index:3"></div>' +
-    // base pad + climber
-    '<div data-wc="pad" style="position:absolute;width:96px;height:20px;border-radius:999px;background:radial-gradient(closest-side,#1b4d38,rgba(18,58,42,0));z-index:2"></div>' +
-    '<div data-wc="climber" style="position:absolute;width:46px;height:50px;z-index:4;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45));animation:wcbob 2.6s ease-in-out infinite">' +
-      '<svg width="46" height="50" viewBox="0 0 46 50" xmlns="http://www.w3.org/2000/svg">' +
-      '<defs><radialGradient id="wcgem" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#c8f7e0"/><stop offset="1" stop-color="#28b97a"/></radialGradient></defs>' +
-      '<circle cx="23" cy="26" r="16" fill="url(#wcgem)" stroke="#0f6b48" stroke-width="2"/>' +
-      '<ellipse cx="18" cy="20" rx="5" ry="3" fill="rgba(255,255,255,.6)"/>' +
-      '<path d="M23 10 q8 -6 14 -3 q-3 8 -14 5 Z" fill="#2fae74" stroke="#0f6b48" stroke-width="1"/></svg></div>' +
-    '<div data-wc="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 20%,rgba(20,50,40,.72),rgba(6,12,24,.94));z-index:20"></div>';
-
-  const el = k => mount.querySelector('[data-wc="' + k + '"]');
-  const ledges = el("ledges");
-  const climber = el("climber");
-  const pad = el("pad");
-  const W = () => mount.clientWidth || 480;
-  const Hh = () => mount.clientHeight || 460;
-  const laneCenter = lane => LANES[lane] * W() + (LEDGE_W * W()) / 2;
-  const LEDGE_BOTTOM = () => Math.round(Hh() * 0.46);
-  const GROUND = () => Math.round(Hh() * 0.15);
-
-  // fireflies
-  const ff = el("fireflies");
-  for (let i = 0; i < 9; i += 1) {
-    const f = document.createElement("div");
-    const size = 4 + Math.random() * 4;
-    f.style.cssText = "position:absolute;width:" + size + "px;height:" + size + "px;border-radius:50%;background:radial-gradient(closest-side,#eaffb0,rgba(180,255,120,0));left:" + (8 + Math.random() * 84) + "%;top:" + (30 + Math.random() * 60) + "%;animation:wcdrift " + (4 + Math.random() * 4) + "s ease-in-out infinite;animation-delay:" + (Math.random() * 4) + "s";
-    ff.appendChild(f);
-  }
-
-  let height = 0;
-  let wrongHits = 0;
-  let running = true;
-  let busy = false;
-
-  function placeClimber(lane, bottom) {
-    climber.style.left = (laneCenter(lane) - 23) + "px";
-    climber.style.bottom = bottom + "px";
-    pad.style.left = (laneCenter(lane) - 48) + "px";
-    pad.style.bottom = (bottom - 8) + "px";
-  }
-
-  function spawnLedges(fromTop) {
-    ledges.innerHTML = "";
-    const correctLane = Math.floor(Math.random() * 3);
-    const cor = shuffle(correctPool);
-    const wr = shuffle(distractorPool);
-    let ci = 0;
-    let wi = 0;
-    for (let l = 0; l < 3; l += 1) {
-      const item = l === correctLane ? { w: cor[ci++ % cor.length], correct: true } : { w: wr[wi++ % wr.length], correct: false };
-      const ledge = document.createElement("div");
-      ledge.textContent = item.w;
-      // All ledges look identical - the child must READ the word, never guess.
-      ledge.style.cssText = "position:absolute;width:26%;max-width:170px;height:62px;border-radius:16px;display:grid;place-items:center;font-size:clamp(1rem,3.2vw,1.4rem);font-weight:700;cursor:pointer;color:#fff;" +
-        "background:linear-gradient(180deg,#1e5540,#123a2a);border:1px solid rgba(140,230,180,.28);" +
-        "box-shadow:0 10px 0 rgba(4,20,14,.5),0 0 26px rgba(60,190,120,.14),inset 0 2px 0 rgba(190,255,225,.18);" +
-        "transition:transform .4s cubic-bezier(.2,.8,.3,1),opacity .3s;left:" + (LANES[l] * 100) + "%;bottom:" + LEDGE_BOTTOM() + "px";
-      if (fromTop) { ledge.style.transform = "translateY(-70px)"; ledge.style.opacity = "0"; requestAnimationFrame(() => { ledge.style.transform = "translateY(0)"; ledge.style.opacity = "1"; }); }
-      ledge.addEventListener("pointerdown", () => tap(ledge, item, l));
-      ledges.appendChild(ledge);
-    }
-  }
-
-  function puff(lane, bottom) {
-    const p = document.createElement("div");
-    p.style.cssText = "position:absolute;width:70px;height:28px;border-radius:50%;left:" + (laneCenter(lane) - 35) + "px;bottom:" + (bottom - 6) + "px;background:radial-gradient(closest-side,rgba(200,255,225,.7),transparent 70%);pointer-events:none;z-index:5";
-    mount.appendChild(p);
-    p.animate([{ opacity: 0.8, transform: "scale(.5)" }, { opacity: 0, transform: "scale(1.7)" }], { duration: 420, easing: "ease-out" });
-    setTimeout(() => p.remove(), 440);
-  }
-
-  function tap(ledge, item, lane) {
-    if (!running || busy) return;
-    if (item.correct) {
-      busy = true;
-      height += 1;
-      sfx(playCorrectChime);
-      sfx(playPopSound);
-      placeClimber(lane, LEDGE_BOTTOM());
-      setTimeout(() => puff(lane, LEDGE_BOTTOM()), 240);
-      if (opts.onProgressUpdate) opts.onProgressUpdate(height, summit);
-      if (height >= summit) { setTimeout(endGame, 480); return; }
-      setTimeout(() => {
-        Array.from(ledges.children).forEach(c => { c.style.transform = "translateY(90px)"; c.style.opacity = "0"; });
-        setTimeout(() => { placeClimber(1, GROUND()); spawnLedges(true); busy = false; }, 240);
-      }, 520);
-    } else {
-      wrongHits += 1;
-      sfx(playSoftBuzz);
-      ledge.style.background = "linear-gradient(180deg,#5a2436,#3a2130)";
-      ledge.style.borderColor = "#8a4a5a";
-      ledge.animate([{ transform: "translateX(0)" }, { transform: "translateX(-6px)" }, { transform: "translateX(6px)" }, { transform: "translateX(0)" }], { duration: 320 });
-      setTimeout(() => { ledge.style.background = "linear-gradient(180deg,#1e5540,#123a2a)"; ledge.style.borderColor = "rgba(140,230,180,.28)"; }, 340);
-    }
-  }
-
-  function endGame() {
-    running = false;
-    const stars = rocketRunStars(height, summit, wrongHits);
-    sfx(playStarChime);
-    sfx(playCelebrationFanfare);
-    el("stars").textContent = "★".repeat(stars) + "✩".repeat(3 - stars);
-    const overlay = el("overlay");
-    overlay.style.display = "grid";
-    overlay.innerHTML = '<div><div style="font-size:2rem;font-weight:700">' + (stars === 3 ? "You reached the canopy!" : "You reached the top!") + '</div><div style="opacity:.9;margin-top:6px;font-size:1.6rem">' + "★".repeat(stars) + "✩".repeat(3 - stars) + '</div></div>';
-    if (opts.onProgressUpdate) opts.onProgressUpdate(summit, summit);
-    if (opts.onComplete) opts.onComplete(stars, height * 10, summit);
-  }
-
-  const onResize = () => { if (running && !busy) { placeClimber(1, GROUND()); Array.from(ledges.children).forEach(c => { c.style.bottom = LEDGE_BOTTOM() + "px"; }); } };
-  window.addEventListener("resize", onResize);
-
-  placeClimber(1, GROUND());
-  spawnLedges(false);
-  if (opts.onProgressUpdate) opts.onProgressUpdate(0, summit);
-
-  return function teardown() {
-    running = false;
-    window.removeEventListener("resize", onResize);
-  };
+function BeanstalkScene() {
+  return (
+    <>
+      <div className="wc-sky-glow" aria-hidden="true" />
+      <div className="wc-cloud wc-cloud-one" aria-hidden="true" />
+      <div className="wc-cloud wc-cloud-two" aria-hidden="true" />
+      <svg className="wc-beanstalk" viewBox="0 0 760 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="wc-trunk" x1="0" x2="1">
+            <stop offset="0" stopColor="#123f39" />
+            <stop offset="0.23" stopColor="#35a86b" />
+            <stop offset="0.52" stopColor="#84dc75" />
+            <stop offset="0.75" stopColor="#2a8c58" />
+            <stop offset="1" stopColor="#0b352f" />
+          </linearGradient>
+          <linearGradient id="wc-vine" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#c3f38c" />
+            <stop offset="0.5" stopColor="#49b964" />
+            <stop offset="1" stopColor="#17654c" />
+          </linearGradient>
+          <radialGradient id="wc-leaf" cx="35%" cy="28%" r="72%">
+            <stop offset="0" stopColor="#b9f184" />
+            <stop offset="0.55" stopColor="#47b762" />
+            <stop offset="1" stopColor="#146047" />
+          </radialGradient>
+          <filter id="wc-shadow" x="-30%" y="-20%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="16" stdDeviation="18" floodColor="#061d24" floodOpacity=".5" />
+          </filter>
+        </defs>
+        <g filter="url(#wc-shadow)">
+          <path d="M392 960 C280 760 500 655 372 480 C272 340 460 210 356 -40 L476 -40 C560 230 378 352 506 512 C630 670 416 790 536 960 Z" fill="url(#wc-trunk)" />
+          <path d="M420 930 C358 760 520 662 414 488 C338 364 488 230 412 10" fill="none" stroke="url(#wc-vine)" strokeWidth="25" strokeLinecap="round" opacity=".92" />
+          <path d="M405 888 C430 812 480 748 537 709" fill="none" stroke="#163f32" strokeWidth="13" strokeLinecap="round" />
+          <path d="M420 633 C346 590 288 535 264 468" fill="none" stroke="#173f32" strokeWidth="13" strokeLinecap="round" />
+          <path d="M436 374 C488 330 545 305 610 298" fill="none" stroke="#173f32" strokeWidth="12" strokeLinecap="round" />
+          <path d="M394 192 C334 150 282 100 250 44" fill="none" stroke="#173f32" strokeWidth="11" strokeLinecap="round" />
+          <path d="M536 707 C598 645 677 650 710 705 C648 758 577 755 536 707 Z" fill="url(#wc-leaf)" />
+          <path d="M267 465 C202 403 117 413 78 474 C144 533 220 526 267 465 Z" fill="url(#wc-leaf)" />
+          <path d="M609 297 C670 234 738 251 760 310 C706 353 649 346 609 297 Z" fill="url(#wc-leaf)" />
+          <path d="M251 45 C190 -7 115 4 81 66 C142 116 211 106 251 45 Z" fill="url(#wc-leaf)" />
+        </g>
+      </svg>
+      <div className="wc-canopy wc-canopy-left" aria-hidden="true" />
+      <div className="wc-canopy wc-canopy-right" aria-hidden="true" />
+      <div className="wc-distance-hills" aria-hidden="true" />
+      <div className="wc-ground" aria-hidden="true" />
+      <div className="wc-mist" aria-hidden="true" />
+      <div className="wc-fireflies" aria-hidden="true">
+        {Array.from({ length: 12 }, (_, index) => <i key={index} />)}
+      </div>
+    </>
+  );
 }
 
-export default function WordClimbGame({ difficulty = "easy", onProgressUpdate, onComplete, isSoundEnabled = true }) {
-  const mountRef = useRef(null);
+export default function WordClimbGame({
+  difficulty = "easy",
+  startLevel = 0,
+  onScoreUpdate,
+  onProgressUpdate,
+  onComplete,
+  onCheckpoint,
+  onEngineReady,
+  isSoundEnabled = true
+}) {
+  const session = useMemo(() => createWordClimbSession(difficulty), [difficulty]);
+  const initialStep = Math.max(0, Math.min(Number(startLevel) || 0, session.summit - 1));
+  const [step, setStep] = useState(() => initialStep);
+  const [choices, setChoices] = useState(() => wordClimbChoicesForStep(session.round, initialStep));
+  const [feedback, setFeedback] = useState("Read all three leaves, then choose.");
+  const [busy, setBusy] = useState(false);
+  const [finished, setFinished] = useState(false);
+  const [selectedLane, setSelectedLane] = useState(1);
+  const [choiceState, setChoiceState] = useState({ word: "", state: "" });
+  const [isClimbing, setIsClimbing] = useState(false);
+  const wrongHitsRef = useRef(0);
+  const timersRef = useRef(new Set());
+  const pausedRef = useRef(false);
+  const soundEnabledRef = useRef(isSoundEnabled);
+
+  const armTimer = useCallback(entry => {
+    entry.startedAt = Date.now();
+    entry.id = window.setTimeout(() => {
+      entry.id = null;
+      timersRef.current.delete(entry);
+      entry.callback();
+    }, entry.remaining);
+  }, []);
+
+  const later = useCallback((callback, delay) => {
+    const entry = { id: null, callback, remaining: delay, startedAt: 0 };
+    timersRef.current.add(entry);
+    if (!pausedRef.current) armTimer(entry);
+
+    return () => {
+      if (entry.id !== null) window.clearTimeout(entry.id);
+      timersRef.current.delete(entry);
+    };
+  }, [armTimer]);
+
+  const pauseEngine = useCallback(() => {
+    if (pausedRef.current) return;
+    pausedRef.current = true;
+    cancelSpeech();
+    const now = Date.now();
+    timersRef.current.forEach(entry => {
+      if (entry.id === null) return;
+      window.clearTimeout(entry.id);
+      entry.id = null;
+      entry.remaining = Math.max(0, entry.remaining - (now - entry.startedAt));
+    });
+  }, []);
+
+  const resumeEngine = useCallback(() => {
+    if (!pausedRef.current) return;
+    pausedRef.current = false;
+    timersRef.current.forEach(entry => {
+      if (entry.id === null) armTimer(entry);
+    });
+  }, [armTimer]);
 
   useEffect(() => {
-    if (!mountRef.current) return undefined;
-    const teardown = startGame(mountRef.current, { difficulty, onProgressUpdate, onComplete, isSoundEnabled });
-    return () => { try { teardown(); } catch { /* ignore */ } };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [difficulty]);
+    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine });
+  }, [onEngineReady, pauseEngine, resumeEngine]);
 
-  return <div className="word-climb" ref={mountRef} style={{ width: "100%", height: "100%", minHeight: "460px" }} />;
+  useEffect(() => () => {
+    timersRef.current.forEach(entry => {
+      if (entry.id !== null) window.clearTimeout(entry.id);
+    });
+    timersRef.current.clear();
+    cancelSpeech();
+  }, []);
+
+  useEffect(() => {
+    onProgressUpdate?.(step, session.summit);
+    onScoreUpdate?.(step * SCORE_PER_CLIMB);
+  }, [onProgressUpdate, onScoreUpdate, session.summit, step]);
+
+  useEffect(() => {
+    // GamePlayer stores the next unfinished 0-based step. While the final
+    // celebration delay is pending, keep the resumable value on the last
+    // playable choice instead of writing an impossible level 7 of 6.
+    onCheckpoint?.(Math.min(step, session.summit - 1), session.summit);
+  }, [onCheckpoint, session.summit, step]);
+
+  useEffect(() => {
+    if (!isSoundEnabled) return undefined;
+    return later(() => {
+      if (soundEnabledRef.current) void speakPhoneme(session.target);
+    }, 280);
+  }, [isSoundEnabled, later, session.target]);
+
+  useLayoutEffect(() => {
+    soundEnabledRef.current = isSoundEnabled;
+  }, [isSoundEnabled]);
+
+  useEffect(() => {
+    if (!isSoundEnabled) cancelSpeech();
+  }, [isSoundEnabled]);
+
+  const replayTarget = useCallback(() => {
+    if (!isSoundEnabled) return;
+    safeSfx(true, playTapSound);
+    void speakPhoneme(session.target);
+  }, [isSoundEnabled, session.target]);
+
+  const chooseWord = useCallback((choice, lane) => {
+    if (busy || finished) return;
+    setBusy(true);
+    setSelectedLane(lane);
+    setChoiceState({ word: choice.word, state: choice.correct ? "correct" : "wrong" });
+
+    if (!choice.correct) {
+      wrongHitsRef.current += 1;
+      const actualOnset = onsetGrapheme(choice.word) || choice.word.slice(0, 1);
+      setFeedback(`${choice.word} starts with /${actualOnset}/. Try a /${session.target}/ word.`);
+      safeSfx(isSoundEnabled, playSoftBuzz);
+      if (isSoundEnabled) later(() => {
+        if (soundEnabledRef.current) void speakWord(choice.word);
+      }, 110);
+      later(() => {
+        setChoiceState({ word: "", state: "" });
+        setBusy(false);
+      }, 560);
+      return;
+    }
+
+    const nextStep = step + 1;
+    setStep(nextStep);
+    setIsClimbing(true);
+    setFeedback(`${choice.word} starts with /${session.target}/. Up we go!`);
+    safeSfx(isSoundEnabled, playCorrectChime);
+    safeSfx(isSoundEnabled, playPopSound);
+    if (isSoundEnabled) later(() => {
+      if (soundEnabledRef.current) void speakWord(choice.word);
+    }, 170);
+
+    if (nextStep >= session.summit) {
+      later(() => {
+        const stars = rocketRunStars(nextStep, session.summit, wrongHitsRef.current);
+        setFinished(true);
+        setBusy(false);
+        safeSfx(soundEnabledRef.current, playStarChime);
+        safeSfx(soundEnabledRef.current, playCelebrationFanfare);
+        onComplete?.(stars, nextStep * SCORE_PER_CLIMB, nextStep);
+      }, 720);
+      return;
+    }
+
+    later(() => {
+      setChoices(wordClimbChoicesForStep(session.round, nextStep));
+      setChoiceState({ word: "", state: "" });
+      setIsClimbing(false);
+      setSelectedLane(1);
+      setFeedback(`Choose another word that starts with /${session.target}/.`);
+      setBusy(false);
+    }, 720);
+  }, [busy, finished, isSoundEnabled, later, onComplete, session, step]);
+
+  const climbPercent = Math.round((step / session.summit) * 100);
+  const lanePercent = 18 + selectedLane * 32;
+
+  return (
+    <section
+      className="word-climb"
+      aria-label={`Word Climb. Choose words that start with ${session.target}.`}
+      data-wc-progress={step}
+      style={{ "--wc-rise": `${climbPercent * 0.18}px`, "--wc-lane": `${lanePercent}%` }}
+    >
+      <BeanstalkScene />
+
+      <div className="wc-mission-card">
+        <div className="wc-target-token" aria-label={`Target sound ${session.target}`}>
+          <span>STARTING SOUND</span>
+          <strong data-wc="target">/{session.target}/</strong>
+        </div>
+        <div className="wc-prompt">
+          <span className="wc-prompt-kicker">READ · CHOOSE · CLIMB</span>
+          <h2>Choose the word starting with /{session.target}/.</h2>
+          <p data-wc="feedback" role="status" aria-live="polite">{feedback}</p>
+        </div>
+        <button
+          type="button"
+          className="wc-replay"
+          data-wc="replay"
+          disabled={!isSoundEnabled}
+          onClick={replayTarget}
+          aria-label={isSoundEnabled ? `Hear the ${session.target} sound again` : `Target is ${session.target}; sound is off`}
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Zm11.5-.7v7.4a4.5 4.5 0 0 0 0-7.4Zm0-3.3v2.1a7 7 0 0 1 0 9.8V19a9 9 0 0 0 0-14Z" /></svg>
+          <span>{isSoundEnabled ? "Hear sound" : "Sound off"}</span>
+        </button>
+      </div>
+
+      <div className="wc-summit-meter" aria-label={`${step} of ${session.summit} climbs complete`}>
+        <span>CANOPY</span>
+        <div aria-hidden="true">
+          {Array.from({ length: session.summit }, (_, index) => (
+            <i className={index < step ? "filled" : ""} key={index} />
+          ))}
+        </div>
+        <strong>{step}/{session.summit}</strong>
+      </div>
+
+      <div className="wc-choice-field" role="group" aria-label={`Choose a word that starts with ${session.target}`}>
+        {choices.map((choice, lane) => {
+          const state = choiceState.word === choice.word ? choiceState.state : "";
+          return (
+            <button
+              type="button"
+              className="wc-word-ledge"
+              data-wc="choice"
+              data-state={state || undefined}
+              disabled={busy || finished}
+              key={`${step}-${choice.word}`}
+              onClick={() => chooseWord(choice, lane)}
+              aria-label={`Choose ${choice.word}`}
+            >
+              <span aria-hidden="true" className="wc-leaf-vein" />
+              <strong>{choice.word}</strong>
+              <span aria-hidden="true" className="wc-choice-mark">↟</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div
+        className={`wc-climber${isClimbing ? " climbing" : ""}`}
+        aria-hidden="true"
+      >
+        <span className="wc-climber-ring" />
+        <img src="/images/pals/poses/meadow-wave.webp" alt="" />
+      </div>
+
+      <div className="wc-route-caption" aria-hidden="true">
+        <span>{step === 0 ? "ROOT TRAIL" : `CLIMB ${step}`}</span>
+        <i><b style={{ width: `${climbPercent}%` }} /></i>
+        <strong>{climbPercent}%</strong>
+      </div>
+
+    </section>
+  );
 }

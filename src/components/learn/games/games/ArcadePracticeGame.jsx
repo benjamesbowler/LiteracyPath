@@ -534,18 +534,26 @@ function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss,
     <IllustratedGameScene mode="memory">
       <p>Find the matching sight words.</p>
       <div className="lg-card-grid memory" data-card-count={cards.length}>
-        {cards.map(card => {
-          const visible = matchedIds.includes(card.id) || selected.some(item => item.id === card.id);
+        {cards.map((card, cardIndex) => {
+          const matched = matchedIds.includes(card.id);
+          const visible = matched || selected.some(item => item.id === card.id);
+          const cardPosition = `${cardIndex + 1} of ${cards.length}`;
+          const accessibleName = matched
+            ? `Matched card ${cardPosition}: ${card.word}`
+            : visible
+              ? `Revealed card ${cardPosition}: ${card.word}`
+              : `Hidden card ${cardPosition}`;
           return (
             <button
               key={card.id}
               type="button"
-              className={`lg-match-card ${matchedIds.includes(card.id) ? "matched" : ""}${visible ? " revealed" : ""}`}
+              className={`lg-match-card ${matched ? "matched" : ""}${visible ? " revealed" : ""}`}
+              aria-label={accessibleName}
               onClick={() => choose(card)}
             >
               <span className="lg-card-inner">
                 <span className="lg-card-face lg-card-back" aria-hidden="true">?</span>
-                <span className="lg-card-face lg-card-front">{card.word}</span>
+                <span className="lg-card-face lg-card-front" aria-hidden={!visible}>{card.word}</span>
               </span>
             </button>
           );

@@ -237,10 +237,12 @@ export const GAME_LIST = [
     category: "Phonics",
     ...GAME_ACCENTS.green,
     icon: "/images/learn-games/icon-word-climb.webp",
+    // Word Climb uses its authored launch icon until a separate landscape
+    // card illustration ships. Registering the fallback prevents a known 404.
+    cardArt: "/images/learn-games/icon-word-climb.webp",
     description: "Leap up the beanstalk by tapping the word that starts with your sound.",
     fullBleed: true,
-    hidden: true,
-    surfaces: []
+    surfaces: ["arcade"]
   },
   {
     id: "cvc-word-builder",

@@ -24,6 +24,16 @@ export const ARCADE_PREMIUM_PROFILES = Object.freeze({
     completionTitle: "Trail complete",
     rewardLabel: "words spelled"
   }),
+  "word-climb": Object.freeze({
+    version: "2.0",
+    mission: "Choose every word that starts with the shown sound.",
+    objective: "Identify the printed word whose beginning sound matches the target phoneme.",
+    action: "Read three leaf words, then choose the matching word to climb.",
+    controls: Object.freeze(["Choose: Tab, then Enter or Space", "Touch: tap a word leaf"]),
+    retry: "A wrong leaf names its real beginning sound while the target and all choices stay visible.",
+    completionTitle: "Canopy reached",
+    rewardLabel: "words climbed"
+  }),
   "sound-racer": Object.freeze({
     version: "2.0",
     mission: "Drive through words that start with the sound.",

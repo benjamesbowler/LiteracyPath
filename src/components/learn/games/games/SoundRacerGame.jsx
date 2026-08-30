@@ -61,6 +61,62 @@ const CATCH_WINDOW = 0.58;
 const SCENERY_WRAP_Z = -235;
 const SCENERY_RESET_Z = 18;
 
+// The broad side zones make a full-screen racer comfortable to tap and swipe,
+// but they must not be the focusable controls: the global Arcade focus ring
+// would otherwise outline almost half the game. These compact, visible buttons
+// move immediately on press, repeat while held, and still support Enter/Space.
+function attachSoundRacerPressControl(element, onActivate) {
+  if (!element) return () => {};
+  let pointerId = null;
+  let repeatDelay = 0;
+  let repeatTimer = 0;
+
+  const clearRepeat = () => {
+    window.clearTimeout(repeatDelay);
+    window.clearInterval(repeatTimer);
+    repeatDelay = 0;
+    repeatTimer = 0;
+  };
+  const release = event => {
+    if (pointerId == null) return;
+    if (event?.pointerId != null && event.pointerId !== pointerId) return;
+    clearRepeat();
+    element.dataset.pressed = "false";
+    pointerId = null;
+  };
+  const onPointerDown = event => {
+    if (event.button != null && event.button !== 0) return;
+    // One physical control owns one press. A second finger must not replace the
+    // active pointer and orphan its repeat timer.
+    if (pointerId != null) return;
+    event.preventDefault();
+    pointerId = event.pointerId;
+    element.dataset.pressed = "true";
+    element.setPointerCapture?.(event.pointerId);
+    onActivate();
+    repeatDelay = window.setTimeout(() => {
+      repeatTimer = window.setInterval(onActivate, 220);
+    }, 360);
+  };
+  const onClick = event => {
+    if (event.detail === 0) onActivate();
+  };
+
+  element.addEventListener("pointerdown", onPointerDown);
+  element.addEventListener("pointerup", release);
+  element.addEventListener("pointercancel", release);
+  element.addEventListener("lostpointercapture", release);
+  element.addEventListener("click", onClick);
+  return () => {
+    clearRepeat();
+    element.removeEventListener("pointerdown", onPointerDown);
+    element.removeEventListener("pointerup", release);
+    element.removeEventListener("pointercancel", release);
+    element.removeEventListener("lostpointercapture", release);
+    element.removeEventListener("click", onClick);
+  };
+}
+
 const WORLD_MAPS = {
   meadow: [
     {
@@ -435,6 +491,7 @@ function startGame(THREE, mount, opts) {
   hud.className = "sound-racer-hud";
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#f8fbff;z-index:4";
   hud.innerHTML =
+    '<style>[data-sr-steer-control][data-pressed="true"]{transform:scale(.94)!important;filter:brightness(1.16)!important}</style>' +
     '<div data-sr-panel="target" style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:12px;background:rgba(7,10,22,.72);border:1px solid rgba(255,255,255,.18);box-shadow:0 10px 24px rgba(0,0,0,.25);padding:8px 14px 8px 8px;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)">' +
       '<div data-sr="target" style="width:54px;height:54px;display:grid;place-items:center;font-size:1.85rem;font-weight:900;color:#071033;background:#ffd34e;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22)"></div>' +
       '<div><div data-sr="mission" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.76">Catch the sound</div>' +
@@ -445,11 +502,10 @@ function startGame(THREE, mount, opts) {
       '<div data-sr="words" style="font-size:.98rem;opacity:.9">0 / 0 words</div>' +
       '<div data-sr="shield" style="font-size:1.05rem;letter-spacing:2px;margin-top:2px">◆◆◆</div>' +
       '<div style="height:9px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:7px"><i data-sr="speed" style="display:block;height:100%;width:0%;background:#7cf0b6;transition:width .18s ease"></i></div></div>' +
-    '<button data-sr="left" aria-label="Steer left" style="position:absolute;left:0;top:84px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
-    '<button data-sr="right" aria-label="Steer right" style="position:absolute;right:0;top:84px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
-    '<div style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:12px;pointer-events:none">' +
-      '<div style="width:58px;height:50px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px);font-size:1.4rem">◀</div>' +
-      '<div style="width:58px;height:50px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px);font-size:1.4rem">▶</div></div>' +
+    '<div data-sr="left-zone" aria-hidden="true" style="position:absolute;left:0;top:84px;bottom:0;width:42%;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none"></div>' +
+    '<div data-sr="right-zone" aria-hidden="true" style="position:absolute;right:0;top:84px;bottom:0;width:42%;pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none"></div>' +
+    '<button type="button" data-sr="left-control" data-sr-steer-control aria-label="Steer left" style="position:absolute;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(124,240,182,.9);border-radius:18px;background:linear-gradient(160deg,rgba(14,45,64,.96),rgba(5,20,37,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8592;</button>' +
+    '<button type="button" data-sr="right-control" data-sr-steer-control aria-label="Steer right" style="position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:68px;height:68px;display:grid;place-items:center;padding:0;border:2px solid rgba(124,240,182,.9);border-radius:18px;background:linear-gradient(160deg,rgba(14,45,64,.96),rgba(5,20,37,.94));box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.42);color:#fff;font:900 2rem/1 var(--kid-font-display,Fredoka,sans-serif);pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;transition:transform .08s ease,filter .08s ease">&#8594;</button>' +
     '<div data-sr="banner" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:900;font-size:clamp(1.25rem,5vw,2.5rem);letter-spacing:.12em;text-transform:uppercase;color:#f5fbff;text-shadow:0 3px 18px rgba(0,0,0,.7);opacity:0;transition:opacity .25s ease,transform .25s ease;transform:translateX(-36px)"></div>' +
     '<div data-sr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(9,12,30,.62),rgba(5,7,18,.24));z-index:12"></div>' +
     '<div style="position:absolute;inset:0;pointer-events:none;z-index:14;opacity:.13;background:linear-gradient(180deg,rgba(145,225,255,.12),transparent 25%,transparent 76%,rgba(4,7,18,.42));mix-blend-mode:soft-light"></div>' +
@@ -497,6 +553,7 @@ function startGame(THREE, mount, opts) {
   let track = null;
   let levelIdx = startLevelIdx;
   let laneIx = 1;
+  hud.dataset.soundRacerLane = String(laneIx);
   let playerZ = 0;
   let speed = 0;
   let timeMs = 0;
@@ -2987,20 +3044,29 @@ function startGame(THREE, mount, opts) {
   }
 
   function moveLane(dir) {
-    if (!running) return;
+    // Let the child choose a lane during the visible countdown. Discarding
+    // those first presses makes the controls feel broken on slower devices,
+    // even though the race has mounted correctly. Pause and modal overlays
+    // still freeze steering.
+    if (paused || overlayActive) return;
     const next = Math.max(0, Math.min(2, laneIx + dir));
     if (next !== laneIx) {
       laneIx = next;
+      hud.dataset.soundRacerLane = String(laneIx);
       sfx(playTapSound);
     }
   }
 
   const onLeft = () => moveLane(-1);
   const onRight = () => moveLane(1);
-  // Pointer steering commits on release; native Enter/Space clicks keep the
-  // same action reachable without creating a second pointer activation.
-  const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight });
+  // Broad side zones keep release/swipe steering while compact arrows respond
+  // on press; native Enter/Space clicks retain one activation path.
+  const detachSteerZones = attachSteerZones({ left: el("left-zone"), right: el("right-zone"), onLeft, onRight });
+  const detachLeftControl = attachSoundRacerPressControl(el("left-control"), onLeft);
+  const detachRightControl = attachSoundRacerPressControl(el("right-control"), onRight);
   opts.registerCleanup?.(detachSteerZones);
+  opts.registerCleanup?.(detachLeftControl);
+  opts.registerCleanup?.(detachRightControl);
 
   const hearTargetButton = el("hear-target");
   const replayTargetSound = event => {
@@ -3015,7 +3081,8 @@ function startGame(THREE, mount, opts) {
   opts.registerCleanup?.(() => hearTargetButton?.removeEventListener("click", replayTargetSound));
 
   const onKey = event => {
-    if (isInteractiveKeyTarget(event.target)) return;
+    const steeringControlOwnsFocus = event.target?.matches?.('[data-sr="left-control"],[data-sr="right-control"]');
+    if (isInteractiveKeyTarget(event.target) && !steeringControlOwnsFocus) return;
     const direction = laneDirectionForKey(event.key);
     if (!direction) return;
     event.preventDefault();
