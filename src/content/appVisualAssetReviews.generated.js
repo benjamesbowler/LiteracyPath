@@ -1942,7 +1942,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-23/page-001.webp",
-      "sha256": "665db2e417b540b9d0d431c616a6b0958ccd7c2b7a902fa1124d4d2ec1fdc41f",
+      "sha256": "79891877c0de37d113f07508e013416eaee4f7946104f7e6d2f18612df0479a8",
       "status": "approved"
     },
     {
@@ -1997,7 +1997,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/nonfiction/first-facts/book-24/page-003.webp",
-      "sha256": "401881f623ba3b5015d03a1eb8e2991d586791eb6f8e5a9cc1984953b78e3768",
+      "sha256": "f0f119887aa07a7f6e5a05f4a6f214452b0042e6714372b5d569d78b58ca67fe",
       "status": "approved"
     },
     {
@@ -3507,7 +3507,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/regen/pages/gr-b-31-page-05.png",
-      "sha256": "3ddeb2da8b1235c0f765f5370cafc3cc1b054f81996ed6287b0962ecd4c54ccd",
+      "sha256": "385ebf3c29a353cecb1f86f2835f283f54ecf18b8c155da83aa0ffa1644711f6",
       "status": "approved"
     },
     {
@@ -3777,7 +3777,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-43-page-05.png",
-      "sha256": "f454068a35e619622d0ca2108999146c75d95bb458e41d1b1f2066e2cc8d1019",
+      "sha256": "bb04a963f112b1811ee422fc9f31ce65f6afb6542e3a100ea5a7392d35f3d7f5",
       "status": "approved"
     },
     {
@@ -3837,7 +3837,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/regen/pages/gr-d-45-page-05.png",
-      "sha256": "3a30161819c930d5fe6b8b48c37b93d3090f93fea62a551f2786e3d32fa3eba3",
+      "sha256": "79a0b25cd90240c2fa33bc3804ae1b345814a3e7d8be90566b164616c2f055ba",
       "status": "approved"
     },
     {
@@ -4312,7 +4312,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-05/page-006.webp",
-      "sha256": "3d437f3f256a7fab335cb88f264a4ba9b448308f6f70197b9cc974a544ba3cfc",
+      "sha256": "8638b88d416a9e84dee91c1af6e78c0cac86ca6b9dc287b620aaa7cfdda56612",
       "status": "approved"
     },
     {
@@ -4417,12 +4417,12 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-012.webp",
-      "sha256": "61c1b3fb0ff7b0cf98f3d885dc68c246c0811f9fcca962ff8f623290b1bb206d",
+      "sha256": "e3141d82e3eaab2f53adf6e76f598200baffa827cfef0f9ad928cbaaebaff572",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/aiden-and-betty/book-06/page-013.webp",
-      "sha256": "24ad4b56ba31eedafa90ed2d9de1be6e976827dbb27caefba1d21ffb64caf181",
+      "sha256": "e7140c06a5e5aac10b8954bc8923cef560b77af93f513746b9f659db5f349fc7",
       "status": "approved"
     },
     {
@@ -4792,7 +4792,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-03/page-001.webp",
-      "sha256": "000fa2f4f29d5480787c3634aa33574121b44f0a4a2ae459f52f99dbda8c36a3",
+      "sha256": "6044127946142b366476e20f271cbdc1945ca77b71db96cc80f9200147b1922e",
       "status": "approved"
     },
     {
@@ -5012,7 +5012,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/bob-and-nan/book-08/page-003.webp",
-      "sha256": "353754f98a196160d1476d4a557f9f2e63701817e1f2a08da6b8b842f589ed32",
+      "sha256": "efd62c644d129b6956cb1657c3a3cbed4b8f829c18f7def718d207a2eee07b39",
       "status": "approved"
     },
     {
@@ -5697,7 +5697,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-12/page-010.webp",
-      "sha256": "6879d0e8480d5dcc9225b504449e30f551f6adf595799076130e3ae904a4f988",
+      "sha256": "ac626c50596751e2afac324bfe54696e1ab2eb117e567f867415b9366edecf51",
       "status": "approved"
     },
     {
@@ -5862,7 +5862,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-15/page-004.webp",
-      "sha256": "55ee1923b2f9496d5a506640f8c7298e33f71954aecf969e460e16e67376028a",
+      "sha256": "2b1489fa939bb9ca7351f9d83bda92d7f2ccd8d1cebbdf3f22cc7566c13e7875",
       "status": "approved"
     },
     {
@@ -5962,12 +5962,12 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-011.webp",
-      "sha256": "f7a5d4598631f5c4759d2b34b79d7c2337991744cea5ea3c7bfd7d1a58fa6c6c",
+      "sha256": "6c8e41562360edde235e02305d2e56c5e187e11de6472f155e0fec540ef05fdd",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/dino-pals/book-16/page-012.webp",
-      "sha256": "092438de00690dc8a9a32b7be5d07cf5b2039de4bfb63464ac635337cb2b815d",
+      "sha256": "c84bda3f3b9439e92c9e8e82b7286b437cc8ef0f9250c7d1863636912ebe4612",
       "status": "approved"
     },
     {
@@ -6022,7 +6022,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-17/page-010.webp",
-      "sha256": "ed7e52aae4145a09aaac38ad218367067998db03568f88987092f993186f48a6",
+      "sha256": "13efd9234c5ac41805cfdb993d1805723cfe9d3746a520b09b0eadcd94a62789",
       "status": "approved"
     },
     {
@@ -6317,7 +6317,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-22/page-008.webp",
-      "sha256": "e5464d863fe0676b3c9a7d8bdd66ede492605d0928764bc07213c305be1d15c6",
+      "sha256": "3d048a6a760b00fb8cba8a3b44b449bba81f06a9a283d9989939efbad43436da",
       "status": "approved"
     },
     {
@@ -6442,7 +6442,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/dino-pals/book-25/page-006.webp",
-      "sha256": "d78abf925ee9fdacb92a3709e0e9ba667727a48c7723d4566183503ef4994876",
+      "sha256": "ad3a62c1e12af5c616fbe9d69fc799c37c340aee7d480c872babc068ef031b9e",
       "status": "approved"
     },
     {
@@ -6807,7 +6807,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-02/page-010.webp",
-      "sha256": "e20399afa79851d40e4d9551c13b3d2733aa4f9ed1e7e7d60d759467ee071380",
+      "sha256": "7d2112ae11263151e86c7794417b2f562aea531ac1d88cf2a9724add220b065a",
       "status": "approved"
     },
     {
@@ -6867,7 +6867,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-03/page-009.webp",
-      "sha256": "fb5db48cbca3e582dae416734ee30e9751c75035de09d4e296b516f8a86d7ce2",
+      "sha256": "6ebcfcb39defea23406f5f327b6a0718a8703d7efe61a87a551f97e770355ed6",
       "status": "approved"
     },
     {
@@ -6907,7 +6907,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-003.webp",
-      "sha256": "c9d3462f59c82f06291d4b2267e772aa67240f4ac2bc4dd8fc3df67eb3c9b161",
+      "sha256": "5f778a074af1365d7334dbf15c43d487038e29bd3269f3c27d0fc10c0c4cb26a",
       "status": "approved"
     },
     {
@@ -6952,7 +6952,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-04/page-012.webp",
-      "sha256": "6325aa99db4125e225323926f3204603fbfc033a8cc199bd411a43009b7809d7",
+      "sha256": "bd389c7e2ae613db6a2c4fe082b4bf607b7ecc7ab1211553ed2f9d43bfccee54",
       "status": "approved"
     },
     {
@@ -6997,7 +6997,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-007.webp",
-      "sha256": "f6998f93d9b5347f7ddf812b0e2f942431a5cb0c65048e46068d361b5d19ddf4",
+      "sha256": "cf8911b575ff902018cca330725036d1cc0f0b9d45cc6775c9895bc9576e9456",
       "status": "approved"
     },
     {
@@ -7012,7 +7012,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-05/page-010.webp",
-      "sha256": "937735176ad98f8d68511dbfaeed80b1812b04c83420a7c11e46ea8de4ba5c35",
+      "sha256": "eafbc1f82cc355ba79a51f1befb378611064625ca4b3e5c026fe7a0848c7e844",
       "status": "approved"
     },
     {
@@ -7122,7 +7122,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-07/page-004.webp",
-      "sha256": "2460ce0ddae8f1ba2bd9036eae4f5a523027598702bcee6fe95c8f0655c24e14",
+      "sha256": "cdb16e7613c6355069900922a0cad5a91205ad0885b3945b5d8516d3b609f5e6",
       "status": "approved"
     },
     {
@@ -7227,7 +7227,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-08/page-011.webp",
-      "sha256": "ecada4d42ae1867b01ef12a78056897ceb3a61f1e43f15c45ee1d14a1983c45b",
+      "sha256": "7d5ac56cfacea74344e297010a32d4b1aef31d36a0e1b4513540c758d00a2f5f",
       "status": "approved"
     },
     {
@@ -7257,17 +7257,17 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-004.webp",
-      "sha256": "5d6e386429afb503a98434ddefba632ee765e37f41a1375de202dfb04a5f33f9",
+      "sha256": "1f075275baa511acd092e22ede3885d646cd93634e41970ad70e2c702345ab72",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-005.webp",
-      "sha256": "8a5f6f98a6aabed14e51ea68525bfd5fafc8ba7a76468d8a313c809902eb84fa",
+      "sha256": "bbd601687a448405b177115cf57a3c018c91e74443d684fbe377050347bd67fd",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/james-and-anna/book-09/page-006.webp",
-      "sha256": "4d65ac09eb77841b2dfb37c049537b1d7c5b08843e006336be14fed772cbcf00",
+      "sha256": "4d72f6263137eca3b11d52ddc2007a66d9c8f50d0abf23c2dfd56e7868463e67",
       "status": "approved"
     },
     {
@@ -7437,17 +7437,17 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-001.webp",
-      "sha256": "c7f111b88c69109b97affa40dda52f007c4cafea2ec29204a40f80a72a26d690",
+      "sha256": "246629685886eae7a2e4992f5fc796e3ce569260f72cf79c98c9ceec05d4258a",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-002.webp",
-      "sha256": "abbffc33368929e204e20e47e5ce7c4277803ad43bff7401565c132060b5f683",
+      "sha256": "42e6d52b28b8a2810427b9e279d11cec2775987083f53774022852460497f4ac",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-003.webp",
-      "sha256": "c8f2e273366bdabce4d588ecfccd2111d319e3f6f1c9fe18c98e54f48fc1d540",
+      "sha256": "b75d65d2565a99d6675126dbc2c2f595572a5ffcae67d21d7db6cbe21adbf9cb",
       "status": "approved"
     },
     {
@@ -7457,7 +7457,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-02/page-005.webp",
-      "sha256": "22f8978a8d45264449db1ef4f949552b97ff0ec1130422ed238bdd516e8e4fd8",
+      "sha256": "a43e753f85c6e44e971ccff187a3522a18002159b505928c2db0fc44bb6979ec",
       "status": "approved"
     },
     {
@@ -7602,12 +7602,12 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-007.webp",
-      "sha256": "d0640bcb84d4f8ee4abbfe19db819b0202ded5b0f940ca7d062880f272979e32",
+      "sha256": "a0cfc53671f14b345621de7e4e595f427e75e85dc7c1b6872112bc20f0d794c9",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-05/page-008.webp",
-      "sha256": "dd63592a5a96f7feec728ce4541d799146709db0a4f66480f1381180a9ac481d",
+      "sha256": "4ca5025f122c70c335c7a5e85ac33d9f6a373d560f67d78f0a60b4a733b61448",
       "status": "approved"
     },
     {
@@ -7632,7 +7632,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-002.webp",
-      "sha256": "fe9caa8277ead21fe7ec5d0c9ccddfdffcfcd3e30cc937695c21380d37ca3588",
+      "sha256": "fd838254650ae2ee74f215c6d20f5aeee518eaa4aaa5f6b8699d33c44e8ae851",
       "status": "approved"
     },
     {
@@ -7652,7 +7652,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-06/page-006.webp",
-      "sha256": "b0d7c4fb7c4e31d08615b0f19a914fe161d76af1d5ec06e955136b34d59573cc",
+      "sha256": "f9a973113f6bc4ff252185656005d69ec8f4d37ad395fdc9818afdf86beb1989",
       "status": "approved"
     },
     {
@@ -7822,7 +7822,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-09/page-009.webp",
-      "sha256": "2c3cf996019c3d3effd0c1906554630fa4ffb4aceca3f98b8de233267d63d54e",
+      "sha256": "2940f1c8b996ef693e56e475a3b885f54c3bc272b0c33b47dcf3e3f8b2690044",
       "status": "approved"
     },
     {
@@ -7927,7 +7927,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-11/page-010.webp",
-      "sha256": "169d7d8a880242e5e4e2cd08e845f84a80d8cc7ca2727c724789c392b3f95404",
+      "sha256": "7b752a8942dc954357b2be677eb62b0065f72b83b512dff20a4f90edf4a652e2",
       "status": "approved"
     },
     {
@@ -7947,7 +7947,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-12/page-003.webp",
-      "sha256": "5fc7cff0ebcb8c0ade6226fa60c58486b86be9a05067b91a5f64958b895f1472",
+      "sha256": "68f48dd2b542d130e3897a4cb8fb42d509cfa041d96e776ba067830babb0d48f",
       "status": "approved"
     },
     {
@@ -8007,12 +8007,12 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-007.webp",
-      "sha256": "4904b5e6e96bd519abe416daccb20fde90ea135cc937e8f3bc8f5d09a4de3157",
+      "sha256": "e3538200696027ee4eacd19eed4b2d3d170428eff8d4a407e56a7bff44c674d0",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-13/page-008.webp",
-      "sha256": "c789c926848fe02746c43accf7f48ef8d2d7a08740d02c5204f2a6c66402c313",
+      "sha256": "8944c990c63fca4b7200c5b9e685157e8a71524f4fd33838d315e6254a246233",
       "status": "approved"
     },
     {
@@ -8462,17 +8462,17 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-004.webp",
-      "sha256": "d5fb9637456db6d06e3b0108b311deb309c9210f93fd1af16a7467c515a1029d",
+      "sha256": "f6017c5866ae71dc48033670f4ac691d6d9f1f9591507ca9124b3b4de7620af8",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-005.webp",
-      "sha256": "6b02a682576675804721cf3e5cdd2f031f60f60eb68985e1a6978ddbea4c9d72",
+      "sha256": "99c3945f121c2890beaadb8a0ad57e333bbdd404904ef92dffd27f904a557b89",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/meadow-pals/book-22/page-006.webp",
-      "sha256": "3691eb7922dacd962411136e3d17650a6eba02b8bdec50490358b44312e9419b",
+      "sha256": "3bf4702712320ad0eedabb8acca567992b1fa9b297ffb7dfc7d02b3d00c56784",
       "status": "approved"
     },
     {
@@ -9272,7 +9272,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-003.webp",
-      "sha256": "594283159daac5df5fb2c622628fc92617fd50e00c6d765fd8d2721ba41b997a",
+      "sha256": "baca71bafa01caf347c6d6185fe4079b654e48efa901b7dc4683c1098f98829e",
       "status": "approved"
     },
     {
@@ -9297,7 +9297,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-008.webp",
-      "sha256": "f76459b688615ac20b5b14d800debb49d68766e7836c374a02c358a4e479dc3e",
+      "sha256": "42e3e5e43afb9a3e6a010778a9df00edf5e3607454515536a790109cc99ba4f7",
       "status": "approved"
     },
     {
@@ -9307,7 +9307,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-010.webp",
-      "sha256": "330e79a732f2029a0053d98ccb1e18423068ebe8d0231d18c22f47b5a0c81704",
+      "sha256": "07c505bb95dd3d333499e13e1bb34ca0cc2185b434c857d42b34dde2d0a7fe92",
       "status": "approved"
     },
     {
@@ -9317,7 +9317,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-03/page-012.webp",
-      "sha256": "b8ce848132e9481111eb6b809d6ff5bec32a74e20b8eebdd0bcaba1079b544b1",
+      "sha256": "e5e362e726877a5c896e8edc4339d00203690fd26894d1aab69a69200252d006",
       "status": "approved"
     },
     {
@@ -9507,7 +9507,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-06/page-011.webp",
-      "sha256": "04ec7edbf64e3ec468853ff4d1c17d259efd77c0511f6a991c797470bae4d8ea",
+      "sha256": "e70e991afd1439198c2dc5895cd42abd6fcda817be7586596a1467372a7e3a2a",
       "status": "approved"
     },
     {
@@ -9862,7 +9862,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-11/page-012.webp",
-      "sha256": "97f60dd76bbf8f8338c15767982a5265cd073372a25a699d35aab4a407be39e0",
+      "sha256": "878d8254dddb4d5f6b7349c89432a2fb2fe352341770d3f62f04ffb73468486b",
       "status": "approved"
     },
     {
@@ -10862,7 +10862,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-006.webp",
-      "sha256": "f84d07222d9356a7da403db5bbbffeadc435bf1b4a6f633388464ef9161e36c4",
+      "sha256": "278edb9cbc21dd3d103f4b0402fde66a4e4f08e6991cf6622435d4df5d772a9f",
       "status": "approved"
     },
     {
@@ -10872,7 +10872,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-27/page-008.webp",
-      "sha256": "8683d7fd4f4990f894b4271b43bfc4b75b521ec246e67b486b46ff1403635b53",
+      "sha256": "56c1e543443ee4f1f1d05d07fd242ffa7d126a0ddd6b3ee5d45a65e39d51fad3",
       "status": "approved"
     },
     {
@@ -10892,52 +10892,52 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-001.webp",
-      "sha256": "b7bdcb1ac9e7573bdafbccf1098cdd111521c3a37f2fd3734d8dcdbe60015029",
+      "sha256": "ed4298109037102cc1f7791e081b7dfeb0359ff60607cb4a8069272aaa3af39c",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-002.webp",
-      "sha256": "1344364ece350d0bc91a82446e733c2d1614c64e5e6d66ceb647676e3178aaee",
+      "sha256": "5f44b9a8da7caffc80d1c85d1cedd8c81014eaa70349549985c2cb2f208bf28e",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-003.webp",
-      "sha256": "20e02c04a0fb511ecfd56fe1292abbaaf779a573988925970adc25a82a2c607e",
+      "sha256": "3205c30cb577510e26420d68cb78313a84f8844b026f0ea542ee26a4a0ba435b",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-004.webp",
-      "sha256": "f886c4093afc119bb976f89ab45afd297e2e7cad9b29da2fd40e8766063d2e2e",
+      "sha256": "4209735eea59a83385c186807ef8efc35aaa03e7bb56186df8812ed9d7a95a3f",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-005.webp",
-      "sha256": "b254e952cc007da3fdab2f7d198ed51c758c1ebe792f3f0d75f6c15ff1c7a533",
+      "sha256": "94da5279db5aa643852c920061ef00f6493742ab006d2fb9464512ee1267be24",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-006.webp",
-      "sha256": "648a5f47c8518b86297cb85fa7735e8889d67f31a6fe31b1275d13572ffa5a76",
+      "sha256": "25a4a931acc306107afdb5064cdbbe68c513e30a4ecea2d4f396ef6489c45174",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-007.webp",
-      "sha256": "beacc61b76e589d5f955ea87ac06e0ea7ade4f37557b509aa3d079fb8eeb945d",
+      "sha256": "60a76c69d07138e6cf8e2ef7bc161d1eb5c7ef21450bb2af4534f52e5a85af19",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-008.webp",
-      "sha256": "4db57ba97e435d0cb4f5f43eee1bcb66c1832d063573917144b848e673365a87",
+      "sha256": "0ba4d08fd2e50b562457a4a76201b82b5144e3b9b3efc53fb6d8d469f4da87d4",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-009.webp",
-      "sha256": "9aa4f6a553c4f771415f138ec289b228f21ac494062da51019de705ef545ea51",
+      "sha256": "af81fba68ac07a29cc27deb36f92b600771b80d6f89197f5da53c287d24d30ab",
       "status": "approved"
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-28/page-010.webp",
-      "sha256": "09c8db91c1c55267a80e747d3ec4679181e7c52c387e0508f5bb231395915745",
+      "sha256": "a76aeb88c75bc4e76f876583fb70ac801991d259486c652ef9900fc5e21583b9",
       "status": "approved"
     },
     {
@@ -10952,7 +10952,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-002.webp",
-      "sha256": "5d1317fb2f69785c9266b3eb297d2ea9190a351bb8214891b180cc8c5c0f6b23",
+      "sha256": "68fd7bb4bb19f6d58cda7c9a7a0d3fcb100340be000c6a4f2eb69f834774ade7",
       "status": "approved"
     },
     {
@@ -10962,7 +10962,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/guided-reading/series/moonwood-tales/book-29/page-004.webp",
-      "sha256": "bd057a34e844ac37856f4fb36cd7ced3fb344459e8e91538a3d872d60cf690ae",
+      "sha256": "be1512281923079201e764d078c8e68413bfd7dec2b6de9c1f77af3b600f2bbc",
       "status": "approved"
     },
     {
@@ -26552,7 +26552,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/meadow-pals/bouncy-speedy-map/p01_start.webp",
-      "sha256": "173d4b9f18647dd2ad6383032dda9a7095613a51220813209c5eddd5b7cbdea0",
+      "sha256": "5a4aa2b23f5e74a14c5acbe8a2a1c16928c4102b7f3016e8a688c8c8e70bf6e0",
       "status": "approved"
     },
     {
@@ -27282,7 +27282,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_smoke_arrow.webp",
-      "sha256": "eba8d480f79e573ea536e41119d4c430a5e706eea42930661834bb14b750d41a",
+      "sha256": "f6dd62964c6af3dada0695c55652e3df8cd3e081823436acc90463eefe749402",
       "status": "approved"
     },
     {
@@ -27327,7 +27327,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_lantern_pop.webp",
-      "sha256": "600bf73a6d9bb4727a845c29616b22f5e60187f5f8597c9d41fa15b2a2ea573d",
+      "sha256": "6bbfe6cd571a36dcac90ad3e7d4772d164efe6cace9badbc98c8c897ef3793cc",
       "status": "approved"
     },
     {
@@ -27582,7 +27582,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.webp",
-      "sha256": "829dd4301499ab32c8887dd74d5a94660b0e3f64e2158bfcc64de98b3ab85d21",
+      "sha256": "f6b307b7a945cb603d542c243b98640596c9bf3e2cc5070683b536d0de001783",
       "status": "approved"
     },
     {
@@ -27782,7 +27782,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_burrow_repairs.webp",
-      "sha256": "5b408074d9d0408ab8b5a9134b9d0a46e821308e14761dd9cad8dffeb4bb8923",
+      "sha256": "4a51aee8632557bd3a292bfef336165b95564174d975d5bccdedb729a47ec5fe",
       "status": "approved"
     },
     {
@@ -27892,7 +27892,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_wren_checks.webp",
-      "sha256": "eb325dd7da3b4293c3f2be48502b5c433982bd798d964ec5a5194eb1f0f7f75a",
+      "sha256": "d864e1b2ac1e501f085051ab7050564fefb9ab4a893c46cb30dd8da1bad72ef9",
       "status": "approved"
     },
     {
@@ -27917,7 +27917,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_sorry_path.webp",
-      "sha256": "df5d124fe12a054109c4a963a397fe3d1c6ae2554ec48642e1fba306b301dbe7",
+      "sha256": "9d2c12988738e5e3bcf57df24432983912a30ce32da2bbc1f03a8ed692ff71d6",
       "status": "approved"
     },
     {
@@ -28037,7 +28037,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p04_inside_marsh.webp",
-      "sha256": "52d589c2e4f84a625bce4860ee0c0562573be2fda356a232aaaa326403f152df",
+      "sha256": "163d06734974c9d50af7177ab00e8dc7b68379d3755aa8292312923ec5399e2d",
       "status": "approved"
     },
     {
@@ -28047,7 +28047,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p04_stone_leads.webp",
-      "sha256": "4fa1df07743ddb7f345690fd73e797c1a88cb97a3a28bca7c54e75d35b3eec8e",
+      "sha256": "5a4b60379466b0de1ebcec2706b7698ec63d12266d1f5cfd9954cdb22234c6e6",
       "status": "approved"
     },
     {
@@ -28137,7 +28137,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p11_back_home.webp",
-      "sha256": "cd158adcdb72b264282863bb75374e6a2f8a88935a6452bce12170d95b23454c",
+      "sha256": "aec5f035503312d70e3ed1bbcd39719524525e9bcb0a6df8a980aee1ba6ce011",
       "status": "approved"
     },
     {
@@ -28147,7 +28147,7 @@ export const appVisualAssetReview = {
     },
     {
       "path": "/images/story-quests/moonwood/pip-stone-loud-thing/p12_ending_loud.webp",
-      "sha256": "e63903e22af674fe965dfa0dd81a368ad82e5f3c1cb8328b9dce3f5d1f5e603e",
+      "sha256": "5eef717210818bc5f8aeae665ada827086f976abec1e438a5c83b3a2bfdf18d9",
       "status": "approved"
     },
     {
@@ -35682,5 +35682,3 @@ export const appVisualAssetReview = {
     }
   ]
 };
-
-export default appVisualAssetReview;

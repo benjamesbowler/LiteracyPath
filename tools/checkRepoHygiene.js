@@ -45,6 +45,14 @@ const CURRENT_NAMED_MEDIA_EXCEPTIONS = new Set([
   // production illustrations, not regeneration scratch files.
   ...Array.from({ length: 6 }, (_, index) =>
     `public/guided-reading/regen/pages/gr-b-31-page-${String(index + 1).padStart(2, "0")}.png`
+  ),
+  // These two additional six-page sets are also hash-reviewed, active runtime
+  // art. Their legacy regen path predates the hygiene gate; the PNGs are the
+  // production illustrations for Healthy Habits and Space, not scratch files.
+  ...["gr-d-43", "gr-d-45"].flatMap(bookId =>
+    Array.from({ length: 6 }, (_, index) =>
+      `public/guided-reading/regen/pages/${bookId}-page-${String(index + 1).padStart(2, "0")}.png`
+    )
   )
 ]);
 const HARD_SOURCE_EXTENSIONS = new Set([".psd", ".ai", ".zip", ".md"]);
