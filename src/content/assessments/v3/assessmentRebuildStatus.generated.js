@@ -198,8 +198,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-08-21T14:41:32.376Z",
-  "commit": "bb3dc16bf"
+  "generatedAt": "2026-08-31T03:32:52.001Z",
+  "commit": "bab011cac"
  },
  "hfw_1_25": {
   "skillId": "hfw_1_25",
@@ -356,9 +356,9 @@ export const assessmentRebuildStatusBySkillId = {
   "cutover": true,
   "standardVersion": "v3-2026.08-validity-3",
   "counts": {
-   "total": 160,
-   "level1": 75,
-   "level2": 75,
+   "total": 154,
+   "level1": 72,
+   "level2": 72,
    "retention": 10
   },
   "gates": {
@@ -373,8 +373,8 @@ export const assessmentRebuildStatusBySkillId = {
    "G9_required_audio": "pass",
    "G10_visual_policy": "pass"
   },
-  "generatedAt": "2026-08-21T14:41:32.376Z",
-  "commit": "bb3dc16bf"
+  "generatedAt": "2026-08-31T03:48:54.216Z",
+  "commit": "bab011cac"
  },
  "key_details": {
   "skillId": "key_details",

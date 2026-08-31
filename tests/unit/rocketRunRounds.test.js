@@ -17,6 +17,7 @@ test("rocketRunTargets are all onset-able and exclude final-only graphemes", () 
   for (const g of ["x", "all", "ng", "nk"]) {
     assert.ok(!targets.includes(g), `"${g}" is final-only and must not be a target`);
   }
+  assert.ok(!targets.includes("u"), "short U needs a deeper familiar-word pool before it becomes a race target");
   for (const g of ["s", "m", "t", "sh", "ch"]) {
     assert.ok(targets.includes(g), `expected "${g}" to be a valid target`);
   }

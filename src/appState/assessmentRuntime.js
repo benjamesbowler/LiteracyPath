@@ -126,6 +126,10 @@ export function getAssessmentQuestionPhase(question = {}) {
 }
 
 export function getFinalSoundQuestionLevel(question = {}) {
+  if (question.source === V3_QUESTION_SOURCE || Number(question.bankStandardVersion) === 3) {
+    return Number(question.level || question.assessmentLevel || question.difficulty || 1) >= 2 ? 2 : 1;
+  }
+
   const finalTarget = normalizeItemKey(
     question.targetFinalSound ||
     question.targetSound ||

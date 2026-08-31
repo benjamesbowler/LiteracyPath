@@ -3,6 +3,7 @@ import test from "node:test";
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
+import { pathToFileURL } from "node:url";
 
 import {
   assessmentImageStyleBlocklist,
@@ -146,15 +147,29 @@ test("directly rejected pixels cannot return behind regenerated approval metadat
   });
 });
 
-test("all 2,518 v3 items have an approved meaningful media decision", () => {
+test("every published v3 item has exactly one approved role-appropriate media decision", async () => {
+  const banksDirectory = path.join(projectRoot, "src", "data", "v3", "banks");
+  const activeItemIds = new Set();
+  for (const fileName of fs.readdirSync(banksDirectory).filter(file => file.endsWith(".v3.generated.js"))) {
+    const { questions = [] } = await import(pathToFileURL(path.join(banksDirectory, fileName)).href);
+    questions.forEach(question => activeItemIds.add(question.id));
+  }
+
   const rows = Object.values(ASSESSMENT_ITEM_MEDIA_DECISIONS);
-  assert.equal(rows.length, 2518);
+  assert.equal(rows.length, activeItemIds.size);
+  assert.deepEqual(new Set(rows.map(decision => decision.itemId)), activeItemIds);
   rows.forEach(decision => {
     assert.ok(decision.itemId.startsWith("lp3."), decision.itemId);
     assert.ok([
-      "answer-cards", "sequence", "target-or-scene", "neutral-support", "construct-support"
+      "answer-cards", "sequence", "target-or-scene", "neutral-support", "construct-support", "text-only"
     ].includes(decision.role), decision.itemId);
     assert.equal(decision.constructReview, "approved", decision.itemId);
+    assert.equal(Array.isArray(decision.paths), true, decision.itemId);
+    if (decision.role === "text-only") {
+      assert.deepEqual(decision.paths, [], decision.itemId);
+      assert.equal(decision.alt, undefined, decision.itemId);
+      return;
+    }
     assert.ok(decision.paths.length > 0, decision.itemId);
     assert.ok(decision.alt, decision.itemId);
     decision.paths.forEach(assetPath => {

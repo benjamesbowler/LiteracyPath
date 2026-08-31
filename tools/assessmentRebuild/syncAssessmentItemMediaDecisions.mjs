@@ -14,7 +14,8 @@ import {
   AUTHORING_DIR,
   ROOT,
   expandBank,
-  makeImageResolver
+  makeImageResolver,
+  syncItemMediaDecision
 } from "./lib.mjs";
 import { skillBlueprints } from "../../src/content/blueprints/skillBlueprints.js";
 import { ASSESSMENT_IMAGE_STYLE_DECISIONS } from "../../src/content/assessments/v3/assessmentImageStyleDecisions.generated.js";
@@ -47,18 +48,21 @@ const imagePaths = item => [...new Set([
   ...(item.sequenceCards || []).flatMap(card => [card.image, card.imagePath])
 ].filter(Boolean))];
 
-const next = { ...ASSESSMENT_ITEM_MEDIA_DECISIONS };
-for (const item of items) {
+const activeItemIds = new Set(items.map(item => item.id));
+const skillPrefix = `lp3.${skillId}.`;
+const next = Object.fromEntries(Object.entries(ASSESSMENT_ITEM_MEDIA_DECISIONS).filter(([itemId]) =>
+  !itemId.startsWith(skillPrefix) || activeItemIds.has(itemId)
+));
+for (const [index, item] of items.entries()) {
   const decision = next[item.id];
-  if (!decision) throw new Error(`${item.id} has no reviewed media decision to synchronise`);
   const paths = imagePaths(item);
-  if (!paths.length) throw new Error(`${item.id} expands without meaningful media`);
-  for (const assetPath of paths) {
-    if (!ASSESSMENT_IMAGE_STYLE_DECISIONS[assetPath]) {
-      throw new Error(`${item.id} uses art without direct visual approval: ${assetPath}`);
-    }
-  }
-  next[item.id] = { ...decision, paths };
+  next[item.id] = syncItemMediaDecision({
+    item,
+    authoredItem: source.items[index],
+    decision,
+    actualPaths: paths,
+    styleDecisions: ASSESSMENT_IMAGE_STYLE_DECISIONS
+  });
 }
 
 const destination = path.join(
@@ -71,4 +75,4 @@ fs.writeFileSync(
   `${banner}export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze(${JSON.stringify(next, null, 2)});\n`
 );
 
-console.log(`Synchronised ${items.length} ${skillId} media decisions; ${Object.keys(next).length} total retained.`);
+console.log(`Synchronised ${items.length} ${skillId} media decisions; ${Object.keys(next).length} active decisions retained.`);

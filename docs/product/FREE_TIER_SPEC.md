@@ -181,7 +181,7 @@ Measured from the source, not estimated:
 | Content | Total |
 |---|---|
 | Skills | 30 |
-| Assessment questions (v3) | 2,518 |
+| Assessment questions (v3) | 2,512 |
 | Guided reading books | 206 (Level A 65, B 86, C 55) |
 | Story Quests | 13 (313 pages) |
 | Arcade games | 21 defined, 20 visible |

@@ -22,7 +22,7 @@ export const initialSoundAnchors = {
   u: "umbrella",
   v: "van",
   w: "web",
-  y: "yak",
+  y: "yo-yo",
   z: "zebra"
 };
 

@@ -42,6 +42,7 @@ const blockedAssessmentImageAssetNotes = {
 // overrides here lets every game use the normal recorded-word audio resolver
 // while preventing ambiguous text-only cards from reaching children.
 const curatedChildWordImageOverrides = {
+  alligator: "/media/vocabulary/images/alligator.webp",
   bath: "/images/assessment/digraphs/bath.webp",
   bench: "/media/vocabulary/images/bench.webp",
   branch: "/media/vocabulary/images/branch.webp",

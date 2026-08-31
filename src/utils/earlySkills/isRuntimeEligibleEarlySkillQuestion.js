@@ -16,10 +16,6 @@ export const EARLY_SKILL_IDS = new Set([
 ]);
 
 const FINAL_SOUNDS_LEVEL_ONE_ALLOWED = new Set(["b", "d", "g", "l", "m", "n", "p", "t"]);
-const FINAL_SOUNDS_LEVEL_ONE_FORBIDDEN = [
-  "sh", "ch", "th", "ng", "nd", "nk", "nt", "st", "sk", "ft", "lt",
-  "ll", "ck", "ss", "ff", "zz", "mp", "rk", "lk"
-];
 const SHORT_VOWEL_ALLOWED_FORMATS = new Set([
   "LISTEN_CHOOSE_VOWEL",
   "PICTURE_TO_PRINT_MATCH"
@@ -102,6 +98,11 @@ function isPairSelectionQuestion(question = {}) {
 
 function isVisualCardChoiceQuestion(question = {}) {
   return question.questionType === "visual_card_choice";
+}
+
+function isExplicitTextOnlyQuestion(question = {}) {
+  return question.assessmentMediaDecision?.role === "text-only" &&
+    (question.assessmentMediaDecision?.paths || []).length === 0;
 }
 
 function isListenAndFindWordQuestion(question = {}) {
@@ -368,6 +369,7 @@ export function hasCompleteRuntimeCards(question = {}, options = {}) {
 }
 
 function hasBlankQuestionVisual(question = {}, options = {}) {
+  if (isExplicitTextOnlyQuestion(question)) return false;
   if (isPairSelectionQuestion(question) || isVisualCardChoiceQuestion(question) || isListenAndFindWordQuestion(question)) {
     return !hasCompleteRuntimeCards(question, options);
   }
@@ -388,31 +390,12 @@ function getFinalSoundTarget(question = {}) {
   );
 }
 
-function hasForbiddenLevelOneFinalEnding(question = {}) {
-  const targetWord = getTargetWord(question);
-  return Boolean(targetWord && FINAL_SOUNDS_LEVEL_ONE_FORBIDDEN.some(pattern => targetWord.endsWith(pattern)));
-}
-
 function addFinalSoundsLevelOneIssues(question = {}, issues = []) {
   getFinalSoundsLevel1QuestionIssues(question).forEach(issue => issues.push(issue));
 
   const target = getFinalSoundTarget(question);
   if (!FINAL_SOUNDS_LEVEL_ONE_ALLOWED.has(target)) {
     issues.push(`Final Sounds Level 1 target "${target || "(missing)"}" is not one of b,d,g,l,m,n,p,t`);
-  }
-
-  getAnswerOptionTokens(question).forEach(option => {
-    if (option.length !== 1 || !FINAL_SOUNDS_LEVEL_ONE_ALLOWED.has(option)) {
-      issues.push(`Final Sounds Level 1 answer option "${option}" is not an allowed single letter`);
-    }
-  });
-
-  if (hasForbiddenLevelOneFinalEnding(question)) {
-    issues.push(`target word "${getTargetWord(question)}" ends with an advanced Level 2 final pattern`);
-  }
-
-  if (isPairSelectionQuestion(question)) {
-    issues.push("pair-selection questions are not allowed in Final Sounds Level 1 runtime");
   }
 
   if (!isFinalSoundsLevel1Question(question)) {
@@ -451,7 +434,7 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
     if (!getTargetWord(question)) {
       issues.push("Final Sounds question is missing targetWord");
     }
-    if (!isPairSelectionQuestion(question) && !hasRuntimeTargetImage(question, context)) {
+    if (!isPairSelectionQuestion(question) && !isVisualCardChoiceQuestion(question) && !hasRuntimeTargetImage(question, context)) {
       issues.push("Final Sounds question is missing a real target-word object image");
     }
   }
@@ -474,7 +457,7 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
     issues.push("written labels are hidden while image support is incomplete");
   }
 
-  if (!hasRuntimeImage(question, context)) {
+  if (!isExplicitTextOnlyQuestion(question) && !hasRuntimeImage(question, context)) {
     issues.push("missing required runtime image");
   }
 

@@ -1,6 +1,6 @@
 export const INITIAL_SOUND_LETTERS = [
   "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "y", "z"
+  "n", "o", "p", "r", "s", "t", "u", "v", "w", "y", "z"
 ];
 
 export const INITIAL_SOUND_ROUND_LENGTH = 15;
@@ -20,7 +20,7 @@ const levelOneWords = {
   l: ["log", "lamp", "leaf", "lion", "lock", "leg", "lemon", "ladder", "lake", "lunch"],
   m: ["map", "milk", "mug", "moon", "mat", "mouse", "mitten", "monkey", "muffin", "mirror"],
   n: ["nest", "net", "nut", "nail", "nose", "neck", "napkin", "noodle", "needle", "newt"],
-  o: ["octopus", "otter", "ostrich", "olive", "orange", "ox", "ocean", "oven", "oval", "owl"],
+  o: ["orange", "ox", "octopus"],
   p: ["pan", "pig", "pin", "pot", "pen", "pumpkin", "pencil", "panda", "pizza", "pond"],
   q: ["queen", "quilt", "quail", "quarter", "quill", "quiz", "question", "quiet", "quick", "quokka"],
   r: ["ring", "rat", "rug", "rain", "rope", "rabbit", "rocket", "robot", "ruler", "rose"],
@@ -29,7 +29,7 @@ const levelOneWords = {
   u: ["umbrella", "up", "under", "uncle", "umpire", "underwear", "utensil", "ukulele", "upstairs", "urchin"],
   v: ["van", "vest", "vase", "vine", "violin", "volcano", "vegetable", "valley", "vulture", "vacuum"],
   w: ["web", "wig", "window", "wagon", "water", "watch", "wheel", "whale", "worm", "wallet"],
-  y: ["yak", "yam", "yarn", "yoyo", "yellow", "yogurt", "yolk", "yard", "yacht", "yo-yo"],
+  y: ["yellow", "yard", "yo-yo", "yogurt"],
   z: ["zebra", "zipper", "zoo", "zero", "zucchini", "zigzag", "zip", "zone", "zinnia", "zookeeper"]
 };
 
@@ -105,7 +105,7 @@ export const initialSoundRequestedCoreWords = {
     u: "up",
     v: "van",
     w: "wig",
-    y: "yak",
+    y: "yellow",
     z: "zoo"
   },
   2: {
@@ -162,7 +162,7 @@ export const initialSoundCoreWords = {
     u: "up",
     v: "van",
     w: "wig",
-    y: "yak",
+    y: "yellow",
     z: "zoo"
   },
   2: {
@@ -197,7 +197,7 @@ export const initialSoundCoreWords = {
 const tagsByWord = word => {
   const text = String(word);
   const tags = [];
-  if (/\b(cat|dog|duck|fish|frog|goat|horse|lion|mouse|zebra|penguin|kangaroo|dolphin|gorilla|jaguar|otter|quail|rabbit|turtle|yak|panda|monkey|beaver|flamingo|hedgehog|narwhal|orangutan|woodpecker)\b/.test(text)) tags.push("animal");
+  if (/\b(cat|dog|duck|fish|frog|goat|horse|lion|mouse|zebra|penguin|kangaroo|dolphin|gorilla|jaguar|quail|rabbit|turtle|panda|monkey|beaver|flamingo|hedgehog|narwhal|orangutan|woodpecker)\b/.test(text)) tags.push("animal");
   if (/\b(apple|banana|carrot|corn|donut|egg|grape|ham|jam|lemon|milk|noodle|orange|pan|pizza|pumpkin|sandwich|tomato|watermelon|yogurt|zucchini|avocado|apricot|cucumber|coconut|oatmeal|pepper|pretzel|waffle)\b/.test(text)) tags.push("food");
   if (/\b(ball|bed|bag|book|cup|desk|door|fan|hat|key|lamp|map|net|pen|pencil|quilt|ring|sock|table|umbrella|van|web|window)\b/.test(text)) tags.push("concrete");
   return tags.length ? tags : ["imageable", "concrete"];
@@ -257,7 +257,6 @@ export const initialSoundPhonemeMismatchTargets = Object.freeze({
   island: "Island begins with long /i/, not the short /i/ target used by this bank.",
   ivy: "Ivy begins with long /i/, not the short /i/ target used by this bank.",
   ocean: "Ocean begins with long /o/, not the short /o/ target used by this bank.",
-  orange: "Orange begins with an r-coloured vowel in the app's reference accent, not the short /o/ target used by this bank.",
   oven: "Oven begins with /u/, not the short /o/ target used by this bank.",
   oval: "Oval begins with long /o/, not the short /o/ target used by this bank.",
   owl: "Owl begins with /ow/, not the short /o/ target used by this bank.",

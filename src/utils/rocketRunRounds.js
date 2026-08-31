@@ -26,8 +26,8 @@ const EXTRA_WORDS = {
   i: ["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant"],
   f: ["fat", "fed", "fin", "fit", "fog", "fun", "fur", "fall", "fast", "feet", "five", "flag"],
   d: ["dad", "dam", "day", "den", "did", "dim", "dip", "dot", "dark", "dish", "doll", "down"],
-  o: ["odd", "off", "old", "olive", "omelet", "opera", "orbit", "onset", "often", "orange", "oxygen", "onto", "oxen", "offer", "oddly"],
-  l: ["lab", "lad", "leg", "lid", "lip", "lit", "lot", "luck", "lamb", "lake", "list", "lock"],
+  o: ["odd", "odds", "off", "on", "ox", "oxen", "onto", "offer", "often", "office", "option", "orange", "omelet", "oblong"],
+  l: ["lab", "leg", "lid", "lip", "lit", "lot", "luck", "lamb", "lake", "list", "lock"],
   r: ["rag", "rat", "ray", "rib", "rip", "rob", "rod", "row", "rain", "rest", "ring", "rock"],
   h: ["had", "ham", "hay", "hid", "hit", "hot", "hug", "hut", "hand", "hard", "help", "hill"],
   b: ["bad", "bed", "bee", "big", "bit", "boy", "bug", "bus", "back", "bike", "bird", "boat"],
@@ -38,8 +38,8 @@ const EXTRA_WORDS = {
   y: ["yam", "yap", "yet", "yum", "yard", "yawn", "year", "yell", "yoga", "yolk", "your", "young", "yours", "youth"],
   e: ["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "edgy", "ember", "engine"],
   v: ["vat", "vow", "vast", "veil", "vent", "verb", "very", "veto", "void", "vote"],
-  k: ["keg", "key", "kin", "keen", "keep", "kelp", "kept", "kick", "kind", "king", "kiss"],
-  j: ["jab", "jar", "jaw", "jig", "job", "jog", "joy", "jail", "jazz", "jeep", "joke", "just"],
+  k: ["key", "kid", "keep", "kick", "kite", "kind", "king", "kiss", "kitten", "kettle", "kiwi", "koala"],
+  j: ["jar", "jaw", "job", "jog", "joy", "jeep", "joke", "jelly", "juice", "jacket"],
   z: ["zag", "zen", "zig", "zit", "zany", "zest", "zinc", "zone", "zoom", "zebra", "zipper", "zero", "zigzag", "zesty", "zippy", "zombie"],
   sh: ["she", "shy", "shed", "shoe", "shot", "show", "shade", "shake", "share", "sharp", "sheet", "shine", "shirt", "short"],
   ch: ["chew", "chain", "chalk", "champ", "chase", "check", "cheek", "cheer", "chest", "chick", "child", "chill", "chime", "chunk"],
@@ -56,7 +56,7 @@ const TARGET_SOUND_OVERRIDES = Object.freeze({
   a: Object.freeze(["add", "am", "an", "and", "as", "at", "act", "ash", "alley", "ankle", "actor", "angry", "animal", "apple", "attic", "action", "adder", "album", "anchor"]),
   e: Object.freeze(["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "engine", "empty", "echo", "ember"]),
   i: Object.freeze(["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor", "inbox", "invent", "itchy", "index", "insect", "igloo", "infant"]),
-  o: Object.freeze(["odd", "off", "on", "ox", "olive", "omelet", "opera", "onset", "otter", "option", "object", "optic", "onto", "oxen", "offer", "oddly"]),
+  o: Object.freeze(["odd", "odds", "off", "on", "ox", "oxen", "onto", "offer", "often", "office", "option", "orange", "omelet", "oblong"]),
   c: Object.freeze(["cab", "cat", "can", "cap", "car", "cod", "cop", "cow", "cub", "cut", "cake", "call", "camp", "card", "coat", "cold", "cook", "cool", "corn"]),
   g: Object.freeze(["gas", "get", "got", "guy", "game", "gate", "girl", "give", "glad", "goal", "gold", "golf", "good", "grin", "green", "grow", "grab", "glow", "grape", "grass"]),
   th: Object.freeze(["thin", "thud", "thank", "thick", "thief", "thorn", "throw", "thump", "thumb", "three", "thread", "thrill", "throat", "thing"])
@@ -103,7 +103,7 @@ export function wordsStartingWithTargetSound(grapheme) {
 // graphemes (x, all, ng, nk) and multi-letter pattern rows.
 export function rocketRunTargets(minCorrect = 3) {
   return Object.keys(LETTER_EXAMPLES)
-    .filter(g => /^[a-z]{1,2}$/.test(g) && g !== "qu")
+    .filter(g => /^[a-z]{1,2}$/.test(g) && !["qu", "u"].includes(g))
     .filter(g => wordsStartingWithTargetSound(g).length >= minCorrect);
 }
 

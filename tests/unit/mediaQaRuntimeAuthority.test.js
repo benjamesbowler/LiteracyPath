@@ -74,7 +74,11 @@ test("the production Initial Sounds selector uses the published v3 bank", async 
   assert.deepEqual(plan.meta.blockedLetters, []);
   assert.equal(new Set(plan.items.map(item => item.letter)).size, 15);
   assert.ok(plan.items.every(item => item.source === "skills_rebuild_v3_2026_08"));
-  assert.ok(plan.items.every(item => item.imagePath || item.imageCards?.length));
+  assert.ok(plan.items.every(item =>
+    item.imagePath ||
+    item.imageCards?.length ||
+    item.assessmentMediaDecision?.role === "text-only"
+  ));
   assert.ok(plan.items.every(item =>
     item.audioPath ||
     item.audioUrl ||

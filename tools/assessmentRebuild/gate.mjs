@@ -18,7 +18,7 @@ import { execSync } from "node:child_process";
 import {
   ROOT, AUTHORING_DIR, STATUS_FILE, REPORT_DIR,
   expandBank, lintBank, lintPerceptualMediaIndependence, simulate, simulateRegression, scannerAnswer, writeGeneratedBank, loadLexicon,
-  norm, makeImageResolver
+  norm, makeImageResolver, mediaDecisionContractIssues
 } from "./lib.mjs";
 import { skillBlueprints, ASSESSMENT_REBUILD_STANDARD_VERSION } from "../../src/content/blueprints/skillBlueprints.js";
 import * as policy from "../../src/policy/skillStatusPolicy.js";
@@ -146,30 +146,12 @@ function itemImagePaths(item) {
 
 function visualPolicyIssues(items) {
   const issues = [];
-  const allowedRoles = new Set(["answer-cards", "sequence", "target-or-scene", "neutral-support", "construct-support"]);
   const push = (item, message) => issues.push({ code: "L-VISUAL-POLICY", itemId: item.id, message });
   for (const item of items) {
     const decision = ASSESSMENT_ITEM_MEDIA_DECISIONS[item.id];
     const actualPaths = itemImagePaths(item);
-    if (!decision) {
-      push(item, "item has no explicit reviewed media decision");
-      continue;
-    }
-    if (!allowedRoles.has(decision.role)) push(item, `invalid media role: ${decision.role || "(missing)"}`);
-    if (decision.constructReview !== "approved") push(item, "construct review is not approved");
-    if (!String(decision.answerNeutral || "").startsWith("approved") && !String(decision.answerNeutral || "").startsWith("not-applicable")) {
-      push(item, "answer-neutrality review is not approved");
-    }
-    const expectedPaths = [...new Set(decision.paths || [])];
-    if (!actualPaths.length) push(item, "item has no meaningful target, scene, answer-card, or sequence image");
-    if (actualPaths.length !== expectedPaths.length || actualPaths.some(assetPath => !expectedPaths.includes(assetPath))) {
-      push(item, "expanded item images do not exactly match its reviewed decision");
-    }
-    if (["neutral-support", "construct-support", "target-or-scene"].includes(decision.role) && !item.imageAlt) {
-      push(item, "target or scene image is missing non-answer-revealing alt text");
-    }
-    if (decision.role === "answer-cards" && !(item.imageCards || []).length) push(item, "answer-card decision has no image cards");
-    if (decision.role === "sequence" && !(item.sequenceCards || []).length) push(item, "sequence decision has no sequence cards");
+    for (const message of mediaDecisionContractIssues(item, decision, actualPaths)) push(item, message);
+    if (!decision) continue;
     for (const assetPath of actualPaths) {
       if (!assetPath.startsWith("/images/assessment/")) {
         push(item, `active image is outside the assessment-owned namespace: ${assetPath}`);

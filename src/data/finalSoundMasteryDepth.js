@@ -3,10 +3,7 @@ import { finalSoundLevelOneAllowedItemKeys } from "./coverageExpectations.js";
 export const FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT = 3;
 export const FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS = 3;
 export const FINAL_SOUND_LEVEL_ONE_DEFAULT_REQUIRED_CONTENT_WORDS = 3;
-export const FINAL_SOUND_LEVEL_ONE_REQUIRED_CONTENT_WORDS_BY_SOUND = {
-  b: 10,
-  l: 10
-};
+export const FINAL_SOUND_LEVEL_ONE_REQUIRED_CONTENT_WORDS_BY_SOUND = {};
 export const FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS = 2;
 export const FINAL_SOUND_LEVEL_ONE_ROUND_LENGTH = 15;
 export const FINAL_SOUND_LEVEL_ONE_PASS_SCORE = 12;
@@ -45,6 +42,14 @@ export function getFinalSoundTargetFromEvidence(item = {}) {
 }
 
 export function getFinalSoundTargetWordFromEvidence(item = {}) {
+  const keyedAnswer = normalizeFinalSoundValue(
+    item.correctAnswer ||
+    item.correct ||
+    item.answer ||
+    ""
+  );
+  if (keyedAnswer.length > 1) return keyedAnswer;
+
   return normalizeFinalSoundValue(
     item.targetWord ||
     item.anchorWord ||

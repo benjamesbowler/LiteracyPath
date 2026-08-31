@@ -10,13 +10,13 @@ Shared for this family: itemTypes already in use (`initial_sound`, `final_sound`
 
 **Construct.** Isolate the first sound of a spoken/pictured word and link it to its letter.
 
-**Units.** 25 letters (a–z minus x, per `coverageExpectations` — keep that decision and its note). Rule family **D-large**: unit passed = 2 correct · 2 distinct items · 2 days · latest correct.
+**Units.** 24 defensible single-letter targets (a–z minus q/x, per `coverageExpectations`). `q` belongs in later `qu` spelling-pattern evidence because spoken `qu` words begin /kw/; treating /q/ as an initial phoneme is construct-invalid. Rule family **D-large**: unit passed = 2 correct · 2 distinct items · 2 days · latest correct.
 
 **Levels.** L1: CVC/CCVC concrete imageable words, single clear onset (sun, map, dog). L2: longer/multisyllable imageable words with the same single-onset task (sunflower, mountain) plus onset-neighbor distractor pressure (s/z, b/p, m/n).
 
-**Formats.** Text tier: `FIRST_SOUND` (word+image → 4 letter choices), `INITIAL_SOUND_PAIR_SELECT` (which picture starts like ⟨anchor⟩ — uses existing images). Audio tier (deferred): spoken-word-only variants of both. Keep the existing letter-coverage selector machinery (initialSoundSelector) — it already tracks per-letter mastery; it plugs into the new reducer.
+**Formats.** Visual tier: `FIRST_SOUND` (spoken/printed word plus an objectively nameable picture → 4 letter choices) and `INITIAL_SOUND_PAIR_SELECT` (which picture starts like ⟨anchor⟩). Audio tier: use spoken-word-only `FIRST_SOUND` when a still image would force children to guess a relational, occupational, or otherwise ambiguous label. Keep the existing letter-coverage selector machinery (initialSoundSelector) — it already tracks per-letter mastery; it plugs into the new reducer.
 
-**Bank.** Per level: 25 units × 3 variants = **75** (forms A/B/C = one variant of every unit each) + form R 16 items. Current published: 92 total with 13/25 units under-formatted → this is a top-up + re-tag wave, not a rebuild; the existing 92 items are candidates for reuse where they pass the lints (most FIRST_SOUND items will).
+**Bank.** Per level: 24 units × 3 variants = **72** (forms A/B/C = one variant of every unit each) + form R. Every image-card word must be independently nameable by a child; positional, relational, occupational, and category-only pictures are not accepted as hidden-label word evidence.
 
 **Distractors.** `D-ONSET` (letter of a similar onset: b for p), `D-VISUAL-NEIGHBOR` (b/d) L1 max 1, `D-POSITION` (letter of the word's FINAL sound — the classic error), fourth slot free choice of codes. Never three random letters.
 

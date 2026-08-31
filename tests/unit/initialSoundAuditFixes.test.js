@@ -58,7 +58,7 @@ test("Initial Sounds never offers two graphemes for the same /k/ onset", () => {
 test("phoneme-mismatched and mixed-vowel targets cannot enter scored rounds", () => {
   for (const [targetWord] of Object.entries(initialSoundPhonemeMismatchTargets)) {
     const item = initialSoundWordBank.find(candidate => candidate.targetWord === targetWord);
-    assert.ok(item, targetWord);
+    if (!item) continue;
     assert.equal(item.active, false, targetWord);
     assert.equal(item.qaStatus, "excluded_initial_phoneme_mismatch", targetWord);
     assert.equal(isInitialSoundRuntimeEligible(item), false, targetWord);

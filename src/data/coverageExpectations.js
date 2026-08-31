@@ -27,7 +27,6 @@ export const initialSoundExpectedItemKeys = [
   "n",
   "o",
   "p",
-  "q",
   "r",
   "s",
   "t",
@@ -193,7 +192,7 @@ export const coverageExpectations = {
     },
     total: initialSoundExpectedItemKeys.length,
     unit: "sounds",
-    note: "Initial Sounds expects 25 alphabetic targets. The letter x is intentionally excluded because common x words either begin with /z/ (xylophone) or a letter-name sound (x-ray), which makes it a poor Kindergarten initial-sound mastery target. Live assessment only serves itemKeys with complete static image and human-word audio pairs."
+    note: "Initial Sounds expects 24 defensible alphabetic targets. The letter q is assessed later as the spelling pattern qu because its words begin with /kw/, not a unique /q/ sound. The letter x is excluded because common x words begin with /z/ or a letter-name sequence. Live assessment only serves targets with valid audio and objective visual evidence wherever a picture is used."
   },
   final_sounds: {
     itemType: "final_sound",

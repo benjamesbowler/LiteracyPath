@@ -5,7 +5,7 @@ import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
 import { WordImage } from "../WordImage";
 
-const WordCard = memo(function WordCard({ word, index }) {
+const WordCard = memo(function WordCard({ word }) {
   const { play, isPlaying } = usePhonicsAudio(word.audio, word.phonemeBreakdown || word.word);
   const canHear = hasPhonicsAudioSource(word.audio);
 
@@ -15,9 +15,6 @@ const WordCard = memo(function WordCard({ word, index }) {
 
   return (
     <motion.button
-      initial={{ opacity: 0, scale: 0.5, y: 30 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay: 0.5 + index * 0.1, type: "spring", stiffness: 250, damping: 18 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={canHear ? handleTap : undefined}
@@ -83,8 +80,8 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
       </motion.p>
 
       <div className="phonics-listen-grid">
-        {lesson.words.map((word, index) => (
-          <WordCard key={word.word} word={word} index={index} />
+        {lesson.words.map(word => (
+          <WordCard key={word.word} word={word} />
         ))}
       </div>
 

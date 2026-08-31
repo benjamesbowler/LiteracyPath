@@ -2,6 +2,8 @@
 
 **Audit completed:** 2026-08-14
 
+**Current corpus refresh:** 2026-08-31
+
 **Runtime surface:** the 30 published v3 Skills Assessment banks selected by `src/data/loadAssessmentSkillBank.js`
 
 **Current standard:** `v3-2026.08-validity-3`
@@ -17,19 +19,20 @@ The release decision is deliberately bounded. The authored corpus, runtime media
 | Release measure | Current result |
 | --- | ---: |
 | Published skills | 30 |
-| Authored questions | 2,518 |
-| Live/selectable questions | 2,149 |
-| Retention-only questions | 369 |
-| Explicit item-level media decisions | 2,518 |
-| Active unique assessment images | 1,339 |
+| Authored questions | 2,512 |
+| Live/selectable questions | 2,169 |
+| Retention-only questions | 343 |
+| Explicit item-level media decisions | 2,512 |
+| Active unique assessment image paths | 1,321 |
+| Hash-bound image style decisions | 1,339 |
 | Existing images restyled to the current policy | 516 |
 | New media-completion images | 823 |
 | New independent Sentence Comprehension scenes | 10 |
 | Rejected legacy comprehension scenes removed | 258 |
-| New production LEDA gaps filled | 274 |
-| New LEDA files that decode correctly | 274/274 |
+| Assessment LEDA gap-map clips | 312 |
+| Gap-map files that decode correctly | 312/312 |
 | Assessment rebuild gates | 30/30 pass G1–G10 |
-| Question-design policy | 4,936/4,936 tasks pass |
+| Question-design policy | 4,929/4,929 tasks pass |
 
 The four defects shown in the supplied screenshots are closed across their whole defect families:
 
@@ -43,12 +46,12 @@ The four defects shown in the supplied screenshots are closed across their whole
 The remediation covered the authored source, generated banks, runtime controller, rendered assessment shell, production media, and release checks.
 
 - Every authoring item was rebuilt from `tools/assessmentRebuild/authoring/*.mjs`; generated banks were not hand-edited.
-- Every one of the 2,518 item IDs now has an explicit role, path list, alt description, construct review, and answer-neutrality decision.
-- Every one of the 1,339 active image paths now has an exact SHA-256-bound visual decision. A changed pixel invalidates the approval until the image is reviewed again.
+- Every one of the 2,512 active item IDs has an explicit role, explicit path list, construct review, and answer-neutrality decision. Approved text-only and audio-only items declare `paths: []`; visual roles additionally require non-answer-revealing alt text.
+- Every one of the 1,321 active image paths has an exact SHA-256-bound visual decision. The style registry contains 1,339 reviewed rows, including 18 retained decisions for assets that are no longer active after the Q removal and text-only conversions. A changed pixel invalidates the approval until the image is reviewed again.
 - All active assessment art was visually reviewed in 53 full contact sheets. A final direct-pixel and rendered-browser critique found eleven false approvals that metadata alone had missed (`block`, `chain`, `boiling`, `fur`, `proud`, `sleepy`, `glad`, `hot`, `warm`, `wet`, and `sad`). Those old hashes are now permanently rejected, their bright flat-cartoon replacements are hash-bound, and any later attempt to restore the rejected pixels fails G10. Thirty-eight questionable cells were quarantined, regenerated, and re-reviewed across the complete repair sequence.
 - The 258 old comprehension scenes were reviewed as a complete corpus. They were not restored because many showed the answer, outcome, inferred emotion, clue meaning, or theme. After reference checks confirmed they were inactive, they were removed instead of being retained as an unsafe fallback.
 - Browser coverage exercises the real assessment renderer, image loading, hidden-label rules, Sentence Comprehension scenes, speaker controls, and compact-window scrolling.
-- Audio coverage resolves every current assessment string through production mappings. The 274 newly needed clips use the production `en-US-Chirp3-HD-Leda` voice and have been decoded and probed as valid mono audio; the final 12 gaps introduced by the same-domain distractor rewrite were merged without replacing the existing 262 mappings.
+- Audio coverage resolves every current assessment string through production mappings. The current gap map contains 312 `en-US-Chirp3-HD-Leda` clips; all decode as valid mono audio. The 2026-08-31 phonics refresh added 36 prompt clips without replacing existing mappings.
 
 ## 3. Construct-validity remediation
 
@@ -191,9 +194,9 @@ The final browser acceptance target is a compact MacBook-sized viewport with loa
 The current assessment corpus is fully mapped to production audio.
 
 - Voice: `en-US-Chirp3-HD-Leda`.
-- New gaps: 262 clips (`148` isolated-word clips and `114` assessment-prompt clips).
+- Current gap map: 312 clips (`159` isolated-word, `151` assessment-prompt, and `2` assessment-passage clips), including 36 prompts added by the 2026-08-31 phonics refresh.
 - Encoding: normalised, filtered, faded, 44.1 kHz mono MP3.
-- Decode/probe result: 262/262 valid; approximately 712.59 seconds total.
+- Decode/probe result: 312/312 valid; approximately 916.36 seconds total.
 - Runtime resolution: `src/data/ledaProductionAudio.js` consults the generated assessment gap map before declaring a clip missing.
 - Corpus coverage test: pass, with no current assessment text falling through to browser speech as release evidence.
 

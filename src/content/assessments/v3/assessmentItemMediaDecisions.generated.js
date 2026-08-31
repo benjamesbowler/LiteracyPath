@@ -5036,9 +5036,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.B.b.v2",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/release-media/road-9aba0184.webp",
-      "/images/assessment/blends/crab.webp",
-      "/images/assessment/rhyming/variants/ap/cap-02.webp",
+      "/images/assessment/rhyming/variants/og/dog-02.webp",
+      "/images/assessment/release-media/tub-9c34a66d.webp",
+      "/images/assessment/rhyming/variants/cup/cup-02.webp",
       "/images/assessment/long-vowels/bike.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -5049,7 +5049,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.C.b.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/tub-9c34a66d.webp"
+      "/images/assessment/release-media/web-b645c8e4.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5069,7 +5069,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.d.v1",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/blends/bread.webp"
+      "/images/assessment/rhyming/variants/ed/bed-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5080,9 +5080,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/rhyming/variants/og/dog-02.webp",
-      "/images/assessment/long-vowels/leaf.webp",
-      "/images/assessment/release-media/road-9aba0184.webp",
-      "/images/assessment/long-vowels/boat.webp"
+      "/images/assessment/rhyming/variants/sun/sun-02.webp",
+      "/images/assessment/rhyming/variants/ed/red-02.webp",
+      "/images/assessment/rhyming/variants/at/cat-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -5092,7 +5092,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.C.d.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/road-9aba0184.webp"
+      "/images/assessment/rhyming/variants/ed/red-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5102,7 +5102,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.d.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/road-9aba0184.webp"
+      "/images/assessment/rhyming/variants/ed/bed-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5112,7 +5112,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.g.v1",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/blends/flag.webp"
+      "/images/assessment/rhyming/variants/og/dog-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5124,8 +5124,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/digraphs/duck.webp",
       "/images/assessment/long-vowels/goat.webp",
-      "/images/assessment/digraphs/sock.webp",
-      "/images/assessment/blends/flag.webp"
+      "/images/assessment/rhyming/variants/sun/sun-02.webp",
+      "/images/assessment/rhyming/variants/ig/pig-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -5135,7 +5135,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.C.g.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/blends/flag.webp"
+      "/images/assessment/rhyming/variants/ig/pig-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5145,7 +5145,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.g.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/blends/frog.webp"
+      "/images/assessment/rhyming/variants/og/log-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5165,10 +5165,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.B.l.v2",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/digraphs/shell.webp",
-      "/images/assessment/release-media/deer-946b4c2b.webp",
+      "/images/assessment/rhyming/variants/ell/bell-02.webp",
+      "/images/assessment/long-vowels/moon.webp",
       "/images/assessment/blends/lamp.webp",
-      "/images/assessment/long-vowels/boat.webp"
+      "/images/assessment/rhyming/variants/at/cat-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -5178,7 +5178,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.C.l.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/digraphs/wheel.webp"
+      "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5188,7 +5188,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.l.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/digraphs/whirlpool.webp"
+      "/images/assessment/digraphs/wheel.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5198,7 +5198,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.m.v1",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/blends/drum.webp"
+      "/images/assessment/rhyming/variants/am/jam-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5208,9 +5208,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.B.m.v2",
     "role": "answer-cards",
     "paths": [
+      "/images/assessment/rhyming/variants/og/dog-02.webp",
+      "/images/assessment/rhyming/variants/am/ham-02.webp",
       "/images/assessment/rhyming/variants/en/hen-02.webp",
-      "/images/assessment/rhyming/variants/am/jam-02.webp",
-      "/images/assessment/rhyming/variants/in/pin-02.webp",
       "/images/assessment/rhyming/variants/ap/map-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -5221,7 +5221,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.C.m.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/am/jam-02.webp"
+      "/images/assessment/rhyming/variants/am/ham-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5231,7 +5231,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.m.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/am/jam-02.webp"
+      "/images/assessment/rhyming/variants/am/ram-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5241,7 +5241,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.n.v1",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/en/ten-02.webp"
+      "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5252,9 +5252,9 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/rhyming/variants/et/net-02.webp",
-      "/images/assessment/blends/drum.webp",
+      "/images/assessment/rhyming/variants/og/dog-02.webp",
       "/images/assessment/rhyming/variants/en/hen-02.webp",
-      "/images/assessment/blends/hand.webp"
+      "/images/assessment/rhyming/variants/am/ham-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -5274,7 +5274,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.n.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/in/fin-02.webp"
+      "/images/assessment/rhyming/variants/en/ten-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5284,7 +5284,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.p.v1",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/digraphs/sheep.webp"
+      "/images/assessment/rhyming/variants/ap/map-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5296,8 +5296,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/blends/crab.webp",
       "/images/assessment/rhyming/variants/ig/pig-02.webp",
-      "/images/assessment/release-media/web-b645c8e4.webp",
-      "/images/assessment/rhyming/variants/op/mop-02.webp"
+      "/images/assessment/rhyming/variants/sun/sun-02.webp",
+      "/images/assessment/rhyming/variants/ap/cap-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -5307,7 +5307,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.C.p.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/op/mop-02.webp"
+      "/images/assessment/rhyming/variants/ap/cap-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5317,7 +5317,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.p.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/eep/sleep-02.webp"
+      "/images/assessment/rhyming/variants/op/mop-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5327,7 +5327,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.t.v1",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/et/net-02.webp"
+      "/images/assessment/rhyming/variants/at/cat-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5337,10 +5337,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.B.t.v2",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/long-vowels/boat.webp",
-      "/images/assessment/blends/hand.webp",
+      "/images/assessment/rhyming/variants/at/hat-02.webp",
+      "/images/assessment/rhyming/variants/ed/bed-02.webp",
       "/images/assessment/long-vowels/toe.webp",
-      "/images/assessment/blends/bread.webp"
+      "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -5350,7 +5350,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.C.t.v3",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/long-vowels/goat.webp"
+      "/images/assessment/rhyming/variants/at/hat-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5360,7 +5360,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.A.t.v4",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/long-vowels/boat.webp"
+      "/images/assessment/rhyming/variants/et/wet-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5464,21 +5464,15 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.final_sounds.l2.B.ll.v2": {
     "itemId": "lp3.final_sounds.l2.B.ll.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/digraphs/shell.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
   "lp3.final_sounds.l2.C.ll.v3": {
     "itemId": "lp3.final_sounds.l2.C.ll.v3",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/hill-5ce9c4.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -5547,11 +5541,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.final_sounds.l2.B.nd.v2": {
     "itemId": "lp3.final_sounds.l2.B.nd.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/blends/hand.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -5587,11 +5578,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.final_sounds.l2.B.nk.v2": {
     "itemId": "lp3.final_sounds.l2.B.nk.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/tank-b63ae1.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -5670,11 +5658,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.final_sounds.l2.B.sk.v2": {
     "itemId": "lp3.final_sounds.l2.B.sk.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/blends/desk.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -5710,11 +5695,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.final_sounds.l2.B.ft.v2": {
     "itemId": "lp3.final_sounds.l2.B.ft.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/generated/concepts/raft.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -5740,21 +5722,15 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.final_sounds.l2.A.lt.v1": {
     "itemId": "lp3.final_sounds.l2.A.lt.v1",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/melt-c6a0f6.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
   "lp3.final_sounds.l2.B.lt.v2": {
     "itemId": "lp3.final_sounds.l2.B.lt.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/blends/belt.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -5812,7 +5788,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.R.t.v5r",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/rhyming/variants/at/mat-02.webp"
+      "/images/assessment/rhyming/variants/at/hat-02.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -5822,10 +5798,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.final_sounds.l1.R.n.v5r",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/blends/drum.webp",
+      "/images/assessment/rhyming/variants/bug/bug-02.webp",
       "/images/assessment/rhyming/variants/in/pin-02.webp",
-      "/images/assessment/rhyming/variants/am/jam-02.webp",
-      "/images/assessment/long-vowels/toe.webp"
+      "/images/assessment/rhyming/variants/am/ram-02.webp",
+      "/images/assessment/rhyming/variants/et/net-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -5863,11 +5839,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.final_sounds.l2.R.lt.v5r": {
     "itemId": "lp3.final_sounds.l2.R.lt.v5r",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/melt-c6a0f6.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -12756,21 +12729,15 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.A.a.v1": {
     "itemId": "lp3.initial_sounds.l2.A.a.v1",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/astronaut-30f83b.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
   "lp3.initial_sounds.l2.B.a.v2": {
     "itemId": "lp3.initial_sounds.l2.B.a.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/alligator-6a9b2b.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -13044,7 +13011,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/release-media/ant-800d67c2.webp",
       "/images/assessment/release-media/igloo-d714f227.webp",
-      "/images/assessment/release-media/uncle-a74a5bca.webp",
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
       "/images/assessment/digraphs/elephant.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -13110,7 +13077,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/digraphs/fish.webp",
       "/images/assessment/rhyming/variants/an/van-02.webp",
-      "/images/assessment/release-media/vet-3951b878.webp",
+      "/images/assessment/generated/initial-sounds-l2/volcano.webp",
       "/images/assessment/release-media/vase-1ef252a1.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -13294,11 +13261,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.B.i.v2": {
     "itemId": "lp3.initial_sounds.l2.B.i.v2",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/instrument-2f342f.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -13340,7 +13304,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/blends/drum.webp",
-      "/images/assessment/release-media/yarn-9d4b8326.webp",
+      "/images/assessment/digraphs/chick.webp",
       "/images/assessment/rhyming/variants/mug/mug-02.webp",
       "/images/assessment/rhyming/variants/et/jet-02.webp"
     ],
@@ -13373,8 +13337,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/rhyming/variants/am/jam-02.webp",
-      "/images/assessment/release-media/yarn-9d4b8326.webp",
-      "/images/assessment/release-media/yak-419086a8.webp",
+      "/images/assessment/digraphs/chick.webp",
+      "/images/assessment/digraphs/ship.webp",
       "/images/assessment/blends/drum.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -13605,8 +13569,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "paths": [
       "/images/assessment/rhyming/variants/ap/map-02.webp",
       "/images/assessment/rhyming/variants/in/pin-02.webp",
-      "/images/assessment/release-media/vet-3951b878.webp",
-      "/images/assessment/language/variants/homophones-homonyms/nose-knows-01.webp"
+      "/images/assessment/rhyming/variants/et/jet-02.webp",
+      "/images/assessment/blends/nest.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -13669,7 +13633,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.C.o.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/release-media/octopus-b5f04924.webp",
+      "/images/assessment/release-media/ox-9ef24344.webp",
       "/images/assessment/language/variants/plurals/apple-apples-01.webp",
       "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
       "/images/assessment/rhyming/variants/eg/egg-02.webp"
@@ -13680,21 +13644,15 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.A.o.v1": {
     "itemId": "lp3.initial_sounds.l2.A.o.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/otter.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.B.o.v2": {
     "itemId": "lp3.initial_sounds.l2.B.o.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/olive.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
@@ -13703,8 +13661,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/digraphs/elephant.webp",
-      "/images/assessment/release-media/ox-9ef24344.webp",
-      "/images/assessment/release-media/uncle-a74a5bca.webp",
+      "/images/assessment/release-media/octopus-b5f04924.webp",
+      "/images/assessment/release-media/umbrella-e1f6f2a3.webp",
       "/images/assessment/release-media/ink-1dc530ca.webp"
     ],
     "alt": "Picture choices for this literacy question",
@@ -13777,72 +13735,6 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options"
   },
-  "lp3.initial_sounds.l1.A.q.v1": {
-    "itemId": "lp3.initial_sounds.l1.A.q.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/queen-5f9c5f9a.webp"
-    ],
-    "alt": "Picture support for this literacy question",
-    "constructReview": "approved",
-    "answerNeutral": "approved"
-  },
-  "lp3.initial_sounds.l1.B.q.v2": {
-    "itemId": "lp3.initial_sounds.l1.B.q.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/quilt-1a01a2fd.webp"
-    ],
-    "alt": "Picture support for this literacy question",
-    "constructReview": "approved",
-    "answerNeutral": "approved"
-  },
-  "lp3.initial_sounds.l1.C.q.v3": {
-    "itemId": "lp3.initial_sounds.l1.C.q.v3",
-    "role": "answer-cards",
-    "paths": [
-      "/images/assessment/digraphs/wheel.webp",
-      "/images/assessment/blends/crown.webp",
-      "/images/assessment/release-media/quilt-1a01a2fd.webp",
-      "/images/assessment/rhyming/variants/ing/king-02.webp"
-    ],
-    "alt": "Picture choices for this literacy question",
-    "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
-  },
-  "lp3.initial_sounds.l2.A.q.v1": {
-    "itemId": "lp3.initial_sounds.l2.A.q.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp"
-    ],
-    "alt": "Picture support for this literacy question",
-    "constructReview": "approved",
-    "answerNeutral": "approved"
-  },
-  "lp3.initial_sounds.l2.B.q.v2": {
-    "itemId": "lp3.initial_sounds.l2.B.q.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/quarter.webp"
-    ],
-    "alt": "Picture support for this literacy question",
-    "constructReview": "approved",
-    "answerNeutral": "approved"
-  },
-  "lp3.initial_sounds.l2.C.q.v3": {
-    "itemId": "lp3.initial_sounds.l2.C.q.v3",
-    "role": "answer-cards",
-    "paths": [
-      "/images/assessment/release-media/web-b645c8e4.webp",
-      "/images/assessment/digraphs/wheel.webp",
-      "/images/assessment/release-media/vest-9a368716.webp",
-      "/images/assessment/release-media/quiz-291c476c.webp"
-    ],
-    "alt": "Picture choices for this literacy question",
-    "constructReview": "approved",
-    "answerNeutral": "not-applicable-scoring-options"
-  },
   "lp3.initial_sounds.l1.A.r.v1": {
     "itemId": "lp3.initial_sounds.l1.A.r.v1",
     "role": "target-or-scene",
@@ -13867,10 +13759,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.C.r.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/digraphs/wheel.webp",
       "/images/assessment/release-media/deer-946b4c2b.webp",
       "/images/assessment/rhyming/variants/ing/king-02.webp",
-      "/images/assessment/long-vowels/rose.webp"
+      "/images/assessment/long-vowels/rose.webp",
+      "/images/assessment/digraphs/wheel.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -13900,10 +13792,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.C.r.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/ing/ring-02.webp",
       "/images/assessment/digraphs/wheel.webp",
       "/images/assessment/release-media/web-b645c8e4.webp",
-      "/images/assessment/blends/wasp.webp"
+      "/images/assessment/blends/wasp.webp",
+      "/images/assessment/rhyming/variants/ing/ring-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -13933,10 +13825,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.C.s.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/digraphs/sock.webp",
       "/images/assessment/rhyming/variants/ip/zip-02.webp",
       "/images/assessment/blends/glass.webp",
-      "/images/assessment/rhyming/variants/run/run-02.webp"
+      "/images/assessment/rhyming/variants/run/run-02.webp",
+      "/images/assessment/digraphs/sock.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -13966,10 +13858,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.C.s.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/release-media/zebra-35caf16d.webp",
       "/images/assessment/rhyming/variants/sun/sun-02.webp",
       "/images/assessment/rhyming/variants/ip/zip-02.webp",
-      "/images/assessment/language/variants/plurals/zoo-zoos-01.webp"
+      "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
+      "/images/assessment/release-media/zebra-35caf16d.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -13999,10 +13891,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.C.t.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/et/net-02.webp",
       "/images/assessment/long-vowels/toe.webp",
       "/images/assessment/rhyming/variants/og/dog-02.webp",
-      "/images/assessment/rhyming/variants/at/hat-02.webp"
+      "/images/assessment/rhyming/variants/at/hat-02.webp",
+      "/images/assessment/rhyming/variants/et/net-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14032,10 +13924,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.C.t.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/digraphs/duck.webp",
       "/images/assessment/digraphs/dish.webp",
       "/images/assessment/long-vowels/tie.webp",
-      "/images/assessment/rhyming/variants/og/dog-02.webp"
+      "/images/assessment/rhyming/variants/og/dog-02.webp",
+      "/images/assessment/digraphs/duck.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14053,57 +13945,36 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.B.u.v2": {
     "itemId": "lp3.initial_sounds.l1.B.u.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/uncle-a74a5bca.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l1.C.u.v3": {
     "itemId": "lp3.initial_sounds.l1.C.u.v3",
-    "role": "answer-cards",
-    "paths": [
-      "/images/assessment/release-media/ant-800d67c2.webp",
-      "/images/assessment/rhyming/variants/eg/egg-02.webp",
-      "/images/assessment/release-media/uncle-a74a5bca.webp",
-      "/images/assessment/release-media/ox-9ef24344.webp"
-    ],
-    "alt": "Picture choices for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options"
   },
   "lp3.initial_sounds.l2.A.u.v1": {
     "itemId": "lp3.initial_sounds.l2.A.u.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/umpire.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.B.u.v2": {
     "itemId": "lp3.initial_sounds.l2.B.u.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/uniform.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.C.u.v3": {
     "itemId": "lp3.initial_sounds.l2.C.u.v3",
-    "role": "answer-cards",
-    "paths": [
-      "/images/assessment/release-media/igloo-d714f227.webp",
-      "/images/assessment/language/variants/plurals/apple-apples-01.webp",
-      "/images/assessment/release-media/octopus-b5f04924.webp",
-      "/images/assessment/release-media/under-4ba8f260.webp"
-    ],
-    "alt": "Picture choices for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options"
   },
@@ -14121,7 +13992,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.B.v.v2",
     "role": "target-or-scene",
     "paths": [
-      "/images/assessment/release-media/vet-3951b878.webp"
+      "/images/assessment/release-media/vase-1ef252a1.webp"
     ],
     "alt": "Picture support for this literacy question",
     "constructReview": "approved",
@@ -14131,10 +14002,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.C.v.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/an/fan-02.webp",
       "/images/assessment/release-media/web-b645c8e4.webp",
       "/images/assessment/rhyming/variants/an/man-02.webp",
-      "/images/assessment/release-media/vet-3951b878.webp"
+      "/images/assessment/release-media/vest-9a368716.webp",
+      "/images/assessment/rhyming/variants/an/fan-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14164,10 +14035,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.C.v.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/an/van-02.webp",
       "/images/assessment/rhyming/variants/an/fan-02.webp",
       "/images/assessment/digraphs/fish.webp",
-      "/images/assessment/rhyming/variants/in/fin-02.webp"
+      "/images/assessment/rhyming/variants/in/fin-02.webp",
+      "/images/assessment/rhyming/variants/an/van-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14197,10 +14068,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.C.w.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/release-media/worm-dd2347fd.webp",
-      "/images/assessment/release-media/vet-3951b878.webp",
+      "/images/assessment/release-media/vase-1ef252a1.webp",
       "/images/assessment/rhyming/variants/op/mop-02.webp",
-      "/images/assessment/rhyming/variants/et/net-02.webp"
+      "/images/assessment/rhyming/variants/et/net-02.webp",
+      "/images/assessment/release-media/worm-dd2347fd.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14230,10 +14101,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.C.w.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/release-media/vase-1ef252a1.webp",
       "/images/assessment/digraphs/wheel.webp",
-      "/images/assessment/release-media/vet-3951b878.webp",
-      "/images/assessment/rhyming/variants/an/van-02.webp"
+      "/images/assessment/release-media/vest-9a368716.webp",
+      "/images/assessment/rhyming/variants/an/van-02.webp",
+      "/images/assessment/release-media/vase-1ef252a1.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14241,67 +14112,43 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l1.A.y.v1": {
     "itemId": "lp3.initial_sounds.l1.A.y.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/yak-419086a8.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l1.B.y.v2": {
     "itemId": "lp3.initial_sounds.l1.B.y.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/release-media/yarn-9d4b8326.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l1.C.y.v3": {
     "itemId": "lp3.initial_sounds.l1.C.y.v3",
-    "role": "answer-cards",
-    "paths": [
-      "/images/assessment/release-media/farm-3b899f3f.webp",
-      "/images/assessment/release-media/yarn-9d4b8326.webp",
-      "/images/assessment/blends/wasp.webp",
-      "/images/assessment/rhyming/variants/am/jam-02.webp"
-    ],
-    "alt": "Picture choices for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options"
   },
   "lp3.initial_sounds.l2.A.y.v1": {
     "itemId": "lp3.initial_sounds.l2.A.y.v1",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/yoghurt.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.B.y.v2": {
     "itemId": "lp3.initial_sounds.l2.B.y.v2",
-    "role": "target-or-scene",
-    "paths": [
-      "/images/assessment/generated/initial-sounds-l2/yawn.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "approved"
   },
   "lp3.initial_sounds.l2.C.y.v3": {
     "itemId": "lp3.initial_sounds.l2.C.y.v3",
-    "role": "answer-cards",
-    "paths": [
-      "/images/assessment/rhyming/variants/et/jet-02.webp",
-      "/images/assessment/rhyming/variants/ar/star-02.webp",
-      "/images/assessment/release-media/yak-419086a8.webp",
-      "/images/assessment/rhyming/variants/am/jam-02.webp"
-    ],
-    "alt": "Picture choices for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-scoring-options"
   },
@@ -14329,10 +14176,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l1.C.z.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/release-media/quiz-291c476c.webp",
       "/images/assessment/digraphs/ship.webp",
       "/images/assessment/language/variants/plurals/zoo-zoos-01.webp",
-      "/images/assessment/digraphs/sock.webp"
+      "/images/assessment/digraphs/sock.webp",
+      "/images/assessment/long-vowels/rose.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14362,10 +14209,10 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "itemId": "lp3.initial_sounds.l2.C.z.v3",
     "role": "answer-cards",
     "paths": [
-      "/images/assessment/rhyming/variants/sun/sun-02.webp",
       "/images/assessment/digraphs/sock.webp",
       "/images/assessment/digraphs/sheep.webp",
-      "/images/assessment/release-media/zebra-35caf16d.webp"
+      "/images/assessment/release-media/zebra-35caf16d.webp",
+      "/images/assessment/rhyming/variants/sun/sun-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14373,11 +14220,8 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
   },
   "lp3.initial_sounds.l2.R.a.v7r": {
     "itemId": "lp3.initial_sounds.l2.R.a.v7r",
-    "role": "construct-support",
-    "paths": [
-      "/images/assessment/release-support/targets/ambulance-d036c1.webp"
-    ],
-    "alt": "Picture support for this literacy question",
+    "role": "text-only",
+    "paths": [],
     "constructReview": "approved",
     "answerNeutral": "not-applicable-target-evidence"
   },
@@ -14454,7 +14298,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
       "/images/assessment/rhyming/variants/mug/mug-02.webp",
       "/images/assessment/long-vowels/moon.webp",
       "/images/assessment/rhyming/variants/at/mat-02.webp",
-      "/images/assessment/rhyming/variants/ap/nap-02.webp"
+      "/images/assessment/rhyming/variants/et/net-02.webp"
     ],
     "alt": "Picture choices for this literacy question",
     "constructReview": "approved",
@@ -14478,7 +14322,7 @@ export const ASSESSMENT_ITEM_MEDIA_DECISIONS = Object.freeze({
     "role": "answer-cards",
     "paths": [
       "/images/assessment/blends/wasp.webp",
-      "/images/assessment/release-media/vet-3951b878.webp",
+      "/images/assessment/release-media/vest-9a368716.webp",
       "/images/assessment/rhyming/variants/an/van-02.webp",
       "/images/assessment/long-vowels/moon.webp"
     ],

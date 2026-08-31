@@ -41,6 +41,103 @@ export const RATIONALE_CODES = new Set([
   "D-SEQUENCE-START", "D-SEQUENCE-END", "D-SEQUENCE-REVERSE"
 ]);
 
+export const VISUAL_MEDIA_DECISION_ROLES = new Set([
+  "answer-cards",
+  "sequence",
+  "target-or-scene",
+  "neutral-support",
+  "construct-support"
+]);
+
+export const MEDIA_DECISION_ROLES = new Set([
+  ...VISUAL_MEDIA_DECISION_ROLES,
+  "text-only"
+]);
+
+export function mediaDecisionContractIssues(item = {}, decision, actualPaths = []) {
+  const issues = [];
+  if (!decision) return ["item has no explicit reviewed media decision"];
+
+  const role = decision.role;
+  const pathsAreExplicit = Array.isArray(decision.paths);
+  const expectedPaths = pathsAreExplicit ? [...new Set(decision.paths.filter(Boolean))] : [];
+  const expandedPaths = [...new Set((actualPaths || []).filter(Boolean))];
+
+  if (!MEDIA_DECISION_ROLES.has(role)) issues.push(`invalid media role: ${role || "(missing)"}`);
+  if (decision.constructReview !== "approved") issues.push("construct review is not approved");
+  if (!String(decision.answerNeutral || "").startsWith("approved") && !String(decision.answerNeutral || "").startsWith("not-applicable")) {
+    issues.push("answer-neutrality review is not approved");
+  }
+  if (!pathsAreExplicit) issues.push("media decision paths must be an array");
+
+  if (role === "text-only") {
+    if (pathsAreExplicit && decision.paths.length) issues.push("text-only decision must declare zero image paths");
+    if (expandedPaths.length) issues.push("text-only item expands with visual media");
+    if (decision.alt) issues.push("text-only decision must not retain visual alt text");
+    return issues;
+  }
+
+  if (!expectedPaths.length) issues.push("visual media decision has no reviewed image paths");
+  if (!expandedPaths.length) issues.push("item has no meaningful target, scene, answer-card, or sequence image");
+  if (
+    expandedPaths.length !== expectedPaths.length
+    || expandedPaths.some(assetPath => !expectedPaths.includes(assetPath))
+  ) {
+    issues.push("expanded item images do not exactly match its reviewed decision");
+  }
+  if (["neutral-support", "construct-support", "target-or-scene"].includes(role) && !item.imageAlt) {
+    issues.push("target or scene image is missing non-answer-revealing alt text");
+  }
+  if (role === "answer-cards" && !(item.imageCards || []).length) {
+    issues.push("answer-card decision has no image cards");
+  }
+  if (role === "sequence" && !(item.sequenceCards || []).length) {
+    issues.push("sequence decision has no sequence cards");
+  }
+  return issues;
+}
+
+function authoredItemHasVisualFields(authoredItem = {}) {
+  return Boolean(
+    authoredItem.img
+    || authoredItem.supportImg
+    || (Array.isArray(authoredItem.cards) && authoredItem.cards.length)
+    || (Array.isArray(authoredItem.sequenceCards) && authoredItem.sequenceCards.length)
+  );
+}
+
+export function syncItemMediaDecision({
+  item = {},
+  authoredItem = {},
+  decision,
+  actualPaths = [],
+  styleDecisions = {}
+} = {}) {
+  if (!decision) throw new Error(`${item.id || "(unknown item)"} has no reviewed media decision to synchronise`);
+
+  const explicitlyNonVisual = ["text", "audio-required"].includes(authoredItem.media);
+  const hasAuthoredVisuals = authoredItemHasVisualFields(authoredItem);
+  const shouldBeTextOnly = decision.role === "text-only" || explicitlyNonVisual;
+
+  if (shouldBeTextOnly && hasAuthoredVisuals) {
+    throw new Error(`${item.id || decision.itemId} declares text-only media and visual fields together`);
+  }
+  if (shouldBeTextOnly) {
+    const nonVisualDecision = { ...decision };
+    delete nonVisualDecision.alt;
+    return { ...nonVisualDecision, role: "text-only", paths: [] };
+  }
+
+  const paths = [...new Set((actualPaths || []).filter(Boolean))];
+  if (!paths.length) throw new Error(`${item.id || decision.itemId} expands without meaningful media`);
+  for (const assetPath of paths) {
+    if (!styleDecisions[assetPath]) {
+      throw new Error(`${item.id || decision.itemId} uses art without direct visual approval: ${assetPath}`);
+    }
+  }
+  return { ...decision, paths };
+}
+
 // ---------------------------------------------------------------------------
 // Text helpers
 // ---------------------------------------------------------------------------
@@ -140,7 +237,8 @@ export function expandItem(raw, blueprint, imageResolver) {
     || (Array.isArray(raw.sequenceCards) && raw.sequenceCards.length > 0);
   const supportImageKey = raw.img || raw.supportImg || "";
   const decisionSuppliesTarget = ["neutral-support", "construct-support"].includes(mediaDecision?.role);
-  const mediaTier = raw.media || (hasChoiceImages || supportImageKey || mediaDecision ? "image-required" : "text");
+  const decisionRequiresVisual = Boolean(mediaDecision && mediaDecision.role !== "text-only");
+  const mediaTier = raw.media || (hasChoiceImages || supportImageKey || decisionRequiresVisual ? "image-required" : "text");
 
   const item = {
     id,

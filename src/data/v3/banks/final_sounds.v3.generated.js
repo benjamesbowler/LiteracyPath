@@ -28,7 +28,7 @@ export const questions = [
    "b",
    "p",
    "w",
-   "v"
+   "q"
   ],
   "answerOptions": [
    {
@@ -47,16 +47,16 @@ export const questions = [
     "text": "w"
    },
    {
-    "value": "v",
-    "label": "v",
-    "text": "v"
+    "value": "q",
+    "label": "q",
+    "text": "q"
    }
   ],
   "answer": "b",
   "correctAnswer": "b",
   "distractorRationales": {
    "w": "D-POSITION",
-   "v": "D-VISUAL-NEIGHBOR",
+   "q": "D-VISUAL-NEIGHBOR",
    "p": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
@@ -126,26 +126,26 @@ export const questions = [
   "question": "Which one ends like web?",
   "spokenPrompt": "web. Which one ends with the same sound as web?",
   "choices": [
-   "road",
-   "crab",
-   "cap",
+   "dog",
+   "tub",
+   "cup",
    "bike"
   ],
   "answerOptions": [
    {
-    "value": "road",
-    "label": "road",
-    "text": "road"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
-    "value": "crab",
-    "label": "crab",
-    "text": "crab"
+    "value": "tub",
+    "label": "tub",
+    "text": "tub"
    },
    {
-    "value": "cap",
-    "label": "cap",
-    "text": "cap"
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
    },
    {
     "value": "bike",
@@ -153,12 +153,12 @@ export const questions = [
     "text": "bike"
    }
   ],
-  "answer": "crab",
-  "correctAnswer": "crab",
+  "answer": "tub",
+  "correctAnswer": "tub",
   "distractorRationales": {
-   "cap": "D-RIME-NEAR",
+   "cup": "D-RIME-NEAR",
    "bike": "D-POSITION",
-   "road": "D-RIME-NEAR"
+   "dog": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -180,9 +180,9 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.B.b.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/release-media/road-9aba0184.webp",
-    "/images/assessment/blends/crab.webp",
-    "/images/assessment/rhyming/variants/ap/cap-02.webp",
+    "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "/images/assessment/release-media/tub-9c34a66d.webp",
+    "/images/assessment/rhyming/variants/cup/cup-02.webp",
     "/images/assessment/long-vowels/bike.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -198,34 +198,34 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "cap ends the voiceless partner /p/; bike STARTS with b — the position trap; bike also ties the like-overlap for scanners",
+  "notes": "cup ends the voiceless partner /p/; bike STARTS with b — the position trap",
   "imageCards": [
    {
-    "id": "lp3.final_sounds.l1.B.b.v2_card_road",
-    "word": "road",
-    "value": "road",
-    "label": "road",
-    "image": "/images/assessment/release-media/road-9aba0184.webp",
-    "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
-    "imageAlt": "road"
+    "id": "lp3.final_sounds.l1.B.b.v2_card_dog",
+    "word": "dog",
+    "value": "dog",
+    "label": "dog",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imageAlt": "dog"
    },
    {
-    "id": "lp3.final_sounds.l1.B.b.v2_card_crab",
-    "word": "crab",
-    "value": "crab",
-    "label": "crab",
-    "image": "/images/assessment/blends/crab.webp",
-    "imagePath": "/images/assessment/blends/crab.webp",
-    "imageAlt": "crab"
+    "id": "lp3.final_sounds.l1.B.b.v2_card_tub",
+    "word": "tub",
+    "value": "tub",
+    "label": "tub",
+    "image": "/images/assessment/release-media/tub-9c34a66d.webp",
+    "imagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
+    "imageAlt": "tub"
    },
    {
-    "id": "lp3.final_sounds.l1.B.b.v2_card_cap",
-    "word": "cap",
-    "value": "cap",
-    "label": "cap",
-    "image": "/images/assessment/rhyming/variants/ap/cap-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
-    "imageAlt": "cap"
+    "id": "lp3.final_sounds.l1.B.b.v2_card_cup",
+    "word": "cup",
+    "value": "cup",
+    "label": "cup",
+    "image": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+    "imageAlt": "cup"
    },
    {
     "id": "lp3.final_sounds.l1.B.b.v2_card_bike",
@@ -258,30 +258,30 @@ export const questions = [
   "formatType": "ENDING_SOUND_WORD_MATCH",
   "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like tub?",
-  "question": "Which word ends like tub?",
-  "spokenPrompt": "tub. Which word ends with the same sound as tub?",
+  "prompt": "Which word ends like web?",
+  "question": "Which word ends like web?",
+  "spokenPrompt": "web. Which word ends with the same sound as web?",
   "choices": [
-   "bat",
-   "mud",
-   "web",
+   "bus",
+   "dog",
+   "cub",
    "cap"
   ],
   "answerOptions": [
    {
-    "value": "bat",
-    "label": "bat",
-    "text": "bat"
+    "value": "bus",
+    "label": "bus",
+    "text": "bus"
    },
    {
-    "value": "mud",
-    "label": "mud",
-    "text": "mud"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
-    "value": "web",
-    "label": "web",
-    "text": "web"
+    "value": "cub",
+    "label": "cub",
+    "text": "cub"
    },
    {
     "value": "cap",
@@ -289,11 +289,11 @@ export const questions = [
     "text": "cap"
    }
   ],
-  "answer": "web",
-  "correctAnswer": "web",
+  "answer": "cub",
+  "correctAnswer": "cub",
   "distractorRationales": {
-   "bat": "D-POSITION",
-   "mud": "D-RIME-NEAR",
+   "bus": "D-POSITION",
+   "dog": "D-RIME-NEAR",
    "cap": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
@@ -305,7 +305,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "tub",
+  "targetWord": "web",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -314,14 +314,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.C.b.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/tub-9c34a66d.webp"
+    "/images/assessment/release-media/web-b645c8e4.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "tub",
-  "stimulusMediaId": "tub",
+  "requiredImageAssetKey": "web",
+  "stimulusMediaId": "web",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -332,12 +332,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
-  "imageUrl": "/images/assessment/release-media/tub-9c34a66d.webp",
-  "targetImage": "/images/assessment/release-media/tub-9c34a66d.webp",
-  "targetImagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
-  "resolvedImageAssetKey": "tub",
-  "imageAlt": "tub"
+  "imagePath": "/images/assessment/release-media/web-b645c8e4.webp",
+  "imageUrl": "/images/assessment/release-media/web-b645c8e4.webp",
+  "targetImage": "/images/assessment/release-media/web-b645c8e4.webp",
+  "targetImagePath": "/images/assessment/release-media/web-b645c8e4.webp",
+  "resolvedImageAssetKey": "web",
+  "imageAlt": "web"
  },
  {
   "id": "lp3.final_sounds.l1.A.b.v4",
@@ -356,46 +356,46 @@ export const questions = [
   "form": "A",
   "itemType": "final_sound",
   "itemKey": "b",
-  "formatType": "ENDING_SOUND",
-  "templateType": "ENDING_SOUND",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Complete: tu__",
-  "question": "Complete: tu__",
-  "spokenPrompt": "tub. Which ending sound finishes the word tub?",
+  "prompt": "Which word ends like tub?",
+  "question": "Which word ends like tub?",
+  "spokenPrompt": "tub. Which word ends with the same sound as tub?",
   "choices": [
-   "m",
-   "b",
-   "p",
-   "t"
+   "sun",
+   "bib",
+   "cup",
+   "ball"
   ],
   "answerOptions": [
    {
-    "value": "m",
-    "label": "m",
-    "text": "m"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
-    "value": "b",
-    "label": "b",
-    "text": "b"
+    "value": "bib",
+    "label": "bib",
+    "text": "bib"
    },
    {
-    "value": "p",
-    "label": "p",
-    "text": "p"
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
    },
    {
-    "value": "t",
-    "label": "t",
-    "text": "t"
+    "value": "ball",
+    "label": "ball",
+    "text": "ball"
    }
   ],
-  "answer": "b",
-  "correctAnswer": "b",
+  "answer": "bib",
+  "correctAnswer": "bib",
   "distractorRationales": {
-   "p": "D-RIME-NEAR",
-   "t": "D-POSITION",
-   "m": "D-VISUAL-NEIGHBOR"
+   "cup": "D-RIME-NEAR",
+   "ball": "D-POSITION",
+   "sun": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -432,7 +432,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "tu+p, tu+t, tu+m are all non-words — the only real completion is the target",
+  "notes": "",
   "imagePath": "/images/assessment/release-media/tub-9c34a66d.webp",
   "imageUrl": "/images/assessment/release-media/tub-9c34a66d.webp",
   "targetImage": "/images/assessment/release-media/tub-9c34a66d.webp",
@@ -460,12 +460,12 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: brea__",
-  "question": "Complete: brea__",
-  "spokenPrompt": "bread. Which ending sound finishes the word bread?",
+  "prompt": "Complete: be__",
+  "question": "Complete: be__",
+  "spokenPrompt": "bed. Which ending sound finishes the word bed?",
   "choices": [
    "b",
-   "g",
+   "q",
    "d",
    "t"
   ],
@@ -476,9 +476,9 @@ export const questions = [
     "text": "b"
    },
    {
-    "value": "g",
-    "label": "g",
-    "text": "g"
+    "value": "q",
+    "label": "q",
+    "text": "q"
    },
    {
     "value": "d",
@@ -495,8 +495,8 @@ export const questions = [
   "correctAnswer": "d",
   "distractorRationales": {
    "t": "D-RIME-NEAR",
-   "b": "D-VISUAL-NEIGHBOR",
-   "g": "D-POSITION"
+   "b": "D-POSITION",
+   "q": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -507,7 +507,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "bread",
+  "targetWord": "bed",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -516,14 +516,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.d.v1",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/bread.webp"
+    "/images/assessment/rhyming/variants/ed/bed-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "bread",
-  "stimulusMediaId": "bread",
+  "requiredImageAssetKey": "bed",
+  "stimulusMediaId": "bed",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -533,13 +533,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "t is the voicing partner; b mirrors d; brea+t/b/g are non-words",
-  "imagePath": "/images/assessment/blends/bread.webp",
-  "imageUrl": "/images/assessment/blends/bread.webp",
-  "targetImage": "/images/assessment/blends/bread.webp",
-  "targetImagePath": "/images/assessment/blends/bread.webp",
-  "resolvedImageAssetKey": "bread",
-  "imageAlt": "bread"
+  "notes": "t is the voicing partner; b is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "resolvedImageAssetKey": "bed",
+  "imageAlt": "bed"
  },
  {
   "id": "lp3.final_sounds.l1.B.d.v2",
@@ -561,14 +561,14 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like bread?",
-  "question": "Which one ends like bread?",
-  "spokenPrompt": "bread. Which one ends with the same sound as bread?",
+  "prompt": "Which one ends like mud?",
+  "question": "Which one ends like mud?",
+  "spokenPrompt": "mud. Which one ends with the same sound as mud?",
   "choices": [
    "dog",
-   "leaf",
-   "road",
-   "boat"
+   "sun",
+   "red",
+   "cat"
   ],
   "answerOptions": [
    {
@@ -577,31 +577,31 @@ export const questions = [
     "text": "dog"
    },
    {
-    "value": "leaf",
-    "label": "leaf",
-    "text": "leaf"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
-    "value": "road",
-    "label": "road",
-    "text": "road"
+    "value": "red",
+    "label": "red",
+    "text": "red"
    },
    {
-    "value": "boat",
-    "label": "boat",
-    "text": "boat"
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    }
   ],
-  "answer": "road",
-  "correctAnswer": "road",
+  "answer": "red",
+  "correctAnswer": "red",
   "distractorRationales": {
    "dog": "D-POSITION",
-   "leaf": "D-PATTERN-TRAP",
-   "boat": "D-RIME-NEAR"
+   "sun": "D-RIME-NEAR",
+   "cat": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
-  "hadPTD": true,
+  "hadPTD": false,
   "nonGating": false,
   "retentionOnly": false,
   "evidenceModality": "audio+image",
@@ -610,7 +610,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "bread",
+  "targetWord": "mud",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -620,9 +620,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/rhyming/variants/og/dog-02.webp",
-    "/images/assessment/long-vowels/leaf.webp",
-    "/images/assessment/release-media/road-9aba0184.webp",
-    "/images/assessment/long-vowels/boat.webp"
+    "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "/images/assessment/rhyming/variants/ed/red-02.webp",
+    "/images/assessment/rhyming/variants/at/cat-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -637,7 +637,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "boat ends the voiceless partner /t/; dog STARTS with d; leaf ties the bread ea-overlap for scanners",
+  "notes": "cat ends the voiceless partner /t/; dog STARTS with d — the position trap",
   "imageCards": [
    {
     "id": "lp3.final_sounds.l1.B.d.v2_card_dog",
@@ -649,31 +649,31 @@ export const questions = [
     "imageAlt": "dog"
    },
    {
-    "id": "lp3.final_sounds.l1.B.d.v2_card_leaf",
-    "word": "leaf",
-    "value": "leaf",
-    "label": "leaf",
-    "image": "/images/assessment/long-vowels/leaf.webp",
-    "imagePath": "/images/assessment/long-vowels/leaf.webp",
-    "imageAlt": "leaf"
+    "id": "lp3.final_sounds.l1.B.d.v2_card_sun",
+    "word": "sun",
+    "value": "sun",
+    "label": "sun",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imageAlt": "sun"
    },
    {
-    "id": "lp3.final_sounds.l1.B.d.v2_card_road",
-    "word": "road",
-    "value": "road",
-    "label": "road",
-    "image": "/images/assessment/release-media/road-9aba0184.webp",
-    "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
-    "imageAlt": "road"
+    "id": "lp3.final_sounds.l1.B.d.v2_card_red",
+    "word": "red",
+    "value": "red",
+    "label": "red",
+    "image": "/images/assessment/rhyming/variants/ed/red-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
+    "imageAlt": "red"
    },
    {
-    "id": "lp3.final_sounds.l1.B.d.v2_card_boat",
-    "word": "boat",
-    "value": "boat",
-    "label": "boat",
-    "image": "/images/assessment/long-vowels/boat.webp",
-    "imagePath": "/images/assessment/long-vowels/boat.webp",
-    "imageAlt": "boat"
+    "id": "lp3.final_sounds.l1.B.d.v2_card_cat",
+    "word": "cat",
+    "value": "cat",
+    "label": "cat",
+    "image": "/images/assessment/rhyming/variants/at/cat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+    "imageAlt": "cat"
    }
   ]
  },
@@ -697,25 +697,25 @@ export const questions = [
   "formatType": "ENDING_SOUND_WORD_MATCH",
   "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like road?",
-  "question": "Which word ends like road?",
-  "spokenPrompt": "road. Which word ends with the same sound as road?",
+  "prompt": "Which word ends like red?",
+  "question": "Which word ends like red?",
+  "spokenPrompt": "red. Which word ends with the same sound as red?",
   "choices": [
-   "nut",
-   "dig",
+   "cat",
+   "dog",
    "sun",
    "mud"
   ],
   "answerOptions": [
    {
-    "value": "nut",
-    "label": "nut",
-    "text": "nut"
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    },
    {
-    "value": "dig",
-    "label": "dig",
-    "text": "dig"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
     "value": "sun",
@@ -731,8 +731,8 @@ export const questions = [
   "answer": "mud",
   "correctAnswer": "mud",
   "distractorRationales": {
-   "nut": "D-RIME-NEAR",
-   "dig": "D-POSITION",
+   "cat": "D-RIME-NEAR",
+   "dog": "D-POSITION",
    "sun": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
@@ -744,7 +744,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "road",
+  "targetWord": "red",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -753,14 +753,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.C.d.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/road-9aba0184.webp"
+    "/images/assessment/rhyming/variants/ed/red-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "road",
-  "stimulusMediaId": "road",
+  "requiredImageAssetKey": "red",
+  "stimulusMediaId": "red",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -771,12 +771,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "resolvedImageAssetKey": "road",
-  "imageAlt": "road"
+  "imagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ed/red-02.webp",
+  "resolvedImageAssetKey": "red",
+  "imageAlt": "red"
  },
  {
   "id": "lp3.final_sounds.l1.A.d.v4",
@@ -795,46 +795,46 @@ export const questions = [
   "form": "A",
   "itemType": "final_sound",
   "itemKey": "d",
-  "formatType": "ENDING_SOUND",
-  "templateType": "ENDING_SOUND",
+  "formatType": "ENDING_SOUND_WORD_MATCH",
+  "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Complete: roa__",
-  "question": "Complete: roa__",
-  "spokenPrompt": "road. Which ending sound finishes the word road?",
+  "prompt": "Which word ends like bed?",
+  "question": "Which word ends like bed?",
+  "spokenPrompt": "bed. Which word ends with the same sound as bed?",
   "choices": [
-   "t",
-   "b",
-   "f",
-   "d"
+   "lip",
+   "dog",
+   "sun",
+   "lid"
   ],
   "answerOptions": [
    {
-    "value": "t",
-    "label": "t",
-    "text": "t"
+    "value": "lip",
+    "label": "lip",
+    "text": "lip"
    },
    {
-    "value": "b",
-    "label": "b",
-    "text": "b"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
-    "value": "f",
-    "label": "f",
-    "text": "f"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
-    "value": "d",
-    "label": "d",
-    "text": "d"
+    "value": "lid",
+    "label": "lid",
+    "text": "lid"
    }
   ],
-  "answer": "d",
-  "correctAnswer": "d",
+  "answer": "lid",
+  "correctAnswer": "lid",
   "distractorRationales": {
-   "f": "D-VISUAL-NEIGHBOR",
-   "t": "D-RIME-NEAR",
-   "b": "D-VISUAL-NEIGHBOR"
+   "sun": "D-RIME-NEAR",
+   "lip": "D-RIME-NEAR",
+   "dog": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -845,7 +845,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "road",
+  "targetWord": "bed",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -854,14 +854,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.d.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/release-media/road-9aba0184.webp"
+    "/images/assessment/rhyming/variants/ed/bed-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "road",
-  "stimulusMediaId": "road",
+  "requiredImageAssetKey": "bed",
+  "stimulusMediaId": "bed",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -871,13 +871,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "roa+t/b/f are non-words (roar/roam deliberately kept out of the set)",
-  "imagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "imageUrl": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImage": "/images/assessment/release-media/road-9aba0184.webp",
-  "targetImagePath": "/images/assessment/release-media/road-9aba0184.webp",
-  "resolvedImageAssetKey": "road",
-  "imageAlt": "road"
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+  "resolvedImageAssetKey": "bed",
+  "imageAlt": "bed"
  },
  {
   "id": "lp3.final_sounds.l1.A.g.v1",
@@ -899,13 +899,13 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: fla__",
-  "question": "Complete: fla__",
-  "spokenPrompt": "flag. Which ending sound finishes the word flag?",
+  "prompt": "Complete: do__",
+  "question": "Complete: do__",
+  "spokenPrompt": "dog. Which ending sound finishes the word dog?",
   "choices": [
    "g",
-   "c",
-   "f",
+   "k",
+   "d",
    "q"
   ],
   "answerOptions": [
@@ -915,14 +915,14 @@ export const questions = [
     "text": "g"
    },
    {
-    "value": "c",
-    "label": "c",
-    "text": "c"
+    "value": "k",
+    "label": "k",
+    "text": "k"
    },
    {
-    "value": "f",
-    "label": "f",
-    "text": "f"
+    "value": "d",
+    "label": "d",
+    "text": "d"
    },
    {
     "value": "q",
@@ -934,8 +934,8 @@ export const questions = [
   "correctAnswer": "g",
   "distractorRationales": {
    "q": "D-VISUAL-NEIGHBOR",
-   "c": "D-RIME-NEAR",
-   "f": "D-POSITION"
+   "k": "D-RIME-NEAR",
+   "d": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -946,7 +946,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "flag",
+  "targetWord": "dog",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -955,14 +955,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.g.v1",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/flag.webp"
+    "/images/assessment/rhyming/variants/og/dog-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "flag",
-  "stimulusMediaId": "flag",
+  "requiredImageAssetKey": "dog",
+  "stimulusMediaId": "dog",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -972,13 +972,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "c is the voiceless /k/ neighbour; f is the word's first sound; fla+c/f/q are non-words",
-  "imagePath": "/images/assessment/blends/flag.webp",
-  "imageUrl": "/images/assessment/blends/flag.webp",
-  "targetImage": "/images/assessment/blends/flag.webp",
-  "targetImagePath": "/images/assessment/blends/flag.webp",
-  "resolvedImageAssetKey": "flag",
-  "imageAlt": "flag"
+  "notes": "k is the voiceless partner; d is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+  "resolvedImageAssetKey": "dog",
+  "imageAlt": "dog"
  },
  {
   "id": "lp3.final_sounds.l1.B.g.v2",
@@ -1000,14 +1000,14 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like frog?",
-  "question": "Which one ends like frog?",
-  "spokenPrompt": "frog. Which one ends with the same sound as frog?",
+  "prompt": "Which one ends like dog?",
+  "question": "Which one ends like dog?",
+  "spokenPrompt": "dog. Which one ends with the same sound as dog?",
   "choices": [
    "duck",
    "goat",
-   "sock",
-   "flag"
+   "sun",
+   "pig"
   ],
   "answerOptions": [
    {
@@ -1021,22 +1021,22 @@ export const questions = [
     "text": "goat"
    },
    {
-    "value": "sock",
-    "label": "sock",
-    "text": "sock"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
-    "value": "flag",
-    "label": "flag",
-    "text": "flag"
+    "value": "pig",
+    "label": "pig",
+    "text": "pig"
    }
   ],
-  "answer": "flag",
-  "correctAnswer": "flag",
+  "answer": "pig",
+  "correctAnswer": "pig",
   "distractorRationales": {
    "duck": "D-RIME-NEAR",
    "goat": "D-POSITION",
-   "sock": "D-RIME-NEAR"
+   "sun": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -1049,7 +1049,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "frog",
+  "targetWord": "dog",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -1060,8 +1060,8 @@ export const questions = [
    "paths": [
     "/images/assessment/digraphs/duck.webp",
     "/images/assessment/long-vowels/goat.webp",
-    "/images/assessment/digraphs/sock.webp",
-    "/images/assessment/blends/flag.webp"
+    "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "/images/assessment/rhyming/variants/ig/pig-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1076,7 +1076,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "duck/sock end the voiceless /k/; goat STARTS with g",
+  "notes": "duck ends the voiceless partner /k/; goat STARTS with g — the position trap",
   "imageCards": [
    {
     "id": "lp3.final_sounds.l1.B.g.v2_card_duck",
@@ -1097,22 +1097,22 @@ export const questions = [
     "imageAlt": "goat"
    },
    {
-    "id": "lp3.final_sounds.l1.B.g.v2_card_sock",
-    "word": "sock",
-    "value": "sock",
-    "label": "sock",
-    "image": "/images/assessment/digraphs/sock.webp",
-    "imagePath": "/images/assessment/digraphs/sock.webp",
-    "imageAlt": "sock"
+    "id": "lp3.final_sounds.l1.B.g.v2_card_sun",
+    "word": "sun",
+    "value": "sun",
+    "label": "sun",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imageAlt": "sun"
    },
    {
-    "id": "lp3.final_sounds.l1.B.g.v2_card_flag",
-    "word": "flag",
-    "value": "flag",
-    "label": "flag",
-    "image": "/images/assessment/blends/flag.webp",
-    "imagePath": "/images/assessment/blends/flag.webp",
-    "imageAlt": "flag"
+    "id": "lp3.final_sounds.l1.B.g.v2_card_pig",
+    "word": "pig",
+    "value": "pig",
+    "label": "pig",
+    "image": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+    "imageAlt": "pig"
    }
   ]
  },
@@ -1136,20 +1136,20 @@ export const questions = [
   "formatType": "ENDING_SOUND_WORD_MATCH",
   "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like flag?",
-  "question": "Which word ends like flag?",
-  "spokenPrompt": "flag. Which word ends with the same sound as flag?",
+  "prompt": "Which word ends like pig?",
+  "question": "Which word ends like pig?",
+  "spokenPrompt": "pig. Which word ends with the same sound as pig?",
   "choices": [
-   "dig",
+   "bug",
    "duck",
-   "gum",
-   "rock"
+   "goat",
+   "sun"
   ],
   "answerOptions": [
    {
-    "value": "dig",
-    "label": "dig",
-    "text": "dig"
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
    },
    {
     "value": "duck",
@@ -1157,22 +1157,22 @@ export const questions = [
     "text": "duck"
    },
    {
-    "value": "gum",
-    "label": "gum",
-    "text": "gum"
+    "value": "goat",
+    "label": "goat",
+    "text": "goat"
    },
    {
-    "value": "rock",
-    "label": "rock",
-    "text": "rock"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    }
   ],
-  "answer": "dig",
-  "correctAnswer": "dig",
+  "answer": "bug",
+  "correctAnswer": "bug",
   "distractorRationales": {
-   "rock": "D-RIME-NEAR",
+   "sun": "D-RIME-NEAR",
    "duck": "D-RIME-NEAR",
-   "gum": "D-POSITION"
+   "goat": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -1183,7 +1183,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "flag",
+  "targetWord": "pig",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -1192,14 +1192,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.C.g.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/flag.webp"
+    "/images/assessment/rhyming/variants/ig/pig-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "flag",
-  "stimulusMediaId": "flag",
+  "requiredImageAssetKey": "pig",
+  "stimulusMediaId": "pig",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1210,12 +1210,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/blends/flag.webp",
-  "imageUrl": "/images/assessment/blends/flag.webp",
-  "targetImage": "/images/assessment/blends/flag.webp",
-  "targetImagePath": "/images/assessment/blends/flag.webp",
-  "resolvedImageAssetKey": "flag",
-  "imageAlt": "flag"
+  "imagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ig/pig-02.webp",
+  "resolvedImageAssetKey": "pig",
+  "imageAlt": "pig"
  },
  {
   "id": "lp3.final_sounds.l1.A.g.v4",
@@ -1237,14 +1237,14 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: fro__",
-  "question": "Complete: fro__",
-  "spokenPrompt": "frog. Which ending sound finishes the word frog?",
+  "prompt": "Complete: lo__",
+  "question": "Complete: lo__",
+  "spokenPrompt": "log. Which ending sound finishes the word log?",
   "choices": [
    "j",
    "g",
    "k",
-   "f"
+   "l"
   ],
   "answerOptions": [
    {
@@ -1263,16 +1263,16 @@ export const questions = [
     "text": "k"
    },
    {
-    "value": "f",
-    "label": "f",
-    "text": "f"
+    "value": "l",
+    "label": "l",
+    "text": "l"
    }
   ],
   "answer": "g",
   "correctAnswer": "g",
   "distractorRationales": {
    "k": "D-RIME-NEAR",
-   "f": "D-POSITION",
+   "l": "D-POSITION",
    "j": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-optional",
@@ -1284,7 +1284,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "frog",
+  "targetWord": "log",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -1293,14 +1293,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.g.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/frog.webp"
+    "/images/assessment/rhyming/variants/og/log-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "frog",
-  "stimulusMediaId": "frog",
+  "requiredImageAssetKey": "log",
+  "stimulusMediaId": "log",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1310,13 +1310,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "fro+k/f/j are non-words",
-  "imagePath": "/images/assessment/blends/frog.webp",
-  "imageUrl": "/images/assessment/blends/frog.webp",
-  "targetImage": "/images/assessment/blends/frog.webp",
-  "targetImagePath": "/images/assessment/blends/frog.webp",
-  "resolvedImageAssetKey": "frog",
-  "imageAlt": "frog"
+  "notes": "k is the voiceless partner; l is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/og/log-02.webp",
+  "resolvedImageAssetKey": "log",
+  "imageAlt": "log"
  },
  {
   "id": "lp3.final_sounds.l1.A.l.v1",
@@ -1443,21 +1443,21 @@ export const questions = [
   "question": "Which one ends like wheel?",
   "spokenPrompt": "wheel. Which one ends with the same sound as wheel?",
   "choices": [
-   "shell",
-   "deer",
+   "bell",
+   "moon",
    "lamp",
-   "boat"
+   "cat"
   ],
   "answerOptions": [
    {
-    "value": "shell",
-    "label": "shell",
-    "text": "shell"
+    "value": "bell",
+    "label": "bell",
+    "text": "bell"
    },
    {
-    "value": "deer",
-    "label": "deer",
-    "text": "deer"
+    "value": "moon",
+    "label": "moon",
+    "text": "moon"
    },
    {
     "value": "lamp",
@@ -1465,17 +1465,17 @@ export const questions = [
     "text": "lamp"
    },
    {
-    "value": "boat",
-    "label": "boat",
-    "text": "boat"
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    }
   ],
-  "answer": "shell",
-  "correctAnswer": "shell",
+  "answer": "bell",
+  "correctAnswer": "bell",
   "distractorRationales": {
    "lamp": "D-POSITION",
-   "boat": "D-RIME-NEAR",
-   "deer": "D-RIME-NEAR"
+   "cat": "D-RIME-NEAR",
+   "moon": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -1497,10 +1497,10 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.B.l.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/digraphs/shell.webp",
-    "/images/assessment/release-media/deer-946b4c2b.webp",
+    "/images/assessment/rhyming/variants/ell/bell-02.webp",
+    "/images/assessment/long-vowels/moon.webp",
     "/images/assessment/blends/lamp.webp",
-    "/images/assessment/long-vowels/boat.webp"
+    "/images/assessment/rhyming/variants/at/cat-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -1515,25 +1515,25 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "deer ends the liquid partner /r/ and shares wheel's ee so scanning ties; lamp STARTS with l",
+  "notes": "lamp STARTS with l — the position trap; moon and cat end with different common sounds",
   "imageCards": [
    {
-    "id": "lp3.final_sounds.l1.B.l.v2_card_shell",
-    "word": "shell",
-    "value": "shell",
-    "label": "shell",
-    "image": "/images/assessment/digraphs/shell.webp",
-    "imagePath": "/images/assessment/digraphs/shell.webp",
-    "imageAlt": "shell"
+    "id": "lp3.final_sounds.l1.B.l.v2_card_bell",
+    "word": "bell",
+    "value": "bell",
+    "label": "bell",
+    "image": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ell/bell-02.webp",
+    "imageAlt": "bell"
    },
    {
-    "id": "lp3.final_sounds.l1.B.l.v2_card_deer",
-    "word": "deer",
-    "value": "deer",
-    "label": "deer",
-    "image": "/images/assessment/release-media/deer-946b4c2b.webp",
-    "imagePath": "/images/assessment/release-media/deer-946b4c2b.webp",
-    "imageAlt": "deer"
+    "id": "lp3.final_sounds.l1.B.l.v2_card_moon",
+    "word": "moon",
+    "value": "moon",
+    "label": "moon",
+    "image": "/images/assessment/long-vowels/moon.webp",
+    "imagePath": "/images/assessment/long-vowels/moon.webp",
+    "imageAlt": "moon"
    },
    {
     "id": "lp3.final_sounds.l1.B.l.v2_card_lamp",
@@ -1545,13 +1545,13 @@ export const questions = [
     "imageAlt": "lamp"
    },
    {
-    "id": "lp3.final_sounds.l1.B.l.v2_card_boat",
-    "word": "boat",
-    "value": "boat",
-    "label": "boat",
-    "image": "/images/assessment/long-vowels/boat.webp",
-    "imagePath": "/images/assessment/long-vowels/boat.webp",
-    "imageAlt": "boat"
+    "id": "lp3.final_sounds.l1.B.l.v2_card_cat",
+    "word": "cat",
+    "value": "cat",
+    "label": "cat",
+    "image": "/images/assessment/rhyming/variants/at/cat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+    "imageAlt": "cat"
    }
   ]
  },
@@ -1572,6 +1572,107 @@ export const questions = [
   "form": "C",
   "itemType": "final_sound",
   "itemKey": "l",
+  "formatType": "ENDING_SOUND",
+  "templateType": "ENDING_SOUND",
+  "questionType": "multiple_choice",
+  "prompt": "Complete: tai__",
+  "question": "Complete: tai__",
+  "spokenPrompt": "tail. Which ending sound finishes the word tail?",
+  "choices": [
+   "i",
+   "l",
+   "r",
+   "t"
+  ],
+  "answerOptions": [
+   {
+    "value": "i",
+    "label": "i",
+    "text": "i"
+   },
+   {
+    "value": "l",
+    "label": "l",
+    "text": "l"
+   },
+   {
+    "value": "r",
+    "label": "r",
+    "text": "r"
+   },
+   {
+    "value": "t",
+    "label": "t",
+    "text": "t"
+   }
+  ],
+  "answer": "l",
+  "correctAnswer": "l",
+  "distractorRationales": {
+   "r": "D-RIME-NEAR",
+   "t": "D-POSITION",
+   "i": "D-VISUAL-NEIGHBOR"
+  },
+  "mediaTier": "image-optional",
+  "phonicsPosition": "final",
+  "hadPTD": false,
+  "nonGating": false,
+  "retentionOnly": false,
+  "evidenceRole": "mastery",
+  "hideWrittenLabels": false,
+  "displayPassageDuringResponse": true,
+  "suppressStimulusAudio": false,
+  "targetWord": "tail",
+  "v3AuthoredMedia": {
+   "target": true,
+   "cards": false
+  },
+  "assessmentMediaDecision": {
+   "itemId": "lp3.final_sounds.l1.C.l.v3",
+   "role": "target-or-scene",
+   "paths": [
+    "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp"
+   ],
+   "alt": "Picture support for this literacy question",
+   "constructReview": "approved",
+   "answerNeutral": "approved"
+  },
+  "requiredImageAssetKey": "tail",
+  "stimulusMediaId": "tail",
+  "active": true,
+  "qaStatus": "verified",
+  "source": "skills_rebuild_v3_2026_08",
+  "provenance": {
+   "generatedBy": "assessment-rebuild-gate",
+   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
+   "wave": "",
+   "standardVersion": "v3"
+  },
+  "notes": "r is the liquid neighbour; t is the word's own first sound",
+  "imagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "imageUrl": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "targetImage": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "targetImagePath": "/images/assessment/language/variants/homophones-homonyms/tail-tale-01.webp",
+  "resolvedImageAssetKey": "tail",
+  "imageAlt": "tail"
+ },
+ {
+  "id": "lp3.final_sounds.l1.A.l.v4",
+  "bankStandardVersion": 3,
+  "grade": "K-2",
+  "skillId": "final_sounds",
+  "assessmentSkillId": "final_sounds",
+  "skillName": "Final Sounds",
+  "skill": "Final Sounds",
+  "level": 1,
+  "assessmentLevel": 1,
+  "difficulty": 1,
+  "phase": 1,
+  "assessmentPhase": 1,
+  "phaseTarget": "level_1_phase_1",
+  "form": "A",
+  "itemType": "final_sound",
+  "itemKey": "l",
   "formatType": "ENDING_SOUND_WORD_MATCH",
   "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
@@ -1580,9 +1681,9 @@ export const questions = [
   "spokenPrompt": "wheel. Which word ends with the same sound as wheel?",
   "choices": [
    "moon",
-   "pool",
+   "lamp",
    "cat",
-   "leaf"
+   "pool"
   ],
   "answerOptions": [
    {
@@ -1591,9 +1692,9 @@ export const questions = [
     "text": "moon"
    },
    {
-    "value": "pool",
-    "label": "pool",
-    "text": "pool"
+    "value": "lamp",
+    "label": "lamp",
+    "text": "lamp"
    },
    {
     "value": "cat",
@@ -1601,17 +1702,17 @@ export const questions = [
     "text": "cat"
    },
    {
-    "value": "leaf",
-    "label": "leaf",
-    "text": "leaf"
+    "value": "pool",
+    "label": "pool",
+    "text": "pool"
    }
   ],
   "answer": "pool",
   "correctAnswer": "pool",
   "distractorRationales": {
    "cat": "D-RIME-NEAR",
-   "leaf": "D-POSITION",
-   "moon": "D-RIME-NEAR"
+   "moon": "D-RIME-NEAR",
+   "lamp": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -1628,7 +1729,7 @@ export const questions = [
    "cards": false
   },
   "assessmentMediaDecision": {
-   "itemId": "lp3.final_sounds.l1.C.l.v3",
+   "itemId": "lp3.final_sounds.l1.A.l.v4",
    "role": "target-or-scene",
    "paths": [
     "/images/assessment/digraphs/wheel.webp"
@@ -1657,107 +1758,6 @@ export const questions = [
   "imageAlt": "wheel"
  },
  {
-  "id": "lp3.final_sounds.l1.A.l.v4",
-  "bankStandardVersion": 3,
-  "grade": "K-2",
-  "skillId": "final_sounds",
-  "assessmentSkillId": "final_sounds",
-  "skillName": "Final Sounds",
-  "skill": "Final Sounds",
-  "level": 1,
-  "assessmentLevel": 1,
-  "difficulty": 1,
-  "phase": 1,
-  "assessmentPhase": 1,
-  "phaseTarget": "level_1_phase_1",
-  "form": "A",
-  "itemType": "final_sound",
-  "itemKey": "l",
-  "formatType": "ENDING_SOUND",
-  "templateType": "ENDING_SOUND",
-  "questionType": "multiple_choice",
-  "prompt": "Complete: whirlpoo__",
-  "question": "Complete: whirlpoo__",
-  "spokenPrompt": "whirlpool. Which ending sound finishes the word whirlpool?",
-  "choices": [
-   "r",
-   "w",
-   "b",
-   "l"
-  ],
-  "answerOptions": [
-   {
-    "value": "r",
-    "label": "r",
-    "text": "r"
-   },
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
-   },
-   {
-    "value": "b",
-    "label": "b",
-    "text": "b"
-   },
-   {
-    "value": "l",
-    "label": "l",
-    "text": "l"
-   }
-  ],
-  "answer": "l",
-  "correctAnswer": "l",
-  "distractorRationales": {
-   "b": "D-VISUAL-NEIGHBOR",
-   "r": "D-RIME-NEAR",
-   "w": "D-POSITION"
-  },
-  "mediaTier": "image-optional",
-  "phonicsPosition": "final",
-  "hadPTD": false,
-  "nonGating": false,
-  "retentionOnly": false,
-  "evidenceRole": "mastery",
-  "hideWrittenLabels": false,
-  "displayPassageDuringResponse": true,
-  "suppressStimulusAudio": false,
-  "targetWord": "whirlpool",
-  "v3AuthoredMedia": {
-   "target": true,
-   "cards": false
-  },
-  "assessmentMediaDecision": {
-   "itemId": "lp3.final_sounds.l1.A.l.v4",
-   "role": "target-or-scene",
-   "paths": [
-    "/images/assessment/digraphs/whirlpool.webp"
-   ],
-   "alt": "Picture support for this literacy question",
-   "constructReview": "approved",
-   "answerNeutral": "approved"
-  },
-  "requiredImageAssetKey": "whirlpool",
-  "stimulusMediaId": "whirlpool",
-  "active": true,
-  "qaStatus": "verified",
-  "source": "skills_rebuild_v3_2026_08",
-  "provenance": {
-   "generatedBy": "assessment-rebuild-gate",
-   "sourceFile": "tools/assessmentRebuild/authoring/final_sounds.mjs",
-   "wave": "",
-   "standardVersion": "v3"
-  },
-  "notes": "whirlpoo+r/w/b are non-words",
-  "imagePath": "/images/assessment/digraphs/whirlpool.webp",
-  "imageUrl": "/images/assessment/digraphs/whirlpool.webp",
-  "targetImage": "/images/assessment/digraphs/whirlpool.webp",
-  "targetImagePath": "/images/assessment/digraphs/whirlpool.webp",
-  "resolvedImageAssetKey": "whirlpool",
-  "imageAlt": "whirlpool"
- },
- {
   "id": "lp3.final_sounds.l1.A.m.v1",
   "bankStandardVersion": 3,
   "grade": "K-2",
@@ -1777,13 +1777,13 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: dru__",
-  "question": "Complete: dru__",
-  "spokenPrompt": "drum. Which ending sound finishes the word drum?",
+  "prompt": "Complete: ja__",
+  "question": "Complete: ja__",
+  "spokenPrompt": "jam. Which ending sound finishes the word jam?",
   "choices": [
    "m",
    "n",
-   "d",
+   "j",
    "w"
   ],
   "answerOptions": [
@@ -1798,9 +1798,9 @@ export const questions = [
     "text": "n"
    },
    {
-    "value": "d",
-    "label": "d",
-    "text": "d"
+    "value": "j",
+    "label": "j",
+    "text": "j"
    },
    {
     "value": "w",
@@ -1812,7 +1812,7 @@ export const questions = [
   "correctAnswer": "m",
   "distractorRationales": {
    "n": "D-RIME-NEAR",
-   "d": "D-POSITION",
+   "j": "D-POSITION",
    "w": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-optional",
@@ -1824,7 +1824,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "drum",
+  "targetWord": "jam",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -1833,14 +1833,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.m.v1",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/blends/drum.webp"
+    "/images/assessment/rhyming/variants/am/jam-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "drum",
-  "stimulusMediaId": "drum",
+  "requiredImageAssetKey": "jam",
+  "stimulusMediaId": "jam",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -1850,13 +1850,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "n is the nasal partner; d is the word's first sound; dru+n/d/w are non-words",
-  "imagePath": "/images/assessment/blends/drum.webp",
-  "imageUrl": "/images/assessment/blends/drum.webp",
-  "targetImage": "/images/assessment/blends/drum.webp",
-  "targetImagePath": "/images/assessment/blends/drum.webp",
-  "resolvedImageAssetKey": "drum",
-  "imageAlt": "drum"
+  "notes": "n is the nasal partner; j is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
+  "resolvedImageAssetKey": "jam",
+  "imageAlt": "jam"
  },
  {
   "id": "lp3.final_sounds.l1.B.m.v2",
@@ -1878,30 +1878,30 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like drum?",
-  "question": "Which one ends like drum?",
-  "spokenPrompt": "drum. Which one ends with the same sound as drum?",
+  "prompt": "Which one ends like jam?",
+  "question": "Which one ends like jam?",
+  "spokenPrompt": "jam. Which one ends with the same sound as jam?",
   "choices": [
+   "dog",
+   "ham",
    "hen",
-   "jam",
-   "pin",
    "map"
   ],
   "answerOptions": [
    {
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
+   },
+   {
+    "value": "ham",
+    "label": "ham",
+    "text": "ham"
+   },
+   {
     "value": "hen",
     "label": "hen",
     "text": "hen"
-   },
-   {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
-   },
-   {
-    "value": "pin",
-    "label": "pin",
-    "text": "pin"
    },
    {
     "value": "map",
@@ -1909,11 +1909,11 @@ export const questions = [
     "text": "map"
    }
   ],
-  "answer": "jam",
-  "correctAnswer": "jam",
+  "answer": "ham",
+  "correctAnswer": "ham",
   "distractorRationales": {
+   "dog": "D-RIME-NEAR",
    "hen": "D-RIME-NEAR",
-   "pin": "D-RIME-NEAR",
    "map": "D-POSITION"
   },
   "mediaTier": "image-required",
@@ -1927,7 +1927,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "drum",
+  "targetWord": "jam",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -1936,9 +1936,9 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.B.m.v2",
    "role": "answer-cards",
    "paths": [
+    "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "/images/assessment/rhyming/variants/am/ham-02.webp",
     "/images/assessment/rhyming/variants/en/hen-02.webp",
-    "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "/images/assessment/rhyming/variants/in/pin-02.webp",
     "/images/assessment/rhyming/variants/ap/map-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
@@ -1954,8 +1954,26 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "pin/hen end the nasal partner /n/; map STARTS with the anchor's m",
+  "notes": "hen ends the nasal neighbour /n/; map STARTS with m — the position trap",
   "imageCards": [
+   {
+    "id": "lp3.final_sounds.l1.B.m.v2_card_dog",
+    "word": "dog",
+    "value": "dog",
+    "label": "dog",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imageAlt": "dog"
+   },
+   {
+    "id": "lp3.final_sounds.l1.B.m.v2_card_ham",
+    "word": "ham",
+    "value": "ham",
+    "label": "ham",
+    "image": "/images/assessment/rhyming/variants/am/ham-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
+    "imageAlt": "ham"
+   },
    {
     "id": "lp3.final_sounds.l1.B.m.v2_card_hen",
     "word": "hen",
@@ -1964,24 +1982,6 @@ export const questions = [
     "image": "/images/assessment/rhyming/variants/en/hen-02.webp",
     "imagePath": "/images/assessment/rhyming/variants/en/hen-02.webp",
     "imageAlt": "hen"
-   },
-   {
-    "id": "lp3.final_sounds.l1.B.m.v2_card_jam",
-    "word": "jam",
-    "value": "jam",
-    "label": "jam",
-    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imageAlt": "jam"
-   },
-   {
-    "id": "lp3.final_sounds.l1.B.m.v2_card_pin",
-    "word": "pin",
-    "value": "pin",
-    "label": "pin",
-    "image": "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "imageAlt": "pin"
    },
    {
     "id": "lp3.final_sounds.l1.B.m.v2_card_map",
@@ -2014,43 +2014,43 @@ export const questions = [
   "formatType": "ENDING_SOUND_WORD_MATCH",
   "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like jam?",
-  "question": "Which word ends like jam?",
-  "spokenPrompt": "jam. Which word ends with the same sound as jam?",
+  "prompt": "Which word ends like ham?",
+  "question": "Which word ends like ham?",
+  "spokenPrompt": "ham. Which word ends with the same sound as ham?",
   "choices": [
-   "mat",
-   "pin",
-   "ram",
-   "jar"
+   "map",
+   "dog",
+   "gum",
+   "hen"
   ],
   "answerOptions": [
    {
-    "value": "mat",
-    "label": "mat",
-    "text": "mat"
+    "value": "map",
+    "label": "map",
+    "text": "map"
    },
    {
-    "value": "pin",
-    "label": "pin",
-    "text": "pin"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
-    "value": "ram",
-    "label": "ram",
-    "text": "ram"
+    "value": "gum",
+    "label": "gum",
+    "text": "gum"
    },
    {
-    "value": "jar",
-    "label": "jar",
-    "text": "jar"
+    "value": "hen",
+    "label": "hen",
+    "text": "hen"
    }
   ],
-  "answer": "ram",
-  "correctAnswer": "ram",
+  "answer": "gum",
+  "correctAnswer": "gum",
   "distractorRationales": {
-   "jar": "D-POSITION",
-   "mat": "D-RIME-NEAR",
-   "pin": "D-RIME-NEAR"
+   "hen": "D-RIME-NEAR",
+   "map": "D-POSITION",
+   "dog": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -2061,7 +2061,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "jam",
+  "targetWord": "ham",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2070,14 +2070,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.C.m.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/am/jam-02.webp"
+    "/images/assessment/rhyming/variants/am/ham-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "jam",
-  "stimulusMediaId": "jam",
+  "requiredImageAssetKey": "ham",
+  "stimulusMediaId": "ham",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2087,13 +2087,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "jar starts like the anchor and ties its ja-overlap for scanners",
-  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "resolvedImageAssetKey": "jam",
-  "imageAlt": "jam"
+  "notes": "",
+  "imagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/ham-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/ham-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
+  "resolvedImageAssetKey": "ham",
+  "imageAlt": "ham"
  },
  {
   "id": "lp3.final_sounds.l1.A.m.v4",
@@ -2115,20 +2115,20 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: ja__",
-  "question": "Complete: ja__",
-  "spokenPrompt": "jam. Which ending sound finishes the word jam?",
+  "prompt": "Complete: ra__",
+  "question": "Complete: ra__",
+  "spokenPrompt": "ram. Which ending sound finishes the word ram?",
   "choices": [
-   "v",
+   "w",
    "m",
    "n",
-   "j"
+   "r"
   ],
   "answerOptions": [
    {
-    "value": "v",
-    "label": "v",
-    "text": "v"
+    "value": "w",
+    "label": "w",
+    "text": "w"
    },
    {
     "value": "m",
@@ -2141,16 +2141,16 @@ export const questions = [
     "text": "n"
    },
    {
-    "value": "j",
-    "label": "j",
-    "text": "j"
+    "value": "r",
+    "label": "r",
+    "text": "r"
    }
   ],
   "answer": "m",
   "correctAnswer": "m",
   "distractorRationales": {
-   "j": "D-POSITION",
-   "v": "D-VISUAL-NEIGHBOR",
+   "r": "D-POSITION",
+   "w": "D-VISUAL-NEIGHBOR",
    "n": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
@@ -2162,7 +2162,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "jam",
+  "targetWord": "ram",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2171,14 +2171,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.m.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/am/jam-02.webp"
+    "/images/assessment/rhyming/variants/am/ram-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "jam",
-  "stimulusMediaId": "jam",
+  "requiredImageAssetKey": "ram",
+  "stimulusMediaId": "ram",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2188,13 +2188,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "ja+n/j/v are non-words (jaw stays out of the set)",
-  "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-  "resolvedImageAssetKey": "jam",
-  "imageAlt": "jam"
+  "notes": "n is the nasal partner; r is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+  "resolvedImageAssetKey": "ram",
+  "imageAlt": "ram"
  },
  {
   "id": "lp3.final_sounds.l1.A.n.v1",
@@ -2216,25 +2216,25 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: te__",
-  "question": "Complete: te__",
-  "spokenPrompt": "ten. Which ending sound finishes the word ten?",
+  "prompt": "Complete: su__",
+  "question": "Complete: su__",
+  "spokenPrompt": "sun. Which ending sound finishes the word sun?",
   "choices": [
-   "t",
-   "u",
+   "s",
+   "h",
    "n",
    "m"
   ],
   "answerOptions": [
    {
-    "value": "t",
-    "label": "t",
-    "text": "t"
+    "value": "s",
+    "label": "s",
+    "text": "s"
    },
    {
-    "value": "u",
-    "label": "u",
-    "text": "u"
+    "value": "h",
+    "label": "h",
+    "text": "h"
    },
    {
     "value": "n",
@@ -2250,8 +2250,8 @@ export const questions = [
   "answer": "n",
   "correctAnswer": "n",
   "distractorRationales": {
-   "t": "D-POSITION",
-   "u": "D-VISUAL-NEIGHBOR",
+   "s": "D-POSITION",
+   "h": "D-VISUAL-NEIGHBOR",
    "m": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
@@ -2263,7 +2263,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "ten",
+  "targetWord": "sun",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2272,14 +2272,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.n.v1",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/en/ten-02.webp"
+    "/images/assessment/rhyming/variants/sun/sun-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "ten",
-  "stimulusMediaId": "ten",
+  "requiredImageAssetKey": "sun",
+  "stimulusMediaId": "sun",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2289,13 +2289,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "m is the nasal partner; t is the word's first sound; te+m/t/u are non-words",
-  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
-  "resolvedImageAssetKey": "ten",
-  "imageAlt": "ten"
+  "notes": "m is the nasal partner; s is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+  "resolvedImageAssetKey": "sun",
+  "imageAlt": "sun"
  },
  {
   "id": "lp3.final_sounds.l1.B.n.v2",
@@ -2317,14 +2317,14 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like pin?",
-  "question": "Which one ends like pin?",
-  "spokenPrompt": "pin. Which one ends with the same sound as pin?",
+  "prompt": "Which one ends like sun?",
+  "question": "Which one ends like sun?",
+  "spokenPrompt": "sun. Which one ends with the same sound as sun?",
   "choices": [
    "net",
-   "drum",
+   "dog",
    "hen",
-   "hand"
+   "ham"
   ],
   "answerOptions": [
    {
@@ -2333,9 +2333,9 @@ export const questions = [
     "text": "net"
    },
    {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
     "value": "hen",
@@ -2343,17 +2343,17 @@ export const questions = [
     "text": "hen"
    },
    {
-    "value": "hand",
-    "label": "hand",
-    "text": "hand"
+    "value": "ham",
+    "label": "ham",
+    "text": "ham"
    }
   ],
   "answer": "hen",
   "correctAnswer": "hen",
   "distractorRationales": {
-   "hand": "D-RIME-NEAR",
+   "ham": "D-RIME-NEAR",
    "net": "D-POSITION",
-   "drum": "D-RIME-NEAR"
+   "dog": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -2366,7 +2366,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "pin",
+  "targetWord": "sun",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -2376,9 +2376,9 @@ export const questions = [
    "role": "answer-cards",
    "paths": [
     "/images/assessment/rhyming/variants/et/net-02.webp",
-    "/images/assessment/blends/drum.webp",
+    "/images/assessment/rhyming/variants/og/dog-02.webp",
     "/images/assessment/rhyming/variants/en/hen-02.webp",
-    "/images/assessment/blends/hand.webp"
+    "/images/assessment/rhyming/variants/am/ham-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -2393,7 +2393,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hand ends /d/ and shares the nd letters that tie the 'ends' overlap for scanners; net STARTS with n",
+  "notes": "ham ends the nasal neighbour /m/; net STARTS with n — the position trap",
   "imageCards": [
    {
     "id": "lp3.final_sounds.l1.B.n.v2_card_net",
@@ -2405,13 +2405,13 @@ export const questions = [
     "imageAlt": "net"
    },
    {
-    "id": "lp3.final_sounds.l1.B.n.v2_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
+    "id": "lp3.final_sounds.l1.B.n.v2_card_dog",
+    "word": "dog",
+    "value": "dog",
+    "label": "dog",
+    "image": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/og/dog-02.webp",
+    "imageAlt": "dog"
    },
    {
     "id": "lp3.final_sounds.l1.B.n.v2_card_hen",
@@ -2423,13 +2423,13 @@ export const questions = [
     "imageAlt": "hen"
    },
    {
-    "id": "lp3.final_sounds.l1.B.n.v2_card_hand",
-    "word": "hand",
-    "value": "hand",
-    "label": "hand",
-    "image": "/images/assessment/blends/hand.webp",
-    "imagePath": "/images/assessment/blends/hand.webp",
-    "imageAlt": "hand"
+    "id": "lp3.final_sounds.l1.B.n.v2_card_ham",
+    "word": "ham",
+    "value": "ham",
+    "label": "ham",
+    "image": "/images/assessment/rhyming/variants/am/ham-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/ham-02.webp",
+    "imageAlt": "ham"
    }
   ]
  },
@@ -2457,16 +2457,16 @@ export const questions = [
   "question": "Which word ends like hen?",
   "spokenPrompt": "hen. Which word ends with the same sound as hen?",
   "choices": [
-   "drum",
-   "net",
    "ham",
-   "run"
+   "net",
+   "dog",
+   "pin"
   ],
   "answerOptions": [
    {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
+    "value": "ham",
+    "label": "ham",
+    "text": "ham"
    },
    {
     "value": "net",
@@ -2474,22 +2474,22 @@ export const questions = [
     "text": "net"
    },
    {
-    "value": "ham",
-    "label": "ham",
-    "text": "ham"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
-    "value": "run",
-    "label": "run",
-    "text": "run"
+    "value": "pin",
+    "label": "pin",
+    "text": "pin"
    }
   ],
-  "answer": "run",
-  "correctAnswer": "run",
+  "answer": "pin",
+  "correctAnswer": "pin",
   "distractorRationales": {
    "net": "D-POSITION",
-   "ham": "D-RIME-NEAR",
-   "drum": "D-RIME-NEAR"
+   "dog": "D-RIME-NEAR",
+   "ham": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -2554,13 +2554,13 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: fi__",
-  "question": "Complete: fi__",
-  "spokenPrompt": "fin. Which ending sound finishes the word fin?",
+  "prompt": "Complete: te__",
+  "question": "Complete: te__",
+  "spokenPrompt": "ten. Which ending sound finishes the word ten?",
   "choices": [
    "m",
-   "f",
-   "u",
+   "t",
+   "h",
    "n"
   ],
   "answerOptions": [
@@ -2570,14 +2570,14 @@ export const questions = [
     "text": "m"
    },
    {
-    "value": "f",
-    "label": "f",
-    "text": "f"
+    "value": "t",
+    "label": "t",
+    "text": "t"
    },
    {
-    "value": "u",
-    "label": "u",
-    "text": "u"
+    "value": "h",
+    "label": "h",
+    "text": "h"
    },
    {
     "value": "n",
@@ -2589,8 +2589,8 @@ export const questions = [
   "correctAnswer": "n",
   "distractorRationales": {
    "m": "D-RIME-NEAR",
-   "f": "D-POSITION",
-   "u": "D-VISUAL-NEIGHBOR"
+   "t": "D-POSITION",
+   "h": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -2601,7 +2601,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "fin",
+  "targetWord": "ten",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2610,14 +2610,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.n.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/in/fin-02.webp"
+    "/images/assessment/rhyming/variants/en/ten-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "fin",
-  "stimulusMediaId": "fin",
+  "requiredImageAssetKey": "ten",
+  "stimulusMediaId": "ten",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2627,13 +2627,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "fi+m/f/u are non-words",
-  "imagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/in/fin-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/in/fin-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/in/fin-02.webp",
-  "resolvedImageAssetKey": "fin",
-  "imageAlt": "fin"
+  "notes": "m is the nasal partner; t is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/en/ten-02.webp",
+  "resolvedImageAssetKey": "ten",
+  "imageAlt": "ten"
  },
  {
   "id": "lp3.final_sounds.l1.A.p.v1",
@@ -2655,14 +2655,14 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: shee__",
-  "question": "Complete: shee__",
-  "spokenPrompt": "sheep. Which ending sound finishes the word sheep?",
+  "prompt": "Complete: ma__",
+  "question": "Complete: ma__",
+  "spokenPrompt": "map. Which ending sound finishes the word map?",
   "choices": [
    "p",
    "b",
    "m",
-   "f"
+   "d"
   ],
   "answerOptions": [
    {
@@ -2681,17 +2681,17 @@ export const questions = [
     "text": "m"
    },
    {
-    "value": "f",
-    "label": "f",
-    "text": "f"
+    "value": "d",
+    "label": "d",
+    "text": "d"
    }
   ],
   "answer": "p",
   "correctAnswer": "p",
   "distractorRationales": {
    "b": "D-RIME-NEAR",
-   "m": "D-VISUAL-NEIGHBOR",
-   "f": "D-VISUAL-NEIGHBOR"
+   "m": "D-POSITION",
+   "d": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -2702,7 +2702,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "sheep",
+  "targetWord": "map",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2711,14 +2711,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.p.v1",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/digraphs/sheep.webp"
+    "/images/assessment/rhyming/variants/ap/map-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sheep",
-  "stimulusMediaId": "sheep",
+  "requiredImageAssetKey": "map",
+  "stimulusMediaId": "map",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2728,13 +2728,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "b is the voicing partner; shee+b/m/f are non-words (sheet stays out)",
-  "imagePath": "/images/assessment/digraphs/sheep.webp",
-  "imageUrl": "/images/assessment/digraphs/sheep.webp",
-  "targetImage": "/images/assessment/digraphs/sheep.webp",
-  "targetImagePath": "/images/assessment/digraphs/sheep.webp",
-  "resolvedImageAssetKey": "sheep",
-  "imageAlt": "sheep"
+  "notes": "b is the voicing partner; m is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ap/map-02.webp",
+  "resolvedImageAssetKey": "map",
+  "imageAlt": "map"
  },
  {
   "id": "lp3.final_sounds.l1.B.p.v2",
@@ -2756,14 +2756,14 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like cap?",
-  "question": "Which one ends like cap?",
-  "spokenPrompt": "cap. Which one ends with the same sound as cap?",
+  "prompt": "Which one ends like mop?",
+  "question": "Which one ends like mop?",
+  "spokenPrompt": "mop. Which one ends with the same sound as mop?",
   "choices": [
    "crab",
    "pig",
-   "web",
-   "mop"
+   "sun",
+   "cap"
   ],
   "answerOptions": [
    {
@@ -2777,21 +2777,21 @@ export const questions = [
     "text": "pig"
    },
    {
-    "value": "web",
-    "label": "web",
-    "text": "web"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    },
    {
-    "value": "mop",
-    "label": "mop",
-    "text": "mop"
+    "value": "cap",
+    "label": "cap",
+    "text": "cap"
    }
   ],
-  "answer": "mop",
-  "correctAnswer": "mop",
+  "answer": "cap",
+  "correctAnswer": "cap",
   "distractorRationales": {
    "pig": "D-POSITION",
-   "web": "D-RIME-NEAR",
+   "sun": "D-RIME-NEAR",
    "crab": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
@@ -2805,7 +2805,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "cap",
+  "targetWord": "mop",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -2816,8 +2816,8 @@ export const questions = [
    "paths": [
     "/images/assessment/blends/crab.webp",
     "/images/assessment/rhyming/variants/ig/pig-02.webp",
-    "/images/assessment/release-media/web-b645c8e4.webp",
-    "/images/assessment/rhyming/variants/op/mop-02.webp"
+    "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "/images/assessment/rhyming/variants/ap/cap-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -2832,7 +2832,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "crab/web end the voiced partner /b/; pig STARTS with p",
+  "notes": "crab ends the voiced partner /b/; pig STARTS with p — the position trap",
   "imageCards": [
    {
     "id": "lp3.final_sounds.l1.B.p.v2_card_crab",
@@ -2853,22 +2853,22 @@ export const questions = [
     "imageAlt": "pig"
    },
    {
-    "id": "lp3.final_sounds.l1.B.p.v2_card_web",
-    "word": "web",
-    "value": "web",
-    "label": "web",
-    "image": "/images/assessment/release-media/web-b645c8e4.webp",
-    "imagePath": "/images/assessment/release-media/web-b645c8e4.webp",
-    "imageAlt": "web"
+    "id": "lp3.final_sounds.l1.B.p.v2_card_sun",
+    "word": "sun",
+    "value": "sun",
+    "label": "sun",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imageAlt": "sun"
    },
    {
-    "id": "lp3.final_sounds.l1.B.p.v2_card_mop",
-    "word": "mop",
-    "value": "mop",
-    "label": "mop",
-    "image": "/images/assessment/rhyming/variants/op/mop-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
-    "imageAlt": "mop"
+    "id": "lp3.final_sounds.l1.B.p.v2_card_cap",
+    "word": "cap",
+    "value": "cap",
+    "label": "cap",
+    "image": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+    "imageAlt": "cap"
    }
   ]
  },
@@ -2892,25 +2892,25 @@ export const questions = [
   "formatType": "ENDING_SOUND_WORD_MATCH",
   "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like mop?",
-  "question": "Which word ends like mop?",
-  "spokenPrompt": "mop. Which word ends with the same sound as mop?",
+  "prompt": "Which word ends like cap?",
+  "question": "Which word ends like cap?",
+  "spokenPrompt": "cap. Which word ends with the same sound as cap?",
   "choices": [
-   "nap",
-   "tub",
+   "cup",
+   "crab",
    "pig",
-   "crab"
+   "sun"
   ],
   "answerOptions": [
    {
-    "value": "nap",
-    "label": "nap",
-    "text": "nap"
+    "value": "cup",
+    "label": "cup",
+    "text": "cup"
    },
    {
-    "value": "tub",
-    "label": "tub",
-    "text": "tub"
+    "value": "crab",
+    "label": "crab",
+    "text": "crab"
    },
    {
     "value": "pig",
@@ -2918,17 +2918,17 @@ export const questions = [
     "text": "pig"
    },
    {
-    "value": "crab",
-    "label": "crab",
-    "text": "crab"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    }
   ],
-  "answer": "nap",
-  "correctAnswer": "nap",
+  "answer": "cup",
+  "correctAnswer": "cup",
   "distractorRationales": {
-   "tub": "D-RIME-NEAR",
+   "crab": "D-RIME-NEAR",
    "pig": "D-POSITION",
-   "crab": "D-RIME-NEAR"
+   "sun": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -2939,7 +2939,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "mop",
+  "targetWord": "cap",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -2948,14 +2948,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.C.p.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/op/mop-02.webp"
+    "/images/assessment/rhyming/variants/ap/cap-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "mop",
-  "stimulusMediaId": "mop",
+  "requiredImageAssetKey": "cap",
+  "stimulusMediaId": "cap",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -2966,12 +2966,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
-  "resolvedImageAssetKey": "mop",
-  "imageAlt": "mop"
+  "imagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/ap/cap-02.webp",
+  "resolvedImageAssetKey": "cap",
+  "imageAlt": "cap"
  },
  {
   "id": "lp3.final_sounds.l1.A.p.v4",
@@ -2993,20 +2993,20 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: slee__",
-  "question": "Complete: slee__",
-  "spokenPrompt": "sleep. Which ending sound finishes the word sleep?",
+  "prompt": "Complete: mo__",
+  "question": "Complete: mo__",
+  "spokenPrompt": "mop. Which ending sound finishes the word mop?",
   "choices": [
-   "m",
+   "q",
    "p",
    "b",
-   "d"
+   "m"
   ],
   "answerOptions": [
    {
-    "value": "m",
-    "label": "m",
-    "text": "m"
+    "value": "q",
+    "label": "q",
+    "text": "q"
    },
    {
     "value": "p",
@@ -3019,17 +3019,17 @@ export const questions = [
     "text": "b"
    },
    {
-    "value": "d",
-    "label": "d",
-    "text": "d"
+    "value": "m",
+    "label": "m",
+    "text": "m"
    }
   ],
   "answer": "p",
   "correctAnswer": "p",
   "distractorRationales": {
-   "m": "D-VISUAL-NEIGHBOR",
+   "q": "D-VISUAL-NEIGHBOR",
    "b": "D-RIME-NEAR",
-   "d": "D-VISUAL-NEIGHBOR"
+   "m": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -3040,7 +3040,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "sleep",
+  "targetWord": "mop",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -3049,14 +3049,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.p.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/eep/sleep-02.webp"
+    "/images/assessment/rhyming/variants/op/mop-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "sleep",
-  "stimulusMediaId": "sleep",
+  "requiredImageAssetKey": "mop",
+  "stimulusMediaId": "mop",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3066,13 +3066,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "slee+b/d/m are non-words (sleet stays out)",
-  "imagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
-  "resolvedImageAssetKey": "sleep",
-  "imageAlt": "sleep"
+  "notes": "b is the voicing partner; m is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/op/mop-02.webp",
+  "resolvedImageAssetKey": "mop",
+  "imageAlt": "mop"
  },
  {
   "id": "lp3.final_sounds.l1.A.t.v1",
@@ -3094,20 +3094,20 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: ne__",
-  "question": "Complete: ne__",
-  "spokenPrompt": "net. Which ending sound finishes the word net?",
+  "prompt": "Complete: ca__",
+  "question": "Complete: ca__",
+  "spokenPrompt": "cat. Which ending sound finishes the word cat?",
   "choices": [
-   "n",
+   "c",
    "f",
    "t",
    "d"
   ],
   "answerOptions": [
    {
-    "value": "n",
-    "label": "n",
-    "text": "n"
+    "value": "c",
+    "label": "c",
+    "text": "c"
    },
    {
     "value": "f",
@@ -3129,7 +3129,7 @@ export const questions = [
   "correctAnswer": "t",
   "distractorRationales": {
    "d": "D-RIME-NEAR",
-   "n": "D-POSITION",
+   "c": "D-POSITION",
    "f": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-optional",
@@ -3141,7 +3141,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "net",
+  "targetWord": "cat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -3150,14 +3150,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.t.v1",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/et/net-02.webp"
+    "/images/assessment/rhyming/variants/at/cat-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "net",
-  "stimulusMediaId": "net",
+  "requiredImageAssetKey": "cat",
+  "stimulusMediaId": "cat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3167,13 +3167,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "d is the voicing partner; n is the word's first sound; ne+d/n/f are non-words",
-  "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/et/net-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/et/net-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
-  "resolvedImageAssetKey": "net",
-  "imageAlt": "net"
+  "notes": "d is the voicing partner; c is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/cat-02.webp",
+  "resolvedImageAssetKey": "cat",
+  "imageAlt": "cat"
  },
  {
   "id": "lp3.final_sounds.l1.B.t.v2",
@@ -3195,25 +3195,25 @@ export const questions = [
   "formatType": "FINAL_SOUND_PAIR_SELECT",
   "templateType": "FINAL_SOUND_PAIR_SELECT",
   "questionType": "visual_card_choice",
-  "prompt": "Which one ends like hat?",
-  "question": "Which one ends like hat?",
-  "spokenPrompt": "hat. Which one ends with the same sound as hat?",
+  "prompt": "Which one ends like wet?",
+  "question": "Which one ends like wet?",
+  "spokenPrompt": "wet. Which one ends with the same sound as wet?",
   "choices": [
-   "boat",
-   "hand",
+   "hat",
+   "bed",
    "toe",
-   "bread"
+   "sun"
   ],
   "answerOptions": [
    {
-    "value": "boat",
-    "label": "boat",
-    "text": "boat"
+    "value": "hat",
+    "label": "hat",
+    "text": "hat"
    },
    {
-    "value": "hand",
-    "label": "hand",
-    "text": "hand"
+    "value": "bed",
+    "label": "bed",
+    "text": "bed"
    },
    {
     "value": "toe",
@@ -3221,17 +3221,17 @@ export const questions = [
     "text": "toe"
    },
    {
-    "value": "bread",
-    "label": "bread",
-    "text": "bread"
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
    }
   ],
-  "answer": "boat",
-  "correctAnswer": "boat",
+  "answer": "hat",
+  "correctAnswer": "hat",
   "distractorRationales": {
    "toe": "D-POSITION",
-   "bread": "D-RIME-NEAR",
-   "hand": "D-RIME-NEAR"
+   "sun": "D-RIME-NEAR",
+   "bed": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -3244,7 +3244,7 @@ export const questions = [
   "hideWrittenLabels": true,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "hat",
+  "targetWord": "wet",
   "v3AuthoredMedia": {
    "target": false,
    "cards": true
@@ -3253,10 +3253,10 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.B.t.v2",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/long-vowels/boat.webp",
-    "/images/assessment/blends/hand.webp",
+    "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "/images/assessment/rhyming/variants/ed/bed-02.webp",
     "/images/assessment/long-vowels/toe.webp",
-    "/images/assessment/blends/bread.webp"
+    "/images/assessment/rhyming/variants/sun/sun-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -3271,25 +3271,25 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "hand/bread end the voiced partner /d/ and hand ties the hat ha-overlap; toe STARTS with t (tent would be a second key — excluded)",
+  "notes": "bed ends the voiced partner /d/; toe STARTS with t — the position trap",
   "imageCards": [
    {
-    "id": "lp3.final_sounds.l1.B.t.v2_card_boat",
-    "word": "boat",
-    "value": "boat",
-    "label": "boat",
-    "image": "/images/assessment/long-vowels/boat.webp",
-    "imagePath": "/images/assessment/long-vowels/boat.webp",
-    "imageAlt": "boat"
+    "id": "lp3.final_sounds.l1.B.t.v2_card_hat",
+    "word": "hat",
+    "value": "hat",
+    "label": "hat",
+    "image": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+    "imageAlt": "hat"
    },
    {
-    "id": "lp3.final_sounds.l1.B.t.v2_card_hand",
-    "word": "hand",
-    "value": "hand",
-    "label": "hand",
-    "image": "/images/assessment/blends/hand.webp",
-    "imagePath": "/images/assessment/blends/hand.webp",
-    "imageAlt": "hand"
+    "id": "lp3.final_sounds.l1.B.t.v2_card_bed",
+    "word": "bed",
+    "value": "bed",
+    "label": "bed",
+    "image": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/ed/bed-02.webp",
+    "imageAlt": "bed"
    },
    {
     "id": "lp3.final_sounds.l1.B.t.v2_card_toe",
@@ -3301,13 +3301,13 @@ export const questions = [
     "imageAlt": "toe"
    },
    {
-    "id": "lp3.final_sounds.l1.B.t.v2_card_bread",
-    "word": "bread",
-    "value": "bread",
-    "label": "bread",
-    "image": "/images/assessment/blends/bread.webp",
-    "imagePath": "/images/assessment/blends/bread.webp",
-    "imageAlt": "bread"
+    "id": "lp3.final_sounds.l1.B.t.v2_card_sun",
+    "word": "sun",
+    "value": "sun",
+    "label": "sun",
+    "image": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+    "imageAlt": "sun"
    }
   ]
  },
@@ -3331,30 +3331,30 @@ export const questions = [
   "formatType": "ENDING_SOUND_WORD_MATCH",
   "templateType": "ENDING_SOUND_WORD_MATCH",
   "questionType": "multiple_choice",
-  "prompt": "Which word ends like goat?",
-  "question": "Which word ends like goat?",
-  "spokenPrompt": "goat. Which word ends with the same sound as goat?",
+  "prompt": "Which word ends like hat?",
+  "question": "Which word ends like hat?",
+  "spokenPrompt": "hat. Which word ends with the same sound as hat?",
   "choices": [
+   "sun",
+   "net",
    "bed",
-   "wet",
-   "mud",
    "toe"
   ],
   "answerOptions": [
    {
+    "value": "sun",
+    "label": "sun",
+    "text": "sun"
+   },
+   {
+    "value": "net",
+    "label": "net",
+    "text": "net"
+   },
+   {
     "value": "bed",
     "label": "bed",
     "text": "bed"
-   },
-   {
-    "value": "wet",
-    "label": "wet",
-    "text": "wet"
-   },
-   {
-    "value": "mud",
-    "label": "mud",
-    "text": "mud"
    },
    {
     "value": "toe",
@@ -3362,12 +3362,12 @@ export const questions = [
     "text": "toe"
    }
   ],
-  "answer": "wet",
-  "correctAnswer": "wet",
+  "answer": "net",
+  "correctAnswer": "net",
   "distractorRationales": {
-   "mud": "D-RIME-NEAR",
+   "bed": "D-RIME-NEAR",
    "toe": "D-POSITION",
-   "bed": "D-RIME-NEAR"
+   "sun": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -3378,7 +3378,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "goat",
+  "targetWord": "hat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -3387,14 +3387,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.C.t.v3",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/long-vowels/goat.webp"
+    "/images/assessment/rhyming/variants/at/hat-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "goat",
-  "stimulusMediaId": "goat",
+  "requiredImageAssetKey": "hat",
+  "stimulusMediaId": "hat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3405,12 +3405,12 @@ export const questions = [
    "standardVersion": "v3"
   },
   "notes": "",
-  "imagePath": "/images/assessment/long-vowels/goat.webp",
-  "imageUrl": "/images/assessment/long-vowels/goat.webp",
-  "targetImage": "/images/assessment/long-vowels/goat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/goat.webp",
-  "resolvedImageAssetKey": "goat",
-  "imageAlt": "goat"
+  "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "resolvedImageAssetKey": "hat",
+  "imageAlt": "hat"
  },
  {
   "id": "lp3.final_sounds.l1.A.t.v4",
@@ -3432,13 +3432,13 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: boa__",
-  "question": "Complete: boa__",
-  "spokenPrompt": "boat. Which ending sound finishes the word boat?",
+  "prompt": "Complete: we__",
+  "question": "Complete: we__",
+  "spokenPrompt": "wet. Which ending sound finishes the word wet?",
   "choices": [
    "d",
-   "b",
-   "l",
+   "w",
+   "f",
    "t"
   ],
   "answerOptions": [
@@ -3448,14 +3448,14 @@ export const questions = [
     "text": "d"
    },
    {
-    "value": "b",
-    "label": "b",
-    "text": "b"
+    "value": "w",
+    "label": "w",
+    "text": "w"
    },
    {
-    "value": "l",
-    "label": "l",
-    "text": "l"
+    "value": "f",
+    "label": "f",
+    "text": "f"
    },
    {
     "value": "t",
@@ -3466,9 +3466,9 @@ export const questions = [
   "answer": "t",
   "correctAnswer": "t",
   "distractorRationales": {
-   "l": "D-VISUAL-NEIGHBOR",
+   "f": "D-VISUAL-NEIGHBOR",
    "d": "D-RIME-NEAR",
-   "b": "D-POSITION"
+   "w": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -3479,7 +3479,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "boat",
+  "targetWord": "wet",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -3488,14 +3488,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.A.t.v4",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/long-vowels/boat.webp"
+    "/images/assessment/rhyming/variants/et/wet-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "boat",
-  "stimulusMediaId": "boat",
+  "requiredImageAssetKey": "wet",
+  "stimulusMediaId": "wet",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -3505,13 +3505,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "boa+d/b/l are non-words (boar stays out of the set)",
-  "imagePath": "/images/assessment/long-vowels/boat.webp",
-  "imageUrl": "/images/assessment/long-vowels/boat.webp",
-  "targetImage": "/images/assessment/long-vowels/boat.webp",
-  "targetImagePath": "/images/assessment/long-vowels/boat.webp",
-  "resolvedImageAssetKey": "boat",
-  "imageAlt": "boat"
+  "notes": "d is the voicing partner; w is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/et/wet-02.webp",
+  "resolvedImageAssetKey": "wet",
+  "imageAlt": "wet"
  },
  {
   "id": "lp3.final_sounds.l2.A.sh.v1",
@@ -4561,21 +4561,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "shell",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.B.ll.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/digraphs/shell.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/digraphs/shell.webp",
-  "stimulusMediaId": "/images/assessment/digraphs/shell.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4585,13 +4580,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "yellow contains ll internally but does not end in ll; no distractor ends in a single l.",
-  "imagePath": "/images/assessment/digraphs/shell.webp",
-  "imageUrl": "/images/assessment/digraphs/shell.webp",
-  "targetImage": "/images/assessment/digraphs/shell.webp",
-  "targetImagePath": "/images/assessment/digraphs/shell.webp",
-  "resolvedImageAssetKey": "/images/assessment/digraphs/shell.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "yellow contains ll internally but does not end in ll; no distractor ends in a single l."
  },
  {
   "id": "lp3.final_sounds.l2.C.ll.v3",
@@ -4662,21 +4651,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "hill",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.C.ll.v3",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/hill-5ce9c4.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -4686,13 +4670,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "No one-l option because it would share the same final sound.",
-  "imagePath": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
-  "imageUrl": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
-  "targetImage": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/hill-5ce9c4.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "No one-l option because it would share the same final sound."
  },
  {
   "id": "lp3.final_sounds.l2.A.ll.v4",
@@ -5404,21 +5382,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "hand",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.B.nd.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/blends/hand.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/blends/hand.webp",
-  "stimulusMediaId": "/images/assessment/blends/hand.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5428,13 +5401,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "candle contains nd internally but ends in le; no distractor ends in bare d.",
-  "imagePath": "/images/assessment/blends/hand.webp",
-  "imageUrl": "/images/assessment/blends/hand.webp",
-  "targetImage": "/images/assessment/blends/hand.webp",
-  "targetImagePath": "/images/assessment/blends/hand.webp",
-  "resolvedImageAssetKey": "/images/assessment/blends/hand.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "candle contains nd internally but ends in le; no distractor ends in bare d."
  },
  {
   "id": "lp3.final_sounds.l2.C.nd.v3",
@@ -5808,21 +5775,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "tank",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.B.nk.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/tank-b63ae1.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/tank-b63ae1.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/tank-b63ae1.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -5832,13 +5794,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "monkey contains nk internally but ends in ey; no distractor ends in bare /k/.",
-  "imagePath": "/images/assessment/release-support/targets/tank-b63ae1.webp",
-  "imageUrl": "/images/assessment/release-support/targets/tank-b63ae1.webp",
-  "targetImage": "/images/assessment/release-support/targets/tank-b63ae1.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/tank-b63ae1.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/tank-b63ae1.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "monkey contains nk internally but ends in ey; no distractor ends in bare /k/."
  },
  {
   "id": "lp3.final_sounds.l2.C.nk.v3",
@@ -6651,21 +6607,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "desk",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.B.sk.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/blends/desk.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/blends/desk.webp",
-  "stimulusMediaId": "/images/assessment/blends/desk.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -6675,13 +6626,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "basket contains sk internally but ends in et; no distractor ends in bare /k/.",
-  "imagePath": "/images/assessment/blends/desk.webp",
-  "imageUrl": "/images/assessment/blends/desk.webp",
-  "targetImage": "/images/assessment/blends/desk.webp",
-  "targetImagePath": "/images/assessment/blends/desk.webp",
-  "resolvedImageAssetKey": "/images/assessment/blends/desk.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "basket contains sk internally but ends in et; no distractor ends in bare /k/."
  },
  {
   "id": "lp3.final_sounds.l2.C.sk.v3",
@@ -7055,21 +7000,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "raft",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.B.ft.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/generated/concepts/raft.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/generated/concepts/raft.webp",
-  "stimulusMediaId": "/images/assessment/generated/concepts/raft.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7079,13 +7019,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "after contains ft internally but ends in er; no distractor ends in bare t.",
-  "imagePath": "/images/assessment/generated/concepts/raft.webp",
-  "imageUrl": "/images/assessment/generated/concepts/raft.webp",
-  "targetImage": "/images/assessment/generated/concepts/raft.webp",
-  "targetImagePath": "/images/assessment/generated/concepts/raft.webp",
-  "resolvedImageAssetKey": "/images/assessment/generated/concepts/raft.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "after contains ft internally but ends in er; no distractor ends in bare t."
  },
  {
   "id": "lp3.final_sounds.l2.C.ft.v3",
@@ -7358,21 +7292,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "melt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.A.lt.v1",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/melt-c6a0f6.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7382,13 +7311,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "me+ft/sk/m are non-words (mess and men stay out)",
-  "imagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "imageUrl": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "targetImage": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "me+ft/sk/m are non-words (mess and men stay out)"
  },
  {
   "id": "lp3.final_sounds.l2.B.lt.v2",
@@ -7459,21 +7382,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "belt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.B.lt.v2",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/blends/belt.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/blends/belt.webp",
-  "stimulusMediaId": "/images/assessment/blends/belt.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -7483,13 +7401,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t.",
-  "imagePath": "/images/assessment/blends/belt.webp",
-  "imageUrl": "/images/assessment/blends/belt.webp",
-  "targetImage": "/images/assessment/blends/belt.webp",
-  "targetImagePath": "/images/assessment/blends/belt.webp",
-  "resolvedImageAssetKey": "/images/assessment/blends/belt.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t."
  },
  {
   "id": "lp3.final_sounds.l2.C.lt.v3",
@@ -7720,7 +7632,7 @@ export const questions = [
    "mud",
    "tub",
    "cap",
-   "wet"
+   "ball"
   ],
   "answerOptions": [
    {
@@ -7739,16 +7651,16 @@ export const questions = [
     "text": "cap"
    },
    {
-    "value": "wet",
-    "label": "wet",
-    "text": "wet"
+    "value": "ball",
+    "label": "ball",
+    "text": "ball"
    }
   ],
   "answer": "tub",
   "correctAnswer": "tub",
   "distractorRationales": {
    "cap": "D-RIME-NEAR",
-   "wet": "D-POSITION",
+   "ball": "D-POSITION",
    "mud": "D-RIME-NEAR"
   },
   "mediaTier": "image-optional",
@@ -7786,7 +7698,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "wet starts like the anchor and ties its letter overlap for scanners",
+  "notes": "",
   "imagePath": "/images/assessment/release-media/web-b645c8e4.webp",
   "imageUrl": "/images/assessment/release-media/web-b645c8e4.webp",
   "targetImage": "/images/assessment/release-media/web-b645c8e4.webp",
@@ -7818,16 +7730,16 @@ export const questions = [
   "question": "Which word ends like mud?",
   "spokenPrompt": "mud. Which word ends with the same sound as mud?",
   "choices": [
-   "map",
+   "dog",
    "rug",
    "bed",
-   "boat"
+   "cat"
   ],
   "answerOptions": [
    {
-    "value": "map",
-    "label": "map",
-    "text": "map"
+    "value": "dog",
+    "label": "dog",
+    "text": "dog"
    },
    {
     "value": "rug",
@@ -7840,17 +7752,17 @@ export const questions = [
     "text": "bed"
    },
    {
-    "value": "boat",
-    "label": "boat",
-    "text": "boat"
+    "value": "cat",
+    "label": "cat",
+    "text": "cat"
    }
   ],
   "answer": "bed",
   "correctAnswer": "bed",
   "distractorRationales": {
    "rug": "D-RIME-NEAR",
-   "boat": "D-RIME-NEAR",
-   "map": "D-POSITION"
+   "cat": "D-RIME-NEAR",
+   "dog": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -7919,26 +7831,26 @@ export const questions = [
   "question": "Complete: gu__",
   "spokenPrompt": "gum. Which ending sound finishes the word gum?",
   "choices": [
-   "d",
-   "w",
+   "n",
    "g",
+   "w",
    "m"
   ],
   "answerOptions": [
    {
-    "value": "d",
-    "label": "d",
-    "text": "d"
-   },
-   {
-    "value": "w",
-    "label": "w",
-    "text": "w"
+    "value": "n",
+    "label": "n",
+    "text": "n"
    },
    {
     "value": "g",
     "label": "g",
     "text": "g"
+   },
+   {
+    "value": "w",
+    "label": "w",
+    "text": "w"
    },
    {
     "value": "m",
@@ -7949,9 +7861,9 @@ export const questions = [
   "answer": "m",
   "correctAnswer": "m",
   "distractorRationales": {
-   "d": "D-VISUAL-NEIGHBOR",
-   "w": "D-VISUAL-NEIGHBOR",
-   "g": "D-POSITION"
+   "n": "D-RIME-NEAR",
+   "g": "D-POSITION",
+   "w": "D-VISUAL-NEIGHBOR"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -7988,7 +7900,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "gu+d/w/g are non-words (gun stays out of the set by design)",
+  "notes": "n is the nasal neighbour; g is the word's own first sound",
   "imagePath": "/images/assessment/release-media/gum-5d736380.webp",
   "imageUrl": "/images/assessment/release-media/gum-5d736380.webp",
   "targetImage": "/images/assessment/release-media/gum-5d736380.webp",
@@ -8016,13 +7928,13 @@ export const questions = [
   "formatType": "ENDING_SOUND",
   "templateType": "ENDING_SOUND",
   "questionType": "multiple_choice",
-  "prompt": "Complete: ma__",
-  "question": "Complete: ma__",
-  "spokenPrompt": "mat. Which ending sound finishes the word mat?",
+  "prompt": "Complete: ha__",
+  "question": "Complete: ha__",
+  "spokenPrompt": "hat. Which ending sound finishes the word hat?",
   "choices": [
    "t",
    "d",
-   "m",
+   "h",
    "f"
   ],
   "answerOptions": [
@@ -8037,9 +7949,9 @@ export const questions = [
     "text": "d"
    },
    {
-    "value": "m",
-    "label": "m",
-    "text": "m"
+    "value": "h",
+    "label": "h",
+    "text": "h"
    },
    {
     "value": "f",
@@ -8052,7 +7964,7 @@ export const questions = [
   "distractorRationales": {
    "f": "D-VISUAL-NEIGHBOR",
    "d": "D-RIME-NEAR",
-   "m": "D-POSITION"
+   "h": "D-POSITION"
   },
   "mediaTier": "image-optional",
   "phonicsPosition": "final",
@@ -8063,7 +7975,7 @@ export const questions = [
   "hideWrittenLabels": false,
   "displayPassageDuringResponse": true,
   "suppressStimulusAudio": false,
-  "targetWord": "mat",
+  "targetWord": "hat",
   "v3AuthoredMedia": {
    "target": true,
    "cards": false
@@ -8072,14 +7984,14 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.R.t.v5r",
    "role": "target-or-scene",
    "paths": [
-    "/images/assessment/rhyming/variants/at/mat-02.webp"
+    "/images/assessment/rhyming/variants/at/hat-02.webp"
    ],
    "alt": "Picture support for this literacy question",
    "constructReview": "approved",
    "answerNeutral": "approved"
   },
-  "requiredImageAssetKey": "mat",
-  "stimulusMediaId": "mat",
+  "requiredImageAssetKey": "hat",
+  "stimulusMediaId": "hat",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8089,13 +8001,13 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "mad is real but the mat image pins the target",
-  "imagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "imageUrl": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "targetImage": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "targetImagePath": "/images/assessment/rhyming/variants/at/mat-02.webp",
-  "resolvedImageAssetKey": "mat",
-  "imageAlt": "mat"
+  "notes": "d is the voicing partner; h is the word's own first sound",
+  "imagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "imageUrl": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImage": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "targetImagePath": "/images/assessment/rhyming/variants/at/hat-02.webp",
+  "resolvedImageAssetKey": "hat",
+  "imageAlt": "hat"
  },
  {
   "id": "lp3.final_sounds.l1.R.n.v5r",
@@ -8121,16 +8033,16 @@ export const questions = [
   "question": "Which one ends like ten?",
   "spokenPrompt": "ten. Which one ends with the same sound as ten?",
   "choices": [
-   "drum",
+   "bug",
    "pin",
-   "jam",
-   "toe"
+   "ram",
+   "net"
   ],
   "answerOptions": [
    {
-    "value": "drum",
-    "label": "drum",
-    "text": "drum"
+    "value": "bug",
+    "label": "bug",
+    "text": "bug"
    },
    {
     "value": "pin",
@@ -8138,22 +8050,22 @@ export const questions = [
     "text": "pin"
    },
    {
-    "value": "jam",
-    "label": "jam",
-    "text": "jam"
+    "value": "ram",
+    "label": "ram",
+    "text": "ram"
    },
    {
-    "value": "toe",
-    "label": "toe",
-    "text": "toe"
+    "value": "net",
+    "label": "net",
+    "text": "net"
    }
   ],
   "answer": "pin",
   "correctAnswer": "pin",
   "distractorRationales": {
-   "jam": "D-RIME-NEAR",
-   "toe": "D-POSITION",
-   "drum": "D-RIME-NEAR"
+   "ram": "D-RIME-NEAR",
+   "net": "D-POSITION",
+   "bug": "D-RIME-NEAR"
   },
   "mediaTier": "image-required",
   "phonicsPosition": "final",
@@ -8175,10 +8087,10 @@ export const questions = [
    "itemId": "lp3.final_sounds.l1.R.n.v5r",
    "role": "answer-cards",
    "paths": [
-    "/images/assessment/blends/drum.webp",
+    "/images/assessment/rhyming/variants/bug/bug-02.webp",
     "/images/assessment/rhyming/variants/in/pin-02.webp",
-    "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "/images/assessment/long-vowels/toe.webp"
+    "/images/assessment/rhyming/variants/am/ram-02.webp",
+    "/images/assessment/rhyming/variants/et/net-02.webp"
    ],
    "alt": "Picture choices for this literacy question",
    "constructReview": "approved",
@@ -8196,13 +8108,13 @@ export const questions = [
   "notes": "",
   "imageCards": [
    {
-    "id": "lp3.final_sounds.l1.R.n.v5r_card_drum",
-    "word": "drum",
-    "value": "drum",
-    "label": "drum",
-    "image": "/images/assessment/blends/drum.webp",
-    "imagePath": "/images/assessment/blends/drum.webp",
-    "imageAlt": "drum"
+    "id": "lp3.final_sounds.l1.R.n.v5r_card_bug",
+    "word": "bug",
+    "value": "bug",
+    "label": "bug",
+    "image": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+    "imageAlt": "bug"
    },
    {
     "id": "lp3.final_sounds.l1.R.n.v5r_card_pin",
@@ -8214,22 +8126,22 @@ export const questions = [
     "imageAlt": "pin"
    },
    {
-    "id": "lp3.final_sounds.l1.R.n.v5r_card_jam",
-    "word": "jam",
-    "value": "jam",
-    "label": "jam",
-    "image": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imagePath": "/images/assessment/rhyming/variants/am/jam-02.webp",
-    "imageAlt": "jam"
+    "id": "lp3.final_sounds.l1.R.n.v5r_card_ram",
+    "word": "ram",
+    "value": "ram",
+    "label": "ram",
+    "image": "/images/assessment/rhyming/variants/am/ram-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/am/ram-02.webp",
+    "imageAlt": "ram"
    },
    {
-    "id": "lp3.final_sounds.l1.R.n.v5r_card_toe",
-    "word": "toe",
-    "value": "toe",
-    "label": "toe",
-    "image": "/images/assessment/long-vowels/toe.webp",
-    "imagePath": "/images/assessment/long-vowels/toe.webp",
-    "imageAlt": "toe"
+    "id": "lp3.final_sounds.l1.R.n.v5r_card_net",
+    "word": "net",
+    "value": "net",
+    "label": "net",
+    "image": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imagePath": "/images/assessment/rhyming/variants/et/net-02.webp",
+    "imageAlt": "net"
    }
   ]
  },
@@ -8605,21 +8517,16 @@ export const questions = [
   "suppressStimulusAudio": false,
   "targetWord": "melt",
   "v3AuthoredMedia": {
-   "target": true,
+   "target": false,
    "cards": false
   },
   "assessmentMediaDecision": {
    "itemId": "lp3.final_sounds.l2.R.lt.v5r",
-   "role": "construct-support",
-   "paths": [
-    "/images/assessment/release-support/targets/melt-c6a0f6.webp"
-   ],
-   "alt": "Picture support for this literacy question",
+   "role": "text-only",
+   "paths": [],
    "constructReview": "approved",
    "answerNeutral": "not-applicable-target-evidence"
   },
-  "requiredImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "stimulusMediaId": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
   "active": true,
   "qaStatus": "verified",
   "source": "skills_rebuild_v3_2026_08",
@@ -8629,13 +8536,7 @@ export const questions = [
    "wave": "",
    "standardVersion": "v3"
   },
-  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t.",
-  "imagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "imageUrl": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "targetImage": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "targetImagePath": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "resolvedImageAssetKey": "/images/assessment/release-support/targets/melt-c6a0f6.webp",
-  "imageAlt": "Picture support for this literacy question"
+  "notes": "salty contains lt internally but ends in y; no distractor ends in bare l or t."
  },
  {
   "id": "lp3.final_sounds.l2.R.nk.v5r",

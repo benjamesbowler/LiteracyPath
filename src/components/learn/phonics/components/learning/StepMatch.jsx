@@ -85,24 +85,19 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
       </motion.div>
 
       <motion.div className="phonics-match-grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        {tiles.map((tile, index) => {
+        {tiles.map(tile => {
           const tileKey = getTileKey(tile);
 
           return (
-          <motion.div
-            key={tileKey}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4 + index * 0.05, type: "spring", stiffness: 250, damping: 18 }}
-          >
-            <WordTile
-              word={tile.word.word}
-              image={tile.word.image}
-              state={flipStates[tileKey]}
-              onClick={() => handleTileClick(tile)}
-              disabled={flipStates[tileKey] !== "default" || isComplete}
-            />
-          </motion.div>
+            <div key={tileKey}>
+              <WordTile
+                word={tile.word.word}
+                image={tile.word.image}
+                state={flipStates[tileKey]}
+                onClick={() => handleTileClick(tile)}
+                disabled={flipStates[tileKey] !== "default" || isComplete}
+              />
+            </div>
           );
         })}
       </motion.div>

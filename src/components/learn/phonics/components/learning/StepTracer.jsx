@@ -78,6 +78,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const visitedByStrokeRef = useRef([]);
   const strokesRef = useRef([]);
   const isDrawingRef = useRef(false);
+  const activePointerIdRef = useRef(null);
   const lastCanvasPoint = useRef(null);
   const traceDonePlayedRef = useRef(false);
   const accessibleTraceUsedRef = useRef(false);
@@ -135,6 +136,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     accessibleTraceUsedRef.current = false;
     clearCanvas();
     lastCanvasPoint.current = null;
+    activePointerIdRef.current = null;
   }, [clearCanvas, reduceMotion, tracePath]);
 
   useEffect(() => () => stopCueAudio(), []);
@@ -314,32 +316,33 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     lastCanvasPoint.current = null;
   }, []);
 
-  const onMouseDown = useCallback(event => {
+  const onPointerDown = useCallback(event => {
+    if (!demoDone || demoActive || activePointerIdRef.current !== null) return;
+    event.preventDefault();
+    activePointerIdRef.current = event.pointerId;
+    event.currentTarget.setPointerCapture?.(event.pointerId);
     handlePointerDown(event.clientX, event.clientY);
-  }, [handlePointerDown]);
+  }, [demoActive, demoDone, handlePointerDown]);
 
-  const onMouseMove = useCallback(event => {
+  const onPointerMove = useCallback(event => {
+    if (activePointerIdRef.current !== event.pointerId) return;
+    event.preventDefault();
     handlePointerMove(event.clientX, event.clientY);
   }, [handlePointerMove]);
 
-  const onMouseUp = useCallback(() => {
+  const finishPointer = useCallback(event => {
+    if (activePointerIdRef.current !== event.pointerId) return;
+    event.preventDefault();
+    activePointerIdRef.current = null;
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
     handlePointerUp();
   }, [handlePointerUp]);
 
-  const onTouchStart = useCallback(event => {
-    event.preventDefault();
-    const touch = event.touches[0];
-    if (touch) handlePointerDown(touch.clientX, touch.clientY);
-  }, [handlePointerDown]);
-
-  const onTouchMove = useCallback(event => {
-    event.preventDefault();
-    const touch = event.touches[0];
-    if (touch) handlePointerMove(touch.clientX, touch.clientY);
-  }, [handlePointerMove]);
-
-  const onTouchEnd = useCallback(event => {
-    event.preventDefault();
+  const onLostPointerCapture = useCallback(event => {
+    if (activePointerIdRef.current !== event.pointerId) return;
+    activePointerIdRef.current = null;
     handlePointerUp();
   }, [handlePointerUp]);
 
@@ -366,6 +369,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     traceDonePlayedRef.current = false;
     accessibleTraceUsedRef.current = false;
     isDrawingRef.current = false;
+    activePointerIdRef.current = null;
     lastCanvasPoint.current = null;
     clearCanvas();
   }, [clearCanvas]);
@@ -424,13 +428,11 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
 
         <div
           className={`phonics-trace-pad ${demoDone && !demoActive ? "" : "demo-active"}`}
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-          onMouseLeave={onMouseUp}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={finishPointer}
+          onPointerCancel={finishPointer}
+          onLostPointerCapture={onLostPointerCapture}
         >
           <svg ref={svgRef} viewBox="0 0 400 400" className="phonics-trace-svg">
             <path

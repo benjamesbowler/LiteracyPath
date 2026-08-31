@@ -22,7 +22,7 @@ const AMBIGUOUS_INITIAL_WORDS = new Set([
   "x-ray",
   "unicorn"
 ]);
-const ALLOWED_Q_WORDS = new Set(["queen", "quilt", "quiz", "quick"]);
+const ALLOWED_Q_WORDS = new Set(["queen", "quilt", "quick", "quack"]);
 
 const INVALID_FINAL_ENDINGS = [
   "ck", "sh", "ch", "th", "ng",
@@ -67,6 +67,7 @@ const LEVEL_TWO_FINAL_OVERRIDES = new Map([
 ]);
 const LEVEL_ONE_FINAL_OVERRIDES = new Map([
   ["animal", "l"],
+  ["bell", "l"],
   ["crab", "b"],
   ["fossil", "l"],
   ["hospital", "l"],
@@ -74,8 +75,10 @@ const LEVEL_ONE_FINAL_OVERRIDES = new Map([
   ["nail", "l"],
   ["owl", "l"],
   ["pencil", "l"],
+  ["pool", "l"],
   ["pretzel", "l"],
   ["seal", "l"],
+  ["tail", "l"],
   ["tub", "b"],
   ["web", "b"],
   ["wheel", "l"]
@@ -83,6 +86,22 @@ const LEVEL_ONE_FINAL_OVERRIDES = new Map([
 
 const LEVEL_ONE_FINAL_SOUND_ALLOWED = new Set(finalSoundExpectedItemKeys);
 const LEVEL_ONE_FINAL_SOUND_FORBIDDEN = new Set(finalSoundLevelOneForbiddenItemKeys);
+const LEVEL_ONE_FINAL_GRAPHEME_FORMATS = new Set(["ENDING_SOUND"]);
+const LEVEL_ONE_FINAL_WORD_FORMATS = new Set(["ENDING_SOUND_WORD_MATCH", "FINAL_SOUND_PAIR_SELECT"]);
+
+export const finalSoundLevelOneCommonWords = Object.freeze({
+  b: Object.freeze(["web", "tub", "cub", "bib"]),
+  d: Object.freeze(["bed", "red", "mud", "lid"]),
+  g: Object.freeze(["dog", "pig", "bug", "log"]),
+  l: Object.freeze(["wheel", "bell", "tail", "pool"]),
+  m: Object.freeze(["jam", "ham", "gum", "ram"]),
+  n: Object.freeze(["sun", "hen", "pin", "ten"]),
+  p: Object.freeze(["map", "cap", "cup", "mop"]),
+  t: Object.freeze(["cat", "hat", "net", "wet"])
+});
+
+const isCommonLevelOneFinalWord = (word, target) =>
+  (finalSoundLevelOneCommonWords[target] || []).includes(word);
 
 const WORD_LISTENING_FORMATS = new Set([
   "FIRST_SOUND",
@@ -180,13 +199,11 @@ export function getFinalSoundsLevel1QuestionIssues(question = {}) {
     ...(Array.isArray(question.choices) ? question.choices : []),
     ...(Array.isArray(question.answerOptions) ? question.answerOptions : [])
   ].map(getAnswerOptionLabel).map(normalizedWord).filter(Boolean);
-  const templateType = normalizePhonicsText(question.templateType || question.formatType || question.questionType || "");
+  const responseFormat = formatType(question);
+  const templateType = normalizePhonicsText(responseFormat);
 
   if (!LEVEL_ONE_FINAL_SOUND_ALLOWED.has(finalTarget) || LEVEL_ONE_FINAL_SOUND_FORBIDDEN.has(finalTarget)) {
     issues.push(`coverage target "${finalTarget || "(missing)"}" is not a Level 1 final sound`);
-  }
-  if (!LEVEL_ONE_FINAL_SOUND_ALLOWED.has(correctAnswer) || correctAnswer.length !== 1) {
-    issues.push(`correct answer "${correctAnswer || "(missing)"}" is not a one-letter Level 1 final sound`);
   }
   if (finalSoundType && finalSoundType !== "single letter" && finalSoundType !== "single_letter") {
     issues.push(`finalSoundType "${finalSoundType}" is not single_letter`);
@@ -194,11 +211,35 @@ export function getFinalSoundsLevel1QuestionIssues(question = {}) {
   if (targetWordValue && !isValidFinalSoundWordForEarlyLevel(targetWordValue, finalTarget || correctAnswer)) {
     issues.push(`target word "${targetWordValue}" is not valid for Level 1 final sound "${finalTarget || correctAnswer || "(missing)"}"`);
   }
-  answerOptions.forEach(option => {
-    if (/^[a-z]+$/.test(option) && (option.length !== 1 || !LEVEL_ONE_FINAL_SOUND_ALLOWED.has(option))) {
-      issues.push(`answer option "${option}" is not an allowed one-letter Level 1 final sound`);
+  if (targetWordValue && !isCommonLevelOneFinalWord(targetWordValue, finalTarget)) {
+    issues.push(`target word "${targetWordValue}" is outside the reviewed common Level 1 vocabulary`);
+  }
+
+  if (LEVEL_ONE_FINAL_GRAPHEME_FORMATS.has(responseFormat)) {
+    if (correctAnswer !== finalTarget || correctAnswer.length !== 1) {
+      issues.push(`correct answer "${correctAnswer || "(missing)"}" must equal the one-letter Level 1 target "${finalTarget || "(missing)"}"`);
     }
-  });
+    answerOptions.forEach(option => {
+      if (!/^[a-z]$/.test(option)) {
+        issues.push(`grapheme answer option "${option}" is not a single letter`);
+      }
+    });
+  } else if (LEVEL_ONE_FINAL_WORD_FORMATS.has(responseFormat)) {
+    if (!isValidFinalSoundWordForEarlyLevel(correctAnswer, finalTarget)) {
+      issues.push(`keyed word "${correctAnswer || "(missing)"}" does not end with Level 1 final sound "${finalTarget || "(missing)"}"`);
+    }
+    if (!isCommonLevelOneFinalWord(correctAnswer, finalTarget)) {
+      issues.push(`keyed word "${correctAnswer || "(missing)"}" is outside the reviewed common Level 1 vocabulary`);
+    }
+    const matchingWords = [...new Set(answerOptions)]
+      .filter(option => isValidFinalSoundWordForEarlyLevel(option, finalTarget));
+    if (matchingWords.length !== 1 || matchingWords[0] !== correctAnswer) {
+      issues.push(`word choices must contain exactly one keyed "${finalTarget || "(missing)"}" ending`);
+    }
+  } else {
+    issues.push(`template "${responseFormat || "(missing)"}" is not an allowed Level 1 Final Sounds format`);
+  }
+
   if (/\b(digraph|blend|cluster|advanced)\b/.test(templateType)) {
     issues.push(`template "${templateType}" is not allowed in Level 1 Final Sounds`);
   }
@@ -335,7 +376,7 @@ export function getEarlyPhonicsValidityIssues(question = {}) {
   if (isInitialSoundQuestion(question)) {
     const key = itemKey(question);
     if (!initialSoundExpectedItemKeys.includes(key)) {
-      issues.push(`Initial Sounds itemKey "${key || "(missing)"}" is outside configured 25-target early set`);
+      issues.push(`Initial Sounds itemKey "${key || "(missing)"}" is outside the configured early-sound target set`);
     }
 
     for (const word of cardWords(question)) {

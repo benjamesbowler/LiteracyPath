@@ -18,16 +18,16 @@ const initialSoundPairSets = {
   l: [["lion", "lamp", "dog"], ["leg", "lid", "sun"]],
   m: [["mud", "map", "net"], ["moon", "mop", "sun"]],
   n: [["net", "nap", "map"], ["nap", "nose", "dog"]],
-  o: [["ox", "octopus", "dog"], ["orange", "octopus", "sun"]],
+  o: [["orange", "ox", "dog"], ["ox", "octopus", "sun"]],
   p: [["pig", "pan", "sun"], ["pen", "pin", "dog"]],
-  q: [["queen", "quilt", "dog"], ["quiz", "queen", "sun"]],
+  q: [["queen", "quilt", "dog"], ["quilt", "queen", "sun"]],
   r: [["red", "ram", "dog"], ["rat", "rug", "sun"]],
   s: [["sun", "sit", "map"], ["seed", "seal", "dog"]],
   t: [["tent", "ten", "dog"], ["tiger", "top", "sun"]],
-  u: [["umbrella", "under", "dog"], ["uncle", "up", "cat"]],
-  v: [["van", "vase", "dog"], ["vest", "vet", "sun"]],
+  u: [["umbrella", "under", "dog"], ["up", "umbrella", "cat"]],
+  v: [["van", "vase", "dog"], ["vest", "vase", "sun"]],
   w: [["web", "wig", "sun"], ["worm", "web", "dog"]],
-  y: [["yak", "yarn", "dog"], ["yo-yo", "yak", "sun"]],
+  y: [["yo-yo", "yawn", "dog"], ["yawn", "yo-yo", "sun"]],
   z: [["zebra", "zoo", "dog"], ["zoo", "zebra", "sun"]]
 };
 
