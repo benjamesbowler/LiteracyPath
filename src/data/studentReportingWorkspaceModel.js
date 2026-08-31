@@ -2286,9 +2286,7 @@ export function buildSkillsCheckReportModel({
             ? REPORTING_STATUS_IDS.SECURE
             : policyStatus.status === SKILL_STATUS_IDS.NOT_STARTED
               ? REPORTING_STATUS_IDS.NOT_CHECKED
-              : policyStatus.needsReview
-                ? REPORTING_STATUS_IDS.NEEDS_TEACHING
-                : policyStatus.status === SKILL_STATUS_IDS.IN_PROGRESS
+              : policyStatus.needsReview || policyStatus.status === SKILL_STATUS_IDS.IN_PROGRESS
                   ? evidenceStatus.id === REPORTING_STATUS_IDS.NEEDS_TEACHING
                     ? REPORTING_STATUS_IDS.NEEDS_TEACHING
                     : REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE

@@ -6,7 +6,10 @@ import {
   lintParentAreaPlainLanguage,
   parentStatusCopy
 } from "../../src/data/parentAreaModel.js";
-import { familyReportPrintableHtml } from "../../src/data/familyReportDocument.js";
+import {
+  familyReportPrintableHtml,
+  familyReportModelForRelease
+} from "../../src/data/familyReportDocument.js";
 
 const learner = {
   id: "learner-one",
@@ -74,4 +77,31 @@ test("released family dialog and print keep the Reporting Bible's six sections w
     assert.ok(index > previousIndex, `${title} stays in the canonical print order`);
     previousIndex = index;
   });
+});
+
+test("printing a released report uses its immutable snapshot rather than the current portal model", () => {
+  const currentModel = buildParentAreaModel({
+    learner,
+    highlight: "The latest portal update.",
+    canDo: ["Latest strength"],
+    nextFocus: ["Latest focus"]
+  });
+  const report = {
+    id: "spring-report",
+    title: "Spring reading update",
+    snapshot: {
+      learner,
+      highlight: "The released spring update.",
+      canDo: ["Released strength"],
+      nextFocus: ["Released focus"]
+    }
+  };
+
+  const printed = familyReportPrintableHtml({
+    title: report.title,
+    model: familyReportModelForRelease(report, currentModel)
+  });
+  assert.match(printed, /Released strength/);
+  assert.match(printed, /Released focus/);
+  assert.doesNotMatch(printed, /Latest strength|Latest focus/);
 });

@@ -4,6 +4,11 @@ import {
 } from "./reportAudienceTemplates.js";
 import { lintParentAreaPlainLanguage } from "./parentAreaModel.js";
 import { buildFamilyBridgePlan } from "../utils/familyBridgePlan.js";
+import {
+  canonicalStatusId,
+  REPORT_STATUS_IDS,
+  REPORT_STATUS_ORDER
+} from "../policy/reportingBible.js";
 
 const DOMAIN_LABELS = Object.freeze({
   alphabet_knowledge: "Letter names and sounds",
@@ -44,12 +49,9 @@ function statusId(row = {}) {
 }
 
 function parentStatus(rows = []) {
-  const statuses = rows.map(statusId);
-  if (statuses.some(status => ["needs_teaching", "mixed_evidence", "developing"].includes(status))) {
-    return "growing";
-  }
-  if (statuses.some(status => status === "secure")) return "doing_well";
-  return "not_checked";
+  const statuses = rows.map(row => canonicalStatusId(statusId(row)));
+  return REPORT_STATUS_ORDER.find(status => statuses.includes(status))
+    || REPORT_STATUS_IDS.NOT_CHECKED;
 }
 
 function progressRows(report = {}) {
@@ -97,8 +99,8 @@ export function buildParentReleaseSnapshot({
   })[WHOLE_CHILD_REPORT_AUDIENCES.FAMILY];
   const sections = Object.fromEntries(asArray(family.sections).map(section => [section.id, section]));
   const plan = bridgePlan({ cycleNumber, studentName, language });
-  const strengths = asArray(sections.going_well?.items).slice(0, 4);
-  const nextFocus = asArray(sections.practising_next?.items).slice(0, 3);
+  const strengths = asArray(sections.what_your_child_can_do?.items).slice(0, 4);
+  const nextFocus = asArray(sections.working_on_next?.items).slice(0, 3);
   const snapshot = {
     schemaVersion: 1,
     learner: {

@@ -1,4 +1,4 @@
-import { buildFamilyReportSections } from "./parentAreaModel.js";
+import { buildFamilyReportSections, buildParentAreaModel } from "./parentAreaModel.js";
 import { FAMILY_COPY } from "../copy/familyCopy.js";
 
 function escapeHtml(value) {
@@ -14,6 +14,12 @@ function printSection(section) {
       ? `<p>${escapeHtml(section.emptyMessage)}</p>`
       : "";
   return `<section><h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(section.description)}</p>${items}</section>`;
+}
+
+export function familyReportModelForRelease(report, currentModel) {
+  return report?.snapshot
+    ? buildParentAreaModel({ ...report.snapshot, reports: [] })
+    : currentModel;
 }
 
 export function familyReportPrintableHtml({ title, model }) {

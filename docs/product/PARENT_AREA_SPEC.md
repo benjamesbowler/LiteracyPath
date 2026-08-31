@@ -289,7 +289,7 @@ The feature is not production-ready until all of these pass:
 - Two guardians can independently access the same child after separate invitations.
 - Revocation ends access on the next server-authorised request, including an already open session.
 - A draft or withdrawn report never appears in the parent API response.
-- Missing progress displays `Not checked yet` and never zero.
+- Missing progress displays `Not checked` and never zero.
 - A parent can complete every task on a 390-pixel-wide phone using keyboard or touch.
 - A failed load explains that no data was changed and offers a retry.
 - An unlinked adult sees no child names and receives no clue that a particular child exists.

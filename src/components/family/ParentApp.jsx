@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowLeft, CheckCircle, Envelope, Key, Lock, ShieldCheck, SpinnerGap, WarningCircle } from "@phosphor-icons/react";
 import { buildParentAreaModel } from "../../data/parentAreaModel.js";
-import { familyReportPrintableHtml } from "../../data/familyReportDocument.js";
+import { familyReportModelForRelease, familyReportPrintableHtml } from "../../data/familyReportDocument.js";
 import { guardianPortalApi } from "../../data/guardianPortalApi.js";
 import { LEGAL_POLICY } from "../../policy/legalPolicy.js";
 import { isSupabaseConfigured, supabase } from "../../supabaseClient.js";
@@ -261,7 +261,8 @@ export function ParentApp() {
 
   function printReport(report, model) {
     void guardianPortalApi.recordReportEvent(supabase, { reportId: report.id, eventType: "report_printed" }).catch(() => {});
-    openHtmlDocument({ html: familyReportPrintableHtml({ title: report.title, model }), name: "literacy-guide-family-report", autoPrint: true });
+    const reportModel = familyReportModelForRelease(report, model);
+    openHtmlDocument({ html: familyReportPrintableHtml({ title: report.title, model: reportModel }), name: "literacy-guide-family-report", autoPrint: true });
   }
 
   return <>

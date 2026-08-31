@@ -1510,6 +1510,51 @@ test("Skills Check renders Needs support only after ten scored responses show lo
   assert.equal(skill.statusLabel, "Needs support");
 });
 
+test("a pass-then-fail review below ten scored responses remains Not enough results", () => {
+  const passedAt = "2026-08-01T10:00:00.000Z";
+  const failedAt = "2026-08-15T10:00:00.000Z";
+  const historicalPass = attempt({
+    attemptId: "phase-pass",
+    completedAt: passedAt,
+    updatedAt: passedAt,
+    totalQuestions: 2,
+    correctCount: 2,
+    questionRecords: [1, 2].map(phase => ({
+      ...attempt().questionRecords[0],
+      questionId: `phase-pass-${phase}`,
+      phase,
+      responseStatus: "correct",
+      isCorrect: true,
+      timestamp: passedAt
+    }))
+  });
+  const latestFail = attempt({
+    attemptId: "phase-review-fail",
+    completedAt: failedAt,
+    updatedAt: failedAt,
+    totalQuestions: 1,
+    correctCount: 0,
+    questionRecords: [{
+      ...attempt().questionRecords[0],
+      questionId: "phase-review-fail-2",
+      phase: 2,
+      responseStatus: "incorrect",
+      isCorrect: false,
+      timestamp: failedAt
+    }]
+  });
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    assessmentHistory: [historicalPass, latestFail]
+  });
+
+  const skill = model.skillsCheck.skills[0];
+  assert.equal(skill.latestAttempt.attemptId, "phase-review-fail");
+  assert.equal(skill.latestTotalQuestions, 1);
+  assert.equal(skill.currentStatus.id, REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE);
+  assert.equal(skill.statusLabel, "Not enough results");
+});
+
 test("Whole Child exposes checked EL 3 to 6 summaries without adding mastery concepts", () => {
   const pa = attempt({
     attemptId: "pa-descriptive-summary",
