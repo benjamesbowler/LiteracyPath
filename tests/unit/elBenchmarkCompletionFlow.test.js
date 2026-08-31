@@ -4,6 +4,10 @@ import test from "node:test";
 
 const appSource = readFileSync(new URL("../../src/App.jsx", import.meta.url), "utf8");
 const appSurfaceSource = readFileSync(new URL("../../src/components/AppSurface.jsx", import.meta.url), "utf8");
+const runtimeServicesSource = readFileSync(
+  new URL("../../src/appState/appRuntimeServices.js", import.meta.url),
+  "utf8"
+);
 
 function functionSource(name, nextName) {
   const start = appSource.indexOf(`async function ${name}`);
@@ -41,7 +45,11 @@ test("save and exit routes terminal sessions back through terminal persistence",
   assert.match(appSurfaceSource, /el-benchmark-hub-message\$\{message\.includes\("Cloud sync is pending"\)/);
   assert.match(appSurfaceSource, /role="status"/);
   assert.match(appSource, /window\.addEventListener\("online", flushPendingAssessmentAttempts\)/);
-  assert.match(appSource, /flushAssessmentAttemptSyncQueue\(\{ teacherId, supabase \}\)/);
+  assert.match(appSource, /flushRuntimeAssessmentAttemptSyncQueue\(\{ teacherId \}\)/);
+  assert.match(
+    runtimeServicesSource,
+    /flushAssessmentAttemptSyncQueue\(\{ \.\.\.options, supabase \}\)/
+  );
 });
 
 test("EL resume and final persistence use the session's immutable class ownership", () => {

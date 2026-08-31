@@ -1,8 +1,13 @@
 import { APP_VIEWS } from "./appViews.js";
 import { teacherIntentHash } from "./appViewHelpers.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
-
-export { isSupabaseConfigured, supabase } from "../supabaseClient.js";
+import { isSupabaseConfigured, supabase } from "../supabaseClient.js";
+import {
+  flushAssessmentAttemptSyncQueue,
+  hydrateAssessmentAttempts
+} from "../data/assessmentHistoryStore.js";
+import { resumePendingLearnerDeletions } from "../data/learnerDataRights.js";
+import { useStudentFocusSession } from "../hooks/useStudentFocusSession.js";
 
 let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
@@ -12,6 +17,43 @@ let elBenchmarkEngineModulePromise = null;
 
 export const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
 export const loadTeacherRouteRuntime = () => import("./routes.js");
+
+export function runtimeCloudIsExpected(accountId) {
+  return isSupabaseConfigured && accountId !== "local";
+}
+
+export function useRuntimeStudentFocusSession(options) {
+  return useStudentFocusSession({
+    ...options,
+    client: isSupabaseConfigured ? supabase : null,
+    enabled: isSupabaseConfigured && options.enabled
+  });
+}
+
+export function resumeRuntimePendingLearnerDeletions(options) {
+  return resumePendingLearnerDeletions({ ...options, client: supabase });
+}
+
+export function hydrateRuntimeAssessmentAttempts(options) {
+  return hydrateAssessmentAttempts({
+    ...options,
+    supabase: runtimeCloudIsExpected(options.teacherId) ? supabase : null
+  });
+}
+
+export function flushRuntimeAssessmentAttemptSyncQueue(options) {
+  return flushAssessmentAttemptSyncQueue({ ...options, supabase });
+}
+
+export async function exportStudentAssessmentWorkbook(options) {
+  const { exportStudentElAssessmentExcel } = await importWithRetry(
+    () => import("../utils/exportElAssessmentExcel.js")
+  );
+  return exportStudentElAssessmentExcel({
+    ...options,
+    supabase: isSupabaseConfigured ? supabase : null
+  });
+}
 
 export function teacherReportHash(classId, learnerId, reportView) {
   return teacherIntentHash({

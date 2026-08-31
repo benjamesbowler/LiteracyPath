@@ -5,7 +5,7 @@ import { useReducedMotion } from "framer-motion";
 import "./App.css";
 import { DEBUG_ASSESSMENT_COVERAGE, buildCoverageSnapshot, calculateWeaknessSnapshot, debugAssessmentCoverage, dedupeQuestionsByRuntimeSignature, downloadBlob, findQuestionForAnswerRecord, formatExportDateForFilename, formatReportDate, getAdminSetupMessage, getQuestionTargetWord, getRuntimeQuestionSignature, getStageIndex, inferItemMetadata, inferAnswerRecordMetadata, isApprovalSchemaError, isDuplicateAuthSignupError, isInitialSoundsStage, isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, letterAssessmentOrder, logAdminSupabaseError, normalizeItemKey, normalizeRuntimeSkillId, prepareRuntimeQuestionBank, safeExportFilename, setRuntimeQuestionCache, startupQuestions } from "./appState/assessmentRuntime.js";
 import { useAppSessionController } from "./appState/useAppSessionController.js";
-import { STUDENT_SESSION_STORAGE_KEY, addWorkbookExportProvenance, createExcelWorkbook, isSupabaseConfigured, loadAssessmentMediaPickerModule, loadAssessmentSkillBankLoaderModule, loadElBenchmarkEngineModule, loadFinishedReportPageModule, loadGuidedReadingBooksModule, loadTeacherRouteRuntime, pushRouteHash, supabase, teacherReportHash } from "./appState/appRuntimeServices.js";
+import { STUDENT_SESSION_STORAGE_KEY, addWorkbookExportProvenance, createExcelWorkbook, exportStudentAssessmentWorkbook as exportStudentAssessmentWorkbookRuntime, flushRuntimeAssessmentAttemptSyncQueue, hydrateRuntimeAssessmentAttempts, loadAssessmentMediaPickerModule, loadAssessmentSkillBankLoaderModule, loadElBenchmarkEngineModule, loadFinishedReportPageModule, loadGuidedReadingBooksModule, loadTeacherRouteRuntime, pushRouteHash, resumeRuntimePendingLearnerDeletions, runtimeCloudIsExpected, teacherReportHash, useRuntimeStudentFocusSession } from "./appState/appRuntimeServices.js";
 import { getMasteryRule } from "./masterySystem";
 import { skillTree } from "./skillTree";
 import { excludeFailedAssessmentMediaQuestions } from "./policy/assessmentMediaEvidence.js";
@@ -15,7 +15,7 @@ import { loadStudentProfile } from "./utils/studentProfile.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature, getRepeatOptionSetSignature } from "./questionRepeatGuards";
-import { ASSESSMENT_RESPONSE_STATUSES, flushAssessmentAttemptSyncQueue, hydrateAssessmentAttempts, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
+import { ASSESSMENT_RESPONSE_STATUSES, loadAssessmentAttempts, mergeAssessmentAttemptRecords, mergeAssessmentAttemptIntoItemMastery } from "./data/assessmentHistoryStore";
 import { APP_VIEWS } from "./appState/appViews.js";
 import { getPersistedAppView, getRestoredAppView, elBenchmarkAssessmentHash, isFocusedAssessmentView, isSameTeacherRoute, isStudentAllowedView, restoreElBenchmarkSessionFromHash, shouldOpenDefaultTeacherRoute, teacherIntentHash } from "./appState/appViewHelpers.js";
 import { deleteElBenchmarkDraft, loadElBenchmarkDraft, resolveElBenchmarkSessionOwnership, saveElBenchmarkDraft, getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession, migrateGuidedReadingStorage, getTeacherProfileStorageKey } from "./appState/studentSessionHelpers.js";
@@ -24,7 +24,6 @@ import { preloadQuestionMedia } from "./utils/preloadQuestionMedia.js";
 import { DYNAMIC_IMPORT_ERROR_EVENT, importWithRetry } from "./utils/lazyWithRetry.js";
 import { clearAndVerifyLocalProgressForStudent, clearProgressSyncSession, configureProgressSync, hydrateCloudProgress, queueProgressSave } from "./utils/progressSync.js";
 import { configureInsertQueueAccount, startInsertQueueFlusher } from "./utils/insertQueue.js";
-import { resumePendingLearnerDeletions } from "./data/learnerDataRights.js";
 import { createAssessmentRoundController } from "./appState/assessmentRoundController.js";
 import { AppSurface } from "./appState/appRuntimeSurfaces.jsx";
 import { createStudentRosterReadState } from "./appState/studentRosterReadState.js";
@@ -56,7 +55,6 @@ import {
   stopAllChildAudio
 } from "./utils/audio/childAudioLifecycle.js";
 import { PRODUCT_NAME } from "./data/teacherBrand.js";
-import { useStudentFocusSession } from "./hooks/useStudentFocusSession.js";
 import {
   enforceStudentFocusView,
   STUDENT_FOCUS_TARGETS,
@@ -232,11 +230,10 @@ export default function App() {
         : { sessionId: normalizedSessionId, contentOk: contentOk !== false }
     ));
   }, []);
-  const studentFocus = useStudentFocusSession({
-    client: isSupabaseConfigured ? supabase : null,
+  const studentFocus = useRuntimeStudentFocusSession({
     token: studentSession?.token || "",
     currentView: appView,
-    enabled: isSupabaseConfigured && sessionMode === "student" && Boolean(studentSession?.token),
+    enabled: sessionMode === "student" && Boolean(studentSession?.token),
     contentReport: studentFocusContentReport
   });
   activeStudentFocusRef.current = studentFocus.session;
@@ -589,8 +586,7 @@ export default function App() {
 
     const resume = () => {
       if (pendingDeletionResumeRef.current.has(teacherId)) return;
-      const task = resumePendingLearnerDeletions({
-        client: supabase,
+      const task = resumeRuntimePendingLearnerDeletions({
         accountId: teacherId,
         storage: deletionStorage,
         cleanup: async record => {
@@ -780,7 +776,7 @@ export default function App() {
 
     let cancelled = false;
     const localRecords = loadAssessmentAttempts({ teacherId });
-    const cloudExpected = isSupabaseConfigured && teacherId !== "local";
+    const cloudExpected = runtimeCloudIsExpected(teacherId);
     setAssessmentHistory(localRecords);
     setAssessmentHistoryReadState({
       status: cloudExpected ? "loading" : "complete",
@@ -789,9 +785,8 @@ export default function App() {
       truncated: false,
       error: null
     });
-    void hydrateAssessmentAttempts({
+    void hydrateRuntimeAssessmentAttempts({
       teacherId,
-      supabase: cloudExpected ? supabase : null,
       returnStatus: true
     }).then(result => {
       if (cancelled) return;
@@ -832,11 +827,11 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (!teacherId || teacherId === "local" || !isSupabaseConfigured || typeof window === "undefined") {
+    if (!teacherId || !runtimeCloudIsExpected(teacherId) || typeof window === "undefined") {
       return undefined;
     }
     const flushPendingAssessmentAttempts = () => {
-      void flushAssessmentAttemptSyncQueue({ teacherId, supabase }).then(result => {
+      void flushRuntimeAssessmentAttemptSyncQueue({ teacherId }).then(result => {
         if (!result.flushed || result.remaining) return;
         setMessage(current => current.includes("Cloud sync is pending")
           ? "Assessment cloud sync completed. The secure report copy is up to date."
@@ -945,11 +940,11 @@ export default function App() {
     freshLoginResetPendingRef, getAdminSetupMessage, getAnswerRecordPromptAnswerSignature, getAnswerRecordSignature,
     getGuidedReadingStorageKeyForSession, migrateGuidedReadingStorage, getItemMasteryStateKey, getPersistedAppView, getQuestionTargetWord,
     getRepeatOptionSetSignature, getRestoredAppView, getRuntimeQuestionSignature, getTeacherProfileStorageKey,
-    hydrateAssessmentAttempts, hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
+    hydrateCloudProgress, inferAnswerRecordMetadata, inferItemMetadata,
     initialSoundRoundMetaRef, isAdmin, isApprovalSchemaError, isDuplicateAuthSignupError,
     isInvalidRefreshTokenError, isMissingItemMasteryTableError, isMissingTableError, isSameTeacherRoute,
     isStudentAllowedView: view => isStudentAllowedView(view, activeStudentFocusRef.current),
-    isSupabaseConfigured, itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
+    itemMastery, lastAuthUserIdRef, learnerAccessibilityFromProfile,
     letterAssessment, letterIndex, loadAssessmentAttempts, loadElBenchmarkDraft, loadManualAssessmentDrafts,
     loadTeacherRouteRuntime, logAdminSupabaseError, mastery, mergeAssessmentAttemptIntoItemMastery,
     mergeAssessmentAttemptRecords, newClassName, normalizeItemMasteryRow, patternAssessment,
@@ -981,7 +976,7 @@ export default function App() {
     setTeacherSchoolNameReadState,
     setTeacherStudentContext, setTeacherUser, setTotalAnswered, setUsedByStage,
     skillTree, STUDENT_SESSION_STORAGE_KEY, studentId, studentName,
-    studentPreview, studentReportView, studentSession, supabase,
+    studentPreview, studentReportView, studentSession,
     teacherAccountRecord, teacherAccountStatus, teacherGroupId, teacherId,
     teacherIntentHash, teacherReportHash, teacherUser, totalAnswered,
     usedByStage,
@@ -1274,7 +1269,7 @@ export default function App() {
     }
     const localSaved = Boolean(archiveResult.persistence.localSaved);
     const cloudSaved = Boolean(archiveResult.persistence.cloudSaved);
-    const cloudExpected = isSupabaseConfigured && teacherId !== "local";
+    const cloudExpected = runtimeCloudIsExpected(teacherId);
     const syncPending = cloudExpected && localSaved && !cloudSaved && Boolean(archiveResult.persistence.syncQueued);
     const cloudCopyUnavailable = cloudExpected && !cloudSaved && !syncPending;
     deleteElBenchmarkDraft({ teacherId, studentId });
@@ -1329,7 +1324,7 @@ export default function App() {
     }
     const localSaved = Boolean(archiveResult.persistence.localSaved);
     const cloudSaved = Boolean(archiveResult.persistence.cloudSaved);
-    const cloudExpected = isSupabaseConfigured && teacherId !== "local";
+    const cloudExpected = runtimeCloudIsExpected(teacherId);
     const syncPending = cloudExpected && localSaved && !cloudSaved && Boolean(archiveResult.persistence.syncQueued);
     const cloudCopyUnavailable = cloudExpected && !cloudSaved && !syncPending;
     deleteElBenchmarkDraft({ teacherId, studentId });
@@ -2320,8 +2315,7 @@ export default function App() {
       throw error;
     }
     try {
-      const { exportStudentElAssessmentExcel } = await importWithRetry(() => import("./utils/exportElAssessmentExcel.js"));
-      const report = await exportStudentElAssessmentExcel({
+      const report = await exportStudentAssessmentWorkbookRuntime({
         assessmentHistory,
         students: [
           ...studentList,
@@ -2338,8 +2332,7 @@ export default function App() {
         benchmarkScope,
         itemMastery,
         skillMasterySummary: reportSkillMasterySummary,
-        evidenceReadState: selectedStudentEvidenceReadState,
-        supabase: isSupabaseConfigured ? supabase : null
+        evidenceReadState: selectedStudentEvidenceReadState
       });
       setMessage(report.persistence?.durable === false
         ? "Student Excel report exported, but its saved-report history could not be stored. Keep the downloaded file and try again when storage is available."

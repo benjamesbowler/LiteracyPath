@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
@@ -13,9 +13,16 @@ const BASELINE_SOURCES = Object.freeze({
   "src/App.jsx": `
     import { useAppSessionController } from "./appState/useAppSessionController.js";
     import { AppSurface } from "./appState/appRuntimeSurfaces.jsx";
+    import { hydrateRuntimeAssessmentAttempts } from "./appState/appRuntimeServices.js";
     export default function App() {
-      const surface = useAppSessionController({});
+      const surface = useAppSessionController({ hydrateRuntimeAssessmentAttempts });
       return <AppSurface surface={surface} />;
+    }
+  `,
+  "src/appState/appRuntimeServices.js": `
+    import { supabase } from "../supabaseClient.js";
+    export function hydrateRuntimeAssessmentAttempts(options) {
+      return hydrateAssessmentAttempts({ ...options, supabase });
     }
   `,
   "src/appState/useAppSessionController.js": `
@@ -28,31 +35,36 @@ const BASELINE_SOURCES = Object.freeze({
   "src/appState/appRuntimeSurfaces.jsx": `
     import { lazyWithRetry } from "../utils/lazyWithRetry.js";
     export const AppSurface = lazyWithRetry(() =>
-      import("../components/AppSurface.jsx").then(module => ({ default: module.AppSurface }))
+      import("../components/AppSurface.jsx").then(loaded => ({ default: loaded.AppSurface }))
     );
+    export function ConfirmActionDialog() { return null; }
+    export function ResetStudentProgressDialog() { return null; }
   `,
   "src/components/AppSurface.jsx": `
+    import { AuthPage } from "./AuthPage.jsx";
     import { ConfirmActionDialog, ResetStudentProgressDialog } from "../appState/appRuntimeSurfaces.jsx";
     import { shouldShowFooterUtilityActions } from "../appState/appViewHelpers.js";
     import { lazyWithRetry } from "../utils/lazyWithRetry.js";
     const StudentGlassShell = lazyWithRetry(() => import("./StudentGlassShell.jsx"));
-    function lazyAppPage(exportName) {
-      return lazyWithRetry(() => import("./AppPages.jsx").then(module => ({
-        default: module[exportName]
-      })));
-    }
+    const lazyAppPage = pageName => lazyWithRetry(() =>
+      import("./AppPages.jsx").then(pages => ({ default: pages[pageName] }))
+    );
     const FirstPage = lazyAppPage("FirstPage");
-    const SecondPage = lazyAppPage("SecondPage");
+    const RenamedSecondPage = lazyAppPage("SecondPage");
     export function AppSurface({ surface }) {
+      if (surface.auth) return <AuthPage />;
       if (surface.dialog === "confirm") return <ConfirmActionDialog />;
       if (surface.dialog === "reset") return <ResetStudentProgressDialog />;
-      if (shouldShowFooterUtilityActions(surface)) return <StudentGlassShell><FirstPage /></StudentGlassShell>;
-      return <SecondPage />;
+      if (shouldShowFooterUtilityActions(surface)) {
+        return <div className="footer-utility-actions">Footer</div>;
+      }
+      return <StudentGlassShell><FirstPage /><RenamedSecondPage /></StudentGlassShell>;
     }
   `,
   "src/components/AppPages.jsx": `
+    export { AuthPage } from "./AuthPage.jsx";
+    export { InnerSecondPage as SecondPage } from "./SecondPage.jsx";
     export function FirstPage() { return <main>First</main>; }
-    export function SecondPage() { return <main>Second</main>; }
   `
 });
 
@@ -88,7 +100,7 @@ function assertRejected(overrides, expectedMessage) {
   });
 }
 
-test("accepts the intended controller, lazy facade, page, and composition graph", () => {
+test("accepts controller delegation, high-level runtime services, lazy pages, and active composition", () => {
   withFixture({}, fixtureRoot => {
     const result = runChecker(fixtureRoot);
     assert.equal(result.status, 0, result.stderr);
@@ -106,22 +118,50 @@ test("rejects App when it bypasses the runtime facade for AppSurface", () => {
 test("rejects App when it stops invoking the session controller", () => {
   assertRejected({
     "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
-      .replace("const surface = useAppSessionController({});", "const surface = {};")
+      .replace(
+        "const surface = useAppSessionController({ hydrateRuntimeAssessmentAttempts });",
+        "const surface = {};"
+      )
   }, /App\.jsx must call useAppSessionController/);
 });
 
-test("rejects App when direct data-client or RPC access returns", () => {
+test("rejects App when it imports the raw data client directly", () => {
   assertRejected({
-    "src/App.jsx": `
-      import { useAppSessionController } from "./appState/useAppSessionController.js";
-      import { AppSurface } from "./appState/appRuntimeSurfaces.jsx";
-      import { supabase } from "./supabaseClient.js";
-      export default function App() {
-        const surface = useAppSessionController({ client: supabase });
-        return <AppSurface surface={surface} />;
-      }
-    `
-  }, /App\.jsx must not import a data client or RPC module directly.*supabaseClient/);
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replace(
+        'import { hydrateRuntimeAssessmentAttempts } from "./appState/appRuntimeServices.js";',
+        'import { supabase } from "./supabaseClient.js";'
+      )
+      .replace("{ hydrateRuntimeAssessmentAttempts }", "{ client: supabase }")
+  }, /App\.jsx must not receive a raw data client.*supabaseClient/);
+});
+
+test("rejects App when a runtime-service alias re-exports the raw data client", () => {
+  assertRejected({
+    "src/appState/appRuntimeServices.js": `
+      export { supabase as runtimeClient } from "../supabaseClient.js";
+    `,
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replace("hydrateRuntimeAssessmentAttempts", "runtimeClient")
+  }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
+});
+
+test("rejects App when a runtime-service constant aliases the raw data client", () => {
+  assertRejected({
+    "src/appState/appRuntimeServices.js": `
+      import { supabase } from "../supabaseClient.js";
+      export const runtimeClient = supabase;
+    `,
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replace("hydrateRuntimeAssessmentAttempts", "runtimeClient")
+  }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
+});
+
+test("rejects App when it calls an RPC directly without importing a named client module", () => {
+  assertRejected({
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replace("const surface = useAppSessionController", "window.runtime.rpc(\"unsafe\");\nconst surface = useAppSessionController")
+  }, /App\.jsx must not call RPCs directly/);
 });
 
 test("rejects the runtime facade when AppSurface is no longer behind lazyWithRetry", () => {
@@ -129,52 +169,161 @@ test("rejects the runtime facade when AppSurface is no longer behind lazyWithRet
     "src/appState/appRuntimeSurfaces.jsx": `
       import { AppSurface } from "../components/AppSurface.jsx";
       export { AppSurface };
+      export function ConfirmActionDialog() { return null; }
+      export function ResetStudentProgressDialog() { return null; }
     `
   }, /appRuntimeSurfaces\.jsx must keep AppSurface behind lazyWithRetry/);
+});
+
+test("accepts an equivalent lazy AppSurface projection without hardcoding the module variable name", () => {
+  withFixture({
+    "src/appState/appRuntimeSurfaces.jsx": BASELINE_SOURCES["src/appState/appRuntimeSurfaces.jsx"]
+      .replace("loaded.AppSurface", 'loaded["AppSurface"]')
+  }, fixtureRoot => {
+    const result = runChecker(fixtureRoot);
+    assert.equal(result.status, 0, result.stderr);
+  });
+});
+
+test("rejects a lazy runtime facade that projects the wrong AppSurface export", () => {
+  assertRejected({
+    "src/appState/appRuntimeSurfaces.jsx": BASELINE_SOURCES["src/appState/appRuntimeSurfaces.jsx"]
+      .replace("loaded.AppSurface", "loaded.NotTheAppSurface")
+  }, /appRuntimeSurfaces\.jsx must project the named AppSurface export/);
 });
 
 test("rejects AppSurface when it statically imports AppPages", () => {
   assertRejected({
     "src/components/AppSurface.jsx": BASELINE_SOURCES["src/components/AppSurface.jsx"]
       .replace(
-        "import { lazyWithRetry } from \"../utils/lazyWithRetry.js\";",
-        "import { lazyWithRetry } from \"../utils/lazyWithRetry.js\";\nimport { FirstPage } from \"./AppPages.jsx\";"
+        'import { AuthPage } from "./AuthPage.jsx";',
+        'import { AuthPage, FirstPage as EagerFirstPage } from "./AppPages.jsx";'
       )
   }, /AppSurface\.jsx must not statically import AppPages/);
 });
 
-test("rejects AppSurface when a named AppPages export bypasses lazyAppPage", () => {
+test("rejects AppSurface when an inline AppPages export bypasses lazyAppPage", () => {
   assertRejected({
     "src/components/AppSurface.jsx": BASELINE_SOURCES["src/components/AppSurface.jsx"]
-      .replace("const SecondPage = lazyAppPage(\"SecondPage\");", "const SecondPage = () => null;")
-  }, /AppSurface\.jsx must lazy-load every named AppPages export.*SecondPage/);
+      .replace('const FirstPage = lazyAppPage("FirstPage");', "const FirstPage = () => null;")
+  }, /AppSurface\.jsx must lazy-load every non-direct AppPages export.*FirstPage/);
 });
 
-test("rejects AppPages when it reaches back into App, AppSurface, or the controller", () => {
+test("rejects AppSurface when an aliased AppPages re-export bypasses lazyAppPage", () => {
+  assertRejected({
+    "src/components/AppSurface.jsx": BASELINE_SOURCES["src/components/AppSurface.jsx"]
+      .replace('const RenamedSecondPage = lazyAppPage("SecondPage");', "const RenamedSecondPage = () => null;")
+  }, /AppSurface\.jsx must lazy-load every non-direct AppPages export.*SecondPage/);
+});
+
+test("rejects AppSurface when the documented direct AuthPage binding changes source", () => {
+  assertRejected({
+    "src/components/AppSurface.jsx": BASELINE_SOURCES["src/components/AppSurface.jsx"]
+      .replace('from "./AuthPage.jsx"', 'from "./OtherPage.jsx"')
+  }, /AppSurface\.jsx direct page AuthPage must come from.*AuthPage/);
+});
+
+test("rejects AppPages when it imports App", () => {
+  assertRejected({
+    "src/components/AppPages.jsx": `
+      import App from "../App.jsx";
+      ${BASELINE_SOURCES["src/components/AppPages.jsx"]}
+    `
+  }, /AppPages\.jsx must not import App, AppSurface, or useAppSessionController.*App\.jsx/);
+});
+
+test("rejects AppPages when it imports AppSurface", () => {
+  assertRejected({
+    "src/components/AppPages.jsx": `
+      import { AppSurface } from "./AppSurface.jsx";
+      ${BASELINE_SOURCES["src/components/AppPages.jsx"]}
+    `
+  }, /AppPages\.jsx must not import App, AppSurface, or useAppSessionController.*AppSurface/);
+});
+
+test("rejects AppPages when it imports the session controller", () => {
   assertRejected({
     "src/components/AppPages.jsx": `
       import { useAppSessionController } from "../appState/useAppSessionController.js";
-      export function FirstPage() { useAppSessionController({}); return <main>First</main>; }
-      export function SecondPage() { return <main>Second</main>; }
+      ${BASELINE_SOURCES["src/components/AppPages.jsx"]}
     `
-  }, /AppPages\.jsx must not import App, AppSurface, or useAppSessionController/);
+  }, /AppPages\.jsx must not import App, AppSurface, or useAppSessionController.*useAppSessionController/);
 });
 
-test("rejects AppPages when shell, modal, or footer composition leaves AppSurface", () => {
+test("rejects AppPages when it renders the application shell", () => {
   assertRejected({
-    "src/components/AppPages.jsx": `
-      import StudentGlassShell from "./StudentGlassShell.jsx";
-      export function FirstPage() { return <StudentGlassShell>First</StudentGlassShell>; }
-      export function SecondPage() { return <main>Second</main>; }
-    `
-  }, /AppPages\.jsx must leave shell, modal, and footer composition in AppSurface.*StudentGlassShell/);
+    "src/components/AppPages.jsx": BASELINE_SOURCES["src/components/AppPages.jsx"]
+      .replace("<main>First</main>", "<StudentGlassShell><main>First</main></StudentGlassShell>")
+  }, /AppPages\.jsx must not compose StudentGlassShell/);
 });
 
-test("rejects the controller when it imports or renders a page component", () => {
+test("rejects AppPages when it renders an application dialog", () => {
+  assertRejected({
+    "src/components/AppPages.jsx": BASELINE_SOURCES["src/components/AppPages.jsx"]
+      .replace("<main>First</main>", "<ConfirmActionDialog />")
+  }, /AppPages\.jsx must not compose ConfirmActionDialog/);
+});
+
+test("rejects AppPages when it renders the application footer utility container", () => {
+  assertRejected({
+    "src/components/AppPages.jsx": BASELINE_SOURCES["src/components/AppPages.jsx"]
+      .replace('<main>First</main>', '<div className="footer-utility-actions">First</div>')
+  }, /AppPages\.jsx must not compose footer-utility-actions/);
+});
+
+test("rejects AppSurface when the shell binding becomes a dead import", () => {
+  assertRejected({
+    "src/components/AppSurface.jsx": BASELINE_SOURCES["src/components/AppSurface.jsx"]
+      .replace("<StudentGlassShell><FirstPage /><RenamedSecondPage /></StudentGlassShell>", "<><FirstPage /><RenamedSecondPage /></>")
+  }, /AppSurface\.jsx must actively compose StudentGlassShell/);
+});
+
+test("rejects AppSurface when dialog bindings become dead imports", () => {
+  assertRejected({
+    "src/components/AppSurface.jsx": BASELINE_SOURCES["src/components/AppSurface.jsx"]
+      .replace("return <ConfirmActionDialog />;", "return <FirstPage />;")
+      .replace("return <ResetStudentProgressDialog />;", "return <FirstPage />;")
+  }, /AppSurface\.jsx must actively compose.*ConfirmActionDialog.*ResetStudentProgressDialog/);
+});
+
+test("rejects AppSurface when footer policy remains but footer composition moves away", () => {
+  assertRejected({
+    "src/components/AppSurface.jsx": BASELINE_SOURCES["src/components/AppSurface.jsx"]
+      .replace('<div className="footer-utility-actions">Footer</div>', "<FirstPage />")
+  }, /AppSurface\.jsx must actively compose the footer utility container/);
+});
+
+test("rejects the controller when it imports a component directly", () => {
   assertRejected({
     "src/appState/useAppSessionController.js": `
       import { FirstPage } from "../components/AppPages.jsx";
-      export function useAppSessionController() { return <FirstPage />; }
+      export function useAppSessionController() { return {}; }
     `
-  }, /useAppSessionController\.js must not import or render component modules.*AppPages/);
+  }, /useAppSessionController\.js must not import component modules.*AppPages/);
+});
+
+test("rejects the controller when it imports a page through appRuntimeSurfaces", () => {
+  assertRejected({
+    "src/appState/useAppSessionController.js": `
+      import { TeacherTodayPage } from "./appRuntimeSurfaces.jsx";
+      export function useAppSessionController() { return { TeacherTodayPage }; }
+    `
+  }, /useAppSessionController\.js must not import component modules.*appRuntimeSurfaces/);
+});
+
+test("rejects the controller when it renders JSX without a component import", () => {
+  assertRejected({
+    "src/appState/useAppSessionController.js": `
+      export function useAppSessionController() { return <InjectedPage />; }
+    `
+  }, /useAppSessionController\.js must not render components.*InjectedPage/);
+});
+
+test("rejects the controller when it renders through createElement without JSX", () => {
+  assertRejected({
+    "src/appState/useAppSessionController.js": `
+      import { createElement } from "react";
+      export function useAppSessionController() { return createElement(InjectedPage); }
+    `
+  }, /useAppSessionController\.js must not render components.*InjectedPage/);
 });
