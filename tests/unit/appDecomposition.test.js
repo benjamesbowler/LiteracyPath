@@ -157,6 +157,67 @@ test("rejects App when a runtime-service constant aliases the raw data client", 
   }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
 });
 
+test("rejects App when a runtime service projects the raw client from a namespace", () => {
+  assertRejected({
+    "src/appState/appRuntimeServices.js": `
+      import * as clientNamespace from "../supabaseClient.js";
+      export const runtimeClient = clientNamespace.supabase;
+    `,
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replaceAll("hydrateRuntimeAssessmentAttempts", "runtimeClient")
+  }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
+});
+
+test("rejects App when a runtime service destructures the raw client from a namespace", () => {
+  assertRejected({
+    "src/appState/appRuntimeServices.js": `
+      import * as clientNamespace from "../supabaseClient.js";
+      const { supabase: runtimeClient } = clientNamespace;
+      export { runtimeClient };
+    `,
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replaceAll("hydrateRuntimeAssessmentAttempts", "runtimeClient")
+  }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
+});
+
+test("rejects App when an object-property alias carries the raw client", () => {
+  assertRejected({
+    "src/appState/appRuntimeServices.js": `
+      import * as clientNamespace from "../supabaseClient.js";
+      const clientBag = { current: clientNamespace.supabase };
+      export const runtimeClient = clientBag.current;
+    `,
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replaceAll("hydrateRuntimeAssessmentAttempts", "runtimeClient")
+  }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
+});
+
+test("rejects App when a nested object aliases the raw-client namespace", () => {
+  assertRejected({
+    "src/appState/appRuntimeServices.js": `
+      import * as clientNamespace from "../supabaseClient.js";
+      const clientBag = { namespace: clientNamespace };
+      export const runtimeClient = clientBag.namespace.supabase;
+    `,
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replaceAll("hydrateRuntimeAssessmentAttempts", "runtimeClient")
+  }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
+});
+
+test("rejects App when a nested facade re-exports a raw-client projection", () => {
+  assertRejected({
+    "src/appState/rawClientProjection.js": `
+      import * as clientNamespace from "../supabaseClient.js";
+      export const projectedClient = clientNamespace.supabase;
+    `,
+    "src/appState/appRuntimeServices.js": `
+      export { projectedClient as runtimeClient } from "./rawClientProjection.js";
+    `,
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replaceAll("hydrateRuntimeAssessmentAttempts", "runtimeClient")
+  }, /App\.jsx must not receive a raw data client through a re-export.*runtimeClient/);
+});
+
 test("rejects App when it calls an RPC directly without importing a named client module", () => {
   assertRejected({
     "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
@@ -311,6 +372,18 @@ test("rejects the controller when it imports a page through appRuntimeSurfaces",
   }, /useAppSessionController\.js must not import component modules.*appRuntimeSurfaces/);
 });
 
+test("rejects the controller when a transitive facade reaches appRuntimeSurfaces", () => {
+  assertRejected({
+    "src/appState/controllerSurfaceFacade.js": `
+      export { AppSurface as injectedPage } from "./appRuntimeSurfaces.jsx";
+    `,
+    "src/appState/useAppSessionController.js": `
+      import { injectedPage } from "./controllerSurfaceFacade.js";
+      export function useAppSessionController() { return { injectedPage }; }
+    `
+  }, /useAppSessionController\.js must not import component modules or transitively reach component or runtime-surface code.*controllerSurfaceFacade/);
+});
+
 test("rejects the controller when it renders JSX without a component import", () => {
   assertRejected({
     "src/appState/useAppSessionController.js": `
@@ -326,4 +399,89 @@ test("rejects the controller when it renders through createElement without JSX",
       export function useAppSessionController() { return createElement(InjectedPage); }
     `
   }, /useAppSessionController\.js must not render components.*InjectedPage/);
+});
+
+test("rejects lowercase JSX rendering in the controller", () => {
+  assertRejected({
+    "src/appState/useAppSessionController.js": `
+      export function useAppSessionController() { return <injectedPage />; }
+    `
+  }, /useAppSessionController\.js must not render components.*injectedPage/);
+});
+
+test("rejects a lowercase imported page passed to imported createElement", () => {
+  assertRejected({
+    "src/appState/injectedPage.js": `
+      export const injectedPage = () => null;
+    `,
+    "src/appState/useAppSessionController.js": `
+      import { createElement } from "react";
+      import { injectedPage } from "./injectedPage.js";
+      export function useAppSessionController() { return createElement(injectedPage); }
+    `
+  }, /useAppSessionController\.js must not render components.*injectedPage/);
+});
+
+test("rejects a lowercase page passed to an aliased createElement import", () => {
+  assertRejected({
+    "src/appState/useAppSessionController.js": `
+      import { createElement as renderElement } from "react";
+      const injectedPage = () => null;
+      export function useAppSessionController() { return renderElement(injectedPage); }
+    `
+  }, /useAppSessionController\.js must not render components.*injectedPage/);
+});
+
+test("rejects a lowercase page rendered through an aliased React namespace", () => {
+  assertRejected({
+    "src/appState/useAppSessionController.js": `
+      import * as UI from "react";
+      const injectedPage = () => null;
+      export function useAppSessionController() { return UI.createElement(injectedPage); }
+    `
+  }, /useAppSessionController\.js must not render components.*injectedPage/);
+});
+
+test("accepts harmless local createElement and React names without React imports", () => {
+  withFixture({
+    "src/appState/useAppSessionController.js": `
+      const PageRecord = { id: "page-data" };
+      const createElement = value => value;
+      const React = { createElement: value => value };
+      export function useAppSessionController() {
+        return { direct: createElement(PageRecord), member: React.createElement(PageRecord) };
+      }
+    `
+  }, fixtureRoot => {
+    const result = runChecker(fixtureRoot);
+    assert.equal(result.status, 0, result.stderr);
+  });
+});
+
+test("accepts an aliased useAppSessionController delegation import", () => {
+  withFixture({
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replace(
+        "import { useAppSessionController }",
+        "import { useAppSessionController as useSessionController }"
+      )
+      .replace("useAppSessionController({", "useSessionController({")
+  }, fixtureRoot => {
+    const result = runChecker(fixtureRoot);
+    assert.equal(result.status, 0, result.stderr);
+  });
+});
+
+test("rejects an uncalled controller alias even when a same-named decoy is called", () => {
+  assertRejected({
+    "src/App.jsx": BASELINE_SOURCES["src/App.jsx"]
+      .replace(
+        "import { useAppSessionController }",
+        "import { useAppSessionController as useSessionController }"
+      )
+      .replace(
+        "export default function App() {",
+        "function useAppSessionController() { return {}; }\nexport default function App() {"
+      )
+  }, /App\.jsx must call useAppSessionController through its imported binding.*useSessionController/);
 });

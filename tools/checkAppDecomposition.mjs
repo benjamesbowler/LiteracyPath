@@ -179,8 +179,8 @@ function jsxName(node) {
 }
 
 function createElementLocalNames(imports) {
-  const locals = new Set(["createElement"]);
-  const reactObjects = new Set(["React"]);
+  const locals = new Set();
+  const reactObjects = new Set();
   for (const entry of imports) {
     if (entry.specifier !== "react") continue;
     for (const binding of entry.bindings) {
@@ -197,7 +197,11 @@ function renderedComponentNames(node, imports = []) {
   walk(node, child => {
     if (child.type === "JSXOpeningElement") {
       const name = jsxName(child.name);
-      if (/^[A-Z]/u.test(name)) rendered.add(name);
+      if (name) rendered.add(name);
+      return;
+    }
+    if (child.type === "JSXFragment") {
+      rendered.add("<fragment>");
       return;
     }
     if (child.type !== "CallExpression") return;
@@ -209,11 +213,15 @@ function renderedComponentNames(node, imports = []) {
       && propertyName(child.callee) === "createElement";
     if (!directCreate && !memberCreate) return;
     const component = child.arguments[0];
-    if (component?.type === "Identifier" && /^[A-Z]/u.test(component.name)) {
+    if (component?.type === "Identifier") {
       rendered.add(component.name);
     } else if (component?.type === "MemberExpression") {
       const name = propertyName(component);
-      if (/^[A-Z]/u.test(name)) rendered.add(name);
+      rendered.add(name || "<dynamic>");
+    } else if (literalString(component)) {
+      rendered.add(literalString(component));
+    } else {
+      rendered.add("<dynamic>");
     }
   });
   return rendered;
@@ -303,6 +311,36 @@ function isRawClientTarget(target) {
     || /(?:^|\/)supabaseClient$/u.test(target);
 }
 
+function isComponentBoundaryTarget(target) {
+  return target.startsWith("src/components/")
+    || target === "src/appState/appRuntimeSurfaces";
+}
+
+function moduleReachesComponentBoundary(repoRoot, importer, specifier, cache) {
+  const target = normalizedTarget(importer, specifier);
+  if (isComponentBoundaryTarget(target)) return true;
+  const relativePath = localModulePath(repoRoot, importer, specifier);
+  if (!relativePath) return false;
+  if (cache.has(relativePath)) return cache.get(relativePath);
+  cache.set(relativePath, false);
+  const ast = parseModule(
+    readFileSync(path.join(repoRoot, relativePath), "utf8"),
+    relativePath
+  );
+  const dependencies = ast.body.flatMap(node => {
+    if (node.type === "ImportDeclaration") return [node.source.value];
+    if (["ExportNamedDeclaration", "ExportAllDeclaration"].includes(node.type) && node.source) {
+      return [node.source.value];
+    }
+    return [];
+  });
+  const reachesBoundary = dependencies.some(dependency => (
+    moduleReachesComponentBoundary(repoRoot, relativePath, dependency, cache)
+  ));
+  cache.set(relativePath, reachesBoundary);
+  return reachesBoundary;
+}
+
 function rawClientReexports(repoRoot, relativePath, cache) {
   if (cache.has(relativePath)) return cache.get(relativePath);
   const rawExports = new Set();
@@ -311,11 +349,30 @@ function rawClientReexports(repoRoot, relativePath, cache) {
   if (!existsSync(absolutePath)) return rawExports;
   const ast = parseModule(readFileSync(absolutePath, "utf8"), relativePath);
   const imports = staticImports(ast);
-  const rawImportedLocals = new Set();
+  const taintedValues = new Set();
+  const taintedObjectProperties = new Map();
+
+  const addTaintedValue = name => {
+    const previousSize = taintedValues.size;
+    taintedValues.add(name);
+    return taintedValues.size !== previousSize;
+  };
+  const addTaintedProperties = (name, properties) => {
+    if (!properties || properties.size === 0) return false;
+    const existing = taintedObjectProperties.get(name) || new Set();
+    const previousSize = existing.size;
+    for (const property of properties) existing.add(property);
+    taintedObjectProperties.set(name, existing);
+    return existing.size !== previousSize;
+  };
+
   for (const entry of imports) {
     const target = normalizedTarget(relativePath, entry.specifier);
     if (isRawClientTarget(target)) {
-      for (const binding of entry.bindings) rawImportedLocals.add(binding.local);
+      for (const binding of entry.bindings) {
+        addTaintedValue(binding.local);
+        if (binding.imported === "*") addTaintedProperties(binding.local, new Set(["*"]));
+      }
       continue;
     }
     const nestedPath = localModulePath(repoRoot, relativePath, entry.specifier);
@@ -326,38 +383,133 @@ function rawClientReexports(repoRoot, relativePath, cache) {
         nestedRaw.has("*")
         || nestedRaw.has(binding.imported)
         || (binding.imported === "*" && nestedRaw.size > 0)
-      ) rawImportedLocals.add(binding.local);
+      ) addTaintedValue(binding.local);
+      if (binding.imported === "*" && nestedRaw.size > 0) {
+        addTaintedProperties(binding.local, nestedRaw);
+      }
     }
   }
+
+  const expressionIsTainted = node => {
+    if (!node) return false;
+    if (node.type === "Identifier") return taintedValues.has(node.name);
+    if (node.type === "ChainExpression") return expressionIsTainted(node.expression);
+    if (node.type === "MemberExpression") {
+      if (node.object?.type === "Identifier") {
+        const properties = taintedObjectProperties.get(node.object.name);
+        if (properties) {
+          const member = propertyName(node);
+          return properties.has("*") || properties.has(member);
+        }
+        return taintedValues.has(node.object.name);
+      }
+      return expressionIsTainted(node.object);
+    }
+    if (node.type === "ObjectExpression") {
+      return node.properties.some(property => (
+        property.type === "SpreadElement"
+          ? expressionIsTainted(property.argument)
+          : expressionIsTainted(property.value)
+      ));
+    }
+    return false;
+  };
+
+  const objectPropertiesForExpression = node => {
+    if (!node) return new Set();
+    if (node.type === "Identifier") {
+      return new Set(taintedObjectProperties.get(node.name) || []);
+    }
+    if (node.type !== "ObjectExpression") return new Set();
+    const properties = new Set();
+    for (const property of node.properties) {
+      if (property.type === "SpreadElement") {
+        if (expressionIsTainted(property.argument)) properties.add("*");
+      } else if (expressionIsTainted(property.value)) {
+        properties.add(objectPropertyName(property));
+      }
+    }
+    return properties;
+  };
+
+  const taintPattern = (pattern, properties = new Set(["*"])) => {
+    let changed = false;
+    if (pattern?.type === "Identifier") return addTaintedValue(pattern.name);
+    if (pattern?.type === "AssignmentPattern") return taintPattern(pattern.left, properties);
+    if (pattern?.type === "RestElement") return taintPattern(pattern.argument, properties);
+    if (pattern?.type !== "ObjectPattern") return false;
+    for (const property of pattern.properties) {
+      if (property.type === "RestElement") {
+        changed = taintPattern(property.argument, properties) || changed;
+        continue;
+      }
+      const key = objectPropertyName(property);
+      if (properties.has("*") || properties.has(key)) {
+        changed = taintPattern(property.value) || changed;
+      }
+    }
+    return changed;
+  };
+
+  const declarators = ast.body.flatMap(node => {
+    const declaration = node.type === "VariableDeclaration"
+      ? node
+      : node.type === "ExportNamedDeclaration" && node.declaration?.type === "VariableDeclaration"
+        ? node.declaration
+        : null;
+    return declaration?.declarations || [];
+  });
 
   let addedAlias = true;
   while (addedAlias) {
     addedAlias = false;
-    walk(ast, node => {
-      if (
-        node.type !== "VariableDeclarator"
-        || node.id?.type !== "Identifier"
-        || node.init?.type !== "Identifier"
-        || !rawImportedLocals.has(node.init.name)
-        || rawImportedLocals.has(node.id.name)
-      ) return;
-      rawImportedLocals.add(node.id.name);
-      addedAlias = true;
-    });
+    for (const declarator of declarators) {
+      if (declarator.id?.type === "Identifier") {
+        if (expressionIsTainted(declarator.init)) {
+          addedAlias = addTaintedValue(declarator.id.name) || addedAlias;
+        }
+        addedAlias = addTaintedProperties(
+          declarator.id.name,
+          objectPropertiesForExpression(declarator.init)
+        ) || addedAlias;
+      } else if (declarator.id?.type === "ObjectPattern") {
+        const properties = objectPropertiesForExpression(declarator.init);
+        if (properties.size > 0 || expressionIsTainted(declarator.init)) {
+          addedAlias = taintPattern(
+            declarator.id,
+            properties.size > 0 ? properties : new Set(["*"])
+          ) || addedAlias;
+        }
+      }
+    }
   }
 
   const directlyReturnsRawClient = node => {
     if (!node) return false;
     if (
       node.type === "ArrowFunctionExpression"
-      && node.body.type === "Identifier"
-      && rawImportedLocals.has(node.body.name)
+      && expressionIsTainted(node.body)
     ) return true;
     return nodeContains(node.body, child => (
       child.type === "ReturnStatement"
-      && child.argument?.type === "Identifier"
-      && rawImportedLocals.has(child.argument.name)
+      && expressionIsTainted(child.argument)
     ));
+  };
+
+  const bindingNames = pattern => {
+    if (!pattern) return [];
+    if (pattern.type === "Identifier") return [pattern.name];
+    if (pattern.type === "AssignmentPattern") return bindingNames(pattern.left);
+    if (pattern.type === "RestElement") return bindingNames(pattern.argument);
+    if (pattern.type === "ObjectPattern") {
+      return pattern.properties.flatMap(property => (
+        bindingNames(property.type === "RestElement" ? property.argument : property.value)
+      ));
+    }
+    if (pattern.type === "ArrayPattern") {
+      return pattern.elements.flatMap(element => bindingNames(element));
+    }
+    return [];
   };
 
   for (const node of ast.body) {
@@ -377,7 +529,7 @@ function rawClientReexports(repoRoot, relativePath, cache) {
     }
     if (node.type === "ExportDefaultDeclaration") {
       if (
-        (node.declaration.type === "Identifier" && rawImportedLocals.has(node.declaration.name))
+        expressionIsTainted(node.declaration)
         || directlyReturnsRawClient(node.declaration)
       ) rawExports.add("default");
       continue;
@@ -385,13 +537,11 @@ function rawClientReexports(repoRoot, relativePath, cache) {
     if (node.type !== "ExportNamedDeclaration") continue;
     if (node.declaration?.type === "VariableDeclaration") {
       for (const declarator of node.declaration.declarations) {
-        if (
-          declarator.id?.type === "Identifier"
-          && (
-            rawImportedLocals.has(declarator.id.name)
-            || directlyReturnsRawClient(declarator.init)
-          )
-        ) rawExports.add(declarator.id.name);
+        for (const name of bindingNames(declarator.id)) {
+          if (taintedValues.has(name) || directlyReturnsRawClient(declarator.init)) {
+            rawExports.add(name);
+          }
+        }
       }
     } else if (
       node.declaration?.type === "FunctionDeclaration"
@@ -416,7 +566,7 @@ function rawClientReexports(repoRoot, relativePath, cache) {
       }
     } else {
       for (const specifier of node.specifiers) {
-        if (rawImportedLocals.has(specifier.local.name)) {
+        if (taintedValues.has(specifier.local.name)) {
           rawExports.add(specifier.exported.name);
         }
       }
@@ -448,16 +598,16 @@ function checkAppOwnership(repoRoot, modules, errors) {
   if (!module) return;
   const { ast, relativePath } = module;
   const imports = staticImports(ast);
-  if (!importBinding(
+  const controllerBinding = importBinding(
     imports,
     relativePath,
     "src/appState/useAppSessionController",
     "useAppSessionController"
-  )) {
+  );
+  if (!controllerBinding) {
     errors.push("App.jsx must import useAppSessionController from ./appState/useAppSessionController.js.");
-  }
-  if (!callsNamed(ast, "useAppSessionController")) {
-    errors.push("App.jsx must call useAppSessionController so session/runtime state remains delegated to the controller.");
+  } else if (!callsNamed(ast, controllerBinding)) {
+    errors.push(`App.jsx must call useAppSessionController through its imported binding (${controllerBinding}) so session/runtime state remains delegated to the controller.`);
   }
 
   const facadeBinding = importBinding(
@@ -629,19 +779,23 @@ function checkAppPagesOwnership(modules, errors) {
   }
 }
 
-function checkControllerOwnership(modules, errors) {
+function checkControllerOwnership(repoRoot, modules, errors) {
   const module = modules.controller;
   if (!module) return;
   const { ast, relativePath } = module;
   const imports = staticImports(ast);
-  const componentImports = imports.filter(entry => {
-    const target = normalizedTarget(relativePath, entry.specifier);
-    return target.startsWith("src/components/")
-      || target === "src/appState/appRuntimeSurfaces";
-  });
+  const componentReachabilityCache = new Map();
+  const componentImports = imports.filter(entry => (
+    moduleReachesComponentBoundary(
+      repoRoot,
+      relativePath,
+      entry.specifier,
+      componentReachabilityCache
+    )
+  ));
   if (componentImports.length > 0) {
     errors.push(
-      `useAppSessionController.js must not import component modules or the runtime-surface component facade. Offending import(s): ${componentImports.map(entry => entry.specifier).join(", ")}.`
+      `useAppSessionController.js must not import component modules or transitively reach component or runtime-surface code. Offending import(s): ${componentImports.map(entry => entry.specifier).join(", ")}.`
     );
   }
   const rendered = renderedComponentNames(ast, imports);
@@ -657,7 +811,7 @@ export function checkAppDecomposition(repoRoot) {
   checkRuntimeFacade(modules, errors);
   checkAppSurfaceOwnership(modules, errors);
   checkAppPagesOwnership(modules, errors);
-  checkControllerOwnership(modules, errors);
+  checkControllerOwnership(repoRoot, modules, errors);
   return {
     ok: errors.length === 0,
     errors,
