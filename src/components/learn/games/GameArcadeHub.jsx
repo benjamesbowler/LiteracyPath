@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { filterSample } from "../../../policy/freeTierContent.js";
 import { worldForDifficulty, worldStyle } from "../../../utils/palWorlds.js";
@@ -45,7 +45,7 @@ function readStudentToken() {
   }
 }
 
-function Leaderboard({ refreshSignal }) {
+function Leaderboard({ client, onStatusChange, refreshSignal }) {
   // The token is only a credential. The database derives class/school scope
   // from the live session and returns irreversible pseudonyms, never names.
   const token = readStudentToken();
@@ -56,7 +56,7 @@ function Leaderboard({ refreshSignal }) {
   useEffect(() => {
     let cancelled = false;
     if (!token) return undefined;
-    supabase
+    client
       .call("get_game_leaderboard", { p_limit: 5, p_student_token: token })
       .then(({ data, error }) => {
         if (cancelled) return;
@@ -66,7 +66,7 @@ function Leaderboard({ refreshSignal }) {
         }
         setFailed(false);
         setScope(data.scope === "school" ? "school" : "class");
-        setRows(data.rows.filter(row => (row.total_points || 0) > 0));
+        setRows(data.rows.filter(row => (row.total_points || 0) > 0).slice(0, 5));
       })
       .catch(() => {
         if (!cancelled) setFailed(true);
@@ -74,46 +74,61 @@ function Leaderboard({ refreshSignal }) {
     return () => {
       cancelled = true;
     };
-  }, [refreshSignal, token]);
+  }, [client, refreshSignal, token]);
+
+  useEffect(() => {
+    if (failed) {
+      onStatusChange("failure", 0);
+    } else if (!rows) {
+      onStatusChange("loading", 0);
+    } else if (rows.length === 0) {
+      onStatusChange("empty", 0);
+    } else {
+      onStatusChange("success", rows.length);
+    }
+  }, [failed, onStatusChange, rows]);
 
   const privacyText = `Nickname-only scores stay in your ${scope}.`;
 
   if (failed) {
     return (
-      <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
+      <>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <p className="lg-leaderboard-privacy">{privacyText}</p>
         <p className="lg-leaderboard-empty">High scores are taking a break — try again in a little while.</p>
-      </div>
+      </>
     );
   }
 
   if (!rows) {
     return (
-      <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
+      <>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <p className="lg-leaderboard-privacy">{privacyText}</p>
         <p className="lg-leaderboard-empty">Loading high scores…</p>
-      </div>
+      </>
     );
   }
 
   if (rows.length === 0) {
     return (
-      <div className="lg-leaderboard" aria-label="High scores">
-        <div className="lg-leaderboard-head"><h2>Top Readers</h2><span>{privacyText}</span></div>
+      <>
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <p className="lg-leaderboard-privacy">{privacyText}</p>
         <p className="lg-leaderboard-empty">No high scores yet — play a game to get on the board!</p>
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="lg-leaderboard" aria-label="High scores">
+    <>
       <div className="lg-leaderboard-head">
         <h2>Top Readers</h2>
         <span>Points from every game count. {privacyText}</span>
       </div>
-      <ol className="lg-leaderboard-list">
+      <ol className="lg-leaderboard-list" role="list" aria-label="High scores ranking">
         {rows.map((row, index) => (
-          <li key={`${row.student_name}-${index}`} className={index === 0 ? "first" : ""}>
+          <li role="listitem" key={`${row.student_name}-${index}`} className={index === 0 ? "first" : ""}>
             <span className="lg-leaderboard-rank" aria-hidden="true">{index + 1}</span>
             <span className="lg-leaderboard-who">
               <strong>{row.student_name}</strong>
@@ -123,11 +138,12 @@ function Leaderboard({ refreshSignal }) {
           </li>
         ))}
       </ol>
-    </div>
+    </>
   );
 }
 
 export function GameArcadeHub({
+  leaderboardClient = supabase,
   progressScopeKey = "default",
   lockedGameId = null,
   onLockedGameAvailabilityChange = null
@@ -156,6 +172,25 @@ export function GameArcadeHub({
   });
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [leaderboardStatus, setLeaderboardStatus] = useState({ state: "hidden", count: 0 });
+  const leaderboardCloseRef = useRef(null);
+  const leaderboardTriggerRef = useRef(null);
+
+  const handleLeaderboardStatus = useCallback((state, count) => {
+    setLeaderboardStatus({ state, count });
+  }, []);
+
+  const closeLeaderboard = useCallback(() => {
+    setShowLeaderboard(false);
+    setLeaderboardStatus({ state: "hidden", count: 0 });
+    window.requestAnimationFrame(() => leaderboardTriggerRef.current?.focus());
+  }, []);
+
+  useEffect(() => {
+    if (!showLeaderboard) return undefined;
+    const frame = window.requestAnimationFrame(() => leaderboardCloseRef.current?.focus());
+    return () => window.cancelAnimationFrame(frame);
+  }, [showLeaderboard]);
 
   useEffect(() => {
     function handleHydrated(event) {
@@ -210,6 +245,15 @@ export function GameArcadeHub({
   const displayedActiveGame = exactGameLock
     ? activeGame?.id === lockedGame?.id ? lockedGame : null
     : activeGame;
+  const leaderboardAnnouncement = leaderboardStatus.state === "loading"
+    ? "Loading high scores."
+    : leaderboardStatus.state === "success"
+      ? `High scores shown. ${leaderboardStatus.count} scores loaded.`
+      : leaderboardStatus.state === "empty"
+        ? "High scores shown. No scores yet."
+        : leaderboardStatus.state === "failure"
+          ? "High scores could not load. Try again later."
+          : "High scores are hidden.";
 
   if (exactGameLock && !lockedGame) {
     return (
@@ -359,17 +403,61 @@ export function GameArcadeHub({
         <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
         <span className="lg-arcade-played">{totals.completed} of {arcadeGames().length} games played</span>
         <button
+          ref={leaderboardTriggerRef}
           type="button"
           className="lg-arcade-highscores"
           aria-expanded={showLeaderboard}
-          onClick={() => setShowLeaderboard(value => !value)}
+          aria-controls="lg-arcade-high-scores"
+          onClick={() => {
+            if (showLeaderboard) {
+              closeLeaderboard();
+              return;
+            }
+            setLeaderboardStatus({ state: "loading", count: 0 });
+            setShowLeaderboard(true);
+          }}
         >
           {showLeaderboard ? "Hide High Scores" : "High Scores"}
         </button>
       </div>}
 
-      {!exactGameLock && showLeaderboard && (
-        <Leaderboard refreshSignal={leaderboardRefresh} />
+      {!exactGameLock && (
+        <section
+          id="lg-arcade-high-scores"
+          className="lg-leaderboard lg-highscores-region"
+          role="region"
+          aria-label="High scores"
+          aria-busy={showLeaderboard && leaderboardStatus.state === "loading" ? "true" : undefined}
+          hidden={!showLeaderboard}
+        >
+          <button
+            ref={leaderboardCloseRef}
+            type="button"
+            className="lg-leaderboard-close"
+            onClick={closeLeaderboard}
+          >
+            Close High Scores
+          </button>
+          {showLeaderboard && (
+            <Leaderboard
+              client={leaderboardClient}
+              onStatusChange={handleLeaderboardStatus}
+              refreshSignal={leaderboardRefresh}
+            />
+          )}
+        </section>
+      )}
+
+      {!exactGameLock && (
+        <p
+          className="lg-sr-only"
+          role="status"
+          aria-label="High scores status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {leaderboardAnnouncement}
+        </p>
       )}
 
       {displayedActiveGame && (

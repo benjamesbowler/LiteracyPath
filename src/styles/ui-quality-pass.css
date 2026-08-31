@@ -891,6 +891,12 @@
     min-height: 132px;
   }
 
+  .kg-stage .student-surface-arcade .lg-highscores-region {
+    position: static;
+    width: 100%;
+    max-height: none;
+  }
+
   /* Phonics */
   .kg-stage .student-surface-phonics,
   .kg-stage .student-surface-phonics .phonics-learn-page,

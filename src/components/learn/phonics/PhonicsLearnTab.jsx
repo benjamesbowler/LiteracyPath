@@ -64,6 +64,7 @@ function IslandLockIcon() {
 export function PhonicsLearnTab({
   initialIsland = "",
   initialStep = 1,
+  leaderboardClient,
   lockedToLetters = false,
   lockedGameId = null,
   onLockedGameAvailabilityChange = null,
@@ -173,6 +174,7 @@ export function PhonicsLearnTab({
       <div className="phonics-arcade-surface">
         <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
           <GameArcadeHub
+            leaderboardClient={leaderboardClient}
             lockedGameId={lockedGameId}
             onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}
             progressScopeKey={progressScopeKey}
