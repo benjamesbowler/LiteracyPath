@@ -5,13 +5,16 @@ import "./index.css";
 import "./App.css";
 import "./styles/student-vibrant.css";
 import "./styles/sage-subpages.css";
+import "./styles/student-sessions.css";
 import { AssessmentPage } from "./components/AppPages.jsx";
+import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
 import { refillAssessmentRoundAfterMediaFailure } from "./policy/assessmentMediaEvidence.js";
 import { importV3Bank } from "./data/v3/v3Registry.js";
 
 const BROKEN_SOURCE = "/images/assessment/does-not-exist-a3-10.webp";
 const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const IS_COMPACT_VISUAL_GRID = PREVIEW_PARAMS.get("scenario") === "compact-visual-grid";
+const IS_LOCKED_ASSESSMENT = PREVIEW_PARAMS.get("locked") === "1";
 const REQUESTED_SKILL = PREVIEW_PARAMS.get("skill") || "";
 const REQUESTED_ITEM_ID = PREVIEW_PARAMS.get("item") || "";
 
@@ -212,6 +215,13 @@ export function AssessmentMediaEvidencePreview({ inspectedQuestion = null }) {
           : []}
         onChangeSkillLevel={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? () => {} : null}
         onEvidenceImageError={IS_COMPACT_VISUAL_GRID || inspectedQuestion ? null : handleEvidenceImageError}
+        independentAssessment={IS_LOCKED_ASSESSMENT}
+        sessionNotice={IS_LOCKED_ASSESSMENT ? (
+          <StudentSessionNotice
+            placement="inline"
+            session={{ target: "skills_assessment" }}
+          />
+        ) : null}
       />
     </div>
   );

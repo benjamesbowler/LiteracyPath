@@ -2659,7 +2659,8 @@ export function AssessmentPage({
   studentId = "",
   studentSessionToken = "",
   supabase = null,
-  independentAssessment = false
+  independentAssessment = false,
+  sessionNotice = null
 }) {
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
@@ -2774,6 +2775,8 @@ export function AssessmentPage({
         </div>
       </div>
 
+      {sessionNotice}
+
       <div className="assessment-topbar-actions">
         {/* The level picker used to live on a separate screen the teacher had to
             back out to. It belongs where the check is: choosing a level here
@@ -2882,6 +2885,7 @@ export function AssessmentPage({
   if (shouldShowAssessmentLoadingState) {
     return (
       <main className={assessmentShellClassName}>
+        {sessionNotice}
         {renderAssessmentLoadingCard({
           actionLabel: roundAnswers.length === 0
             ? independentAssessment ? "Start" : "Start Skill Round"
@@ -2917,6 +2921,7 @@ export function AssessmentPage({
 
     return (
       <main className={assessmentShellClassName}>
+        {sessionNotice}
         <div className="card assessment-card">
           <h2>This assessment needs a quick fix.</h2>
           <p>{independentAssessment

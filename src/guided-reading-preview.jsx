@@ -9,9 +9,13 @@ import "./styles/home-sage.css";
 import "./styles/sage-subpages.css";
 import "./styles/sage-soft.generated.css";
 import "./styles/sage-form.css";
+import "./styles/kids-glass.css";
 import "./styles/ui-quality-pass.css";
+import "./styles/student-sessions.css";
+import StudentGlassShell from "./components/StudentGlassShell.jsx";
 import { BookQuiz } from "./components/guided-reading/BookQuiz.jsx";
 import { GuidedReadingPage } from "./components/guided-reading/GuidedReadingPage.jsx";
+import { StudentSessionNotice } from "./components/student-sessions/StudentSessionNotice.jsx";
 import { guidedReadingBooks } from "./data/guidedReadingBooks.js";
 
 export function GuidedReadingPreview() {
@@ -48,20 +52,48 @@ export function GuidedReadingPreview() {
     );
   }
 
+  const reader = (
+    <GuidedReadingPage
+      guidedReadingRecords={records}
+      initialBookId={book.id}
+      mode="student"
+      sessionHost={staleGroupHost}
+      saveGuidedReadingRecord={(bookId, nextRecord) => {
+        setRecords(current => ({ ...current, [bookId]: nextRecord }));
+      }}
+      speakText={() => {}}
+      studentId="guided-reading-preview"
+      studentName="Preview Reader"
+    />
+  );
+
+  if (params.has("locked")) {
+    return (
+      <main className="app student-mode-app lp-skin-sage">
+        <StudentGlassShell
+          active="books"
+          headerActions={(
+            <StudentSessionNotice
+              placement="header"
+              session={{ target: "assigned_book" }}
+            />
+          )}
+          profileInteractive={false}
+          scopeKey="guided-reading-preview"
+          showGrownUps={false}
+          showWallet={false}
+          studentName="Preview Reader"
+          tabs={[]}
+        >
+          {reader}
+        </StudentGlassShell>
+      </main>
+    );
+  }
+
   return (
     <main className="app student-mode-app lp-skin-sage">
-      <GuidedReadingPage
-        guidedReadingRecords={records}
-        initialBookId={book.id}
-        mode="student"
-        sessionHost={staleGroupHost}
-        saveGuidedReadingRecord={(bookId, nextRecord) => {
-          setRecords(current => ({ ...current, [bookId]: nextRecord }));
-        }}
-        speakText={() => {}}
-        studentId="guided-reading-preview"
-        studentName="Preview Reader"
-      />
+      {reader}
     </main>
   );
 }

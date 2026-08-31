@@ -1001,6 +1001,12 @@ export function AppSurface({ surface }) {
   const studentFocusUnavailable = isStudentFocusLocked && activeStudentFocus.content_ok === false;
   const isIndependentSkillsAssessment = isStudentFocusLocked
     && activeStudentFocus.target === STUDENT_FOCUS_TARGETS.SKILLS_ASSESSMENT;
+  const studentFocusNoticeInChildHeader = isStudentFocusLocked
+    && [APP_VIEWS.GUIDED_READING, APP_VIEWS.PHONICS_LEARN].includes(appView)
+    && !studentFocusUnavailable;
+  const studentFocusNoticeInAssessment = isIndependentSkillsAssessment
+    && appView === APP_VIEWS.ASSESSMENT
+    && !studentFocusUnavailable;
 
   const openStudentSessionSetup = (initialStudentIds = []) => {
     setStudentSessionInitialIds(Array.isArray(initialStudentIds) ? initialStudentIds.filter(Boolean) : []);
@@ -1193,6 +1199,13 @@ export function AppSurface({ surface }) {
         showGrownUps={!isStudentFocusLocked}
         showWallet={!isStudentFocusLocked}
         tabs={isStudentFocusLocked ? [] : STUDENT_TAB_BAR}
+        headerActions={studentFocusNoticeInChildHeader ? (
+          <StudentSessionNotice
+            connection={studentFocus.connection}
+            placement="header"
+            session={activeStudentFocus}
+          />
+        ) : null}
         contentScrolls={contentScrolls}
       >
         {content}
@@ -1331,12 +1344,14 @@ export function AppSurface({ surface }) {
         </aside>
       )}
 
-      {isStudentFocusLocked && (
-        <StudentSessionNotice
-          connection={studentFocus.connection}
-          session={activeStudentFocus}
-        />
-      )}
+      {isStudentFocusLocked
+        && !studentFocusNoticeInChildHeader
+        && !studentFocusNoticeInAssessment && (
+          <StudentSessionNotice
+            connection={studentFocus.connection}
+            session={activeStudentFocus}
+          />
+        )}
 
       {isStudentMode && !isStudentFocusLocked && appView !== APP_VIEWS.STUDENT_HOME && (
         <button
@@ -1858,6 +1873,13 @@ export function AppSurface({ surface }) {
               onGrownUps={goStudentHome}
               focusLocked={isStudentFocusLocked}
               lockedBookId={assignedBookId}
+              headerActions={studentFocusNoticeInChildHeader ? (
+                <StudentSessionNotice
+                  connection={studentFocus.connection}
+                  placement="header"
+                  session={activeStudentFocus}
+                />
+              ) : null}
               onLockedBookAvailabilityChange={reportExactStudentFocusContent}
               onOpenStoryQuests={() => {
                 setStudentArcadeOpen(false);
@@ -2188,6 +2210,13 @@ export function AppSurface({ surface }) {
             studentSessionToken={sessionMode === "student" ? studentSession?.token || "" : ""}
             supabase={isSupabaseConfigured ? supabase : null}
             independentAssessment={isIndependentSkillsAssessment}
+            sessionNotice={studentFocusNoticeInAssessment ? (
+              <StudentSessionNotice
+                connection={studentFocus.connection}
+                placement="inline"
+                session={activeStudentFocus}
+              />
+            ) : null}
           />
         </AssessmentErrorBoundary>
       )}

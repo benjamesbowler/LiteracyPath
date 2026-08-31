@@ -161,6 +161,7 @@ export function StudentBooksPage({
   onNavigate,
   onHome,
   onGrownUps,
+  headerActions = null,
   onOpenStoryQuests,
   // The real reader, handed in by the router so this screen never decides how
   // the guided-reading page is shelled. `onExit` brings the child back HERE,
@@ -332,6 +333,7 @@ export function StudentBooksPage({
         showGrownUps={!focusLocked}
         showWallet={!focusLocked}
         tabs={focusLocked ? [] : undefined}
+        headerActions={headerActions}
       >
         <div
           className="kg-screen kg-books kg-books-empty"
@@ -375,6 +377,7 @@ export function StudentBooksPage({
       showGrownUps={!focusLocked}
       showWallet={!focusLocked}
       tabs={focusLocked ? [] : undefined}
+      headerActions={headerActions}
     >
       <div
         className="kg-screen kg-books"

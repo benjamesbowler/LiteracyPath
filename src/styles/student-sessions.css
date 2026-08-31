@@ -437,6 +437,34 @@
   white-space: nowrap;
 }
 
+/* Focused child surfaces already own dedicated, non-interactive chrome. Keep
+   the teacher's activity notice in that layout instead of floating it over
+   reader, game, or assessment controls on classroom iPads. */
+.student-session-notice--header,
+.student-session-notice--inline {
+  position: static;
+  z-index: auto;
+  width: max-content;
+  max-width: min(420px, 100%);
+  padding-block: 6px;
+  box-shadow: none;
+  transform: none;
+}
+
+.student-session-notice--header {
+  flex: 0 1 420px;
+  margin-left: auto;
+}
+
+.student-session-notice--inline {
+  flex: 0 1 340px;
+  margin-left: auto;
+}
+
+.assessment-shell > .student-session-notice--inline {
+  align-self: flex-end;
+}
+
 .kg-stage .kg-profile:not(.kg-profile--interactive) {
   cursor: default;
 }

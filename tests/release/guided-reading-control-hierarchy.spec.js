@@ -39,6 +39,13 @@ function expectChildTargetsToFitViewport(controls, viewport) {
   }
 }
 
+function rectanglesOverlap(first, second) {
+  return first.left < second.right
+    && first.right > second.left
+    && first.top < second.bottom
+    && first.bottom > second.top;
+}
+
 test("A2.8 Guided Reading keeps the forward page action primary and groups audio and view controls", async ({ page }, testInfo) => {
   const pageErrors = [];
   page.on("pageerror", error => pageErrors.push(error.message));
@@ -133,6 +140,110 @@ test("child Guided Reading exposes meaningful art, one primary, and 56px targets
     }));
     expect(documentGeometry.scrollWidth).toBe(documentGeometry.clientWidth);
     expect(documentGeometry.scrollHeight).toBe(documentGeometry.clientHeight);
+  }
+});
+
+test("locked Guided Reading keeps the teacher notice in the child header and clear of iPad controls", async ({ page }) => {
+  const viewports = [
+    { height: 1024, width: 768 },
+    { height: 768, width: 1024 }
+  ];
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await page.goto("/preview/guided-reading-preview.html?book=level-c-nonfiction-01-bees&locked=1");
+    await page.evaluate(() => document.fonts.ready);
+
+    const header = page.locator(".kg-header");
+    const notice = header.locator(".student-session-notice--header");
+    const reader = page.getByRole("region", { name: /full-screen reader/ });
+    await expect(notice).toBeVisible();
+    await expect(notice).toContainText("One Guided Reading Book");
+    await expect(notice).toContainText("Your teacher has chosen this activity");
+
+    const geometry = await page.evaluate(() => {
+      const toRect = element => {
+        const rect = element.getBoundingClientRect();
+        return {
+          bottom: rect.bottom,
+          left: rect.left,
+          right: rect.right,
+          top: rect.top
+        };
+      };
+      const noticeElement = document.querySelector(".student-session-notice--header");
+      const headerElement = document.querySelector(".kg-header");
+      const controls = [
+        ...document.querySelectorAll(".guided-page-controls button:enabled, .guided-reader-actions button:enabled")
+      ].filter(element => {
+        const rect = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return rect.width > 0
+          && rect.height > 0
+          && style.display !== "none"
+          && style.visibility !== "hidden";
+      });
+      return {
+        header: toRect(headerElement),
+        notice: toRect(noticeElement),
+        noticePosition: getComputedStyle(noticeElement).position,
+        controls: controls.map(toRect)
+      };
+    });
+
+    expect(geometry.noticePosition).toBe("static");
+    expect(geometry.notice.top).toBeGreaterThanOrEqual(geometry.header.top - 0.5);
+    expect(geometry.notice.bottom).toBeLessThanOrEqual(geometry.header.bottom + 0.5);
+    expect(geometry.controls.length).toBeGreaterThan(0);
+    for (const control of geometry.controls) {
+      expect(rectanglesOverlap(geometry.notice, control)).toBe(false);
+    }
+    await expect(reader).toBeVisible();
+
+    await reader.getByRole("button", { name: "Full screen", exact: true }).click();
+    await expect(reader).toHaveClass(/fullscreen/);
+    const fullscreenStack = await page.evaluate(() => {
+      const noticeElement = document.querySelector(".student-session-notice--header");
+      const readerElement = document.querySelector(".guided-reader-shell.fullscreen");
+      const noticeRect = noticeElement.getBoundingClientRect();
+      const controlRegions = [
+        ...document.querySelectorAll(".guided-page-controls, .guided-read-aloud-controls")
+      ].map(element => element.getBoundingClientRect()).filter(rect => (
+        rect.width > 0 && rect.height > 0
+      ));
+      const overlappingRegions = controlRegions.filter(rect => (
+        noticeRect.left < rect.right
+        && noticeRect.right > rect.left
+        && noticeRect.top < rect.bottom
+        && noticeRect.bottom > rect.top
+      ));
+      const previousPointerEvents = noticeElement.style.pointerEvents;
+      noticeElement.style.pointerEvents = "auto";
+      const noticePaintsAboveControls = overlappingRegions.some(rect => {
+        const left = Math.max(noticeRect.left, rect.left);
+        const right = Math.min(noticeRect.right, rect.right);
+        const top = Math.max(noticeRect.top, rect.top);
+        const bottom = Math.min(noticeRect.bottom, rect.bottom);
+        const topElement = document.elementFromPoint(
+          left + ((right - left) / 2),
+          top + ((bottom - top) / 2)
+        );
+        return noticeElement === topElement || noticeElement.contains(topElement);
+      });
+      noticeElement.style.pointerEvents = previousPointerEvents;
+      return {
+        noticePaintsAboveControls,
+        overlappingRegionCount: overlappingRegions.length,
+        readerPosition: getComputedStyle(readerElement).position,
+        readerZIndex: getComputedStyle(readerElement).zIndex
+      };
+    });
+    expect(fullscreenStack.overlappingRegionCount).toBeGreaterThan(0);
+    expect(fullscreenStack.noticePaintsAboveControls).toBe(false);
+    expect(fullscreenStack.readerPosition).toBe("fixed");
+    expect(Number(fullscreenStack.readerZIndex)).toBeGreaterThan(0);
+    await reader.getByRole("button", { name: "Exit", exact: true }).click();
+    await expect(reader).not.toHaveClass(/fullscreen/);
   }
 });
 

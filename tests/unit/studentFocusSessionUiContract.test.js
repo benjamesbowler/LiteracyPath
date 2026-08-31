@@ -38,6 +38,10 @@ const sessionBar = fs.readFileSync(
   new URL("../../src/components/student-sessions/StudentSessionBar.jsx", import.meta.url),
   "utf8"
 );
+const sessionNotice = fs.readFileSync(
+  new URL("../../src/components/student-sessions/StudentSessionNotice.jsx", import.meta.url),
+  "utf8"
+);
 const sessionStyles = fs.readFileSync(
   new URL("../../src/styles/student-sessions.css", import.meta.url),
   "utf8"
@@ -107,4 +111,14 @@ test("student session setup stays compact and opens at the top", () => {
   assert.match(sessionStyles, /input\[type="checkbox"\][\s\S]*width: 18px[\s\S]*height: 18px/);
   assert.match(sessionStyles, /\.student-session-student-list strong\s*\{[\s\S]*font-size: 14px/);
   assert.doesNotMatch(sessionSetup, /data-autofocus/);
+});
+
+test("focused child activities place their session notices in non-overlapping surface chrome", () => {
+  assert.match(appSurface, /studentFocusNoticeInChildHeader/);
+  assert.match(appSurface, /placement="header"/);
+  assert.match(appSurface, /studentFocusNoticeInAssessment/);
+  assert.match(appSurface, /placement="inline"/);
+  assert.match(sessionNotice, /student-session-notice--\$\{placement\}/);
+  assert.match(sessionStyles, /\.student-session-notice--header,[\s\S]*position: static/);
+  assert.match(assessment, /\{sessionNotice\}[\s\S]*assessment-topbar-actions/);
 });

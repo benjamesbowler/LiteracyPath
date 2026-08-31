@@ -97,6 +97,54 @@ test("compact laptop assessment keeps every picture audio control visible", asyn
   });
 });
 
+test("locked skills assessment keeps the teacher notice inline and clear of iPad progress", async ({ page }) => {
+  const viewports = [
+    { height: 1024, width: 768 },
+    { height: 768, width: 1024 }
+  ];
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await page.goto("/preview/assessment-media-evidence.html?scenario=compact-visual-grid&locked=1");
+    await page.evaluate(() => document.fonts.ready);
+
+    const topbar = page.locator(".assessment-topbar");
+    const notice = topbar.locator(".student-session-notice--inline");
+    await expect(notice).toBeVisible();
+    await expect(notice).toContainText("Skills Assessment");
+    await expect(notice).toContainText("Your teacher has chosen this activity");
+
+    const geometry = await page.evaluate(() => {
+      const toRect = element => {
+        const rect = element.getBoundingClientRect();
+        return {
+          bottom: rect.bottom,
+          left: rect.left,
+          right: rect.right,
+          top: rect.top
+        };
+      };
+      const noticeElement = document.querySelector(".student-session-notice--inline");
+      const progressElement = document.querySelector(".assessment-progress");
+      const topbarElement = document.querySelector(".assessment-topbar");
+      return {
+        notice: toRect(noticeElement),
+        noticePosition: getComputedStyle(noticeElement).position,
+        progress: toRect(progressElement),
+        topbar: toRect(topbarElement)
+      };
+    });
+    const overlap = geometry.notice.left < geometry.progress.right
+      && geometry.notice.right > geometry.progress.left
+      && geometry.notice.top < geometry.progress.bottom
+      && geometry.notice.bottom > geometry.progress.top;
+    expect(geometry.noticePosition).toBe("static");
+    expect(geometry.notice.top).toBeGreaterThanOrEqual(geometry.topbar.top - 0.5);
+    expect(geometry.notice.bottom).toBeLessThanOrEqual(geometry.topbar.bottom + 0.5);
+    expect(overlap).toBe(false);
+  }
+});
+
 test("generated scene questions fit a compact laptop and load approved evidence", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 720 });
   const itemIds = [
