@@ -4,6 +4,7 @@ import { PhonicsLearnTab } from "./learn/phonics/PhonicsLearnTab";
 export function PhonicsLearnPage({
   initialIsland = "letters",
   initialStep = 1,
+  leaderboardAvailable = false,
   leaderboardClient,
   lockedToLetters = false,
   lockedGameId = null,
@@ -23,6 +24,7 @@ export function PhonicsLearnPage({
           key={`${progressScopeKey}-${resolvedInitialIsland}-${lockedToLetters ? "locked" : "open"}-${exactGameLock ? String(lockedGameId || "missing") : "all"}`}
           initialIsland={resolvedInitialIsland}
           initialStep={initialStep}
+          leaderboardAvailable={leaderboardAvailable}
           leaderboardClient={leaderboardClient}
           lockedToLetters={lockedToLetters}
           lockedGameId={lockedGameId}

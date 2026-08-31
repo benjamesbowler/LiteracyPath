@@ -143,6 +143,7 @@ function Leaderboard({ client, onStatusChange, refreshSignal }) {
 }
 
 export function GameArcadeHub({
+  leaderboardAvailable = false,
   leaderboardClient = supabase,
   progressScopeKey = "default",
   lockedGameId = null,
@@ -279,149 +280,153 @@ export function GameArcadeHub({
 
   return (
     <section className="lg-arcade lg-arcade-comic" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
-      {/* Slim top band with the 8-bit title + difficulty + sound */}
-      <div className="lg-arcade-topband">
-        <div>
-          <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">{exactGameLock ? "Your game" : "Arcade Area"}</h1>
-          {/* Eight words is the cap a child instruction has to clear
-              (tests/release/app-copy-standard.spec.js); this line was nine and
-              failed whenever the hub rendered before the copy scan read it.
-              Same meaning, one word under. Found while shipping phase D of the
-              kids-side redesign, 2026-07-29 — the Arcade's own redesign is
-              phase E and this is only the copy fix. */}
-          <p className="lg-arcade-instruction" data-child-instruction="">
-            {exactGameLock ? "Play the game your teacher chose." : "Pick a game. The next one is marked."}
-          </p>
-          {recommendedGame && (
-            <p className="lg-arcade-recommendation-reason">
-              <strong>Why this one?</strong>{" "}
-              <ChildRecommendationExplanation
-                surface="arcade"
-                reason={(getLearnGameProgress(progress, recommendedGame.id).stars || 0) > 0
-                  ? "You have played every game here, so this one is ready to replay."
-                  : "This is the next game here that you have not played yet."}
-              />
+      <div className="lg-arcade-scrollbody">
+        {/* Slim top band with the 8-bit title + difficulty + sound */}
+        <div className="lg-arcade-topband">
+          <div>
+            <h1 id="lg-arcade-title" className="lg-arcade-8bit" data-child-title="">{exactGameLock ? "Your game" : "Arcade Area"}</h1>
+            {/* Eight words is the cap a child instruction has to clear
+                (tests/release/app-copy-standard.spec.js); this line was nine and
+                failed whenever the hub rendered before the copy scan read it.
+                Same meaning, one word under. Found while shipping phase D of the
+                kids-side redesign, 2026-07-29 — the Arcade's own redesign is
+                phase E and this is only the copy fix. */}
+            <p className="lg-arcade-instruction" data-child-instruction="">
+              {exactGameLock ? "Play the game your teacher chose." : "Pick a game. The next one is marked."}
             </p>
-          )}
-        </div>
-        <div className="lg-arcade-topband-controls">
-          <div className="lg-segmented-control" aria-label="Difficulty">
-            {DIFFICULTIES.map(difficulty => (
-              <button
-                key={difficulty}
-                type="button"
-                className={progress.difficulty === difficulty ? "active" : ""}
-                aria-pressed={progress.difficulty === difficulty}
-                onClick={() => setDifficulty(difficulty)}
-              >
-                {difficulty}
-              </button>
-            ))}
-          </div>
-          <SoundToggle
-            enabled={progress.soundEnabled}
-            onToggle={() => setSoundEnabled(!progress.soundEnabled)}
-            showLabel
-          />
-          <MusicToggle
-            className="lg-sound-toggle lg-audio-toggle-labelled"
-            enabled={progress.musicEnabled}
-            onToggle={() => setMusicEnabled(!progress.musicEnabled)}
-            showLabel
-          />
-        </div>
-      </div>
-
-      {/* Tabs: the arcade line-up, and the phonics practice games */}
-      {!exactGameLock && <div className="lg-arcade-tabs" role="tablist" aria-label="Game sets">
-        {tabs.map(entry => (
-          <button
-            key={entry.id}
-            type="button"
-            role="tab"
-            id={`lg-arcade-tab-${entry.id}`}
-            aria-selected={tab === entry.id}
-            aria-controls="lg-arcade-tabpanel"
-            className={tab === entry.id ? "lg-arcade-tab active" : "lg-arcade-tab"}
-            onClick={() => setTab(entry.id)}
-          >
-            {entry.label}
-            <span className="lg-arcade-tab-count">{entry.games.length}</span>
-          </button>
-        ))}
-      </div>}
-
-      {/* Responsive tile grid: one authored image and a readable name per game. */}
-      <div
-        className="lg-game-tilegrid"
-        id="lg-arcade-tabpanel"
-        role={exactGameLock ? undefined : "tabpanel"}
-        aria-labelledby={exactGameLock ? undefined : `lg-arcade-tab-${tab}`}
-        data-child-choices=""
-        data-child-progress=""
-      >
-        {visibleGames.map(game => {
-          const gameProgress = getLearnGameProgress(progress, game.id);
-          const isRecommended = game.id === recommendedGame?.id;
-          return (
-            <button
-              key={game.id}
-              type="button"
-              className={`lg-game-tile${isRecommended ? " is-recommended" : ""}`}
-              style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
-              onClick={() => setActiveGame(game)}
-              data-child-primary={isRecommended ? "" : undefined}
-              data-child-emphasis={isRecommended ? "primary" : "choice"}
-            >
-              <span className="lg-game-tile-art" aria-hidden="true">
-                <img
-                  src={game.cardArt || `/images/learn-games/art/${game.id}.webp`}
-                  alt=""
-                  className={game.cardArt === game.icon ? "is-icon" : undefined}
-                  onError={event => {
-                    event.currentTarget.onerror = null;
-                    event.currentTarget.src = game.icon;
-                    event.currentTarget.classList.add("is-icon");
-                  }}
+            {recommendedGame && (
+              <p className="lg-arcade-recommendation-reason">
+                <strong>Why this one?</strong>{" "}
+                <ChildRecommendationExplanation
+                  surface="arcade"
+                  reason={(getLearnGameProgress(progress, recommendedGame.id).stars || 0) > 0
+                    ? "You have played every game here, so this one is ready to replay."
+                    : "This is the next game here that you have not played yet."}
                 />
-              </span>
-              <span className="lg-game-tile-name">{game.title}</span>
-              {isRecommended && (
-                <span className="lg-game-tile-next" data-child-emphasis-cue="">Play next</span>
-              )}
-              <span className="lg-game-tile-foot">
-                <ProgressStars stars={gameProgress.stars || 0} />
-                {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
-              </span>
+              </p>
+            )}
+          </div>
+          <div className="lg-arcade-topband-controls">
+            <div className="lg-segmented-control" aria-label="Difficulty">
+              {DIFFICULTIES.map(difficulty => (
+                <button
+                  key={difficulty}
+                  type="button"
+                  className={progress.difficulty === difficulty ? "active" : ""}
+                  aria-pressed={progress.difficulty === difficulty}
+                  onClick={() => setDifficulty(difficulty)}
+                >
+                  {difficulty}
+                </button>
+              ))}
+            </div>
+            <SoundToggle
+              enabled={progress.soundEnabled}
+              onToggle={() => setSoundEnabled(!progress.soundEnabled)}
+              showLabel
+            />
+            <MusicToggle
+              className="lg-sound-toggle lg-audio-toggle-labelled"
+              enabled={progress.musicEnabled}
+              onToggle={() => setMusicEnabled(!progress.musicEnabled)}
+              showLabel
+            />
+          </div>
+        </div>
+
+        {/* Tabs: the arcade line-up, and the phonics practice games */}
+        {!exactGameLock && <div className="lg-arcade-tabs" role="tablist" aria-label="Game sets">
+          {tabs.map(entry => (
+            <button
+              key={entry.id}
+              type="button"
+              role="tab"
+              id={`lg-arcade-tab-${entry.id}`}
+              aria-selected={tab === entry.id}
+              aria-controls="lg-arcade-tabpanel"
+              className={tab === entry.id ? "lg-arcade-tab active" : "lg-arcade-tab"}
+              onClick={() => setTab(entry.id)}
+            >
+              {entry.label}
+              <span className="lg-arcade-tab-count">{entry.games.length}</span>
             </button>
-          );
-        })}
+          ))}
+        </div>}
+
+        {/* Responsive tile grid: one authored image and a readable name per game. */}
+        <div
+          className="lg-game-tilegrid"
+          id="lg-arcade-tabpanel"
+          role={exactGameLock ? undefined : "tabpanel"}
+          aria-labelledby={exactGameLock ? undefined : `lg-arcade-tab-${tab}`}
+          data-child-choices=""
+          data-child-progress=""
+        >
+          {visibleGames.map(game => {
+            const gameProgress = getLearnGameProgress(progress, game.id);
+            const isRecommended = game.id === recommendedGame?.id;
+            return (
+              <button
+                key={game.id}
+                type="button"
+                className={`lg-game-tile${isRecommended ? " is-recommended" : ""}`}
+                style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
+                onClick={() => setActiveGame(game)}
+                data-child-primary={isRecommended ? "" : undefined}
+                data-child-emphasis={isRecommended ? "primary" : "choice"}
+              >
+                <span className="lg-game-tile-art" aria-hidden="true">
+                  <img
+                    src={game.cardArt || `/images/learn-games/art/${game.id}.webp`}
+                    alt=""
+                    className={game.cardArt === game.icon ? "is-icon" : undefined}
+                    onError={event => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = game.icon;
+                      event.currentTarget.classList.add("is-icon");
+                    }}
+                  />
+                </span>
+                <span className="lg-game-tile-name">{game.title}</span>
+                {isRecommended && (
+                  <span className="lg-game-tile-next" data-child-emphasis-cue="">Play next</span>
+                )}
+                <span className="lg-game-tile-foot">
+                  <ProgressStars stars={gameProgress.stars || 0} />
+                  {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Slim bottom banner: points + high-score board */}
       {!exactGameLock && <div className="lg-arcade-bottomband" data-child-progress="">
         <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
         <span className="lg-arcade-played">{totals.completed} of {arcadeGames().length} games played</span>
-        <button
-          ref={leaderboardTriggerRef}
-          type="button"
-          className="lg-arcade-highscores"
-          aria-expanded={showLeaderboard}
-          aria-controls="lg-arcade-high-scores"
-          onClick={() => {
-            if (showLeaderboard) {
-              closeLeaderboard();
-              return;
-            }
-            setLeaderboardStatus({ state: "loading", count: 0 });
-            setShowLeaderboard(true);
-          }}
-        >
-          {showLeaderboard ? "Hide High Scores" : "High Scores"}
-        </button>
+        {leaderboardAvailable && (
+          <button
+            ref={leaderboardTriggerRef}
+            type="button"
+            className="lg-arcade-highscores"
+            aria-expanded={showLeaderboard}
+            aria-controls="lg-arcade-high-scores"
+            onClick={() => {
+              if (showLeaderboard) {
+                closeLeaderboard();
+                return;
+              }
+              setLeaderboardStatus({ state: "loading", count: 0 });
+              setShowLeaderboard(true);
+            }}
+          >
+            {showLeaderboard ? "Hide High Scores" : "High Scores"}
+          </button>
+        )}
       </div>}
 
-      {!exactGameLock && (
+      {!exactGameLock && leaderboardAvailable && (
         <section
           id="lg-arcade-high-scores"
           className="lg-leaderboard lg-highscores-region"
@@ -448,7 +453,7 @@ export function GameArcadeHub({
         </section>
       )}
 
-      {!exactGameLock && (
+      {!exactGameLock && leaderboardAvailable && (
         <p
           className="lg-sr-only"
           role="status"

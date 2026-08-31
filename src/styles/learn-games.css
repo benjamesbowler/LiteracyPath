@@ -35,6 +35,12 @@
   gap: 20px;
 }
 
+/* The wrapper becomes the bounded Arcade scroller only in short landscape.
+   Everywhere else its children retain the established flex/grid layout. */
+.lg-arcade-scrollbody {
+  display: contents;
+}
+
 .lg-arcade-title-block {
   display: flex;
   align-items: stretch;

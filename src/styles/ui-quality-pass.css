@@ -1285,6 +1285,86 @@
     display: none;
   }
 
+  /* Arcade keeps its secondary progress/High Scores band in the child pane.
+     The catalogue above it owns the deliberate internal scroll, while the
+     global .kg-main and tab bar remain fixed. */
+  .kg-stage .student-surface-arcade,
+  .kg-stage .student-surface-arcade .phonics-learn-page,
+  .kg-stage .student-surface-arcade .phonics-tab-shell,
+  .kg-stage .student-surface-arcade .phonics-arcade-surface,
+  .kg-stage .student-surface-arcade .lg-arcade,
+  .kg-stage .student-surface-arcade .lg-arcade-comic {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade,
+  .kg-stage .student-surface-arcade .lg-arcade-comic {
+    position: relative;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+    grid-auto-rows: auto;
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-scrollbody {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 6px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-topband {
+    flex: none;
+    gap: 6px;
+    padding: 6px 10px;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-topband-controls {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile {
+    height: 112px;
+    min-height: 112px !important;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile-art {
+    min-height: 64px;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-bottomband {
+    height: var(--kg-physical-hit);
+    min-height: var(--kg-physical-hit) !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-highscores {
+    border-color: #FFD84D;
+    background: #0B0D1C;
+    color: #FFD84D;
+  }
+
+  .kg-stage .student-surface-arcade .lg-highscores-region {
+    position: absolute;
+    inset: 6px 8px;
+    z-index: 45;
+    width: auto;
+    max-height: none;
+    overflow: auto;
+  }
+
   .kg-stage .kg-screen,
   .kg-stage .kg-screen--home {
     padding: 6px;

@@ -41,7 +41,11 @@ const PREVIEW_PARAMS = new URLSearchParams(window.location.search);
 const SURFACE_ID = PREVIEW_PARAMS.get("surface") || "student-home";
 const PREVIEW_SCOPE = "child-surface-preview";
 const LOCKED_ADVENTURE_CYCLE = PREVIEW_PARAMS.get("lockedCycle");
-const PREVIEW_LEADERBOARD_MODE = PREVIEW_PARAMS.get("leaderboard") || "";
+const PREVIEW_LEADERBOARD_TOKEN = "preview-leaderboard-token";
+const PREVIEW_LEADERBOARD_MODE = PREVIEW_PARAMS.get("leaderboard")
+  || (SURFACE_ID === "arcade" ? "populated" : "");
+const PREVIEW_LEADERBOARD_AVAILABLE = ["populated", "empty", "failure"]
+  .includes(PREVIEW_LEADERBOARD_MODE);
 const PREVIEW_LEADERBOARD_ROWS = Object.freeze([
   Object.freeze({ student_name: "Reader Pine", total_points: 980 }),
   Object.freeze({ student_name: "Reader Otter", total_points: 860 }),
@@ -51,13 +55,13 @@ const PREVIEW_LEADERBOARD_ROWS = Object.freeze([
   Object.freeze({ student_name: "Reader Moss", total_points: 380 })
 ]);
 
-const previewLeaderboardClient = PREVIEW_LEADERBOARD_MODE ? {
+const previewLeaderboardClient = PREVIEW_LEADERBOARD_AVAILABLE ? {
   async call(operation, payload) {
     await new Promise(resolve => window.setTimeout(resolve, 500));
     if (
       operation !== "get_game_leaderboard"
       || payload?.p_limit !== 5
-      || payload?.p_student_token !== "preview-leaderboard-token"
+      || payload?.p_student_token !== PREVIEW_LEADERBOARD_TOKEN
     ) {
       return { data: null, error: new Error("Preview leaderboard request rejected") };
     }
@@ -75,6 +79,19 @@ const previewLeaderboardClient = PREVIEW_LEADERBOARD_MODE ? {
 } : undefined;
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
+// The canonical Arcade preview models a signed-in school child. Its synthetic
+// token is accepted only by the injected preview client above, so previews and
+// device screenshots never reach the production leaderboard RPC.
+if (SURFACE_ID === "arcade") {
+  if (PREVIEW_LEADERBOARD_AVAILABLE) {
+    window.localStorage.setItem(
+      "lp-student-session-v1",
+      JSON.stringify({ token: PREVIEW_LEADERBOARD_TOKEN })
+    );
+  } else {
+    window.localStorage.removeItem("lp-student-session-v1");
+  }
+}
 window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("phonics", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
@@ -188,7 +205,7 @@ function Surface() {
     case "phonics":
       return <PreviewShell active="phonics"><div className="student-surface-frame student-surface-phonics"><PhonicsLearnPage initialIsland={PREVIEW_PARAMS.get("island") || "letters"} initialStep={Number(PREVIEW_PARAMS.get("step")) || 1} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "arcade":
-      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" leaderboardClient={previewLeaderboardClient} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" leaderboardAvailable={PREVIEW_LEADERBOARD_AVAILABLE} leaderboardClient={previewLeaderboardClient} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     // Both of these are the phase-C front doors now, which is what a child
     // actually lands on; the mode each one launches is handed in exactly as the
     // router hands it in, so the preview and the app agree.

@@ -69,7 +69,10 @@ close, and focus restoration using the deterministic audit school.
 | `arcade-high-scores` | Arcade High Scores keyboard disclosure, named ranking, live result state, and focus restoration |
 
 The same gate runs this disclosure's dedicated rendered-browser coverage at
-desktop, 568×320 landscape, and the bounded MacBook child shell size.
+desktop, 568×320 landscape, 1366×768, and the bounded 1470×775 MacBook child
+shell. The canonical Arcade preview is a deterministic synthetic signed-in
+school child with an injected leaderboard client; `leaderboard=unavailable`
+is the explicit denied fixture. Neither preview state calls the live RPC.
 
 ## Automation boundary
 
