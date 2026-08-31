@@ -5,6 +5,26 @@ function source(path) {
   return readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 }
 
+export function validateRetentionDisclosure({ privacyPage }) {
+  const issues = [];
+  if (!/Supabase[\s\S]*Sydney, Australia \(ap-southeast-2\)/i.test(privacyPage)) {
+    issues.push("public/privacy.html: current Supabase region disclosure is missing");
+  }
+  if (!/Vercel[\s\S]*(?:global network|United States)/i.test(privacyPage)) {
+    issues.push("public/privacy.html: current Vercel processing disclosure is missing");
+  }
+  if (!/(?:UK addendum\/IDTA|appropriate safeguard)[\s\S]*ICO data-protection test/i.test(privacyPage)) {
+    issues.push("public/privacy.html: UK transfer safeguard disclosure is missing");
+  }
+  if (!/target dates?[\s\S]*(?:do not|does not) prove deletion[\s\S]*evidence/i.test(privacyPage)) {
+    issues.push("public/privacy.html: target dates must not be presented as deletion evidence");
+  }
+  if (/regions[\s\S]{0,80}remain unconfirmed/i.test(privacyPage)) {
+    issues.push("public/privacy.html: current provider regions must not be described as unconfirmed");
+  }
+  return issues;
+}
+
 const migration = source(
   "supabase/migrations/20260725120000_school_retention_policy.sql"
 );
@@ -12,7 +32,6 @@ const service = source("src/data/schoolRetention.js");
 const panel = source("src/components/admin/SchoolRetentionPolicyPanel.jsx");
 const adminDashboard = source("src/components/AdminDashboardPage.jsx");
 const privacyPage = source("public/privacy.html");
-const privacySource = source("docs/legal/PRIVACY_POLICY.md");
 const subprocessors = source("docs/legal/SUBPROCESSORS.md");
 const runbook = source("docs/ops/RETENTION_RUNBOOK.md");
 
@@ -77,11 +96,10 @@ assert.match(panel, /A date passing is not proof of deletion/);
 assert.match(panel, /Provider and region disclosure/);
 assert.match(panel, /Verify expiry evidence/);
 
-assert.match(privacyPage, /id="providers-regions"/i);
-assert.match(privacyPage, /A date passing[\s\S]*does not prove/i);
-assert.match(privacyPage, /regions[\s\S]*remain unconfirmed/i);
-assert.match(privacySource, /operational safeguards, not approved\s+legal periods/i);
-assert.match(subprocessors, /actual provider periods remain unconfirmed/i);
+assert.deepEqual(validateRetentionDisclosure({ privacyPage }), []);
+assert.match(subprocessors, /Sydney, Australia \(ap-southeast-2\)/i);
+assert.match(subprocessors, /Providers and international transfers/i);
+assert.doesNotMatch(subprocessors, /regions[\s\S]{0,80}remain unconfirmed/i);
 assert.match(runbook, /at\s+least daily/i);
 assert.match(runbook, /production scheduling is an environment operation/i);
 assert.match(runbook, /Do not paste learner data/i);

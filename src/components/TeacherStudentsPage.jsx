@@ -3569,7 +3569,7 @@ export function TeacherStudentsPage({
             <header>
               <p className="panel-label">Student information</p>
               <h3>Edit display name</h3>
-              <p>Use the classroom name the student and staff already recognise. Do not add a surname unless your school requires it.</p>
+              <p>{TEACHER_COPY.roster.privacy}</p>
             </header>
             <label>
               <span>Display name</span>
