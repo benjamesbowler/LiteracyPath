@@ -29,10 +29,12 @@ export const RELEASE_GATES = Object.freeze([
     command: ["npm", "run", "lint", "--", "--max-warnings=0"],
     areas: [4, 10]
   },
+  // V8 coverage measures production modules loaded by this suite; it is not
+  // evidence that every unimported UI route was exercised.
   {
-    id: "unit-tests",
-    label: "Full unit suite",
-    command: ["npm", "test"],
+    id: "unit-coverage",
+    label: "Aggregate unit coverage of loaded production modules",
+    command: ["npm", "run", "check:unit-coverage"],
     areas: [4, 8, 9, 10]
   },
   {

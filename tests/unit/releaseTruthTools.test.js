@@ -15,7 +15,7 @@ test("release gate registry includes every Phase 0 and planned whole-product gat
   const ids = new Set(RELEASE_GATES.map(gate => gate.id));
   for (const required of [
     "lint",
-    "unit-tests",
+    "unit-coverage",
     "build",
     "smoke",
     "assessment-question-integrity",
@@ -206,7 +206,13 @@ test("teacher release journeys open the disclosed class control before using it"
 test("missing npm scripts are explicitly not implemented", () => {
   const gate = RELEASE_GATES.find(item => item.id === "a11y-routes");
   assert.equal(isGateImplemented(gate, {}), false);
-  assert.equal(isGateImplemented(RELEASE_GATES.find(item => item.id === "unit-tests"), { test: "node --test" }), true);
+  assert.equal(
+    isGateImplemented(
+      RELEASE_GATES.find(item => item.id === "unit-coverage"),
+      { "check:unit-coverage": "node --experimental-test-coverage" }
+    ),
+    true
+  );
 });
 
 test("release credential preflight fails once without exposing secret values", () => {

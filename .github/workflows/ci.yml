@@ -47,8 +47,10 @@ jobs:
       - run: npm ci
       - name: Lint
         run: npm run lint -- --max-warnings=0
-      - name: Unit tests (includes the full-trail simulation)
-        run: npm test
+      # V8 coverage measures production modules loaded by this suite; it does not
+      # demonstrate that every unimported UI route was exercised.
+      - name: Aggregate unit coverage (loaded production modules)
+        run: npm run check:unit-coverage
       - name: Quest content gate
         run: npm run check:quest
       - name: Content rubric gate (no three-cueing — tools/rubrics P-E4)

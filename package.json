@@ -18,6 +18,7 @@
     "test:release-teacher": "playwright test tests/release/teacher-dashboard-contracts.spec.js --project=desktop",
     "test:unit": "node --test tests/unit/*.test.js",
     "test": "node --test tests/unit/*.test.js",
+    "check:unit-coverage": "node --experimental-test-coverage --test-coverage-lines=96 --test-coverage-branches=74 --test-coverage-functions=84 --test-coverage-include='src/**/*.js' --test-coverage-exclude='src/**/*.test.js' --test-coverage-exclude='src/**/*.spec.js' --test-coverage-exclude='src/**/__tests__/**' --test-coverage-exclude='src/**/__snapshots__/**' --test-coverage-exclude='src/data/generated/**' --test-coverage-exclude='src/vendor/**' --test tests/unit/*.test.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "check:validate:guided-reading": "node tools/runAuditScript.mjs --check tools/auditGuidedReadingContent.js",
