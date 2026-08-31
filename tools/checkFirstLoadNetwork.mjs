@@ -49,7 +49,11 @@ const forbiddenModuleFragments = Object.freeze([
   "/node_modules/phaser/",
   "/node_modules/three/",
   "/node_modules/xlsx/",
-  "/node_modules/exceljs/"
+  "/node_modules/exceljs/",
+  "/src/features/soundkeys/SoundKeysApp.jsx",
+  "/src/features/soundkeys/content.js",
+  "/src/data/childAssets.js",
+  "/src/data/audioPreferenceManifest.js"
 ]);
 
 function safeBuiltPath(requestUrl) {
@@ -97,6 +101,14 @@ function forbiddenChunkFiles(analysis) {
     .map(chunk => path.basename(chunk.fileName)));
 }
 
+function soundKeysEntryFiles(analysis) {
+  return new Set(analysis.chunks
+    .filter(chunk => chunk.modules.some(module =>
+      module.id.replaceAll("\\", "/").includes("/src/features/soundkeys/SoundKeysApp.jsx")
+    ))
+    .map(chunk => path.basename(chunk.fileName)));
+}
+
 async function captureShell(browser, origin, surface) {
   const context = await browser.newContext({ serviceWorkers: "block" });
   const page = await context.newPage();
@@ -128,6 +140,30 @@ async function captureShell(browser, origin, surface) {
   return requests;
 }
 
+async function captureSoundKeys(browser, origin) {
+  const context = await browser.newContext({ serviceWorkers: "block" });
+  const page = await context.newPage();
+  const requests = [];
+  page.on("response", response => {
+    const url = new URL(response.url());
+    if (url.origin !== origin) return;
+    requests.push({
+      bytes: (() => {
+        const builtPath = safeBuiltPath(url.pathname);
+        return builtPath && fs.existsSync(builtPath) ? fs.statSync(builtPath).size : 0;
+      })(),
+      path: url.pathname,
+      status: response.status(),
+      type: response.request().resourceType()
+    });
+  });
+  await page.goto(`${origin}/soundkeys`, { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: "Connect MIDI", exact: true }).waitFor();
+  await page.waitForTimeout(250);
+  await context.close();
+  return requests;
+}
+
 if (!fs.existsSync(analysisPath)) {
   console.error("First-load network check needs an analysed production build.");
   process.exit(1);
@@ -135,12 +171,14 @@ if (!fs.existsSync(analysisPath)) {
 
 const analysis = JSON.parse(fs.readFileSync(analysisPath, "utf8"));
 const forbiddenFiles = forbiddenChunkFiles(analysis);
+const soundKeysFiles = soundKeysEntryFiles(analysis);
 const server = await startServer();
 let browser;
 try {
   browser = await chromium.launch({ headless: true });
   const student = await captureShell(browser, server.origin, "student");
   const teacher = await captureShell(browser, server.origin, "teacher");
+  const soundkeys = await captureSoundKeys(browser, server.origin);
   const failures = [];
   for (const [surface, requests] of Object.entries({ student, teacher })) {
     const badRequests = requests.filter(request =>
@@ -179,6 +217,20 @@ try {
       failures.push(`${surface} shell loaded ${totalBytes} raw bytes; budget is ${shellBudgets.totalBytes}`);
     }
   }
+  const soundKeysLoadedFiles = soundkeys
+    .map(request => path.basename(request.path))
+    .filter(file => soundKeysFiles.has(file));
+  if (soundKeysFiles.size === 0) {
+    failures.push("SoundKeys is absent from the built production chunk graph");
+  } else if (soundKeysLoadedFiles.length === 0) {
+    failures.push("/soundkeys did not request its built SoundKeys entry chunk");
+  }
+  const soundKeysFailures = soundkeys.filter(request => request.status >= 400);
+  if (soundKeysFailures.length) {
+    failures.push(`/soundkeys returned HTTP failures: ${soundKeysFailures
+      .map(item => `${item.status} ${item.path}`)
+      .join(", ")}`);
+  }
 
   const generatedAt = new Date().toISOString();
   const payload = {
@@ -188,7 +240,7 @@ try {
     budgets: shellBudgets,
     forbiddenDeferredChunkCount: forbiddenFiles.size,
     failures,
-    surfaces: { student, teacher }
+    surfaces: { student, teacher, soundkeys }
   };
   fs.mkdirSync(artifactDir, { recursive: true });
   fs.writeFileSync(
@@ -203,20 +255,23 @@ try {
     "",
     "| Surface | Requests | JavaScript | JS raw | Total raw | Deferred bank/route violations | HTTP failures |",
     "|---|---:|---:|---:|---:|---:|---:|",
-    ...Object.entries({ student, teacher }).map(([surface, requests]) => {
+    ...Object.entries({ student, teacher, soundkeys }).map(([surface, requests]) => {
       const javascript = requests.filter(request => request.path.endsWith(".js")).length;
       const javascriptBytes = requests
         .filter(request => request.path.endsWith(".js"))
         .reduce((total, request) => total + request.bytes, 0);
       const totalBytes = requests.reduce((total, request) => total + request.bytes, 0);
-      const deferred = requests.filter(request => forbiddenFiles.has(path.basename(request.path))).length;
+      const deferred = surface === "soundkeys"
+        ? 0
+        : requests.filter(request => forbiddenFiles.has(path.basename(request.path))).length;
       const httpFailures = requests.filter(request => request.status >= 400).length;
       return `| ${surface} | ${requests.length} | ${javascript} | ${(javascriptBytes / 1_000_000).toFixed(2)} MB | ${(totalBytes / 1_000_000).toFixed(2)} MB | ${deferred} | ${httpFailures} |`;
     }),
     "",
+    `SoundKeys route trigger: ${soundKeysLoadedFiles.length ? soundKeysLoadedFiles.join(", ") : "none"}.`,
     failures.length
       ? `Result: FAIL — ${failures.join("; ")}`
-      : "Result: PASS — both production shells stay inside request and raw-byte budgets and load zero assessment-bank, Guided Reading, benchmark, export, 3D, or game-engine chunks."
+      : "Result: PASS — both production shells stay inside request and raw-byte budgets, avoid deferred chunks, and /soundkeys loads its deferred entry."
   ].join("\n");
   fs.writeFileSync(path.join(artifactDir, "first-load-network.md"), `${summary}\n`);
   console.log(summary);
