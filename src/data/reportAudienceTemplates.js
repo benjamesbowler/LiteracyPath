@@ -1,3 +1,4 @@
+import { buildFamilyReportSections } from "./parentAreaModel.js";
 import { FAMILY_COPY } from "../copy/familyCopy.js";
 
 const FAMILY_DOMAIN_LABELS = Object.freeze({
@@ -183,7 +184,9 @@ function familyTemplate({ report, studentName }) {
   const practiceDomains = [...new Set(priorityRows.map(row => row.domain || "literacy_skill"))];
   const nextAreas = practiceDomains.map(friendlyDomain);
   const strengthItems = strengths.length
-    ? strengths.slice(0, 4).map(area => `${studentName} is doing well with ${area}.`)
+    ? strengths.slice(0, 4).map(area => FAMILY_COPY.reportSections.strengthStatement
+      .replace("{name}", studentName)
+      .replace("{area}", area))
     : [`${studentName} is showing us what they know while we gather a fuller picture.`];
   const nextItems = nextAreas.length
     ? nextAreas.slice(0, 3).map(area => `${studentName} is now working on ${area}.`)
@@ -191,32 +194,24 @@ function familyTemplate({ report, studentName }) {
   const actionItems = practiceDomains.length
     ? practiceDomains.slice(0, 3).map(familyActionForDomain)
     : [familyActionForDomain("literacy_skill")];
+  const description = `This update celebrates ${studentName}’s progress and shares a few useful next steps.`;
 
   return {
     id: WHOLE_CHILD_REPORT_AUDIENCES.FAMILY,
     label: "Family update",
     title: `${studentName}’s reading update`,
-    description: `This update celebrates ${studentName}’s progress and shares a few useful next steps.`,
-    sections: [
-      {
-        id: "going_well",
-        title: FAMILY_COPY.sections.strengths,
-        description: "These are reading skills your child has shown in recent learning.",
-        items: strengthItems
+    description,
+    sections: buildFamilyReportSections({
+      highlight: description,
+      canDo: strengthItems,
+      nextFocus: nextItems,
+      meaning: FAMILY_COPY.reportSections.templateMeaning,
+      atHome: {
+        introduction: FAMILY_COPY.reportSections.templateHomeIntroduction,
+        activities: actionItems.map(direction => ({ direction }))
       },
-      {
-        id: "practising_next",
-        title: FAMILY_COPY.sections.practice,
-        description: "We will build these skills in small, supported steps.",
-        items: nextItems
-      },
-      {
-        id: "help_together",
-        title: "How we can help together",
-        description: "Short, friendly practice works best. Stop while it still feels positive.",
-        items: actionItems
-      }
-    ],
+      contact: {}
+    }),
     source: templateSource(report)
   };
 }

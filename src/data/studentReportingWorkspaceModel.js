@@ -2275,6 +2275,11 @@ export function buildSkillsCheckReportModel({
       row.skillId,
       { now }
     );
+    const evidenceStatus = scoredAssessmentStatus(
+      latestAttempt?.raw || null,
+      currentEvidence,
+      now
+    );
     const currentStatus = policyStatus
       ? reportingStatus(
           policyStatus.status === SKILL_STATUS_IDS.SECURE && !policyStatus.needsReview
@@ -2284,14 +2289,12 @@ export function buildSkillsCheckReportModel({
               : policyStatus.needsReview
                 ? REPORTING_STATUS_IDS.NEEDS_TEACHING
                 : policyStatus.status === SKILL_STATUS_IDS.IN_PROGRESS
-                  ? REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
+                  ? evidenceStatus.id === REPORTING_STATUS_IDS.NEEDS_TEACHING
+                    ? REPORTING_STATUS_IDS.NEEDS_TEACHING
+                    : REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
                   : REPORTING_STATUS_IDS.DEVELOPING
         )
-      : scoredAssessmentStatus(
-          latestAttempt?.raw || null,
-          currentEvidence,
-          now
-        );
+      : evidenceStatus;
     const currentAccuracy = currentScorable ? finiteNumber(latestAttempt?.accuracy) : null;
     const lifetimeAccuracy = row.lifetimeTotalQuestions
       ? Math.round((row.lifetimeCorrectCount / row.lifetimeTotalQuestions) * 100)

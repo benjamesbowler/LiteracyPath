@@ -704,16 +704,25 @@
   border-radius: 50%;
 }
 
-.pa-progress-key .is-doing-well {
+.pa-progress-key .is-secure {
   background: #16834b;
 }
 
-.pa-progress-key .is-growing {
+.pa-progress-key .is-developing {
   background: #c27b0c;
 }
 
-.pa-progress-key .is-not-checked {
+.pa-progress-key .is-needs_support {
+  background: #b42318;
+}
+
+.pa-progress-key .is-not_enough_evidence,
+.pa-progress-key .is-not_checked {
   background: #768294;
+}
+
+.pa-progress-key .is-mixed_evidence {
+  background: #6b5ca5;
 }
 
 .pa-progress-list {
@@ -755,22 +764,35 @@
   line-height: 1.4;
 }
 
-.pa-status-doing_well {
+.pa-status-secure {
   border-color: #16834b;
   background: #f0fbf5;
   color: #116137;
 }
 
-.pa-status-growing {
+.pa-status-developing {
   border-color: #c27b0c;
   background: #fff8e8;
   color: #8a5205;
 }
 
+.pa-status-needs_support {
+  border-color: #b42318;
+  background: #fff1f0;
+  color: #8e1d17;
+}
+
+.pa-status-not_enough_evidence,
 .pa-status-not_checked {
   border-color: #768294;
   background: #f5f7f9;
   color: #4d5969;
+}
+
+.pa-status-mixed_evidence {
+  border-color: #6b5ca5;
+  background: #f6f3ff;
+  color: #50458a;
 }
 
 .pa-context-note,

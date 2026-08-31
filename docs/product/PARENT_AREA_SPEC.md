@@ -91,9 +91,9 @@ Show no more than six parent-facing strands. The proposed initial labels are:
 - Reading aloud smoothly
 - Understanding a text
 
-Use only the words `Doing well`, `Growing` and `Not checked yet`. A strand includes a sentence explaining what the school has seen. Do not show percentages, age equivalents, reading bands, rankings or red-amber-green displays.
+Use the Reporting Bible's canonical status labels: `Secure`, `Developing`, `Needs support`, `Not enough results`, `Not checked` and `Mixed results`. A strand includes a sentence explaining what the school has seen. Do not show percentages, age equivalents, reading bands, rankings or red-amber-green displays. Status and growth remain separate; a progress label never stands in for a current status.
 
-`Not checked yet` is an honest absence of shared information, never zero.
+`Not checked` is an honest absence of shared information, never zero.
 
 ### At home
 

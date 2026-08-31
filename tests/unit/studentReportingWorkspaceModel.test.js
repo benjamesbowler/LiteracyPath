@@ -1442,7 +1442,7 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
   assert.equal(failedSkill.latestAttempt.attemptId, "latest-fail");
   assert.equal(
     failedSkill.currentStatus.id,
-    REPORTING_STATUS_IDS.NEEDS_TEACHING
+    REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
   );
   assert.equal(failedSkill.latestCorrectCount, 0);
   assert.equal(failedSkill.latestTotalQuestions, 1);
@@ -1480,6 +1480,34 @@ test("Skills Check card uses the newest terminal attempt while item evidence kee
     passedLatest.wholeChild.concepts.find(row => row.key === "m").status.id,
     REPORTING_STATUS_IDS.NOT_ENOUGH_EVIDENCE
   );
+});
+
+test("Skills Check renders Needs support only after ten scored responses show low performance", () => {
+  const completedAt = "2026-08-15T10:00:00.000Z";
+  const tenIncorrectResponses = Array.from({ length: 10 }, (_unused, index) => ({
+    ...attempt().questionRecords[0],
+    questionId: `threshold-${index + 1}`,
+    responseStatus: "incorrect",
+    isCorrect: false,
+    timestamp: completedAt
+  }));
+  const model = buildStudentReportingWorkspaceModel({
+    student,
+    assessmentHistory: [attempt({
+      attemptId: "threshold-low-performance",
+      completedAt,
+      updatedAt: completedAt,
+      passed: false,
+      correctCount: 0,
+      totalQuestions: 10,
+      questionRecords: tenIncorrectResponses
+    })]
+  });
+
+  const skill = model.skillsCheck.skills[0];
+  assert.equal(skill.latestTotalQuestions, 10);
+  assert.equal(skill.currentStatus.id, REPORTING_STATUS_IDS.NEEDS_TEACHING);
+  assert.equal(skill.statusLabel, "Needs support");
 });
 
 test("Whole Child exposes checked EL 3 to 6 summaries without adding mastery concepts", () => {

@@ -18,6 +18,10 @@ import {
   WarningCircle
 } from "@phosphor-icons/react";
 import logomarkUrl from "../../assets/logomark.png";
+import {
+  REPORT_STATUS_LABELS,
+  REPORT_STATUS_ORDER
+} from "../../policy/reportingBible.js";
 import "../../styles/parent-area.css";
 
 const PRIMARY_SECTIONS = Object.freeze([
@@ -26,6 +30,11 @@ const PRIMARY_SECTIONS = Object.freeze([
   { id: "practice", label: "At home", Icon: BookOpenText },
   { id: "reports", label: "Reports", Icon: FileText }
 ]);
+
+const PROGRESS_STATUS_LEGEND = Object.freeze(REPORT_STATUS_ORDER.map(id => ({
+  id,
+  label: REPORT_STATUS_LABELS[id]
+})));
 
 function ParentAreaLoading() {
   return (
@@ -170,9 +179,9 @@ function Progress({ model }) {
         description="The school shares a small number of reading areas in plain language. No class comparisons or rankings are shown."
       />
       <div className="pa-progress-key" aria-label="Progress wording">
-        <span><i className="is-doing-well" />Doing well</span>
-        <span><i className="is-growing" />Growing</span>
-        <span><i className="is-not-checked" />Not checked yet</span>
+        {PROGRESS_STATUS_LEGEND.map(status => (
+          <span key={status.id}><i className={`is-${status.id}`} />{status.label}</span>
+        ))}
       </div>
       <section className="pa-progress-list" aria-label="Reading progress areas">
         {model.progress.map(item => (

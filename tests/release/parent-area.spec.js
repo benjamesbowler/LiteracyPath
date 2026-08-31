@@ -11,6 +11,11 @@ test("parent area gives a family a clear route from update to progress, practice
 
   await page.getByRole("navigation", { name: "Family area" }).getByRole("button", { name: "Progress" }).click();
   await expect(main).toContainText("No class comparisons or rankings are shown");
+  await expect(main).toContainText("Needs support");
+  await expect(main).toContainText("Not enough results");
+  await expect(main).not.toContainText("Doing well");
+  await expect(main).not.toContainText("Growing");
+  await expect(main).not.toContainText("Not checked yet");
   await expect(main.locator(".pa-progress-row")).toHaveCount(6);
   await expect(main).not.toContainText("%", { useInnerText: true });
 
@@ -21,6 +26,16 @@ test("parent area gives a family a clear route from update to progress, practice
   await page.getByRole("navigation", { name: "Family area" }).getByRole("button", { name: "Reports" }).click();
   await expect(main.locator(".pa-report-card")).toHaveCount(2);
   await expect(main).not.toContainText("Unreleased school draft");
+  await main.getByRole("button", { name: "Open" }).first().click();
+  const dialog = page.getByRole("dialog");
+  for (const heading of [
+    "Summary highlight",
+    "What your child can do",
+    "What we're working on next",
+    "What this means",
+    "What you can do at home",
+    "Who to talk to"
+  ]) await expect(dialog.getByRole("heading", { name: heading })).toBeVisible();
 });
 
 test("parent area switches linked children and shows family account boundaries", async ({ page }) => {

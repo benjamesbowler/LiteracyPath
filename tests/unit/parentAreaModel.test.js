@@ -1,10 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  buildFamilyReportSections,
   buildParentAreaModel,
   lintParentAreaPlainLanguage,
   parentStatusCopy
 } from "../../src/data/parentAreaModel.js";
+import { familyReportPrintableHtml } from "../../src/data/familyReportDocument.js";
 
 const learner = {
   id: "learner-one",
@@ -25,9 +27,9 @@ test("parent area keeps no more than six plain-language progress strands", () =>
 
   assert.equal(model.progress.length, 6);
   assert.deepEqual(model.progress.slice(0, 3).map(item => item.statusLabel), [
-    "Doing well",
-    "Growing",
-    "Not checked yet"
+    "Secure",
+    "Developing",
+    "Not checked"
   ]);
   assert.deepEqual(lintParentAreaPlainLanguage(model), []);
 });
@@ -48,5 +50,28 @@ test("parent area exposes released reports only and sorts newest first", () => {
 
 test("parent area rejects an unlinked learner shape and uses honest missing wording", () => {
   assert.throws(() => buildParentAreaModel({ learner: { id: "missing-name" } }), /id and name/);
-  assert.equal(parentStatusCopy("unexpected-status").label, "Not checked yet");
+  assert.equal(parentStatusCopy("unexpected-status").label, "Not checked");
+});
+
+test("released family dialog and print keep the Reporting Bible's six sections when lists are empty", () => {
+  const model = buildParentAreaModel({ learner });
+  const sections = buildFamilyReportSections(model);
+  const printed = familyReportPrintableHtml({ title: "Aarav's reading update", model });
+  const titles = [
+    "Summary highlight",
+    "What your child can do",
+    "What we're working on next",
+    "What this means",
+    "What you can do at home",
+    "Who to talk to"
+  ];
+
+  assert.deepEqual(sections.map(section => section.title), titles);
+  sections.forEach(section => assert.ok(section.description));
+  let previousIndex = -1;
+  titles.forEach(title => {
+    const index = printed.indexOf(title);
+    assert.ok(index > previousIndex, `${title} stays in the canonical print order`);
+    previousIndex = index;
+  });
 });
