@@ -45,10 +45,10 @@ function readStudentToken() {
   }
 }
 
-function Leaderboard({ client, onStatusChange, refreshSignal }) {
+function Leaderboard({ client, onStatusChange, refreshSignal, studentToken = readStudentToken() }) {
   // The token is only a credential. The database derives class/school scope
   // from the live session and returns irreversible pseudonyms, never names.
-  const token = readStudentToken();
+  const token = studentToken;
   const [rows, setRows] = useState(() => (token ? null : [])); // null = still loading
   const [scope, setScope] = useState("class");
   const [failed, setFailed] = useState(false);
@@ -145,6 +145,7 @@ function Leaderboard({ client, onStatusChange, refreshSignal }) {
 export function GameArcadeHub({
   leaderboardAvailable = false,
   leaderboardClient = supabase,
+  leaderboardStudentToken,
   progressScopeKey = "default",
   lockedGameId = null,
   onLockedGameAvailabilityChange = null
@@ -448,6 +449,7 @@ export function GameArcadeHub({
               client={leaderboardClient}
               onStatusChange={handleLeaderboardStatus}
               refreshSignal={leaderboardRefresh}
+              studentToken={leaderboardStudentToken}
             />
           )}
         </section>

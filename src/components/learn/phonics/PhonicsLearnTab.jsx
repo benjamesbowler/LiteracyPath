@@ -66,6 +66,7 @@ export function PhonicsLearnTab({
   initialStep = 1,
   leaderboardAvailable = false,
   leaderboardClient,
+  leaderboardStudentToken,
   lockedToLetters = false,
   lockedGameId = null,
   onLockedGameAvailabilityChange = null,
@@ -177,6 +178,7 @@ export function PhonicsLearnTab({
           <GameArcadeHub
             leaderboardAvailable={leaderboardAvailable}
             leaderboardClient={leaderboardClient}
+            leaderboardStudentToken={leaderboardStudentToken}
             lockedGameId={lockedGameId}
             onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}
             progressScopeKey={progressScopeKey}

@@ -4,6 +4,8 @@ import { expect, test } from "@playwright/test";
 import { A11Y_KEY_INTERACTIONS } from "../../src/accessibility/primaryRouteInventory.js";
 
 const PREVIEW_TOKEN = "preview-leaderboard-token";
+const STUDENT_SESSION_KEY = "lp-student-session-v1";
+const SENTINEL_STUDENT_SESSION = '{ "token": "sentinel-real-child-token", "studentId": "sentinel-child", "keep": ["spacing", 2] }';
 const HIGH_SCORES = A11Y_KEY_INTERACTIONS.find(row => row.id === "arcade-high-scores");
 
 async function seedStudentSession(page) {
@@ -146,19 +148,21 @@ test("anonymous try mode keeps local Arcade progress but removes the unavailable
   await expect(page.getByRole("status", { name: "High scores status" })).toHaveCount(0);
 });
 
-test("the canonical Arcade preview is an authorized child and unavailable is explicit", async ({ page }) => {
+test("Arcade preview fixtures preserve the real same-origin student session", async ({ page }) => {
   const liveLeaderboardRequests = [];
   page.on("request", request => {
     if (request.url().includes("/rpc/get_game_leaderboard")) {
       liveLeaderboardRequests.push(request.url());
     }
   });
+  await page.addInitScript(({ key, value }) => {
+    window.localStorage.setItem(key, value);
+  }, { key: STUDENT_SESSION_KEY, value: SENTINEL_STUDENT_SESSION });
   await page.goto(HIGH_SCORES.url, { waitUntil: "domcontentloaded" });
 
   await expect(page.locator('[data-preview-surface="arcade"]')).toBeVisible();
-  expect(await page.evaluate(() => (
-    JSON.parse(window.localStorage.getItem("lp-student-session-v1"))
-  )?.token)).toBe(PREVIEW_TOKEN);
+  expect(await page.evaluate(key => window.localStorage.getItem(key), STUDENT_SESSION_KEY))
+    .toBe(SENTINEL_STUDENT_SESSION);
   const trigger = page.locator(".lg-arcade-highscores");
   await expect(trigger).toBeVisible();
   await trigger.click();
@@ -175,7 +179,8 @@ test("the canonical Arcade preview is an authorized child and unavailable is exp
   await expect(page.locator(".lg-arcade-highscores")).toHaveCount(0);
   await expect(page.locator("#lg-arcade-high-scores")).toHaveCount(0);
   await expect(page.getByRole("status", { name: "High scores status" })).toHaveCount(0);
-  expect(await page.evaluate(() => window.localStorage.getItem("lp-student-session-v1"))).toBeNull();
+  expect(await page.evaluate(key => window.localStorage.getItem(key), STUDENT_SESSION_KEY))
+    .toBe(SENTINEL_STUDENT_SESSION);
   expect(liveLeaderboardRequests).toEqual([]);
 });
 

@@ -79,19 +79,6 @@ const previewLeaderboardClient = PREVIEW_LEADERBOARD_AVAILABLE ? {
 } : undefined;
 
 setCompanion(PREVIEW_SCOPE, COMPANIONS[0].id);
-// The canonical Arcade preview models a signed-in school child. Its synthetic
-// token is accepted only by the injected preview client above, so previews and
-// device screenshots never reach the production leaderboard RPC.
-if (SURFACE_ID === "arcade") {
-  if (PREVIEW_LEADERBOARD_AVAILABLE) {
-    window.localStorage.setItem(
-      "lp-student-session-v1",
-      JSON.stringify({ token: PREVIEW_LEADERBOARD_TOKEN })
-    );
-  } else {
-    window.localStorage.removeItem("lp-student-session-v1");
-  }
-}
 window.localStorage.removeItem(localProgressStorageKey("phonics_quest", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("phonics", PREVIEW_SCOPE));
 window.localStorage.removeItem(localProgressStorageKey("cvc", PREVIEW_SCOPE));
@@ -205,7 +192,9 @@ function Surface() {
     case "phonics":
       return <PreviewShell active="phonics"><div className="student-surface-frame student-surface-phonics"><PhonicsLearnPage initialIsland={PREVIEW_PARAMS.get("island") || "letters"} initialStep={Number(PREVIEW_PARAMS.get("step")) || 1} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     case "arcade":
-      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" leaderboardAvailable={PREVIEW_LEADERBOARD_AVAILABLE} leaderboardClient={previewLeaderboardClient} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
+      // The preview-only token is accepted only by the injected client. Passing
+      // it explicitly keeps the production same-origin student session intact.
+      return <PreviewShell active="arcade"><div className="student-surface-frame student-surface-arcade"><PhonicsLearnPage initialIsland="games" leaderboardAvailable={PREVIEW_LEADERBOARD_AVAILABLE} leaderboardClient={previewLeaderboardClient} leaderboardStudentToken={PREVIEW_LEADERBOARD_AVAILABLE ? PREVIEW_LEADERBOARD_TOKEN : undefined} progressScopeKey={PREVIEW_SCOPE} /></div></PreviewShell>;
     // Both of these are the phase-C front doors now, which is what a child
     // actually lands on; the mode each one launches is handed in exactly as the
     // router hands it in, so the preview and the app agree.

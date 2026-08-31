@@ -6,6 +6,7 @@ export function PhonicsLearnPage({
   initialStep = 1,
   leaderboardAvailable = false,
   leaderboardClient,
+  leaderboardStudentToken,
   lockedToLetters = false,
   lockedGameId = null,
   onLockedGameAvailabilityChange = null,
@@ -26,6 +27,7 @@ export function PhonicsLearnPage({
           initialStep={initialStep}
           leaderboardAvailable={leaderboardAvailable}
           leaderboardClient={leaderboardClient}
+          leaderboardStudentToken={leaderboardStudentToken}
           lockedToLetters={lockedToLetters}
           lockedGameId={lockedGameId}
           onLockedGameAvailabilityChange={onLockedGameAvailabilityChange}
