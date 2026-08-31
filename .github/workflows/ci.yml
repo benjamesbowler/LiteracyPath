@@ -7,8 +7,8 @@
 # check:quest shipped to production green.
 #
 # Three required jobs:
-#   checks   — lint, the full unit suite (450 tests incl. the full-trail
-#              simulation), and every node-only quest gate. Fast, no browser.
+#   checks   — lint, aggregate coverage of loaded production modules, and every
+#              node-only quest gate. Fast, no browser.
 #   visual   — build + the Playwright gates (route renders receive pixel-level
 #              nonblank checks; shots fails on console errors / 404s / stuck
 #              loads since 2026-07-15). Screenshots upload as artifacts so a
