@@ -2,6 +2,8 @@ import { APP_VIEWS } from "./appViews.js";
 import { teacherIntentHash } from "./appViewHelpers.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
 
+export { isSupabaseConfigured, supabase } from "../supabaseClient.js";
+
 let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
 let assessmentMediaPickerModulePromise = null;
