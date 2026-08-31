@@ -107,3 +107,6 @@ _to_delete/
 # be worse than copies here — they break on checkout for anyone whose paths
 # differ. Run mockups/design-handoff-kids-side/link-assets.sh to rebuild.
 mockups/design-handoff-kids-side/assets/
+
+# Isolated Codex development worktrees
+.worktrees/
