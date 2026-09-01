@@ -412,12 +412,9 @@ git commit -m "feat: add adaptive Sound Seekers review logic"
 - Create: `public/audio/quest-v2/instructions/SOURCE.md`
 - Create: one `public/audio/quest-v2/instructions/<instructionId>.mp3` for every non-silent instruction contract
 - Create: `tools/generateSoundSeekersContextualUnitAudio.mjs`
-- Create: `public/audio/quest-v2/sound-units/SOURCE.md`
-- Create: `public/audio/quest-v2/sound-units/schwa.mp3`
-- Create: `public/audio/quest-v2/sound-units/ear_lax.mp3`
-- Create: `public/audio/quest-v2/sound-units/ed_id.mp3`
-- Create: `public/audio/quest-v2/sound-units/ure_no_y.mp3`
-- Create: `public/audio/quest-v2/sound-units/once_onset.mp3`
+- Create: `docs/audio/SOUND_SEEKERS_CONTEXTUAL_UNIT_REVIEW.md`
+- Modify: `src/data/generated/audioFilePaths.generated.js`
+- Modify: `src/data/generated/audioQuestPaths.generated.js`
 - Modify: `src/data/phonemeAudioBank.js`
 - Create: `tests/unit/soundSeekersInstructionContracts.test.js`
 - Create: `tests/unit/soundSeekersTeachSequence.test.js`
@@ -471,13 +468,13 @@ test("every non-silent instruction resolves to a provenance-locked recording", (
   }
 });
 
-test("all twenty-one contextual pronunciation blockers resolve to five candidate unit recordings", () => {
+test("all twenty-one contextual pronunciation blockers produce a five-unit human review pack without entering the production bank", () => {
   const blocked = collectPronunciationAudioBlockers(SOUND_SEEKERS_WORDS);
   assert.deepEqual([...new Set(blocked.map(item => item.soundKey))].sort(), ["ear_lax", "ed_id", "once_onset", "schwa", "ure_no_y"]);
   for (const item of blocked) {
-    assert.ok(getPhonemeAudio(item.soundKey), `${item.word}:${item.grapheme}:${item.soundKey}`);
+    assert.equal(getPhonemeAudio(item.soundKey), "", `${item.word}:${item.grapheme}:${item.soundKey}`);
   }
-  assert.equal(validateShippingLexicon(SOUND_SEEKERS_WORDS, { release: true }).length, 0);
+  assert.equal(validateShippingLexicon(SOUND_SEEKERS_WORDS, { release: true }).length, 21);
 });
 ```
 
@@ -503,7 +500,9 @@ Author instruction contracts for teach, replay, and every decision point in all 
 
 Generate one en-US instruction recording for every non-silent contract using the repository's existing approved production speech pipeline and voice configuration. `SOURCE.md` records instruction ID, exact child text, voice/model, generation date, duration, SHA-256, and `humanListeningApproved: false`; only a real direct listening review may change that field. The static gate rejects missing, stale-text, zero-duration, or unprovenanced clips. Do not substitute browser speech for a required shipping recording.
 
-Generate five contextual-unit candidates to resolve the 21 blockers enumerated by Task 2: `schwa` for `a/again/amuse/complete/different/giant/listen/manure/obscure/the`; `ear_lax` for `clear/dear/fear/near/year`; `ed_id` for `landed/wanted`; `ure_no_y` for `manure/sure`; and `once_onset` for `one/once`. Register the exact paths in `phonemeAudioBank.js`, clear a record's blocker only when its key resolves, and make automated release validation pass. The source manifest records target IPA/ARPABET, anchor words, exact generation prompt, voice/model, duration, SHA-256, automated signal checks, and `humanListeningApproved: false`. This clears the missing-file blocker but not the direct human-listening gate.
+Generate five contextual-unit candidate sets for the 21 blockers enumerated by Task 2: `schwa` for `a/again/amuse/complete/different/giant/listen/manure/obscure/the`; `ear_lax` for `clear/dear/fear/near/year`; `ed_id` for `landed/wanted`; `ure_no_y` for `manure/sure`; and `once_onset` for `one/once`. Follow `docs/audio/PHONEME_RECORDING_STANDARD.md`: candidates, model material, and review pages stay under ignored `.artifacts/sound-seekers-contextual-unit-candidates`; automated checks never install them or declare them production-ready. The checked-in review guide records target IPA/ARPABET, anchor words, exact generation method, required listening decisions, disclosure requirement, and the five still-open sound keys. Keep `phonemeAudioBank.js` fail-closed for those keys and keep the 21 lexicon release blockers until a real phonics listening review selects rights-cleared masters in a later authorized task. This is an explicit direct release gate, not unfinished runtime logic.
+
+Run `tools/generateAudioManifest.js` after creating the instruction recordings and commit the resulting `audioFilePaths` and `audioQuestPaths` manifests. Do not add the unreviewed contextual-unit candidate directory to `AUDIO_PHONEME_PATHS`.
 
 - [ ] **Step 4: Run the complete foundation test set and integrity gate**
 
@@ -513,11 +512,11 @@ Expected: PASS with pristine output.
 
 Run: `npm run check:quest && npm test`
 
-Expected: PASS; the repository unit count increases and no legacy test is weakened merely to pass.
+Expected: the normal integrity check and repository unit suite PASS; `npm run check:quest-release` remains blocked on the exact 21 contextual-unit records until the required direct phonics review. No legacy or release test is weakened merely to pass.
 
 - [ ] **Step 5: Commit the exact teaching and audio contract**
 
 ```bash
-git add src/features/soundSeekers/content/instructionContracts.js src/features/soundSeekers/engine/teachSequence.js src/features/soundSeekers/engine/audioDelivery.js src/utils/audio/cuePlayer.js src/data/phonemeAudioBank.js tools/generateSoundSeekersInstructionAudio.mjs tools/generateSoundSeekersContextualUnitAudio.mjs public/audio/quest-v2/instructions public/audio/quest-v2/sound-units tests/unit/soundSeekersInstructionContracts.test.js tests/unit/soundSeekersTeachSequence.test.js tests/unit/soundSeekersAudioDelivery.test.js tools/checkQuestIntegrity.js
+git add src/features/soundSeekers/content/instructionContracts.js src/features/soundSeekers/engine/teachSequence.js src/features/soundSeekers/engine/audioDelivery.js src/utils/audio/cuePlayer.js src/data/phonemeAudioBank.js src/data/generated/audioFilePaths.generated.js src/data/generated/audioQuestPaths.generated.js tools/generateSoundSeekersInstructionAudio.mjs tools/generateSoundSeekersContextualUnitAudio.mjs public/audio/quest-v2/instructions docs/audio/SOUND_SEEKERS_CONTEXTUAL_UNIT_REVIEW.md tests/unit/soundSeekersInstructionContracts.test.js tests/unit/soundSeekersTeachSequence.test.js tests/unit/soundSeekersAudioDelivery.test.js tools/checkQuestIntegrity.js
 git commit -m "feat: make Sound Seekers teaching and audio exact"
 ```
