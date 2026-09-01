@@ -27,6 +27,34 @@ test("word-workbench fixtures have explicit sound boxes", () => {
   assert.deepEqual(getPronunciation("pop").units.map(unit => unit.grapheme), ["p", "o", "p"]);
 });
 
+test("reviewed en-US regression words keep their complete sound-box alignments", () => {
+  assert.deepEqual(
+    getPronunciation("go").units.map(({ grapheme, soundKey, letterIndices }) => ({ grapheme, soundKey, letterIndices })),
+    [
+      { grapheme: "g", soundKey: "g", letterIndices: [0] },
+      { grapheme: "o", soundKey: "ow", letterIndices: [1] }
+    ]
+  );
+  assert.deepEqual(
+    getPronunciation("bridge").units.map(({ grapheme, soundKey, letterIndices }) => ({ grapheme, soundKey, letterIndices })),
+    [
+      { grapheme: "b", soundKey: "b", letterIndices: [0] },
+      { grapheme: "r", soundKey: "r", letterIndices: [1] },
+      { grapheme: "i", soundKey: "short_i", letterIndices: [2] },
+      { grapheme: "dge", soundKey: "g_j", letterIndices: [3, 4, 5] }
+    ]
+  );
+  assert.deepEqual(
+    getPronunciation("table").units.map(({ grapheme, soundKey, letterIndices }) => ({ grapheme, soundKey, letterIndices })),
+    [
+      { grapheme: "t", soundKey: "t", letterIndices: [0] },
+      { grapheme: "a", soundKey: "a_e", letterIndices: [1] },
+      { grapheme: "b", soundKey: "b", letterIndices: [2] },
+      { grapheme: "le", soundKey: "le", letterIndices: [3, 4] }
+    ]
+  );
+});
+
 test("shipping records represent contextual pronunciations explicitly", () => {
   for (const fixture of ["thin", "this", "new", "grew", "cats", "dogs", "wanted", "jumped", "city", "giant"]) {
     assert.ok(getPronunciation(fixture), fixture);
@@ -104,4 +132,26 @@ test("the validator rejects every unsafe shipping fallback class", () => {
     assert.throws(() => assertShippingPronunciationLexicon([record]), expected);
   }
   assert.throws(() => assertShippingPronunciationLexicon([ship, { ...ship }]), /duplicate/i);
+});
+
+test("audio blocker status is closed and release validation fails while blockers remain", () => {
+  const ship = getPronunciation("ship");
+  const unknownUnit = { ...ship.units[0], soundKey: "not-a-real-sound" };
+  assert.throws(
+    () => assertShippingPronunciationLexicon([{ ...ship, units: [{ ...unknownUnit, releaseBlockingStatus: "approved" }, ...ship.units.slice(1)] }]),
+    /release blocker|audio|sound key/i
+  );
+
+  const explicitlyBlocked = {
+    ...ship,
+    units: [{
+      ...unknownUnit,
+      releaseBlockingStatus: "release_blocked_missing_instructional_audio"
+    }, ...ship.units.slice(1)]
+  };
+  assert.doesNotThrow(() => assertShippingPronunciationLexicon([explicitlyBlocked]));
+  assert.throws(
+    () => assertShippingPronunciationLexicon([explicitlyBlocked], { release: true }),
+    /ship.*not-a-real-sound|release blocker/i
+  );
 });

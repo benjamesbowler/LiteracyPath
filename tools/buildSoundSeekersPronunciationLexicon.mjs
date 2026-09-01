@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { QUEST_STOPS } from "../src/data/questSequence.js";
 import { segmentWord } from "../src/utils/questSegments.js";
+import { assertPronunciationsMatchReference } from "./soundSeekersPronunciationAudit.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT_DIR = path.join(ROOT, "src/features/soundSeekers/content");
@@ -36,7 +37,7 @@ const EXPLICIT = Object.freeze({
   we: [["w", "w", "regular"], ["e", "ee", "irregular"]],
   me: [["m", "m", "regular"], ["e", "ee", "irregular"]],
   be: [["b", "b", "regular"], ["e", "ee", "irregular"]],
-  was: [["w", "w", "regular"], ["a", "schwa", "irregular"], ["s", "z", "irregular"]],
+  was: [["w", "w", "regular"], ["a", "short_o", "irregular"], ["s", "z", "irregular"]],
   no: [["n", "n", "regular"], ["o", "ow", "irregular"]],
   you: [["y", "y", "regular"], ["ou", "oo", "irregular"]],
   they: [["th", "th_voiced", "irregular"], ["ey", "ay", "irregular"]],
@@ -53,7 +54,7 @@ const EXPLICIT = Object.freeze({
   little: [["l", "l", "regular"], ["i", "short_i", "regular"], ["tt", "t", "regular"], ["le", "le", "regular"]],
   one: [["o", "once_onset", "irregular"], ["ne", "n", "irregular"]],
   do: [["d", "d", "regular"], ["o", "oo", "irregular"]],
-  what: [["wh", "w", "regular"], ["a", "short_o", "irregular"], ["t", "t", "regular"]],
+  what: [["wh", "w", "regular"], ["a", "short_u", "irregular"], ["t", "t", "regular"]],
   oh: [["oh", "ow", "irregular"]],
   their: [["th", "th_voiced", "irregular"], ["eir", "air", "irregular"]],
   people: [["p", "p", "regular"], ["eo", "ee", "irregular"], ["p", "p", "regular"], ["le", "le", "regular"]],
@@ -70,7 +71,7 @@ const EXPLICIT = Object.freeze({
   work: [["w", "w", "regular"], ["or", "er", "irregular"], ["k", "k", "regular"]],
   any: [["a", "short_e", "irregular"], ["n", "n", "regular"], ["y", "y_ee", "irregular"]],
   many: [["m", "m", "regular"], ["a", "short_e", "irregular"], ["n", "n", "regular"], ["y", "y_ee", "irregular"]],
-  laughed: [["l", "l", "regular"], ["augh", "short_a", "irregular"], ["ed", "t", "suffix-past-unvoiced"]],
+  laughed: [["l", "l", "regular"], ["a", "short_a", "irregular"], ["ugh", "f", "irregular"], ["ed", "t", "suffix-past-unvoiced"]],
   because: [["b", "b", "regular"], ["e", "short_i", "irregular"], ["c", "c", "regular"], ["au", "aw", "irregular"], ["se", "z", "irregular"]],
   different: [["d", "d", "regular"], ["i", "short_i", "regular"], ["ff", "f", "regular"], ["er", "er", "regular"], ["e", "schwa", "irregular"], ["n", "n", "regular"], ["t", "t", "regular"]],
   eyes: [["eye", "i_e", "irregular"], ["s", "z", "suffix-plural-voiced"]],
@@ -83,13 +84,60 @@ const EXPLICIT = Object.freeze({
   giant: [["g", "g_j", "context-soft-g"], ["i", "i_e", "irregular"], ["a", "schwa", "irregular"], ["n", "n", "regular"], ["t", "t", "regular"]],
   jumped: [["j", "j", "regular"], ["u", "short_u", "regular"], ["m", "m", "regular"], ["p", "p", "regular"], ["ed", "t", "suffix-past-unvoiced"]],
   landed: [["l", "l", "regular"], ["a", "short_a", "regular"], ["n", "n", "regular"], ["d", "d", "regular"], ["ed", "ed_id", "suffix-past-syllabic"]],
-  wanted: [["w", "w", "regular"], ["a", "short_o", "context"], ["n", "n", "regular"], ["t", "t", "regular"], ["ed", "ed_id", "suffix-past-syllabic"]]
+  wanted: [["w", "w", "regular"], ["a", "aw", "context"], ["n", "n", "regular"], ["t", "t", "regular"], ["ed", "ed_id", "suffix-past-syllabic"]],
+  amuse: [["a", "schwa", "irregular"], ["m", "m", "regular"], ["u_e", "u_e", "regular"], ["s", "z", "irregular"]],
+  as: [["a", "short_a", "regular"], ["s", "z", "irregular"]],
+  before: [["b", "b", "regular"], ["e", "short_i", "irregular"], ["f", "f", "regular"], ["ore", "ore", "regular"]],
+  birds: [["b", "b", "regular"], ["ir", "ir", "regular"], ["d", "d", "regular"], ["s", "z", "suffix-plural-voiced"]],
+  bridge: [["b", "b", "regular"], ["r", "r", "regular"], ["i", "short_i", "regular"], ["dge", "g_j", "irregular"]],
+  clear: [["c", "c", "regular"], ["l", "l", "regular"], ["ear", "ear_lax", "context"]],
+  climb: [["c", "c", "regular"], ["l", "l", "regular"], ["i", "i_e", "irregular"], ["mb", "m", "irregular"]],
+  complete: [["c", "c", "regular"], ["o", "schwa", "irregular"], ["m", "m", "regular"], ["p", "p", "regular"], ["l", "l", "regular"], ["e_e", "e_e", "regular"], ["t", "t", "regular"]],
+  creature: [["c", "c", "regular"], ["r", "r", "regular"], ["ea", "ea", "regular"], ["t", "ch", "irregular"], ["ure", "er", "irregular"]],
+  cross: [["c", "c", "regular"], ["r", "r", "regular"], ["o", "aw", "context"], ["ss", "s", "regular"]],
+  dear: [["d", "d", "regular"], ["ear", "ear_lax", "context"]],
+  delete: [["d", "d", "regular"], ["e", "short_i", "irregular"], ["l", "l", "regular"], ["e_e", "e_e", "regular"], ["t", "t", "regular"]],
+  echo: [["e", "short_e", "regular"], ["ch", "ch_k", "context"], ["o", "ow", "context"]],
+  every: [["e", "short_e", "regular"], ["v", "v", "regular"], ["er", "er", "regular"], ["y", "y_ee", "context"]],
+  fear: [["f", "f", "regular"], ["ear", "ear_lax", "context"]],
+  from: [["f", "f", "regular"], ["r", "r", "regular"], ["o", "short_u", "irregular"], ["m", "m", "regular"]],
+  go: [["g", "g", "regular"], ["o", "ow", "irregular"]],
+  going: [["g", "g", "regular"], ["o", "ow", "irregular"], ["i", "short_i", "suffix-progressive"], ["ng", "ng", "suffix-progressive"]],
+  here: [["h", "h", "regular"], ["ere", "ear", "irregular"]],
+  huge: [["h", "h", "regular"], ["u_e", "u_e", "regular"], ["g", "g_j", "context-soft-g"]],
+  leave: [["l", "l", "regular"], ["ea", "ea", "regular"], ["ve", "v", "irregular"]],
+  listen: [["l", "l", "regular"], ["i", "short_i", "regular"], ["st", "s", "irregular"], ["e", "schwa", "irregular"], ["n", "n", "regular"]],
+  long: [["l", "l", "regular"], ["o", "aw", "context"], ["ng", "ng", "regular"]],
+  lotion: [["l", "l", "regular"], ["o", "o_e", "context"], ["tion", "tion", "regular"]],
+  manure: [["m", "m", "regular"], ["a", "schwa", "irregular"], ["n", "n", "regular"], ["ure", "ure_no_y", "context"]],
+  motion: [["m", "m", "regular"], ["o", "o_e", "context"], ["tion", "tion", "regular"]],
+  nation: [["n", "n", "regular"], ["a", "a_e", "context"], ["tion", "tion", "regular"]],
+  near: [["n", "n", "regular"], ["ear", "ear_lax", "context"]],
+  obscure: [["o", "schwa", "irregular"], ["b", "b", "regular"], ["s", "s", "regular"], ["c", "c", "regular"], ["ure", "ure", "regular"]],
+  of: [["o", "short_u", "irregular"], ["f", "v", "irregular"]],
+  off: [["o", "aw", "context"], ["ff", "f", "regular"]],
+  over: [["o", "o_e", "irregular"], ["v", "v", "regular"], ["er", "er", "regular"]],
+  picture: [["p", "p", "regular"], ["i", "short_i", "regular"], ["c", "c", "regular"], ["t", "ch", "irregular"], ["ure", "er", "irregular"]],
+  secure: [["s", "s", "regular"], ["e", "short_i", "irregular"], ["c", "c", "regular"], ["ure", "ure", "regular"]],
+  song: [["s", "s", "regular"], ["o", "aw", "context"], ["ng", "ng", "regular"]],
+  stars: [["s", "s", "regular"], ["t", "t", "regular"], ["ar", "ar", "regular"], ["s", "z", "suffix-plural-voiced"]],
+  station: [["s", "s", "regular"], ["t", "t", "regular"], ["a", "a_e", "context"], ["tion", "tion", "regular"]],
+  sure: [["s", "sh", "irregular"], ["ure", "ure_no_y", "context"]],
+  table: [["t", "t", "regular"], ["a", "a_e", "context"], ["b", "b", "regular"], ["le", "le", "regular"]],
+  tube: [["t", "t", "regular"], ["u_e", "oo", "context"], ["b", "b", "regular"]],
+  waking: [["w", "w", "regular"], ["a", "a_e", "context"], ["k", "k", "regular"], ["i", "short_i", "suffix-progressive"], ["ng", "ng", "suffix-progressive"]],
+  walked: [["w", "w", "regular"], ["al", "aw", "irregular"], ["k", "k", "regular"], ["ed", "t", "suffix-past-unvoiced"]],
+  whole: [["wh", "h", "irregular"], ["o", "ow", "irregular"], ["le", "l", "irregular"]],
+  words: [["w", "w", "regular"], ["or", "er", "irregular"], ["d", "d", "regular"], ["s", "z", "suffix-plural-voiced"]],
+  year: [["y", "y", "regular"], ["ear", "ear_lax", "context"]]
 });
 
 const BLOCKED_KEYS = Object.freeze({
-  schwa: "missing-approved-contextual-schwa-cue",
-  once_onset: "missing-approved-once-one-onset-cue",
-  ed_id: "missing-approved-syllabic-ed-cue"
+  schwa: "release_blocked_missing_instructional_audio",
+  once_onset: "release_blocked_missing_instructional_audio",
+  ed_id: "release_blocked_missing_instructional_audio",
+  ear_lax: "release_blocked_missing_instructional_audio",
+  ure_no_y: "release_blocked_missing_instructional_audio"
 });
 
 const FUNCTION_MEANINGS = Object.freeze({
@@ -786,6 +834,7 @@ function renderModule(exportName, value, intro) {
 }
 
 const records = buildRecords();
+assertPronunciationsMatchReference(records);
 const meanings = Object.fromEntries(Object.keys(records).map(word => [meaningIdFor(word), meaningFor(word)]));
 const outputs = new Map([
   [path.join(CONTENT_DIR, "pronunciationRecords.js"), renderModule("PRONUNCIATION_RECORDS", records,

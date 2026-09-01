@@ -13,7 +13,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-contextual-schwa-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -83,7 +83,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-contextual-schwa-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "g",
@@ -216,11 +216,12 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "units": [
       {
         "grapheme": "a",
-        "soundKey": "short_a",
+        "soundKey": "schwa",
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "irregular",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "m",
@@ -245,7 +246,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -478,11 +479,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "s",
-        "soundKey": "s",
+        "soundKey": "z",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -1081,11 +1082,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "e",
-        "soundKey": "short_e",
+        "soundKey": "short_i",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "f",
@@ -1385,11 +1386,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "s",
-        "soundKey": "s",
+        "soundKey": "z",
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "suffix-plural-voiced"
       }
     ],
     "taughtAt": [
@@ -2009,28 +2010,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "d",
-        "soundKey": "d",
+        "grapheme": "dge",
+        "soundKey": "g_j",
         "letterIndices": [
-          3
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "g",
-        "soundKey": "g",
-        "letterIndices": [
-          4
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "e",
-        "soundKey": "short_e",
-        "letterIndices": [
+          3,
+          4,
           5
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -3356,13 +3343,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "ear",
-        "soundKey": "ear",
+        "soundKey": "ear_lax",
         "letterIndices": [
           2,
           3,
           4
         ],
-        "role": "regular"
+        "role": "context",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -3443,27 +3431,20 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "i",
-        "soundKey": "short_i",
+        "soundKey": "i_e",
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
-        "grapheme": "m",
+        "grapheme": "mb",
         "soundKey": "m",
         "letterIndices": [
-          3
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "b",
-        "soundKey": "b",
-        "letterIndices": [
+          3,
           4
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -3700,11 +3681,12 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "schwa",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "m",
@@ -4034,21 +4016,21 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "t",
-        "soundKey": "t",
+        "soundKey": "ch",
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "ure",
-        "soundKey": "ure",
+        "soundKey": "er",
         "letterIndices": [
           5,
           6,
           7
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -4082,11 +4064,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "aw",
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "ss",
@@ -4533,13 +4515,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "ear",
-        "soundKey": "ear",
+        "soundKey": "ear_lax",
         "letterIndices": [
           1,
           2,
           3
         ],
-        "role": "regular"
+        "role": "context",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -4565,11 +4548,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "e",
-        "soundKey": "short_e",
+        "soundKey": "short_i",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "l",
@@ -4689,7 +4672,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           6
         ],
         "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-contextual-schwa-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "n",
@@ -5208,11 +5191,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "ow",
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "context"
       }
     ],
     "taughtAt": [
@@ -5350,11 +5333,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "y",
-        "soundKey": "y",
+        "soundKey": "y_ee",
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "context"
       }
     ],
     "taughtAt": [
@@ -5630,13 +5613,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "ear",
-        "soundKey": "ear",
+        "soundKey": "ear_lax",
         "letterIndices": [
           1,
           2,
           3
         ],
-        "role": "regular"
+        "role": "context",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -6639,11 +6623,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "short_u",
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "m",
@@ -7006,7 +6990,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2
         ],
         "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-contextual-schwa-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "n",
@@ -7313,11 +7297,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "ow",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -7426,13 +7410,20 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "oi",
-        "soundKey": "oi",
+        "grapheme": "o",
+        "soundKey": "ow",
         "letterIndices": [
-          1,
+          1
+        ],
+        "role": "irregular"
+      },
+      {
+        "grapheme": "i",
+        "soundKey": "short_i",
+        "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "suffix-progressive"
       },
       {
         "grapheme": "ng",
@@ -7441,7 +7432,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           3,
           4
         ],
-        "role": "regular"
+        "role": "suffix-progressive"
       }
     ],
     "taughtAt": [
@@ -8219,21 +8210,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "er",
-        "soundKey": "er",
+        "grapheme": "ere",
+        "soundKey": "ear",
         "letterIndices": [
           1,
-          2
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "e",
-        "soundKey": "short_e",
-        "letterIndices": [
+          2,
           3
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -8718,11 +8702,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "g",
-        "soundKey": "g",
+        "soundKey": "g_j",
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "context-soft-g"
       }
     ],
     "taughtAt": [
@@ -9832,7 +9816,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "suffix-past-syllabic",
-        "releaseBlockingStatus": "missing-approved-syllabic-ed-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -9946,10 +9930,17 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "augh",
+        "grapheme": "a",
         "soundKey": "short_a",
         "letterIndices": [
-          1,
+          1
+        ],
+        "role": "irregular"
+      },
+      {
+        "grapheme": "ugh",
+        "soundKey": "f",
+        "letterIndices": [
           2,
           3,
           4
@@ -10036,20 +10027,13 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "v",
+        "grapheme": "ve",
         "soundKey": "v",
         "letterIndices": [
-          3
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "e",
-        "soundKey": "short_e",
-        "letterIndices": [
+          3,
           4
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -10357,28 +10341,22 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "s",
+        "grapheme": "st",
         "soundKey": "s",
         "letterIndices": [
-          2
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "t",
-        "soundKey": "t",
-        "letterIndices": [
+          2,
           3
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "e",
-        "soundKey": "short_e",
+        "soundKey": "schwa",
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "irregular",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "n",
@@ -10540,11 +10518,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "aw",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "ng",
@@ -10708,11 +10686,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "o_e",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "tion",
@@ -11035,11 +11013,12 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "short_a",
+        "soundKey": "schwa",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "n",
@@ -11051,13 +11030,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "ure",
-        "soundKey": "ure",
+        "soundKey": "ure_no_y",
         "letterIndices": [
           3,
           4,
           5
         ],
-        "role": "regular"
+        "role": "context",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -11510,11 +11490,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "o_e",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "tion",
@@ -11874,11 +11854,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "short_a",
+        "soundKey": "a_e",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "tion",
@@ -11915,13 +11895,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "ear",
-        "soundKey": "ear",
+        "soundKey": "ear_lax",
         "letterIndices": [
           1,
           2,
           3
         ],
-        "role": "regular"
+        "role": "context",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -12191,11 +12172,12 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "units": [
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "schwa",
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "irregular",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "b",
@@ -12247,19 +12229,19 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "units": [
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "short_u",
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "f",
-        "soundKey": "f",
+        "soundKey": "v",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -12278,11 +12260,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "units": [
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "aw",
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "ff",
@@ -12406,7 +12388,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-once-one-onset-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "n",
@@ -12446,7 +12428,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           0
         ],
         "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-once-one-onset-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       },
       {
         "grapheme": "ne",
@@ -12508,11 +12490,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "units": [
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "o_e",
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "v",
@@ -12924,21 +12906,21 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "t",
-        "soundKey": "t",
+        "soundKey": "ch",
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "ure",
-        "soundKey": "ure",
+        "soundKey": "er",
         "letterIndices": [
           4,
           5,
           6
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -15146,11 +15128,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "e",
-        "soundKey": "short_e",
+        "soundKey": "short_i",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "c",
@@ -17097,11 +17079,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "o",
-        "soundKey": "short_o",
+        "soundKey": "aw",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "ng",
@@ -17586,11 +17568,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "s",
-        "soundKey": "s",
+        "soundKey": "z",
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "suffix-plural-voiced"
       }
     ],
     "taughtAt": [
@@ -17671,11 +17653,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "short_a",
+        "soundKey": "a_e",
         "letterIndices": [
           2
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "tion",
@@ -18105,21 +18087,22 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "units": [
       {
         "grapheme": "s",
-        "soundKey": "s",
+        "soundKey": "sh",
         "letterIndices": [
           0
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "ure",
-        "soundKey": "ure",
+        "soundKey": "ure_no_y",
         "letterIndices": [
           1,
           2,
           3
         ],
-        "role": "regular"
+        "role": "context",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -18278,11 +18261,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "short_a",
+        "soundKey": "a_e",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "b",
@@ -18646,7 +18629,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           2
         ],
         "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-contextual-schwa-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -19849,12 +19832,12 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "u_e",
-        "soundKey": "u_e",
+        "soundKey": "oo",
         "letterIndices": [
           1,
           3
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "b",
@@ -20135,11 +20118,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "short_a",
+        "soundKey": "a_e",
         "letterIndices": [
           1
         ],
-        "role": "regular"
+        "role": "context"
       },
       {
         "grapheme": "k",
@@ -20155,7 +20138,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "letterIndices": [
           3
         ],
-        "role": "regular"
+        "role": "suffix-progressive"
       },
       {
         "grapheme": "ng",
@@ -20164,7 +20147,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           4,
           5
         ],
-        "role": "regular"
+        "role": "suffix-progressive"
       }
     ],
     "taughtAt": [
@@ -20189,20 +20172,13 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "a",
-        "soundKey": "short_a",
+        "grapheme": "al",
+        "soundKey": "aw",
         "letterIndices": [
-          1
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "l",
-        "soundKey": "l",
-        "letterIndices": [
+          1,
           2
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "k",
@@ -20213,20 +20189,13 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
         "role": "regular"
       },
       {
-        "grapheme": "e",
-        "soundKey": "short_e",
+        "grapheme": "ed",
+        "soundKey": "t",
         "letterIndices": [
-          4
-        ],
-        "role": "regular"
-      },
-      {
-        "grapheme": "d",
-        "soundKey": "d",
-        "letterIndices": [
+          4,
           5
         ],
-        "role": "regular"
+        "role": "suffix-past-unvoiced"
       }
     ],
     "taughtAt": [
@@ -20252,7 +20221,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "short_o",
+        "soundKey": "aw",
         "letterIndices": [
           1
         ],
@@ -20282,7 +20251,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
           5
         ],
         "role": "suffix-past-syllabic",
-        "releaseBlockingStatus": "missing-approved-syllabic-ed-cue"
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [
@@ -20308,12 +20277,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "schwa",
+        "soundKey": "short_o",
         "letterIndices": [
           1
         ],
-        "role": "irregular",
-        "releaseBlockingStatus": "missing-approved-contextual-schwa-cue"
+        "role": "irregular"
       },
       {
         "grapheme": "s",
@@ -20622,7 +20590,7 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "a",
-        "soundKey": "short_o",
+        "soundKey": "short_u",
         "letterIndices": [
           2
         ],
@@ -20879,29 +20847,29 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
     "units": [
       {
         "grapheme": "wh",
-        "soundKey": "wh",
+        "soundKey": "h",
         "letterIndices": [
           0,
           1
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
-        "grapheme": "o_e",
-        "soundKey": "o_e",
+        "grapheme": "o",
+        "soundKey": "ow",
         "letterIndices": [
-          2,
-          4
+          2
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
-        "grapheme": "l",
+        "grapheme": "le",
         "soundKey": "l",
         "letterIndices": [
-          3
+          3,
+          4
         ],
-        "role": "regular"
+        "role": "irregular"
       }
     ],
     "taughtAt": [
@@ -21191,12 +21159,12 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "or",
-        "soundKey": "or",
+        "soundKey": "er",
         "letterIndices": [
           1,
           2
         ],
-        "role": "regular"
+        "role": "irregular"
       },
       {
         "grapheme": "d",
@@ -21208,11 +21176,11 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "s",
-        "soundKey": "s",
+        "soundKey": "z",
         "letterIndices": [
           4
         ],
-        "role": "regular"
+        "role": "suffix-plural-voiced"
       }
     ],
     "taughtAt": [
@@ -21317,13 +21285,14 @@ export const PRONUNCIATION_RECORDS = Object.freeze({
       },
       {
         "grapheme": "ear",
-        "soundKey": "ear",
+        "soundKey": "ear_lax",
         "letterIndices": [
           1,
           2,
           3
         ],
-        "role": "regular"
+        "role": "context",
+        "releaseBlockingStatus": "release_blocked_missing_instructional_audio"
       }
     ],
     "taughtAt": [

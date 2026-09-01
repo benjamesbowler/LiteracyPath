@@ -7,6 +7,8 @@ const normalizeWordId = value => String(value || "")
   .toLowerCase()
   .replace(/^hw:/, "");
 
+export const PRONUNCIATION_AUDIO_BLOCKER = "release_blocked_missing_instructional_audio";
+
 export const SOUND_SEEKERS_WORDS = Object.freeze(Object.values(PRONUNCIATION_RECORDS));
 
 export function getPronunciation(wordId) {
@@ -29,8 +31,16 @@ function assertMeaning(record) {
 }
 
 function assertUnitAudio(record, unit, unitIndex) {
-  if (getPreferredPhonemeAudioPath(unit.soundKey, { anchor: record.word })) return;
-  if (String(unit.releaseBlockingStatus || "").trim()) return;
+  const approvedPath = getPreferredPhonemeAudioPath(unit.soundKey, { anchor: record.word });
+  const blocker = String(unit.releaseBlockingStatus || "").trim();
+  if (approvedPath) {
+    if (blocker) throw new Error(`${record.id}: unit ${unitIndex} has approved audio and must clear its release blocker`);
+    return;
+  }
+  if (blocker === PRONUNCIATION_AUDIO_BLOCKER) return;
+  if (blocker) {
+    throw new Error(`${record.id}: unit ${unitIndex} has invalid release blocker "${blocker}" for sound key "${unit.soundKey || ""}"`);
+  }
   throw new Error(`${record.id}: unit ${unitIndex} has unknown or unapproved audio sound key "${unit.soundKey || ""}"`);
 }
 
@@ -93,9 +103,17 @@ function assertRecord(record, seenIds) {
   assertMeaning(record);
 }
 
-export function assertShippingPronunciationLexicon(content) {
+export function assertShippingPronunciationLexicon(content, { release = false } = {}) {
   if (!Array.isArray(content) || content.length === 0) throw new Error("shipping pronunciation content must be a non-empty array");
   const seenIds = new Set();
   for (const record of content) assertRecord(record, seenIds);
+  if (release) {
+    const blockers = content.flatMap(record => record.units
+      .filter(unit => unit.releaseBlockingStatus === PRONUNCIATION_AUDIO_BLOCKER)
+      .map(unit => `${record.id}:${unit.grapheme}:${unit.soundKey}`));
+    if (blockers.length) {
+      throw new Error(`pronunciation release blockers (${blockers.length}): ${blockers.join(", ")}`);
+    }
+  }
   return true;
 }

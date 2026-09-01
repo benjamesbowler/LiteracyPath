@@ -31,6 +31,7 @@ const {
   getPronunciation,
   assertShippingPronunciationLexicon
 } = await import(path.join(ROOT, "src/features/soundSeekers/content/pronunciationLexicon.js"));
+const { assertPronunciationsMatchReference } = await import(path.join(ROOT, "tools/soundSeekersPronunciationAudit.mjs"));
 
 const errors = [];
 const warnings = [];
@@ -92,9 +93,14 @@ for (const stop of QUEST_STOPS) {
 // Future story authoring therefore fails this same gate until its new tokens
 // have explicit records; runtime spelling-derived segmentation is forbidden.
 try {
-  assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS);
+  assertShippingPronunciationLexicon(SOUND_SEEKERS_WORDS, { release: releaseMode });
 } catch (error) {
   fail(`pronunciation lexicon: ${error.message}`);
+}
+try {
+  assertPronunciationsMatchReference(Object.fromEntries(SOUND_SEEKERS_WORDS.map(record => [record.id, record])));
+} catch (error) {
+  fail(`pronunciation reference: ${error.message}`);
 }
 
 const reachablePronunciationWords = new Set(QUEST_STOPS.flatMap(stop => [
