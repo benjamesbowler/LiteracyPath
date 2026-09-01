@@ -6,6 +6,46 @@ export const CORRECTION_MODES = Object.freeze({
   GUIDED: "guided"
 });
 
+function v2MissCount(previous) {
+  return Math.max(0, Math.floor(Number(previous?.missCount ?? previous?.misses) || 0));
+}
+
+function laterReviewDomain(previous, miss) {
+  const priorDomain = typeof previous?.domain === "string" ? previous.domain : null;
+  const domains = Array.isArray(miss?.eligibleDomains) ? miss.eligibleDomains : [];
+  return domains.find(domain => typeof domain === "string" && domain !== priorDomain) || null;
+}
+
+// v2 correction is a view-independent record for both full and simplified
+// scenes. The mounted legacy route continues to use the helpers below.
+export function nextCorrection(previous = {}, miss = {}) {
+  const missCount = v2MissCount(previous) + 1;
+  const selected = typeof miss.selected === "string" ? miss.selected : null;
+  const intended = typeof miss.intended === "string" ? miss.intended : null;
+  const position = typeof miss.position === "string"
+    ? miss.position
+    : typeof previous.position === "string" ? previous.position : null;
+  const later = missCount > 3;
+
+  return Object.freeze({
+    missCount,
+    selected,
+    intended,
+    domain: typeof previous.domain === "string" ? previous.domain : null,
+    position,
+    supportLevel: missCount === 1 ? 1 : missCount === 2 ? 2 : 3,
+    nameSelected: missCount >= 1,
+    replayContrast: missCount === 1,
+    isolatePosition: missCount >= 2 ? position : null,
+    reduceIrrelevantLoad: missCount === 2,
+    modelOnce: missCount === 3,
+    requiresFreshAttempt: missCount >= 3,
+    queueIsomorphicReview: later,
+    reviewDomain: later ? laterReviewDomain(previous, miss) : null,
+    reviewTargetId: later ? intended : null
+  });
+}
+
 export function correctionKey(encounter, beatIndex = 0, stageIndex = 0) {
   return `${encounter?.id || "none"}:${beatIndex}:${stageIndex}`;
 }

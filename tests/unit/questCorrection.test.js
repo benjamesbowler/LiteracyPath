@@ -6,6 +6,7 @@ import {
   correctionKey,
   correctionPresentation,
   nextQueuedReview,
+  nextCorrection,
   normalizeCorrection,
   recordCorrectionMiss
 } from "../../src/utils/questCorrection.js";
@@ -50,4 +51,35 @@ test("later review queues each taught-back beat once", () => {
   assert.equal(nextQueuedReview([2, 0, 2], []), 2);
   assert.equal(nextQueuedReview([2, 0, 2], [2]), 0);
   assert.equal(nextQueuedReview([2, 0, 2], [2, 0]), null);
+});
+
+test("third miss models once then requires a fresh supported attempt", () => {
+  const correction = nextCorrection(
+    { missCount: 2, domain: "phoneme_to_grapheme" },
+    { selected: "short_e", intended: "short_i" }
+  );
+
+  assert.equal(correction.modelOnce, true);
+  assert.equal(correction.requiresFreshAttempt, true);
+  assert.equal(correction.supportLevel, 3);
+  assert.equal(correction.missCount, 3);
+});
+
+test("the correction ladder preserves the contrast then queues another legitimate domain", () => {
+  const first = nextCorrection({}, { selected: "short_e", intended: "short_i" });
+  assert.equal(first.supportLevel, 1);
+  assert.equal(first.replayContrast, true);
+  assert.equal(first.selected, "short_e");
+
+  const second = nextCorrection(first, { selected: "short_a", intended: "short_i", position: "middle" });
+  assert.equal(second.supportLevel, 2);
+  assert.equal(second.isolatePosition, "middle");
+  assert.equal(second.reduceIrrelevantLoad, true);
+
+  const later = nextCorrection(
+    { missCount: 3, domain: "phoneme_to_grapheme" },
+    { selected: "short_e", intended: "short_i", eligibleDomains: ["phoneme_to_grapheme", "grapheme_to_phoneme"] }
+  );
+  assert.equal(later.queueIsomorphicReview, true);
+  assert.equal(later.reviewDomain, "grapheme_to_phoneme");
 });

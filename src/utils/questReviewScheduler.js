@@ -17,6 +17,8 @@
 // so it is unit-testable — tests/unit/questReviewScheduler.test.js.
 
 import { MASTERY_STATES, emptyRecord, independentAttemptCount } from "./questMastery.js";
+import { dueAtJourneyStep } from "../features/soundSeekers/engine/journeyClock.js";
+export { dueAtJourneyStep } from "../features/soundSeekers/engine/journeyClock.js";
 
 export const BOX_INTERVALS = Object.freeze({ 1: 0, 2: 2, 3: 5, 4: 12, 5: 30 });
 export const MAX_BOX = 5;
@@ -109,6 +111,23 @@ export function dueTargets(mastery, stopIndex, limit = MAX_REVIEW_PER_STOP) {
       && isDue(record, stopIndex, target))
     .map(([target, record]) => ({ target, weight: reviewWeight(record, stopIndex) }))
     .sort((a, b) => b.weight - a.weight || a.target.localeCompare(b.target))
+    .slice(0, limit)
+    .map(entry => entry.target);
+}
+
+// v2 bridge for the replacement runtime. Its records carry a last observation
+// and gap in journey ordinals, so the physical route cursor never enters its
+// due-date or priority calculation. The legacy `dueTargets` signature remains
+// mounted until the route cutover.
+export function dueTargetsAtJourneyStep(targets, currentJourneyStep, limit = MAX_REVIEW_PER_STOP) {
+  return Object.entries(targets || {})
+    .filter(([target, record]) => !String(target).startsWith("sign:")
+      && dueAtJourneyStep(target, record?.lastSeen || record, record?.gap ?? record?.reviewGap ?? 0, currentJourneyStep))
+    .map(([target, record]) => ({
+      target,
+      priority: Number.isFinite(Number(record?.priority)) ? Number(record.priority) : 0
+    }))
+    .sort((left, right) => right.priority - left.priority || left.target.localeCompare(right.target))
     .slice(0, limit)
     .map(entry => entry.target);
 }

@@ -1,6 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
+  dueAtJourneyStep,
+  dueTargetsAtJourneyStep,
   dueTargets,
   targetsForStop,
   promote,
@@ -129,4 +131,17 @@ test("targetsForStop never duplicates a sound that is both new and due", () => {
 
 test("with nothing due, a stop is just its new sounds", () => {
   assert.deepEqual(targetsForStop(["sh", "ch"], {}, 9), ["sh", "ch"]);
+});
+
+test("v2 review dates use journey steps rather than the wrapped route cursor", () => {
+  assert.equal(dueAtJourneyStep("sh", { journeyStep: 39 }, 3, 42), true);
+  assert.equal(dueAtJourneyStep("sh", { journeyStep: 40 }, 3, 42), false);
+});
+
+test("v2 scheduler ranks due targets by journey-step need across the wrap", () => {
+  const due = dueTargetsAtJourneyStep({
+    sh: { lastSeen: { journeyStep: 39 }, gap: 3, priority: 4 },
+    ch: { lastSeen: { journeyStep: 40 }, gap: 3, priority: 8 }
+  }, 42);
+  assert.deepEqual(due, ["sh"]);
 });
