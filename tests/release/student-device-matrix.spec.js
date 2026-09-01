@@ -19,6 +19,14 @@ const INTERACTIVE_SELECTOR = [
   '[tabindex]:not([tabindex="-1"])'
 ].join(",");
 
+const COMPACT_RECOMMENDATION_SURFACES = Object.freeze({
+  "student-home": "student-home",
+  phonics: "phonics-letter",
+  arcade: "arcade",
+  "adventure-map": "adventure-map",
+  "reading-library": "guided-reading"
+});
+
 async function waitForVisibleImages(page) {
   await page.waitForFunction(() => (
     [...document.images]
@@ -203,6 +211,156 @@ async function expectArcadeTitleContained(surface, state) {
   ).toBeLessThanOrEqual(geometry.scrollBottom + 1);
 }
 
+async function expectPrimaryActionInInitialPane(surface, state) {
+  const geometry = await surface.evaluate(element => {
+    const toBox = node => {
+      if (!node) return null;
+      const style = getComputedStyle(node);
+      const rect = node.getBoundingClientRect();
+      if (style.display === "none" || style.visibility === "hidden" || rect.width < 1 || rect.height < 1) {
+        return null;
+      }
+      return {
+        left: rect.left,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom
+      };
+    };
+    const primaryNode = element.querySelector("[data-child-primary]");
+    const cueNode = primaryNode?.querySelector("[data-child-emphasis-cue]")
+      || (primaryNode?.matches("[data-child-emphasis-cue]") ? primaryNode : null);
+    const main = element.closest(".kg-main") || document.querySelector(".kg-main");
+    const tabbar = document.querySelector(".kg-tabbar");
+    const primary = toBox(primaryNode);
+    const cue = toBox(cueNode);
+    const mainBox = toBox(main);
+    const tabbarBox = toBox(tabbar);
+    const usable = {
+      left: Math.max(0, mainBox?.left ?? 0),
+      top: Math.max(0, mainBox?.top ?? 0),
+      right: Math.min(window.innerWidth, mainBox?.right ?? window.innerWidth),
+      bottom: Math.min(
+        window.innerHeight,
+        mainBox?.bottom ?? window.innerHeight,
+        tabbarBox?.top ?? window.innerHeight
+      )
+    };
+    const contained = box => Boolean(box && usable)
+      && box.left >= usable.left - 1
+      && box.top >= usable.top - 1
+      && box.right <= usable.right + 1
+      && box.bottom <= usable.bottom + 1;
+    return {
+      primary,
+      cue,
+      usable,
+      primaryContained: contained(primary),
+      cueContained: cue ? contained(cue) : true
+    };
+  });
+  expect(
+    geometry.primaryContained,
+    `${state} keeps its complete primary learning action in the initial usable pane: ${JSON.stringify(geometry)}`
+  ).toBe(true);
+  expect(
+    geometry.cueContained,
+    `${state} keeps its complete primary action cue in the initial usable pane: ${JSON.stringify(geometry)}`
+  ).toBe(true);
+}
+
+async function expectVisibleRecommendationReasons(surface, state, expectedSurface) {
+  const reasons = surface.locator('[data-recommendation-explanation="child"]');
+  if (expectedSurface) {
+    await expect(
+      reasons,
+      `${state} renders its governed child recommendation reason`
+    ).toHaveCount(1);
+    await expect(reasons).toHaveAttribute("data-recommendation-surface", expectedSurface);
+  }
+  const failures = [];
+  for (let index = 0; index < await reasons.count(); index += 1) {
+    const result = await reasons.nth(index).evaluate(element => {
+      const style = getComputedStyle(element);
+      const parent = element.parentElement || element;
+      const parentStyle = getComputedStyle(parent);
+      const parentBox = parent.getBoundingClientRect();
+      const main = element.closest(".kg-main") || document.querySelector(".kg-main");
+      const mainBox = main?.getBoundingClientRect();
+      const tabbarBox = document.querySelector(".kg-tabbar")?.getBoundingClientRect();
+      const usable = {
+        left: Math.max(0, mainBox?.left ?? 0),
+        top: Math.max(0, mainBox?.top ?? 0),
+        right: Math.min(window.innerWidth, mainBox?.right ?? window.innerWidth),
+        bottom: Math.min(
+          window.innerHeight,
+          mainBox?.bottom ?? window.innerHeight,
+          tabbarBox?.top ?? window.innerHeight
+        )
+      };
+      const range = document.createRange();
+      range.selectNodeContents(element);
+      const textBoxes = [...range.getClientRects()].map(rect => ({
+        left: rect.left,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom
+      }));
+      const contains = (container, box, tolerance = 1) => (
+        box.left >= container.left - tolerance
+        && box.top >= container.top - tolerance
+        && box.right <= container.right + tolerance
+        && box.bottom <= container.bottom + tolerance
+      );
+      return {
+        text: element.textContent.trim(),
+        visible: style.display !== "none"
+          && style.visibility !== "hidden"
+          && Number.parseFloat(style.opacity || "1") > 0
+          && parentStyle.display !== "none"
+          && parentStyle.visibility !== "hidden"
+          && parentBox.width >= 1
+          && parentBox.height >= 1
+          && textBoxes.length > 0,
+        parent: {
+          left: parentBox.left,
+          top: parentBox.top,
+          right: parentBox.right,
+          bottom: parentBox.bottom
+        },
+        usable,
+        textBoxes,
+        // Font ascent can extend a line box fractionally beyond the inline
+        // parent's reported box. Two CSS pixels tolerates that raster detail,
+        // while the initial-pane boundary keeps the stricter one-pixel guard.
+        fullyInsideParent: textBoxes.every(box => contains(parentBox, box, 2)),
+        fullyInsideInitialPane: textBoxes.every(box => contains(usable, box)),
+        unoccluded: textBoxes.every(box => {
+          const hit = document.elementFromPoint(
+            box.left + (box.right - box.left) / 2,
+            box.top + (box.bottom - box.top) / 2
+          );
+          return Boolean(hit)
+            && (hit === element || element.contains(hit) || hit.contains(element));
+        })
+      };
+    });
+    if (
+      !result.text
+      || !result.visible
+      || !result.fullyInsideParent
+      || !result.fullyInsideInitialPane
+      || !result.unoccluded
+    ) {
+      failures.push({ index, ...result });
+    }
+  }
+  expect(
+    failures,
+    `${state} keeps every governed child recommendation reason fully visible: ${JSON.stringify(failures)}`
+  ).toEqual([]);
+}
+
 async function expectCompactHollowOverlaysSeparated(surface, state) {
   const geometry = await surface.evaluate(element => {
     const box = selector => {
@@ -217,6 +375,24 @@ async function expectCompactHollowOverlaysSeparated(surface, state) {
         bottom: rect.bottom
       };
     };
+    const firstVisibleBox = selector => [...element.querySelectorAll(selector)]
+      .map(node => {
+        const style = getComputedStyle(node);
+        const rect = node.getBoundingClientRect();
+        if (
+          style.display === "none"
+          || style.visibility === "hidden"
+          || rect.width < 1
+          || rect.height < 1
+        ) return null;
+        return {
+          left: rect.left,
+          top: rect.top,
+          right: rect.right,
+          bottom: rect.bottom
+        };
+      })
+      .find(Boolean) || null;
     const overlaps = (first, second) => Boolean(first && second)
       && first.left < second.right - 1
       && first.right > second.left + 1
@@ -227,11 +403,25 @@ async function expectCompactHollowOverlaysSeparated(surface, state) {
     const primaryCue = box(".hollow-spot-next");
     const recommendedSpot = box(".hollow-spot.recommended");
     const roomName = box(".hollow-room-name");
-    const instruction = box(".hollow-room-hint");
+    const instruction = firstVisibleBox("[data-child-instruction]");
     const world = box(".hollow-world-button");
     const nextRoom = box(".hollow-room-arrow.right");
+    const roomControls = [...element.querySelectorAll(".hollow-room button")]
+      .map(control => {
+        const rect = control.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) return null;
+        return {
+          left: rect.left,
+          top: rect.top,
+          right: rect.right,
+          bottom: rect.bottom
+        };
+      })
+      .filter(Boolean);
     return {
-      hasParts: Boolean(room && pageTitle && primaryCue && recommendedSpot && world && nextRoom),
+      hasParts: Boolean(
+        room && pageTitle && instruction && primaryCue && recommendedSpot && world && nextRoom
+      ),
       room,
       pageTitle,
       primaryCue,
@@ -245,6 +435,12 @@ async function expectCompactHollowOverlaysSeparated(surface, state) {
         && primaryCue.right <= room.right + 1
         && primaryCue.top >= room.top - 1
         && primaryCue.bottom <= room.bottom + 1,
+      instructionContained: Boolean(room && instruction)
+        && instruction.left >= room.left - 1
+        && instruction.right <= room.right + 1
+        && instruction.top >= room.top - 1
+        && instruction.bottom <= room.bottom + 1,
+      instructionControlCollision: roomControls.some(control => overlaps(instruction, control)),
       overlayCollision: [
         [roomName, instruction],
         [roomName, recommendedSpot],
@@ -269,6 +465,14 @@ async function expectCompactHollowOverlaysSeparated(surface, state) {
     geometry.primaryCueContained,
     `${state} keeps the visible primary cue inside the room: ${JSON.stringify(geometry)}`
   ).toBe(true);
+  expect(
+    geometry.instructionContained,
+    `${state} keeps its visible instruction inside the room: ${JSON.stringify(geometry)}`
+  ).toBe(true);
+  expect(
+    geometry.instructionControlCollision,
+    `${state} keeps its instruction clear of every room control: ${JSON.stringify(geometry)}`
+  ).toBe(false);
 }
 
 async function openChildSurface(page, route, profile) {
@@ -293,6 +497,12 @@ for (const profile of STUDENT_DEVICE_PROFILES) {
     for (const route of CHILD_SURFACE_ROUTES) {
       const state = `${route.id} at ${profile.id}`;
       const surface = await openChildSurface(page, route, profile);
+      await expectPrimaryActionInInitialPane(surface, state);
+      await expectVisibleRecommendationReasons(
+        surface,
+        state,
+        COMPACT_RECOMMENDATION_SURFACES[route.id]
+      );
       await expectNoHorizontalOverflow(page, state);
       await expectMinimumTargets(surface, state);
       await expectKeyboardState(page, surface, state);
@@ -330,6 +540,10 @@ for (const keyboardViewport of STUDENT_SOFTWARE_KEYBOARD_VIEWPORTS) {
     await expect(input).toBeInViewport();
     await go.scrollIntoViewIfNeeded();
     await expect(go).toBeInViewport();
+    await expectPrimaryActionInInitialPane(
+      page.locator('[data-child-surface="student-login"]'),
+      keyboardViewport.id
+    );
     await expectNoHorizontalOverflow(page, keyboardViewport.id);
     await expectMinimumTargets(
       page.locator('[data-child-surface="student-login"]'),

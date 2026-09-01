@@ -35,6 +35,7 @@
 import { useEffect, useState } from "react";
 
 import StudentGlassShell from "./StudentGlassShell.jsx";
+import { ChildRecommendationExplanation } from "./recommendations/RecommendationExplanation.jsx";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { filterSample } from "../policy/freeTierContent.js";
 import {
@@ -432,7 +433,14 @@ export function StudentAdventureMapPage({
                 <span className="kg-map-card-text">
                   <strong>{stop.name}</strong>
                   <small {...(stop.state === "next" ? { "data-child-emphasis-cue": "" } : {})}>
-                    {read.ok ? stateLabel(stop) : "Still loading"}
+                    {read.ok && isNext
+                      ? (
+                          <ChildRecommendationExplanation
+                            surface="adventure-map"
+                            reason="This is your next unfinished stop."
+                          />
+                        )
+                      : read.ok ? stateLabel(stop) : "Still loading"}
                   </small>
                 </span>
                 {isNext && <span className="kg-map-card-go" aria-hidden="true">&#8594;</span>}

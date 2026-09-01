@@ -359,7 +359,31 @@ test("the phone arcade keeps every card in the scroll flow", async ({ page }) =>
 
   const lastTile = tiles.last();
   await lastTile.scrollIntoViewIfNeeded();
-  await expect(lastTile).toBeInViewport();
+  const lastTileVisibility = await lastTile.evaluate(element => {
+    const tile = element.getBoundingClientRect();
+    const main = element.closest(".kg-main");
+    const mainBox = main?.getBoundingClientRect();
+    const tabbarBox = document.querySelector(".kg-tabbar")?.getBoundingClientRect();
+    const usable = mainBox ? {
+      left: Math.max(0, mainBox.left),
+      top: Math.max(0, mainBox.top),
+      right: Math.min(window.innerWidth, mainBox.right),
+      bottom: Math.min(window.innerHeight, mainBox.bottom, tabbarBox?.top ?? window.innerHeight)
+    } : null;
+    return {
+      tile: { left: tile.left, top: tile.top, right: tile.right, bottom: tile.bottom },
+      usable,
+      fullyVisible: Boolean(usable)
+        && tile.left >= usable.left - 1
+        && tile.top >= usable.top - 1
+        && tile.right <= usable.right + 1
+        && tile.bottom <= usable.bottom + 1
+    };
+  });
+  expect(
+    lastTileVisibility.fullyVisible,
+    `the last Arcade card clears the fixed navigation: ${JSON.stringify(lastTileVisibility)}`
+  ).toBe(true);
 });
 
 test("the earned-coins notice is opaque and clears the navigation", async ({ page }) => {

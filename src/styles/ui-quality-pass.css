@@ -1256,17 +1256,181 @@
   }
 }
 
-/* On the 320px portrait matrix the labelled recommended glow already states
-   the action. Repeating the generic room hint directly covers that label. */
+/* The 320px portrait room still needs a visible instruction. Place it in the
+   quiet strip between the room name and the first shelf target instead of
+   covering the labelled recommended glow. */
 @media (max-width: 360px) and (orientation: portrait) {
   .kg-stage .hollow-room-hint {
+    display: block;
+    top: 56px;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    max-width: calc(100% - 20px);
+    padding: 3px 8px;
+    transform: translateX(-50%);
+    font-size: 0.68rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-topband {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-topband > div:first-child {
+    min-width: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-recommendation-reason {
+    margin-top: 2px;
+    font-size: 0.68rem;
+    line-height: 1.15;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-topband-controls {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-topband-controls::-webkit-scrollbar {
     display: none;
+  }
+
+  .kg-stage .student-surface-arcade .lg-segmented-control {
+    flex: 0 0 auto;
+    width: 170px;
+    max-width: 170px;
+    height: 58px;
+    gap: 0;
+    padding: 0 !important;
+  }
+
+  .kg-stage .student-surface-arcade .lg-segmented-control button {
+    flex: 0 0 56px;
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    min-height: 56px !important;
+    padding: 0 2px;
+    font-size: 0.7rem;
+  }
+
+  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled {
+    flex: 0 0 56px;
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    min-height: 56px !important;
+    padding: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled span {
+    display: none;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-tabs,
+  .kg-stage .student-surface-arcade .lg-game-tilegrid,
+  .kg-stage .student-surface-arcade .lg-arcade-bottomband {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile {
+    height: 190px;
+    min-height: 190px !important;
+  }
+
+  .kg-stage .kg-map > .kg-trail-head .kg-title {
+    overflow: hidden;
+    font-size: 24px;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .kg-stage .kg-quests,
+  .kg-stage .kg-quests-head {
+    gap: 6px;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment-tray {
+    height: 58px;
+    padding: 0;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment {
+    height: 56px;
+    min-height: 56px !important;
+  }
+
+  .kg-stage .kg-books-head {
+    height: 68px;
+    min-height: 68px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .kg-stage .kg-books-head::-webkit-scrollbar {
+    display: none;
+  }
+
+  .kg-stage .kg-books-head > div:first-child {
+    flex: 0 0 180px;
+  }
+
+  .kg-stage .kg-books-head .kg-title {
+    font-size: 1.65rem;
+    line-height: 1;
+  }
+
+  .kg-stage .kg-books-headline {
+    font-size: 0.8rem;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .kg-stage .kg-books-head :is(.kg-segment-tray, .kg-collection-tray) {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    height: 58px;
+    padding: 0;
+  }
+
+  .kg-stage .kg-books-head :is(.kg-segment, .kg-collection-chip) {
+    height: 56px;
+    min-height: 56px !important;
+  }
+
+  .kg-stage .kg-books-stories {
+    flex: 0 0 auto;
+    height: 56px;
+    min-height: 56px !important;
   }
 }
 
-/* A 568 x 320 phone has only about 200px between its navigation bars. Keep the
-   next action wholly visible there; the checklist and choices remain below it
-   on the same deliberate vertical scroll path. */
+/* A 568 x 320 phone has only about 200px between its navigation bars. Give
+   each child route an authored compact composition so its instruction and
+   complete primary action remain visible without shrinking touch targets. */
 @media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
   .kg-stage {
     --kg-header-height: 60px;
@@ -1296,6 +1460,80 @@
     display: none;
   }
 
+  /* Sign-in is also a child surface. Its code input and contextual Go action
+     belong in the initial pane; supporting help remains available in the
+     card's bounded scroll area. */
+  .student-login-flow {
+    box-sizing: border-box;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 8px;
+    overflow: hidden;
+  }
+
+  .student-login-flow .student-flow-card {
+    box-sizing: border-box;
+    height: calc(100dvh - 16px);
+    min-height: 0;
+    gap: 6px;
+    padding: 8px 14px;
+    overflow-y: auto;
+  }
+
+  .student-login-flow .student-flow-header {
+    flex-direction: row;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .student-login-flow .student-flow-header img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .student-login-flow .student-flow-header h1 {
+    font-size: 26px;
+    line-height: 1.05;
+  }
+
+  .student-login-flow .student-flow-header p {
+    margin-top: 2px;
+    font-size: 14px;
+  }
+
+  .student-login-flow .student-flow-stepper {
+    gap: 4px;
+    margin: 0;
+  }
+
+  .student-login-flow .student-flow-stepper li {
+    min-height: 28px;
+    padding: 2px 8px;
+  }
+
+  .student-login-flow .student-code-entry-layout {
+    grid-template-columns: minmax(0, 1.25fr) minmax(180px, 0.75fr);
+    gap: 8px;
+  }
+
+  .student-login-flow .student-code-entry-form label {
+    margin-bottom: 3px;
+  }
+
+  .student-login-flow .student-flow-search {
+    min-height: 56px;
+    font-size: 28px;
+  }
+
+  .student-login-flow .student-flow-code-go {
+    margin-top: 2px;
+    scroll-margin-bottom: 8px;
+  }
+
+  .student-login-flow .student-class-code-example {
+    padding: 6px;
+  }
+
   /* The generic narrow-screen Hollow stacks its title above four controls.
      With the mandatory 56px tap floor that leaves a 98px room and forces the
      room name/instruction plus World/next actions into one another. Landscape
@@ -1321,12 +1559,24 @@
     right: 76px;
   }
 
-  /* At 320px high the visible page title, active tab and labelled recommended
-     glow already carry the room identity and instruction. The two redundant
-     scene pills otherwise sit directly over the shelf targets. */
-  .kg-stage .hollow-room-name,
-  .kg-stage .hollow-room-hint {
+  /* The page title already names this compact room. Keep the required
+     instruction as a small scene pill clear of every room control. */
+  .kg-stage .hollow-room-name {
     display: none;
+  }
+
+  .kg-stage .hollow-room-hint {
+    display: block;
+    top: 6px;
+    right: auto;
+    bottom: auto;
+    left: 8px;
+    max-width: 180px;
+    padding: 3px 8px;
+    transform: none;
+    font-size: 0.68rem;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .kg-stage .hollow-spot.empty.recommended {
@@ -1338,9 +1588,9 @@
     top: 100%;
   }
 
-  /* Arcade keeps its secondary progress/High Scores band in the child pane.
-     The catalogue above it owns the deliberate internal scroll, while the
-     global .kg-main and tab bar remain fixed. */
+  /* Arcade exposes its title, controls, collection tabs, next game and
+     progress band at once. The remaining catalogue continues in the bounded
+     two-column scroll region without moving the global navigation. */
   .kg-stage .student-surface-arcade,
   .kg-stage .student-surface-arcade .phonics-learn-page,
   .kg-stage .student-surface-arcade .phonics-tab-shell,
@@ -1358,13 +1608,14 @@
     display: grid;
     grid-template-rows: minmax(0, 1fr);
     grid-auto-rows: auto;
-    gap: 6px;
-    padding: 6px 8px;
+    gap: 0;
+    padding-block: 0;
   }
 
   .kg-stage .student-surface-arcade .lg-arcade-scrollbody {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-rows: 66px auto;
     min-height: 0;
     gap: 6px;
     overflow-x: hidden;
@@ -1374,9 +1625,13 @@
   }
 
   .kg-stage .student-surface-arcade .lg-arcade-topband {
-    flex: none;
-    gap: 2px;
-    padding: 2px 8px;
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    grid-template-columns: minmax(0, 1fr) auto;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding: 2px 6px;
   }
 
   .kg-stage .student-surface-arcade .lg-arcade-8bit {
@@ -1387,25 +1642,118 @@
   .kg-stage .student-surface-arcade .lg-arcade-instruction,
   .kg-stage .student-surface-arcade .lg-arcade-recommendation-reason {
     margin-top: 1px;
-    font-size: 0.7rem;
-    line-height: 1.15;
+    font-size: 0.58rem;
+    line-height: 1.05;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-recommendation-reason {
+    max-width: 100%;
   }
 
   .kg-stage .student-surface-arcade .lg-arcade-topband-controls {
-    width: 100%;
+    width: auto;
+    gap: 3px;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
+    overflow: visible;
+  }
+
+  .kg-stage .student-surface-arcade .lg-segmented-control {
+    height: 56px;
+    gap: 0;
+    padding: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-segmented-control button {
+    width: 56px;
+    min-width: 56px;
+    padding: 2px;
+    font-size: 0.7rem;
+  }
+
+  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled {
+    width: 56px;
+    min-width: 56px;
+    padding: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-audio-toggle-labelled > span {
+    display: none;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-tabs {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-self: start;
+    width: 180px;
+    height: 56px;
+    min-height: 56px;
+    gap: 3px;
+    padding: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-tab {
+    width: auto;
+    min-width: 0;
+    height: 56px;
+    min-height: 56px !important;
+    padding: 2px 3px;
+    font-size: 0.52rem;
+    line-height: 1.15;
+  }
+
+  .kg-stage .student-surface-arcade .lg-arcade-tab-count {
+    display: block;
+    margin: 2px 0 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tilegrid {
+    grid-column: 2;
+    grid-row: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: 56px;
+    height: auto;
+    gap: 6px;
   }
 
   .kg-stage .student-surface-arcade .lg-game-tile {
-    height: 112px;
-    min-height: 112px !important;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    grid-template-rows: 56px;
+    height: 56px;
+    min-height: 56px !important;
   }
 
   .kg-stage .student-surface-arcade .lg-game-tile-art {
-    min-height: 64px;
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile-name {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    padding: 2px 4px;
+    font-size: 0.62rem;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile-next {
+    position: static;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    margin-right: 3px;
+    padding: 3px;
+    font-size: 0.48rem;
+    letter-spacing: 0;
+  }
+
+  .kg-stage .student-surface-arcade .lg-game-tile-foot {
+    display: none;
   }
 
   .kg-stage .student-surface-arcade .lg-arcade-bottomband {
@@ -1428,6 +1776,426 @@
     width: auto;
     max-height: none;
     overflow: auto;
+  }
+
+  /* Phonics keeps its island choices and progress explanation in the left
+     column while the letter collection scrolls independently on the right. */
+  .kg-stage .student-surface-phonics,
+  .kg-stage .student-surface-phonics .phonics-learn-page,
+  .kg-stage .student-surface-phonics .phonics-tab-shell,
+  .kg-stage .student-surface-phonics .phonics-island-view,
+  .kg-stage .student-surface-phonics .phonics-picker {
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-tab-shell {
+    padding: 6px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-island-view {
+    display: grid;
+    grid-template-columns: 132px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    gap: 6px;
+    padding-bottom: 0;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-island-switcher {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 6px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-island-card {
+    height: 56px;
+    min-height: 56px !important;
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-island-card svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-picker {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 4px 6px;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-picker h1 {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.05;
+    text-align: left;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-picker > p:not(.phonics-recommendation-reason) {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-recommendation-reason {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-picker-progress {
+    grid-column: 1;
+    grid-row: 4;
+    min-width: 0;
+    min-height: 44px;
+    gap: 4px;
+    padding: 5px 7px;
+    font-size: 0.68rem;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-picker-progress .phonics-stars {
+    font-size: 0.85rem;
+  }
+
+  .kg-stage .student-surface-phonics .phonics-letter-grid {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    grid-template-columns: repeat(3, minmax(56px, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: 80px;
+    align-content: start;
+    height: 100%;
+    min-height: 0;
+    gap: 8px;
+    overflow-y: auto !important;
+  }
+
+  /* Sound Seekers turns the creator into two compact work columns. The book
+     character remains prominent, all five option tabs stay reachable, and
+     the sole completion action owns the bottom-right row. */
+  .q-root .q-creator {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    grid-template-rows: 40px 28px 56px minmax(0, 1fr) 64px;
+    gap: 4px 8px;
+    padding: 8px;
+    overflow: hidden;
+  }
+
+  .q-root .q-creator .q-title {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.05;
+  }
+
+  .q-root .q-creator-instruction {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .q-root .q-creator-step {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+    padding: 3px 7px;
+    font-size: 10px;
+  }
+
+  .q-root .q-creator-stage {
+    grid-column: 1;
+    grid-row: 4 / 6;
+    height: auto;
+    min-height: 0 !important;
+  }
+
+  .q-root .q-creator-book-character,
+  .q-root .q-creator-book-character > .q-book-avatar {
+    width: 130px;
+    height: 130px;
+  }
+
+  .q-root .q-creator .q-tabs {
+    display: grid;
+    grid-column: 2;
+    grid-row: 3;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .q-root .q-creator .q-tab {
+    height: 56px;
+    min-height: 56px;
+    padding: 2px;
+    font-size: 11px;
+  }
+
+  .q-root .q-creator .q-reel {
+    grid-column: 2;
+    grid-row: 4;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-height: 0;
+    gap: 4px;
+    padding: 0;
+    overflow: auto;
+  }
+
+  .q-root .q-creator .q-option,
+  .q-root .q-creator .q-option.is-featured {
+    width: 100%;
+    min-width: 0;
+    min-height: 96px;
+    padding: 3px;
+  }
+
+  .q-root .q-creator .q-option.is-featured .q-option-art {
+    height: 60px;
+  }
+
+  .q-root .q-creator .q-primary {
+    grid-column: 2;
+    grid-row: 5;
+    width: 100%;
+    height: 64px;
+    min-height: 64px;
+    margin: 0;
+  }
+
+  .q-root .q-creator-music-toggle {
+    left: 226px;
+  }
+
+  /* Story Quests uses one compact header row and a horizontal illustrated
+     recommendation card. Further quests remain in the route's own flow. */
+  .kg-stage .kg-quests {
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: 100%;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .kg-stage .kg-quests-head {
+    display: grid;
+    grid-template-columns: 56px minmax(150px, 1fr) minmax(270px, 1.45fr);
+    grid-template-rows: 58px;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .kg-stage .kg-quests-head > .kg-back {
+    grid-column: 1;
+    grid-row: 1;
+    width: 56px;
+    height: 56px;
+  }
+
+  .kg-stage .kg-quests-head .kg-title {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    margin-top: 4px;
+    overflow: hidden;
+    font-size: 1.35rem;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .kg-stage .kg-quests-pill {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    height: 24px;
+    min-height: 0;
+    margin-bottom: 1px;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  .kg-stage .kg-quests-head > .kg-spacer {
+    display: none;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment-tray {
+    grid-column: 3;
+    grid-row: 1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    height: 58px;
+    padding: 0;
+  }
+
+  .kg-stage .kg-quests-head .kg-segment {
+    height: 56px;
+    min-height: 56px !important;
+    padding-inline: 4px;
+    font-size: 13px;
+  }
+
+  .kg-stage .kg-quest-region,
+  .kg-stage .kg-quest-grid {
+    overflow: visible;
+  }
+
+  .kg-stage .kg-quest-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 6px;
+  }
+
+  .kg-stage .kg-quests button.kg-quest-card {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    grid-template-rows: 122px;
+    height: 122px;
+    min-height: 122px !important;
+  }
+
+  .kg-stage .kg-quest-card-art {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .kg-stage .kg-quest-card-foot {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    padding: 8px 12px;
+  }
+
+  .kg-stage .kg-quest-card-title {
+    font-size: 17px;
+    line-height: 1.05;
+  }
+
+  .kg-stage .kg-quest-card-note {
+    font-size: 12px;
+  }
+
+  .kg-stage .kg-quest-card-action {
+    margin-top: 5px;
+  }
+
+  /* Reading keeps filters in a deliberate horizontal header scroller and
+     lays the current recommendation out as one complete action row. */
+  .kg-stage .kg-books {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .kg-stage .kg-books-head {
+    height: 58px;
+    min-height: 58px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .kg-stage .kg-books-head > div:first-child {
+    flex: 0 0 164px;
+  }
+
+  .kg-stage .kg-books-head .kg-title {
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+
+  .kg-stage .kg-books-headline {
+    font-size: 0.75rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .kg-stage .kg-books-head > .kg-spacer {
+    display: none;
+  }
+
+  .kg-stage .kg-books-head :is(.kg-segment-tray, .kg-collection-tray) {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    height: 58px;
+    padding: 0;
+  }
+
+  .kg-stage .kg-books-head :is(.kg-segment, .kg-collection-chip) {
+    height: 56px;
+    min-height: 56px !important;
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+
+  .kg-stage .kg-books-stories {
+    flex: 0 0 auto;
+    min-height: 56px !important;
+    font-size: 14px;
+  }
+
+  .kg-stage .kg-continue {
+    grid-template-columns: 76px minmax(0, 1fr) minmax(180px, 0.75fr);
+    height: 120px;
+    min-height: 120px;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 18px;
+  }
+
+  .kg-stage .kg-continue-cover {
+    width: 76px;
+    height: 76px;
+  }
+
+  .kg-stage .kg-continue-title {
+    font-size: 18px;
+    line-height: 1.05;
+  }
+
+  .kg-stage .kg-continue-reason {
+    display: -webkit-box;
+    margin-top: 2px;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.2;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .kg-stage .kg-continue-actions {
+    grid-column: 3;
+    grid-row: 1;
+    grid-template-columns: minmax(0, 1fr) 56px;
+    gap: 6px;
+  }
+
+  .kg-stage .kg-continue-actions .kg-button {
+    min-width: 0;
+    padding-inline: 8px;
+    font-size: 15px;
   }
 
   .kg-stage .kg-screen,
