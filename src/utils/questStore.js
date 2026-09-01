@@ -16,7 +16,10 @@ import {
   sanitizeCloudProgressPayload
 } from "./progressMerge.js";
 import { localProgressStorageKey } from "./progressKeys.js";
-import { baseQuestState, normalizeQuestState } from "./questProgress.js";
+import {
+  createSoundSeekersState,
+  normalizeSoundSeekersState
+} from "../features/soundSeekers/engine/stateV2.js";
 import {
   QUEST_STORAGE_STATUS_EVENT,
   writeQuestStateWithRecovery
@@ -43,19 +46,19 @@ function emitStorageStatus(scopeKey, result) {
 }
 
 export function loadQuestProgress(scopeKey = DEFAULT_SCOPE) {
-  if (typeof window === "undefined") return baseQuestState();
+  if (typeof window === "undefined") return createSoundSeekersState();
   try {
     const parsed = JSON.parse(window.localStorage.getItem(questProgressStorageKey(scopeKey)) || "null");
-    return normalizeQuestState(parsed);
+    return normalizeSoundSeekersState(parsed);
   } catch {
     // A corrupt save is a bad day; a white screen is a child who never comes
     // back. Always hand back something playable.
-    return baseQuestState();
+    return createSoundSeekersState();
   }
 }
 
 export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state, { syncCloud = true } = {}) {
-  let next = normalizeQuestState(state);
+  let next = normalizeSoundSeekersState(state);
   if (typeof window !== "undefined") {
     try {
       const stored = JSON.parse(

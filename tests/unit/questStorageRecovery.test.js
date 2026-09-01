@@ -4,8 +4,23 @@ import {
   CLOUD_PROGRESS_CACHE_KEY,
   RECOVERY_TELEMETRY_SESSION_LIMIT,
   compactQuestStateForStorage,
+  isQuestStateRecoverable,
   writeQuestStateWithRecovery
 } from "../../src/utils/questStorageRecovery.js";
+import { createSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
+
+test("storage recovery recognizes the minimum v2 state shape", () => {
+  assert.equal(isQuestStateRecoverable(createSoundSeekersState()), true);
+  assert.equal(isQuestStateRecoverable({ v: 2, contentVersion: "sound-seekers-v2" }), false);
+  assert.equal(isQuestStateRecoverable({
+    v: 2,
+    contentVersion: "sound-seekers-v2",
+    reset: null,
+    trail: [],
+    evidence: [],
+    settings: {}
+  }), false);
+});
 
 function quotaStorage({ failures = 0 } = {}) {
   const values = new Map([[CLOUD_PROGRESS_CACHE_KEY, "stale-cache"]]);

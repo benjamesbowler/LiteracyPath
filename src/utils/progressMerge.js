@@ -18,6 +18,10 @@ import {
   normalizeQuestResetEpoch,
   normalizeQuestState
 } from "./questProgress.js";
+import {
+  isSoundSeekersV2,
+  mergeSoundSeekersStates
+} from "../features/soundSeekers/engine/stateV2.js";
 
 // ── Scalar status (phonics letters, cvc) ─────────────────────────────────────
 const STATUS_RANK = { default: 0, locked: 1, inprogress: 2, completed: 3 };
@@ -337,6 +341,9 @@ export function resolveQuestResetConflict(base, cloud) {
 // merge, but checkpoint state is not an achievement: an explicitly cleared
 // checkpoint from the current writer is meaningful and must remain cleared.
 export function reconcileQuestSaveWithStored(writer, stored) {
+  if (isSoundSeekersV2(writer) || isSoundSeekersV2(stored)) {
+    return mergeSoundSeekersStates(writer, stored);
+  }
   const local = normalizeQuestState(writer);
   const remote = normalizeQuestState(stored);
   const reset = resolveQuestResetConflict(local, remote);
@@ -443,6 +450,9 @@ export function computeHydratedValue(area, key, existing, payload) {
   //       it matches the merged route cursor, so shared-iPad resume works without
   //       resurrecting a finished shell or teleporting the child mid-stop.
   if (area === "phonics_quest") {
+    if (isSoundSeekersV2(base) || isSoundSeekersV2(payload)) {
+      return mergeSoundSeekersStates(base, payload);
+    }
     const cloud = payload && typeof payload === "object" ? payload : {};
     // Union by id, DETERMINISTICALLY ORDERED by (at, id): unionById used to
     // preserve arrival order, and prefer-unowned hatching made the child's

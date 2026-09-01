@@ -8,6 +8,7 @@ import {
   reconcileQuestSaveWithStored,
   sanitizeCloudProgressPayload
 } from "../../src/utils/progressMerge.js";
+import { createSoundSeekersState } from "../../src/features/soundSeekers/engine/stateV2.js";
 
 // ── The core promise: hydrating from the cloud never loses local progress ─────
 
@@ -39,6 +40,25 @@ test("phonics_quest cloud payloads never include assignment or telemetry", () =>
     trail: { stopsDone: ["s1"] }
   });
   assert.equal(sanitizeCloudProgressPayload("learn_games", { telemetry: true }).telemetry, true);
+});
+
+test("phonics_quest v2 merges event evidence without accepting a stale v1 journey", () => {
+  const local = {
+    ...createSoundSeekersState(),
+    evidence: [{ id: "local", at: 2 }],
+    trail: { ...createSoundSeekersState().trail, journeyStep: 8 }
+  };
+  const staleV1 = {
+    v: 1,
+    mastery: { sh: { correct: 99 } },
+    checkpoint: { stopId: "s39" },
+    assignment: { stopIds: ["s4"] }
+  };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, staleV1);
+  assert.equal(merged.v, 2);
+  assert.deepEqual(merged.evidence, [{ id: "local", at: 2 }]);
+  assert.equal(merged.trail.journeyStep, 8);
+  assert.deepEqual(merged.assignment, { stopIds: ["s4"] });
 });
 
 test("learn_games: a cleared checkpoint is NOT resurrected by a stale cloud row", () => {
