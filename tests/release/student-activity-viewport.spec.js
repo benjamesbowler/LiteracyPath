@@ -180,7 +180,7 @@ test("all Adventure Map and Letter station types fit an iPad without scrolling",
 test("Adventure Map answers stay readable when iPad browser chrome shortens the view", async ({ page }) => {
   for (const height of [694, 650]) {
     await page.setViewportSize({ width: 1024, height });
-    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.emulateMedia({ reducedMotion: "no-preference" });
     for (const station of ["letters", "story", "pattern"]) {
       const cycle = station === "pattern" ? "cycle-25" : "cycle-1";
       await page.goto(
