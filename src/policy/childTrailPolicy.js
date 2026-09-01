@@ -295,18 +295,26 @@ export function buildAdventureMapScene({
     });
   }
 
-  // The cards keep the current stop third, which is where the spec's four
-  // states put it: two behind, the one you are on, one ahead.
+  // Ordinary progress keeps the current stop third, which is where the spec's
+  // four states put it: two behind, the one you are on, one ahead. A teacher
+  // assignment instead leads with the only actionable card so a small-screen
+  // child never has to scroll past unavailable choices to find it.
   const cardAnchor = nextPosition >= 0 ? nextPosition : 0;
   const cardStart = clamp(cardAnchor - 2, 0, Math.max(0, list.length - cardCount));
   const cards = list
     .slice(cardStart, cardStart + cardCount)
     .map(item => ({ ...item, state: stateFor(item) }));
+  const assignedCard = exactCycleLock
+    ? cards.find(card => card.id === activeCycleId)
+    : null;
+  const orderedCards = assignedCard
+    ? [assignedCard, ...cards.filter(card => card.id !== assignedCard.id)]
+    : cards;
 
   const next = nextPosition >= 0 ? list[nextPosition] || null : null;
   return {
     stops,
-    cards,
+    cards: orderedCards,
     next: next ? { ...next, state: stateFor(next) } : null,
     activeCycleAvailable: !exactCycleLock || activeCyclePosition >= 0,
     polyline: stops.map(stop => `${stop.x},${stop.y}`).join(" ")

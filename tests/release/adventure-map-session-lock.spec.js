@@ -92,3 +92,28 @@ test("a missing assigned Adventure Map cycle fails closed", async ({ page }) => 
   await expect(page.locator(".kg-map-card[data-node-state='next']")).toHaveCount(0);
   await expect(page.locator(".kg-tabbar")).toHaveCount(0);
 });
+
+test("a teacher-assigned map space is the first visible small-phone action", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(
+    "/preview/child-surfaces.html?surface=adventure-map&lockedCycle=cycle-14",
+    { waitUntil: "domcontentloaded" }
+  );
+
+  const map = page.locator('[data-child-surface="adventure-map"]');
+  const primary = map.locator('[data-child-primary][data-cycle-id="cycle-14"]');
+  await expect(primary).toBeVisible();
+  await expect(map.locator(".kg-map-card").first()).toHaveAttribute("data-cycle-id", "cycle-14");
+  expect(await primary.evaluate(element => {
+    const card = element.getBoundingClientRect();
+    const pane = element.closest(".kg-main")?.getBoundingClientRect();
+    return Boolean(pane
+      && card.top >= pane.top - 1
+      && card.bottom <= pane.bottom + 1
+      && card.left >= pane.left - 1
+      && card.right <= pane.right + 1
+      && card.top >= -1
+      && card.bottom <= window.innerHeight + 1);
+  })).toBe(true);
+});

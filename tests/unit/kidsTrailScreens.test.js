@@ -217,6 +217,11 @@ test("a teacher-assigned Adventure Map space is the only open space", () => {
 
   assert.equal(scene.next.id, "cycle-6");
   assert.equal(scene.next.state, "next", "an assigned completed space can be replayed");
+  assert.equal(
+    scene.cards[0]?.id,
+    "cycle-6",
+    "the teacher-assigned action comes before unavailable cards"
+  );
   assert.deepEqual(
     scene.cards.filter(card => card.state === "next").map(card => card.id),
     ["cycle-6"]
