@@ -10,6 +10,7 @@ import {
   retire,
   MASTERY_STATES,
   MASTERY_RULES,
+  QUEST_PRACTICE_THRESHOLDS,
   BLEND_RULES,
   RETIRE_REVIEW_GAP
 } from "../../src/utils/questMastery.js";
@@ -26,6 +27,14 @@ const hits = (n, shell, day) =>
 test("a fresh record is not-started", () => {
   assert.equal(emptyRecord().state, MASTERY_STATES.NOT_STARTED);
   assert.equal(masteryState({}, "sh"), MASTERY_STATES.NOT_STARTED);
+});
+
+test("legacy rules remain numerically aligned with the v2 practice authority", () => {
+  assert.equal(MASTERY_RULES.minCorrect, QUEST_PRACTICE_THRESHOLDS.minCorrect);
+  assert.equal(MASTERY_RULES.minAccuracy, QUEST_PRACTICE_THRESHOLDS.minAccuracy);
+  assert.equal(MASTERY_RULES.accuracyWindow, QUEST_PRACTICE_THRESHOLDS.accuracyWindow);
+  assert.equal(MASTERY_RULES.minShells, QUEST_PRACTICE_THRESHOLDS.minDomains);
+  assert.equal(MASTERY_RULES.minSessions, QUEST_PRACTICE_THRESHOLDS.minSessions);
 });
 
 test("one attempt moves a sound to learning, never to mastered", () => {

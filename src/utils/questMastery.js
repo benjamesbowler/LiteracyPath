@@ -1,4 +1,8 @@
-// Sound Seekers mastery rules. This summary must match MASTERY_RULES below:
+import { evidenceIsIndependent } from "../features/soundSeekers/engine/evidence.js";
+import { isEvidenceDomain } from "../features/soundSeekers/engine/challengeContract.js";
+
+// Sound Seekers legacy mastery rules. The currently mounted QuestRoot still
+// relies on this API; v2 readiness is added below without changing its calls.
 //
 //   1. >= 4 correct responses
 //   2. >= 75% accuracy over the LAST 4 attempts (not lifetime — a child who
@@ -17,12 +21,20 @@
 // The current walk format supplies about five responses per stop, so the rule
 // requires evidence the live game can actually produce. Different days prevent
 // same-sitting cramming; different encounters prevent shell-specific guessing.
-export const MASTERY_RULES = Object.freeze({
+export const QUEST_PRACTICE_THRESHOLDS = Object.freeze({
   minCorrect: 4,
   minAccuracy: 0.75,
   accuracyWindow: 4,
-  minShells: 2,
-  minSessions: 2,
+  minDomains: 2,
+  minSessions: 2
+});
+
+export const MASTERY_RULES = Object.freeze({
+  minCorrect: QUEST_PRACTICE_THRESHOLDS.minCorrect,
+  minAccuracy: QUEST_PRACTICE_THRESHOLDS.minAccuracy,
+  accuracyWindow: QUEST_PRACTICE_THRESHOLDS.accuracyWindow,
+  minShells: QUEST_PRACTICE_THRESHOLDS.minDomains,
+  minSessions: QUEST_PRACTICE_THRESHOLDS.minSessions,
   demoteAfterConsecutiveMisses: 2
 });
 
@@ -263,6 +275,65 @@ export function isMastered(mastery, target) {
 
 export function countMastered(mastery) {
   return Object.keys(mastery || {}).filter(target => isMastered(mastery, target)).length;
+}
+
+function compareEvidence(left, right) {
+  const leftAt = String(left?.at ?? "");
+  const rightAt = String(right?.at ?? "");
+  if (leftAt !== rightAt) return leftAt.localeCompare(rightAt);
+  return String(left?.id ?? "").localeCompare(String(right?.id ?? ""));
+}
+
+function evidenceDay(event) {
+  const at = String(event?.at ?? "");
+  return /^\d{4}-\d{2}-\d{2}/.test(at) ? at.slice(0, 10) : "";
+}
+
+// v2 is guided practice, not an assessment. This result may guide the next
+// teaching check, but intentionally has no formal-status or Secure pathway.
+export function practiceReadinessFor(targetId, events) {
+  const deduped = [];
+  const ids = new Set();
+  for (const event of Array.isArray(events) ? events : []) {
+    if (
+      event?.evidenceKind === "practice"
+      && event.target === targetId
+      && isEvidenceDomain(event.domain)
+      && typeof event.correct === "boolean"
+      && typeof event.id === "string"
+      && event.id
+      && !ids.has(event.id)
+    ) {
+      ids.add(event.id);
+      deduped.push(event);
+    }
+  }
+  const independent = deduped.filter(evidenceIsIndependent).sort(compareEvidence);
+  const independentCorrect = independent.filter(event => event.correct === true);
+  const recent = independent.slice(-QUEST_PRACTICE_THRESHOLDS.accuracyWindow);
+  const recentAccuracy = recent.length
+    ? recent.filter(event => event.correct === true).length / recent.length
+    : 0;
+  const domains = [...new Set(independentCorrect.map(event => event.domain))].sort();
+  const sessions = [...new Set(independentCorrect.map(evidenceDay).filter(Boolean))].sort();
+  const ready = independentCorrect.length >= QUEST_PRACTICE_THRESHOLDS.minCorrect
+    && recent.length === QUEST_PRACTICE_THRESHOLDS.accuracyWindow
+    && recentAccuracy >= QUEST_PRACTICE_THRESHOLDS.minAccuracy
+    && domains.length >= QUEST_PRACTICE_THRESHOLDS.minDomains
+    && sessions.length >= QUEST_PRACTICE_THRESHOLDS.minSessions;
+
+  return Object.freeze({
+    target: targetId,
+    evidenceKind: "practice",
+    attempts: deduped.length,
+    independentAttempts: independent.length,
+    correct: independentCorrect.length,
+    recentAccuracy,
+    domains: Object.freeze(domains),
+    sessions: Object.freeze(sessions),
+    ready,
+    state: ready ? "ready_for_teaching_check" : independent.length ? "building" : "exposure"
+  });
 }
 
 // The n sounds this child is worst at — powers the teacher dashboard's
