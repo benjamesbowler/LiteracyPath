@@ -205,6 +205,16 @@
   }
 }
 
+/* At ordinary desktop width there is enough room for every destination, so
+   the collection rail must keep its intrinsic width instead of clipping the
+   final control. Narrower tablets keep the intentional painted continuation
+   cue and horizontal scroll from the rule above. */
+@media (min-width: 1200px) {
+  .kg-stage .kg-books .kg-books-head > .kg-collection-tray {
+    flex-shrink: 0;
+  }
+}
+
 /* The spec's 50px / radius-18 glass button. .kg-button--sm is 50px at radius
    17, so only the radius is restated. */
 .kg-stage .kg-books-stories {

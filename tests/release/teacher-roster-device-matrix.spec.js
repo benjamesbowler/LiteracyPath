@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { resolveAuditSeedAnchor } from "../../tools/seedAuditSchool.mjs";
 import { completeTeacherClassEntry } from "./support/teacherLanding.js";
 
 const teacherPassword = process.env.LP_AUDIT_TEACHER_PASSWORD || "";
@@ -32,6 +33,12 @@ async function openAuditRoster(page) {
     });
     await page.goto("/preview/teacher-a11y.html?surface=classes&students=12");
   } else {
+    // The audit seed is intentionally fixed for reproducible pixels. Evaluate
+    // its recency-sensitive learning conclusions at that same explicit anchor
+    // so the fixture cannot silently expire as the hosted runner date moves.
+    // setFixedTime leaves timers running, which keeps sign-in and UI behavior
+    // realistic while making only Date.now/new Date deterministic.
+    await page.clock.setFixedTime(resolveAuditSeedAnchor());
     await page.addInitScript(id => {
       if (!sessionStorage.getItem("teacherRosterDeviceGatePrepared")) {
         localStorage.removeItem(`teacherRosterColumns:${id}`);
@@ -56,6 +63,13 @@ async function openAuditRoster(page) {
   await expect(page.getByRole("navigation", { name: "Student roster pages" })).toContainText(
     "Page 1 of 2"
   );
+  if (teacherPassword) {
+    const elenaRow = page.locator(".teacher-roster-table tbody > tr")
+      .filter({ has: page.getByRole("button", { name: /^Elena\b/ }) });
+    await expect(elenaRow).toHaveCount(1);
+    await expect(elenaRow.locator(".teacher-focus-pill .lp-defined-metric-value"))
+      .toHaveText("Final Sounds");
+  }
 }
 
 async function expectNoViewportOverflow(page) {

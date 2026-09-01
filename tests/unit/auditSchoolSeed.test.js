@@ -5,7 +5,8 @@ import {
   auditSeedPsqlInvocation,
   inspectAuditSeed,
   isApprovedAuditDatabaseUrl,
-  renderAuditSeed
+  renderAuditSeed,
+  resolveAuditSeedAnchor
 } from "../../tools/seedAuditSchool.mjs";
 import { verifyAuditSchoolLive } from "../../tools/verifyAuditSchoolLive.mjs";
 import {
@@ -36,6 +37,17 @@ test("audit seed renderer replaces secrets in memory and escapes SQL literals", 
   assert.throws(
     () => renderAuditSeed({ password: "long-enough-password", anchor: "not-a-date", sql: "" }),
     /valid date/
+  );
+});
+
+test("audit seed and authenticated audit browser resolve the same deterministic anchor", () => {
+  assert.equal(
+    resolveAuditSeedAnchor({}),
+    "2026-07-23T09:00:00.000Z"
+  );
+  assert.equal(
+    resolveAuditSeedAnchor({ LP_AUDIT_ANCHOR: "2026-09-01T02:03:04.000Z" }),
+    "2026-09-01T02:03:04.000Z"
   );
 });
 

@@ -241,8 +241,15 @@ test("A3.2 Reading Library exposes the next collection at the initial phone posi
 });
 
 for (const viewport of [
-  { id: "tablet landscape", width: 1024, height: 768, finalTextMinimum: 8 },
-  { id: "desktop", width: 1280, height: 900, finalTextMinimum: "full" }
+  { id: "tablet landscape", width: 1024, height: 768, finalTextMinimum: 8, continuationCue: true },
+  { id: "1199px desktop boundary", width: 1199, height: 900, finalTextMinimum: 8, continuationCue: true },
+  { id: "1200px desktop boundary", width: 1200, height: 900, finalTextMinimum: "full" },
+  { id: "1300px desktop boundary", width: 1300, height: 900, finalTextMinimum: "full" },
+  { id: "1301px desktop boundary", width: 1301, height: 900, finalTextMinimum: "full" },
+  { id: "1301px tall-landscape boundary", width: 1301, height: 1024, finalTextMinimum: "full" },
+  { id: "Chromebook landscape", width: 1366, height: 768, finalTextMinimum: "full" },
+  { id: "wider laptop", width: 1440, height: 900, finalTextMinimum: "full" },
+  { id: "full HD desktop", width: 1920, height: 1080, finalTextMinimum: "full" }
 ]) {
   test(`A3.2 Reading Library keeps its final collection discoverable at ${viewport.id}`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
@@ -265,6 +272,18 @@ for (const viewport of [
       `${viewport.id} keeps the full height of final-collection text visible`
     ).toBe(true);
     expect(finalChoice.textWidth, `${viewport.id} gives final-collection text positive width`).toBeGreaterThan(0);
+    if (viewport.finalTextMinimum === "full") {
+      expect(
+        finalChoice.visibleWidth,
+        `${viewport.id} keeps the complete final collection control inside its tray: ${JSON.stringify(finalChoice)}`
+      ).toBeGreaterThanOrEqual(finalChoice.target.width - 1);
+    }
+    if (viewport.continuationCue) {
+      expect(
+        finalChoice.visibleWidth,
+        `${viewport.id} keeps a partial final control as its horizontal continuation cue: ${JSON.stringify(finalChoice)}`
+      ).toBeLessThan(finalChoice.target.width - 1);
+    }
     const minimum = viewport.finalTextMinimum === "full"
       ? Math.max(1, finalChoice.textWidth - 1)
       : viewport.finalTextMinimum;

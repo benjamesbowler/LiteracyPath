@@ -384,14 +384,47 @@ async function headingTextFragmentFailures(surface) {
           })
         : [];
       const pixelTolerance = 1;
+      // Glyph ink is allowed to paint beyond a CSS line box when overflow is
+      // visible. Linux's Press Start 2P metrics do exactly that without losing
+      // a pixel. Judge vertical visibility against the boxes that can actually
+      // clip the paint (plus the viewport), not the heading's own line box.
+      const verticalClipBoxes = [];
+      let clippingAncestor = heading;
+      while (clippingAncestor) {
+        const clippingStyle = getComputedStyle(clippingAncestor);
+        if (["auto", "clip", "hidden", "scroll"].includes(clippingStyle.overflowY)) {
+          const clippingRect = clippingAncestor.getBoundingClientRect();
+          // Overflow clips at the padding edge. getBoundingClientRect() is the
+          // outer border box, so using it directly can miss a few hidden glyph
+          // pixels on bordered containers such as the Arcade header. Client
+          // metrics are untransformed layout pixels, so map them into the same
+          // rendered coordinate space as Range and bounding-client rectangles.
+          const measuredScaleY = clippingAncestor.offsetHeight > 0
+            ? clippingRect.height / clippingAncestor.offsetHeight
+            : 1;
+          const scaleY = Number.isFinite(measuredScaleY) && measuredScaleY > 0
+            ? measuredScaleY
+            : 1;
+          const clippingTop = clippingRect.top + (clippingAncestor.clientTop * scaleY);
+          verticalClipBoxes.push({
+            element: clippingAncestor === heading
+              ? "heading"
+              : clippingAncestor.className || clippingAncestor.tagName.toLowerCase(),
+            top: clippingTop,
+            bottom: clippingTop + (clippingAncestor.clientHeight * scaleY)
+          });
+        }
+        clippingAncestor = clippingAncestor.parentElement;
+      }
+      verticalClipBoxes.push({ element: "viewport", top: 0, bottom: window.innerHeight });
       const horizontallyContained = box => (
         box.left >= headingBox.left - 1
         && box.right <= headingBox.right + 1
       );
-      const verticallyContained = box => (
-        box.top >= headingBox.top - pixelTolerance
-        && box.bottom <= headingBox.bottom + pixelTolerance
-      );
+      const verticallyContained = box => verticalClipBoxes.every(clipBox => (
+        box.top >= clipBox.top - pixelTolerance
+        && box.bottom <= clipBox.bottom + pixelTolerance
+      ));
       const contentFits = heading.scrollWidth <= heading.clientWidth + pixelTolerance;
       return heading.textContent.trim()
         && textBoxes.length > 0
@@ -406,6 +439,7 @@ async function headingTextFragmentFailures(surface) {
             heading: headingBox,
             textBoxes,
             inkBoxes,
+            verticalClipBoxes,
             metricsValid,
             pixelTolerance
           }];
@@ -1386,6 +1420,221 @@ test("A3.6 heading containment rejects near-boundary glyph clipping", async ({ p
     )),
     "the negative control remains inside the whole surface, so a surface-only bound would miss it"
   ).toBe(true);
+});
+
+test("A3.6 heading containment permits visible ink outside an unclipped line box", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto("/preview/child-surfaces.html?surface=arcade");
+  const surface = page.locator('[data-child-surface="arcade"]');
+  const title = surface.locator("[data-child-title]");
+  await expect(surface).toBeVisible();
+  await page.evaluate(() => document.fonts?.ready);
+  await page.addStyleTag({
+    content: `
+      [data-child-surface="arcade"] .lg-arcade-topband {
+        padding-top: 20px !important;
+      }
+      [data-child-surface="arcade"] [data-child-title] {
+        display: block !important;
+        height: 8px !important;
+        min-height: 8px !important;
+        max-height: 8px !important;
+        line-height: 8px !important;
+        overflow: visible !important;
+      }
+    `
+  });
+
+  const geometry = await title.evaluate(element => {
+    const titleBox = element.getBoundingClientRect();
+    const clipBox = element.closest(".lg-arcade-topband").getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    const textBoxes = [...range.getClientRects()].map(box => ({
+      left: box.left,
+      top: box.top,
+      right: box.right,
+      bottom: box.bottom
+    }));
+    const contains = (container, box) => box.left >= container.left - 1
+      && box.top >= container.top - 1
+      && box.right <= container.right + 1
+      && box.bottom <= container.bottom + 1;
+    return {
+      overflowY: getComputedStyle(element).overflowY,
+      textEscapesLineBox: textBoxes.some(box => (
+        box.top < titleBox.top - 1 || box.bottom > titleBox.bottom + 1
+      )),
+      textInsideHeader: textBoxes.length > 0 && textBoxes.every(box => contains(clipBox, box))
+    };
+  });
+  expect(geometry).toEqual({
+    overflowY: "visible",
+    textEscapesLineBox: true,
+    textInsideHeader: true
+  });
+
+  expect(
+    await headingTextFragmentFailures(surface),
+    "visible glyph ink remains valid when the actual clipping boundary contains it"
+  ).toEqual([]);
+});
+
+test("A3.6 heading containment rejects ink clipped by an ancestor", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto("/preview/child-surfaces.html?surface=arcade");
+  const surface = page.locator('[data-child-surface="arcade"]');
+  const title = surface.locator("[data-child-title]");
+  const header = surface.locator(".lg-arcade-topband");
+  await expect(surface).toBeVisible();
+  await page.evaluate(() => document.fonts?.ready);
+  await page.addStyleTag({
+    content: `
+      [data-child-surface="arcade"] .lg-arcade-topband {
+        box-sizing: border-box !important;
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+        padding-top: 20px !important;
+        overflow: hidden !important;
+      }
+      [data-child-surface="arcade"] [data-child-title] {
+        display: block !important;
+        height: 8px !important;
+        min-height: 8px !important;
+        max-height: 8px !important;
+        line-height: 8px !important;
+        overflow: visible !important;
+      }
+    `
+  });
+
+  const geometry = await title.evaluate(element => {
+    const titleBox = element.getBoundingClientRect();
+    const clipBox = element.closest(".lg-arcade-topband").getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    const inkBoxes = [...range.getClientRects()].map(box => ({
+      top: box.top,
+      bottom: box.bottom
+    }));
+    return {
+      titleOverflowY: getComputedStyle(element).overflowY,
+      inkEscapesTitle: inkBoxes.some(box => (
+        box.top < titleBox.top - 1 || box.bottom > titleBox.bottom + 1
+      )),
+      inkEscapesHeader: inkBoxes.some(box => (
+        box.top < clipBox.top - 1 || box.bottom > clipBox.bottom + 1
+      ))
+    };
+  });
+  expect(geometry).toEqual({
+    titleOverflowY: "visible",
+    inkEscapesTitle: true,
+    inkEscapesHeader: true
+  });
+  await expect(header).toHaveCSS("overflow-y", "hidden");
+
+  const failures = await headingTextFragmentFailures(surface);
+  expect(
+    failures,
+    "visible heading overflow is invalid when a clipping ancestor cuts off the glyph ink"
+  ).toHaveLength(1);
+  expect(failures[0].verticalClipBoxes.some(box => box.element === "lg-arcade-topband")).toBe(true);
+});
+
+test("A3.6 heading containment uses a bordered ancestor's inner clipping edge", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.goto("/preview/child-surfaces.html?surface=arcade");
+  const surface = page.locator('[data-child-surface="arcade"]');
+  const title = surface.locator("[data-child-title]");
+  await expect(surface).toBeVisible();
+  await page.evaluate(() => document.fonts?.ready);
+  await page.addStyleTag({
+    content: `
+      [data-child-surface="arcade"] .lg-arcade-topband {
+        box-sizing: border-box !important;
+        align-items: flex-start !important;
+        height: 29px !important;
+        min-height: 29px !important;
+        max-height: 29px !important;
+        padding: 15px 18px 0 !important;
+        border-width: 3px !important;
+        overflow: hidden !important;
+      }
+      [data-child-surface="arcade"] [data-child-title] {
+        display: block !important;
+        height: 8px !important;
+        min-height: 8px !important;
+        max-height: 8px !important;
+        line-height: 8px !important;
+        overflow: visible !important;
+      }
+    `
+  });
+
+  const geometry = await title.evaluate(element => {
+    const style = getComputedStyle(element);
+    const header = element.closest(".lg-arcade-topband");
+    const headerRect = header.getBoundingClientRect();
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    const textBoxes = [...range.getClientRects()];
+    const context = document.createElement("canvas").getContext("2d");
+    context.font = style.font;
+    const metrics = context.measureText(element.textContent.trim());
+    const fontMetricHeight = metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent;
+    const inkBoxes = textBoxes.map(box => {
+      const scaleY = box.height / fontMetricHeight;
+      const baseline = box.top + (metrics.fontBoundingBoxAscent * scaleY);
+      return {
+        top: baseline - (metrics.actualBoundingBoxAscent * scaleY),
+        bottom: baseline + (metrics.actualBoundingBoxDescent * scaleY)
+      };
+    });
+    const stageScaleY = header.offsetHeight > 0
+      ? headerRect.height / header.offsetHeight
+      : 1;
+    const clipTop = headerRect.top + (header.clientTop * stageScaleY);
+    const clipBottom = clipTop + (header.clientHeight * stageScaleY);
+    return {
+      titleOverflowY: style.overflowY,
+      headerOverflowY: getComputedStyle(header).overflowY,
+      borderTop: header.clientTop,
+      stageScaleY,
+      clipTop,
+      headerBottom: headerRect.bottom,
+      clipBottom,
+      mixedCoordinateBottom: headerRect.top + header.clientTop + header.clientHeight,
+      inkBottom: Math.max(...inkBoxes.map(box => box.bottom)),
+      borderContainsInk: inkBoxes.every(box => (
+        box.top >= headerRect.top - 1 && box.bottom <= headerRect.bottom + 1
+      )),
+      innerEdgeClipsInk: inkBoxes.some(box => (
+        box.top < clipTop - 1 || box.bottom > clipBottom + 1
+      ))
+    };
+  });
+  expect(geometry.titleOverflowY).toBe("visible");
+  expect(geometry.headerOverflowY).toBe("hidden");
+  expect(geometry.borderTop).toBe(3);
+  expect(Math.abs(geometry.stageScaleY - 1), JSON.stringify(geometry)).toBeGreaterThan(0.05);
+  expect(geometry.borderContainsInk, JSON.stringify(geometry)).toBe(true);
+  expect(geometry.innerEdgeClipsInk, JSON.stringify(geometry)).toBe(true);
+
+  const failures = await headingTextFragmentFailures(surface);
+  expect(
+    failures,
+    "a border-box match cannot hide ink clipped at the ancestor's inner overflow edge"
+  ).toHaveLength(1);
+  const ancestorClip = failures[0].verticalClipBoxes
+    .find(box => box.element === "lg-arcade-topband");
+  expect(ancestorClip).toBeDefined();
+  expect(ancestorClip.top).toBeCloseTo(geometry.clipTop, 1);
+  expect(ancestorClip.bottom).toBeCloseTo(geometry.clipBottom, 1);
 });
 
 test("A3.6 Story Quests keeps its primary card visible with wider font metrics", async ({ page }) => {
