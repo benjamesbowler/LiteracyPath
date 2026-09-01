@@ -38,6 +38,62 @@ const practiceEvent = event => Object.freeze({
   id: event.id || `${event.target}-${event.journeyStep}`
 });
 
+const malformedPersistedEvidence = [
+  {
+    name: "GPC credited as a heart-word activity",
+    targetId: "short_i",
+    event: { domain: "heart_word_mapping", activityType: "recognition" }
+  },
+  {
+    name: "word credited under a different word identity",
+    targetId: "word:ship",
+    event: { domain: "word_decoding", word: "shop", position: "whole" }
+  },
+  {
+    name: "heart word with no authored activity subtype",
+    targetId: "hw:the",
+    event: { domain: "heart_word_mapping", word: "the", activityType: null }
+  },
+  {
+    name: "connected text credited to another scene",
+    targetId: "text:scene-s1",
+    event: { domain: "connected_text_transfer", connectedTextId: "scene-s2" }
+  },
+  {
+    name: "boss word credited to another authored transfer",
+    targetId: "novel:forge-settlement-boss:stone",
+    event: {
+      domain: "novel_decoding",
+      word: "stone",
+      position: "whole",
+      bossTransferId: "another-boss"
+    }
+  }
+];
+
+for (const fixture of malformedPersistedEvidence) {
+  test(`director ignores malformed persisted evidence: ${fixture.name}`, () => {
+    const next = selectNextChallenge({
+      targetId: fixture.targetId,
+      taught: [fixture.targetId, "short_e"],
+      comparisonFamilies,
+      evidence: [practiceEvent({
+        id: `malformed-${fixture.targetId}`,
+        target: fixture.targetId,
+        correct: false,
+        confusion: "short_e",
+        journeyStep: 8,
+        ...fixture.event
+      })],
+      journeyStep: 9,
+      confusionWindow: 3
+    });
+
+    assert.equal(next.reason, "never_served");
+    assert.equal(next.contrastTargetId, null);
+  });
+}
+
 test("director serves a taught homogeneous contrast from recent confusion", () => {
   const next = selectNextChallenge({
     targetId: "short_i",

@@ -3,7 +3,10 @@ import {
   isValidSessionDay,
   localSessionDayFor
 } from "../features/soundSeekers/engine/evidence.js";
-import { validateEvidencePath } from "../features/soundSeekers/engine/evidenceEligibility.js";
+import {
+  EVIDENCE_READINESS_MODES,
+  describeEvidencePath
+} from "../features/soundSeekers/engine/evidenceEligibility.js";
 
 // Sound Seekers legacy mastery rules. The currently mounted QuestRoot still
 // relies on this API; v2 readiness is added below without changing its calls.
@@ -329,19 +332,21 @@ function isCurrentEvidence(event, nowTime) {
 export function practiceReadinessFor(targetId, events, { now } = {}) {
   const deduped = [];
   const ids = new Set();
+  const pathByEventId = new Map();
   for (const event of Array.isArray(events) ? events : []) {
+    const path = describeEvidencePath({
+      targetId: event?.target,
+      domain: event?.domain,
+      wordId: event?.word,
+      position: event?.position,
+      activityType: event?.activityType,
+      connectedTextId: event?.connectedTextId,
+      bossTransferId: event?.bossTransferId
+    });
     if (
       event?.evidenceKind === "practice"
       && event.target === targetId
-      && validateEvidencePath({
-        targetId: event.target,
-        domain: event.domain,
-        wordId: event.word,
-        position: event.position,
-        activityType: event.activityType,
-        connectedTextId: event.connectedTextId,
-        bossTransferId: event.bossTransferId
-      }).valid
+      && path
       && typeof event.correct === "boolean"
       && typeof event.id === "string"
       && event.id
@@ -349,6 +354,7 @@ export function practiceReadinessFor(targetId, events, { now } = {}) {
     ) {
       ids.add(event.id);
       deduped.push(event);
+      pathByEventId.set(event.id, path);
     }
   }
   const independent = deduped.filter(evidenceIsIndependent).sort(compareEvidence);
@@ -362,11 +368,18 @@ export function practiceReadinessFor(targetId, events, { now } = {}) {
     ? recent.filter(event => event.correct === true).length / recent.length
     : 0;
   const domains = [...new Set(currentIndependentCorrect.map(event => event.domain))].sort();
+  const evidencePaths = [...new Set(currentIndependentCorrect
+    .map(event => pathByEventId.get(event.id)?.identity)
+    .filter(Boolean))].sort();
   const sessions = [...new Set(currentIndependentCorrect.map(evidenceSessionDay).filter(Boolean))].sort();
-  const ready = currentIndependentCorrect.length >= QUEST_PRACTICE_THRESHOLDS.minCorrect
+  const targetPath = deduped.length ? pathByEventId.get(deduped[0].id) : null;
+  const readinessMode = targetPath?.readinessMode ?? null;
+  const minDistinctPaths = targetPath?.minDistinctPaths ?? null;
+  const ready = readinessMode === EVIDENCE_READINESS_MODES.PRACTICE
+    && currentIndependentCorrect.length >= QUEST_PRACTICE_THRESHOLDS.minCorrect
     && recent.length === QUEST_PRACTICE_THRESHOLDS.accuracyWindow
     && recentAccuracy >= QUEST_PRACTICE_THRESHOLDS.minAccuracy
-    && domains.length >= QUEST_PRACTICE_THRESHOLDS.minDomains
+    && evidencePaths.length >= minDistinctPaths
     && sessions.length >= QUEST_PRACTICE_THRESHOLDS.minSessions;
 
   return Object.freeze({
@@ -379,10 +392,18 @@ export function practiceReadinessFor(targetId, events, { now } = {}) {
     currentIndependentAttempts: currentIndependent.length,
     currentCorrect: currentIndependentCorrect.length,
     recentAccuracy,
+    targetKind: targetPath?.targetKind ?? null,
+    readinessMode,
+    minDistinctPaths,
     domains: Object.freeze(domains),
+    evidencePaths: Object.freeze(evidencePaths),
     sessions: Object.freeze(sessions),
     ready,
-    state: ready ? "ready_for_teaching_check" : currentIndependent.length ? "building" : "exposure"
+    state: ready
+      ? "ready_for_teaching_check"
+      : readinessMode === EVIDENCE_READINESS_MODES.EXPOSURE_ONLY
+        ? "exposure"
+        : currentIndependent.length ? "building" : "exposure"
   });
 }
 

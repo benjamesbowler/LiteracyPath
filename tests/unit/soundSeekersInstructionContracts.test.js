@@ -48,7 +48,7 @@ function targetIdentityFor(contract) {
   }
   if (contract.recordsDomain === EVIDENCE_DOMAINS.NOVEL_DECODING) {
     return {
-      targetId: "novel:stone",
+      targetId: "novel:forge-settlement-boss:stone",
       wordId: "stone",
       position: "whole",
       bossTransferId: "forge-settlement-boss"

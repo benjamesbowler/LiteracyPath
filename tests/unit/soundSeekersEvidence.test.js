@@ -263,6 +263,91 @@ test("practice readiness requires independent, spaced, diverse recent literacy e
   assert.equal(result.formalStatus, undefined);
 });
 
+test("four heart-word activity paths across two sessions can reach practice readiness", () => {
+  const activityTypes = ["recognition", "heart_part_mapping", "encoding", "sentence_use"];
+  const evidence = activityTypes.map((activityType, index) => decision({
+    challenge: challenge({
+      attemptId: `heart-the-${activityType}`,
+      targetId: "hw:the",
+      recordsDomain: EVIDENCE_DOMAINS.HEART_WORD_MAPPING,
+      expectedToken: "the",
+      wordId: "the",
+      activityType
+    }),
+    response: { kind: "literacy-answer", token: "the" },
+    at: `2026-09-0${index < 2 ? 1 : 2}T10:00:00.000Z`,
+    sessionDay: `2026-09-0${index < 2 ? 1 : 2}`
+  }));
+
+  const result = practiceReadinessFor("hw:the", evidence, { now: "2026-09-03T12:00:00.000Z" });
+  assert.equal(result.ready, true);
+  assert.equal(result.targetKind, "heart_word");
+  assert.equal(result.readinessMode, "practice");
+  assert.equal(result.evidencePaths.length, 4);
+});
+
+test("repeating one heart-word activity subtype never manufactures diversity", () => {
+  const evidence = Array.from({ length: 4 }, (_, index) => decision({
+    challenge: challenge({
+      attemptId: `heart-the-recognition-${index}`,
+      targetId: "hw:the",
+      recordsDomain: EVIDENCE_DOMAINS.HEART_WORD_MAPPING,
+      expectedToken: "the",
+      wordId: "the",
+      activityType: "recognition",
+      position: index % 2 === 0 ? 0 : "whole"
+    }),
+    response: { kind: "literacy-answer", token: "the" },
+    at: `2026-09-0${index < 2 ? 1 : 2}T10:0${index}:00.000Z`,
+    sessionDay: `2026-09-0${index < 2 ? 1 : 2}`
+  }));
+
+  const result = practiceReadinessFor("hw:the", evidence, { now: "2026-09-03T12:00:00.000Z" });
+  assert.equal(result.ready, false);
+  assert.equal(result.evidencePaths?.length, 1);
+  assert.equal(result.state, "building");
+});
+
+test("connected-text and boss-novel events remain exposure-only", () => {
+  const transferFixtures = [
+    {
+      targetId: "text:scene-s1",
+      challenge: {
+        recordsDomain: EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER,
+        connectedTextId: "scene-s1",
+        expectedToken: "meaning"
+      }
+    },
+    {
+      targetId: "novel:forge-settlement-boss:stone",
+      challenge: {
+        recordsDomain: EVIDENCE_DOMAINS.NOVEL_DECODING,
+        wordId: "stone",
+        position: "whole",
+        bossTransferId: "forge-settlement-boss",
+        expectedToken: "stone"
+      }
+    }
+  ];
+
+  for (const fixture of transferFixtures) {
+    const evidence = Array.from({ length: 4 }, (_, index) => decision({
+      challenge: challenge({
+        attemptId: `transfer-${index}-${fixture.targetId}`,
+        targetId: fixture.targetId,
+        ...fixture.challenge
+      }),
+      response: { kind: "literacy-answer", token: fixture.challenge.expectedToken },
+      at: `2026-09-0${index < 2 ? 1 : 2}T11:0${index}:00.000Z`,
+      sessionDay: `2026-09-0${index < 2 ? 1 : 2}`
+    }));
+    const result = practiceReadinessFor(fixture.targetId, evidence, { now: "2026-09-03T12:00:00.000Z" });
+    assert.equal(result.ready, false, fixture.targetId);
+    assert.equal(result.readinessMode, "exposure_only", fixture.targetId);
+    assert.equal(result.state, "exposure", fixture.targetId);
+  }
+});
+
 test("one Shanghai sitting crossing UTC midnight remains one local session day", () => {
   const evidence = readyEvidence({
     atValues: [

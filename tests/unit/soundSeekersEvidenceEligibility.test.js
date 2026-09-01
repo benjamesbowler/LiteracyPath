@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import {
+import * as evidenceEligibility from "../../src/features/soundSeekers/engine/evidenceEligibility.js";
+
+const {
   EVIDENCE_DOMAINS,
   EVIDENCE_TARGET_KINDS,
   HEART_WORD_ACTIVITY_TYPES,
@@ -9,7 +11,7 @@ import {
   eligibleEvidencePaths,
   nextEligibleEvidencePath,
   validateEvidencePath
-} from "../../src/features/soundSeekers/engine/evidenceEligibility.js";
+} = evidenceEligibility;
 
 function pathsFor(input) {
   return eligibleEvidencePaths(input).map(path => ({
@@ -101,7 +103,7 @@ test("connected text and boss decoding remain separate closed target kinds", () 
     connectedTextId: "scene-s1"
   };
   const bossTarget = {
-    targetId: "novel:stone",
+    targetId: "novel:forge-settlement-boss:stone",
     wordId: "stone",
     position: "whole",
     bossTransferId: "forge-settlement-boss"
@@ -127,4 +129,85 @@ test("connected text and boss decoding remain separate closed target kinds", () 
     bossTarget,
     { domain: EVIDENCE_DOMAINS.NOVEL_DECODING }
   ), null, "boss decoding has no laundered alternate path");
+});
+
+test("a boss target canonically binds its exact transfer and word identities", () => {
+  assert.equal(typeof evidenceEligibility.bossNovelTargetId, "function");
+  assert.equal(evidenceEligibility.bossNovelTargetId({
+    wordId: "Stone",
+    bossTransferId: "forge-settlement-boss"
+  }), "novel:forge-settlement-boss:stone");
+
+  const target = {
+    targetId: "novel:forge-settlement-boss:stone",
+    wordId: "stone",
+    position: "whole",
+    bossTransferId: "forge-settlement-boss",
+    domain: EVIDENCE_DOMAINS.NOVEL_DECODING
+  };
+  assert.equal(validateEvidencePath(target).valid, true);
+  assert.equal(validateEvidencePath({ ...target, bossTransferId: "harbor-boss" }).valid, false);
+  assert.equal(validateEvidencePath({ ...target, wordId: "stove" }).valid, false);
+  assert.equal(validateEvidencePath({ ...target, targetId: "novel:stone" }).valid, false);
+});
+
+test("canonical path descriptions own diversity and target-kind readiness policy", () => {
+  assert.equal(typeof evidenceEligibility.describeEvidencePath, "function");
+
+  const gpcInitial = evidenceEligibility.describeEvidencePath({
+    targetId: "sh",
+    position: "initial",
+    domain: EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME
+  });
+  const gpcFinal = evidenceEligibility.describeEvidencePath({
+    targetId: "sh",
+    position: "final",
+    domain: EVIDENCE_DOMAINS.PHONEME_TO_GRAPHEME
+  });
+  assert.equal(gpcInitial.identity, gpcFinal.identity, "position cannot counterfeit a second GPC direction");
+
+  const wordPositionZero = evidenceEligibility.describeEvidencePath({
+    targetId: "word:ship",
+    wordId: "ship",
+    position: 0,
+    domain: EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING
+  });
+  const wordPositionOne = evidenceEligibility.describeEvidencePath({
+    targetId: "word:ship",
+    wordId: "ship",
+    position: 1,
+    domain: EVIDENCE_DOMAINS.WORD_SEGMENTATION_ENCODING
+  });
+  const wordDecodedAtZero = evidenceEligibility.describeEvidencePath({
+    targetId: "word:ship",
+    wordId: "ship",
+    position: 0,
+    domain: EVIDENCE_DOMAINS.WORD_DECODING
+  });
+  assert.notEqual(wordPositionZero.identity, wordPositionOne.identity);
+  assert.notEqual(wordPositionZero.identity, wordDecodedAtZero.identity);
+  assert.deepEqual({
+    targetKind: wordPositionZero.targetKind,
+    readinessMode: wordPositionZero.readinessMode,
+    minDistinctPaths: wordPositionZero.minDistinctPaths
+  }, {
+    targetKind: EVIDENCE_TARGET_KINDS.WORD_POSITION,
+    readinessMode: "practice",
+    minDistinctPaths: 2
+  });
+
+  const text = evidenceEligibility.describeEvidencePath({
+    targetId: "text:scene-s1",
+    connectedTextId: "scene-s1",
+    domain: EVIDENCE_DOMAINS.CONNECTED_TEXT_TRANSFER
+  });
+  const boss = evidenceEligibility.describeEvidencePath({
+    targetId: "novel:forge-settlement-boss:stone",
+    wordId: "stone",
+    position: "whole",
+    bossTransferId: "forge-settlement-boss",
+    domain: EVIDENCE_DOMAINS.NOVEL_DECODING
+  });
+  assert.deepEqual([text.readinessMode, boss.readinessMode], ["exposure_only", "exposure_only"]);
+  assert.deepEqual([text.minDistinctPaths, boss.minDistinctPaths], [null, null]);
 });

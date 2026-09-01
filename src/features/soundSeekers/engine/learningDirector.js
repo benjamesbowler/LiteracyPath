@@ -1,5 +1,5 @@
-import { isEvidenceDomain } from "./challengeContract.js";
 import { evidenceIsIndependent } from "./evidence.js";
+import { validateEvidencePath } from "./evidenceEligibility.js";
 import { dueAtJourneyStep } from "./journeyClock.js";
 
 function stringId(value) {
@@ -84,7 +84,15 @@ function isV2PracticeEvent(event) {
   return Boolean(
     event
     && event.evidenceKind === "practice"
-    && isEvidenceDomain(event.domain)
+    && validateEvidencePath({
+      targetId: event.target,
+      domain: event.domain,
+      wordId: event.word,
+      position: event.position,
+      activityType: event.activityType,
+      connectedTextId: event.connectedTextId,
+      bossTransferId: event.bossTransferId
+    }).valid
     && typeof event.id === "string" && event.id
     && typeof event.target === "string" && event.target
     && typeof event.correct === "boolean"

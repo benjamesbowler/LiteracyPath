@@ -25,6 +25,28 @@ export const HEART_WORD_ACTIVITY_TYPES = Object.freeze([
   "sentence_use"
 ]);
 
+export const EVIDENCE_READINESS_MODES = Object.freeze({
+  PRACTICE: "practice",
+  EXPOSURE_ONLY: "exposure_only"
+});
+
+const practiceReadiness = Object.freeze({
+  readinessMode: EVIDENCE_READINESS_MODES.PRACTICE,
+  minDistinctPaths: 2
+});
+const exposureOnly = Object.freeze({
+  readinessMode: EVIDENCE_READINESS_MODES.EXPOSURE_ONLY,
+  minDistinctPaths: null
+});
+
+export const EVIDENCE_READINESS_POLICIES = Object.freeze({
+  [EVIDENCE_TARGET_KINDS.GPC]: practiceReadiness,
+  [EVIDENCE_TARGET_KINDS.WORD_POSITION]: practiceReadiness,
+  [EVIDENCE_TARGET_KINDS.HEART_WORD]: practiceReadiness,
+  [EVIDENCE_TARGET_KINDS.CONNECTED_TEXT]: exposureOnly,
+  [EVIDENCE_TARGET_KINDS.BOSS_NOVEL]: exposureOnly
+});
+
 const DOMAIN_SET = new Set(EVIDENCE_DOMAIN_VALUES);
 const HEART_ACTIVITY_SET = new Set(HEART_WORD_ACTIVITY_TYPES);
 const GPC_POSITIONS = new Set(["initial", "middle", "final"]);
@@ -56,6 +78,13 @@ function stringId(value) {
 
 function normalizedWord(value) {
   return stringId(value)?.toLocaleLowerCase() || null;
+}
+
+export function bossNovelTargetId({ wordId, bossTransferId } = {}) {
+  const word = normalizedWord(wordId);
+  const transferId = stringId(bossTransferId);
+  if (!word || !transferId) return null;
+  return `novel:${encodeURIComponent(transferId)}:${encodeURIComponent(word)}`;
 }
 
 function normalizedPosition(value) {
@@ -136,9 +165,11 @@ export function classifyEvidenceTarget(input = {}) {
   }
 
   if (targetId.startsWith("novel:")) {
-    const targetWord = prefixedValue(targetId, "novel:");
     const errors = [];
-    if (!targetWord || !wordId || targetWord !== wordId) errors.push("boss target and wordId must match");
+    const canonicalTargetId = bossNovelTargetId({ wordId, bossTransferId });
+    if (!canonicalTargetId || targetId !== canonicalTargetId) {
+      errors.push("boss target must bind its exact bossTransferId and wordId");
+    }
     if (position !== "whole") errors.push("boss decoding needs the whole-word position");
     if (!bossTransferId) errors.push("boss decoding needs an authored bossTransferId");
     if (activityType || connectedTextId) errors.push("boss target has incompatible subtype or text identity");
@@ -172,6 +203,36 @@ export function validateEvidencePath(input = {}) {
     valid: errors.length === 0,
     kind: target.kind,
     errors: Object.freeze(errors)
+  });
+}
+
+function canonicalTargetId(target) {
+  if (target.kind === EVIDENCE_TARGET_KINDS.WORD_POSITION) return `word:${target.wordId}`;
+  if (target.kind === EVIDENCE_TARGET_KINDS.HEART_WORD) return `hw:${target.wordId}`;
+  if (target.kind === EVIDENCE_TARGET_KINDS.CONNECTED_TEXT) {
+    return `text:${target.connectedTextId.toLocaleLowerCase()}`;
+  }
+  return target.targetId;
+}
+
+function evidencePathIdentity(target, domain) {
+  const parts = [target.kind, canonicalTargetId(target)];
+  if (target.kind === EVIDENCE_TARGET_KINDS.WORD_POSITION) parts.push(target.position);
+  parts.push(domain);
+  if (target.kind === EVIDENCE_TARGET_KINDS.HEART_WORD) parts.push(target.activityType);
+  return JSON.stringify(parts);
+}
+
+export function describeEvidencePath(input = {}) {
+  if (!validateEvidencePath(input).valid) return null;
+  const target = classifyEvidenceTarget(input);
+  const policy = EVIDENCE_READINESS_POLICIES[target.kind];
+  const domain = input?.domain ?? input?.recordsDomain;
+  return Object.freeze({
+    identity: evidencePathIdentity(target, domain),
+    targetKind: target.kind,
+    readinessMode: policy.readinessMode,
+    minDistinctPaths: policy.minDistinctPaths
   });
 }
 
